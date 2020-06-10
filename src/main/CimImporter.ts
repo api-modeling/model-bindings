@@ -3,8 +3,8 @@ import fs from "fs";
 
 // Small utility to serialize CIM using the modeling tool schemas
 const cimPlugin = new CIMBindingsPlugin();
-cimPlugin.import("file://../../src/test/resources/model.jsonld").then((parsed) => {
-    const base = "../../out/cim/";
+cimPlugin.import("file://src/test/resources/model.jsonld").then((parsed) => {
+    const base = "out/cim/";
     parsed.forEach((dialectInstance) => {
         const location = base + dialectInstance.location;
         console.log(location);

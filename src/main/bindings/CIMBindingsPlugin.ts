@@ -1,5 +1,5 @@
 import {BindingsPlugin} from "./BindingsPlugin";
-import {DialectWrapper, ModularityDialect, Module, Entity, Attribute, Association, IntegerScalar, StringScalar, DataModel, DataModelDialect, ModelBindingsDialect, BindingsModel, Binding} from "api-modeling-metadata";
+import {DialectWrapper, ModularityDialect, Module, Entity, Attribute, Association, IntegerScalar, StringScalar, DataModel, DataModelDialect, ModelBindingsDialect, BindingsModel, Binding} from "@api-modeling-tooling/api-modeling-metadata";
 import * as graph from "./utils/N3Graph";
 import {fetchText} from "./utils/Fetcher";
 import * as n3 from "n3";
@@ -48,6 +48,13 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         const subjectAreasModules: Module[] = await this.parseSubjectAreas(store);
         const entityGroupsModules: Module[] = await this.parseEntityGroups(store, subjectAreasModules);
 
+        subjectAreasModules.forEach(sam => {
+            console.log("SA:"+sam.name)
+            sam.subModules?.forEach(sub => {
+                //console.log("SUB:"+sub.name)
+            })
+        })
+
         // Modules
         const topLevel = new Module("CIM Distribution");
         topLevel.uuid = "cim_distribution";
@@ -65,8 +72,8 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         await Promise.all(declarations);
 
         declarations = entityGroupsModules.map(async (module) => {
-            topLevel.subModules!.push(module);
-            module.inModule = topLevel.id();
+            //topLevel.subModules!.push(module);
+            //module.inModule = topLevel.id();
             return modularityDialect.declare(module)
         });
         await Promise.all(declarations);
