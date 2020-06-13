@@ -1,10 +1,8 @@
-import {BindingsPlugin} from "./BindingsPlugin";
+import {BindingsPlugin, Resource} from "./BindingsPlugin";
 import {DialectWrapper, ModularityDialect, Module, Entity, Attribute, Association, IntegerScalar, StringScalar, DataModel, DataModelDialect, ModelBindingsDialect, BindingsModel, Binding} from "api-modeling-metadata";
 import * as graph from "./utils/N3Graph";
-import {fetchText} from "./utils/Fetcher";
 import * as n3 from "n3";
 import {N3Store, Quad_Object} from "n3";
-
 export class CIMBindingsPlugin extends BindingsPlugin {
 
     protected $rdf = n3.DataFactory;
@@ -43,30 +41,33 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         super();
     }
 
-    async import(location: string): Promise<DialectWrapper[]> {
-        const store = await this.parseGlobalFile(location);
+    async import(resources: Resource[]): Promise<DialectWrapper[]> {
+        const store = graph.store();
+        const promises = resources.map((resource) => {
+            return this.parseGlobalFile(resource, store);
+        });
+        await Promise.all(promises);
+
         const subjectAreasModules: Module[] = await this.parseSubjectAreas(store);
         const entityGroupsModules: Module[] = await this.parseEntityGroups(store, subjectAreasModules);
 
         // Modules
         const topLevel = new Module("CIM Distribution");
         topLevel.uuid = "cim_distribution";
-        topLevel.subModules = [];
+        topLevel.nested = [];
 
-        const modularityDialect = new ModularityDialect();
+        const modularityDialect: DialectWrapper = new ModularityDialect();
         modularityDialect.id = "http://cloudinformationmodel.org/modeling/modules";
         modularityDialect.location = "modules";
 
         let declarations = subjectAreasModules.map(async (module) => {
-            topLevel.subModules!.push(module);
-            module.inModule = topLevel.id();
+            topLevel.nested!.push(module);
             return modularityDialect.declare(module)
         });
         await Promise.all(declarations);
 
         declarations = entityGroupsModules.map(async (module) => {
-            topLevel.subModules!.push(module);
-            module.inModule = topLevel.id();
+            topLevel.nested!.push(module);
             return modularityDialect.declare(module)
         });
         await Promise.all(declarations);
@@ -91,7 +92,7 @@ export class CIMBindingsPlugin extends BindingsPlugin {
             await dataModelDialect.encode(dataModel);
             return dataModelDialect;
         });
-        const dataModelDialects = await Promise.all(allModels);
+        const dataModelDialects: DialectWrapper[] = await Promise.all(allModels);
 
 
         // Bindings
@@ -111,9 +112,9 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         return ([modularityDialect]).concat(dataModelDialects).concat(moduleBindings);
     }
 
-    protected async parseGlobalFile(location: string): Promise<n3.N3Store> {
-        const text = await fetchText(location);
-        return await graph.loadGraph(text);
+    protected async parseGlobalFile(resource: Resource, store?: n3.N3Store): Promise<n3.N3Store> {
+        //const text = await fetchText(location);
+        return await graph.loadGraph(resource.text, store);
     }
 
     protected async parseSubjectAreas(store: n3.N3Store): Promise<Module[]> {
@@ -146,15 +147,14 @@ export class CIMBindingsPlugin extends BindingsPlugin {
             // @ts-ignore
             const source = this.$rdf.namedNode(subjectArea['_source']);
             const entityGroupIds = store.getObjects(source, this.CIM_ENTITTY_GROUPS, null);
-            subjectArea.subModules = [];
+            subjectArea.nested = [];
             entityGroupIds.forEach((id) => {
                 const name = store.getObjects(id, this.RDFS_LABEL, null)[0];
                 const description = store.getObjects(id, this.RDFS_COMMENT, null)[0];
                 const module = new Module(name.value);
                 module.description = description.value;
                 module.uuid = `cim/entitygroup/${id.value.split("/").pop()}`;
-                module.inModule = source.value;
-                subjectArea.subModules!.push(module);
+                subjectArea.nested!.push(module);
                 // @ts-ignore
                 module['_source'] = id.value;
                 acc.push(module);
@@ -275,5 +275,40 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         } else {
             return null;
         }
+    }
+
+    async export(graphs: DialectWrapper[]): Promise<Resource[]> {
+        // @ts-ignore
+        const modules: ModularityDialect[] = graphs.filter((dialectWrapper) => {
+            return (dialectWrapper instanceof ModularityDialect);
+        });
+        // @ts-ignore
+        const dataModels: DataModelDialect[] = graphs.filter((dialectWrapper) => {
+            return (dialectWrapper instanceof DataModelDialect);
+        });
+        // @ts-ignore
+        const bindings: ModelBindingsDialect[] = graphs.filter((dialectWrapper) => {
+            return (dialectWrapper instanceof ModelBindingsDialect);
+        });
+
+
+        const subjectAreas = this.findSubjectAreas(modules, bindings);
+        return (new Promise((s,f) => {
+            f("Not implemented yet");
+        }));
+    }
+
+    findSubjectAreas(modules: ModularityDialect[], bindings: ModelBindingsDialect[]) {
+        bindings.map((d) => {
+            if (d.encodesWrapper) {
+                const bindingsModel = d.encodesWrapper as BindingsModel;
+                const subjectAreaModules =  (bindingsModel.bindings || []).filter((binding) => {
+                    return (binding.declaration === this.CIM_BINDINGS_SUBJECT_AREA);
+                });
+                modules
+            } else {
+                return [];
+            }
+        })
     }
 }

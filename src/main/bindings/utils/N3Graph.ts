@@ -1,5 +1,6 @@
 import * as n3 from "n3";
 import {JsonLdParser} from "jsonld-streaming-parser";
+import {N3Store} from "n3";
 
 
 var $rdf = n3.DataFactory;
@@ -39,11 +40,15 @@ $rdf.graph = function() {
     return store;
 };
 
+export function store(): n3.N3Store {
+    // @ts-ignore
+    return $rdf.graph();
+}
 
-export function loadGraph(str: string): Promise<n3.N3Store> {
+export function loadGraph(str: string, existingStore?: n3.N3Store): Promise<n3.N3Store> {
    return new Promise((resolve, reject) => {
         // @ts-ignore
-        const store: n3.N3Store = $rdf.graph();
+        const store: n3.N3Store = existingStore || $rdf.graph();
 
         const myParser = new JsonLdParser({
             dataFactory: $rdf
