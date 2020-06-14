@@ -60,20 +60,6 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         modularityDialect.id = "http://cloudinformationmodel.org/modeling/modules";
         modularityDialect.location = "modules";
 
-        let declarations = subjectAreasModules.map(async (module) => {
-            topLevel.nested!.push(module);
-            return modularityDialect.declare(module)
-        });
-        await Promise.all(declarations);
-
-        declarations = entityGroupsModules.map(async (module) => {
-            topLevel.nested!.push(module);
-            return modularityDialect.declare(module)
-        });
-        await Promise.all(declarations);
-
-        await modularityDialect.encode(topLevel);
-
 
         // Data Models
         const dataModels: DataModel[] = entityGroupsModules.map((entityGroup) => {
@@ -81,6 +67,8 @@ export class CIMBindingsPlugin extends BindingsPlugin {
             const dataModel = new DataModel(entityGroup.id());
             dataModel.uuid = entityGroup.uuid + "/dataModel";
             dataModel.entities =  entities;
+            console.log(`Adding data model  ${dataModel.id()} to entity group ${entityGroup.id()}`);
+            entityGroup.dataModels = [ dataModel.id() ];
             return dataModel;
         });
 
@@ -93,6 +81,13 @@ export class CIMBindingsPlugin extends BindingsPlugin {
             return dataModelDialect;
         });
         const dataModelDialects: DialectWrapper[] = await Promise.all(allModels);
+
+        // encode now the modules with the linked data models
+        subjectAreasModules.forEach((module) => {
+            topLevel.nested!.push(module);
+        });
+
+        await modularityDialect.encode(topLevel);
 
 
         // Bindings
