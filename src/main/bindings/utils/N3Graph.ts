@@ -2,8 +2,7 @@ import * as n3 from "n3";
 import {JsonLdParser} from "jsonld-streaming-parser";
 import {N3Store} from "n3";
 
-
-var $rdf = n3.DataFactory;
+export const $rdf = n3.DataFactory;
 // @ts-ignore
 $rdf.parse = function(data, store, namedGraph, mediaType, cb) {
     const parser = new n3.Parser({format: mediaType});
@@ -64,4 +63,24 @@ export function loadGraph(str: string, existingStore?: n3.N3Store): Promise<n3.N
         myParser.write(str);
         myParser.end();
     });
+}
+
+/**
+ * Finds a particular object for a subject and property path in the N3 store
+ * @param store
+ * @param subject
+ * @param path
+ */
+export function findPath(store: n3.N3Store, subject: n3.Quad_Object, path: n3.Quad_Object[]): n3.Quad_Object|null {
+    const next = path.shift()!;
+    const nextSubject = store.getObjects(subject, next, null)[0];
+    if (nextSubject) {
+        if (path.length === 0) {
+            return nextSubject;
+        } else {
+            return findPath(store, nextSubject, path);
+        }
+    } else {
+        return null;
+    }
 }
