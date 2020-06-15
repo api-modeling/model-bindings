@@ -140,6 +140,7 @@ export class CIMImporter {
 
             const attributes: Attribute[] = [];
             const associations: Association[] = [];
+            const disambg: {[key:string]: boolean} = {};
             (properties.concat(parentProperties).concat(extendedProperties)).forEach((propertyId) => {
 
                 const path = store.getObjects(propertyId, VOCAB.SH_PATH, null)[0];
@@ -151,29 +152,32 @@ export class CIMImporter {
                 const minCount = store.getObjects(propertyId, VOCAB.SH_MIN_COUNT, null)[0];
                 const maxCount = store.getObjects(propertyId, VOCAB.SH_MAX_COUNT, null)[0];
 
-                if (dataType && dataType.value.startsWith(VOCAB.XSD_NS + "integer")) {
-                    const attribute = new Attribute(name, new IntegerScalar());
-                    this.genUUID(attribute, entity, path);
-                    this.fillPropertyData(attribute, minCount, maxCount, description, displayName);
-                    attributes.push(attribute)
-                } else if (dataType && dataType.value.startsWith(VOCAB.XSD_NS)) {
-                    const attribute = new Attribute(name, new StringScalar());
-                    this.genUUID(attribute, entity, path);
-                    this.fillPropertyData(attribute, minCount, maxCount, description, displayName);
-                    attributes.push(attribute)
-                } else if (dataType && dataType.value === VOCAB.CIM_ID.value) {
-                    const attribute = new Attribute(name, new StringScalar());
-                    this.genUUID(attribute, entity, path);
-                    this.fillPropertyData(attribute, minCount, maxCount, description, displayName);
-                    attributes.push(attribute)
-                } else if (node) {
-                    const association = new Association(name);
-                    this.genUUID(association, entity, path);
-                    this.fillPropertyData(association, minCount, maxCount, description, displayName);
-                    const targetEntity = new Entity("");
-                    targetEntity.uuid = `cim/entity/${node.value.split("/").pop()}`;
-                    association.target = targetEntity.id();
-                    associations.push(association)
+                if (disambg[name] == null) {
+                    disambg[name] = true;
+                    if (dataType && dataType.value.startsWith(VOCAB.XSD_NS + "integer")) {
+                        const attribute = new Attribute(name, new IntegerScalar());
+                        this.genUUID(attribute, entity, path);
+                        this.fillPropertyData(attribute, minCount, maxCount, description, displayName);
+                        attributes.push(attribute)
+                    } else if (dataType && dataType.value.startsWith(VOCAB.XSD_NS)) {
+                        const attribute = new Attribute(name, new StringScalar());
+                        this.genUUID(attribute, entity, path);
+                        this.fillPropertyData(attribute, minCount, maxCount, description, displayName);
+                        attributes.push(attribute)
+                    } else if (dataType && dataType.value === VOCAB.CIM_ID.value) {
+                        const attribute = new Attribute(name, new StringScalar());
+                        this.genUUID(attribute, entity, path);
+                        this.fillPropertyData(attribute, minCount, maxCount, description, displayName);
+                        attributes.push(attribute)
+                    } else if (node) {
+                        const association = new Association(name);
+                        this.genUUID(association, entity, path);
+                        this.fillPropertyData(association, minCount, maxCount, description, displayName);
+                        const targetEntity = new Entity("");
+                        targetEntity.uuid = `cim/entity/${node.value.split("/").pop()}`;
+                        association.target = targetEntity.id();
+                        associations.push(association)
+                    }
                 }
             });
 

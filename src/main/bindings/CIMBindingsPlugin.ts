@@ -78,11 +78,6 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         return ([modularityDialect]).concat(dataModelDialects).concat([moduleBindings]);
     }
 
-    protected async parseGlobalFile(resource: Resource, store?: n3.N3Store): Promise<n3.N3Store> {
-        //const text = await fetchText(location);
-        return await graph.loadGraph(resource.text, store);
-    }
-
     async export(graphs: DialectWrapper[]): Promise<Resource[]> {
         // @ts-ignore
         const modules: ModularityDialect[] = graphs.filter((dialectWrapper) => {
@@ -104,6 +99,9 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         }));
     }
 
+    protected async parseGlobalFile(resource: Resource, store?: n3.N3Store): Promise<n3.N3Store> {
+        return await graph.loadGraph(resource.text, store);
+    }
 }
 
 export interface CIMBindingsPlugin extends CIMImporter, CIMExporter {}
