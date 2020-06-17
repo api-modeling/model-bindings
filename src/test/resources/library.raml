@@ -1,0 +1,23 @@
+#%RAML 1.0 Library
+
+types:
+
+  Animal:
+    description: not a plant, not a fungus
+    properties:
+      size: number
+      birthDate: datetime
+
+  Person:
+    description: a human being
+    type: Animal
+    properties:
+      name: string
+      gender: string
+      age?: integer
+
+  Family:
+    description: a human molecule
+    properties:
+      parents: Person[]
+      children: Person[]

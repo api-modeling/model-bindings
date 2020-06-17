@@ -1,0 +1,554 @@
+[
+  {
+    "@id": "http://cloudinformationmodel.org/modeling/modules",
+    "@type": [
+      "http://a.ml/vocabularies/meta#DialectInstance",
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/meta#definedBy": [
+      {
+        "@id": "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml"
+      }
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "http://mulesoft.com/modeling/instances/uuid/cim_distribution",
+        "@type": [
+          "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+          "http://a.ml/vocabularies/modularity#Module",
+          "http://a.ml/vocabularies/meta#DialectDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://a.ml/vocabularies/data#uuid": [
+          {
+            "@value": "cim_distribution"
+          }
+        ],
+        "http://a.ml/vocabularies/core#name": [
+          {
+            "@value": "CIM Distribution"
+          }
+        ],
+        "http://a.ml/vocabularies/modularity#modules": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Party",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+              "http://a.ml/vocabularies/modularity#Module",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/subjectarea/Party"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Party"
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "This defines who you have trading relationships with and how. For example: customer & supplier along with their phone number and email."
+              }
+            ],
+            "http://a.ml/vocabularies/modularity#modules": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/AccountEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/AccountEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Account"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Account, Account Contact, Bill Frequency"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/AccountEntityGroup/dataModel"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/ContactPointEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/ContactPointEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Contact Point"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Contact Point, Contact Consent, Contact Channel"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/ContactPointEntityGroup/dataModel"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/PartyRoleEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/PartyRoleEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Party Role"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Party Role, Buyer Role, Actor Role, Customer Role"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PartyRoleEntityGroup/dataModel"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/LeadEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/LeadEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Lead"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Lead, Lead Status, Lead Source"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/LeadEntityGroup/dataModel"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/PartyEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/PartyEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Party"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Organization, Individual, Affiliate Group, Uncategorized"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PartyEntityGroup/dataModel"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Payment",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+              "http://a.ml/vocabularies/modularity#Module",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/subjectarea/Payment"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Payment"
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "A submitted payment. Includes information about whether a submitted payment was successfully processed or not."
+              }
+            ],
+            "http://a.ml/vocabularies/modularity#modules": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/PaymentEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/PaymentEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Payment"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Payment, Payment Group, Payment Authorization, Payment Gateway"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PaymentEntityGroup/dataModel"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Payment Method",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+              "http://a.ml/vocabularies/modularity#Module",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/subjectarea/Payment Method"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Payment Method"
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "A method of paying for a product or service, like a credit card or check."
+              }
+            ],
+            "http://a.ml/vocabularies/modularity#modules": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/PaymentMethodEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/PaymentMethodEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Payment Method"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Payment Method Type, Payment Card Tender, Digital Wallet Tender"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PaymentMethodEntityGroup/dataModel"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Product",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+              "http://a.ml/vocabularies/modularity#Module",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/subjectarea/Product"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product"
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Anything you plan to sell or any part of a product that needs to be tracked for service purposes. For example, you are selling a green tractor."
+              }
+            ],
+            "http://a.ml/vocabularies/modularity#modules": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/ProductEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/ProductEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Product"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Product Type, Product Item, Product Attribute, Product Relation"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/ProductEntityGroup/dataModel"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/ProductAttributeEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/ProductAttributeEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Product Attribute"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Attribute Set, Attribute Set Attribute"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/ProductAttributeEntityGroup/dataModel"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/ProductCatalogEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/ProductCatalogEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Product Catalog"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Product Catalog, Product Catalog Category, Product Catalog Assignment"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/ProductCatalogEntityGroup/dataModel"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Sales Order",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+              "http://a.ml/vocabularies/modularity#Module",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/subjectarea/Sales Order"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Sales Order"
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "A document generated by a seller to indicate the specific products/services a buyer will be receive during a sale."
+              }
+            ],
+            "http://a.ml/vocabularies/modularity#modules": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/SalesOrderEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/SalesOrderEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Sales Order"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Sales Order, Opportunity, Payment Method"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/SalesOrderEntityGroup/dataModel"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Shipment",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+              "http://a.ml/vocabularies/modularity#Module",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/subjectarea/Shipment"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Shipment"
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Tracking the physical packages actually shipped for an order."
+              }
+            ],
+            "http://a.ml/vocabularies/modularity#modules": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/ShipmentEntityGroup",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+                  "http://a.ml/vocabularies/modularity#Module",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entitygroup/ShipmentEntityGroup"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "Shipment"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#description": [
+                  {
+                    "@value": "Example Entities included: Shipment, Shipment Package, Shipment Document, Shipment Product"
+                  }
+                ],
+                "http://a.ml/vocabularies/modularity#dataModels": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/ShipmentEntityGroup/dataModel"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "http://a.ml/vocabularies/document#version": [
+      {
+        "@value": "2.1.0"
+      }
+    ],
+    "http://a.ml/vocabularies/document#root": [
+      {
+        "@value": false
+      }
+    ]
+  }
+]

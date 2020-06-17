@@ -1,0 +1,60 @@
+#%DataModel 0.1
+uuid: 8d86da94153db32cf70b75efd2b78cf0
+name: library.raml
+entities:
+  Animal:
+    uuid: 06ef659593cd89af550d200922e61f1e
+    attributes:
+      size:
+        allowMultiple: false
+        uuid: 34f9635599e10c6c79229d0fdd32a069
+        required: true
+        range:
+          type: float
+      birthDate:
+        allowMultiple: false
+        uuid: 863f6e33575abfd02d6d71f9ecb52153
+        required: true
+        range:
+          type: dateTime
+    associations: {}
+    description: not a plant, not a fungus
+  Person:
+    uuid: 160337041f9b9e0277beb0e4e7a1e469
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 5aa486883c3860b7c3dd1efa9ae46eb9
+        required: true
+        range:
+          type: string
+      gender:
+        allowMultiple: false
+        uuid: 39054efffeeb538ccffb72e1425ac0da
+        required: true
+        range:
+          type: string
+      age:
+        allowMultiple: false
+        uuid: ea8a6941b80c7f5bc1d17562c2ab5f92
+        required: false
+        range:
+          type: integer
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/06ef659593cd89af550d200922e61f1e
+    description: a human being
+  Family:
+    uuid: 9b40541c7e85197c7d66f453fa071ffb
+    attributes: {}
+    associations:
+      parents:
+        allowMultiple: true
+        uuid: 5a53104d33290c4fd20d7a5ec15ac786
+        required: true
+        target: http://mulesoft.com/modeling/instances/160337041f9b9e0277beb0e4e7a1e469
+      children:
+        allowMultiple: true
+        uuid: 5636be5766dde4ef5067cf1ae3a44d40
+        required: true
+        target: http://mulesoft.com/modeling/instances/160337041f9b9e0277beb0e4e7a1e469
+    description: a human molecule

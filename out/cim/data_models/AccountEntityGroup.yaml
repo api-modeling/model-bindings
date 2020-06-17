@@ -1,0 +1,317 @@
+#%DataModel 0.1
+uuid: cim/entitygroup/AccountEntityGroup/dataModel
+entities:
+  Account Contact Role:
+    uuid: cim/entity/AccountContactRole
+    attributes:
+      activeToDate:
+        uuid: cim/entity/AccountContactRole/attr/activeToDate
+        range:
+          type: string
+      activeFromDate:
+        uuid: cim/entity/AccountContactRole/attr/activeFromDate
+        range:
+          type: string
+      accountContactRoleType:
+        uuid: cim/entity/AccountContactRole/attr/accountContactRoleType
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AccountContactRole/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      accountContact:
+        allowMultiple: true
+        uuid: cim/entity/AccountContactRole/attr/accountContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+    description: What role does a contact play on an account e.g. decision maker, influencer
+  Account Contact:
+    uuid: cim/entity/AccountContact
+    attributes:
+      contactNote:
+        uuid: cim/entity/AccountContact/attr/contactNote
+        range:
+          type: string
+      lastActivityDate:
+        uuid: cim/entity/AccountContact/attr/lastActivityDate
+        range:
+          type: string
+      assistantName:
+        uuid: cim/entity/AccountContact/attr/assistantName
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AccountContact/attr/id
+        required: true
+        range:
+          type: string
+      title:
+        uuid: cim/entity/AccountContact/attr/title
+        range:
+          type: string
+      assistantPhone:
+        uuid: cim/entity/AccountContact/attr/assistantPhone
+        range:
+          type: string
+      departmentName:
+        uuid: cim/entity/AccountContact/attr/departmentName
+        range:
+          type: string
+    associations:
+      businessPhone:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/businessPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      mobilePhone:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/mobilePhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      otherContactAddress:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/otherContactAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      faxPhone:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/faxPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      homePhone:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/homePhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      individual:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/individual
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
+      mailingAddress:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/mailingAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      contactEmail:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/contactEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
+      indirectRelationAccountContact:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/indirectRelationAccountContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+      reportsToAccountContact:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/reportsToAccountContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+      account:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/account
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+    description: An individual who has a role specific to an Account.
+  Billing Frequency:
+    uuid: cim/entity/BillingFrequency
+    attributes:
+      billingFrequencyName:
+        uuid: cim/entity/BillingFrequency/attr/billingFrequencyName
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/BillingFrequency/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/BillingFrequency/attr/id
+        required: true
+        range:
+          type: string
+    description: Describes a period of time used for recurring bills e.g. monthly or semi-monthly
+  Account Partner:
+    uuid: cim/entity/AccountPartner
+    attributes:
+      id:
+        uuid: cim/entity/AccountPartner/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      account:
+        allowMultiple: true
+        uuid: cim/entity/AccountPartner/attr/account
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      partnerAccount:
+        allowMultiple: true
+        uuid: cim/entity/AccountPartner/attr/partnerAccount
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+    description: State what partner (account) is related to/have access to another account
+  Account:
+    uuid: cim/entity/Account
+    attributes:
+      thirtyDayBalanceAmount:
+        uuid: cim/entity/Account/attr/thirtyDayBalanceAmount
+        range:
+          type: string
+      sixtyDayBalanceAmount:
+        uuid: cim/entity/Account/attr/sixtyDayBalanceAmount
+        range:
+          type: string
+      useAsShippingAccount:
+        uuid: cim/entity/Account/attr/useAsShippingAccount
+        required: true
+        range:
+          type: string
+      paymentTerm:
+        uuid: cim/entity/Account/attr/paymentTerm
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/Account/attr/name
+        required: true
+        range:
+          type: string
+      balanceAmount:
+        uuid: cim/entity/Account/attr/balanceAmount
+        range:
+          type: string
+      defaultFreightTerms:
+        uuid: cim/entity/Account/attr/defaultFreightTerms
+        range:
+          type: string
+      useAsSalesAccount:
+        uuid: cim/entity/Account/attr/useAsSalesAccount
+        required: true
+        range:
+          type: string
+      generalLedgerAccount:
+        uuid: cim/entity/Account/attr/generalLedgerAccount
+        range:
+          type: string
+      accountType:
+        uuid: cim/entity/Account/attr/accountType
+        range:
+          type: string
+      lastActivityDate:
+        uuid: cim/entity/Account/attr/lastActivityDate
+        range:
+          type: string
+      balanceAmountLimit:
+        uuid: cim/entity/Account/attr/balanceAmountLimit
+        range:
+          type: integer
+      number:
+        uuid: cim/entity/Account/attr/number
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/Account/attr/description
+        range:
+          type: string
+      assignTerritoryFlag:
+        uuid: cim/entity/Account/attr/assignTerritoryFlag
+        range:
+          type: string
+      holdStatusReason:
+        uuid: cim/entity/Account/attr/holdStatusReason
+        range:
+          type: string
+      autoPayEnabledFlag:
+        uuid: cim/entity/Account/attr/autoPayEnabledFlag
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Account/attr/id
+        required: true
+        range:
+          type: string
+      sLAExpirationDate:
+        uuid: cim/entity/Account/attr/sLAExpirationDate
+        range:
+          type: string
+      ninetyDayBalanceAmount:
+        uuid: cim/entity/Account/attr/ninetyDayBalanceAmount
+        range:
+          type: string
+      useAsBillingAccount:
+        uuid: cim/entity/Account/attr/useAsBillingAccount
+        required: true
+        range:
+          type: string
+      autoPaymentAmount:
+        uuid: cim/entity/Account/attr/autoPaymentAmount
+        range:
+          type: integer
+      useAsServiceAccount:
+        uuid: cim/entity/Account/attr/useAsServiceAccount
+        required: true
+        range:
+          type: string
+      billDeliveryMethod:
+        uuid: cim/entity/Account/attr/billDeliveryMethod
+        range:
+          type: string
+      sLAType:
+        uuid: cim/entity/Account/attr/sLAType
+        range:
+          type: string
+    associations:
+      partyRole:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/partyRole
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
+      party:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/party
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+      billContactAddress:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/billContactAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      shippingAddress:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/shippingAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      faxPhone:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/faxPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      parentAccount:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/parentAccount
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      orderDeliveryMethod:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/orderDeliveryMethod
+        target: http://mulesoft.com/modeling/instances/cim/entity/OrderDeliveryMethod
+      billFrequency:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/billFrequency
+        target: http://mulesoft.com/modeling/instances/cim/entity/BillingFrequency
+      primarySalesContactPoint:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/primarySalesContactPoint
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint
+      shippingPhoneid:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/shippingPhoneid
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      shippingContact:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/shippingContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+      autoPaymentMethod:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/autoPaymentMethod
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
+      shippingEmail:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/shippingEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
+      salesPhone:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/salesPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+    description: How the party want to interact with your enterprise e.g. have multiple billing accounts

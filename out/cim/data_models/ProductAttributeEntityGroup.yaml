@@ -1,0 +1,222 @@
+#%DataModel 0.1
+uuid: cim/entitygroup/ProductAttributeEntityGroup/dataModel
+entities:
+  Attribute Value Translation:
+    uuid: cim/entity/AttributeValueTranslation
+    attributes:
+      translatedAttributeValue:
+        uuid: cim/entity/AttributeValueTranslation/attr/translatedAttributeValue
+        required: true
+        range:
+          type: string
+      translatedAttributeValueDescription:
+        uuid: cim/entity/AttributeValueTranslation/attr/translatedAttributeValueDescription
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AttributeValueTranslation/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      attributeValue:
+        allowMultiple: true
+        uuid: cim/entity/AttributeValueTranslation/attr/attributeValue
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/AttributeValue
+    description: Translated attributes for an attribute value
+  Product Attribute Value:
+    uuid: cim/entity/ProductAttributeValue
+    attributes:
+      customAttributeValue:
+        uuid: cim/entity/ProductAttributeValue/attr/customAttributeValue
+        range:
+          type: string
+      attributeSet:
+        uuid: cim/entity/ProductAttributeValue/attr/attributeSet
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ProductAttributeValue/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductAttributeValue/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      attributeValue:
+        allowMultiple: true
+        uuid: cim/entity/ProductAttributeValue/attr/attributeValue
+        target: http://mulesoft.com/modeling/instances/cim/entity/AttributeValue
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ProductAttributeValue/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: Assignment of an attribute value to a product e.g. shoe lace
+  Attribute Set Translation:
+    uuid: cim/entity/AttributeSetTranslation
+    attributes:
+      translatedName:
+        uuid: cim/entity/AttributeSetTranslation/attr/translatedName
+        required: true
+        range:
+          type: string
+      attributeSet:
+        uuid: cim/entity/AttributeSetTranslation/attr/attributeSet
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AttributeSetTranslation/attr/id
+        required: true
+        range:
+          type: string
+    description: Translated attributes for an attribute set
+  Attribute Value:
+    uuid: cim/entity/AttributeValue
+    attributes:
+      attributeValue:
+        uuid: cim/entity/AttributeValue/attr/attributeValue
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AttributeValue/attr/id
+        required: true
+        range:
+          type: string
+    description: A predefine set of values for a product attribute e.g. shoe lace length 10, 12, 14 centimeter
+  Device User Session:
+    uuid: cim/entity/DeviceUserSession
+    attributes:
+      name:
+        uuid: cim/entity/DeviceUserSession/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/DeviceUserSession/attr/id
+        required: true
+        range:
+          type: string
+    description: A time-bound period when a person used a website or other service, also known as a Visit
+  Product Validity Time Period UOM:
+    uuid: cim/entity/ProductValidityTimePeriodUOM
+    attributes:
+      pluralName:
+        uuid: cim/entity/ProductValidityTimePeriodUOM/attr/pluralName
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ProductValidityTimePeriodUOM/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductValidityTimePeriodUOM/attr/id
+        required: true
+        range:
+          type: string
+    description: Standard units of measure for time, for example minute, second, hour and day
+  Price Book Entry:
+    uuid: cim/entity/PriceBookEntry
+    attributes:
+      isActive:
+        uuid: cim/entity/PriceBookEntry/attr/isActive
+        range:
+          type: string
+      useStandardPrice:
+        uuid: cim/entity/PriceBookEntry/attr/useStandardPrice
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PriceBookEntry/attr/id
+        required: true
+        range:
+          type: string
+      unitListPrice:
+        uuid: cim/entity/PriceBookEntry/attr/unitListPrice
+        range:
+          type: string
+      maxRequiredOrderValue:
+        uuid: cim/entity/PriceBookEntry/attr/maxRequiredOrderValue
+        range:
+          type: integer
+      minRequiredOrderValue:
+        uuid: cim/entity/PriceBookEntry/attr/minRequiredOrderValue
+        range:
+          type: integer
+      minRequiredQuantity:
+        uuid: cim/entity/PriceBookEntry/attr/minRequiredQuantity
+        range:
+          type: integer
+      servicePeriodCount:
+        uuid: cim/entity/PriceBookEntry/attr/servicePeriodCount
+        range:
+          type: integer
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/PriceBookEntry/attr/product
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: A list of products and their prices.
+  Attribute Translation:
+    uuid: cim/entity/AttributeTranslation
+    attributes:
+      translatedName:
+        uuid: cim/entity/AttributeTranslation/attr/translatedName
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AttributeTranslation/attr/id
+        required: true
+        range:
+          type: string
+    description: Translated attributes for an attribute
+  Product Attribute Set:
+    uuid: cim/entity/ProductAttributeSet
+    attributes:
+      attributeSet:
+        uuid: cim/entity/ProductAttributeSet/attr/attributeSet
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductAttributeSet/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ProductAttributeSet/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: A set of attributes e.g. shoe attributes that are assigned to a particular instance of Product
+  Product Collateral:
+    uuid: cim/entity/ProductCollateral
+    attributes:
+      uRL:
+        uuid: cim/entity/ProductCollateral/attr/uRL
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductCollateral/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ProductCollateral/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: Collateral for a product e.g. link to brochure one

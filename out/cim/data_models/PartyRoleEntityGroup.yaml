@@ -1,0 +1,104 @@
+#%DataModel 0.1
+uuid: cim/entitygroup/PartyRoleEntityGroup/dataModel
+entities:
+  Party Role:
+    uuid: cim/entity/PartyRole
+    attributes:
+      id:
+        uuid: cim/entity/PartyRole/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/PartyRole/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Trading roles a party may play at the same time i.e. Customer, Supplier, Seller, Competitor, Worker
+  Supplier:
+    uuid: cim/entity/Supplier
+    attributes:
+      competitiveMarketingRank:
+        uuid: cim/entity/Supplier/attr/competitiveMarketingRank
+        range:
+          type: integer
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/Supplier/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Information about a party playing role of supplier e.g. vendor ranking
+  Seller:
+    uuid: cim/entity/Seller
+    attributes:
+      newCustomerAcquisitionCount:
+        uuid: cim/entity/Seller/attr/newCustomerAcquisitionCount
+        range:
+          type: integer
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/Seller/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Information about a party playing role of seller e.g. customer satisfaction score
+  Customer:
+    uuid: cim/entity/Customer
+    attributes:
+      customerSatisfactionScore:
+        uuid: cim/entity/Customer/attr/customerSatisfactionScore
+        range:
+          type: integer
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/Customer/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Information about a party playing role of customer e.g. life time value, life cycle status
+  Customer Status History:
+    uuid: cim/entity/CustomerStatusHistory
+    attributes:
+      endDateTIme:
+        uuid: cim/entity/CustomerStatusHistory/attr/endDateTIme
+        required: true
+        range:
+          type: string
+      startDateTime:
+        uuid: cim/entity/CustomerStatusHistory/attr/startDateTime
+        required: true
+        range:
+          type: string
+      partyRoleStatus:
+        uuid: cim/entity/CustomerStatusHistory/attr/partyRoleStatus
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/CustomerStatusHistory/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      partyRole:
+        allowMultiple: true
+        uuid: cim/entity/CustomerStatusHistory/attr/partyRole
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
+    description: History of when customer changed frome one status to another
+  Competitor:
+    uuid: cim/entity/Competitor
+    attributes:
+      assetTurnoverRatio:
+        uuid: cim/entity/Competitor/attr/assetTurnoverRatio
+        range:
+          type: string
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/Competitor/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Information about a party playing role of competitor e.g. strength (in products), weaknesses (in offerings), opportunities (to overtake), threats (to our business)
