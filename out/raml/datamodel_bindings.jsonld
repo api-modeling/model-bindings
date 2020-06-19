@@ -1,0 +1,105 @@
+[
+  {
+    "@id": "http://mulesoft.com/modeling/instances/uuid/0474f473ed4edeff118f2c1975b153cf_datamodel_bindings",
+    "@type": [
+      "http://a.ml/vocabularies/meta#DialectInstance",
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/meta#definedBy": [
+      {
+        "@id": "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/bindings/schema/modelBindingsDialect.yaml"
+      }
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "http://mulesoft.com/modeling/bindings/24b7f9ee8d1492fc7c5b7f146a1faad0",
+        "@type": [
+          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/BindingsModel",
+          "http://a.ml/vocabularies/bindings#BindingModel",
+          "http://a.ml/vocabularies/meta#DialectDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://a.ml/vocabularies/bindings#binding": [
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/apiContract/bindings/DocumentTypeBinding/8d86da94153db32cf70b75efd2b78cf0",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingConfiguration": [
+              {
+                "@id": "http://mulesoft.com/modeling/bindings/fce4c226-7794-4ba5-bda7-ac365d814ce2param",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/BindingScalarValue",
+                  "http://a.ml/vocabularies/bindings#BindingScalarValue",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/bindings#parameterSource": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param"
+                  }
+                ],
+                "http://a.ml/vocabularies/bindings#lexicalValue": [
+                  {
+                    "@value": "JSON Schema / RAML Library"
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "fce4c226-7794-4ba5-bda7-ac365d814ce2param"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/8d86da94153db32cf70b75efd2b78cf0"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "apiContract/bindings/DocumentTypeBinding/8d86da94153db32cf70b75efd2b78cf0"
+              }
+            ]
+          }
+        ],
+        "http://a.ml/vocabularies/bindings#bindingSource": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/uuid/0474f473ed4edeff118f2c1975b153cf"
+          }
+        ],
+        "http://a.ml/vocabularies/data#uuid": [
+          {
+            "@value": "24b7f9ee8d1492fc7c5b7f146a1faad0"
+          }
+        ],
+        "http://a.ml/vocabularies/bindings#bindingDeclaration": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/bindings/api_contract"
+          }
+        ]
+      }
+    ],
+    "http://a.ml/vocabularies/document#version": [
+      {
+        "@value": "2.1.0"
+      }
+    ],
+    "http://a.ml/vocabularies/document#root": [
+      {
+        "@value": false
+      }
+    ]
+  }
+]

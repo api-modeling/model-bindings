@@ -22,6 +22,11 @@
         XSD_DATE_TIME = this.XSD_NS + "dateTime"
         AML_DATE_TIME_ONLY = this.SHAPES_NS + "dateTimeOnly"
         XSD_TIME = this.XSD_NS + "time"
+
+        // URIS
+        API_CONTRACT_BINDINGS_PROFILE = "http://mulesoft.com/modeling/instances/bindings/api_contract";
+        API_CONTRACT_DOCUMENT_TYPE_BINDING = "http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding";
+        API_CONTRACT_DOCUMENT_TYPE_BINDING_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param"
     }
 
 export const VOCAB = new ApiConstractConstantsSingleton();

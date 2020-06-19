@@ -1,5 +1,5 @@
+import * as meta from "@api-modeling/api-modeling-metadata";
 import * as amf from "@api-modeling/amf-client-js";
-import * as meta from "api-modeling-metadata";
 import {Md5} from 'ts-md5/dist/md5';
 import {VOCAB} from "./constants";
 
@@ -9,6 +9,32 @@ export class APIContractImporter {
     // Resets the seed to generate identifiers
     protected resetAutoGen() {
         this.idGenerator = 0;
+    }
+
+    /**
+     * Generates base unit bindings for the parsed BaseUnits in the API AMF model
+     * @param baseUnit
+     * @param dataModel
+     */
+    protected parseBaseUnitBindings(baseUnit: amf.model.document.BaseUnit, dataModel: meta.DataModel): meta.Binding {
+        const binding = new meta.Binding(dataModel.id(), VOCAB.API_CONTRACT_DOCUMENT_TYPE_BINDING);
+        const param = new meta.BindingScalarValue();
+        param.parameter = VOCAB.API_CONTRACT_DOCUMENT_TYPE_BINDING_PARAMETER
+        param.uuid = binding.uuid + "param";
+        binding.uuid = `apiContract/bindings/DocumentTypeBinding/${dataModel.uuid}`
+
+        if (baseUnit instanceof amf.model.document.Document) {
+            param.lexicalValue = "Open API Spec / RAML API Spec"
+            binding.configuration = [param]
+        } else if (baseUnit instanceof amf.model.document.Fragment) {
+            param.lexicalValue = "JSON Schema / RAML Fragment"
+            binding.configuration = [param]
+        } else if (baseUnit instanceof amf.model.document.Module) {
+            param.lexicalValue = "JSON Schema / RAML Library"
+            binding.configuration = [param]
+        }
+        binding.configuration = [param]
+        return binding;
     }
 
     /**
@@ -25,6 +51,8 @@ export class APIContractImporter {
             dataModel.entities = entities;
             dataModel.name = name;
             dataModel.description = baseUnit.usage.option;
+            // @ts-ignore
+            dataModel['parsed'] = baseUnit;
             parsed.push(dataModel);
             baseUnit.references().map((ref) => {
                 this.parseBaseUnit(moduleUri, ref, parsed);
@@ -44,13 +72,11 @@ export class APIContractImporter {
             const declarations = <amf.model.document.DeclaresModel>baseUnit;
             (declarations.declares || []).forEach((domainElement) => this.parseShape(domainElement, entities))
         }
-        // @todo fix fragments declarations
-        /*
-        if (baseUnit instanceof amf.model.document.DataType) {
+
+        if (baseUnit instanceof amf.model.document.DataTypeFragment || baseUnit instanceof amf.model.document.Document) {
             const encoded = <amf.model.document.EncodesModel>baseUnit;
             this.parseShape(encoded.encodes, entities)
         }
-         */
         return entities
     }
 

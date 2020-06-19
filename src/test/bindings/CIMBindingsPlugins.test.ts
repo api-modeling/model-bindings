@@ -3,7 +3,7 @@ import { assert } from 'chai';
 import {CIMBindingsPlugin} from "../../main/bindings/CIMBindingsPlugin";
 import * as fs from 'fs';
 import * as process from 'process'
-import { Module } from "api-modeling-metadata"
+import { Module } from "@api-modeling/api-modeling-metadata"
 
 describe('CIMBindingsPlugins', function() {
     this.timeout(5000);

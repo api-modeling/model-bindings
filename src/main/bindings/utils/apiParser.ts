@@ -7,8 +7,8 @@ export class ApiParser {
     public static OAS3 = "OAS 3.0";
     public static OAS2 = "OAS 2.0";
     public static AMF_GRAPH = "AMF Graph"
-
     public static JSON_SCHEMA = "JSON Schema";
+
     public static YAML = "application/yaml";
     public static JSON = "application/json";
     public static JSONLD = "application/ld+json";

@@ -1,5 +1,5 @@
 import {VOCAB} from "./constants";
-import {Module, Entity, Attribute, Association, IntegerScalar, StringScalar, Binding} from "api-modeling-metadata";
+import {Module, Entity, Attribute, Association, IntegerScalar, StringScalar, Binding} from "@api-modeling/api-modeling-metadata";
 import * as n3 from "n3";
 import {$rdf, findPath} from "../utils/N3Graph";
 

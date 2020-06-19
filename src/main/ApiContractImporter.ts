@@ -1,12 +1,16 @@
 import {APIContractBindingsPlugin} from "./bindings/APIContractBindingsPlugin";
 import fs from "fs";
 import path from "path";
+import {ApiParser} from "./bindings/utils/apiParser";
 
 // Small utility to serialize CIM using the modeling tool schemas
 const apiContractPlugin = new APIContractBindingsPlugin();
 const url = "src/test/resources/library.raml"
 const text = fs.readFileSync(url).toString()
-apiContractPlugin.import([{url: "file://"+ url, text: text}]).then((parsed) => {
+apiContractPlugin.import(
+    [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
+    [{url: "file://"+ url, text: text}]).then((parsed
+) => {
     const base = "out/raml/";
     parsed.forEach((dialectInstance) => {
         const location = base + dialectInstance.location;
