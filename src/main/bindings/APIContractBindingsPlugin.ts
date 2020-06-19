@@ -18,6 +18,8 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
     }
 
     async import(configuration: ConfigurationParameter[], resources: Resource[]): Promise<meta.DialectWrapper[]> {
+        this.resetAutoGen();
+
         if (resources.length !== 1) {
             throw new Error("The APIContract plugin must receive only the root RAML/OAS/JSONSchema file from the model to be imported");
         }

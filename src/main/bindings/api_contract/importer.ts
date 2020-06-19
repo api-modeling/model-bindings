@@ -81,7 +81,8 @@ export class APIContractImporter {
     }
 
     private parseShape(domainElement: amf.model.domain.DomainElement, entities: meta.Entity[]): meta.Entity|null {
-        const alreadyParsed = entities.find((e) => e.uuid === domainElement.id);
+        const uuid = Md5.hashStr(domainElement.id).toString();
+        const alreadyParsed = entities.find((e) => e.uuid === uuid);
         if (alreadyParsed != null) {
             return alreadyParsed;
         } else {
@@ -216,7 +217,8 @@ export class APIContractImporter {
      * @param shape
      */
     private getShapeName(shape: amf.model.domain.Shape, hint: string = "Entity"): string {
-        if (shape.name.option || shape.displayName.option) {
+        const name = shape.name.option || shape.displayName.option;
+        if (name != null && name !== "type") {
             return (shape.name.option || shape.displayName.option)!
         } else {
             return this.genName(hint);
