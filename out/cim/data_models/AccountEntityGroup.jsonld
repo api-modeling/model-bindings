@@ -1,0 +1,2285 @@
+[
+  {
+    "@id": "http://cloudinformationmodel.org/modeling/AccountEntityGroup",
+    "@type": [
+      "http://a.ml/vocabularies/meta#DialectInstance",
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/meta#definedBy": [
+      {
+        "@id": "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml"
+      }
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/AccountEntityGroup/dataModel",
+        "@type": [
+          "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DataModel",
+          "http://a.ml/vocabularies/data-model#DataModel",
+          "http://a.ml/vocabularies/meta#DialectDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://a.ml/vocabularies/data#uuid": [
+          {
+            "@value": "cim/entitygroup/AccountEntityGroup/dataModel"
+          }
+        ],
+        "http://a.ml/vocabularies/data-model#entities": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/Account",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/Account"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Account"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/generalLedgerAccount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/generalLedgerAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "generalLedgerAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/autoPaymentAmount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/autoPaymentAmount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "autoPaymentAmount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
+                      "http://a.ml/vocabularies/data-model#Integer",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/autoPayEnabledFlag",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/autoPayEnabledFlag"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "autoPayEnabledFlag"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/paymentTerm",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/paymentTerm"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "paymentTerm"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/billDeliveryMethod",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/billDeliveryMethod"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "billDeliveryMethod"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/lastActivityDate",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/lastActivityDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "lastActivityDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/balanceAmountLimit",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/balanceAmountLimit"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "balanceAmountLimit"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
+                      "http://a.ml/vocabularies/data-model#Integer",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/ninetyDayBalanceAmount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/ninetyDayBalanceAmount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "ninetyDayBalanceAmount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/sixtyDayBalanceAmount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/sixtyDayBalanceAmount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "sixtyDayBalanceAmount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/thirtyDayBalanceAmount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/thirtyDayBalanceAmount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "thirtyDayBalanceAmount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/balanceAmount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/balanceAmount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "balanceAmount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/defaultFreightTerms",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/defaultFreightTerms"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "defaultFreightTerms"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/sLAExpirationDate",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/sLAExpirationDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "sLAExpirationDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/sLAType",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/sLAType"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "sLAType"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/assignTerritoryFlag",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/assignTerritoryFlag"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "assignTerritoryFlag"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/useAsServiceAccount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/useAsServiceAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "useAsServiceAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/useAsShippingAccount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/useAsShippingAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "useAsShippingAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/useAsBillingAccount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/useAsBillingAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "useAsBillingAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/useAsSalesAccount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/useAsSalesAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "useAsSalesAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/holdStatusReason",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/holdStatusReason"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "holdStatusReason"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/accountType",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/accountType"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "accountType"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/description",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/description"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "description"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/name",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/name"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "name"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/number",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/number"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "number"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/autoPaymentMethod",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/autoPaymentMethod"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "autoPaymentMethod"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/billFrequency",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/billFrequency"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "billFrequency"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/BillingFrequency"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/billContactAddress",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/billContactAddress"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "billContactAddress"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/parentAccount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/parentAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "parentAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Account"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/orderDeliveryMethod",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/orderDeliveryMethod"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "orderDeliveryMethod"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/OrderDeliveryMethod"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/shippingAddress",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/shippingAddress"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "shippingAddress"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/shippingEmail",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/shippingEmail"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "shippingEmail"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/shippingPhoneid",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/shippingPhoneid"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "shippingPhoneid"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/shippingContact",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/shippingContact"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "shippingContact"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/AccountContact"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/faxPhone",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/faxPhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "faxPhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/salesPhone",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/salesPhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "salesPhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/primarySalesContactPoint",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/primarySalesContactPoint"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "primarySalesContactPoint"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/partyRole",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/partyRole"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "partyRole"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PartyRole"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Account/attr/party",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/Account/attr/party"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "party"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Party"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "How the party want to interact with your enterprise e.g. have multiple billing accounts"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/AccountContact",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/AccountContact"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Account Contact"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/lastActivityDate",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/lastActivityDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "lastActivityDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/contactNote",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/contactNote"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "contactNote"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/assistantPhone",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/assistantPhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "assistantPhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/assistantName",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/assistantName"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "assistantName"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/title",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/title"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "title"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/departmentName",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/departmentName"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "departmentName"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/indirectRelationAccountContact",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/indirectRelationAccountContact"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "indirectRelationAccountContact"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/AccountContact"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/reportsToAccountContact",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/reportsToAccountContact"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "reportsToAccountContact"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/AccountContact"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/otherContactAddress",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/otherContactAddress"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "otherContactAddress"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/mailingAddress",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/mailingAddress"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "mailingAddress"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/mobilePhone",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/mobilePhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "mobilePhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/faxPhone",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/faxPhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "faxPhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/businessPhone",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/businessPhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "businessPhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/homePhone",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/homePhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "homePhone"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/contactEmail",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/contactEmail"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "contactEmail"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/individual",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/individual"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "individual"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Individual"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContact/attr/account",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContact/attr/account"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "account"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Account"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "An individual who has a role specific to an Account."
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/AccountContactRole",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/AccountContactRole"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Account Contact Role"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContactRole/attr/activeToDate",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContactRole/attr/activeToDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "activeToDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContactRole/attr/activeFromDate",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContactRole/attr/activeFromDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "activeFromDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContactRole/attr/accountContactRoleType",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContactRole/attr/accountContactRoleType"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "accountContactRoleType"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContactRole/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContactRole/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountContactRole/attr/accountContact",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountContactRole/attr/accountContact"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "accountContact"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/AccountContact"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "What role does a contact play on an account e.g. decision maker, influencer"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/AccountPartner",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/AccountPartner"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Account Partner"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountPartner/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountPartner/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountPartner/attr/account",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountPartner/attr/account"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "account"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Account"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AccountPartner/attr/partnerAccount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AccountPartner/attr/partnerAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "partnerAccount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Account"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "State what partner (account) is related to/have access to another account"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/BillingFrequency",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/BillingFrequency"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Billing Frequency"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/BillingFrequency/attr/billingFrequencyName",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/BillingFrequency/attr/billingFrequencyName"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "billingFrequencyName"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/BillingFrequency/attr/name",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/BillingFrequency/attr/name"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "name"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/BillingFrequency/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/BillingFrequency/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Describes a period of time used for recurring bills e.g. monthly or semi-monthly"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "http://a.ml/vocabularies/document#version": [
+      {
+        "@value": "2.1.0"
+      }
+    ],
+    "http://a.ml/vocabularies/document#root": [
+      {
+        "@value": false
+      }
+    ]
+  }
+]

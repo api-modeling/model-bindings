@@ -1,0 +1,487 @@
+[
+  {
+    "@id": "http://cloudinformationmodel.org/modeling/modules_bindings",
+    "@type": [
+      "http://a.ml/vocabularies/meta#DialectInstance",
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/meta#definedBy": [
+      {
+        "@id": "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml"
+      }
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/modules",
+        "@type": [
+          "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/BindingsModel",
+          "http://a.ml/vocabularies/bindings#BindingModel",
+          "http://a.ml/vocabularies/meta#DialectDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://a.ml/vocabularies/bindings#binding": [
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/subjectArea/Party",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Party"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/SubjectAreaBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/subjectArea/Party"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/subjectArea/Payment",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Payment"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/SubjectAreaBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/subjectArea/Payment"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/subjectArea/Payment Method",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Payment Method"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/SubjectAreaBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/subjectArea/Payment Method"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/subjectArea/Product",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Product"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/SubjectAreaBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/subjectArea/Product"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/subjectArea/Sales Order",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Sales Order"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/SubjectAreaBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/subjectArea/Sales Order"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/subjectArea/Shipment",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/subjectarea/Shipment"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/SubjectAreaBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/subjectArea/Shipment"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/AccountEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/AccountEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/AccountEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/ContactPointEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/ContactPointEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/ContactPointEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/PartyRoleEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/PartyRoleEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/PartyRoleEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/LeadEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/LeadEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/LeadEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/PartyEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/PartyEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/PartyEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/PaymentEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/PaymentEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/PaymentEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/PaymentMethodEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/PaymentMethodEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/PaymentMethodEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/ProductEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/ProductEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/ProductEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/ProductAttributeEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/ProductAttributeEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/ProductAttributeEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/ProductCatalogEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/ProductCatalogEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/ProductCatalogEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/SalesOrderEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/SalesOrderEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/SalesOrderEntityGroup"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/bindings/cim/bindings/entityGroup/ShipmentEntityGroup",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding",
+              "http://a.ml/vocabularies/bindings#Binding",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/bindings#bindingSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entitygroup/ShipmentEntityGroup"
+              }
+            ],
+            "http://a.ml/vocabularies/bindings#bindingDeclarationSource": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding"
+              }
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/bindings/entityGroup/ShipmentEntityGroup"
+              }
+            ]
+          }
+        ],
+        "http://a.ml/vocabularies/bindings#bindingSource": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/uuid/cim_distribution"
+          }
+        ],
+        "http://a.ml/vocabularies/data#uuid": [
+          {
+            "@value": "cim/bindings/modules"
+          }
+        ],
+        "http://a.ml/vocabularies/bindings#bindingDeclaration": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/bindings/cim"
+          }
+        ]
+      }
+    ],
+    "http://a.ml/vocabularies/document#version": [
+      {
+        "@value": "2.1.0"
+      }
+    ],
+    "http://a.ml/vocabularies/document#root": [
+      {
+        "@value": false
+      }
+    ]
+  }
+]

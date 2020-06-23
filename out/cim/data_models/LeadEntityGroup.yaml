@@ -1,0 +1,131 @@
+#%DataModel 0.1
+uuid: cim/entitygroup/LeadEntityGroup/dataModel
+entities:
+  Lead:
+    uuid: cim/entity/Lead
+    attributes:
+      leadScore:
+        uuid: cim/entity/Lead/attr/leadScore
+        range:
+          type: integer
+      leadRating:
+        uuid: cim/entity/Lead/attr/leadRating
+        range:
+          type: string
+      annualRevenue:
+        uuid: cim/entity/Lead/attr/annualRevenue
+        range:
+          type: integer
+      leadSource:
+        uuid: cim/entity/Lead/attr/leadSource
+        required: true
+        range:
+          type: string
+      emailBouncedReason:
+        uuid: cim/entity/Lead/attr/emailBouncedReason
+        range:
+          type: string
+      emailBouncedDate:
+        uuid: cim/entity/Lead/attr/emailBouncedDate
+        range:
+          type: string
+      stateProvinceName:
+        uuid: cim/entity/Lead/attr/stateProvinceName
+        range:
+          type: string
+      geoCodeLatitude:
+        uuid: cim/entity/Lead/attr/geoCodeLatitude
+        range:
+          type: string
+      streetName:
+        uuid: cim/entity/Lead/attr/streetName
+        range:
+          type: string
+      lastActivityDate:
+        uuid: cim/entity/Lead/attr/lastActivityDate
+        range:
+          type: string
+      geoCodeAccuracy:
+        uuid: cim/entity/Lead/attr/geoCodeAccuracy
+        range:
+          type: string
+      photoURL:
+        uuid: cim/entity/Lead/attr/photoURL
+        range:
+          type: string
+      geoCodeLongitude:
+        uuid: cim/entity/Lead/attr/geoCodeLongitude
+        range:
+          type: string
+      companyName:
+        uuid: cim/entity/Lead/attr/companyName
+        range:
+          type: string
+      website:
+        uuid: cim/entity/Lead/attr/website
+        range:
+          type: string
+      leadStatus:
+        uuid: cim/entity/Lead/attr/leadStatus
+        range:
+          type: string
+      isConverted:
+        uuid: cim/entity/Lead/attr/isConverted
+        range:
+          type: string
+      convertedDate:
+        uuid: cim/entity/Lead/attr/convertedDate
+        range:
+          type: string
+      countryName:
+        uuid: cim/entity/Lead/attr/countryName
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Lead/attr/id
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/Lead/attr/description
+        range:
+          type: string
+    associations:
+      faxContactPhone:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/faxContactPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      partnerAccount:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/partnerAccount
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      convertedToAccount:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/convertedToAccount
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      convertedToAccountContact:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/convertedToAccountContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+      partyRole:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/partyRole
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
+      mobileContactPhone:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/mobileContactPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      contactPointEmail:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/contactPointEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
+      contactAddress:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/contactAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      phoneContactPoint:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/phoneContactPoint
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+    description: A person or company that showed interest in the company's products

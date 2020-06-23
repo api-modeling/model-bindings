@@ -1,5 +1,5 @@
-import {BindingsPlugin, Resource} from "./BindingsPlugin";
-import {DialectWrapper, ModularityDialect, Module, Entity, Attribute, Association, IntegerScalar, StringScalar, DataModel, DataModelDialect, ModelBindingsDialect, BindingsModel, Binding} from "api-modeling-metadata";
+import {BindingsPlugin, ConfigurationParameter, Resource} from "./BindingsPlugin";
+import {DialectWrapper, ModularityDialect, Module, Entity, Attribute, Association, IntegerScalar, StringScalar, DataModel, DataModelDialect, ModelBindingsDialect, BindingsModel, Binding} from "@api-modeling/api-modeling-metadata";
 import * as graph from "./utils/N3Graph";
 import * as n3 from "n3";
 import {CIMImporter} from "./cim/importer";
@@ -13,7 +13,7 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         super();
     }
 
-    async import(resources: Resource[]): Promise<DialectWrapper[]> {
+    async import(configuration: ConfigurationParameter[], resources: Resource[]): Promise<DialectWrapper[]> {
         const store = graph.store();
         const promises = resources.map((resource) => {
             return this.parseGlobalFile(resource, store);
@@ -78,7 +78,7 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         return ([modularityDialect]).concat(dataModelDialects).concat([moduleBindings]);
     }
 
-    async export(graphs: DialectWrapper[]): Promise<Resource[]> {
+    async export(configuration: ConfigurationParameter[], graphs: DialectWrapper[]): Promise<Resource[]> {
         // @ts-ignore
         const modules: ModularityDialect[] = graphs.filter((dialectWrapper) => {
             return (dialectWrapper instanceof ModularityDialect);

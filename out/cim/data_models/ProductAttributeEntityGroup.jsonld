@@ -1,0 +1,1549 @@
+[
+  {
+    "@id": "http://cloudinformationmodel.org/modeling/ProductAttributeEntityGroup",
+    "@type": [
+      "http://a.ml/vocabularies/meta#DialectInstance",
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/meta#definedBy": [
+      {
+        "@id": "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml"
+      }
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/ProductAttributeEntityGroup/dataModel",
+        "@type": [
+          "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DataModel",
+          "http://a.ml/vocabularies/data-model#DataModel",
+          "http://a.ml/vocabularies/meta#DialectDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://a.ml/vocabularies/data#uuid": [
+          {
+            "@value": "cim/entitygroup/ProductAttributeEntityGroup/dataModel"
+          }
+        ],
+        "http://a.ml/vocabularies/data-model#entities": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductValidityTimePeriodUOM",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/ProductValidityTimePeriodUOM"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product Validity Time Period UOM"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductValidityTimePeriodUOM/attr/pluralName",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductValidityTimePeriodUOM/attr/pluralName"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "pluralName"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductValidityTimePeriodUOM/attr/name",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductValidityTimePeriodUOM/attr/name"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "name"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductValidityTimePeriodUOM/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductValidityTimePeriodUOM/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Standard units of measure for time, for example minute, second, hour and day"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCollateral",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/ProductCollateral"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product Collateral"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCollateral/attr/uRL",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCollateral/attr/uRL"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "uRL"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCollateral/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCollateral/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCollateral/attr/product",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCollateral/attr/product"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "product"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Product"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Collateral for a product e.g. link to brochure one"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/AttributeSetTranslation",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/AttributeSetTranslation"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Attribute Set Translation"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeSetTranslation/attr/translatedName",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeSetTranslation/attr/translatedName"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "translatedName"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeSetTranslation/attr/attributeSet",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeSetTranslation/attr/attributeSet"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "attributeSet"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeSetTranslation/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeSetTranslation/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Translated attributes for an attribute set"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/AttributeTranslation",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/AttributeTranslation"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Attribute Translation"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeTranslation/attr/translatedName",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeTranslation/attr/translatedName"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "translatedName"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeTranslation/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeTranslation/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Translated attributes for an attribute"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/AttributeValue",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/AttributeValue"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Attribute Value"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeValue/attr/attributeValue",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeValue/attr/attributeValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "attributeValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeValue/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeValue/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "A predefine set of values for a product attribute e.g. shoe lace length 10, 12, 14 centimeter"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/AttributeValueTranslation",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/AttributeValueTranslation"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Attribute Value Translation"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeValueTranslation/attr/translatedAttributeValue",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeValueTranslation/attr/translatedAttributeValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "translatedAttributeValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeValueTranslation/attr/translatedAttributeValueDescription",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeValueTranslation/attr/translatedAttributeValueDescription"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "translatedAttributeValueDescription"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeValueTranslation/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeValueTranslation/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/AttributeValueTranslation/attr/attributeValue",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/AttributeValueTranslation/attr/attributeValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "attributeValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/AttributeValue"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Translated attributes for an attribute value"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductAttributeValue",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/ProductAttributeValue"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product Attribute Value"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductAttributeValue/attr/customAttributeValue",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductAttributeValue/attr/customAttributeValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "customAttributeValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductAttributeValue/attr/attributeSet",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductAttributeValue/attr/attributeSet"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "attributeSet"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductAttributeValue/attr/name",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductAttributeValue/attr/name"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "name"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductAttributeValue/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductAttributeValue/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductAttributeValue/attr/attributeValue",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductAttributeValue/attr/attributeValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "attributeValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/AttributeValue"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductAttributeValue/attr/product",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductAttributeValue/attr/product"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "product"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Product"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Assignment of an attribute value to a product e.g. shoe lace"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductAttributeSet",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/ProductAttributeSet"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product Attribute Set"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductAttributeSet/attr/attributeSet",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductAttributeSet/attr/attributeSet"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "attributeSet"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductAttributeSet/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductAttributeSet/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductAttributeSet/attr/product",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductAttributeSet/attr/product"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "product"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Product"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "A set of attributes e.g. shoe attributes that are assigned to a particular instance of Product"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/PriceBookEntry",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/PriceBookEntry"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Price Book Entry"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PriceBookEntry/attr/maxRequiredOrderValue",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/PriceBookEntry/attr/maxRequiredOrderValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "maxRequiredOrderValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
+                      "http://a.ml/vocabularies/data-model#Integer",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PriceBookEntry/attr/minRequiredOrderValue",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/PriceBookEntry/attr/minRequiredOrderValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "minRequiredOrderValue"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
+                      "http://a.ml/vocabularies/data-model#Integer",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PriceBookEntry/attr/servicePeriodCount",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/PriceBookEntry/attr/servicePeriodCount"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "servicePeriodCount"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
+                      "http://a.ml/vocabularies/data-model#Integer",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PriceBookEntry/attr/minRequiredQuantity",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/PriceBookEntry/attr/minRequiredQuantity"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "minRequiredQuantity"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
+                      "http://a.ml/vocabularies/data-model#Integer",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PriceBookEntry/attr/useStandardPrice",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/PriceBookEntry/attr/useStandardPrice"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "useStandardPrice"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PriceBookEntry/attr/isActive",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/PriceBookEntry/attr/isActive"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "isActive"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PriceBookEntry/attr/unitListPrice",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/PriceBookEntry/attr/unitListPrice"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "unitListPrice"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PriceBookEntry/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/PriceBookEntry/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PriceBookEntry/attr/product",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/PriceBookEntry/attr/product"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "product"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Product"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "A list of products and their prices."
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/DeviceUserSession",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/DeviceUserSession"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Device User Session"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/DeviceUserSession/attr/name",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/DeviceUserSession/attr/name"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "name"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/DeviceUserSession/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/DeviceUserSession/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "A time-bound period when a person used a website or other service, also known as a Visit"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "http://a.ml/vocabularies/document#version": [
+      {
+        "@value": "2.1.0"
+      }
+    ],
+    "http://a.ml/vocabularies/document#root": [
+      {
+        "@value": false
+      }
+    ]
+  }
+]

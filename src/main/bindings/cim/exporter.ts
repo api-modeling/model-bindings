@@ -1,5 +1,5 @@
 import {VOCAB} from "./constants";
-import {DialectWrapper, ModularityDialect, Module, Entity, Attribute, Association, IntegerScalar, StringScalar, DataModel, DataModelDialect, ModelBindingsDialect, BindingsModel, Binding} from "api-modeling-metadata";
+import {DialectWrapper, ModularityDialect, Module, Entity, Attribute, Association, IntegerScalar, StringScalar, DataModel, DataModelDialect, ModelBindingsDialect, BindingsModel, Binding} from "@api-modeling/api-modeling-metadata";
 import * as n3 from "n3";
 
 export class CIMExporter {

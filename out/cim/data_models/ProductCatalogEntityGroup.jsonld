@@ -1,0 +1,1024 @@
+[
+  {
+    "@id": "http://cloudinformationmodel.org/modeling/ProductCatalogEntityGroup",
+    "@type": [
+      "http://a.ml/vocabularies/meta#DialectInstance",
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/meta#definedBy": [
+      {
+        "@id": "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml"
+      }
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/ProductCatalogEntityGroup/dataModel",
+        "@type": [
+          "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DataModel",
+          "http://a.ml/vocabularies/data-model#DataModel",
+          "http://a.ml/vocabularies/meta#DialectDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://a.ml/vocabularies/data#uuid": [
+          {
+            "@value": "cim/entitygroup/ProductCatalogEntityGroup/dataModel"
+          }
+        ],
+        "http://a.ml/vocabularies/data-model#entities": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCategory",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/ProductCategory"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product Category"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategory/attr/activeToDate",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategory/attr/activeToDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "activeToDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategory/attr/activeFromDate",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategory/attr/activeFromDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "activeFromDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategory/attr/name",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategory/attr/name"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "name"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategory/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategory/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategory/attr/parentCategory",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategory/attr/parentCategory"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "parentCategory"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCategory"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategory/attr/productCatalog",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategory/attr/productCatalog"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "productCatalog"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCatalog"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "A product may consist of many categories e.g. shoes, tshirts"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCatalog",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/ProductCatalog"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product Catalog"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCatalog/attr/activeToDate",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCatalog/attr/activeToDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "activeToDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCatalog/attr/activeFromDate",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCatalog/attr/activeFromDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "activeFromDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCatalog/attr/name",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCatalog/attr/name"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "name"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCatalog/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCatalog/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "A catalog used for a certain business process e.g. inventory, merchandizing"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCatalogTranslation",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/ProductCatalogTranslation"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product Catalog Translation"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCatalogTranslation/attr/translatedName",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCatalogTranslation/attr/translatedName"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "translatedName"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCatalogTranslation/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCatalogTranslation/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCatalogTranslation/attr/productCatalog",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCatalogTranslation/attr/productCatalog"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "productCatalog"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCatalog"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Translated attributes for a product catalog"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCategoryTranslation",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/ProductCategoryTranslation"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product Category Translation"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryTranslation/attr/translatedName",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryTranslation/attr/translatedName"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "translatedName"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryTranslation/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryTranslation/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryTranslation/attr/productCategory",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryTranslation/attr/productCategory"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "productCategory"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCategory"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Translated attributes for a product category"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCategoryProduct",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/ProductCategoryProduct"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product Category Product"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryProduct/attr/activeToDateTime",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryProduct/attr/activeToDateTime"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "activeToDateTime"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryProduct/attr/activeFromDateTime",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryProduct/attr/activeFromDateTime"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "activeFromDateTime"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryProduct/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryProduct/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryProduct/attr/product",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryProduct/attr/product"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "product"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Product"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryProduct/attr/productCategory",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryProduct/attr/productCategory"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "productCategory"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCategory"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Assignment of product to categories e.g. the Nikedas shoe assigned to shoe and running categories"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCategoryAttributeSet",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "cim/entity/ProductCategoryAttributeSet"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Product Category Attribute Set"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryAttributeSet/attr/attributeSet",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryAttributeSet/attr/attributeSet"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "attributeSet"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryAttributeSet/attr/id",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryAttributeSet/attr/id"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "id"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "http://a.ml/vocabularies/data-model#String",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ProductCategoryAttributeSet/attr/productCategory",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "cim/entity/ProductCategoryAttributeSet/attr/productCategory"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "productCategory"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ProductCategory"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "Assignment of an Attribute Set to a Product Category e.g. the Shoe attribute set assigned to the Shoes category"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "http://a.ml/vocabularies/document#version": [
+      {
+        "@value": "2.1.0"
+      }
+    ],
+    "http://a.ml/vocabularies/document#root": [
+      {
+        "@value": false
+      }
+    ]
+  }
+]

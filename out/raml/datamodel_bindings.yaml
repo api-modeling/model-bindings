@@ -1,0 +1,25 @@
+#%Model Bindings 0.1
+source: http://mulesoft.com/modeling/instances/uuid/0474f473ed4edeff118f2c1975b153cf
+uuid: 24b7f9ee8d1492fc7c5b7f146a1faad0
+declaration: http://mulesoft.com/modeling/instances/bindings/api_contract
+bindings:
+  -
+    source: http://mulesoft.com/modeling/instances/8d86da94153db32cf70b75efd2b78cf0
+    uuid: apiContract/bindings/DocumentTypeBinding/8d86da94153db32cf70b75efd2b78cf0
+    configuration:
+      -
+        uuid: 4bb268f1-1751-47b2-8b5d-2f3a3f25feddparam
+        lexicalValue: JSON Schema / RAML Library
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/63556963ced0cd1da846ff852234ecd3
+    uuid: apiContract/bindings/DocumentTypeBinding/63556963ced0cd1da846ff852234ecd3
+    configuration:
+      -
+        uuid: 680924a5-93b5-4b06-97ae-ec525953d016param
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
