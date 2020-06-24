@@ -14,7 +14,8 @@ export class CIMImporter {
     protected genUUID(prop: Attribute|Association, entity: Entity, path: n3.Quad_Object) {
         const base = entity.uuid;
         const propId = path.value.split("/").pop();
-        prop.uuid = `${base}/attr/${propId}`;
+        const propIdFin = propId ? propId.replace(' ','_') : propId;
+        prop.uuid = `${base}/attr/${propIdFin}`;
     }
 
     /**
@@ -53,7 +54,8 @@ export class CIMImporter {
             const description = store.getObjects(id, VOCAB.RDFS_COMMENT, null)[0];
             const module = new Module(name.value);
             module.description = description.value;
-            module.uuid = `cim/subjectarea/${name.value}`;
+            const toReplace = name.value ? name.value.replace(' ','_') : name.value
+            module.uuid = `cim/subjectarea/${toReplace}`;
             // @ts-ignore
             module['_source'] = id.value;
             return module
@@ -69,7 +71,8 @@ export class CIMImporter {
             const subjectAreaId = subjectArea.id();
             const binding = new Binding(subjectAreaId, VOCAB.CIM_BINDINGS_SUBJECT_AREA)
             const subjectAreaName = subjectAreaId.split("/").pop();
-            binding.uuid = `cim/bindings/subjectArea/${subjectAreaName}`
+            const toReplace = subjectAreaName ? subjectAreaName.replace(' ','_') : subjectAreaName;
+            binding.uuid = `cim/bindings/subjectArea/${toReplace}`
             return binding
         });
     }
@@ -91,7 +94,9 @@ export class CIMImporter {
                 const description = store.getObjects(id, VOCAB.RDFS_COMMENT, null)[0];
                 const module = new Module(name.value);
                 module.description = description.value;
-                module.uuid = `cim/entitygroup/${id.value.split("/").pop()}`;
+                const inter = id.value.split("/").pop();
+                const toReplace = inter?.replace(' ','_');
+                module.uuid = `cim/entitygroup/${toReplace}`;
                 subjectArea.nested!.push(module);
                 // @ts-ignore
                 module['_source'] = id.value;
@@ -111,7 +116,8 @@ export class CIMImporter {
             const entityGroupId = entityGroup.id();
             const binding = new Binding(entityGroupId, VOCAB.CIM_BINDINGS_ENTITY_GROUP)
             const subjectAreaName = entityGroupId.split("/").pop();
-            binding.uuid = `cim/bindings/entityGroup/${subjectAreaName}`
+            const toReplace = subjectAreaName ? subjectAreaName.replace(' ','_') : subjectAreaName;
+            binding.uuid = `cim/bindings/entityGroup/${toReplace}`
             return binding
         });
     }
@@ -174,7 +180,9 @@ export class CIMImporter {
                         this.genUUID(association, entity, path);
                         this.fillPropertyData(association, minCount, maxCount, description, displayName);
                         const targetEntity = new Entity("");
-                        targetEntity.uuid = `cim/entity/${node.value.split("/").pop()}`;
+                        const inter = node.value.split("/").pop()
+                        const toReplace = inter ? inter.replace(' ','_') : inter
+                        targetEntity.uuid = `cim/entity/${toReplace}`;
                         association.target = targetEntity.id();
                         associations.push(association)
                     }
