@@ -26,9 +26,9 @@ export class APIContractImporter {
         if (baseUnit instanceof amf.model.document.Document) {
             param.lexicalValue = "Open API Spec / RAML API Spec"
             binding.configuration = [param]
-        // } else if (baseUnit instanceof amf.model.document.Fragment) {
-        //    param.lexicalValue = "JSON Schema / RAML Fragment"
-        //    binding.configuration = [param]
+        } else if (baseUnit instanceof amf.model.document.Fragment) {
+            param.lexicalValue = "JSON Schema / RAML Fragment"
+            binding.configuration = [param]
         } else if (baseUnit instanceof amf.model.document.Module) {
             param.lexicalValue = "JSON Schema / RAML Library"
             binding.configuration = [param]
@@ -70,19 +70,20 @@ export class APIContractImporter {
         let entities: meta.Entity[] = [];
         if (baseUnit instanceof amf.model.document.Module || baseUnit instanceof amf.model.document.Document) {
             const declarations = <amf.model.document.DeclaresModel>baseUnit;
-            (declarations.declares || []).forEach((domainElement) => this.parseShape(domainElement, entities))
+            (declarations.declares || []).forEach((domainElement) => this.parseShape(domainElement, entities, true))
         }
 
-        if (baseUnit instanceof amf.model.domain.DataType || baseUnit instanceof amf.model.document.Document) {
+        if (baseUnit instanceof amf.model.domain.DataType) {
             const encoded = <amf.model.document.EncodesModel>baseUnit;
-            this.parseShape(encoded.encodes, entities)
+            this.parseShape(encoded.encodes, entities, true)
         }
         return entities
     }
 
-    private parseShape(domainElement: amf.model.domain.DomainElement, entities: meta.Entity[]): meta.Entity|null {
+    private parseShape(domainElement: amf.model.domain.DomainElement, entities: meta.Entity[], topLevel = false): meta.Entity|null {
         const uuid = Md5.hashStr(domainElement.id).toString();
         const alreadyParsed = entities.find((e) => e.uuid === uuid);
+
         if (alreadyParsed != null) {
             return alreadyParsed;
         } else {
@@ -101,8 +102,8 @@ export class APIContractImporter {
                 } else if (domainElement instanceof amf.model.domain.AnyShape) {
                     parsed = this.parseAnyShape(<amf.model.domain.AnyShape>domainElement, entities);
                 }
-                if (parsed != null) {
-                    entities.push(parsed)
+                if (parsed != null && topLevel) {
+                    entities.push(this.uniqueName(parsed, entities))
                 }
                 return parsed;
             }
@@ -217,9 +218,9 @@ export class APIContractImporter {
      * @param shape
      */
     private getShapeName(shape: amf.model.domain.Shape, hint: string = "Entity"): string {
-        const name = shape.name.option || shape.displayName.option;
+        const name = shape.displayName.option || shape.name.option ;
         if (name != null && name !== "type") {
-            return (shape.name.option || shape.displayName.option)!
+            return name;
         } else {
             return this.genName(hint);
         }
@@ -323,4 +324,23 @@ export class APIContractImporter {
         entity.uuid = Md5.hashStr(id).toString();
         return entity.id();
     }
+
+    private uniqueName(parsed: meta.Entity, entities: meta.Entity[]) {
+        const names: {[name: string]: boolean} = {}
+        entities.forEach((e) => names[e.name] = true)
+        let c = 0;
+        let name = parsed.name
+        while (names[name]) {
+            c++
+            name = `${parsed.name}${c}`
+        }
+        parsed.name = name
+        if (parsed.displayName != null && c > 0) {
+            parsed.displayName = `${parsed.displayName}${c}`
+        }
+        names[parsed.name] = true;
+
+        return parsed;
+    }
+
 }

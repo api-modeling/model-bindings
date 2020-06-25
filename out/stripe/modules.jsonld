@@ -1,0 +1,53 @@
+[
+  {
+    "@id": "http://mulesoft.com/modeling/instances/uuid/d284a05216ceccb30b68286aab76246e",
+    "@type": [
+      "http://a.ml/vocabularies/meta#DialectInstance",
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/meta#definedBy": [
+      {
+        "@id": "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml"
+      }
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "http://mulesoft.com/modeling/instances/uuid/d284a05216ceccb30b68286aab76246e",
+        "@type": [
+          "file:///home/agarrote/Development/api-modeling/metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+          "http://a.ml/vocabularies/modularity#Module",
+          "http://a.ml/vocabularies/meta#DialectDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://a.ml/vocabularies/data#uuid": [
+          {
+            "@value": "d284a05216ceccb30b68286aab76246e"
+          }
+        ],
+        "http://a.ml/vocabularies/core#name": [
+          {
+            "@value": "Imported spec stripe.json"
+          }
+        ],
+        "http://a.ml/vocabularies/modularity#dataModels": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/feb3f48039a7cc046177eb2dc00403ad"
+          }
+        ]
+      }
+    ],
+    "http://a.ml/vocabularies/document#version": [
+      {
+        "@value": "2.1.0"
+      }
+    ],
+    "http://a.ml/vocabularies/document#root": [
+      {
+        "@value": false
+      }
+    ]
+  }
+]

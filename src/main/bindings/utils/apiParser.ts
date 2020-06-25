@@ -49,10 +49,6 @@ export class ApiParser {
             .parser(this.format, this.syntax)
             .parseFileAsync(this.specUrl);
         this.parsed = true;
-        if (baseUnit instanceof amf.model.document.Module || baseUnit instanceof amf.model.document.Fragment) {
-            return baseUnit
-        } else {
-            throw new Error(`Unsupported type of parsed BaseUnit ${baseUnit}`)
-        }
+        return baseUnit
     }
 }

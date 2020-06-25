@@ -1,0 +1,15 @@
+#%Model Bindings 0.1
+source: http://mulesoft.com/modeling/instances/uuid/d284a05216ceccb30b68286aab76246e
+uuid: 50ae23c886f9cda4013ef771312209a6
+declaration: http://mulesoft.com/modeling/instances/bindings/api_contract
+bindings:
+  -
+    source: http://mulesoft.com/modeling/instances/feb3f48039a7cc046177eb2dc00403ad
+    uuid: apiContract/bindings/DocumentTypeBinding/feb3f48039a7cc046177eb2dc00403ad
+    configuration:
+      -
+        uuid: 307422fd-85e3-4e0a-8df7-0d4654251328param
+        lexicalValue: Open API Spec / RAML API Spec
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
