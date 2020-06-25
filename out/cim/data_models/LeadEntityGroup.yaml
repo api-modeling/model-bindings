@@ -1,84 +1,3174 @@
 #%DataModel 0.1
-uuid: cim/entitygroup/LeadEntityGroup/dataModel
+uuid: cim/entitygroup/LeadEntityGroup
+name: Lead
 entities:
-  Lead:
-    uuid: cim/entity/Lead
+  Person Life Event:
+    uuid: cim/entity/PersonLifeEvent
     attributes:
-      leadScore:
-        uuid: cim/entity/Lead/attr/leadScore
-        range:
-          type: integer
-      leadRating:
-        uuid: cim/entity/Lead/attr/leadRating
-        range:
-          type: string
-      annualRevenue:
-        uuid: cim/entity/Lead/attr/annualRevenue
-        range:
-          type: integer
-      leadSource:
-        uuid: cim/entity/Lead/attr/leadSource
+      personLifeEventDateTime:
+        uuid: cim/entity/PersonLifeEvent/attr/personLifeEventDateTime
         required: true
         range:
           type: string
-      emailBouncedReason:
-        uuid: cim/entity/Lead/attr/emailBouncedReason
+      personLifeEventType:
+        uuid: cim/entity/PersonLifeEvent/attr/personLifeEventType
+        required: true
         range:
           type: string
-      emailBouncedDate:
-        uuid: cim/entity/Lead/attr/emailBouncedDate
+      id:
+        uuid: cim/entity/PersonLifeEvent/attr/id
+        required: true
         range:
           type: string
-      stateProvinceName:
-        uuid: cim/entity/Lead/attr/stateProvinceName
+    associations:
+      individual:
+        allowMultiple: true
+        uuid: cim/entity/PersonLifeEvent/attr/individual
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
+    description: Major events a person had in their lives e.g. graudation date, marriage date
+  Product Category Translation:
+    uuid: cim/entity/ProductCategoryTranslation
+    attributes:
+      translatedName:
+        uuid: cim/entity/ProductCategoryTranslation/attr/translatedName
+        required: true
         range:
           type: string
-      geoCodeLatitude:
-        uuid: cim/entity/Lead/attr/geoCodeLatitude
+      id:
+        uuid: cim/entity/ProductCategoryTranslation/attr/id
+        required: true
         range:
           type: string
-      streetName:
-        uuid: cim/entity/Lead/attr/streetName
+    associations:
+      productCategory:
+        allowMultiple: true
+        uuid: cim/entity/ProductCategoryTranslation/attr/productCategory
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
+    description: Translated attributes for a product category
+  Contact Point Address:
+    uuid: cim/entity/ContactPointAddress
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/ContactPointAddress/attr/forBusinessUse
+        required: true
         range:
           type: string
+    associations:
+      contactPhone:
+        allowMultiple: true
+        uuid: cim/entity/ContactPointAddress/attr/contactPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+    description: Mailing address for a party e.g. 123 Main St, Big City, CA12345, USA
+  Product Validity Time Period UOM:
+    uuid: cim/entity/ProductValidityTimePeriodUOM
+    attributes:
+      pluralName:
+        uuid: cim/entity/ProductValidityTimePeriodUOM/attr/pluralName
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ProductValidityTimePeriodUOM/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductValidityTimePeriodUOM/attr/id
+        required: true
+        range:
+          type: string
+    description: Standard units of measure for time, for example minute, second, hour and day
+  Party Additional Name:
+    uuid: cim/entity/PartyAdditionalName
+    attributes:
+      additionalNameType:
+        uuid: cim/entity/PartyAdditionalName/attr/additionalNameType
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PartyAdditionalName/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PartyAdditionalName/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/PartyAdditionalName/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Under what name is a person also known as( AKA), under what alternate name is a business doing business as (DBA)
+  Contact Point Location:
+    uuid: cim/entity/ContactPointLocation
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/ContactPointLocation/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ContactPointLocation/attr/id
+        required: true
+        range:
+          type: string
+    description: Physical location for a party e.g. party Northern Trail Outfitters at Standford Shopping Mall
+  Attribute Value Translation:
+    uuid: cim/entity/AttributeValueTranslation
+    attributes:
+      translatedAttributeValue:
+        uuid: cim/entity/AttributeValueTranslation/attr/translatedAttributeValue
+        required: true
+        range:
+          type: string
+      translatedAttributeValueDescription:
+        uuid: cim/entity/AttributeValueTranslation/attr/translatedAttributeValueDescription
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AttributeValueTranslation/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      attributeValue:
+        allowMultiple: true
+        uuid: cim/entity/AttributeValueTranslation/attr/attributeValue
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/AttributeValue
+    description: Translated attributes for an attribute value
+  Refund Payment:
+    uuid: cim/entity/RefundPayment
+    attributes:
+      id:
+        uuid: cim/entity/RefundPayment/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      salesOrderPaymentSummary:
+        allowMultiple: true
+        uuid: cim/entity/RefundPayment/attr/salesOrderPaymentSummary
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderPaymentSummary
+    description: Represents a repayment made, typically to a customer who isn’t satisfied with the goods or services purchased. Refunds are typically made after a payment has already been received from customers
+  Order Delivery Method:
+    uuid: cim/entity/OrderDeliveryMethod
+    attributes:
+      externalRecord:
+        uuid: cim/entity/OrderDeliveryMethod/attr/externalRecord
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/OrderDeliveryMethod/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/OrderDeliveryMethod/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/OrderDeliveryMethod/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: Standardized methods for transferring purchased products or services to the destination of fulfillment. Delivery methods are characterized by the means of transportation used, and by the delivering organization or group.
+  Shipment:
+    uuid: cim/entity/Shipment
+    attributes:
+      estimatedDeliveryDateTime:
+        uuid: cim/entity/Shipment/attr/estimatedDeliveryDateTime
+        range:
+          type: string
+      isGift:
+        uuid: cim/entity/Shipment/attr/isGift
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Shipment/attr/id
+        required: true
+        range:
+          type: string
+      actualDeliveryDateTime:
+        uuid: cim/entity/Shipment/attr/actualDeliveryDateTime
+        range:
+          type: string
+      giftMessageText:
+        uuid: cim/entity/Shipment/attr/giftMessageText
+        range:
+          type: string
+      scheduledDeliveryDateTime:
+        uuid: cim/entity/Shipment/attr/scheduledDeliveryDateTime
+        range:
+          type: string
+      shipmentDate:
+        uuid: cim/entity/Shipment/attr/shipmentDate
+        required: true
+        range:
+          type: string
+      carrierTrackingNumber:
+        uuid: cim/entity/Shipment/attr/carrierTrackingNumber
+        range:
+          type: string
+      specialInstructionsText:
+        uuid: cim/entity/Shipment/attr/specialInstructionsText
+        range:
+          type: string
+      shipmentNumber:
+        uuid: cim/entity/Shipment/attr/shipmentNumber
+        range:
+          type: string
+    associations:
+      shipToAddress:
+        allowMultiple: true
+        uuid: cim/entity/Shipment/attr/shipToAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      shipmentStatus:
+        allowMultiple: true
+        uuid: cim/entity/Shipment/attr/shipmentStatus
+        target: http://mulesoft.com/modeling/instances/cim/entity/ShipmentStatus
+      salesOrderDeliveryGroup:
+        allowMultiple: true
+        uuid: cim/entity/Shipment/attr/salesOrderDeliveryGroup
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderDeliveryGroup
+      salesOrder:
+        allowMultiple: true
+        uuid: cim/entity/Shipment/attr/salesOrder
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
+    description: A quantity of goods sent together to a place, or the act of sending them
+  Sales Order Product Tax:
+    uuid: cim/entity/SalesOrderProductTax
+    attributes:
+      salesOrderTaxAmount:
+        uuid: cim/entity/SalesOrderProductTax/attr/salesOrderTaxAmount
+        range:
+          type: string
+      taxAmount:
+        uuid: cim/entity/SalesOrderProductTax/attr/taxAmount
+        required: true
+        range:
+          type: string
+    description: A tax on the price of a Sales Order Product.
+  Account:
+    uuid: cim/entity/Account
+    attributes:
       lastActivityDate:
-        uuid: cim/entity/Lead/attr/lastActivityDate
+        uuid: cim/entity/Account/attr/lastActivityDate
         range:
           type: string
-      geoCodeAccuracy:
-        uuid: cim/entity/Lead/attr/geoCodeAccuracy
+      useAsServiceAccount:
+        uuid: cim/entity/Account/attr/useAsServiceAccount
+        required: true
         range:
           type: string
-      photoURL:
-        uuid: cim/entity/Lead/attr/photoURL
+      balanceAmount:
+        uuid: cim/entity/Account/attr/balanceAmount
         range:
           type: string
-      geoCodeLongitude:
-        uuid: cim/entity/Lead/attr/geoCodeLongitude
+      useAsShippingAccount:
+        uuid: cim/entity/Account/attr/useAsShippingAccount
+        required: true
+        range:
+          type: string
+      thirtyDayBalanceAmount:
+        uuid: cim/entity/Account/attr/thirtyDayBalanceAmount
+        range:
+          type: string
+      number:
+        uuid: cim/entity/Account/attr/number
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/Account/attr/name
+        required: true
+        range:
+          type: string
+      useAsBillingAccount:
+        uuid: cim/entity/Account/attr/useAsBillingAccount
+        required: true
+        range:
+          type: string
+      autoPaymentAmount:
+        uuid: cim/entity/Account/attr/autoPaymentAmount
+        range:
+          type: integer
+      sixtyDayBalanceAmount:
+        uuid: cim/entity/Account/attr/sixtyDayBalanceAmount
+        range:
+          type: string
+      holdStatusReason:
+        uuid: cim/entity/Account/attr/holdStatusReason
+        range:
+          type: string
+      balanceAmountLimit:
+        uuid: cim/entity/Account/attr/balanceAmountLimit
+        range:
+          type: integer
+      billDeliveryMethod:
+        uuid: cim/entity/Account/attr/billDeliveryMethod
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Account/attr/id
+        required: true
+        range:
+          type: string
+      paymentTerm:
+        uuid: cim/entity/Account/attr/paymentTerm
+        required: true
+        range:
+          type: string
+      ninetyDayBalanceAmount:
+        uuid: cim/entity/Account/attr/ninetyDayBalanceAmount
+        range:
+          type: string
+      defaultFreightTerms:
+        uuid: cim/entity/Account/attr/defaultFreightTerms
+        range:
+          type: string
+      accountType:
+        uuid: cim/entity/Account/attr/accountType
+        range:
+          type: string
+      assignTerritoryFlag:
+        uuid: cim/entity/Account/attr/assignTerritoryFlag
+        range:
+          type: string
+      sLAType:
+        uuid: cim/entity/Account/attr/sLAType
+        range:
+          type: string
+      autoPayEnabledFlag:
+        uuid: cim/entity/Account/attr/autoPayEnabledFlag
+        range:
+          type: string
+      generalLedgerAccount:
+        uuid: cim/entity/Account/attr/generalLedgerAccount
+        range:
+          type: string
+      useAsSalesAccount:
+        uuid: cim/entity/Account/attr/useAsSalesAccount
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/Account/attr/description
+        range:
+          type: string
+      sLAExpirationDate:
+        uuid: cim/entity/Account/attr/sLAExpirationDate
+        range:
+          type: string
+    associations:
+      shippingPhoneid:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/shippingPhoneid
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      primarySalesContactPoint:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/primarySalesContactPoint
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint
+      shippingEmail:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/shippingEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
+      party:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/party
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+      salesPhone:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/salesPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      billFrequency:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/billFrequency
+        target: http://mulesoft.com/modeling/instances/cim/entity/BillingFrequency
+      partyRole:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/partyRole
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
+      autoPaymentMethod:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/autoPaymentMethod
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
+      parentAccount:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/parentAccount
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      orderDeliveryMethod:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/orderDeliveryMethod
+        target: http://mulesoft.com/modeling/instances/cim/entity/OrderDeliveryMethod
+      shippingContact:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/shippingContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+      billContactAddress:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/billContactAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      faxPhone:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/faxPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      shippingAddress:
+        allowMultiple: true
+        uuid: cim/entity/Account/attr/shippingAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+    description: How the party want to interact with your enterprise e.g. have multiple billing accounts
+  Sales Order ChangeT ype:
+    uuid: cim/entity/SalesOrderChangeType
+    attributes:
+      salesOrderChangeTypeName:
+        uuid: cim/entity/SalesOrderChangeType/attr/salesOrderChangeTypeName
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderChangeType/attr/id
+        required: true
+        range:
+          type: string
+    description: The reason for a revision of an earlier sales order, e.g. quantity change, new distributed adjustment, new line adjustment, etc.
+  Payment Gateway Provider:
+    uuid: cim/entity/PaymentGatewayProvider
+    attributes:
+      paymentGatewayProviderName:
+        uuid: cim/entity/PaymentGatewayProvider/attr/paymentGatewayProviderName
+        required: true
+        range:
+          type: string
+      developerName:
+        uuid: cim/entity/PaymentGatewayProvider/attr/developerName
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentGatewayProvider/attr/id
+        required: true
+        range:
+          type: string
+      apexAdapterClassName:
+        uuid: cim/entity/PaymentGatewayProvider/attr/apexAdapterClassName
+        required: true
+        range:
+          type: string
+      paymentGatewayProviderCommentText:
+        uuid: cim/entity/PaymentGatewayProvider/attr/paymentGatewayProviderCommentText
+        range:
+          type: string
+      namespacePrefixText:
+        uuid: cim/entity/PaymentGatewayProvider/attr/namespacePrefixText
+        required: true
+        range:
+          type: string
+    description: Stores class details needed for maintaining Apex adapter.
+  Sales Channel:
+    uuid: cim/entity/SalesChannel
+    attributes:
+      salesChannelNumber:
+        uuid: cim/entity/SalesChannel/attr/salesChannelNumber
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/SalesChannel/attr/name
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/SalesChannel/attr/description
+        required: true
+        range:
+          type: string
+      externalRecord:
+        uuid: cim/entity/SalesChannel/attr/externalRecord
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesChannel/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      salesChannelType:
+        allowMultiple: true
+        uuid: cim/entity/SalesChannel/attr/salesChannelType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesChannelType
+    description: Which channel is used to sell goods e.g. Web Store, Retail Store, Street Faire
+  Payment Group:
+    uuid: cim/entity/PaymentGroup
+    attributes:
+      totalAuthorizationAmount:
+        uuid: cim/entity/PaymentGroup/attr/totalAuthorizationAmount
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentGroup/attr/id
+        required: true
+        range:
+          type: string
+      paymentGroupNumber:
+        uuid: cim/entity/PaymentGroup/attr/paymentGroupNumber
+        required: true
+        range:
+          type: string
+      totalPaymentAmount:
+        uuid: cim/entity/PaymentGroup/attr/totalPaymentAmount
+        required: true
+        range:
+          type: string
+      totalReversalAmount:
+        uuid: cim/entity/PaymentGroup/attr/totalReversalAmount
+        required: true
+        range:
+          type: string
+    description: Payment Group provides a way to associate payments and payment gateway events, where the payment is not associated with a Sales Order.
+  Individual:
+    uuid: cim/entity/Individual
+    attributes:
+      noMergeReason:
+        uuid: cim/entity/Individual/attr/noMergeReason
+        range:
+          type: string
+      convictionsCount:
+        uuid: cim/entity/Individual/attr/convictionsCount
+        range:
+          type: integer
+    description: Represent the person you are, or will be, dealing with using the system
+  Party Role:
+    uuid: cim/entity/PartyRole
+    attributes:
+      id:
+        uuid: cim/entity/PartyRole/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/PartyRole/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Trading roles a party may play at the same time i.e. Customer, Supplier, Seller, Competitor, Worker
+  Price Book Entry:
+    uuid: cim/entity/PriceBookEntry
+    attributes:
+      isActive:
+        uuid: cim/entity/PriceBookEntry/attr/isActive
+        range:
+          type: string
+      maxRequiredOrderValue:
+        uuid: cim/entity/PriceBookEntry/attr/maxRequiredOrderValue
+        range:
+          type: integer
+      unitListPrice:
+        uuid: cim/entity/PriceBookEntry/attr/unitListPrice
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PriceBookEntry/attr/id
+        required: true
+        range:
+          type: string
+      minRequiredQuantity:
+        uuid: cim/entity/PriceBookEntry/attr/minRequiredQuantity
+        range:
+          type: integer
+      servicePeriodCount:
+        uuid: cim/entity/PriceBookEntry/attr/servicePeriodCount
+        range:
+          type: integer
+      minRequiredOrderValue:
+        uuid: cim/entity/PriceBookEntry/attr/minRequiredOrderValue
+        range:
+          type: integer
+      useStandardPrice:
+        uuid: cim/entity/PriceBookEntry/attr/useStandardPrice
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/PriceBookEntry/attr/product
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: A list of products and their prices.
+  Contact Point Email:
+    uuid: cim/entity/ContactPointEmail
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/ContactPointEmail/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+      emailLatestBounceReasonText:
+        uuid: cim/entity/ContactPointEmail/attr/emailLatestBounceReasonText
+        required: true
+        range:
+          type: string
+    description: Email address for a party e.g. email info@northerntrailoutfitters.com
+  Product Attribute Value:
+    uuid: cim/entity/ProductAttributeValue
+    attributes:
+      customAttributeValue:
+        uuid: cim/entity/ProductAttributeValue/attr/customAttributeValue
+        range:
+          type: string
+      attributeSet:
+        uuid: cim/entity/ProductAttributeValue/attr/attributeSet
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ProductAttributeValue/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductAttributeValue/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      attributeValue:
+        allowMultiple: true
+        uuid: cim/entity/ProductAttributeValue/attr/attributeValue
+        target: http://mulesoft.com/modeling/instances/cim/entity/AttributeValue
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ProductAttributeValue/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: Assignment of an attribute value to a product e.g. shoe lace
+  Coupon:
+    uuid: cim/entity/Coupon
+    attributes:
+      discountAmount:
+        uuid: cim/entity/Coupon/attr/discountAmount
+        range:
+          type: string
+    associations:
+      paymentMethodType:
+        allowMultiple: true
+        uuid: cim/entity/Coupon/attr/paymentMethodType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType
+    description: Payment in the form of a voucher entitling the holder to a discount for a particular product.
+  Payment Credit Memo Allocation:
+    uuid: cim/entity/PaymentCreditMemoAllocation
+    attributes:
+      id:
+        uuid: cim/entity/PaymentCreditMemoAllocation/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      relatedPaymentAllocation:
+        allowMultiple: true
+        uuid: cim/entity/PaymentCreditMemoAllocation/attr/relatedPaymentAllocation
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAllocation
+    description: Facilitates applying a Payment Application to the line items of a Credit Memo.
+  Payment Treatment:
+    uuid: cim/entity/PaymentTreatment
+    attributes:
+      paymentApplicationLevel:
+        uuid: cim/entity/PaymentTreatment/attr/paymentApplicationLevel
+        range:
+          type: string
+      shouldAutoInvoice:
+        uuid: cim/entity/PaymentTreatment/attr/shouldAutoInvoice
+        range:
+          type: string
+      paymentTreatmentStatus:
+        uuid: cim/entity/PaymentTreatment/attr/paymentTreatmentStatus
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentTreatment/attr/id
+        required: true
+        range:
+          type: string
+      paymentTreatmentName:
+        uuid: cim/entity/PaymentTreatment/attr/paymentTreatmentName
+        range:
+          type: string
+    associations:
+      paymentPolicy:
+        allowMultiple: true
+        uuid: cim/entity/PaymentTreatment/attr/paymentPolicy
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentPolicy
+      paymentTreatmentMethod:
+        allowMultiple: true
+        uuid: cim/entity/PaymentTreatment/attr/paymentTreatmentMethod
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentTreatmentMethod
+    description: This entity has the information which controls the way in which payment can be applied based on a legal entity or workflow. A policy has multiple treatments associated.
+  Bundle Product:
+    uuid: cim/entity/BundleProduct
+    attributes:
+      type:
+        uuid: cim/entity/BundleProduct/attr/type
+        range:
+          type: string
+      weightUOM:
+        uuid: cim/entity/BundleProduct/attr/weightUOM
+        range:
+          type: string
+    description: Product groups e.g. mobile phone package include phone, call plan and charger
+  Account Contact:
+    uuid: cim/entity/AccountContact
+    attributes:
+      lastActivityDate:
+        uuid: cim/entity/AccountContact/attr/lastActivityDate
+        range:
+          type: string
+      title:
+        uuid: cim/entity/AccountContact/attr/title
+        range:
+          type: string
+      departmentName:
+        uuid: cim/entity/AccountContact/attr/departmentName
+        range:
+          type: string
+      assistantName:
+        uuid: cim/entity/AccountContact/attr/assistantName
+        range:
+          type: string
+      contactNote:
+        uuid: cim/entity/AccountContact/attr/contactNote
+        range:
+          type: string
+      assistantPhone:
+        uuid: cim/entity/AccountContact/attr/assistantPhone
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AccountContact/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      individual:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/individual
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
+      homePhone:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/homePhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      otherContactAddress:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/otherContactAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      contactEmail:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/contactEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
+      account:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/account
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      mailingAddress:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/mailingAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      reportsToAccountContact:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/reportsToAccountContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+      mobilePhone:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/mobilePhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      businessPhone:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/businessPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      faxPhone:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/faxPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      indirectRelationAccountContact:
+        allowMultiple: true
+        uuid: cim/entity/AccountContact/attr/indirectRelationAccountContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+    description: An individual who has a role specific to an Account.
+  Sales Order Product Reason:
+    uuid: cim/entity/SalesOrderProductReason
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderProductReason/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderProductReason/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      salesOrderProductReasonCategory:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProductReason/attr/salesOrderProductReasonCategory
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProductReasonCategory
+    description: The customer motive for ordering a product or service, such as replacement, new purchase, upgrade
+  Sales Order Product Reason Category:
+    uuid: cim/entity/SalesOrderProductReasonCategory
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderProductReasonCategory/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderProductReasonCategory/attr/id
+        required: true
+        range:
+          type: string
+    description: Groupings of Sales Order Product Reasons, such as product related or service related
+  Sales Order Confirmation Status:
+    uuid: cim/entity/SalesOrderConfirmationStatus
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderConfirmationStatus/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderConfirmationStatus/attr/id
+        required: true
+        range:
+          type: string
+    description: Stages of customer approval and finalization of a Sales Order.
+  Attribute Set Translation:
+    uuid: cim/entity/AttributeSetTranslation
+    attributes:
+      translatedName:
+        uuid: cim/entity/AttributeSetTranslation/attr/translatedName
+        required: true
+        range:
+          type: string
+      attributeSet:
+        uuid: cim/entity/AttributeSetTranslation/attr/attributeSet
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AttributeSetTranslation/attr/id
+        required: true
+        range:
+          type: string
+    description: Translated attributes for an attribute set
+  Payment Application:
+    uuid: cim/entity/PaymentApplication
+    attributes:
+      paymentBalanceAmount:
+        uuid: cim/entity/PaymentApplication/attr/paymentBalanceAmount
+        required: true
+        range:
+          type: string
+      commentText:
+        uuid: cim/entity/PaymentApplication/attr/commentText
+        range:
+          type: string
+      appliedDate:
+        uuid: cim/entity/PaymentApplication/attr/appliedDate
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentApplication/attr/id
+        required: true
+        range:
+          type: string
+      appliedAmount:
+        uuid: cim/entity/PaymentApplication/attr/appliedAmount
+        required: true
+        range:
+          type: string
+      hasBeenUnapplied:
+        uuid: cim/entity/PaymentApplication/attr/hasBeenUnapplied
+        range:
+          type: string
+      paymentApplicationType:
+        uuid: cim/entity/PaymentApplication/attr/paymentApplicationType
+        required: true
+        range:
+          type: string
+      unappliedDate:
+        uuid: cim/entity/PaymentApplication/attr/unappliedDate
+        required: true
+        range:
+          type: string
+      effectiveDate:
+        uuid: cim/entity/PaymentApplication/attr/effectiveDate
+        required: true
+        range:
+          type: string
+      externalCreatedDate:
+        uuid: cim/entity/PaymentApplication/attr/externalCreatedDate
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PaymentApplication/attr/name
+        required: true
+        range:
+          type: string
+    associations:
+      payment:
+        allowMultiple: true
+        uuid: cim/entity/PaymentApplication/attr/payment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Payment
+    description: The designation of part or all of a Payment to satisfy a claim on the payment funds.
+  Internal Business Unit:
+    uuid: cim/entity/InternalBusinessUnit
+    attributes:
+      noMergeReason:
+        uuid: cim/entity/InternalBusinessUnit/attr/noMergeReason
+        range:
+          type: string
+    associations:
+      parentInternalBusinessUnit:
+        allowMultiple: true
+        uuid: cim/entity/InternalBusinessUnit/attr/parentInternalBusinessUnit
+        target: http://mulesoft.com/modeling/instances/cim/entity/InternalBusinessUnit
+    description: Defining a part of your own internal organization. May be anything from a holding company, a line of business, a country division, a department and for which you may want to track e.g. if it is a legal entity, default GL Code, profit-and-loss etc against.
+  Shipment Product Price Adjustment:
+    uuid: cim/entity/ShipmentProductPriceAdjustment
+    attributes:
+      shipmentProductPriceAdjustmentAmount:
+        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/shipmentProductPriceAdjustmentAmount
+        range:
+          type: string
+      adjustmentTaxAmount:
+        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/adjustmentTaxAmount
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/id
+        required: true
+        range:
+          type: string
+      adjustmentAmount:
+        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/adjustmentAmount
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/description
+        required: true
+        range:
+          type: string
+    associations:
+      shipmentProduct:
+        allowMultiple: true
+        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/shipmentProduct
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ShipmentProduct
+    description: A change to the price of an ordered product or service that is made after Fulfillment.
+  Contact Point Phone:
+    uuid: cim/entity/ContactPointPhone
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/ContactPointPhone/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+      isFaxCapable:
+        uuid: cim/entity/ContactPointPhone/attr/isFaxCapable
+        required: true
+        range:
+          type: string
+    description: Phone number for a party e.g. phone 123-4567
+  Payment Authorization:
+    uuid: cim/entity/PaymentAuthorization
+    attributes:
+      externalCreatedDate:
+        uuid: cim/entity/PaymentAuthorization/attr/externalCreatedDate
+        required: true
+        range:
+          type: string
+      authorizationAmount:
+        uuid: cim/entity/PaymentAuthorization/attr/authorizationAmount
+        required: true
+        range:
+          type: string
+      macAddress:
+        uuid: cim/entity/PaymentAuthorization/attr/macAddress
+        range:
+          type: string
+      gatewayReferenceDetailsText:
+        uuid: cim/entity/PaymentAuthorization/attr/gatewayReferenceDetailsText
+        required: true
+        range:
+          type: string
+      availableBalanceAmount:
+        uuid: cim/entity/PaymentAuthorization/attr/availableBalanceAmount
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentAuthorization/attr/id
+        required: true
+        range:
+          type: string
+      paymentAuthorizationProcessingMode:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationProcessingMode
+        required: true
+        range:
+          type: string
+      paymentAuthorizationCommentText:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationCommentText
+        range:
+          type: string
+      iPAddress:
+        uuid: cim/entity/PaymentAuthorization/attr/iPAddress
+        range:
+          type: string
+      gatewayResultCodeDescription:
+        uuid: cim/entity/PaymentAuthorization/attr/gatewayResultCodeDescription
+        range:
+          type: string
+      requestDate:
+        uuid: cim/entity/PaymentAuthorization/attr/requestDate
+        required: true
+        range:
+          type: string
+      paymentAuthorizationNumber:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationNumber
+        required: true
+        range:
+          type: string
+      gatewayAuthorizationCode:
+        uuid: cim/entity/PaymentAuthorization/attr/gatewayAuthorizationCode
+        required: true
+        range:
+          type: string
+      paymentGatewayDate:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayDate
+        required: true
+        range:
+          type: string
+      paymentAuthorizationStatus:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationStatus
+        required: true
+        range:
+          type: string
+      totalPaymentCaptureAmount:
+        uuid: cim/entity/PaymentAuthorization/attr/totalPaymentCaptureAmount
+        required: true
+        range:
+          type: string
+      paymentGatewayReferenceNumber:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayReferenceNumber
+        required: true
+        range:
+          type: string
+      expirationDate:
+        uuid: cim/entity/PaymentAuthorization/attr/expirationDate
+        required: true
+        range:
+          type: string
+      totalAuthorizationReversalAmount:
+        uuid: cim/entity/PaymentAuthorization/attr/totalAuthorizationReversalAmount
+        required: true
+        range:
+          type: string
+      paymentGatewayInternalReferenceNumber:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayInternalReferenceNumber
+        required: true
+        range:
+          type: string
+    associations:
+      paymentGroup:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGroup
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGroup
+      paymentGateway:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGateway
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGateway
+      paymentGatewayResult:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayResult
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
+      paymentMethodID:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorization/attr/paymentMethodID
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
+      salesOrderPaymentSummary:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorization/attr/salesOrderPaymentSummary
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderPaymentSummary
+    description: An approval from the issuer of a payment instrument (usually a card), that the customer has sufficient funds to cover the cost of the transaction.
+  Seller:
+    uuid: cim/entity/Seller
+    attributes:
+      newCustomerAcquisitionCount:
+        uuid: cim/entity/Seller/attr/newCustomerAcquisitionCount
+        range:
+          type: integer
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/Seller/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Information about a party playing role of seller e.g. customer satisfaction score
+  Payment Invoice Application:
+    uuid: cim/entity/PaymentInvoiceApplication
+    attributes:
+      paymentInvoiceApplicationType:
+        uuid: cim/entity/PaymentInvoiceApplication/attr/paymentInvoiceApplicationType
+        range:
+          type: string
+    associations:
+      payment:
+        allowMultiple: true
+        uuid: cim/entity/PaymentInvoiceApplication/attr/payment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Payment
+    description: Facilitates applying/unapplying payment balance to an Invoice.
+  Account Contact Role:
+    uuid: cim/entity/AccountContactRole
+    attributes:
+      activeToDate:
+        uuid: cim/entity/AccountContactRole/attr/activeToDate
+        range:
+          type: string
+      activeFromDate:
+        uuid: cim/entity/AccountContactRole/attr/activeFromDate
+        range:
+          type: string
+      accountContactRoleType:
+        uuid: cim/entity/AccountContactRole/attr/accountContactRoleType
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AccountContactRole/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      accountContact:
+        allowMultiple: true
+        uuid: cim/entity/AccountContactRole/attr/accountContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+    description: What role does a contact play on an account e.g. decision maker, influencer
+  Party Web Address:
+    uuid: cim/entity/PartyWebAddress
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/PartyWebAddress/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+      webSiteURL:
+        uuid: cim/entity/PartyWebAddress/attr/webSiteURL
+        required: true
+        range:
+          type: string
+    description: What is the Web URL for the Party
+  Payment Gateway Result Code:
+    uuid: cim/entity/PaymentGatewayResultCode
+    attributes:
+      id:
+        uuid: cim/entity/PaymentGatewayResultCode/attr/id
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PaymentGatewayResultCode/attr/name
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/PaymentGatewayResultCode/attr/description
+        required: true
+        range:
+          type: string
+    description: The response from the Payment Gateway.
+  Capture Payment:
+    uuid: cim/entity/CapturePayment
+    associations:
+      salesOrderPaymentSummary:
+        allowMultiple: true
+        uuid: cim/entity/CapturePayment/attr/salesOrderPaymentSummary
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderPaymentSummary
+      paymentAuthorization:
+        allowMultiple: true
+        uuid: cim/entity/CapturePayment/attr/paymentAuthorization
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAuthorization
+    description: The transfer of money from the customer's account to the merchant's account.
+  Product Image:
+    uuid: cim/entity/ProductImage
+    attributes:
+      imageViewType:
+        uuid: cim/entity/ProductImage/attr/imageViewType
+        range:
+          type: string
+      isDefaultImage:
+        uuid: cim/entity/ProductImage/attr/isDefaultImage
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductImage/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ProductImage/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: Images of a product
+  Price Adjustment Method:
+    uuid: cim/entity/PriceAdjustmentMethod
+    attributes:
+      name:
+        uuid: cim/entity/PriceAdjustmentMethod/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PriceAdjustmentMethod/attr/id
+        required: true
+        range:
+          type: string
+    description: "Defines how the adjustment will be calculated. Valid values used in Commerce Cloud are: percentage, fixed_price, amount, free, price_book_price, bonus, total_fixed_price, bonus_choice, percentage_off_options"
+  Party Identification:
+    uuid: cim/entity/PartyIdentification
+    attributes:
+      name:
+        uuid: cim/entity/PartyIdentification/attr/name
+        required: true
+        range:
+          type: string
+      issuedDate:
+        uuid: cim/entity/PartyIdentification/attr/issuedDate
+        range:
+          type: string
+      identificationNumber:
+        uuid: cim/entity/PartyIdentification/attr/identificationNumber
+        required: true
+        range:
+          type: string
+      verifiedDate:
+        uuid: cim/entity/PartyIdentification/attr/verifiedDate
+        range:
+          type: string
+      issuedAtLocation:
+        uuid: cim/entity/PartyIdentification/attr/issuedAtLocation
+        range:
+          type: string
+      issuedByAuthority:
+        uuid: cim/entity/PartyIdentification/attr/issuedByAuthority
+        range:
+          type: string
+      expiryDate:
+        uuid: cim/entity/PartyIdentification/attr/expiryDate
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PartyIdentification/attr/id
+        required: true
+        range:
+          type: string
+      partyIdentificationType:
+        uuid: cim/entity/PartyIdentification/attr/partyIdentificationType
+        required: true
+        range:
+          type: string
+    associations:
+      partyRole:
+        allowMultiple: true
+        uuid: cim/entity/PartyIdentification/attr/partyRole
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
+      party:
+        allowMultiple: true
+        uuid: cim/entity/PartyIdentification/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Set of ways to identify a party e.g. driving license, birth certificate
+  Attribute Translation:
+    uuid: cim/entity/AttributeTranslation
+    attributes:
+      translatedName:
+        uuid: cim/entity/AttributeTranslation/attr/translatedName
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AttributeTranslation/attr/id
+        required: true
+        range:
+          type: string
+    description: Translated attributes for an attribute
+  Competitor:
+    uuid: cim/entity/Competitor
+    attributes:
+      assetTurnoverRatio:
+        uuid: cim/entity/Competitor/attr/assetTurnoverRatio
+        range:
+          type: string
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/Competitor/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Information about a party playing role of competitor e.g. strength (in products), weaknesses (in offerings), opportunities (to overtake), threats (to our business)
+  Payment Method:
+    uuid: cim/entity/PaymentMethod
+    attributes:
+      paymentMethodStatus:
+        uuid: cim/entity/PaymentMethod/attr/paymentMethodStatus
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentMethod/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      paymentMethodType:
+        allowMultiple: true
+        uuid: cim/entity/PaymentMethod/attr/paymentMethodType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType
+    description: A means by which a buyer compensates a seller for a purchased good or service.
+  Payment Treatment Method:
+    uuid: cim/entity/PaymentTreatmentMethod
+    attributes:
+      id:
+        uuid: cim/entity/PaymentTreatmentMethod/attr/id
+        required: true
+        range:
+          type: string
+      paymentTreatmentMethodName:
+        uuid: cim/entity/PaymentTreatmentMethod/attr/paymentTreatmentMethodName
+        required: true
+        range:
+          type: string
+      paymentTreatmentMethodDescription:
+        uuid: cim/entity/PaymentTreatmentMethod/attr/paymentTreatmentMethodDescription
+        required: true
+        range:
+          type: string
+      paymentTreatmentMethodCode:
+        uuid: cim/entity/PaymentTreatmentMethod/attr/paymentTreatmentMethodCode
+        required: true
+        range:
+          type: string
+    description: Represents a specific algorithm or method to apply. For example - pay for taxes first, pay for charges first, pay for oldest due invoice first etc. It can also point to a rule based on which application can be done. Treatment has a method.
+  Contact Point:
+    uuid: cim/entity/ContactPoint
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/ContactPoint/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+      profileLastUpdatedDate:
+        uuid: cim/entity/ContactPoint/attr/profileLastUpdatedDate
+        range:
+          type: string
+      profileFirstCreatedDate:
+        uuid: cim/entity/ContactPoint/attr/profileFirstCreatedDate
+        range:
+          type: string
+      bestTimeToContactStartTime:
+        uuid: cim/entity/ContactPoint/attr/bestTimeToContactStartTime
+        range:
+          type: string
+      forPersonalUse:
+        uuid: cim/entity/ContactPoint/attr/forPersonalUse
+        required: true
+        range:
+          type: string
+      bestTimeToContactEndTime:
+        uuid: cim/entity/ContactPoint/attr/bestTimeToContactEndTime
+        range:
+          type: string
+      activeFromDate:
+        uuid: cim/entity/ContactPoint/attr/activeFromDate
+        required: true
+        range:
+          type: string
+      profileOccurrenceCount:
+        uuid: cim/entity/ContactPoint/attr/profileOccurrenceCount
+        range:
+          type: integer
+      primaryFlag:
+        uuid: cim/entity/ContactPoint/attr/primaryFlag
+        range:
+          type: string
+      activeToDate:
+        uuid: cim/entity/ContactPoint/attr/activeToDate
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ContactPoint/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      contactPointType:
+        allowMultiple: true
+        uuid: cim/entity/ContactPoint/attr/contactPointType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointType
+      partyRole:
+        allowMultiple: true
+        uuid: cim/entity/ContactPoint/attr/partyRole
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
+      party:
+        allowMultiple: true
+        uuid: cim/entity/ContactPoint/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: All contact points for a party e.g. phone 123-4567, email info@northerntrailoutfitters.com
+  Person Employment:
+    uuid: cim/entity/PersonEmployment
+    attributes:
+      annualIncome:
+        uuid: cim/entity/PersonEmployment/attr/annualIncome
+        required: true
+        range:
+          type: integer
+      employerAddressLine1:
+        uuid: cim/entity/PersonEmployment/attr/employerAddressLine1
+        required: true
+        range:
+          type: string
+      employerCityName:
+        uuid: cim/entity/PersonEmployment/attr/employerCityName
+        range:
+          type: string
+      endDate:
+        uuid: cim/entity/PersonEmployment/attr/endDate
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PersonEmployment/attr/id
+        required: true
+        range:
+          type: string
+      employerPhoneNumber:
+        uuid: cim/entity/PersonEmployment/attr/employerPhoneNumber
+        required: true
+        range:
+          type: string
+      employerPostalCodeText:
+        uuid: cim/entity/PersonEmployment/attr/employerPostalCodeText
+        range:
+          type: string
+      startDate:
+        uuid: cim/entity/PersonEmployment/attr/startDate
+        required: true
+        range:
+          type: string
+      employerAddressLine2:
+        uuid: cim/entity/PersonEmployment/attr/employerAddressLine2
+        range:
+          type: string
+      employerName:
+        uuid: cim/entity/PersonEmployment/attr/employerName
+        required: true
+        range:
+          type: string
+      occupationText:
+        uuid: cim/entity/PersonEmployment/attr/occupationText
+        required: true
+        range:
+          type: string
+      employerAddressLine3:
+        uuid: cim/entity/PersonEmployment/attr/employerAddressLine3
+        range:
+          type: string
+      employerAddressLine4:
+        uuid: cim/entity/PersonEmployment/attr/employerAddressLine4
+        range:
+          type: string
+      positionText:
+        uuid: cim/entity/PersonEmployment/attr/positionText
+        required: true
+        range:
+          type: string
+      employmentStatus:
+        uuid: cim/entity/PersonEmployment/attr/employmentStatus
+        required: true
+        range:
+          type: string
+    associations:
+      employerContactPointAddress:
+        allowMultiple: true
+        uuid: cim/entity/PersonEmployment/attr/employerContactPointAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      individual:
+        allowMultiple: true
+        uuid: cim/entity/PersonEmployment/attr/individual
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
+    description: Information about an employee
+  Product Category:
+    uuid: cim/entity/ProductCategory
+    attributes:
+      activeToDate:
+        uuid: cim/entity/ProductCategory/attr/activeToDate
+        range:
+          type: string
+      activeFromDate:
+        uuid: cim/entity/ProductCategory/attr/activeFromDate
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ProductCategory/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductCategory/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      parentCategory:
+        allowMultiple: true
+        uuid: cim/entity/ProductCategory/attr/parentCategory
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
+      productCatalog:
+        allowMultiple: true
+        uuid: cim/entity/ProductCategory/attr/productCatalog
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCatalog
+    description: A product may consist of many categories e.g. shoes, tshirts
+  Sales Order Payment Summary:
+    uuid: cim/entity/SalesOrderPaymentSummary
+    attributes:
+      id:
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/id
+        required: true
+        range:
+          type: string
+      unappliedAmount:
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/unappliedAmount
+        range:
+          type: string
+      paymentAmount:
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/paymentAmount
+        range:
+          type: string
+      appliedAmount:
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/appliedAmount
+        range:
+          type: string
+      capturedAmount:
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/capturedAmount
+        range:
+          type: string
+      name:
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/name
+        required: true
+        range:
+          type: string
+      availableToApplyBalanceAmount:
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/availableToApplyBalanceAmount
+        range:
+          type: string
+      authorizationReversalAmount:
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/authorizationReversalAmount
+        range:
+          type: string
+      authorizationAmount:
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/authorizationAmount
+        range:
+          type: string
+    associations:
+      salesOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/salesOrder
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
+      paymentMethod:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderPaymentSummary/attr/paymentMethod
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
+    description: One or more Payments having the same Payment Method, that have been applied to a single Sales Order.
+  Shipping Method:
+    uuid: cim/entity/ShippingMethod
+    attributes:
+      description:
+        uuid: cim/entity/ShippingMethod/attr/description
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ShippingMethod/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ShippingMethod/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ShippingMethod/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: A parcel of one or more items bundled together, so that they arrive at the customer's address as a single unit.
+  Payment Card:
+    uuid: cim/entity/PaymentCard
+    attributes:
+      expirationMonth:
+        uuid: cim/entity/PaymentCard/attr/expirationMonth
+        required: true
+        range:
+          type: string
+    associations:
+      paymentMethodType:
+        allowMultiple: true
+        uuid: cim/entity/PaymentCard/attr/paymentMethodType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType
+    description: A payment system issued by a financial institution to a customer that allows its owner (the cardholder) to access funds in designated bank accounts
+  Service Product:
+    uuid: cim/entity/ServiceProduct
+    attributes:
+      type:
+        uuid: cim/entity/ServiceProduct/attr/type
+        range:
+          type: string
+      evergreenContractEstimatedChargeAmount:
+        uuid: cim/entity/ServiceProduct/attr/evergreenContractEstimatedChargeAmount
+        range:
+          type: string
+    description: Products that are intangible e.g. labor, software subscription
+  Payment Credit Memo Application:
+    uuid: cim/entity/PaymentCreditMemoApplication
+    attributes:
+      id:
+        uuid: cim/entity/PaymentCreditMemoApplication/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      payment:
+        allowMultiple: true
+        uuid: cim/entity/PaymentCreditMemoApplication/attr/payment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Payment
+    description: Facilitates applying/unapplying payment balance to a credit memo.
+  Sales Order:
+    uuid: cim/entity/SalesOrder
+    attributes:
+      adjustedProductTaxAmount:
+        uuid: cim/entity/SalesOrder/attr/adjustedProductTaxAmount
+        range:
+          type: string
+      renewalUpliftRate:
+        uuid: cim/entity/SalesOrder/attr/renewalUpliftRate
+        range:
+          type: integer
+      orderNumber:
+        uuid: cim/entity/SalesOrder/attr/orderNumber
+        required: true
+        range:
+          type: string
+      isContracted:
+        uuid: cim/entity/SalesOrder/attr/isContracted
+        range:
+          type: string
+      isSuspended:
+        uuid: cim/entity/SalesOrder/attr/isSuspended
+        range:
+          type: string
+      grandTotalAmount:
+        uuid: cim/entity/SalesOrder/attr/grandTotalAmount
+        range:
+          type: string
+      customerAuthorizedDate:
+        uuid: cim/entity/SalesOrder/attr/customerAuthorizedDate
+        range:
+          type: string
+      companyAuthorizedDate:
+        uuid: cim/entity/SalesOrder/attr/companyAuthorizedDate
+        range:
+          type: string
+      fulfilledDate:
+        uuid: cim/entity/SalesOrder/attr/fulfilledDate
+        range:
+          type: string
+      isTaxExempt:
+        uuid: cim/entity/SalesOrder/attr/isTaxExempt
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/attr/id
+        required: true
+        range:
+          type: string
+      totalCancelledBillingAmount:
+        uuid: cim/entity/SalesOrder/attr/totalCancelledBillingAmount
+        range:
+          type: string
+      orderDiscount:
+        uuid: cim/entity/SalesOrder/attr/orderDiscount
+        range:
+          type: integer
+      promiseDate:
+        uuid: cim/entity/SalesOrder/attr/promiseDate
+        range:
+          type: string
+      cancelDateType:
+        uuid: cim/entity/SalesOrder/attr/cancelDateType
+        range:
+          type: string
+      packedDate:
+        uuid: cim/entity/SalesOrder/attr/packedDate
+        range:
+          type: string
+      orderStartDate:
+        uuid: cim/entity/SalesOrder/attr/orderStartDate
+        range:
+          type: string
+      confirmationRecipientEmailText:
+        uuid: cim/entity/SalesOrder/attr/confirmationRecipientEmailText
+        required: true
+        range:
+          type: string
+      isAnonymous:
+        uuid: cim/entity/SalesOrder/attr/isAnonymous
+        range:
+          type: string
+      totalBookingAmount:
+        uuid: cim/entity/SalesOrder/attr/totalBookingAmount
+        range:
+          type: string
+      purchaseOrderNumber:
+        uuid: cim/entity/SalesOrder/attr/purchaseOrderNumber
+        range:
+          type: string
+      canBillNow:
+        uuid: cim/entity/SalesOrder/attr/canBillNow
+        range:
+          type: string
+      taxRate:
+        uuid: cim/entity/SalesOrder/attr/taxRate
+        range:
+          type: string
+      adjustedTotalProductAmount:
+        uuid: cim/entity/SalesOrder/attr/adjustedTotalProductAmount
+        range:
+          type: string
+      purchaseOrderDate:
+        uuid: cim/entity/SalesOrder/attr/purchaseOrderDate
+        range:
+          type: string
+      isReductionOrder:
+        uuid: cim/entity/SalesOrder/attr/isReductionOrder
+        range:
+          type: string
+      totalDeliveryAmount:
+        uuid: cim/entity/SalesOrder/attr/totalDeliveryAmount
+        range:
+          type: string
+      activatedDate:
+        uuid: cim/entity/SalesOrder/attr/activatedDate
+        range:
+          type: string
+      totalPendingBillingAmount:
+        uuid: cim/entity/SalesOrder/attr/totalPendingBillingAmount
+        range:
+          type: string
+      isAlerted:
+        uuid: cim/entity/SalesOrder/attr/isAlerted
+        range:
+          type: string
+      totalProductAmount:
+        uuid: cim/entity/SalesOrder/attr/totalProductAmount
+        range:
+          type: string
+      checkoutDate:
+        uuid: cim/entity/SalesOrder/attr/checkoutDate
+        range:
+          type: string
+      totalAdjustmentAmount:
+        uuid: cim/entity/SalesOrder/attr/totalAdjustmentAmount
+        range:
+          type: string
+      developerStatusCode:
+        uuid: cim/entity/SalesOrder/attr/developerStatusCode
+        required: true
+        range:
+          type: string
+      totalProductTaxAmount:
+        uuid: cim/entity/SalesOrder/attr/totalProductTaxAmount
+        range:
+          type: string
+      promiseFulfillmentDate:
+        uuid: cim/entity/SalesOrder/attr/promiseFulfillmentDate
+        range:
+          type: string
+      billingDayOfTheMonth:
+        uuid: cim/entity/SalesOrder/attr/billingDayOfTheMonth
+        range:
+          type: integer
+      name:
+        uuid: cim/entity/SalesOrder/attr/name
+        required: true
+        range:
+          type: string
+      iSOCulture:
+        uuid: cim/entity/SalesOrder/attr/iSOCulture
+        range:
+          type: string
+      salesOrderSystemStatus:
+        uuid: cim/entity/SalesOrder/attr/salesOrderSystemStatus
+        range:
+          type: string
+      orderEndDate:
+        uuid: cim/entity/SalesOrder/attr/orderEndDate
+        range:
+          type: string
+      totalDeliveryTaxAmount:
+        uuid: cim/entity/SalesOrder/attr/totalDeliveryTaxAmount
+        range:
+          type: string
+      description:
+        uuid: cim/entity/SalesOrder/attr/description
+        required: true
+        range:
+          type: string
+      priceCalculationStatusMessageText:
+        uuid: cim/entity/SalesOrder/attr/priceCalculationStatusMessageText
+        range:
+          type: string
+      isClosed:
+        uuid: cim/entity/SalesOrder/attr/isClosed
+        range:
+          type: string
+      totalDeliveryFeeAmount:
+        uuid: cim/entity/SalesOrder/attr/totalDeliveryFeeAmount
+        range:
+          type: string
+      totalAdjustmentTaxAmount:
+        uuid: cim/entity/SalesOrder/attr/totalAdjustmentTaxAmount
+        range:
+          type: string
+      requestedStartDate:
+        uuid: cim/entity/SalesOrder/attr/requestedStartDate
+        required: true
+        range:
+          type: string
+      cancelDate:
+        uuid: cim/entity/SalesOrder/attr/cancelDate
+        range:
+          type: string
+      paidDate:
+        uuid: cim/entity/SalesOrder/attr/paidDate
+        range:
+          type: string
+      filedDate:
+        uuid: cim/entity/SalesOrder/attr/filedDate
+        range:
+          type: string
+      isGiftOrder:
+        uuid: cim/entity/SalesOrder/attr/isGiftOrder
+        range:
+          type: string
+      totalTaxAmount:
+        uuid: cim/entity/SalesOrder/attr/totalTaxAmount
+        range:
+          type: string
+      totalAdjustedDeliveryTaxAmount:
+        uuid: cim/entity/SalesOrder/attr/totalAdjustedDeliveryTaxAmount
+        range:
+          type: string
+      isHistoricalOnly:
+        uuid: cim/entity/SalesOrder/attr/isHistoricalOnly
+        range:
+          type: string
+      orderInsuranceAmount:
+        uuid: cim/entity/SalesOrder/attr/orderInsuranceAmount
+        range:
+          type: string
+    associations:
+      renewalTerm:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/renewalTerm
+        target: http://mulesoft.com/modeling/instances/cim/entity/RenewalTerm
+      billToPhoneNumber:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/billToPhoneNumber
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      billToContact:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/billToContact
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+      originalOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/originalOrder
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
+      shipToEmail:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/shipToEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
+      soldToCustomer:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/soldToCustomer
+        target: http://mulesoft.com/modeling/instances/cim/entity/Customer
+      shipToContact:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/shipToContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+      salesChannel:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/salesChannel
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesChannel
+      salesOrderType:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/salesOrderType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderType
+      userDeviceSession:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/userDeviceSession
+        target: http://mulesoft.com/modeling/instances/cim/entity/DeviceUserSession
+      billToAccount:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/billToAccount
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      internalBusinessUnit:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/internalBusinessUnit
+        target: http://mulesoft.com/modeling/instances/cim/entity/InternalBusinessUnit
+      seller:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/seller
+        target: http://mulesoft.com/modeling/instances/cim/entity/Seller
+      billToAddress:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/billToAddress
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      paymentMethod:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/paymentMethod
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
+      salesOrderConfirmationStatus:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/salesOrderConfirmationStatus
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderConfirmationStatus
+      salesOrderStatus:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/salesOrderStatus
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderStatus
+      shipToAddress:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/shipToAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      billToEmail:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/attr/billToEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
+    description: An internal document generated by the seller, indicating that the customer is now ready to purchase products and services
+  Sales Order Product Group:
+    uuid: cim/entity/SalesOrderProductGroup
+    attributes:
+      description:
+        uuid: cim/entity/SalesOrderProductGroup/attr/description
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/SalesOrderProductGroup/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderProductGroup/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      salesOrderProductGroupType:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProductGroup/attr/salesOrderProductGroupType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProductGroupType
+    description: Products may be grouped together for various reasons, such as products that should be shipped together. Every product in a Sales Order Product Group is not required to be a Sales Order Product.
+  Contact Point Social:
+    uuid: cim/entity/ContactPointSocial
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/ContactPointSocial/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+      socialNetworkProvider:
+        uuid: cim/entity/ContactPointSocial/attr/socialNetworkProvider
+        required: true
+        range:
+          type: string
+    description: Social handle for a party e.g. trustednews at twitter
+  Account Partner:
+    uuid: cim/entity/AccountPartner
+    attributes:
+      id:
+        uuid: cim/entity/AccountPartner/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      account:
+        allowMultiple: true
+        uuid: cim/entity/AccountPartner/attr/account
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      partnerAccount:
+        allowMultiple: true
+        uuid: cim/entity/AccountPartner/attr/partnerAccount
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+    description: State what partner (account) is related to/have access to another account
+  Attribute Value:
+    uuid: cim/entity/AttributeValue
+    attributes:
+      attributeValue:
+        uuid: cim/entity/AttributeValue/attr/attributeValue
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/AttributeValue/attr/id
+        required: true
+        range:
+          type: string
+    description: A predefine set of values for a product attribute e.g. shoe lace length 10, 12, 14 centimeter
+  Sales Order Delivery Group:
+    uuid: cim/entity/SalesOrderDeliveryGroup
+    attributes:
+      giftMessageText:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/giftMessageText
+        range:
+          type: string
+      desiredDeliveryDate:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/desiredDeliveryDate
+        range:
+          type: string
+      totalDeliveryChargeAmount:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalDeliveryChargeAmount
+        range:
+          type: string
+      deliveryInstructionsText:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/deliveryInstructionsText
+        range:
+          type: string
+      isGift:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/isGift
+        range:
+          type: string
+      name:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/name
+        required: true
+        range:
+          type: string
+      grandTotalDeliveryAmount:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/grandTotalDeliveryAmount
+        range:
+          type: string
+      totalDeliveryAdjustmentTaxAmount:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalDeliveryAdjustmentTaxAmount
+        range:
+          type: string
+      totalUnitPriceAmount:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalUnitPriceAmount
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/description
+        required: true
+        range:
+          type: string
+      salesOrderDeliveryGroupNumber:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/salesOrderDeliveryGroupNumber
+        required: true
+        range:
+          type: string
+      totalPriceAmount:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalPriceAmount
+        required: true
+        range:
+          type: string
+      totalDeliveryChargeTaxAmount:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalDeliveryChargeTaxAmount
+        range:
+          type: string
+      totalDeliveryTaxAmount:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalDeliveryTaxAmount
+        range:
+          type: string
+      totalDeliveryAdjustmentAmount:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalDeliveryAdjustmentAmount
+        range:
+          type: string
+      totalProductTaxAmount:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalProductTaxAmount
+        range:
+          type: string
+      totalTaxAmount:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalTaxAmount
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/id
+        required: true
+        range:
+          type: string
+      promisedDate:
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/promisedDate
+        range:
+          type: string
+    associations:
+      orderDeliveryMethod:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/orderDeliveryMethod
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/OrderDeliveryMethod
+      originalDeliveryGroup:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/originalDeliveryGroup
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderDeliveryGroup
+      accountContact:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/accountContact
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+      contactPointAddress:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/contactPointAddress
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      salesOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/salesOrder
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
+      salesOrderDeliveryStatus:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderDeliveryGroup/attr/salesOrderDeliveryStatus
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderDeliveryStatus
+    description: One or more Sales Order Products that share a common Sales Order Delivery Method, and Shipping Address
+  Brand:
+    uuid: cim/entity/Brand
+    attributes:
+      brandGrade:
+        uuid: cim/entity/Brand/attr/brandGrade
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/Brand/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Brand/attr/id
+        required: true
+        range:
+          type: string
+    description: What is the brand of the product e.g. Snike shoes
+  Product Attribute Set:
+    uuid: cim/entity/ProductAttributeSet
+    attributes:
+      attributeSet:
+        uuid: cim/entity/ProductAttributeSet/attr/attributeSet
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductAttributeSet/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ProductAttributeSet/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: A set of attributes e.g. shoe attributes that are assigned to a particular instance of Product
+  Product Collateral:
+    uuid: cim/entity/ProductCollateral
+    attributes:
+      uRL:
+        uuid: cim/entity/ProductCollateral/attr/uRL
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductCollateral/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ProductCollateral/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: Collateral for a product e.g. link to brochure one
+  Goods Product:
+    uuid: cim/entity/GoodsProduct
+    attributes:
+      type:
+        uuid: cim/entity/GoodsProduct/attr/type
+        range:
+          type: string
+      requiresUnitPriceLabel:
+        uuid: cim/entity/GoodsProduct/attr/requiresUnitPriceLabel
+        required: true
+        range:
+          type: string
+    description: Products you can touch e.g. cart of milk, pallet of coffee, mobile phone x model 1
+  Product Category Attribute Set:
+    uuid: cim/entity/ProductCategoryAttributeSet
+    attributes:
+      attributeSet:
+        uuid: cim/entity/ProductCategoryAttributeSet/attr/attributeSet
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductCategoryAttributeSet/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      productCategory:
+        allowMultiple: true
+        uuid: cim/entity/ProductCategoryAttributeSet/attr/productCategory
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
+    description: Assignment of an Attribute Set to a Product Category e.g. the Shoe attribute set assigned to the Shoes category
+  Shipment Status:
+    uuid: cim/entity/ShipmentStatus
+    attributes:
+      description:
+        uuid: cim/entity/ShipmentStatus/attr/description
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ShipmentStatus/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ShipmentStatus/attr/id
+        required: true
+        range:
+          type: string
+    description: The stage of a shipment. Possible values could be pre-transit, in transit, delayed, delivered
+  Party Related Party:
+    uuid: cim/entity/PartyRelatedParty
+    attributes:
+      relatedToDate:
+        uuid: cim/entity/PartyRelatedParty/attr/relatedToDate
+        required: true
+        range:
+          type: string
+      relatedFromDate:
+        uuid: cim/entity/PartyRelatedParty/attr/relatedFromDate
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PartyRelatedParty/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      partyRelationshipType:
+        allowMultiple: true
+        uuid: cim/entity/PartyRelatedParty/attr/partyRelationshipType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRelationshipType
+      relatedParty:
+        allowMultiple: true
+        uuid: cim/entity/PartyRelatedParty/attr/relatedParty
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+      party:
+        allowMultiple: true
+        uuid: cim/entity/PartyRelatedParty/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Relates any two parties together e.g. Jane and John Doe part of The Doe Household
+  Sales Order Product Note:
+    uuid: cim/entity/SalesOrderProductNote
+    attributes:
+      noteText:
+        uuid: cim/entity/SalesOrderProductNote/attr/noteText
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/SalesOrderProductNote/attr/description
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderProductNote/attr/id
+        required: true
+        range:
+          type: string
+    description: A document accompanying a Sales Order that lists the description, quantity of the goods to be delivered or other information.
+  Product:
+    uuid: cim/entity/Product
+    attributes:
+      validFromDate:
+        uuid: cim/entity/Product/attr/validFromDate
+        range:
+          type: string
+      modelNumber:
+        uuid: cim/entity/Product/attr/modelNumber
+        range:
+          type: string
+      quantityInstallmentCount:
+        uuid: cim/entity/Product/attr/quantityInstallmentCount
+        range:
+          type: integer
+      isSellableIndependently:
+        uuid: cim/entity/Product/attr/isSellableIndependently
+        required: true
+        range:
+          type: string
+      versionNumber:
+        uuid: cim/entity/Product/attr/versionNumber
+        range:
+          type: string
+      isPartnerDiscountAllowed:
+        uuid: cim/entity/Product/attr/isPartnerDiscountAllowed
+        required: true
+        range:
+          type: string
+      isSellable:
+        uuid: cim/entity/Product/attr/isSellable
+        range:
+          type: string
+      allowPartialRefund:
+        uuid: cim/entity/Product/attr/allowPartialRefund
+        range:
+          type: string
+      isFoodstampPaymentAllowed:
+        uuid: cim/entity/Product/attr/isFoodstampPaymentAllowed
+        required: true
+        range:
+          type: string
+      isAutoProvisionable:
+        uuid: cim/entity/Product/attr/isAutoProvisionable
+        required: true
+        range:
+          type: string
+      canUseRevenueSchedule:
+        uuid: cim/entity/Product/attr/canUseRevenueSchedule
+        required: true
+        range:
+          type: string
+      isQuantityEntryRequired:
+        uuid: cim/entity/Product/attr/isQuantityEntryRequired
+        required: true
+        range:
+          type: string
+      quantityInstallmentPeriod:
+        uuid: cim/entity/Product/attr/quantityInstallmentPeriod
+        range:
+          type: string
+      revenueInstallmentCount:
+        uuid: cim/entity/Product/attr/revenueInstallmentCount
+        range:
+          type: integer
+      isBackOrdered:
+        uuid: cim/entity/Product/attr/isBackOrdered
+        required: true
+        range:
+          type: string
+      rewardProgramPointsCount:
+        uuid: cim/entity/Product/attr/rewardProgramPointsCount
+        range:
+          type: integer
+      disposalType:
+        uuid: cim/entity/Product/attr/disposalType
+        range:
+          type: string
+      priceChargeType:
+        uuid: cim/entity/Product/attr/priceChargeType
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/Product/attr/description
+        required: true
+        range:
+          type: string
+      quantityScheduleType:
+        uuid: cim/entity/Product/attr/quantityScheduleType
+        range:
+          type: string
+      isSerialized:
+        uuid: cim/entity/Product/attr/isSerialized
+        required: true
+        range:
+          type: string
+      isManualPriceEntryRequired:
+        uuid: cim/entity/Product/attr/isManualPriceEntryRequired
+        required: true
+        range:
+          type: string
+      isMultipleCouponsAllowed:
+        uuid: cim/entity/Product/attr/isMultipleCouponsAllowed
+        required: true
+        range:
+          type: string
+      longDescription:
+        uuid: cim/entity/Product/attr/longDescription
+        required: true
+        range:
+          type: string
+      isIntellectualPropertyProtected:
+        uuid: cim/entity/Product/attr/isIntellectualPropertyProtected
+        range:
+          type: string
+      isRainCheckAllowed:
+        uuid: cim/entity/Product/attr/isRainCheckAllowed
+        required: true
+        range:
+          type: string
+      brandGrade:
+        uuid: cim/entity/Product/attr/brandGrade
+        range:
+          type: string
+      isCustomerDiscountAllowed:
+        uuid: cim/entity/Product/attr/isCustomerDiscountAllowed
+        required: true
+        range:
+          type: string
+      lotIdentifier:
+        uuid: cim/entity/Product/attr/lotIdentifier
+        range:
+          type: string
+      productSKU:
+        uuid: cim/entity/Product/attr/productSKU
+        required: true
+        range:
+          type: string
+      isQualityVerificationRequired:
+        uuid: cim/entity/Product/attr/isQualityVerificationRequired
+        required: true
+        range:
+          type: string
+      maximumOrderQuantityCount:
+        uuid: cim/entity/Product/attr/maximumOrderQuantityCount
+        range:
+          type: integer
+      modelYear:
+        uuid: cim/entity/Product/attr/modelYear
+        range:
+          type: integer
+      id:
+        uuid: cim/entity/Product/attr/id
+        required: true
+        range:
+          type: string
+      allowCustomerReturn:
+        uuid: cim/entity/Product/attr/allowCustomerReturn
+        range:
+          type: string
+      revenueInstallmentPeriod:
+        uuid: cim/entity/Product/attr/revenueInstallmentPeriod
+        range:
+          type: string
+      name:
+        uuid: cim/entity/Product/attr/name
+        required: true
+        range:
+          type: string
+      glAccountCode:
+        uuid: cim/entity/Product/attr/glAccountCode
+        range:
+          type: string
+      isInstallable:
+        uuid: cim/entity/Product/attr/isInstallable
+        required: true
+        range:
+          type: string
+      minimumAdvertisementAmount:
+        uuid: cim/entity/Product/attr/minimumAdvertisementAmount
+        range:
+          type: string
+      minimumAdvertisementAmountStartDate:
+        uuid: cim/entity/Product/attr/minimumAdvertisementAmountStartDate
+        range:
+          type: string
+      manufacturerName:
+        uuid: cim/entity/Product/attr/manufacturerName
+        range:
+          type: string
+      requiresInvididualUnitPricing:
+        uuid: cim/entity/Product/attr/requiresInvididualUnitPricing
+        required: true
+        range:
+          type: string
+      displayUrl:
+        uuid: cim/entity/Product/attr/displayUrl
+        range:
+          type: string
+      requiredDepositAmount:
+        uuid: cim/entity/Product/attr/requiredDepositAmount
+        range:
+          type: string
+      isDynamicBundle:
+        uuid: cim/entity/Product/attr/isDynamicBundle
+        required: true
+        range:
+          type: string
+      requiredDepositPercentage:
+        uuid: cim/entity/Product/attr/requiredDepositPercentage
+        range:
+          type: string
+      minimumOrderQuantityCount:
+        uuid: cim/entity/Product/attr/minimumOrderQuantityCount
+        range:
+          type: integer
+      canUseQuantitySchedule:
+        uuid: cim/entity/Product/attr/canUseQuantitySchedule
+        required: true
+        range:
+          type: string
+      isReturnable:
+        uuid: cim/entity/Product/attr/isReturnable
+        required: true
+        range:
+          type: string
+      isWorkerDiscountAllowed:
+        uuid: cim/entity/Product/attr/isWorkerDiscountAllowed
+        required: true
+        range:
+          type: string
+      externalSourceRecord:
+        uuid: cim/entity/Product/attr/externalSourceRecord
+        range:
+          type: string
+      validToDate:
+        uuid: cim/entity/Product/attr/validToDate
+        range:
+          type: string
+      validForPeriodCount:
+        uuid: cim/entity/Product/attr/validForPeriodCount
+        range:
+          type: integer
+      revenueScheduleType:
+        uuid: cim/entity/Product/attr/revenueScheduleType
+        range:
+          type: string
+      isWeightEntryRequired:
+        uuid: cim/entity/Product/attr/isWeightEntryRequired
+        required: true
+        range:
+          type: string
+      isCouponRedemptionAllowed:
+        uuid: cim/entity/Product/attr/isCouponRedemptionAllowed
+        required: true
+        range:
+          type: string
+      type:
+        uuid: cim/entity/Product/attr/type
+        range:
+          type: string
+      standardWarrantyLengthMonth:
+        uuid: cim/entity/Product/attr/standardWarrantyLengthMonth
+        range:
+          type: integer
+      isSellableWithoutPrice:
+        uuid: cim/entity/Product/attr/isSellableWithoutPrice
+        required: true
+        range:
+          type: string
+      isPreOrderable:
+        uuid: cim/entity/Product/attr/isPreOrderable
+        required: true
+        range:
+          type: string
+      productStatus:
+        uuid: cim/entity/Product/attr/productStatus
+        required: true
+        range:
+          type: string
+      stockLedgerValuationAmount:
+        uuid: cim/entity/Product/attr/stockLedgerValuationAmount
+        range:
+          type: integer
+      mSRPAmount:
+        uuid: cim/entity/Product/attr/mSRPAmount
+        range:
+          type: string
+    associations:
+      validForPeriodUOM:
+        allowMultiple: true
+        uuid: cim/entity/Product/attr/validForPeriodUOM
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductValidityTimePeriodUOM
+      masterProduct:
+        allowMultiple: true
+        uuid: cim/entity/Product/attr/masterProduct
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+      primaryProductCategory:
+        allowMultiple: true
+        uuid: cim/entity/Product/attr/primaryProductCategory
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
+      brand:
+        allowMultiple: true
+        uuid: cim/entity/Product/attr/brand
+        target: http://mulesoft.com/modeling/instances/cim/entity/Brand
+      primarySalesChannel:
+        allowMultiple: true
+        uuid: cim/entity/Product/attr/primarySalesChannel
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesChannel
+    description: What is intended to be sold e.g. goods, services, bundles, made to order products.
+  Credit Tender:
+    uuid: cim/entity/CreditTender
+    associations:
+      paymentMethodType:
+        allowMultiple: true
+        uuid: cim/entity/CreditTender/attr/paymentMethodType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType
+      account:
+        allowMultiple: true
+        uuid: cim/entity/CreditTender/attr/account
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+    description: Payment to the seller that results in an agreement to pay at a later date, usually via a credit account.
+  Sales Order Delivery Status:
+    uuid: cim/entity/SalesOrderDeliveryStatus
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderDeliveryStatus/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderDeliveryStatus/attr/id
+        required: true
+        range:
+          type: string
+    description: The progress of a delivery such as awaiting pickup, in progress or complete
+  Sales Order Tax:
+    uuid: cim/entity/SalesOrderTax
+    attributes:
+      salesOrderTaxAmount:
+        uuid: cim/entity/SalesOrderTax/attr/salesOrderTaxAmount
+        range:
+          type: string
+      taxAddressStreet2Text:
+        uuid: cim/entity/SalesOrderTax/attr/taxAddressStreet2Text
+        range:
+          type: string
+      taxAddressStreet1Text:
+        uuid: cim/entity/SalesOrderTax/attr/taxAddressStreet1Text
+        range:
+          type: string
+      taxErrorMessageText:
+        uuid: cim/entity/SalesOrderTax/attr/taxErrorMessageText
+        range:
+          type: string
+      taxRatePercent:
+        uuid: cim/entity/SalesOrderTax/attr/taxRatePercent
+        required: true
+        range:
+          type: integer
+      taxAddressCityName:
+        uuid: cim/entity/SalesOrderTax/attr/taxAddressCityName
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderTax/attr/id
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/SalesOrderTax/attr/name
+        required: true
+        range:
+          type: string
+    description: "A charge that is imposed by a government entity for public purposes. Types are aligned to phases of the process: SalesOrderTax, FulfillmentProductTax and ShipmentProductTax"
+  Sales Order Price Adjustment Type:
+    uuid: cim/entity/SalesOrderPriceAdjustmentType
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderPriceAdjustmentType/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderPriceAdjustmentType/attr/id
+        required: true
+        range:
+          type: string
+    description: Reasons for adjusting the price of an order such as promotional discount, or customer satisfaction issue
+  Product Catalog Translation:
+    uuid: cim/entity/ProductCatalogTranslation
+    attributes:
+      translatedName:
+        uuid: cim/entity/ProductCatalogTranslation/attr/translatedName
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductCatalogTranslation/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      productCatalog:
+        allowMultiple: true
+        uuid: cim/entity/ProductCatalogTranslation/attr/productCatalog
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCatalog
+    description: Translated attributes for a product catalog
+  Payment Gateway Authorization Log:
+    uuid: cim/entity/PaymentGatewayAuthorizationLog
+    associations:
+      paymentGatewayResult:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGatewayAuthorizationLog/attr/paymentGatewayResult
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
+      paymentAuthorization:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGatewayAuthorizationLog/attr/paymentAuthorization
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAuthorization
+    description: A log record of all requests made to financial institutions, made via the payment gateway, to authorize payments.
+  Sales Order Product:
+    uuid: cim/entity/SalesOrderProduct
+    attributes:
+      orderedQuantity:
+        uuid: cim/entity/SalesOrderProduct/attr/orderedQuantity
+        required: true
+        range:
+          type: string
+      unitPriceAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/unitPriceAmount
+        range:
+          type: string
+      discountPercent:
+        uuid: cim/entity/SalesOrderProduct/attr/discountPercent
+        range:
+          type: integer
+      giftRecipientTelephoneNumber:
+        uuid: cim/entity/SalesOrderProduct/attr/giftRecipientTelephoneNumber
+        range:
+          type: string
+      totalAdjustmentTaxAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalAdjustmentTaxAmount
+        range:
+          type: string
+      totalLineAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalLineAmount
+        range:
+          type: string
+      allocationPartitionName:
+        uuid: cim/entity/SalesOrderProduct/attr/allocationPartitionName
+        range:
+          type: string
+      allocatedQuantity:
+        uuid: cim/entity/SalesOrderProduct/attr/allocatedQuantity
+        range:
+          type: string
+      totalProductTaxAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalProductTaxAmount
+        range:
+          type: string
+      provisioningDate:
+        uuid: cim/entity/SalesOrderProduct/attr/provisioningDate
+        range:
+          type: string
+      totalPriceAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalPriceAmount
+        required: true
+        range:
+          type: string
+      totalLineAdjustmentAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalLineAdjustmentAmount
+        range:
+          type: string
+      adjustedDeliveryTaxAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/adjustedDeliveryTaxAmount
+        range:
+          type: string
+      handlingCostAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/handlingCostAmount
+        range:
+          type: string
+      requestedStartDate:
+        uuid: cim/entity/SalesOrderProduct/attr/requestedStartDate
+        range:
+          type: string
+      unitTaxAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/unitTaxAmount
+        range:
+          type: integer
+      discountAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/discountAmount
+        range:
+          type: string
+      totalDistributedAdjustmentTaxAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalDistributedAdjustmentTaxAmount
+        range:
+          type: string
+      totalListPriceAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalListPriceAmount
+        range:
+          type: string
+      requestedEndDate:
+        uuid: cim/entity/SalesOrderProduct/attr/requestedEndDate
+        range:
+          type: string
+      segmentIndex:
+        uuid: cim/entity/SalesOrderProduct/attr/segmentIndex
+        range:
+          type: integer
+      deliveryTaxAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/deliveryTaxAmount
+        range:
+          type: string
+      lineAdjustmentSubTotalAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/lineAdjustmentSubTotalAmount
+        range:
+          type: string
+      cancelledQuantity:
+        uuid: cim/entity/SalesOrderProduct/attr/cancelledQuantity
+        range:
+          type: string
+      shippingCostAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/shippingCostAmount
+        range:
+          type: string
+      shippingTaxAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/shippingTaxAmount
+        range:
+          type: string
+      availableQuantity:
+        uuid: cim/entity/SalesOrderProduct/attr/availableQuantity
+        range:
+          type: string
+      allocationGroupName:
+        uuid: cim/entity/SalesOrderProduct/attr/allocationGroupName
+        range:
+          type: string
+      listPriceAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/listPriceAmount
+        range:
+          type: string
+      isAutomaticallyRenewed:
+        uuid: cim/entity/SalesOrderProduct/attr/isAutomaticallyRenewed
+        range:
+          type: string
+      totalTaxAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalTaxAmount
+        range:
+          type: string
+      description:
+        uuid: cim/entity/SalesOrderProduct/attr/description
+        required: true
+        range:
+          type: string
+      listPriceQuantityUOM:
+        uuid: cim/entity/SalesOrderProduct/attr/listPriceQuantityUOM
+        required: true
+        range:
+          type: string
+      quantityOrderedUOM:
+        uuid: cim/entity/SalesOrderProduct/attr/quantityOrderedUOM
+        required: true
+        range:
+          type: string
+      recurringPriceAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/recurringPriceAmount
+        range:
+          type: string
+      promisedDate:
+        uuid: cim/entity/SalesOrderProduct/attr/promisedDate
+        range:
+          type: string
+      isBonusProduct:
+        uuid: cim/entity/SalesOrderProduct/attr/isBonusProduct
+        range:
+          type: string
+      orderManualAdjustmentSubTotalAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/orderManualAdjustmentSubTotalAmount
+        range:
+          type: string
+      subscriptionRenewalMonthQuantity:
+        uuid: cim/entity/SalesOrderProduct/attr/subscriptionRenewalMonthQuantity
+        range:
+          type: string
+      isBundleRoot:
+        uuid: cim/entity/SalesOrderProduct/attr/isBundleRoot
+        range:
+          type: string
+      totalDistributedAdjustmentAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalDistributedAdjustmentAmount
+        range:
+          type: string
+      giftOrderMessageText:
+        uuid: cim/entity/SalesOrderProduct/attr/giftOrderMessageText
+        range:
+          type: string
+      commentText:
+        uuid: cim/entity/SalesOrderProduct/attr/commentText
+        range:
+          type: string
+      segmentIndexNumber:
+        uuid: cim/entity/SalesOrderProduct/attr/segmentIndexNumber
+        range:
+          type: string
+      isGift:
+        uuid: cim/entity/SalesOrderProduct/attr/isGift
+        range:
+          type: string
+      totalManualAdjustmentAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalManualAdjustmentAmount
+        range:
+          type: string
+      orderAdjustmentSubTotalAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/orderAdjustmentSubTotalAmount
+        range:
+          type: string
+      orderProductNumber:
+        uuid: cim/entity/SalesOrderProduct/attr/orderProductNumber
+        required: true
+        range:
+          type: string
+      fulfilledQuantity:
+        uuid: cim/entity/SalesOrderProduct/attr/fulfilledQuantity
+        range:
+          type: integer
+      endDate:
+        uuid: cim/entity/SalesOrderProduct/attr/endDate
+        range:
+          type: string
+      totalRecurringPriceAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalRecurringPriceAmount
+        range:
+          type: string
+      salesOrderProductAdjustedTaxAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/salesOrderProductAdjustedTaxAmount
+        range:
+          type: string
+      subscriptionTermQuantity:
+        uuid: cim/entity/SalesOrderProduct/attr/subscriptionTermQuantity
+        range:
+          type: string
+      totalUnitPriceAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalUnitPriceAmount
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderProduct/attr/id
+        required: true
+        range:
+          type: string
+      totalAdjustmentAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalAdjustmentAmount
+        range:
+          type: string
+      totalDistributedTaxAmount:
+        uuid: cim/entity/SalesOrderProduct/attr/totalDistributedTaxAmount
+        range:
+          type: string
+    associations:
+      subscriptionTermUnit:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/subscriptionTermUnit
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductValidityTimePeriodUOM
+      sellerAccount:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/sellerAccount
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      shippingPhone:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/shippingPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      priceBookEntry:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/priceBookEntry
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PriceBookEntry
+      shippingAddress:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/shippingAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      salesOrderDeliveryGroup:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/salesOrderDeliveryGroup
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderDeliveryGroup
+      shippingEmail:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/shippingEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
+      product:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+      salesOrderProductStatus:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/salesOrderProductStatus
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProductStatus
+      originalOrderProduct:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/originalOrderProduct
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
+      salesOrderProductReason:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/salesOrderProductReason
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProductReason
+      listPriceTermUOM:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/listPriceTermUOM
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductValidityTimePeriodUOM
+      salesOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderProduct/attr/salesOrder
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
+    description: A component of a Sales Order that identifies a product or service that will be sold to the customer
+  Billing Frequency:
+    uuid: cim/entity/BillingFrequency
+    attributes:
+      billingFrequencyName:
+        uuid: cim/entity/BillingFrequency/attr/billingFrequencyName
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/BillingFrequency/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/BillingFrequency/attr/id
+        required: true
+        range:
+          type: string
+    description: Describes a period of time used for recurring bills e.g. monthly or semi-monthly
+  Lead:
+    uuid: cim/entity/Lead
+    attributes:
+      leadSource:
+        uuid: cim/entity/Lead/attr/leadSource
+        required: true
         range:
           type: string
       companyName:
         uuid: cim/entity/Lead/attr/companyName
         range:
           type: string
+      lastActivityDate:
+        uuid: cim/entity/Lead/attr/lastActivityDate
+        range:
+          type: string
+      description:
+        uuid: cim/entity/Lead/attr/description
+        range:
+          type: string
+      countryName:
+        uuid: cim/entity/Lead/attr/countryName
+        range:
+          type: string
+      leadRating:
+        uuid: cim/entity/Lead/attr/leadRating
+        range:
+          type: string
+      photoURL:
+        uuid: cim/entity/Lead/attr/photoURL
+        range:
+          type: string
+      geoCodeAccuracy:
+        uuid: cim/entity/Lead/attr/geoCodeAccuracy
+        range:
+          type: string
+      streetName:
+        uuid: cim/entity/Lead/attr/streetName
+        range:
+          type: string
       website:
         uuid: cim/entity/Lead/attr/website
-        range:
-          type: string
-      leadStatus:
-        uuid: cim/entity/Lead/attr/leadStatus
-        range:
-          type: string
-      isConverted:
-        uuid: cim/entity/Lead/attr/isConverted
         range:
           type: string
       convertedDate:
         uuid: cim/entity/Lead/attr/convertedDate
         range:
           type: string
-      countryName:
-        uuid: cim/entity/Lead/attr/countryName
+      annualRevenue:
+        uuid: cim/entity/Lead/attr/annualRevenue
+        range:
+          type: integer
+      geoCodeLatitude:
+        uuid: cim/entity/Lead/attr/geoCodeLatitude
+        range:
+          type: string
+      geoCodeLongitude:
+        uuid: cim/entity/Lead/attr/geoCodeLongitude
         range:
           type: string
       id:
@@ -86,27 +3176,43 @@ entities:
         required: true
         range:
           type: string
-      description:
-        uuid: cim/entity/Lead/attr/description
+      stateProvinceName:
+        uuid: cim/entity/Lead/attr/stateProvinceName
         range:
           type: string
+      leadStatus:
+        uuid: cim/entity/Lead/attr/leadStatus
+        range:
+          type: string
+      emailBouncedDate:
+        uuid: cim/entity/Lead/attr/emailBouncedDate
+        range:
+          type: string
+      isConverted:
+        uuid: cim/entity/Lead/attr/isConverted
+        range:
+          type: string
+      emailBouncedReason:
+        uuid: cim/entity/Lead/attr/emailBouncedReason
+        range:
+          type: string
+      leadScore:
+        uuid: cim/entity/Lead/attr/leadScore
+        range:
+          type: integer
     associations:
-      faxContactPhone:
-        allowMultiple: true
-        uuid: cim/entity/Lead/attr/faxContactPhone
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
-      partnerAccount:
-        allowMultiple: true
-        uuid: cim/entity/Lead/attr/partnerAccount
-        target: http://mulesoft.com/modeling/instances/cim/entity/Account
-      convertedToAccount:
-        allowMultiple: true
-        uuid: cim/entity/Lead/attr/convertedToAccount
-        target: http://mulesoft.com/modeling/instances/cim/entity/Account
       convertedToAccountContact:
         allowMultiple: true
         uuid: cim/entity/Lead/attr/convertedToAccountContact
         target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
+      contactPointEmail:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/contactPointEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
+      partnerAccount:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/partnerAccount
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
       partyRole:
         allowMultiple: true
         uuid: cim/entity/Lead/attr/partyRole
@@ -116,16 +3222,1259 @@ entities:
         allowMultiple: true
         uuid: cim/entity/Lead/attr/mobileContactPhone
         target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
-      contactPointEmail:
+      convertedToAccount:
         allowMultiple: true
-        uuid: cim/entity/Lead/attr/contactPointEmail
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
-      contactAddress:
-        allowMultiple: true
-        uuid: cim/entity/Lead/attr/contactAddress
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+        uuid: cim/entity/Lead/attr/convertedToAccount
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
       phoneContactPoint:
         allowMultiple: true
         uuid: cim/entity/Lead/attr/phoneContactPoint
         target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      faxContactPhone:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/faxContactPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+      contactAddress:
+        allowMultiple: true
+        uuid: cim/entity/Lead/attr/contactAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
     description: A person or company that showed interest in the company's products
+  Payment Invoice Allocation:
+    uuid: cim/entity/PaymentInvoiceAllocation
+    associations:
+      relatedPaymentAllocation:
+        allowMultiple: true
+        uuid: cim/entity/PaymentInvoiceAllocation/attr/relatedPaymentAllocation
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAllocation
+      paymentInvoiceApplication:
+        allowMultiple: true
+        uuid: cim/entity/PaymentInvoiceAllocation/attr/paymentInvoiceApplication
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentInvoiceApplication
+    description: Facilitates applying a Payment Application to the line items of an Invoice.
+  Payment Gateway Interaction Type:
+    uuid: cim/entity/PaymentGatewayInteractionType
+    attributes:
+      id:
+        uuid: cim/entity/PaymentGatewayInteractionType/attr/id
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PaymentGatewayInteractionType/attr/name
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/PaymentGatewayInteractionType/attr/description
+        required: true
+        range:
+          type: string
+    description: Reasons for accessing the Payment Gateway, including authorization, Sale and Void.
+  Product Catalog:
+    uuid: cim/entity/ProductCatalog
+    attributes:
+      activeToDate:
+        uuid: cim/entity/ProductCatalog/attr/activeToDate
+        range:
+          type: string
+      activeFromDate:
+        uuid: cim/entity/ProductCatalog/attr/activeFromDate
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ProductCatalog/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductCatalog/attr/id
+        required: true
+        range:
+          type: string
+    description: A catalog used for a certain business process e.g. inventory, merchandizing
+  Household:
+    uuid: cim/entity/Household
+    attributes:
+      noMergeReason:
+        uuid: cim/entity/Household/attr/noMergeReason
+        range:
+          type: string
+      householdDissolvedDate:
+        uuid: cim/entity/Household/attr/householdDissolvedDate
+        range:
+          type: string
+    description: A combination of people, normally recorded in the system for marketing or service purposes
+  Sales Order Segment:
+    uuid: cim/entity/SalesOrderSegment
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderSegment/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderSegment/attr/id
+        required: true
+        range:
+          type: string
+    description: A sub-period of an overall subscription which has pricing associated with it
+  Sales Order Product Group Type:
+    uuid: cim/entity/SalesOrderProductGroupType
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderProductGroupType/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderProductGroupType/attr/id
+        required: true
+        range:
+          type: string
+    description: Reasons for grouping products together on sales orders, for example products that ship together.
+  Shipment Document:
+    uuid: cim/entity/ShipmentDocument
+    attributes:
+      id:
+        uuid: cim/entity/ShipmentDocument/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      shipment:
+        allowMultiple: true
+        uuid: cim/entity/ShipmentDocument/attr/shipment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment
+    description: A receipt, bill of lading or other document that is delivered with the shipment to explain the purchase or shipment contents.
+  Product Image Translation:
+    uuid: cim/entity/ProductImageTranslation
+    attributes:
+      translatedName:
+        uuid: cim/entity/ProductImageTranslation/attr/translatedName
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductImageTranslation/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      productImage:
+        allowMultiple: true
+        uuid: cim/entity/ProductImageTranslation/attr/productImage
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductImage
+    description: Translated attributes for a product image
+  Sales Order Type:
+    uuid: cim/entity/SalesOrderType
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderType/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderType/attr/id
+        required: true
+        range:
+          type: string
+    description: Classifies a Sales Order as a New, Renewal or Change order
+  Product Translation:
+    uuid: cim/entity/ProductTranslation
+    attributes:
+      longDescription:
+        uuid: cim/entity/ProductTranslation/attr/longDescription
+        range:
+          type: string
+      description:
+        uuid: cim/entity/ProductTranslation/attr/description
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ProductTranslation/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductTranslation/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ProductTranslation/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+    description: Translated attributes for a product
+  Sales Channel Type:
+    uuid: cim/entity/SalesChannelType
+    attributes:
+      name:
+        uuid: cim/entity/SalesChannelType/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesChannelType/attr/id
+        required: true
+        range:
+          type: string
+    description: Standard ways of selling products such as web, retail, direct marketing, etc
+  Contact Point Type:
+    uuid: cim/entity/ContactPointType
+    attributes:
+      optInPriority:
+        uuid: cim/entity/ContactPointType/attr/optInPriority
+        required: true
+        range:
+          type: integer
+      name:
+        uuid: cim/entity/ContactPointType/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ContactPointType/attr/id
+        required: true
+        range:
+          type: string
+    description: Contain the fixed list of types a contact point can be of e.g. phone, email
+  Sales Order Change Log:
+    uuid: cim/entity/SalesOrderChangeLog
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderChangeLog/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderChangeLog/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      changeSalesOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderChangeLog/attr/changeSalesOrder
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
+      relatedSalesOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderChangeLog/attr/relatedSalesOrder
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
+      relatedSalesOrderProduct:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderChangeLog/attr/relatedSalesOrderProduct
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
+      changeSalesOrderProduct:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrderChangeLog/attr/changeSalesOrderProduct
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
+    description: Change log for sales order
+  Refund Credit Memo Allocation:
+    uuid: cim/entity/RefundCreditMemoAllocation
+    attributes:
+      id:
+        uuid: cim/entity/RefundCreditMemoAllocation/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      refundPayment:
+        allowMultiple: true
+        uuid: cim/entity/RefundCreditMemoAllocation/attr/refundPayment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/RefundPayment
+    description: Facilitates applying/unapplying refund balance to a credit memo.
+  Shipment Product Price Adjustment Tax:
+    uuid: cim/entity/ShipmentProductPriceAdjustmentTax
+    attributes:
+      name:
+        uuid: cim/entity/ShipmentProductPriceAdjustmentTax/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ShipmentProductPriceAdjustmentTax/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      shipmentProductPriceAdjustment:
+        allowMultiple: true
+        uuid: cim/entity/ShipmentProductPriceAdjustmentTax/attr/shipmentProductPriceAdjustment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ShipmentProductPriceAdjustment
+    description: A tax on the price of a Sales Order Product.
+  Customer Status History:
+    uuid: cim/entity/CustomerStatusHistory
+    attributes:
+      endDateTIme:
+        uuid: cim/entity/CustomerStatusHistory/attr/endDateTIme
+        required: true
+        range:
+          type: string
+      startDateTime:
+        uuid: cim/entity/CustomerStatusHistory/attr/startDateTime
+        required: true
+        range:
+          type: string
+      partyRoleStatus:
+        uuid: cim/entity/CustomerStatusHistory/attr/partyRoleStatus
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/CustomerStatusHistory/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      partyRole:
+        allowMultiple: true
+        uuid: cim/entity/CustomerStatusHistory/attr/partyRole
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
+    description: History of when customer changed frome one status to another
+  Product Category Product:
+    uuid: cim/entity/ProductCategoryProduct
+    attributes:
+      activeToDateTime:
+        uuid: cim/entity/ProductCategoryProduct/attr/activeToDateTime
+        range:
+          type: string
+      activeFromDateTime:
+        uuid: cim/entity/ProductCategoryProduct/attr/activeFromDateTime
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductCategoryProduct/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ProductCategoryProduct/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+      productCategory:
+        allowMultiple: true
+        uuid: cim/entity/ProductCategoryProduct/attr/productCategory
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
+    description: Assignment of product to categories e.g. the Nikedas shoe assigned to shoe and running categories
+  Customer:
+    uuid: cim/entity/Customer
+    attributes:
+      customerSatisfactionScore:
+        uuid: cim/entity/Customer/attr/customerSatisfactionScore
+        range:
+          type: integer
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/Customer/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Information about a party playing role of customer e.g. life time value, life cycle status
+  Price Adjustment Group:
+    uuid: cim/entity/PriceAdjustmentGroup
+    description: "Supertype of: Sales Order Price Adjustment, Sales Order Product Price Adjustment, and FulfillmentOrderProductPriceAdjustment"
+  Refund Payment Allocation:
+    uuid: cim/entity/RefundPaymentAllocation
+    associations:
+      refundPayment:
+        allowMultiple: true
+        uuid: cim/entity/RefundPaymentAllocation/attr/refundPayment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/RefundPayment
+      capturePayment:
+        allowMultiple: true
+        uuid: cim/entity/RefundPaymentAllocation/attr/capturePayment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/CapturePayment
+    description: Facilitates applying/unapplying refund balance to a payment.
+  Sales Order Status:
+    uuid: cim/entity/SalesOrderStatus
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderStatus/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderStatus/attr/id
+        required: true
+        range:
+          type: string
+    description: The status of a Sales Order
+  Shipment Package:
+    uuid: cim/entity/ShipmentPackage
+    attributes:
+      shipmentProductCount:
+        uuid: cim/entity/ShipmentPackage/attr/shipmentProductCount
+        required: true
+        range:
+          type: string
+      shipmentProductDescription:
+        uuid: cim/entity/ShipmentPackage/attr/shipmentProductDescription
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ShipmentPackage/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      shipment:
+        allowMultiple: true
+        uuid: cim/entity/ShipmentPackage/attr/shipment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment
+    description: A parcel of one or more items bundled together, so that they arrive at the customer's address as a single unit.
+  Party Relationship Type:
+    uuid: cim/entity/PartyRelationshipType
+    attributes:
+      isBidirectional:
+        uuid: cim/entity/PartyRelationshipType/attr/isBidirectional
+        required: true
+        range:
+          type: string
+      relatedPartyRole:
+        uuid: cim/entity/PartyRelationshipType/attr/relatedPartyRole
+        required: true
+        range:
+          type: string
+      partyRole:
+        uuid: cim/entity/PartyRelationshipType/attr/partyRole
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PartyRelationshipType/attr/id
+        required: true
+        range:
+          type: string
+    description: Define name of a relationship and how to read the relationship both ways e.g. household for / household member of
+  Payment Method Type:
+    uuid: cim/entity/PaymentMethodType
+    attributes:
+      maxTransactionAmount:
+        uuid: cim/entity/PaymentMethodType/attr/maxTransactionAmount
+        range:
+          type: string
+      mediaType:
+        uuid: cim/entity/PaymentMethodType/attr/mediaType
+        range:
+          type: string
+      maxPerPeriodAmount:
+        uuid: cim/entity/PaymentMethodType/attr/maxPerPeriodAmount
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PaymentMethodType/attr/name
+        range:
+          type: string
+      useMinimumAgeYear:
+        uuid: cim/entity/PaymentMethodType/attr/useMinimumAgeYear
+        range:
+          type: integer
+      typeRequiredIdentification:
+        uuid: cim/entity/PaymentMethodType/attr/typeRequiredIdentification
+        range:
+          type: string
+      typeDescription:
+        uuid: cim/entity/PaymentMethodType/attr/typeDescription
+        range:
+          type: string
+      maxPerPeriodTransactionCount:
+        uuid: cim/entity/PaymentMethodType/attr/maxPerPeriodTransactionCount
+        range:
+          type: integer
+      id:
+        uuid: cim/entity/PaymentMethodType/attr/id
+        required: true
+        range:
+          type: string
+    description: The category of payment method, such as payment card, check or digital wallet.
+  Supplier:
+    uuid: cim/entity/Supplier
+    attributes:
+      competitiveMarketingRank:
+        uuid: cim/entity/Supplier/attr/competitiveMarketingRank
+        range:
+          type: integer
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/Supplier/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Information about a party playing role of supplier e.g. vendor ranking
+  Person Language:
+    uuid: cim/entity/PersonLanguage
+    attributes:
+      writtenProficiencyLevel:
+        uuid: cim/entity/PersonLanguage/attr/writtenProficiencyLevel
+        range:
+          type: string
+      spokenProficiencyLevel:
+        uuid: cim/entity/PersonLanguage/attr/spokenProficiencyLevel
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PersonLanguage/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      individual:
+        allowMultiple: true
+        uuid: cim/entity/PersonLanguage/attr/individual
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
+    description: Languages a person can comprehend and level of comprehension
+  Product Related Product:
+    uuid: cim/entity/ProductRelatedProduct
+    attributes:
+      toDate:
+        uuid: cim/entity/ProductRelatedProduct/attr/toDate
+        range:
+          type: string
+      fromDate:
+        uuid: cim/entity/ProductRelatedProduct/attr/fromDate
+        required: true
+        range:
+          type: string
+      isDefaultOption:
+        uuid: cim/entity/ProductRelatedProduct/attr/isDefaultOption
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductRelatedProduct/attr/id
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ProductRelatedProduct/attr/name
+        required: true
+        range:
+          type: string
+    associations:
+      salesOrderProduct2:
+        allowMultiple: true
+        uuid: cim/entity/ProductRelatedProduct/attr/salesOrderProduct2
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
+      parentProduct:
+        allowMultiple: true
+        uuid: cim/entity/ProductRelatedProduct/attr/parentProduct
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+      childProduct:
+        allowMultiple: true
+        uuid: cim/entity/ProductRelatedProduct/attr/childProduct
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+      salesOrderProduct1:
+        allowMultiple: true
+        uuid: cim/entity/ProductRelatedProduct/attr/salesOrderProduct1
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
+      productRelationshipType:
+        allowMultiple: true
+        uuid: cim/entity/ProductRelatedProduct/attr/productRelationshipType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductRelationshipType
+    description: A grouping of products such as a product bundle
+  Refund Allocation:
+    uuid: cim/entity/RefundAllocation
+    attributes:
+      externalCreatedDate:
+        uuid: cim/entity/RefundAllocation/attr/externalCreatedDate
+        required: true
+        range:
+          type: string
+      refundBalanceAmount:
+        uuid: cim/entity/RefundAllocation/attr/refundBalanceAmount
+        required: true
+        range:
+          type: string
+      refundAllocationName:
+        uuid: cim/entity/RefundAllocation/attr/refundAllocationName
+        range:
+          type: string
+      appliedDate:
+        uuid: cim/entity/RefundAllocation/attr/appliedDate
+        required: true
+        range:
+          type: string
+      hasBeenUnapplied:
+        uuid: cim/entity/RefundAllocation/attr/hasBeenUnapplied
+        range:
+          type: string
+      refundAllocationType:
+        uuid: cim/entity/RefundAllocation/attr/refundAllocationType
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/RefundAllocation/attr/id
+        required: true
+        range:
+          type: string
+      unappliedDate:
+        uuid: cim/entity/RefundAllocation/attr/unappliedDate
+        required: true
+        range:
+          type: string
+      effectiveDate:
+        uuid: cim/entity/RefundAllocation/attr/effectiveDate
+        required: true
+        range:
+          type: string
+      allocatedAmount:
+        uuid: cim/entity/RefundAllocation/attr/allocatedAmount
+        required: true
+        range:
+          type: string
+    associations:
+      refundPayment:
+        allowMultiple: true
+        uuid: cim/entity/RefundAllocation/attr/refundPayment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/RefundPayment
+      relatedRefundAllocation:
+        allowMultiple: true
+        uuid: cim/entity/RefundAllocation/attr/relatedRefundAllocation
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/RefundAllocation
+    description: Facilitates applying/unapplying a capture payment, or a credit memo to a Refund Payment.
+  Payment:
+    uuid: cim/entity/Payment
+    attributes:
+      latestGatewayInternalResult:
+        uuid: cim/entity/Payment/attr/latestGatewayInternalResult
+        required: true
+        range:
+          type: string
+      latestGatewayReferenceNumber:
+        uuid: cim/entity/Payment/attr/latestGatewayReferenceNumber
+        required: true
+        range:
+          type: string
+      totalAppliedAmount:
+        uuid: cim/entity/Payment/attr/totalAppliedAmount
+        required: true
+        range:
+          type: string
+      iPAddress:
+        uuid: cim/entity/Payment/attr/iPAddress
+        range:
+          type: string
+      latestGatewayInternalReferenceNumber:
+        uuid: cim/entity/Payment/attr/latestGatewayInternalReferenceNumber
+        required: true
+        range:
+          type: string
+      paymentNumber:
+        uuid: cim/entity/Payment/attr/paymentNumber
+        required: true
+        range:
+          type: string
+      balanceAmount:
+        uuid: cim/entity/Payment/attr/balanceAmount
+        required: true
+        range:
+          type: string
+      latestGatewayDate:
+        uuid: cim/entity/Payment/attr/latestGatewayDate
+        required: true
+        range:
+          type: string
+      latestPaymentGatewayMessageText:
+        uuid: cim/entity/Payment/attr/latestPaymentGatewayMessageText
+        range:
+          type: string
+      paymentType:
+        uuid: cim/entity/Payment/attr/paymentType
+        required: true
+        range:
+          type: string
+      totalUnappliedAmount:
+        uuid: cim/entity/Payment/attr/totalUnappliedAmount
+        required: true
+        range:
+          type: string
+      customerEmailAddress:
+        uuid: cim/entity/Payment/attr/customerEmailAddress
+        range:
+          type: string
+      paymentAmount:
+        uuid: cim/entity/Payment/attr/paymentAmount
+        required: true
+        range:
+          type: string
+      paymentStatus:
+        uuid: cim/entity/Payment/attr/paymentStatus
+        required: true
+        range:
+          type: string
+      authorizationProcessingMode:
+        uuid: cim/entity/Payment/attr/authorizationProcessingMode
+        required: true
+        range:
+          type: string
+      commentText:
+        uuid: cim/entity/Payment/attr/commentText
+        required: true
+        range:
+          type: string
+      macAddress:
+        uuid: cim/entity/Payment/attr/macAddress
+        range:
+          type: string
+      paymentCancellationDate:
+        uuid: cim/entity/Payment/attr/paymentCancellationDate
+        required: true
+        range:
+          type: string
+      externalCreatedDate:
+        uuid: cim/entity/Payment/attr/externalCreatedDate
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Payment/attr/id
+        required: true
+        range:
+          type: string
+      paymentEffectiveDate:
+        uuid: cim/entity/Payment/attr/paymentEffectiveDate
+        required: true
+        range:
+          type: string
+      customerPhoneNumber:
+        uuid: cim/entity/Payment/attr/customerPhoneNumber
+        range:
+          type: string
+      netAppliedAmount:
+        uuid: cim/entity/Payment/attr/netAppliedAmount
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/Payment/attr/name
+        required: true
+        range:
+          type: string
+    associations:
+      account:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/account
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      paymentGroup:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/paymentGroup
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGroup
+      internalBusinessUnit:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/internalBusinessUnit
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/InternalBusinessUnit
+      latestGatewayResultCode:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/latestGatewayResultCode
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
+      salesOrderPaymentSummary:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/salesOrderPaymentSummary
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderPaymentSummary
+      paymentGateway:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/paymentGateway
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGateway
+      paymentMethod:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/paymentMethod
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
+      paymentTreatment:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/paymentTreatment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentTreatment
+    description: An amount of currency paid.
+  Shipment Product:
+    uuid: cim/entity/ShipmentProduct
+    attributes:
+      shipmentProductCount:
+        uuid: cim/entity/ShipmentProduct/attr/shipmentProductCount
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ShipmentProduct/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      shipment:
+        allowMultiple: true
+        uuid: cim/entity/ShipmentProduct/attr/shipment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ShipmentProduct/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+      shipmentPackage:
+        allowMultiple: true
+        uuid: cim/entity/ShipmentProduct/attr/shipmentPackage
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ShipmentPackage
+      salesOrderProduct:
+        allowMultiple: true
+        uuid: cim/entity/ShipmentProduct/attr/salesOrderProduct
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
+    description: An item on a list of one or more that comprises a shipment.
+  Payment Gateway Interaction Log:
+    uuid: cim/entity/PaymentGatewayInteractionLog
+    attributes:
+      paymentGatewayMessageText:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayMessageText
+        range:
+          type: string
+      paymentGatewayInteractionLogName:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayInteractionLogName
+        required: true
+        range:
+          type: string
+      paymentGatewayReferenceNumber:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayReferenceNumber
+        required: true
+        range:
+          type: string
+      internalReferenceNumber:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/internalReferenceNumber
+        required: true
+        range:
+          type: string
+      paymentGatewayAuthorizationCode:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayAuthorizationCode
+        required: true
+        range:
+          type: string
+      paymentGatewayAVSCode:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayAVSCode
+        required: true
+        range:
+          type: string
+      paymentGatewayDate:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayDate
+        required: true
+        range:
+          type: string
+      paymentGatewayInteractionStatus:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayInteractionStatus
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/id
+        required: true
+        range:
+          type: string
+      internalResultCode:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/internalResultCode
+        required: true
+        range:
+          type: string
+    associations:
+      paymentGatewayResult:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayResult
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
+      paymentGatewayInteractionType:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayInteractionType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayInteractionType
+    description: A log record of all messages exchanged with merchants made via the payment gateway, for authorizations and payments.
+  Sales Order Product Status:
+    uuid: cim/entity/SalesOrderProductStatus
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrderProductStatus/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrderProductStatus/attr/id
+        required: true
+        range:
+          type: string
+    description: The status of a line component of a Sales Order
+  Payment Policy:
+    uuid: cim/entity/PaymentPolicy
+    attributes:
+      paymentPolicyStatus:
+        uuid: cim/entity/PaymentPolicy/attr/paymentPolicyStatus
+        required: true
+        range:
+          type: string
+      paymentPolicyTreatmentSelection:
+        uuid: cim/entity/PaymentPolicy/attr/paymentPolicyTreatmentSelection
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/PaymentPolicy/attr/description
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PaymentPolicy/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentPolicy/attr/id
+        required: true
+        range:
+          type: string
+    description: This entity stores policy information for an org or an account which can be used to automate the process of payment application to invoice based on business needs.
+  Payment Gateway Authorization Reversal Log:
+    uuid: cim/entity/PaymentGatewayAuthReversalLog
+    associations:
+      paymentGatewayResult:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGatewayAuthReversalLog/attr/paymentGatewayResult
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
+      paymentAuthorizationReversal:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGatewayAuthReversalLog/attr/paymentAuthorizationReversal
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAuthorizationReversal
+    description: A log record of all requests made to financial institutions, made via the payment gateway, to cancel payment authorizations.
+  Uncategorized Party:
+    uuid: cim/entity/UncategorizedParty
+    attributes:
+      noMergeReason:
+        uuid: cim/entity/UncategorizedParty/attr/noMergeReason
+        range:
+          type: string
+      creationReason:
+        uuid: cim/entity/UncategorizedParty/attr/creationReason
+        range:
+          type: string
+    description: A party we may be, or will be, dealing with but we do not know who they are yet e.g. Social Handle 'TrustedNews' which we do not yet know if a person or a business but complain about our company so we want to log a case to investigate further. E.g. an ord
+  Payment Gateway:
+    uuid: cim/entity/PaymentGateway
+    attributes:
+      paymentGatewayStatus:
+        uuid: cim/entity/PaymentGateway/attr/paymentGatewayStatus
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PaymentGateway/attr/name
+        required: true
+        range:
+          type: string
+      systemCredential:
+        uuid: cim/entity/PaymentGateway/attr/systemCredential
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentGateway/attr/id
+        required: true
+        range:
+          type: string
+      paymentGatewayCommentText:
+        uuid: cim/entity/PaymentGateway/attr/paymentGatewayCommentText
+        range:
+          type: string
+    associations:
+      paymentGatewayProvider:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGateway/attr/paymentGatewayProvider
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayProvider
+    description: Holds the payment gateway merchant details which are used to interact external payment systems.
+  Device User Session:
+    uuid: cim/entity/DeviceUserSession
+    attributes:
+      name:
+        uuid: cim/entity/DeviceUserSession/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/DeviceUserSession/attr/id
+        required: true
+        range:
+          type: string
+    description: A time-bound period when a person used a website or other service, also known as a Visit
+  Payment Gateway Payment Log:
+    uuid: cim/entity/PaymentGatewayPaymentLog
+    associations:
+      paymentGatewayResult:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGatewayPaymentLog/attr/paymentGatewayResult
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
+      payment:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGatewayPaymentLog/attr/payment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Payment
+    description: A log record of all messages originating with financial institutions that previously provided payment authorizations, that payments have been deducted from customers' accounts.
+  Renewal Term:
+    uuid: cim/entity/RenewalTerm
+    attributes:
+      name:
+        uuid: cim/entity/RenewalTerm/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/RenewalTerm/attr/id
+        required: true
+        range:
+          type: string
+    description: For renewal orders, the length of the renewal term
+  Sales Order Price Adjustment:
+    uuid: cim/entity/SalesOrderPriceAdjustment
+    attributes:
+      totalAdjustmentTaxAmount:
+        uuid: cim/entity/SalesOrderPriceAdjustment/attr/totalAdjustmentTaxAmount
+        range:
+          type: string
+    description: A change to the price of a Sales Order that is made before order fulfillment. A Sales Order Price Adjustment may be comprised of Sales Order Product Price Adjustments that allocate the overall adjustment amount to one or more of the products and services
+  Contact Point App:
+    uuid: cim/entity/ContactPointApp
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/ContactPointApp/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+      applicationLogin:
+        uuid: cim/entity/ContactPointApp/attr/applicationLogin
+        range:
+          type: string
+    description: Software Application for a party and optionally on a specific device e.g. John Doe have Strava App on device iPhone123
+  Product Relationship Type:
+    uuid: cim/entity/ProductRelationshipType
+    attributes:
+      childProductRole:
+        uuid: cim/entity/ProductRelationshipType/attr/childProductRole
+        required: true
+        range:
+          type: string
+      parentProductRole:
+        uuid: cim/entity/ProductRelationshipType/attr/parentProductRole
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductRelationshipType/attr/id
+        required: true
+        range:
+          type: string
+    description: What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of
+  Payment Allocation:
+    uuid: cim/entity/PaymentAllocation
+    attributes:
+      id:
+        uuid: cim/entity/PaymentAllocation/attr/id
+        required: true
+        range:
+          type: string
+      paymentAllocationName:
+        uuid: cim/entity/PaymentAllocation/attr/paymentAllocationName
+        range:
+          type: string
+      externalCreatedDate:
+        uuid: cim/entity/PaymentAllocation/attr/externalCreatedDate
+        required: true
+        range:
+          type: string
+    associations:
+      relatedPaymentAllocation:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAllocation/attr/relatedPaymentAllocation
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAllocation
+    description: A Payment Application may be further broken down, to allocate payment funds to one or more line items within an Invoice or Credit Memo
+  Payment Authorization Reversal:
+    uuid: cim/entity/PaymentAuthorizationReversal
+    attributes:
+      iPAddress:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/iPAddress
+        range:
+          type: string
+      paymentGatewayDate:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentGatewayDate
+        required: true
+        range:
+          type: string
+      paymentAuthorizationReversalCommentText:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorizationReversalCommentText
+        range:
+          type: string
+      macAddress:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/macAddress
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/id
+        required: true
+        range:
+          type: string
+      paymentAuthorizationReversalStatus:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorizationReversalStatus
+        required: true
+        range:
+          type: string
+      paymentAuthorizationReversalName:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorizationReversalName
+        range:
+          type: string
+      externalCreatedDate:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/externalCreatedDate
+        required: true
+        range:
+          type: string
+      paymentAuthorizationProcessingMode:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorizationProcessingMode
+        required: true
+        range:
+          type: string
+      requestDate:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/requestDate
+        required: true
+        range:
+          type: string
+      customerAuthorizationReversalEmail:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/customerAuthorizationReversalEmail
+        range:
+          type: string
+      customerAuthorizationReversalPhone:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/customerAuthorizationReversalPhone
+        range:
+          type: string
+      paymentGatewayInternalReferenceNumber:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentGatewayInternalReferenceNumber
+        required: true
+        range:
+          type: string
+      authorizationReversalAmount:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/authorizationReversalAmount
+        required: true
+        range:
+          type: string
+      paymentGatewayReferenceNumber:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentGatewayReferenceNumber
+        required: true
+        range:
+          type: string
+    associations:
+      paymentAuthorization:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorization
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAuthorization
+      capturePayment:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/capturePayment
+        target: http://mulesoft.com/modeling/instances/cim/entity/CapturePayment
+      paymentGatewayResult:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentGatewayResult
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
+    description: An authorization reversal is a message that alerts the issuer that part or all of a sale has been cancelled and the authorization hold should be rescinded.
+  Person Education:
+    uuid: cim/entity/PersonEducation
+    attributes:
+      institutionName:
+        uuid: cim/entity/PersonEducation/attr/institutionName
+        required: true
+        range:
+          type: string
+      graduationDate:
+        uuid: cim/entity/PersonEducation/attr/graduationDate
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PersonEducation/attr/id
+        required: true
+        range:
+          type: string
+      educationName:
+        uuid: cim/entity/PersonEducation/attr/educationName
+        required: true
+        range:
+          type: string
+      educationLevel:
+        uuid: cim/entity/PersonEducation/attr/educationLevel
+        required: true
+        range:
+          type: string
+    associations:
+      individual:
+        allowMultiple: true
+        uuid: cim/entity/PersonEducation/attr/individual
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
+    description: Education a person has e.g. Phd, High School
+  Party:
+    uuid: cim/entity/Party
+    attributes:
+      noMergeReason:
+        uuid: cim/entity/Party/attr/noMergeReason
+        range:
+          type: string
+      partyType:
+        uuid: cim/entity/Party/attr/partyType
+        required: true
+        range:
+          type: string
+      globalParty:
+        uuid: cim/entity/Party/attr/globalParty
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Party/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      primaryAccount:
+        allowMultiple: true
+        uuid: cim/entity/Party/attr/primaryAccount
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+    description: A unified, in system, definition of who you are dealing with e.g. John Doe, Northern Trail Outfitters and can be of different types e.g. individual, business, affiliation group.
+description: "Example Entities included: Lead, Lead Status, Lead Source"

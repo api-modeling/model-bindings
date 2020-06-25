@@ -1,5 +1,5 @@
 import {VOCAB} from "./constants";
-import {Module, Entity, Attribute, Association, IntegerScalar, StringScalar, Binding} from "@api-modeling/api-modeling-metadata";
+import {DataModel, Module, Entity, Attribute, Association, IntegerScalar, StringScalar, Binding} from "@api-modeling/api-modeling-metadata";
 import * as n3 from "n3";
 import {$rdf, findPath} from "../utils/N3Graph";
 
@@ -82,25 +82,26 @@ export class CIMImporter {
      * @param store
      * @param subjectAreas
      */
-    protected parseEntityGroups(store: n3.N3Store, subjectAreas: Module[]): Module[] {
-        const acc: Module[] = [];
+    protected parseEntityGroups(store: n3.N3Store, subjectAreas: Module[]): DataModel[] {
+        const acc: DataModel[] = [];
         subjectAreas.forEach((subjectArea) => {
             // @ts-ignore
             const source = $rdf.namedNode(subjectArea['_source']);
             const entityGroupIds = store.getObjects(source, VOCAB.CIM_ENTITTY_GROUPS, null);
-            subjectArea.nested = [];
+            subjectArea.dataModels = [];
             entityGroupIds.forEach((id) => {
                 const name = store.getObjects(id, VOCAB.RDFS_LABEL, null)[0];
                 const description = store.getObjects(id, VOCAB.RDFS_COMMENT, null)[0];
-                const module = new Module(name.value);
-                module.description = description.value;
+                const dataModel = new DataModel(subjectArea.id());
+                dataModel.name = name.value
+                dataModel.description = description.value;
                 const inter = id.value.split("/").pop();
                 const toReplace = inter?.replace(' ','_');
-                module.uuid = `cim/entitygroup/${toReplace}`;
-                subjectArea.nested!.push(module);
+                dataModel.uuid = `cim/entitygroup/${toReplace}`;
+                subjectArea.dataModels!.push(dataModel.id());
                 // @ts-ignore
                 module['_source'] = id.value;
-                acc.push(module);
+                acc.push(dataModel);
             })
         });
 
@@ -111,7 +112,7 @@ export class CIMImporter {
      * Parses all the bindings for the parsed modules out of CIM entity groups
      * @param entityGroups
      */
-    protected parseEntityGroupsBindings(entityGroups: Module[]): Binding[] {
+    protected parseEntityGroupsBindings(entityGroups: DataModel[]): Binding[] {
         return entityGroups.map((entityGroup) => {
             const entityGroupId = entityGroup.id();
             const binding = new Binding(entityGroupId, VOCAB.CIM_BINDINGS_ENTITY_GROUP)
@@ -127,7 +128,7 @@ export class CIMImporter {
      * @param store
      * @param entityGroup
      */
-    protected parseEntityGroup(store: n3.N3Store, entityGroup: Module): Entity[] {
+    protected parseEntityGroup(store: n3.N3Store, entityGroup: DataModel): Entity[] {
         // @ts-ignore
         const entityGroupId = entityGroup['_source'];
         const source = $rdf.namedNode(entityGroupId);
