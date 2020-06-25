@@ -1,31 +1,4 @@
 #%DataModel 0.1
 uuid: 63556963ced0cd1da846ff852234ecd3
 name: fragment.raml
-entities:
-  Entity2:
-    uuid: 35b923665adcb1e20c920a7f892e19f0
-    attributes:
-      c:
-        allowMultiple: false
-        uuid: 0e449560899ad1fac188ff0ad74b3aae
-        required: true
-        range:
-          type: string
-    associations: {}
-  Entity1:
-    uuid: 64660a7adc463d52546694edb773e554
-    attributes:
-      a:
-        allowMultiple: false
-        uuid: d11fc746220340ae7f19c06c216d5fa6
-        required: true
-        range:
-          type: string
-      b:
-        allowMultiple: false
-        uuid: 4b2cfc6729a26df53efb800e6b98fbd7
-        required: true
-        range:
-          type: float
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/35b923665adcb1e20c920a7f892e19f0
+entities: {}

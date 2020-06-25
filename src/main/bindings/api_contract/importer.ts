@@ -26,9 +26,9 @@ export class APIContractImporter {
         if (baseUnit instanceof amf.model.document.Document) {
             param.lexicalValue = "Open API Spec / RAML API Spec"
             binding.configuration = [param]
-        } else if (baseUnit instanceof amf.model.document.Fragment) {
-            param.lexicalValue = "JSON Schema / RAML Fragment"
-            binding.configuration = [param]
+        // } else if (baseUnit instanceof amf.model.document.Fragment) {
+        //    param.lexicalValue = "JSON Schema / RAML Fragment"
+        //    binding.configuration = [param]
         } else if (baseUnit instanceof amf.model.document.Module) {
             param.lexicalValue = "JSON Schema / RAML Library"
             binding.configuration = [param]
@@ -73,7 +73,7 @@ export class APIContractImporter {
             (declarations.declares || []).forEach((domainElement) => this.parseShape(domainElement, entities))
         }
 
-        if (baseUnit instanceof amf.model.document.DataTypeFragment || baseUnit instanceof amf.model.document.Document) {
+        if (baseUnit instanceof amf.model.domain.DataType || baseUnit instanceof amf.model.document.Document) {
             const encoded = <amf.model.document.EncodesModel>baseUnit;
             this.parseShape(encoded.encodes, entities)
         }

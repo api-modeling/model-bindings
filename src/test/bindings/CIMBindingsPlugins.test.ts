@@ -11,7 +11,7 @@ describe('CIMBindingsPlugins', function() {
         const cimPlugin = new CIMBindingsPlugin();
         const textUrl = "src/test/resources/model.jsonld";
         const textData = fs.readFileSync(textUrl).toString();
-        const parsed = await cimPlugin.import([{ url: "file://"+ textUrl, text: textData}] );
+        const parsed = await cimPlugin.import([],[{ url: "file://"+ textUrl, text: textData}] );
         assert.equal(parsed.length, 14); // all the models: modules, entities, bindings
         assert(parsed[0].encodes != null);
         const modulesTreeWrapper: Module = <Module>parsed![0].encodesWrapper!
