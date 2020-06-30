@@ -100,7 +100,7 @@ export class CIMImporter {
                 dataModel.uuid = `cim/entitygroup/${toReplace}`;
                 subjectArea.dataModels!.push(dataModel.id());
                 // @ts-ignore
-                module['_source'] = id.value;
+                dataModel['_source'] = id.value;
                 acc.push(dataModel);
             })
         });
