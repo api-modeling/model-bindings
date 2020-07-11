@@ -96,7 +96,7 @@ export class CIMImporter {
                 dataModel.name = name.value
                 dataModel.description = description.value;
                 const inter = id.value.split("/").pop();
-                const toReplace = inter?.replace(' ','_');
+                const toReplace = inter!.replace(' ','_');
                 dataModel.uuid = `cim/entitygroup/${toReplace}`;
                 subjectArea.dataModels!.push(dataModel.id());
                 // @ts-ignore

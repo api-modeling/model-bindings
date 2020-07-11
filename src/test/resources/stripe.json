@@ -42,7 +42,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "default_currency": {
@@ -412,7 +412,7 @@
 	"properties": {
 	  "current_deadline": {
 	    "description": "The date the fields in `currently_due` must be collected by to keep the capability enabled for the account.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -543,12 +543,12 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "expires_at": {
 	    "description": "The timestamp at which this account link will expire.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "object": {
@@ -637,7 +637,7 @@
 	"properties": {
 	  "current_deadline": {
 	    "description": "The date the fields in `currently_due` must be collected by to keep payouts enabled for the account. These fields might block payouts sooner if the next threshold is reached before these fields are collected.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -831,7 +831,7 @@
 	"properties": {
 	  "date": {
 	    "description": "The Unix timestamp marking when the Stripe Services Agreement was accepted by the account representative",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -905,7 +905,7 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "customer": {
@@ -1091,7 +1091,7 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "domain_name": {
@@ -1251,7 +1251,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -1495,12 +1495,12 @@
 	  },
 	  "available_on": {
 	    "description": "The date the transaction's net funds will become available in the Stripe balance.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -1902,7 +1902,7 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "customer": {
@@ -1983,7 +1983,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -2139,7 +2139,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -2220,7 +2220,7 @@
 	  },
 	  "requested_at": {
 	    "description": "Time at which the capability was requested. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -2592,7 +2592,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -3671,7 +3671,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -3735,7 +3735,7 @@
 	  },
 	  "redeem_by": {
 	    "description": "Date after which the coupon can no longer be redeemed.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -3774,7 +3774,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -3991,7 +3991,7 @@
 	  },
 	  "voided_at": {
 	    "description": "The time that the credit note was voided.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  }
@@ -4183,7 +4183,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -4500,7 +4500,7 @@
 	"properties": {
 	  "accepted_at": {
 	    "description": "The time at which the customer accepted the Mandate.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -4538,7 +4538,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "credit_note": {
@@ -5613,7 +5613,7 @@
 	  },
 	  "end": {
 	    "description": "If the coupon has a duration of `repeating`, the date that this discount will end. If the coupon has a duration of `once` or `forever`, this attribute will be null.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -5626,7 +5626,7 @@
 	  },
 	  "start": {
 	    "description": "Date that the coupon was applied.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "subscription": {
@@ -5684,7 +5684,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -6103,7 +6103,7 @@
 	"properties": {
 	  "due_by": {
 	    "description": "Date by which evidence must be submitted in order to successfully challenge dispute. Will be null if the customer's bank or credit card company doesn't allow a response for this particular dispute.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -6136,12 +6136,12 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "expires": {
 	    "description": "Time at which the key will expire. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "id": {
@@ -6208,7 +6208,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "data": {
@@ -6382,7 +6382,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -6451,7 +6451,7 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "filename": {
@@ -6559,7 +6559,7 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "expired": {
@@ -6568,7 +6568,7 @@
 	  },
 	  "expires_at": {
 	    "description": "Time at which the link expires.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -6660,12 +6660,12 @@
 	  },
 	  "interval_end": {
 	    "description": "Ending timestamp of data to be included in the report run (exclusive).",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "interval_start": {
 	    "description": "Starting timestamp of data to be included in the report run.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "payout": {
@@ -6809,7 +6809,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -6992,7 +6992,7 @@
 	  },
 	  "due_date": {
 	    "description": "The date on which payment for this invoice is due. This value will be `null` for invoices where `collection_method=charge_automatically`.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -7078,7 +7078,7 @@
 	  },
 	  "next_payment_attempt": {
 	    "description": "The time at which payment will next be attempted. This value will be `null` for invoices where `collection_method=send_invoice`.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -7121,12 +7121,12 @@
 	  },
 	  "period_end": {
 	    "description": "End of the usage period during which invoice items were added to this invoice.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "period_start": {
 	    "description": "Start of the usage period during which invoice items were added to this invoice.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "post_payment_credit_notes_amount": {
@@ -7233,7 +7233,7 @@
 	  },
 	  "webhooks_delivered_at": {
 	    "description": "Invoices are automatically paid or sent 1 hour after webhooks are delivered, or until all webhook delivery attempts have [been exhausted](https://stripe.com/docs/billing/webhooks#understand). This field tracks the time when webhooks for this invoice were successfully delivered. If the invoice had no webhooks to deliver, this will be set while the invoice is being created.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  }
@@ -7557,7 +7557,7 @@
 	  },
 	  "date": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "description": {
@@ -7776,25 +7776,25 @@
 	"properties": {
 	  "finalized_at": {
 	    "description": "The time that the invoice draft was finalized.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "marked_uncollectible_at": {
 	    "description": "The time that the invoice was marked uncollectible.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "paid_at": {
 	    "description": "The time that the invoice was paid.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "voided_at": {
 	    "description": "The time that the invoice was voided.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  }
@@ -7833,7 +7833,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "fraud_type": {
@@ -7938,7 +7938,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -8078,7 +8078,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -8259,7 +8259,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "email": {
@@ -8441,7 +8441,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -8623,7 +8623,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -8814,7 +8814,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -9555,7 +9555,7 @@
 	  },
 	  "eta": {
 	    "description": "A unix timestamp representing a best estimate of when the card will be delivered.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -11976,7 +11976,7 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "object": {
@@ -12382,7 +12382,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -12536,7 +12536,7 @@
 	  },
 	  "updated": {
 	    "description": "Time at which the object was last updated. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -12646,7 +12646,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -12831,7 +12831,7 @@
 	  },
 	  "canceled_at": {
 	    "description": "Populated when `status` is `canceled`, this is the time at which the PaymentIntent was canceled. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -12911,7 +12911,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -13317,7 +13317,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "customer": {
@@ -15624,7 +15624,7 @@
 	  },
 	  "arrival_date": {
 	    "description": "Date the payout is expected to arrive in the bank. This factors in delays like weekends or bank holidays.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "automatic": {
@@ -15653,7 +15653,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -15819,13 +15819,13 @@
 	"properties": {
 	  "end": {
 	    "description": "The end date of this usage period. All usage up to and including this point in time is included.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "start": {
 	    "description": "The start date of this usage period. All usage after this point in time is included.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  }
@@ -15864,7 +15864,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "dob": {
@@ -16116,7 +16116,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -16353,7 +16353,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -16558,7 +16558,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "deactivate_on": {
@@ -16648,7 +16648,7 @@
 	  },
 	  "updated": {
 	    "description": "Time at which the object was last updated. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "url": {
@@ -16705,7 +16705,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "fraud_type": {
@@ -16756,7 +16756,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "created_by": {
@@ -16870,7 +16870,7 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "created_by": {
@@ -17046,7 +17046,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "default_card": {
@@ -17270,7 +17270,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -17430,7 +17430,7 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "error": {
@@ -17479,7 +17479,7 @@
 	  },
 	  "succeeded_at": {
 	    "description": "Timestamp at which this run successfully finished (populated when\n `status=succeeded`). Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  }
@@ -17506,12 +17506,12 @@
 	"properties": {
 	  "data_available_end": {
 	    "description": "Most recent time for which this Report Type is available. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "data_available_start": {
 	    "description": "Earliest time for which this Report Type is available. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "default_columns": {
@@ -17542,7 +17542,7 @@
 	  },
 	  "updated": {
 	    "description": "When this Report Type was latest updated. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "version": {
@@ -17649,7 +17649,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "id": {
@@ -17783,12 +17783,12 @@
 	"properties": {
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "data_load_time": {
 	    "description": "When the query was run, Sigma contained a snapshot of your Stripe data at this time.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "error": {
@@ -17821,7 +17821,7 @@
 	  },
 	  "result_available_until": {
 	    "description": "Time at which the result expires and is no longer available for download.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "sql": {
@@ -17900,7 +17900,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "customer": {
@@ -18311,7 +18311,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -18385,7 +18385,7 @@
 	  },
 	  "updated": {
 	    "description": "Time at which the object was last updated. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  }
 	},
@@ -18451,7 +18451,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -18644,7 +18644,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "id": {
@@ -19003,7 +19003,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -19870,25 +19870,25 @@
 	"properties": {
 	  "canceled": {
 	    "description": "The time that the order was canceled.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "fulfiled": {
 	    "description": "The time that the order was fulfilled.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "paid": {
 	    "description": "The time that the order was paid.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "returned": {
 	    "description": "The time that the order was returned.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  }
@@ -19909,7 +19909,7 @@
 	  },
 	  "billing_cycle_anchor": {
 	    "description": "Determines the date of the first full invoice, and, for plans with `month` or `year` intervals, the day of the month for subsequent invoices.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "billing_thresholds": {
@@ -19923,7 +19923,7 @@
 	  },
 	  "cancel_at": {
 	    "description": "A date in the future at which the subscription will automatically get canceled",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -19933,7 +19933,7 @@
 	  },
 	  "canceled_at": {
 	    "description": "If the subscription has been canceled, the date of that cancellation. If the subscription was canceled with `cancel_at_period_end`, `canceled_at` will still reflect the date of the initial cancellation request, not the end of the subscription period when the subscription is automatically moved to a canceled state.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -19948,17 +19948,17 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "current_period_end": {
 	    "description": "End of the current period that the subscription has been invoiced for. At the end of this period, a new invoice will be created.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "current_period_start": {
 	    "description": "Start of the current period that the subscription has been invoiced for.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "customer": {
@@ -20074,7 +20074,7 @@
 	  },
 	  "ended_at": {
 	    "description": "If the subscription has ended, the date the subscription ended.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -20156,7 +20156,7 @@
 	  },
 	  "next_pending_invoice_item_invoice": {
 	    "description": "Specifies the approximate timestamp on which any pending invoice items will be billed according to the schedule provided at `pending_invoice_item_interval`.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -20250,7 +20250,7 @@
 	  },
 	  "start_date": {
 	    "description": "Date when the subscription was first created. The date might differ from the `created` date due to backdating.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "status": {
@@ -20282,13 +20282,13 @@
 	  },
 	  "trial_end": {
 	    "description": "If the subscription has a trial, the end of that trial.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "trial_start": {
 	    "description": "If the subscription has a trial, the beginning of that trial.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  }
@@ -20476,19 +20476,19 @@
 	"properties": {
 	  "canceled_at": {
 	    "description": "Time at which the subscription schedule was canceled. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "completed_at": {
 	    "description": "Time at which the subscription schedule was completed. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "current_phase": {
@@ -20572,7 +20572,7 @@
 	  },
 	  "released_at": {
 	    "description": "Time at which the subscription schedule was released. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -20773,12 +20773,12 @@
 	"properties": {
 	  "end_date": {
 	    "description": "The end of this phase of the subscription schedule.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "start_date": {
 	    "description": "The start of this phase of the subscription schedule.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  }
 	},
@@ -20881,7 +20881,7 @@
 	  },
 	  "end_date": {
 	    "description": "The end of this phase of the subscription schedule.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "invoice_settings": {
@@ -20912,7 +20912,7 @@
 	  },
 	  "start_date": {
 	    "description": "The start of this phase of the subscription schedule.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "tax_percent": {
@@ -20931,7 +20931,7 @@
 	  },
 	  "trial_end": {
 	    "description": "When the trial ends within the phase.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  }
@@ -21075,7 +21075,7 @@
 	  },
 	  "resumes_at": {
 	    "description": "The time after which the subscription will resume collecting payments.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  }
@@ -21094,13 +21094,13 @@
 	"properties": {
 	  "billing_cycle_anchor": {
 	    "description": "If the update is applied, determines the date of the first full invoice, and, for plans with `month` or `year` intervals, the day of the month for subsequent invoices.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
 	  "expires_at": {
 	    "description": "The point after which the changes reflected by this update will be discarded and no longer applied.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "subscription_items": {
@@ -21113,7 +21113,7 @@
 	  },
 	  "trial_end": {
 	    "description": "Unix timestamp representing the end of the trial period the customer will get before being charged for the first time, if the update is applied.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "nullable": true,
 	    "type": "integer"
 	  },
@@ -21149,12 +21149,12 @@
 	  },
 	  "period_end": {
 	    "description": "The end of the invoicing period. This TDS applies to Stripe fees collected during this invoicing period.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "period_start": {
 	    "description": "The start of the invoicing period. This TDS applies to Stripe fees collected during this invoicing period.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "tax_deduction_account_number": {
@@ -21187,7 +21187,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "customer": {
@@ -21333,7 +21333,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "description": {
@@ -21589,7 +21589,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -21742,7 +21742,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "id": {
@@ -21816,7 +21816,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -21950,7 +21950,7 @@
 	  },
 	  "created": {
 	    "description": "Time that this record of the transfer was first created.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -22190,7 +22190,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "currency": {
@@ -22410,7 +22410,7 @@
 	  },
 	  "timestamp": {
 	    "description": "The timestamp when this usage occurred.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  }
 	},
@@ -22499,7 +22499,7 @@
 	  },
 	  "created": {
 	    "description": "Time at which the object was created. Measured in seconds since the Unix epoch.",
-	    "format": "unix-time",
+	    "format": "int32",
 	    "type": "integer"
 	  },
 	  "description": {
@@ -23644,7 +23644,7 @@
 		    "description": "Details on the account's acceptance of the [Stripe Services Agreement](https://stripe.com/docs/connect/updating-accounts#tos-acceptance).",
 		    "properties": {
 		      "date": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "ip": {
@@ -28065,7 +28065,7 @@
 		    "description": "Details on the account's acceptance of the [Stripe Services Agreement](https://stripe.com/docs/connect/updating-accounts#tos-acceptance).",
 		    "properties": {
 		      "date": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "ip": {
@@ -29039,7 +29039,7 @@
 		    "description": "Details on the account's acceptance of the [Stripe Services Agreement](https://stripe.com/docs/connect/updating-accounts#tos-acceptance).",
 		    "properties": {
 		      "date": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "ip": {
@@ -37642,7 +37642,7 @@
 			"type": "object"
 		      },
 		      "trial_end": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "trial_from_plan": {
@@ -38345,7 +38345,7 @@
 		  },
 		  "redeem_by": {
 		    "description": "Unix timestamp specifying the last time at which the coupon can be redeemed. After the redeem_by date, the coupon can no longer be applied to new customers.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  }
 		},
@@ -40910,7 +40910,7 @@
 			"type": "string"
 		      },
 		      {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      }
 		    ],
@@ -44157,12 +44157,12 @@
 		  },
 		  "backdate_start_date": {
 		    "description": "For new subscriptions, a past timestamp to backdate the subscription's start date to. If set, the first invoice will contain a proration for the timespan between the start date and the current time. Can be combined with trials and the billing cycle anchor.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "billing_cycle_anchor": {
 		    "description": "A future timestamp to anchor the subscription's [billing cycle](https://stripe.com/docs/subscriptions/billing-cycle). This is used to determine the date of the first full invoice, and, for plans with `month` or `year` intervals, the day of the month for subsequent invoices.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer",
 		    "x-stripeBypassValidation": true
 		  },
@@ -44191,7 +44191,7 @@
 		  },
 		  "cancel_at": {
 		    "description": "A timestamp at which the subscription should cancel. If set to a date before the current period ends, this will cause a proration if prorations have been enabled using `proration_behavior`. If set during a future period, this will always cause a proration for that period.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "cancel_at_period_end": {
@@ -44478,7 +44478,7 @@
 			"type": "string"
 		      },
 		      {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      }
 		    ],
@@ -44847,7 +44847,7 @@
 		  "cancel_at": {
 		    "anyOf": [
 		      {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      {
@@ -45082,7 +45082,7 @@
 			    "type": "string"
 			  },
 			  "resumes_at": {
-			    "format": "unix-time",
+			    "format": "int32",
 			    "type": "integer"
 			  }
 			},
@@ -45157,7 +45157,7 @@
 		  },
 		  "proration_date": {
 		    "description": "If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply exactly the same proration that was previewed with [upcoming invoice](https://stripe.com/docs/api#retrieve_customer_invoice) endpoint. It can also be used to implement custom proration logic, such as prorating by day instead of by second, by providing the time that you wish to use for proration calculations.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "tax_percent": {
@@ -45210,7 +45210,7 @@
 			"type": "string"
 		      },
 		      {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      }
 		    ],
@@ -47103,7 +47103,7 @@
 		  },
 		  "expires_at": {
 		    "description": "A future timestamp after which the link will no longer be usable.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "file": {
@@ -47282,7 +47282,7 @@
 			"type": "string"
 		      },
 		      {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      {
@@ -47563,7 +47563,7 @@
 			"type": "boolean"
 		      },
 		      "expires_at": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "metadata": {
@@ -47992,11 +47992,11 @@
 		    "description": "The period associated with this invoice item.",
 		    "properties": {
 		      "end": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "start": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      }
 		    },
@@ -48304,11 +48304,11 @@
 		    "description": "The period associated with this invoice item.",
 		    "properties": {
 		      "end": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "start": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      }
 		    },
@@ -48769,7 +48769,7 @@
 		  },
 		  "due_date": {
 		    "description": "The date on which payment for this invoice is due. Valid only for invoices where `collection_method=send_invoice`.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "expand": {
@@ -48953,11 +48953,11 @@
 		  "period": {
 		    "properties": {
 		      "end": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "start": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      }
 		    },
@@ -49070,7 +49070,7 @@
 		  "type": "string"
 		},
 		{
-		  "format": "unix-time",
+		  "format": "int32",
 		  "type": "integer"
 		}
 	      ]
@@ -49086,7 +49086,7 @@
 	    "schema": {
 	      "anyOf": [
 		{
-		  "format": "unix-time",
+		  "format": "int32",
 		  "type": "integer"
 		},
 		{
@@ -49314,7 +49314,7 @@
 	    "name": "subscription_proration_date",
 	    "required": false,
 	    "schema": {
-	      "format": "unix-time",
+	      "format": "int32",
 	      "type": "integer"
 	    },
 	    "style": "form"
@@ -49325,7 +49325,7 @@
 	    "name": "subscription_start_date",
 	    "required": false,
 	    "schema": {
-	      "format": "unix-time",
+	      "format": "int32",
 	      "type": "integer"
 	    },
 	    "style": "form"
@@ -49356,7 +49356,7 @@
 		  "type": "string"
 		},
 		{
-		  "format": "unix-time",
+		  "format": "int32",
 		  "type": "integer"
 		}
 	      ]
@@ -49511,11 +49511,11 @@
 		  "period": {
 		    "properties": {
 		      "end": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "start": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      }
 		    },
@@ -49649,7 +49649,7 @@
 		  "type": "string"
 		},
 		{
-		  "format": "unix-time",
+		  "format": "int32",
 		  "type": "integer"
 		}
 	      ]
@@ -49665,7 +49665,7 @@
 	    "schema": {
 	      "anyOf": [
 		{
-		  "format": "unix-time",
+		  "format": "int32",
 		  "type": "integer"
 		},
 		{
@@ -49893,7 +49893,7 @@
 	    "name": "subscription_proration_date",
 	    "required": false,
 	    "schema": {
-	      "format": "unix-time",
+	      "format": "int32",
 	      "type": "integer"
 	    },
 	    "style": "form"
@@ -49904,7 +49904,7 @@
 	    "name": "subscription_start_date",
 	    "required": false,
 	    "schema": {
-	      "format": "unix-time",
+	      "format": "int32",
 	      "type": "integer"
 	    },
 	    "style": "form"
@@ -49935,7 +49935,7 @@
 		  "type": "string"
 		},
 		{
-		  "format": "unix-time",
+		  "format": "int32",
 		  "type": "integer"
 		}
 	      ]
@@ -50284,7 +50284,7 @@
 		  },
 		  "due_date": {
 		    "description": "The date on which payment for this invoice is due. Only valid for invoices where `collection_method=send_invoice`. This field can only be updated on `draft` invoices.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "expand": {
@@ -59176,7 +59176,7 @@
 		      "customer_acceptance": {
 			"properties": {
 			  "accepted_at": {
-			    "format": "unix-time",
+			    "format": "int32",
 			    "type": "integer"
 			  },
 			  "offline": {
@@ -60692,7 +60692,7 @@
 			  "customer_acceptance": {
 			    "properties": {
 			      "accepted_at": {
-				"format": "unix-time",
+				"format": "int32",
 				"type": "integer"
 			      },
 			      "offline": {
@@ -67100,11 +67100,11 @@
 			"type": "string"
 		      },
 		      "interval_end": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "interval_start": {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      "payout": {
@@ -68567,7 +68567,7 @@
 		      "customer_acceptance": {
 			"properties": {
 			  "accepted_at": {
-			    "format": "unix-time",
+			    "format": "int32",
 			    "type": "integer"
 			  },
 			  "offline": {
@@ -69073,7 +69073,7 @@
 			  "customer_acceptance": {
 			    "properties": {
 			      "accepted_at": {
-				"format": "unix-time",
+				"format": "int32",
 				"type": "integer"
 			      },
 			      "offline": {
@@ -70182,7 +70182,7 @@
 		      "acceptance": {
 			"properties": {
 			  "date": {
-			    "format": "unix-time",
+			    "format": "int32",
 			    "type": "integer"
 			  },
 			  "ip": {
@@ -70203,7 +70203,7 @@
 			  "online": {
 			    "properties": {
 			      "date": {
-				"format": "unix-time",
+				"format": "int32",
 				"type": "integer"
 			      },
 			      "ip": {
@@ -70670,7 +70670,7 @@
 		      "acceptance": {
 			"properties": {
 			  "date": {
-			    "format": "unix-time",
+			    "format": "int32",
 			    "type": "integer"
 			  },
 			  "ip": {
@@ -70691,7 +70691,7 @@
 			  "online": {
 			    "properties": {
 			      "date": {
-				"format": "unix-time",
+				"format": "int32",
 				"type": "integer"
 			      },
 			      "ip": {
@@ -71635,7 +71635,7 @@
 		  },
 		  "proration_date": {
 		    "description": "If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply the same proration that was previewed with the [upcoming invoice](https://stripe.com/docs/api#retrieve_customer_invoice) endpoint.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "quantity": {
@@ -71742,7 +71742,7 @@
 		  },
 		  "proration_date": {
 		    "description": "If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply the same proration that was previewed with the [upcoming invoice](https://stripe.com/docs/api#retrieve_customer_invoice) endpoint.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  }
 		},
@@ -72019,7 +72019,7 @@
 		  },
 		  "proration_date": {
 		    "description": "If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply the same proration that was previewed with the [upcoming invoice](https://stripe.com/docs/api#retrieve_customer_invoice) endpoint.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "quantity": {
@@ -72827,7 +72827,7 @@
 			  ]
 			},
 			"end_date": {
-			  "format": "unix-time",
+			  "format": "int32",
 			  "type": "integer"
 			},
 			"invoice_settings": {
@@ -72977,7 +72977,7 @@
 			  "type": "boolean"
 			},
 			"trial_end": {
-			  "format": "unix-time",
+			  "format": "int32",
 			  "type": "integer"
 			}
 		      },
@@ -74128,12 +74128,12 @@
 		  },
 		  "backdate_start_date": {
 		    "description": "For new subscriptions, a past timestamp to backdate the subscription's start date to. If set, the first invoice will contain a proration for the timespan between the start date and the current time. Can be combined with trials and the billing cycle anchor.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "billing_cycle_anchor": {
 		    "description": "A future timestamp to anchor the subscription's [billing cycle](https://stripe.com/docs/subscriptions/billing-cycle). This is used to determine the date of the first full invoice, and, for plans with `month` or `year` intervals, the day of the month for subsequent invoices.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer",
 		    "x-stripeBypassValidation": true
 		  },
@@ -74162,7 +74162,7 @@
 		  },
 		  "cancel_at": {
 		    "description": "A timestamp at which the subscription should cancel. If set to a date before the current period ends, this will cause a proration if prorations have been enabled using `proration_behavior`. If set during a future period, this will always cause a proration for that period.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "cancel_at_period_end": {
@@ -74454,7 +74454,7 @@
 			"type": "string"
 		      },
 		      {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      }
 		    ],
@@ -74796,7 +74796,7 @@
 		  "cancel_at": {
 		    "anyOf": [
 		      {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      },
 		      {
@@ -75031,7 +75031,7 @@
 			    "type": "string"
 			  },
 			  "resumes_at": {
-			    "format": "unix-time",
+			    "format": "int32",
 			    "type": "integer"
 			  }
 			},
@@ -75106,7 +75106,7 @@
 		  },
 		  "proration_date": {
 		    "description": "If set, the proration will be calculated as though the subscription was updated at the given time. This can be used to apply exactly the same proration that was previewed with [upcoming invoice](https://stripe.com/docs/api#retrieve_customer_invoice) endpoint. It can also be used to implement custom proration logic, such as prorating by day instead of by second, by providing the time that you wish to use for proration calculations.",
-		    "format": "unix-time",
+		    "format": "int32",
 		    "type": "integer"
 		  },
 		  "tax_percent": {
@@ -75159,7 +75159,7 @@
 			"type": "string"
 		      },
 		      {
-			"format": "unix-time",
+			"format": "int32",
 			"type": "integer"
 		      }
 		    ],

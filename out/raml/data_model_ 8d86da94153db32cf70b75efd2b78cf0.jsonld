@@ -34,7 +34,7 @@
         ],
         "http://a.ml/vocabularies/data-model#entities": [
           {
-            "@id": "http://mulesoft.com/modeling/instances/06ef659593cd89af550d200922e61f1e",
+            "@id": "http://mulesoft.com/modeling/instances/dc391c1b8f3b4085947417b78c059d8f",
             "@type": [
               "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
@@ -43,17 +43,73 @@
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "06ef659593cd89af550d200922e61f1e"
+                "@value": "dc391c1b8f3b4085947417b78c059d8f"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
               {
-                "@value": "Animal"
+                "@value": "Other"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/ae597ed90a4be026a3fb5111c7e775a9",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": false
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "ae597ed90a4be026a3fb5111c7e775a9"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "external"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/64660a7adc463d52546694edb773e554"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/738d21d1cdfafea8d58d9379ec53eee9",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "738d21d1cdfafea8d58d9379ec53eee9"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Vegetable"
               }
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/34f9635599e10c6c79229d0fdd32a069",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/ff9b42894d0d31cb4e7e2a71604e9666",
                 "@type": [
                   "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
@@ -67,12 +123,12 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "34f9635599e10c6c79229d0fdd32a069"
+                    "@value": "ff9b42894d0d31cb4e7e2a71604e9666"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
                   {
-                    "@value": "size"
+                    "@value": "height"
                   }
                 ],
                 "http://a.ml/vocabularies/data-model#required": [
@@ -91,28 +147,56 @@
                     ]
                   }
                 ]
-              },
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [],
+            "http://a.ml/vocabularies/core#description": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/863f6e33575abfd02d6d71f9ecb52153",
+                "@value": "Green organic matter"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/9b40541c7e85197c7d66f453fa071ffb",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "9b40541c7e85197c7d66f453fa071ffb"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "Family"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#attributes": [],
+            "http://a.ml/vocabularies/data-model#associations": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/5a53104d33290c4fd20d7a5ec15ac786",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
-                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data-model#allowMultiple": [
                   {
-                    "@value": false
+                    "@value": true
                   }
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "863f6e33575abfd02d6d71f9ecb52153"
+                    "@value": "5a53104d33290c4fd20d7a5ec15ac786"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
                   {
-                    "@value": "birthDate"
+                    "@value": "parents"
                   }
                 ],
                 "http://a.ml/vocabularies/data-model#required": [
@@ -120,23 +204,77 @@
                     "@value": true
                   }
                 ],
-                "http://a.ml/vocabularies/data-model#range": [
+                "http://a.ml/vocabularies/data-model#target": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/dateTime",
-                    "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DateTime",
-                      "http://a.ml/vocabularies/data-model#DateTime",
-                      "http://a.ml/vocabularies/meta#DialectDomainElement",
-                      "http://a.ml/vocabularies/document#DomainElement"
-                    ]
+                    "@id": "http://mulesoft.com/modeling/instances/160337041f9b9e0277beb0e4e7a1e469"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/5636be5766dde4ef5067cf1ae3a44d40",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "5636be5766dde4ef5067cf1ae3a44d40"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "children"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#target": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/160337041f9b9e0277beb0e4e7a1e469"
                   }
                 ]
               }
             ],
-            "http://a.ml/vocabularies/data-model#associations": [],
             "http://a.ml/vocabularies/core#description": [
               {
-                "@value": "not a plant, not a fungus"
+                "@value": "a human molecule"
+              }
+            ]
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/9d991352-203d-4755-8e87-644a7147eff7",
+            "@type": [
+              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "http://a.ml/vocabularies/data-model#Entity",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#uuid": [
+              {
+                "@value": "9d991352-203d-4755-8e87-644a7147eff7"
+              }
+            ],
+            "http://a.ml/vocabularies/core#name": [
+              {
+                "@value": "AliveThings"
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#disjoint": [
+              {
+                "@id": "http://mulesoft.com/modeling/instances/06ef659593cd89af550d200922e61f1e"
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/738d21d1cdfafea8d58d9379ec53eee9"
               }
             ]
           },
@@ -293,7 +431,7 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/9b40541c7e85197c7d66f453fa071ffb",
+            "@id": "http://mulesoft.com/modeling/instances/06ef659593cd89af550d200922e61f1e",
             "@type": [
               "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
@@ -302,116 +440,20 @@
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "9b40541c7e85197c7d66f453fa071ffb"
+                "@value": "06ef659593cd89af550d200922e61f1e"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
               {
-                "@value": "Family"
+                "@value": "Animal"
               }
             ],
-            "http://a.ml/vocabularies/data-model#attributes": [],
-            "http://a.ml/vocabularies/data-model#associations": [
+            "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/5a53104d33290c4fd20d7a5ec15ac786",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/34f9635599e10c6c79229d0fdd32a069",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
-                  "http://a.ml/vocabularies/data-model#AssociationProperty",
-                  "http://a.ml/vocabularies/meta#DialectDomainElement",
-                  "http://a.ml/vocabularies/document#DomainElement"
-                ],
-                "http://a.ml/vocabularies/data-model#allowMultiple": [
-                  {
-                    "@value": true
-                  }
-                ],
-                "http://a.ml/vocabularies/data#uuid": [
-                  {
-                    "@value": "5a53104d33290c4fd20d7a5ec15ac786"
-                  }
-                ],
-                "http://a.ml/vocabularies/core#name": [
-                  {
-                    "@value": "parents"
-                  }
-                ],
-                "http://a.ml/vocabularies/data-model#required": [
-                  {
-                    "@value": true
-                  }
-                ],
-                "http://a.ml/vocabularies/data-model#target": [
-                  {
-                    "@id": "http://mulesoft.com/modeling/instances/160337041f9b9e0277beb0e4e7a1e469"
-                  }
-                ]
-              },
-              {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/5636be5766dde4ef5067cf1ae3a44d40",
-                "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
-                  "http://a.ml/vocabularies/data-model#AssociationProperty",
-                  "http://a.ml/vocabularies/meta#DialectDomainElement",
-                  "http://a.ml/vocabularies/document#DomainElement"
-                ],
-                "http://a.ml/vocabularies/data-model#allowMultiple": [
-                  {
-                    "@value": true
-                  }
-                ],
-                "http://a.ml/vocabularies/data#uuid": [
-                  {
-                    "@value": "5636be5766dde4ef5067cf1ae3a44d40"
-                  }
-                ],
-                "http://a.ml/vocabularies/core#name": [
-                  {
-                    "@value": "children"
-                  }
-                ],
-                "http://a.ml/vocabularies/data-model#required": [
-                  {
-                    "@value": true
-                  }
-                ],
-                "http://a.ml/vocabularies/data-model#target": [
-                  {
-                    "@id": "http://mulesoft.com/modeling/instances/160337041f9b9e0277beb0e4e7a1e469"
-                  }
-                ]
-              }
-            ],
-            "http://a.ml/vocabularies/core#description": [
-              {
-                "@value": "a human molecule"
-              }
-            ]
-          },
-          {
-            "@id": "http://mulesoft.com/modeling/instances/dc391c1b8f3b4085947417b78c059d8f",
-            "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
-              "http://a.ml/vocabularies/data-model#Entity",
-              "http://a.ml/vocabularies/meta#DialectDomainElement",
-              "http://a.ml/vocabularies/document#DomainElement"
-            ],
-            "http://a.ml/vocabularies/data#uuid": [
-              {
-                "@value": "dc391c1b8f3b4085947417b78c059d8f"
-              }
-            ],
-            "http://a.ml/vocabularies/core#name": [
-              {
-                "@value": "Other"
-              }
-            ],
-            "http://a.ml/vocabularies/data-model#attributes": [],
-            "http://a.ml/vocabularies/data-model#associations": [
-              {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/ae597ed90a4be026a3fb5111c7e775a9",
-                "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
-                  "http://a.ml/vocabularies/data-model#AssociationProperty",
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
@@ -422,12 +464,12 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "ae597ed90a4be026a3fb5111c7e775a9"
+                    "@value": "34f9635599e10c6c79229d0fdd32a069"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
                   {
-                    "@value": "external"
+                    "@value": "size"
                   }
                 ],
                 "http://a.ml/vocabularies/data-model#required": [
@@ -435,11 +477,63 @@
                     "@value": true
                   }
                 ],
-                "http://a.ml/vocabularies/data-model#target": [
+                "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/64660a7adc463d52546694edb773e554"
+                    "@id": "http://mulesoft.com/modeling/instances/float",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Float",
+                      "http://a.ml/vocabularies/data-model#Float",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
                   }
                 ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/instances/uuid/863f6e33575abfd02d6d71f9ecb52153",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "http://a.ml/vocabularies/data-model#AttributeProperty",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data-model#allowMultiple": [
+                  {
+                    "@value": false
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "863f6e33575abfd02d6d71f9ecb52153"
+                  }
+                ],
+                "http://a.ml/vocabularies/core#name": [
+                  {
+                    "@value": "birthDate"
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#required": [
+                  {
+                    "@value": true
+                  }
+                ],
+                "http://a.ml/vocabularies/data-model#range": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/dateTime",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DateTime",
+                      "http://a.ml/vocabularies/data-model#DateTime",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data-model#associations": [],
+            "http://a.ml/vocabularies/core#description": [
+              {
+                "@value": "not a plant, not a fungus"
               }
             ]
           }

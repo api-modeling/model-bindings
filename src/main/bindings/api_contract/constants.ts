@@ -27,6 +27,7 @@
         API_CONTRACT_BINDINGS_PROFILE = "http://mulesoft.com/modeling/instances/bindings/api_contract";
         API_CONTRACT_DOCUMENT_TYPE_BINDING = "http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding";
         API_CONTRACT_DOCUMENT_TYPE_BINDING_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param"
+        API_CONTRACT_DOCUMENT_TARGET_ENTITY_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity"
     }
 
 export const VOCAB = new ApiConstractConstantsSingleton();

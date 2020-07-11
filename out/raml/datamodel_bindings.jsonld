@@ -33,7 +33,7 @@
             ],
             "http://a.ml/vocabularies/bindings#bindingConfiguration": [
               {
-                "@id": "http://mulesoft.com/modeling/bindings/4e88a683-dd4a-486f-ba17-4d0271ed02a5param",
+                "@id": "http://mulesoft.com/modeling/bindings/5043cf5a-61e9-4c18-bd7f-692ff9e574b8param",
                 "@type": [
                   "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/BindingScalarValue",
                   "http://a.ml/vocabularies/bindings#BindingScalarValue",
@@ -52,7 +52,7 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "4e88a683-dd4a-486f-ba17-4d0271ed02a5param"
+                    "@value": "5043cf5a-61e9-4c18-bd7f-692ff9e574b8param"
                   }
                 ]
               }
@@ -83,7 +83,7 @@
             ],
             "http://a.ml/vocabularies/bindings#bindingConfiguration": [
               {
-                "@id": "http://mulesoft.com/modeling/bindings/09942452-c38a-42ae-b2bb-77821a37cfa2param",
+                "@id": "http://mulesoft.com/modeling/bindings/1e7096b2-e0fb-49ab-8c66-1fba0ce1b306param",
                 "@type": [
                   "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/BindingScalarValue",
                   "http://a.ml/vocabularies/bindings#BindingScalarValue",
@@ -95,9 +95,38 @@
                     "@id": "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param"
                   }
                 ],
+                "http://a.ml/vocabularies/bindings#lexicalValue": [
+                  {
+                    "@value": "JSON Schema / RAML Fragment"
+                  }
+                ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "09942452-c38a-42ae-b2bb-77821a37cfa2param"
+                    "@value": "1e7096b2-e0fb-49ab-8c66-1fba0ce1b306param"
+                  }
+                ]
+              },
+              {
+                "@id": "http://mulesoft.com/modeling/bindings/apiContract/bindings/DocumentTypeBinding/63556963ced0cd1da846ff852234ecd3target_type_param",
+                "@type": [
+                  "file:///home/agarrote/Development/api-modeling/metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/BindingScalarValue",
+                  "http://a.ml/vocabularies/bindings#BindingScalarValue",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/bindings#parameterSource": [
+                  {
+                    "@id": "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity"
+                  }
+                ],
+                "http://a.ml/vocabularies/bindings#lexicalValue": [
+                  {
+                    "@value": "Entity1"
+                  }
+                ],
+                "http://a.ml/vocabularies/data#uuid": [
+                  {
+                    "@value": "apiContract/bindings/DocumentTypeBinding/63556963ced0cd1da846ff852234ecd3target_type_param"
                   }
                 ]
               }

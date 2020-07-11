@@ -1,0 +1,24 @@
+#%RAML 1.0 Library
+
+uses:
+  nature: library3.raml
+
+types:
+
+
+  Person:
+    description: a human being
+    type: nature.Animal
+    properties:
+      name: string
+      gender: string
+      age?: integer
+
+  Family:
+    description: a human molecule
+    properties:
+      parents: Person[]
+      children: Person[]
+
+
+  AliveThings: nature.Animal | nature.Vegetable
