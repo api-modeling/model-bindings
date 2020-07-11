@@ -15,7 +15,7 @@
     ],
     "http://a.ml/vocabularies/document#encodes": [
       {
-        "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PaymentMethodEntityGroup/dataModel",
+        "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PaymentMethodEntityGroup",
         "@type": [
           "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DataModel",
           "http://a.ml/vocabularies/data-model#DataModel",
@@ -24,7 +24,12 @@
         ],
         "http://a.ml/vocabularies/data#uuid": [
           {
-            "@value": "cim/entitygroup/PaymentMethodEntityGroup/dataModel"
+            "@value": "cim/entitygroup/PaymentMethodEntityGroup"
+          }
+        ],
+        "http://a.ml/vocabularies/core#name": [
+          {
+            "@value": "Payment Method"
           }
         ],
         "http://a.ml/vocabularies/data-model#entities": [
@@ -72,7 +77,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -107,7 +112,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -199,7 +204,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -229,7 +234,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -259,7 +264,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
@@ -289,7 +294,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
@@ -319,7 +324,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -349,7 +354,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -379,7 +384,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -409,7 +414,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -444,7 +449,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -505,7 +510,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -597,7 +602,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -738,6 +743,11 @@
                 "@value": "Payment to the seller that results in an agreement to pay at a later date, usually via a credit account."
               }
             ]
+          }
+        ],
+        "http://a.ml/vocabularies/core#description": [
+          {
+            "@value": "Example Entities included: Payment Method Type, Payment Card Tender, Digital Wallet Tender"
           }
         ]
       }

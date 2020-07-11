@@ -8,7 +8,7 @@ bindings:
     uuid: apiContract/bindings/DocumentTypeBinding/8d86da94153db32cf70b75efd2b78cf0
     configuration:
       -
-        uuid: 4bb268f1-1751-47b2-8b5d-2f3a3f25feddparam
+        uuid: 5043cf5a-61e9-4c18-bd7f-692ff9e574b8param
         lexicalValue: JSON Schema / RAML Library
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
         type: Scalar
@@ -18,8 +18,13 @@ bindings:
     uuid: apiContract/bindings/DocumentTypeBinding/63556963ced0cd1da846ff852234ecd3
     configuration:
       -
-        uuid: 680924a5-93b5-4b06-97ae-ec525953d016param
+        uuid: 1e7096b2-e0fb-49ab-8c66-1fba0ce1b306param
         lexicalValue: JSON Schema / RAML Fragment
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+      -
+        uuid: apiContract/bindings/DocumentTypeBinding/63556963ced0cd1da846ff852234ecd3target_type_param
+        lexicalValue: Entity1
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding

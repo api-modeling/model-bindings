@@ -15,7 +15,7 @@
     ],
     "http://a.ml/vocabularies/document#encodes": [
       {
-        "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PartyEntityGroup/dataModel",
+        "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PartyEntityGroup",
         "@type": [
           "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DataModel",
           "http://a.ml/vocabularies/data-model#DataModel",
@@ -24,7 +24,12 @@
         ],
         "http://a.ml/vocabularies/data#uuid": [
           {
-            "@value": "cim/entitygroup/PartyEntityGroup/dataModel"
+            "@value": "cim/entitygroup/PartyEntityGroup"
+          }
+        ],
+        "http://a.ml/vocabularies/core#name": [
+          {
+            "@value": "Party"
           }
         ],
         "http://a.ml/vocabularies/data-model#entities": [
@@ -67,7 +72,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -102,7 +107,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -132,7 +137,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -167,7 +172,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -254,7 +259,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -284,7 +289,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
@@ -340,7 +345,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -370,7 +375,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -426,7 +431,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -513,7 +518,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -543,7 +548,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -604,7 +609,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -639,7 +644,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -674,7 +679,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -766,7 +771,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -796,7 +801,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -831,7 +836,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -928,7 +933,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -963,7 +968,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -998,7 +1003,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1163,7 +1168,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1198,7 +1203,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1233,7 +1238,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1268,7 +1273,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1324,7 +1329,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1354,7 +1359,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1384,7 +1389,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1414,7 +1419,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1444,7 +1449,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1479,7 +1484,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1514,7 +1519,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1549,7 +1554,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1584,7 +1589,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1705,7 +1710,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1735,7 +1740,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1765,7 +1770,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1795,7 +1800,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1825,7 +1830,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1860,7 +1865,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1895,7 +1900,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1930,7 +1935,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -1965,7 +1970,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2000,7 +2005,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2035,7 +2040,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
@@ -2070,7 +2075,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2105,7 +2110,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2140,7 +2145,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2175,7 +2180,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2301,7 +2306,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2336,7 +2341,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2371,7 +2376,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2468,7 +2473,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2503,7 +2508,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2538,7 +2543,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2573,7 +2578,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2608,7 +2613,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -2660,6 +2665,11 @@
                 "@value": "Education a person has e.g. Phd, High School"
               }
             ]
+          }
+        ],
+        "http://a.ml/vocabularies/core#description": [
+          {
+            "@value": "Example Entities included: Organization, Individual, Affiliate Group, Uncategorized"
           }
         ]
       }

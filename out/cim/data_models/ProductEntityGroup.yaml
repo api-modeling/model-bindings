@@ -1,137 +1,60 @@
 #%DataModel 0.1
-uuid: cim/entitygroup/ProductEntityGroup/dataModel
+uuid: cim/entitygroup/ProductEntityGroup
+name: Product
 entities:
-  Brand:
-    uuid: cim/entity/Brand
+  Bundle Product:
+    uuid: cim/entity/BundleProduct
     attributes:
-      brandGrade:
-        uuid: cim/entity/Brand/attr/brandGrade
-        required: true
+      type:
+        uuid: cim/entity/BundleProduct/attr/type
         range:
           type: string
-      name:
-        uuid: cim/entity/Brand/attr/name
-        required: true
+      weightUOM:
+        uuid: cim/entity/BundleProduct/attr/weightUOM
         range:
           type: string
-      id:
-        uuid: cim/entity/Brand/attr/id
-        required: true
-        range:
-          type: string
-    description: What is the brand of the product e.g. Snike shoes
+    description: Product groups e.g. mobile phone package include phone, call plan and charger
   Product:
     uuid: cim/entity/Product
     attributes:
-      isFoodstampPaymentAllowed:
-        uuid: cim/entity/Product/attr/isFoodstampPaymentAllowed
-        required: true
+      versionNumber:
+        uuid: cim/entity/Product/attr/versionNumber
         range:
           type: string
-      canUseQuantitySchedule:
-        uuid: cim/entity/Product/attr/canUseQuantitySchedule
-        required: true
-        range:
-          type: string
-      standardWarrantyLengthMonth:
-        uuid: cim/entity/Product/attr/standardWarrantyLengthMonth
-        range:
-          type: integer
-      glAccountCode:
-        uuid: cim/entity/Product/attr/glAccountCode
-        range:
-          type: string
-      isReturnable:
-        uuid: cim/entity/Product/attr/isReturnable
-        required: true
-        range:
-          type: string
-      revenueInstallmentPeriod:
-        uuid: cim/entity/Product/attr/revenueInstallmentPeriod
-        range:
-          type: string
-      isQuantityEntryRequired:
-        uuid: cim/entity/Product/attr/isQuantityEntryRequired
-        required: true
-        range:
-          type: string
-      isSellableIndependently:
-        uuid: cim/entity/Product/attr/isSellableIndependently
-        required: true
-        range:
-          type: string
-      displayUrl:
-        uuid: cim/entity/Product/attr/displayUrl
-        range:
-          type: string
-      isSerialized:
-        uuid: cim/entity/Product/attr/isSerialized
-        required: true
-        range:
-          type: string
-      quantityInstallmentPeriod:
-        uuid: cim/entity/Product/attr/quantityInstallmentPeriod
+      allowPartialRefund:
+        uuid: cim/entity/Product/attr/allowPartialRefund
         range:
           type: string
       minimumAdvertisementAmount:
         uuid: cim/entity/Product/attr/minimumAdvertisementAmount
         range:
           type: string
-      isMultipleCouponsAllowed:
-        uuid: cim/entity/Product/attr/isMultipleCouponsAllowed
-        required: true
-        range:
-          type: string
-      isRainCheckAllowed:
-        uuid: cim/entity/Product/attr/isRainCheckAllowed
-        required: true
-        range:
-          type: string
-      minimumAdvertisementAmountStartDate:
-        uuid: cim/entity/Product/attr/minimumAdvertisementAmountStartDate
-        range:
-          type: string
-      lotIdentifier:
-        uuid: cim/entity/Product/attr/lotIdentifier
-        range:
-          type: string
-      isManualPriceEntryRequired:
-        uuid: cim/entity/Product/attr/isManualPriceEntryRequired
-        required: true
-        range:
-          type: string
-      minimumOrderQuantityCount:
-        uuid: cim/entity/Product/attr/minimumOrderQuantityCount
+      quantityInstallmentCount:
+        uuid: cim/entity/Product/attr/quantityInstallmentCount
         range:
           type: integer
-      versionNumber:
-        uuid: cim/entity/Product/attr/versionNumber
+      displayUrl:
+        uuid: cim/entity/Product/attr/displayUrl
         range:
           type: string
-      isCouponRedemptionAllowed:
-        uuid: cim/entity/Product/attr/isCouponRedemptionAllowed
-        required: true
+      mSRPAmount:
+        uuid: cim/entity/Product/attr/mSRPAmount
+        range:
+          type: string
+      glAccountCode:
+        uuid: cim/entity/Product/attr/glAccountCode
         range:
           type: string
       type:
         uuid: cim/entity/Product/attr/type
         range:
           type: string
-      isSellable:
-        uuid: cim/entity/Product/attr/isSellable
+      modelNumber:
+        uuid: cim/entity/Product/attr/modelNumber
         range:
           type: string
-      maximumOrderQuantityCount:
-        uuid: cim/entity/Product/attr/maximumOrderQuantityCount
-        range:
-          type: integer
-      isPartnerDiscountAllowed:
-        uuid: cim/entity/Product/attr/isPartnerDiscountAllowed
-        required: true
-        range:
-          type: string
-      isCustomerDiscountAllowed:
-        uuid: cim/entity/Product/attr/isCustomerDiscountAllowed
+      isPreOrderable:
+        uuid: cim/entity/Product/attr/isPreOrderable
         required: true
         range:
           type: string
@@ -140,127 +63,17 @@ entities:
         required: true
         range:
           type: string
-      allowPartialRefund:
-        uuid: cim/entity/Product/attr/allowPartialRefund
-        range:
-          type: string
-      externalSourceRecord:
-        uuid: cim/entity/Product/attr/externalSourceRecord
-        range:
-          type: string
-      isPreOrderable:
-        uuid: cim/entity/Product/attr/isPreOrderable
+      isSellableIndependently:
+        uuid: cim/entity/Product/attr/isSellableIndependently
         required: true
         range:
           type: string
-      requiredDepositAmount:
-        uuid: cim/entity/Product/attr/requiredDepositAmount
-        range:
-          type: string
-      quantityInstallmentCount:
-        uuid: cim/entity/Product/attr/quantityInstallmentCount
+      minimumOrderQuantityCount:
+        uuid: cim/entity/Product/attr/minimumOrderQuantityCount
         range:
           type: integer
-      isDynamicBundle:
-        uuid: cim/entity/Product/attr/isDynamicBundle
-        required: true
-        range:
-          type: string
-      productStatus:
-        uuid: cim/entity/Product/attr/productStatus
-        required: true
-        range:
-          type: string
-      isWorkerDiscountAllowed:
-        uuid: cim/entity/Product/attr/isWorkerDiscountAllowed
-        required: true
-        range:
-          type: string
-      validForPeriodCount:
-        uuid: cim/entity/Product/attr/validForPeriodCount
-        range:
-          type: integer
-      allowCustomerReturn:
-        uuid: cim/entity/Product/attr/allowCustomerReturn
-        range:
-          type: string
-      stockLedgerValuationAmount:
-        uuid: cim/entity/Product/attr/stockLedgerValuationAmount
-        range:
-          type: integer
-      name:
-        uuid: cim/entity/Product/attr/name
-        required: true
-        range:
-          type: string
-      requiresInvididualUnitPricing:
-        uuid: cim/entity/Product/attr/requiresInvididualUnitPricing
-        required: true
-        range:
-          type: string
-      isInstallable:
-        uuid: cim/entity/Product/attr/isInstallable
-        required: true
-        range:
-          type: string
-      requiredDepositPercentage:
-        uuid: cim/entity/Product/attr/requiredDepositPercentage
-        range:
-          type: string
-      brandGrade:
-        uuid: cim/entity/Product/attr/brandGrade
-        range:
-          type: string
-      isBackOrdered:
-        uuid: cim/entity/Product/attr/isBackOrdered
-        required: true
-        range:
-          type: string
-      isIntellectualPropertyProtected:
-        uuid: cim/entity/Product/attr/isIntellectualPropertyProtected
-        range:
-          type: string
-      revenueInstallmentCount:
-        uuid: cim/entity/Product/attr/revenueInstallmentCount
-        range:
-          type: integer
-      modelYear:
-        uuid: cim/entity/Product/attr/modelYear
-        range:
-          type: integer
-      disposalType:
-        uuid: cim/entity/Product/attr/disposalType
-        range:
-          type: string
-      rewardProgramPointsCount:
-        uuid: cim/entity/Product/attr/rewardProgramPointsCount
-        range:
-          type: integer
-      isWeightEntryRequired:
-        uuid: cim/entity/Product/attr/isWeightEntryRequired
-        required: true
-        range:
-          type: string
-      validFromDate:
-        uuid: cim/entity/Product/attr/validFromDate
-        range:
-          type: string
-      id:
-        uuid: cim/entity/Product/attr/id
-        required: true
-        range:
-          type: string
       revenueScheduleType:
         uuid: cim/entity/Product/attr/revenueScheduleType
-        range:
-          type: string
-      quantityScheduleType:
-        uuid: cim/entity/Product/attr/quantityScheduleType
-        range:
-          type: string
-      canUseRevenueSchedule:
-        uuid: cim/entity/Product/attr/canUseRevenueSchedule
-        required: true
         range:
           type: string
       description:
@@ -268,8 +81,27 @@ entities:
         required: true
         range:
           type: string
-      manufacturerName:
-        uuid: cim/entity/Product/attr/manufacturerName
+      isFoodstampPaymentAllowed:
+        uuid: cim/entity/Product/attr/isFoodstampPaymentAllowed
+        required: true
+        range:
+          type: string
+      validFromDate:
+        uuid: cim/entity/Product/attr/validFromDate
+        range:
+          type: string
+      allowCustomerReturn:
+        uuid: cim/entity/Product/attr/allowCustomerReturn
+        range:
+          type: string
+      longDescription:
+        uuid: cim/entity/Product/attr/longDescription
+        required: true
+        range:
+          type: string
+      canUseQuantitySchedule:
+        uuid: cim/entity/Product/attr/canUseQuantitySchedule
+        required: true
         range:
           type: string
       isQualityVerificationRequired:
@@ -277,12 +109,48 @@ entities:
         required: true
         range:
           type: string
-      validToDate:
-        uuid: cim/entity/Product/attr/validToDate
+      quantityInstallmentPeriod:
+        uuid: cim/entity/Product/attr/quantityInstallmentPeriod
         range:
           type: string
-      priceChargeType:
-        uuid: cim/entity/Product/attr/priceChargeType
+      canUseRevenueSchedule:
+        uuid: cim/entity/Product/attr/canUseRevenueSchedule
+        required: true
+        range:
+          type: string
+      isManualPriceEntryRequired:
+        uuid: cim/entity/Product/attr/isManualPriceEntryRequired
+        required: true
+        range:
+          type: string
+      isBackOrdered:
+        uuid: cim/entity/Product/attr/isBackOrdered
+        required: true
+        range:
+          type: string
+      modelYear:
+        uuid: cim/entity/Product/attr/modelYear
+        range:
+          type: integer
+      isSellable:
+        uuid: cim/entity/Product/attr/isSellable
+        range:
+          type: string
+      quantityScheduleType:
+        uuid: cim/entity/Product/attr/quantityScheduleType
+        range:
+          type: string
+      minimumAdvertisementAmountStartDate:
+        uuid: cim/entity/Product/attr/minimumAdvertisementAmountStartDate
+        range:
+          type: string
+      isWeightEntryRequired:
+        uuid: cim/entity/Product/attr/isWeightEntryRequired
+        required: true
+        range:
+          type: string
+      isCouponRedemptionAllowed:
+        uuid: cim/entity/Product/attr/isCouponRedemptionAllowed
         required: true
         range:
           type: string
@@ -291,65 +159,172 @@ entities:
         required: true
         range:
           type: string
+      externalSourceRecord:
+        uuid: cim/entity/Product/attr/externalSourceRecord
+        range:
+          type: string
+      isReturnable:
+        uuid: cim/entity/Product/attr/isReturnable
+        required: true
+        range:
+          type: string
+      requiredDepositAmount:
+        uuid: cim/entity/Product/attr/requiredDepositAmount
+        range:
+          type: string
+      isWorkerDiscountAllowed:
+        uuid: cim/entity/Product/attr/isWorkerDiscountAllowed
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Product/attr/id
+        required: true
+        range:
+          type: string
+      requiredDepositPercentage:
+        uuid: cim/entity/Product/attr/requiredDepositPercentage
+        range:
+          type: string
+      standardWarrantyLengthMonth:
+        uuid: cim/entity/Product/attr/standardWarrantyLengthMonth
+        range:
+          type: integer
+      revenueInstallmentCount:
+        uuid: cim/entity/Product/attr/revenueInstallmentCount
+        range:
+          type: integer
+      isPartnerDiscountAllowed:
+        uuid: cim/entity/Product/attr/isPartnerDiscountAllowed
+        required: true
+        range:
+          type: string
+      productStatus:
+        uuid: cim/entity/Product/attr/productStatus
+        required: true
+        range:
+          type: string
+      requiresInvididualUnitPricing:
+        uuid: cim/entity/Product/attr/requiresInvididualUnitPricing
+        required: true
+        range:
+          type: string
+      priceChargeType:
+        uuid: cim/entity/Product/attr/priceChargeType
+        required: true
+        range:
+          type: string
+      isQuantityEntryRequired:
+        uuid: cim/entity/Product/attr/isQuantityEntryRequired
+        required: true
+        range:
+          type: string
+      isDynamicBundle:
+        uuid: cim/entity/Product/attr/isDynamicBundle
+        required: true
+        range:
+          type: string
+      isInstallable:
+        uuid: cim/entity/Product/attr/isInstallable
+        required: true
+        range:
+          type: string
+      validForPeriodCount:
+        uuid: cim/entity/Product/attr/validForPeriodCount
+        range:
+          type: integer
+      revenueInstallmentPeriod:
+        uuid: cim/entity/Product/attr/revenueInstallmentPeriod
+        range:
+          type: string
+      name:
+        uuid: cim/entity/Product/attr/name
+        required: true
+        range:
+          type: string
+      isMultipleCouponsAllowed:
+        uuid: cim/entity/Product/attr/isMultipleCouponsAllowed
+        required: true
+        range:
+          type: string
+      isIntellectualPropertyProtected:
+        uuid: cim/entity/Product/attr/isIntellectualPropertyProtected
+        range:
+          type: string
+      isCustomerDiscountAllowed:
+        uuid: cim/entity/Product/attr/isCustomerDiscountAllowed
+        required: true
+        range:
+          type: string
+      disposalType:
+        uuid: cim/entity/Product/attr/disposalType
+        range:
+          type: string
+      brandGrade:
+        uuid: cim/entity/Product/attr/brandGrade
+        range:
+          type: string
+      stockLedgerValuationAmount:
+        uuid: cim/entity/Product/attr/stockLedgerValuationAmount
+        range:
+          type: integer
+      lotIdentifier:
+        uuid: cim/entity/Product/attr/lotIdentifier
+        range:
+          type: string
+      isSerialized:
+        uuid: cim/entity/Product/attr/isSerialized
+        required: true
+        range:
+          type: string
+      manufacturerName:
+        uuid: cim/entity/Product/attr/manufacturerName
+        range:
+          type: string
+      isRainCheckAllowed:
+        uuid: cim/entity/Product/attr/isRainCheckAllowed
+        required: true
+        range:
+          type: string
+      validToDate:
+        uuid: cim/entity/Product/attr/validToDate
+        range:
+          type: string
+      rewardProgramPointsCount:
+        uuid: cim/entity/Product/attr/rewardProgramPointsCount
+        range:
+          type: integer
+      maximumOrderQuantityCount:
+        uuid: cim/entity/Product/attr/maximumOrderQuantityCount
+        range:
+          type: integer
       isSellableWithoutPrice:
         uuid: cim/entity/Product/attr/isSellableWithoutPrice
         required: true
         range:
           type: string
-      modelNumber:
-        uuid: cim/entity/Product/attr/modelNumber
-        range:
-          type: string
-      mSRPAmount:
-        uuid: cim/entity/Product/attr/mSRPAmount
-        range:
-          type: string
-      longDescription:
-        uuid: cim/entity/Product/attr/longDescription
-        required: true
-        range:
-          type: string
     associations:
-      primaryProductCategory:
-        allowMultiple: true
-        uuid: cim/entity/Product/attr/primaryProductCategory
-        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
       validForPeriodUOM:
         allowMultiple: true
         uuid: cim/entity/Product/attr/validForPeriodUOM
         target: http://mulesoft.com/modeling/instances/cim/entity/ProductValidityTimePeriodUOM
-      masterProduct:
-        allowMultiple: true
-        uuid: cim/entity/Product/attr/masterProduct
-        target: http://mulesoft.com/modeling/instances/cim/entity/Product
       primarySalesChannel:
         allowMultiple: true
         uuid: cim/entity/Product/attr/primarySalesChannel
         target: http://mulesoft.com/modeling/instances/cim/entity/SalesChannel
+      primaryProductCategory:
+        allowMultiple: true
+        uuid: cim/entity/Product/attr/primaryProductCategory
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
+      masterProduct:
+        allowMultiple: true
+        uuid: cim/entity/Product/attr/masterProduct
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
       brand:
         allowMultiple: true
         uuid: cim/entity/Product/attr/brand
         target: http://mulesoft.com/modeling/instances/cim/entity/Brand
     description: What is intended to be sold e.g. goods, services, bundles, made to order products.
-  Product Relationship Type:
-    uuid: cim/entity/ProductRelationshipType
-    attributes:
-      childProductRole:
-        uuid: cim/entity/ProductRelationshipType/attr/childProductRole
-        required: true
-        range:
-          type: string
-      parentProductRole:
-        uuid: cim/entity/ProductRelationshipType/attr/parentProductRole
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/ProductRelationshipType/attr/id
-        required: true
-        range:
-          type: string
-    description: What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of
   Product Translation:
     uuid: cim/entity/ProductTranslation
     attributes:
@@ -391,84 +366,26 @@ entities:
         range:
           type: string
     description: Products you can touch e.g. cart of milk, pallet of coffee, mobile phone x model 1
-  Service Product:
-    uuid: cim/entity/ServiceProduct
+  Product Image Translation:
+    uuid: cim/entity/ProductImageTranslation
     attributes:
-      type:
-        uuid: cim/entity/ServiceProduct/attr/type
+      translatedName:
+        uuid: cim/entity/ProductImageTranslation/attr/translatedName
+        required: true
         range:
           type: string
-      evergreenContractEstimatedChargeAmount:
-        uuid: cim/entity/ServiceProduct/attr/evergreenContractEstimatedChargeAmount
-        range:
-          type: string
-    description: Products that are intangible e.g. labor, software subscription
-  Product Related Product:
-    uuid: cim/entity/ProductRelatedProduct
-    attributes:
       id:
-        uuid: cim/entity/ProductRelatedProduct/attr/id
-        required: true
-        range:
-          type: string
-      fromDate:
-        uuid: cim/entity/ProductRelatedProduct/attr/fromDate
-        required: true
-        range:
-          type: string
-      toDate:
-        uuid: cim/entity/ProductRelatedProduct/attr/toDate
-        range:
-          type: string
-      isDefaultOption:
-        uuid: cim/entity/ProductRelatedProduct/attr/isDefaultOption
-        required: true
-        range:
-          type: string
-      name:
-        uuid: cim/entity/ProductRelatedProduct/attr/name
+        uuid: cim/entity/ProductImageTranslation/attr/id
         required: true
         range:
           type: string
     associations:
-      childProduct:
+      productImage:
         allowMultiple: true
-        uuid: cim/entity/ProductRelatedProduct/attr/childProduct
+        uuid: cim/entity/ProductImageTranslation/attr/productImage
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Product
-      salesOrderProduct2:
-        allowMultiple: true
-        uuid: cim/entity/ProductRelatedProduct/attr/salesOrderProduct2
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
-      productRelationshipType:
-        allowMultiple: true
-        uuid: cim/entity/ProductRelatedProduct/attr/productRelationshipType
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/ProductRelationshipType
-      salesOrderProduct1:
-        allowMultiple: true
-        uuid: cim/entity/ProductRelatedProduct/attr/salesOrderProduct1
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
-      parentProduct:
-        allowMultiple: true
-        uuid: cim/entity/ProductRelatedProduct/attr/parentProduct
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Product
-    description: A grouping of products such as a product bundle
-  Bundle Product:
-    uuid: cim/entity/BundleProduct
-    attributes:
-      type:
-        uuid: cim/entity/BundleProduct/attr/type
-        range:
-          type: string
-      weightUOM:
-        uuid: cim/entity/BundleProduct/attr/weightUOM
-        range:
-          type: string
-    description: Product groups e.g. mobile phone package include phone, call plan and charger
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductImage
+    description: Translated attributes for a product image
   Product Image:
     uuid: cim/entity/ProductImage
     attributes:
@@ -493,23 +410,108 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/Product
     description: Images of a product
-  Product Image Translation:
-    uuid: cim/entity/ProductImageTranslation
+  Product Related Product:
+    uuid: cim/entity/ProductRelatedProduct
     attributes:
-      translatedName:
-        uuid: cim/entity/ProductImageTranslation/attr/translatedName
-        required: true
+      toDate:
+        uuid: cim/entity/ProductRelatedProduct/attr/toDate
         range:
           type: string
       id:
-        uuid: cim/entity/ProductImageTranslation/attr/id
+        uuid: cim/entity/ProductRelatedProduct/attr/id
+        required: true
+        range:
+          type: string
+      fromDate:
+        uuid: cim/entity/ProductRelatedProduct/attr/fromDate
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ProductRelatedProduct/attr/name
+        required: true
+        range:
+          type: string
+      isDefaultOption:
+        uuid: cim/entity/ProductRelatedProduct/attr/isDefaultOption
         required: true
         range:
           type: string
     associations:
-      productImage:
+      salesOrderProduct2:
         allowMultiple: true
-        uuid: cim/entity/ProductImageTranslation/attr/productImage
+        uuid: cim/entity/ProductRelatedProduct/attr/salesOrderProduct2
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/ProductImage
-    description: Translated attributes for a product image
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
+      salesOrderProduct1:
+        allowMultiple: true
+        uuid: cim/entity/ProductRelatedProduct/attr/salesOrderProduct1
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
+      parentProduct:
+        allowMultiple: true
+        uuid: cim/entity/ProductRelatedProduct/attr/parentProduct
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+      childProduct:
+        allowMultiple: true
+        uuid: cim/entity/ProductRelatedProduct/attr/childProduct
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+      productRelationshipType:
+        allowMultiple: true
+        uuid: cim/entity/ProductRelatedProduct/attr/productRelationshipType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductRelationshipType
+    description: A grouping of products such as a product bundle
+  Service Product:
+    uuid: cim/entity/ServiceProduct
+    attributes:
+      type:
+        uuid: cim/entity/ServiceProduct/attr/type
+        range:
+          type: string
+      evergreenContractEstimatedChargeAmount:
+        uuid: cim/entity/ServiceProduct/attr/evergreenContractEstimatedChargeAmount
+        range:
+          type: string
+    description: Products that are intangible e.g. labor, software subscription
+  Product Relationship Type:
+    uuid: cim/entity/ProductRelationshipType
+    attributes:
+      childProductRole:
+        uuid: cim/entity/ProductRelationshipType/attr/childProductRole
+        required: true
+        range:
+          type: string
+      parentProductRole:
+        uuid: cim/entity/ProductRelationshipType/attr/parentProductRole
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductRelationshipType/attr/id
+        required: true
+        range:
+          type: string
+    description: What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of
+  Brand:
+    uuid: cim/entity/Brand
+    attributes:
+      brandGrade:
+        uuid: cim/entity/Brand/attr/brandGrade
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/Brand/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Brand/attr/id
+        required: true
+        range:
+          type: string
+    description: What is the brand of the product e.g. Snike shoes
+description: "Example Entities included: Product Type, Product Item, Product Attribute, Product Relation"

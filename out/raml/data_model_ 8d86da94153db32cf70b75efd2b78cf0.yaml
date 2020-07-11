@@ -19,6 +19,11 @@ entities:
           type: dateTime
     associations: {}
     description: not a plant, not a fungus
+  AliveThings:
+    uuid: 9d991352-203d-4755-8e87-644a7147eff7
+    disjoint:
+      - http://mulesoft.com/modeling/instances/06ef659593cd89af550d200922e61f1e
+      - http://mulesoft.com/modeling/instances/738d21d1cdfafea8d58d9379ec53eee9
   Person:
     uuid: 160337041f9b9e0277beb0e4e7a1e469
     attributes:
@@ -43,6 +48,26 @@ entities:
     associations: {}
     extends: http://mulesoft.com/modeling/instances/06ef659593cd89af550d200922e61f1e
     description: a human being
+  Other:
+    uuid: dc391c1b8f3b4085947417b78c059d8f
+    attributes: {}
+    associations:
+      external:
+        allowMultiple: false
+        uuid: ae597ed90a4be026a3fb5111c7e775a9
+        required: true
+        target: http://mulesoft.com/modeling/instances/64660a7adc463d52546694edb773e554
+  Vegetable:
+    uuid: 738d21d1cdfafea8d58d9379ec53eee9
+    attributes:
+      height:
+        allowMultiple: false
+        uuid: ff9b42894d0d31cb4e7e2a71604e9666
+        required: true
+        range:
+          type: float
+    associations: {}
+    description: Green organic matter
   Family:
     uuid: 9b40541c7e85197c7d66f453fa071ffb
     attributes: {}
@@ -58,12 +83,3 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/160337041f9b9e0277beb0e4e7a1e469
     description: a human molecule
-  Other:
-    uuid: dc391c1b8f3b4085947417b78c059d8f
-    attributes: {}
-    associations:
-      external:
-        allowMultiple: false
-        uuid: ae597ed90a4be026a3fb5111c7e775a9
-        required: true
-        target: http://mulesoft.com/modeling/instances/64660a7adc463d52546694edb773e554

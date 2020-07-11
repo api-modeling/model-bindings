@@ -1,16 +1,247 @@
 #%DataModel 0.1
-uuid: cim/entitygroup/PartyEntityGroup/dataModel
+uuid: cim/entitygroup/PartyEntityGroup
+name: Party
 entities:
+  Party Related Party:
+    uuid: cim/entity/PartyRelatedParty
+    attributes:
+      relatedToDate:
+        uuid: cim/entity/PartyRelatedParty/attr/relatedToDate
+        required: true
+        range:
+          type: string
+      relatedFromDate:
+        uuid: cim/entity/PartyRelatedParty/attr/relatedFromDate
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PartyRelatedParty/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      partyRelationshipType:
+        allowMultiple: true
+        uuid: cim/entity/PartyRelatedParty/attr/partyRelationshipType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRelationshipType
+      relatedParty:
+        allowMultiple: true
+        uuid: cim/entity/PartyRelatedParty/attr/relatedParty
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+      party:
+        allowMultiple: true
+        uuid: cim/entity/PartyRelatedParty/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Relates any two parties together e.g. Jane and John Doe part of The Doe Household
+  Party Identification:
+    uuid: cim/entity/PartyIdentification
+    attributes:
+      expiryDate:
+        uuid: cim/entity/PartyIdentification/attr/expiryDate
+        range:
+          type: string
+      issuedByAuthority:
+        uuid: cim/entity/PartyIdentification/attr/issuedByAuthority
+        range:
+          type: string
+      verifiedDate:
+        uuid: cim/entity/PartyIdentification/attr/verifiedDate
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PartyIdentification/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PartyIdentification/attr/id
+        required: true
+        range:
+          type: string
+      partyIdentificationType:
+        uuid: cim/entity/PartyIdentification/attr/partyIdentificationType
+        required: true
+        range:
+          type: string
+      identificationNumber:
+        uuid: cim/entity/PartyIdentification/attr/identificationNumber
+        required: true
+        range:
+          type: string
+      issuedDate:
+        uuid: cim/entity/PartyIdentification/attr/issuedDate
+        range:
+          type: string
+      issuedAtLocation:
+        uuid: cim/entity/PartyIdentification/attr/issuedAtLocation
+        range:
+          type: string
+    associations:
+      partyRole:
+        allowMultiple: true
+        uuid: cim/entity/PartyIdentification/attr/partyRole
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
+      party:
+        allowMultiple: true
+        uuid: cim/entity/PartyIdentification/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Set of ways to identify a party e.g. driving license, birth certificate
+  Uncategorized Party:
+    uuid: cim/entity/UncategorizedParty
+    attributes:
+      noMergeReason:
+        uuid: cim/entity/UncategorizedParty/attr/noMergeReason
+        range:
+          type: string
+      creationReason:
+        uuid: cim/entity/UncategorizedParty/attr/creationReason
+        range:
+          type: string
+    description: A party we may be, or will be, dealing with but we do not know who they are yet e.g. Social Handle 'TrustedNews' which we do not yet know if a person or a business but complain about our company so we want to log a case to investigate further. E.g. an ord
+  Party Additional Name:
+    uuid: cim/entity/PartyAdditionalName
+    attributes:
+      additionalNameType:
+        uuid: cim/entity/PartyAdditionalName/attr/additionalNameType
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PartyAdditionalName/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PartyAdditionalName/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      party:
+        allowMultiple: true
+        uuid: cim/entity/PartyAdditionalName/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: Under what name is a person also known as( AKA), under what alternate name is a business doing business as (DBA)
+  Person Life Event:
+    uuid: cim/entity/PersonLifeEvent
+    attributes:
+      personLifeEventDateTime:
+        uuid: cim/entity/PersonLifeEvent/attr/personLifeEventDateTime
+        required: true
+        range:
+          type: string
+      personLifeEventType:
+        uuid: cim/entity/PersonLifeEvent/attr/personLifeEventType
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PersonLifeEvent/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      individual:
+        allowMultiple: true
+        uuid: cim/entity/PersonLifeEvent/attr/individual
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
+    description: Major events a person had in their lives e.g. graudation date, marriage date
+  Person Employment:
+    uuid: cim/entity/PersonEmployment
+    attributes:
+      positionText:
+        uuid: cim/entity/PersonEmployment/attr/positionText
+        required: true
+        range:
+          type: string
+      employerAddressLine1:
+        uuid: cim/entity/PersonEmployment/attr/employerAddressLine1
+        required: true
+        range:
+          type: string
+      employerName:
+        uuid: cim/entity/PersonEmployment/attr/employerName
+        required: true
+        range:
+          type: string
+      startDate:
+        uuid: cim/entity/PersonEmployment/attr/startDate
+        required: true
+        range:
+          type: string
+      annualIncome:
+        uuid: cim/entity/PersonEmployment/attr/annualIncome
+        required: true
+        range:
+          type: integer
+      id:
+        uuid: cim/entity/PersonEmployment/attr/id
+        required: true
+        range:
+          type: string
+      employerAddressLine2:
+        uuid: cim/entity/PersonEmployment/attr/employerAddressLine2
+        range:
+          type: string
+      employerPostalCodeText:
+        uuid: cim/entity/PersonEmployment/attr/employerPostalCodeText
+        range:
+          type: string
+      employerAddressLine3:
+        uuid: cim/entity/PersonEmployment/attr/employerAddressLine3
+        range:
+          type: string
+      occupationText:
+        uuid: cim/entity/PersonEmployment/attr/occupationText
+        required: true
+        range:
+          type: string
+      employerPhoneNumber:
+        uuid: cim/entity/PersonEmployment/attr/employerPhoneNumber
+        required: true
+        range:
+          type: string
+      employerCityName:
+        uuid: cim/entity/PersonEmployment/attr/employerCityName
+        range:
+          type: string
+      endDate:
+        uuid: cim/entity/PersonEmployment/attr/endDate
+        required: true
+        range:
+          type: string
+      employmentStatus:
+        uuid: cim/entity/PersonEmployment/attr/employmentStatus
+        required: true
+        range:
+          type: string
+      employerAddressLine4:
+        uuid: cim/entity/PersonEmployment/attr/employerAddressLine4
+        range:
+          type: string
+    associations:
+      employerContactPointAddress:
+        allowMultiple: true
+        uuid: cim/entity/PersonEmployment/attr/employerContactPointAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
+      individual:
+        allowMultiple: true
+        uuid: cim/entity/PersonEmployment/attr/individual
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
+    description: Information about an employee
   Person Education:
     uuid: cim/entity/PersonEducation
     attributes:
       graduationDate:
         uuid: cim/entity/PersonEducation/attr/graduationDate
-        required: true
-        range:
-          type: string
-      educationName:
-        uuid: cim/entity/PersonEducation/attr/educationName
         required: true
         range:
           type: string
@@ -21,6 +252,11 @@ entities:
           type: string
       educationLevel:
         uuid: cim/entity/PersonEducation/attr/educationLevel
+        required: true
+        range:
+          type: string
+      educationName:
+        uuid: cim/entity/PersonEducation/attr/educationName
         required: true
         range:
           type: string
@@ -36,6 +272,66 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/Individual
     description: Education a person has e.g. Phd, High School
+  Household:
+    uuid: cim/entity/Household
+    attributes:
+      noMergeReason:
+        uuid: cim/entity/Household/attr/noMergeReason
+        range:
+          type: string
+      householdDissolvedDate:
+        uuid: cim/entity/Household/attr/householdDissolvedDate
+        range:
+          type: string
+    description: A combination of people, normally recorded in the system for marketing or service purposes
+  Person Language:
+    uuid: cim/entity/PersonLanguage
+    attributes:
+      writtenProficiencyLevel:
+        uuid: cim/entity/PersonLanguage/attr/writtenProficiencyLevel
+        range:
+          type: string
+      spokenProficiencyLevel:
+        uuid: cim/entity/PersonLanguage/attr/spokenProficiencyLevel
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PersonLanguage/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      individual:
+        allowMultiple: true
+        uuid: cim/entity/PersonLanguage/attr/individual
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
+    description: Languages a person can comprehend and level of comprehension
+  Internal Business Unit:
+    uuid: cim/entity/InternalBusinessUnit
+    attributes:
+      noMergeReason:
+        uuid: cim/entity/InternalBusinessUnit/attr/noMergeReason
+        range:
+          type: string
+    associations:
+      parentInternalBusinessUnit:
+        allowMultiple: true
+        uuid: cim/entity/InternalBusinessUnit/attr/parentInternalBusinessUnit
+        target: http://mulesoft.com/modeling/instances/cim/entity/InternalBusinessUnit
+    description: Defining a part of your own internal organization. May be anything from a holding company, a line of business, a country division, a department and for which you may want to track e.g. if it is a legal entity, default GL Code, profit-and-loss etc against.
+  Individual:
+    uuid: cim/entity/Individual
+    attributes:
+      noMergeReason:
+        uuid: cim/entity/Individual/attr/noMergeReason
+        range:
+          type: string
+      convictionsCount:
+        uuid: cim/entity/Individual/attr/convictionsCount
+        range:
+          type: integer
+    description: Represent the person you are, or will be, dealing with using the system
   Party:
     uuid: cim/entity/Party
     attributes:
@@ -87,298 +383,4 @@ entities:
         range:
           type: string
     description: Define name of a relationship and how to read the relationship both ways e.g. household for / household member of
-  Person Employment:
-    uuid: cim/entity/PersonEmployment
-    attributes:
-      employerPostalCodeText:
-        uuid: cim/entity/PersonEmployment/attr/employerPostalCodeText
-        range:
-          type: string
-      positionText:
-        uuid: cim/entity/PersonEmployment/attr/positionText
-        required: true
-        range:
-          type: string
-      employerPhoneNumber:
-        uuid: cim/entity/PersonEmployment/attr/employerPhoneNumber
-        required: true
-        range:
-          type: string
-      employerAddressLine4:
-        uuid: cim/entity/PersonEmployment/attr/employerAddressLine4
-        range:
-          type: string
-      employerAddressLine1:
-        uuid: cim/entity/PersonEmployment/attr/employerAddressLine1
-        required: true
-        range:
-          type: string
-      endDate:
-        uuid: cim/entity/PersonEmployment/attr/endDate
-        required: true
-        range:
-          type: string
-      employmentStatus:
-        uuid: cim/entity/PersonEmployment/attr/employmentStatus
-        required: true
-        range:
-          type: string
-      employerAddressLine2:
-        uuid: cim/entity/PersonEmployment/attr/employerAddressLine2
-        range:
-          type: string
-      startDate:
-        uuid: cim/entity/PersonEmployment/attr/startDate
-        required: true
-        range:
-          type: string
-      employerCityName:
-        uuid: cim/entity/PersonEmployment/attr/employerCityName
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PersonEmployment/attr/id
-        required: true
-        range:
-          type: string
-      annualIncome:
-        uuid: cim/entity/PersonEmployment/attr/annualIncome
-        required: true
-        range:
-          type: integer
-      occupationText:
-        uuid: cim/entity/PersonEmployment/attr/occupationText
-        required: true
-        range:
-          type: string
-      employerName:
-        uuid: cim/entity/PersonEmployment/attr/employerName
-        required: true
-        range:
-          type: string
-      employerAddressLine3:
-        uuid: cim/entity/PersonEmployment/attr/employerAddressLine3
-        range:
-          type: string
-    associations:
-      employerContactPointAddress:
-        allowMultiple: true
-        uuid: cim/entity/PersonEmployment/attr/employerContactPointAddress
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
-      individual:
-        allowMultiple: true
-        uuid: cim/entity/PersonEmployment/attr/individual
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
-    description: Information about an employee
-  Household:
-    uuid: cim/entity/Household
-    attributes:
-      noMergeReason:
-        uuid: cim/entity/Household/attr/noMergeReason
-        range:
-          type: string
-      householdDissolvedDate:
-        uuid: cim/entity/Household/attr/householdDissolvedDate
-        range:
-          type: string
-    description: A combination of people, normally recorded in the system for marketing or service purposes
-  Person Life Event:
-    uuid: cim/entity/PersonLifeEvent
-    attributes:
-      personLifeEventDateTime:
-        uuid: cim/entity/PersonLifeEvent/attr/personLifeEventDateTime
-        required: true
-        range:
-          type: string
-      personLifeEventType:
-        uuid: cim/entity/PersonLifeEvent/attr/personLifeEventType
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PersonLifeEvent/attr/id
-        required: true
-        range:
-          type: string
-    associations:
-      individual:
-        allowMultiple: true
-        uuid: cim/entity/PersonLifeEvent/attr/individual
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
-    description: Major events a person had in their lives e.g. graudation date, marriage date
-  Party Related Party:
-    uuid: cim/entity/PartyRelatedParty
-    attributes:
-      relatedToDate:
-        uuid: cim/entity/PartyRelatedParty/attr/relatedToDate
-        required: true
-        range:
-          type: string
-      relatedFromDate:
-        uuid: cim/entity/PartyRelatedParty/attr/relatedFromDate
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PartyRelatedParty/attr/id
-        required: true
-        range:
-          type: string
-    associations:
-      partyRelationshipType:
-        allowMultiple: true
-        uuid: cim/entity/PartyRelatedParty/attr/partyRelationshipType
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRelationshipType
-      relatedParty:
-        allowMultiple: true
-        uuid: cim/entity/PartyRelatedParty/attr/relatedParty
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Party
-      party:
-        allowMultiple: true
-        uuid: cim/entity/PartyRelatedParty/attr/party
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Party
-    description: Relates any two parties together e.g. Jane and John Doe part of The Doe Household
-  Internal Business Unit:
-    uuid: cim/entity/InternalBusinessUnit
-    attributes:
-      noMergeReason:
-        uuid: cim/entity/InternalBusinessUnit/attr/noMergeReason
-        range:
-          type: string
-    associations:
-      parentInternalBusinessUnit:
-        allowMultiple: true
-        uuid: cim/entity/InternalBusinessUnit/attr/parentInternalBusinessUnit
-        target: http://mulesoft.com/modeling/instances/cim/entity/InternalBusinessUnit
-    description: Defining a part of your own internal organization. May be anything from a holding company, a line of business, a country division, a department and for which you may want to track e.g. if it is a legal entity, default GL Code, profit-and-loss etc against.
-  Party Identification:
-    uuid: cim/entity/PartyIdentification
-    attributes:
-      name:
-        uuid: cim/entity/PartyIdentification/attr/name
-        required: true
-        range:
-          type: string
-      issuedDate:
-        uuid: cim/entity/PartyIdentification/attr/issuedDate
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PartyIdentification/attr/id
-        required: true
-        range:
-          type: string
-      identificationNumber:
-        uuid: cim/entity/PartyIdentification/attr/identificationNumber
-        required: true
-        range:
-          type: string
-      verifiedDate:
-        uuid: cim/entity/PartyIdentification/attr/verifiedDate
-        range:
-          type: string
-      issuedByAuthority:
-        uuid: cim/entity/PartyIdentification/attr/issuedByAuthority
-        range:
-          type: string
-      partyIdentificationType:
-        uuid: cim/entity/PartyIdentification/attr/partyIdentificationType
-        required: true
-        range:
-          type: string
-      expiryDate:
-        uuid: cim/entity/PartyIdentification/attr/expiryDate
-        range:
-          type: string
-      issuedAtLocation:
-        uuid: cim/entity/PartyIdentification/attr/issuedAtLocation
-        range:
-          type: string
-    associations:
-      partyRole:
-        allowMultiple: true
-        uuid: cim/entity/PartyIdentification/attr/partyRole
-        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
-      party:
-        allowMultiple: true
-        uuid: cim/entity/PartyIdentification/attr/party
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Party
-    description: Set of ways to identify a party e.g. driving license, birth certificate
-  Individual:
-    uuid: cim/entity/Individual
-    attributes:
-      noMergeReason:
-        uuid: cim/entity/Individual/attr/noMergeReason
-        range:
-          type: string
-      convictionsCount:
-        uuid: cim/entity/Individual/attr/convictionsCount
-        range:
-          type: integer
-    description: Represent the person you are, or will be, dealing with using the system
-  Uncategorized Party:
-    uuid: cim/entity/UncategorizedParty
-    attributes:
-      noMergeReason:
-        uuid: cim/entity/UncategorizedParty/attr/noMergeReason
-        range:
-          type: string
-      creationReason:
-        uuid: cim/entity/UncategorizedParty/attr/creationReason
-        range:
-          type: string
-    description: A party we may be, or will be, dealing with but we do not know who they are yet e.g. Social Handle 'TrustedNews' which we do not yet know if a person or a business but complain about our company so we want to log a case to investigate further. E.g. an ord
-  Party Additional Name:
-    uuid: cim/entity/PartyAdditionalName
-    attributes:
-      additionalNameType:
-        uuid: cim/entity/PartyAdditionalName/attr/additionalNameType
-        required: true
-        range:
-          type: string
-      name:
-        uuid: cim/entity/PartyAdditionalName/attr/name
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PartyAdditionalName/attr/id
-        required: true
-        range:
-          type: string
-    associations:
-      party:
-        allowMultiple: true
-        uuid: cim/entity/PartyAdditionalName/attr/party
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Party
-    description: Under what name is a person also known as( AKA), under what alternate name is a business doing business as (DBA)
-  Person Language:
-    uuid: cim/entity/PersonLanguage
-    attributes:
-      writtenProficiencyLevel:
-        uuid: cim/entity/PersonLanguage/attr/writtenProficiencyLevel
-        range:
-          type: string
-      spokenProficiencyLevel:
-        uuid: cim/entity/PersonLanguage/attr/spokenProficiencyLevel
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PersonLanguage/attr/id
-        required: true
-        range:
-          type: string
-    associations:
-      individual:
-        allowMultiple: true
-        uuid: cim/entity/PersonLanguage/attr/individual
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Individual
-    description: Languages a person can comprehend and level of comprehension
+description: "Example Entities included: Organization, Individual, Affiliate Group, Uncategorized"

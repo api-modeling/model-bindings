@@ -1,89 +1,36 @@
 #%DataModel 0.1
-uuid: cim/entitygroup/ProductCatalogEntityGroup/dataModel
+uuid: cim/entitygroup/ProductCatalogEntityGroup
+name: Product Catalog
 entities:
-  Product Category Translation:
-    uuid: cim/entity/ProductCategoryTranslation
+  Product Category Product:
+    uuid: cim/entity/ProductCategoryProduct
     attributes:
-      translatedName:
-        uuid: cim/entity/ProductCategoryTranslation/attr/translatedName
+      activeToDateTime:
+        uuid: cim/entity/ProductCategoryProduct/attr/activeToDateTime
+        range:
+          type: string
+      activeFromDateTime:
+        uuid: cim/entity/ProductCategoryProduct/attr/activeFromDateTime
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/ProductCategoryTranslation/attr/id
+        uuid: cim/entity/ProductCategoryProduct/attr/id
         required: true
         range:
           type: string
     associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/ProductCategoryProduct/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product
       productCategory:
         allowMultiple: true
-        uuid: cim/entity/ProductCategoryTranslation/attr/productCategory
+        uuid: cim/entity/ProductCategoryProduct/attr/productCategory
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
-    description: Translated attributes for a product category
-  Product Catalog:
-    uuid: cim/entity/ProductCatalog
-    attributes:
-      activeToDate:
-        uuid: cim/entity/ProductCatalog/attr/activeToDate
-        range:
-          type: string
-      activeFromDate:
-        uuid: cim/entity/ProductCatalog/attr/activeFromDate
-        required: true
-        range:
-          type: string
-      name:
-        uuid: cim/entity/ProductCatalog/attr/name
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/ProductCatalog/attr/id
-        required: true
-        range:
-          type: string
-    description: A catalog used for a certain business process e.g. inventory, merchandizing
-  Product Catalog Translation:
-    uuid: cim/entity/ProductCatalogTranslation
-    attributes:
-      translatedName:
-        uuid: cim/entity/ProductCatalogTranslation/attr/translatedName
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/ProductCatalogTranslation/attr/id
-        required: true
-        range:
-          type: string
-    associations:
-      productCatalog:
-        allowMultiple: true
-        uuid: cim/entity/ProductCatalogTranslation/attr/productCatalog
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCatalog
-    description: Translated attributes for a product catalog
-  Product Category Attribute Set:
-    uuid: cim/entity/ProductCategoryAttributeSet
-    attributes:
-      attributeSet:
-        uuid: cim/entity/ProductCategoryAttributeSet/attr/attributeSet
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/ProductCategoryAttributeSet/attr/id
-        required: true
-        range:
-          type: string
-    associations:
-      productCategory:
-        allowMultiple: true
-        uuid: cim/entity/ProductCategoryAttributeSet/attr/productCategory
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
-    description: Assignment of an Attribute Set to a Product Category e.g. the Shoe attribute set assigned to the Shoes category
+    description: Assignment of product to categories e.g. the Nikedas shoe assigned to shoe and running categories
   Product Category:
     uuid: cim/entity/ProductCategory
     attributes:
@@ -117,32 +64,87 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/ProductCatalog
     description: A product may consist of many categories e.g. shoes, tshirts
-  Product Category Product:
-    uuid: cim/entity/ProductCategoryProduct
+  Product Catalog Translation:
+    uuid: cim/entity/ProductCatalogTranslation
     attributes:
-      activeToDateTime:
-        uuid: cim/entity/ProductCategoryProduct/attr/activeToDateTime
-        range:
-          type: string
-      activeFromDateTime:
-        uuid: cim/entity/ProductCategoryProduct/attr/activeFromDateTime
+      translatedName:
+        uuid: cim/entity/ProductCatalogTranslation/attr/translatedName
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/ProductCategoryProduct/attr/id
+        uuid: cim/entity/ProductCatalogTranslation/attr/id
         required: true
         range:
           type: string
     associations:
-      product:
+      productCatalog:
         allowMultiple: true
-        uuid: cim/entity/ProductCategoryProduct/attr/product
+        uuid: cim/entity/ProductCatalogTranslation/attr/productCatalog
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCatalog
+    description: Translated attributes for a product catalog
+  Product Catalog:
+    uuid: cim/entity/ProductCatalog
+    attributes:
+      activeToDate:
+        uuid: cim/entity/ProductCatalog/attr/activeToDate
+        range:
+          type: string
+      activeFromDate:
+        uuid: cim/entity/ProductCatalog/attr/activeFromDate
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/ProductCatalog/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductCatalog/attr/id
+        required: true
+        range:
+          type: string
+    description: A catalog used for a certain business process e.g. inventory, merchandizing
+  Product Category Translation:
+    uuid: cim/entity/ProductCategoryTranslation
+    attributes:
+      translatedName:
+        uuid: cim/entity/ProductCategoryTranslation/attr/translatedName
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductCategoryTranslation/attr/id
+        required: true
+        range:
+          type: string
+    associations:
       productCategory:
         allowMultiple: true
-        uuid: cim/entity/ProductCategoryProduct/attr/productCategory
+        uuid: cim/entity/ProductCategoryTranslation/attr/productCategory
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
-    description: Assignment of product to categories e.g. the Nikedas shoe assigned to shoe and running categories
+    description: Translated attributes for a product category
+  Product Category Attribute Set:
+    uuid: cim/entity/ProductCategoryAttributeSet
+    attributes:
+      attributeSet:
+        uuid: cim/entity/ProductCategoryAttributeSet/attr/attributeSet
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ProductCategoryAttributeSet/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      productCategory:
+        allowMultiple: true
+        uuid: cim/entity/ProductCategoryAttributeSet/attr/productCategory
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductCategory
+    description: Assignment of an Attribute Set to a Product Category e.g. the Shoe attribute set assigned to the Shoes category
+description: "Example Entities included: Product Catalog, Product Catalog Category, Product Catalog Assignment"

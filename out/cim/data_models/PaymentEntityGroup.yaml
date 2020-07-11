@@ -1,6 +1,20 @@
 #%DataModel 0.1
-uuid: cim/entitygroup/PaymentEntityGroup/dataModel
+uuid: cim/entitygroup/PaymentEntityGroup
+name: Payment
 entities:
+  Payment Gateway Authorization Reversal Log:
+    uuid: cim/entity/PaymentGatewayAuthReversalLog
+    associations:
+      paymentGatewayResult:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGatewayAuthReversalLog/attr/paymentGatewayResult
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
+      paymentAuthorizationReversal:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGatewayAuthReversalLog/attr/paymentAuthorizationReversal
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAuthorizationReversal
+    description: A log record of all requests made to financial institutions, made via the payment gateway, to cancel payment authorizations.
   Payment Credit Memo Application:
     uuid: cim/entity/PaymentCreditMemoApplication
     attributes:
@@ -16,19 +30,532 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/Payment
     description: Facilitates applying/unapplying payment balance to a credit memo.
-  Payment Gateway Authorization Reversal Log:
-    uuid: cim/entity/PaymentGatewayAuthReversalLog
+  Refund Allocation:
+    uuid: cim/entity/RefundAllocation
+    attributes:
+      effectiveDate:
+        uuid: cim/entity/RefundAllocation/attr/effectiveDate
+        required: true
+        range:
+          type: string
+      unappliedDate:
+        uuid: cim/entity/RefundAllocation/attr/unappliedDate
+        required: true
+        range:
+          type: string
+      externalCreatedDate:
+        uuid: cim/entity/RefundAllocation/attr/externalCreatedDate
+        required: true
+        range:
+          type: string
+      refundBalanceAmount:
+        uuid: cim/entity/RefundAllocation/attr/refundBalanceAmount
+        required: true
+        range:
+          type: string
+      hasBeenUnapplied:
+        uuid: cim/entity/RefundAllocation/attr/hasBeenUnapplied
+        range:
+          type: string
+      appliedDate:
+        uuid: cim/entity/RefundAllocation/attr/appliedDate
+        required: true
+        range:
+          type: string
+      refundAllocationType:
+        uuid: cim/entity/RefundAllocation/attr/refundAllocationType
+        required: true
+        range:
+          type: string
+      refundAllocationName:
+        uuid: cim/entity/RefundAllocation/attr/refundAllocationName
+        range:
+          type: string
+      id:
+        uuid: cim/entity/RefundAllocation/attr/id
+        required: true
+        range:
+          type: string
+      allocatedAmount:
+        uuid: cim/entity/RefundAllocation/attr/allocatedAmount
+        required: true
+        range:
+          type: string
+    associations:
+      refundPayment:
+        allowMultiple: true
+        uuid: cim/entity/RefundAllocation/attr/refundPayment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/RefundPayment
+      relatedRefundAllocation:
+        allowMultiple: true
+        uuid: cim/entity/RefundAllocation/attr/relatedRefundAllocation
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/RefundAllocation
+    description: Facilitates applying/unapplying a capture payment, or a credit memo to a Refund Payment.
+  Payment Invoice Application:
+    uuid: cim/entity/PaymentInvoiceApplication
+    attributes:
+      paymentInvoiceApplicationType:
+        uuid: cim/entity/PaymentInvoiceApplication/attr/paymentInvoiceApplicationType
+        range:
+          type: string
+    associations:
+      payment:
+        allowMultiple: true
+        uuid: cim/entity/PaymentInvoiceApplication/attr/payment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Payment
+    description: Facilitates applying/unapplying payment balance to an Invoice.
+  Payment Gateway Provider:
+    uuid: cim/entity/PaymentGatewayProvider
+    attributes:
+      namespacePrefixText:
+        uuid: cim/entity/PaymentGatewayProvider/attr/namespacePrefixText
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentGatewayProvider/attr/id
+        required: true
+        range:
+          type: string
+      apexAdapterClassName:
+        uuid: cim/entity/PaymentGatewayProvider/attr/apexAdapterClassName
+        required: true
+        range:
+          type: string
+      paymentGatewayProviderCommentText:
+        uuid: cim/entity/PaymentGatewayProvider/attr/paymentGatewayProviderCommentText
+        range:
+          type: string
+      paymentGatewayProviderName:
+        uuid: cim/entity/PaymentGatewayProvider/attr/paymentGatewayProviderName
+        required: true
+        range:
+          type: string
+      developerName:
+        uuid: cim/entity/PaymentGatewayProvider/attr/developerName
+        required: true
+        range:
+          type: string
+    description: Stores class details needed for maintaining Apex adapter.
+  Refund Credit Memo Allocation:
+    uuid: cim/entity/RefundCreditMemoAllocation
+    attributes:
+      id:
+        uuid: cim/entity/RefundCreditMemoAllocation/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      refundPayment:
+        allowMultiple: true
+        uuid: cim/entity/RefundCreditMemoAllocation/attr/refundPayment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/RefundPayment
+    description: Facilitates applying/unapplying refund balance to a credit memo.
+  Refund Payment Allocation:
+    uuid: cim/entity/RefundPaymentAllocation
+    associations:
+      refundPayment:
+        allowMultiple: true
+        uuid: cim/entity/RefundPaymentAllocation/attr/refundPayment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/RefundPayment
+      capturePayment:
+        allowMultiple: true
+        uuid: cim/entity/RefundPaymentAllocation/attr/capturePayment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/CapturePayment
+    description: Facilitates applying/unapplying refund balance to a payment.
+  Payment Invoice Allocation:
+    uuid: cim/entity/PaymentInvoiceAllocation
+    associations:
+      relatedPaymentAllocation:
+        allowMultiple: true
+        uuid: cim/entity/PaymentInvoiceAllocation/attr/relatedPaymentAllocation
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAllocation
+      paymentInvoiceApplication:
+        allowMultiple: true
+        uuid: cim/entity/PaymentInvoiceAllocation/attr/paymentInvoiceApplication
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentInvoiceApplication
+    description: Facilitates applying a Payment Application to the line items of an Invoice.
+  Payment Credit Memo Allocation:
+    uuid: cim/entity/PaymentCreditMemoAllocation
+    attributes:
+      id:
+        uuid: cim/entity/PaymentCreditMemoAllocation/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      relatedPaymentAllocation:
+        allowMultiple: true
+        uuid: cim/entity/PaymentCreditMemoAllocation/attr/relatedPaymentAllocation
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAllocation
+    description: Facilitates applying a Payment Application to the line items of a Credit Memo.
+  Payment Treatment:
+    uuid: cim/entity/PaymentTreatment
+    attributes:
+      paymentApplicationLevel:
+        uuid: cim/entity/PaymentTreatment/attr/paymentApplicationLevel
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentTreatment/attr/id
+        required: true
+        range:
+          type: string
+      paymentTreatmentName:
+        uuid: cim/entity/PaymentTreatment/attr/paymentTreatmentName
+        range:
+          type: string
+      paymentTreatmentStatus:
+        uuid: cim/entity/PaymentTreatment/attr/paymentTreatmentStatus
+        required: true
+        range:
+          type: string
+      shouldAutoInvoice:
+        uuid: cim/entity/PaymentTreatment/attr/shouldAutoInvoice
+        range:
+          type: string
+    associations:
+      paymentPolicy:
+        allowMultiple: true
+        uuid: cim/entity/PaymentTreatment/attr/paymentPolicy
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentPolicy
+      paymentTreatmentMethod:
+        allowMultiple: true
+        uuid: cim/entity/PaymentTreatment/attr/paymentTreatmentMethod
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentTreatmentMethod
+    description: This entity has the information which controls the way in which payment can be applied based on a legal entity or workflow. A policy has multiple treatments associated.
+  Payment Gateway Result Code:
+    uuid: cim/entity/PaymentGatewayResultCode
+    attributes:
+      id:
+        uuid: cim/entity/PaymentGatewayResultCode/attr/id
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PaymentGatewayResultCode/attr/name
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/PaymentGatewayResultCode/attr/description
+        required: true
+        range:
+          type: string
+    description: The response from the Payment Gateway.
+  Payment Application:
+    uuid: cim/entity/PaymentApplication
+    attributes:
+      externalCreatedDate:
+        uuid: cim/entity/PaymentApplication/attr/externalCreatedDate
+        required: true
+        range:
+          type: string
+      paymentBalanceAmount:
+        uuid: cim/entity/PaymentApplication/attr/paymentBalanceAmount
+        required: true
+        range:
+          type: string
+      appliedAmount:
+        uuid: cim/entity/PaymentApplication/attr/appliedAmount
+        required: true
+        range:
+          type: string
+      unappliedDate:
+        uuid: cim/entity/PaymentApplication/attr/unappliedDate
+        required: true
+        range:
+          type: string
+      paymentApplicationType:
+        uuid: cim/entity/PaymentApplication/attr/paymentApplicationType
+        required: true
+        range:
+          type: string
+      appliedDate:
+        uuid: cim/entity/PaymentApplication/attr/appliedDate
+        required: true
+        range:
+          type: string
+      effectiveDate:
+        uuid: cim/entity/PaymentApplication/attr/effectiveDate
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentApplication/attr/id
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PaymentApplication/attr/name
+        required: true
+        range:
+          type: string
+      commentText:
+        uuid: cim/entity/PaymentApplication/attr/commentText
+        range:
+          type: string
+      hasBeenUnapplied:
+        uuid: cim/entity/PaymentApplication/attr/hasBeenUnapplied
+        range:
+          type: string
+    associations:
+      payment:
+        allowMultiple: true
+        uuid: cim/entity/PaymentApplication/attr/payment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Payment
+    description: The designation of part or all of a Payment to satisfy a claim on the payment funds.
+  Payment Gateway Authorization Log:
+    uuid: cim/entity/PaymentGatewayAuthorizationLog
     associations:
       paymentGatewayResult:
         allowMultiple: true
-        uuid: cim/entity/PaymentGatewayAuthReversalLog/attr/paymentGatewayResult
+        uuid: cim/entity/PaymentGatewayAuthorizationLog/attr/paymentGatewayResult
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
-      paymentAuthorizationReversal:
+      paymentAuthorization:
         allowMultiple: true
-        uuid: cim/entity/PaymentGatewayAuthReversalLog/attr/paymentAuthorizationReversal
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAuthorizationReversal
-    description: A log record of all requests made to financial institutions, made via the payment gateway, to cancel payment authorizations.
+        uuid: cim/entity/PaymentGatewayAuthorizationLog/attr/paymentAuthorization
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAuthorization
+    description: A log record of all requests made to financial institutions, made via the payment gateway, to authorize payments.
+  Capture Payment:
+    uuid: cim/entity/CapturePayment
+    associations:
+      salesOrderPaymentSummary:
+        allowMultiple: true
+        uuid: cim/entity/CapturePayment/attr/salesOrderPaymentSummary
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderPaymentSummary
+      paymentAuthorization:
+        allowMultiple: true
+        uuid: cim/entity/CapturePayment/attr/paymentAuthorization
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAuthorization
+    description: The transfer of money from the customer's account to the merchant's account.
+  Payment Gateway:
+    uuid: cim/entity/PaymentGateway
+    attributes:
+      systemCredential:
+        uuid: cim/entity/PaymentGateway/attr/systemCredential
+        range:
+          type: string
+      paymentGatewayCommentText:
+        uuid: cim/entity/PaymentGateway/attr/paymentGatewayCommentText
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentGateway/attr/id
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PaymentGateway/attr/name
+        required: true
+        range:
+          type: string
+      paymentGatewayStatus:
+        uuid: cim/entity/PaymentGateway/attr/paymentGatewayStatus
+        required: true
+        range:
+          type: string
+    associations:
+      paymentGatewayProvider:
+        allowMultiple: true
+        uuid: cim/entity/PaymentGateway/attr/paymentGatewayProvider
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayProvider
+    description: Holds the payment gateway merchant details which are used to interact external payment systems.
+  Payment Authorization:
+    uuid: cim/entity/PaymentAuthorization
+    attributes:
+      paymentGatewayInternalReferenceNumber:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayInternalReferenceNumber
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentAuthorization/attr/id
+        required: true
+        range:
+          type: string
+      availableBalanceAmount:
+        uuid: cim/entity/PaymentAuthorization/attr/availableBalanceAmount
+        required: true
+        range:
+          type: string
+      totalAuthorizationReversalAmount:
+        uuid: cim/entity/PaymentAuthorization/attr/totalAuthorizationReversalAmount
+        required: true
+        range:
+          type: string
+      authorizationAmount:
+        uuid: cim/entity/PaymentAuthorization/attr/authorizationAmount
+        required: true
+        range:
+          type: string
+      gatewayAuthorizationCode:
+        uuid: cim/entity/PaymentAuthorization/attr/gatewayAuthorizationCode
+        required: true
+        range:
+          type: string
+      totalPaymentCaptureAmount:
+        uuid: cim/entity/PaymentAuthorization/attr/totalPaymentCaptureAmount
+        required: true
+        range:
+          type: string
+      expirationDate:
+        uuid: cim/entity/PaymentAuthorization/attr/expirationDate
+        required: true
+        range:
+          type: string
+      paymentAuthorizationCommentText:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationCommentText
+        range:
+          type: string
+      paymentAuthorizationProcessingMode:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationProcessingMode
+        required: true
+        range:
+          type: string
+      iPAddress:
+        uuid: cim/entity/PaymentAuthorization/attr/iPAddress
+        range:
+          type: string
+      paymentGatewayReferenceNumber:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayReferenceNumber
+        required: true
+        range:
+          type: string
+      paymentAuthorizationNumber:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationNumber
+        required: true
+        range:
+          type: string
+      paymentGatewayDate:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayDate
+        required: true
+        range:
+          type: string
+      requestDate:
+        uuid: cim/entity/PaymentAuthorization/attr/requestDate
+        required: true
+        range:
+          type: string
+      gatewayReferenceDetailsText:
+        uuid: cim/entity/PaymentAuthorization/attr/gatewayReferenceDetailsText
+        required: true
+        range:
+          type: string
+      paymentAuthorizationStatus:
+        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationStatus
+        required: true
+        range:
+          type: string
+      gatewayResultCodeDescription:
+        uuid: cim/entity/PaymentAuthorization/attr/gatewayResultCodeDescription
+        range:
+          type: string
+      macAddress:
+        uuid: cim/entity/PaymentAuthorization/attr/macAddress
+        range:
+          type: string
+      externalCreatedDate:
+        uuid: cim/entity/PaymentAuthorization/attr/externalCreatedDate
+        required: true
+        range:
+          type: string
+    associations:
+      paymentGateway:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGateway
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGateway
+      paymentGroup:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGroup
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGroup
+      paymentGatewayResult:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayResult
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
+      salesOrderPaymentSummary:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorization/attr/salesOrderPaymentSummary
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderPaymentSummary
+      paymentMethodID:
+        allowMultiple: true
+        uuid: cim/entity/PaymentAuthorization/attr/paymentMethodID
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
+    description: An approval from the issuer of a payment instrument (usually a card), that the customer has sufficient funds to cover the cost of the transaction.
+  Payment Treatment Method:
+    uuid: cim/entity/PaymentTreatmentMethod
+    attributes:
+      id:
+        uuid: cim/entity/PaymentTreatmentMethod/attr/id
+        required: true
+        range:
+          type: string
+      paymentTreatmentMethodName:
+        uuid: cim/entity/PaymentTreatmentMethod/attr/paymentTreatmentMethodName
+        required: true
+        range:
+          type: string
+      paymentTreatmentMethodDescription:
+        uuid: cim/entity/PaymentTreatmentMethod/attr/paymentTreatmentMethodDescription
+        required: true
+        range:
+          type: string
+      paymentTreatmentMethodCode:
+        uuid: cim/entity/PaymentTreatmentMethod/attr/paymentTreatmentMethodCode
+        required: true
+        range:
+          type: string
+    description: Represents a specific algorithm or method to apply. For example - pay for taxes first, pay for charges first, pay for oldest due invoice first etc. It can also point to a rule based on which application can be done. Treatment has a method.
+  Payment Policy:
+    uuid: cim/entity/PaymentPolicy
+    attributes:
+      paymentPolicyTreatmentSelection:
+        uuid: cim/entity/PaymentPolicy/attr/paymentPolicyTreatmentSelection
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/PaymentPolicy/attr/description
+        required: true
+        range:
+          type: string
+      paymentPolicyStatus:
+        uuid: cim/entity/PaymentPolicy/attr/paymentPolicyStatus
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/PaymentPolicy/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentPolicy/attr/id
+        required: true
+        range:
+          type: string
+    description: This entity stores policy information for an org or an account which can be used to automate the process of payment application to invoice based on business needs.
   Payment Gateway Payment Log:
     uuid: cim/entity/PaymentGatewayPaymentLog
     associations:
@@ -62,334 +589,25 @@ entities:
         range:
           type: string
     description: Reasons for accessing the Payment Gateway, including authorization, Sale and Void.
-  Payment Gateway Provider:
-    uuid: cim/entity/PaymentGatewayProvider
-    attributes:
-      paymentGatewayProviderCommentText:
-        uuid: cim/entity/PaymentGatewayProvider/attr/paymentGatewayProviderCommentText
-        range:
-          type: string
-      developerName:
-        uuid: cim/entity/PaymentGatewayProvider/attr/developerName
-        required: true
-        range:
-          type: string
-      paymentGatewayProviderName:
-        uuid: cim/entity/PaymentGatewayProvider/attr/paymentGatewayProviderName
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PaymentGatewayProvider/attr/id
-        required: true
-        range:
-          type: string
-      apexAdapterClassName:
-        uuid: cim/entity/PaymentGatewayProvider/attr/apexAdapterClassName
-        required: true
-        range:
-          type: string
-      namespacePrefixText:
-        uuid: cim/entity/PaymentGatewayProvider/attr/namespacePrefixText
-        required: true
-        range:
-          type: string
-    description: Stores class details needed for maintaining Apex adapter.
-  Refund Allocation:
-    uuid: cim/entity/RefundAllocation
-    attributes:
-      externalCreatedDate:
-        uuid: cim/entity/RefundAllocation/attr/externalCreatedDate
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/RefundAllocation/attr/id
-        required: true
-        range:
-          type: string
-      refundAllocationName:
-        uuid: cim/entity/RefundAllocation/attr/refundAllocationName
-        range:
-          type: string
-      refundBalanceAmount:
-        uuid: cim/entity/RefundAllocation/attr/refundBalanceAmount
-        required: true
-        range:
-          type: string
-      allocatedAmount:
-        uuid: cim/entity/RefundAllocation/attr/allocatedAmount
-        required: true
-        range:
-          type: string
-      refundAllocationType:
-        uuid: cim/entity/RefundAllocation/attr/refundAllocationType
-        required: true
-        range:
-          type: string
-      effectiveDate:
-        uuid: cim/entity/RefundAllocation/attr/effectiveDate
-        required: true
-        range:
-          type: string
-      appliedDate:
-        uuid: cim/entity/RefundAllocation/attr/appliedDate
-        required: true
-        range:
-          type: string
-      hasBeenUnapplied:
-        uuid: cim/entity/RefundAllocation/attr/hasBeenUnapplied
-        range:
-          type: string
-      unappliedDate:
-        uuid: cim/entity/RefundAllocation/attr/unappliedDate
-        required: true
-        range:
-          type: string
-    associations:
-      refundPayment:
-        allowMultiple: true
-        uuid: cim/entity/RefundAllocation/attr/refundPayment
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/RefundPayment
-      relatedRefundAllocation:
-        allowMultiple: true
-        uuid: cim/entity/RefundAllocation/attr/relatedRefundAllocation
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/RefundAllocation
-    description: Facilitates applying/unapplying a capture payment, or a credit memo to a Refund Payment.
-  Payment Authorization:
-    uuid: cim/entity/PaymentAuthorization
-    attributes:
-      externalCreatedDate:
-        uuid: cim/entity/PaymentAuthorization/attr/externalCreatedDate
-        required: true
-        range:
-          type: string
-      macAddress:
-        uuid: cim/entity/PaymentAuthorization/attr/macAddress
-        range:
-          type: string
-      paymentAuthorizationProcessingMode:
-        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationProcessingMode
-        required: true
-        range:
-          type: string
-      gatewayAuthorizationCode:
-        uuid: cim/entity/PaymentAuthorization/attr/gatewayAuthorizationCode
-        required: true
-        range:
-          type: string
-      paymentAuthorizationNumber:
-        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationNumber
-        required: true
-        range:
-          type: string
-      iPAddress:
-        uuid: cim/entity/PaymentAuthorization/attr/iPAddress
-        range:
-          type: string
-      authorizationAmount:
-        uuid: cim/entity/PaymentAuthorization/attr/authorizationAmount
-        required: true
-        range:
-          type: string
-      paymentGatewayReferenceNumber:
-        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayReferenceNumber
-        required: true
-        range:
-          type: string
-      totalAuthorizationReversalAmount:
-        uuid: cim/entity/PaymentAuthorization/attr/totalAuthorizationReversalAmount
-        required: true
-        range:
-          type: string
-      paymentGatewayDate:
-        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayDate
-        required: true
-        range:
-          type: string
-      paymentAuthorizationStatus:
-        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationStatus
-        required: true
-        range:
-          type: string
-      paymentGatewayInternalReferenceNumber:
-        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayInternalReferenceNumber
-        required: true
-        range:
-          type: string
-      availableBalanceAmount:
-        uuid: cim/entity/PaymentAuthorization/attr/availableBalanceAmount
-        required: true
-        range:
-          type: string
-      expirationDate:
-        uuid: cim/entity/PaymentAuthorization/attr/expirationDate
-        required: true
-        range:
-          type: string
-      requestDate:
-        uuid: cim/entity/PaymentAuthorization/attr/requestDate
-        required: true
-        range:
-          type: string
-      gatewayReferenceDetailsText:
-        uuid: cim/entity/PaymentAuthorization/attr/gatewayReferenceDetailsText
-        required: true
-        range:
-          type: string
-      totalPaymentCaptureAmount:
-        uuid: cim/entity/PaymentAuthorization/attr/totalPaymentCaptureAmount
-        required: true
-        range:
-          type: string
-      paymentAuthorizationCommentText:
-        uuid: cim/entity/PaymentAuthorization/attr/paymentAuthorizationCommentText
-        range:
-          type: string
-      gatewayResultCodeDescription:
-        uuid: cim/entity/PaymentAuthorization/attr/gatewayResultCodeDescription
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PaymentAuthorization/attr/id
-        required: true
-        range:
-          type: string
-    associations:
-      salesOrderPaymentSummary:
-        allowMultiple: true
-        uuid: cim/entity/PaymentAuthorization/attr/salesOrderPaymentSummary
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderPaymentSummary
-      paymentMethodID:
-        allowMultiple: true
-        uuid: cim/entity/PaymentAuthorization/attr/paymentMethodID
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
-      paymentGatewayResult:
-        allowMultiple: true
-        uuid: cim/entity/PaymentAuthorization/attr/paymentGatewayResult
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
-      paymentGroup:
-        allowMultiple: true
-        uuid: cim/entity/PaymentAuthorization/attr/paymentGroup
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGroup
-      paymentGateway:
-        allowMultiple: true
-        uuid: cim/entity/PaymentAuthorization/attr/paymentGateway
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGateway
-    description: An approval from the issuer of a payment instrument (usually a card), that the customer has sufficient funds to cover the cost of the transaction.
-  Refund Credit Memo Allocation:
-    uuid: cim/entity/RefundCreditMemoAllocation
-    attributes:
-      id:
-        uuid: cim/entity/RefundCreditMemoAllocation/attr/id
-        required: true
-        range:
-          type: string
-    associations:
-      refundPayment:
-        allowMultiple: true
-        uuid: cim/entity/RefundCreditMemoAllocation/attr/refundPayment
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/RefundPayment
-    description: Facilitates applying/unapplying refund balance to a credit memo.
-  Refund Payment Allocation:
-    uuid: cim/entity/RefundPaymentAllocation
-    associations:
-      refundPayment:
-        allowMultiple: true
-        uuid: cim/entity/RefundPaymentAllocation/attr/refundPayment
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/RefundPayment
-      capturePayment:
-        allowMultiple: true
-        uuid: cim/entity/RefundPaymentAllocation/attr/capturePayment
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/CapturePayment
-    description: Facilitates applying/unapplying refund balance to a payment.
-  Payment Treatment:
-    uuid: cim/entity/PaymentTreatment
-    attributes:
-      shouldAutoInvoice:
-        uuid: cim/entity/PaymentTreatment/attr/shouldAutoInvoice
-        range:
-          type: string
-      paymentTreatmentStatus:
-        uuid: cim/entity/PaymentTreatment/attr/paymentTreatmentStatus
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PaymentTreatment/attr/id
-        required: true
-        range:
-          type: string
-      paymentApplicationLevel:
-        uuid: cim/entity/PaymentTreatment/attr/paymentApplicationLevel
-        range:
-          type: string
-      paymentTreatmentName:
-        uuid: cim/entity/PaymentTreatment/attr/paymentTreatmentName
-        range:
-          type: string
-    associations:
-      paymentPolicy:
-        allowMultiple: true
-        uuid: cim/entity/PaymentTreatment/attr/paymentPolicy
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentPolicy
-      paymentTreatmentMethod:
-        allowMultiple: true
-        uuid: cim/entity/PaymentTreatment/attr/paymentTreatmentMethod
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentTreatmentMethod
-    description: This entity has the information which controls the way in which payment can be applied based on a legal entity or workflow. A policy has multiple treatments associated.
   Payment Authorization Reversal:
     uuid: cim/entity/PaymentAuthorizationReversal
     attributes:
+      paymentAuthorizationReversalName:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorizationReversalName
+        range:
+          type: string
       authorizationReversalAmount:
         uuid: cim/entity/PaymentAuthorizationReversal/attr/authorizationReversalAmount
         required: true
         range:
           type: string
-      customerAuthorizationReversalPhone:
-        uuid: cim/entity/PaymentAuthorizationReversal/attr/customerAuthorizationReversalPhone
-        range:
-          type: string
-      macAddress:
-        uuid: cim/entity/PaymentAuthorizationReversal/attr/macAddress
-        range:
-          type: string
-      paymentGatewayReferenceNumber:
-        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentGatewayReferenceNumber
-        required: true
-        range:
-          type: string
-      paymentAuthorizationReversalCommentText:
-        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorizationReversalCommentText
-        range:
-          type: string
-      iPAddress:
-        uuid: cim/entity/PaymentAuthorizationReversal/attr/iPAddress
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PaymentAuthorizationReversal/attr/id
-        required: true
-        range:
-          type: string
-      paymentAuthorizationReversalName:
-        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorizationReversalName
-        range:
-          type: string
       paymentAuthorizationReversalStatus:
         uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorizationReversalStatus
+        required: true
+        range:
+          type: string
+      requestDate:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/requestDate
         required: true
         range:
           type: string
@@ -398,8 +616,27 @@ entities:
         required: true
         range:
           type: string
+      paymentAuthorizationReversalCommentText:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorizationReversalCommentText
+        range:
+          type: string
+      paymentGatewayDate:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentGatewayDate
+        required: true
+        range:
+          type: string
       paymentAuthorizationProcessingMode:
         uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentAuthorizationProcessingMode
+        required: true
+        range:
+          type: string
+      paymentGatewayReferenceNumber:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentGatewayReferenceNumber
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/id
         required: true
         range:
           type: string
@@ -408,18 +645,20 @@ entities:
         required: true
         range:
           type: string
+      iPAddress:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/iPAddress
+        range:
+          type: string
       customerAuthorizationReversalEmail:
         uuid: cim/entity/PaymentAuthorizationReversal/attr/customerAuthorizationReversalEmail
         range:
           type: string
-      requestDate:
-        uuid: cim/entity/PaymentAuthorizationReversal/attr/requestDate
-        required: true
+      customerAuthorizationReversalPhone:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/customerAuthorizationReversalPhone
         range:
           type: string
-      paymentGatewayDate:
-        uuid: cim/entity/PaymentAuthorizationReversal/attr/paymentGatewayDate
-        required: true
+      macAddress:
+        uuid: cim/entity/PaymentAuthorizationReversal/attr/macAddress
         range:
           type: string
     associations:
@@ -438,59 +677,6 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
     description: An authorization reversal is a message that alerts the issuer that part or all of a sale has been cancelled and the authorization hold should be rescinded.
-  Payment Treatment Method:
-    uuid: cim/entity/PaymentTreatmentMethod
-    attributes:
-      id:
-        uuid: cim/entity/PaymentTreatmentMethod/attr/id
-        required: true
-        range:
-          type: string
-      paymentTreatmentMethodName:
-        uuid: cim/entity/PaymentTreatmentMethod/attr/paymentTreatmentMethodName
-        required: true
-        range:
-          type: string
-      paymentTreatmentMethodDescription:
-        uuid: cim/entity/PaymentTreatmentMethod/attr/paymentTreatmentMethodDescription
-        required: true
-        range:
-          type: string
-      paymentTreatmentMethodCode:
-        uuid: cim/entity/PaymentTreatmentMethod/attr/paymentTreatmentMethodCode
-        required: true
-        range:
-          type: string
-    description: Represents a specific algorithm or method to apply. For example - pay for taxes first, pay for charges first, pay for oldest due invoice first etc. It can also point to a rule based on which application can be done. Treatment has a method.
-  Payment Group:
-    uuid: cim/entity/PaymentGroup
-    attributes:
-      totalAuthorizationAmount:
-        uuid: cim/entity/PaymentGroup/attr/totalAuthorizationAmount
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PaymentGroup/attr/id
-        required: true
-        range:
-          type: string
-      totalReversalAmount:
-        uuid: cim/entity/PaymentGroup/attr/totalReversalAmount
-        required: true
-        range:
-          type: string
-      totalPaymentAmount:
-        uuid: cim/entity/PaymentGroup/attr/totalPaymentAmount
-        required: true
-        range:
-          type: string
-      paymentGroupNumber:
-        uuid: cim/entity/PaymentGroup/attr/paymentGroupNumber
-        required: true
-        range:
-          type: string
-    description: Payment Group provides a way to associate payments and payment gateway events, where the payment is not associated with a Sales Order.
   Payment Allocation:
     uuid: cim/entity/PaymentAllocation
     attributes:
@@ -518,103 +704,13 @@ entities:
   Payment:
     uuid: cim/entity/Payment
     attributes:
-      balanceAmount:
-        uuid: cim/entity/Payment/attr/balanceAmount
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/Payment/attr/id
-        required: true
-        range:
-          type: string
-      macAddress:
-        uuid: cim/entity/Payment/attr/macAddress
-        range:
-          type: string
-      commentText:
-        uuid: cim/entity/Payment/attr/commentText
-        required: true
-        range:
-          type: string
-      customerPhoneNumber:
-        uuid: cim/entity/Payment/attr/customerPhoneNumber
-        range:
-          type: string
-      paymentAmount:
-        uuid: cim/entity/Payment/attr/paymentAmount
-        required: true
-        range:
-          type: string
-      paymentType:
-        uuid: cim/entity/Payment/attr/paymentType
-        required: true
-        range:
-          type: string
-      netAppliedAmount:
-        uuid: cim/entity/Payment/attr/netAppliedAmount
-        required: true
-        range:
-          type: string
-      latestGatewayReferenceNumber:
-        uuid: cim/entity/Payment/attr/latestGatewayReferenceNumber
-        required: true
-        range:
-          type: string
-      customerEmailAddress:
-        uuid: cim/entity/Payment/attr/customerEmailAddress
-        range:
-          type: string
-      iPAddress:
-        uuid: cim/entity/Payment/attr/iPAddress
-        range:
-          type: string
-      latestPaymentGatewayMessageText:
-        uuid: cim/entity/Payment/attr/latestPaymentGatewayMessageText
-        range:
-          type: string
-      latestGatewayInternalResult:
-        uuid: cim/entity/Payment/attr/latestGatewayInternalResult
-        required: true
-        range:
-          type: string
-      externalCreatedDate:
-        uuid: cim/entity/Payment/attr/externalCreatedDate
-        required: true
-        range:
-          type: string
-      paymentCancellationDate:
-        uuid: cim/entity/Payment/attr/paymentCancellationDate
-        required: true
-        range:
-          type: string
-      totalUnappliedAmount:
-        uuid: cim/entity/Payment/attr/totalUnappliedAmount
-        required: true
-        range:
-          type: string
-      totalAppliedAmount:
-        uuid: cim/entity/Payment/attr/totalAppliedAmount
-        required: true
-        range:
-          type: string
-      latestGatewayDate:
-        uuid: cim/entity/Payment/attr/latestGatewayDate
-        required: true
-        range:
-          type: string
-      paymentEffectiveDate:
-        uuid: cim/entity/Payment/attr/paymentEffectiveDate
-        required: true
-        range:
-          type: string
       paymentNumber:
         uuid: cim/entity/Payment/attr/paymentNumber
         required: true
         range:
           type: string
-      authorizationProcessingMode:
-        uuid: cim/entity/Payment/attr/authorizationProcessingMode
+      commentText:
+        uuid: cim/entity/Payment/attr/commentText
         required: true
         range:
           type: string
@@ -623,119 +719,152 @@ entities:
         required: true
         range:
           type: string
-      paymentStatus:
-        uuid: cim/entity/Payment/attr/paymentStatus
-        required: true
-        range:
-          type: string
       latestGatewayInternalReferenceNumber:
         uuid: cim/entity/Payment/attr/latestGatewayInternalReferenceNumber
         required: true
         range:
           type: string
+      customerPhoneNumber:
+        uuid: cim/entity/Payment/attr/customerPhoneNumber
+        range:
+          type: string
+      authorizationProcessingMode:
+        uuid: cim/entity/Payment/attr/authorizationProcessingMode
+        required: true
+        range:
+          type: string
+      macAddress:
+        uuid: cim/entity/Payment/attr/macAddress
+        range:
+          type: string
+      totalUnappliedAmount:
+        uuid: cim/entity/Payment/attr/totalUnappliedAmount
+        required: true
+        range:
+          type: string
+      netAppliedAmount:
+        uuid: cim/entity/Payment/attr/netAppliedAmount
+        required: true
+        range:
+          type: string
+      paymentStatus:
+        uuid: cim/entity/Payment/attr/paymentStatus
+        required: true
+        range:
+          type: string
+      paymentEffectiveDate:
+        uuid: cim/entity/Payment/attr/paymentEffectiveDate
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Payment/attr/id
+        required: true
+        range:
+          type: string
+      paymentAmount:
+        uuid: cim/entity/Payment/attr/paymentAmount
+        required: true
+        range:
+          type: string
+      customerEmailAddress:
+        uuid: cim/entity/Payment/attr/customerEmailAddress
+        range:
+          type: string
+      latestGatewayDate:
+        uuid: cim/entity/Payment/attr/latestGatewayDate
+        required: true
+        range:
+          type: string
+      paymentType:
+        uuid: cim/entity/Payment/attr/paymentType
+        required: true
+        range:
+          type: string
+      iPAddress:
+        uuid: cim/entity/Payment/attr/iPAddress
+        range:
+          type: string
+      externalCreatedDate:
+        uuid: cim/entity/Payment/attr/externalCreatedDate
+        required: true
+        range:
+          type: string
+      balanceAmount:
+        uuid: cim/entity/Payment/attr/balanceAmount
+        required: true
+        range:
+          type: string
+      latestGatewayInternalResult:
+        uuid: cim/entity/Payment/attr/latestGatewayInternalResult
+        required: true
+        range:
+          type: string
+      totalAppliedAmount:
+        uuid: cim/entity/Payment/attr/totalAppliedAmount
+        required: true
+        range:
+          type: string
+      paymentCancellationDate:
+        uuid: cim/entity/Payment/attr/paymentCancellationDate
+        required: true
+        range:
+          type: string
+      latestGatewayReferenceNumber:
+        uuid: cim/entity/Payment/attr/latestGatewayReferenceNumber
+        required: true
+        range:
+          type: string
+      latestPaymentGatewayMessageText:
+        uuid: cim/entity/Payment/attr/latestPaymentGatewayMessageText
+        range:
+          type: string
     associations:
-      paymentMethod:
-        allowMultiple: true
-        uuid: cim/entity/Payment/attr/paymentMethod
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
-      paymentTreatment:
-        allowMultiple: true
-        uuid: cim/entity/Payment/attr/paymentTreatment
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentTreatment
-      account:
-        allowMultiple: true
-        uuid: cim/entity/Payment/attr/account
-        target: http://mulesoft.com/modeling/instances/cim/entity/Account
-      paymentGateway:
-        allowMultiple: true
-        uuid: cim/entity/Payment/attr/paymentGateway
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGateway
-      latestGatewayResultCode:
-        allowMultiple: true
-        uuid: cim/entity/Payment/attr/latestGatewayResultCode
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
       paymentGroup:
         allowMultiple: true
         uuid: cim/entity/Payment/attr/paymentGroup
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGroup
-      internalBusinessUnit:
+      paymentGateway:
         allowMultiple: true
-        uuid: cim/entity/Payment/attr/internalBusinessUnit
+        uuid: cim/entity/Payment/attr/paymentGateway
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/InternalBusinessUnit
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGateway
+      account:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/account
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account
+      paymentMethod:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/paymentMethod
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
       salesOrderPaymentSummary:
         allowMultiple: true
         uuid: cim/entity/Payment/attr/salesOrderPaymentSummary
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderPaymentSummary
+      internalBusinessUnit:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/internalBusinessUnit
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/InternalBusinessUnit
+      paymentTreatment:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/paymentTreatment
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentTreatment
+      latestGatewayResultCode:
+        allowMultiple: true
+        uuid: cim/entity/Payment/attr/latestGatewayResultCode
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
     description: An amount of currency paid.
-  Payment Policy:
-    uuid: cim/entity/PaymentPolicy
-    attributes:
-      name:
-        uuid: cim/entity/PaymentPolicy/attr/name
-        required: true
-        range:
-          type: string
-      paymentPolicyTreatmentSelection:
-        uuid: cim/entity/PaymentPolicy/attr/paymentPolicyTreatmentSelection
-        required: true
-        range:
-          type: string
-      paymentPolicyStatus:
-        uuid: cim/entity/PaymentPolicy/attr/paymentPolicyStatus
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PaymentPolicy/attr/id
-        required: true
-        range:
-          type: string
-      description:
-        uuid: cim/entity/PaymentPolicy/attr/description
-        required: true
-        range:
-          type: string
-    description: This entity stores policy information for an org or an account which can be used to automate the process of payment application to invoice based on business needs.
-  Payment Gateway Result Code:
-    uuid: cim/entity/PaymentGatewayResultCode
-    attributes:
-      id:
-        uuid: cim/entity/PaymentGatewayResultCode/attr/id
-        required: true
-        range:
-          type: string
-      name:
-        uuid: cim/entity/PaymentGatewayResultCode/attr/name
-        required: true
-        range:
-          type: string
-      description:
-        uuid: cim/entity/PaymentGatewayResultCode/attr/description
-        required: true
-        range:
-          type: string
-    description: The response from the Payment Gateway.
   Payment Gateway Interaction Log:
     uuid: cim/entity/PaymentGatewayInteractionLog
     attributes:
-      paymentGatewayMessageText:
-        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayMessageText
-        range:
-          type: string
-      paymentGatewayAuthorizationCode:
-        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayAuthorizationCode
-        required: true
-        range:
-          type: string
-      paymentGatewayInteractionStatus:
-        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayInteractionStatus
+      paymentGatewayReferenceNumber:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayReferenceNumber
         required: true
         range:
           type: string
@@ -744,18 +873,13 @@ entities:
         required: true
         range:
           type: string
-      paymentGatewayInteractionLogName:
-        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayInteractionLogName
+      internalResultCode:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/internalResultCode
         required: true
         range:
           type: string
-      paymentGatewayReferenceNumber:
-        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayReferenceNumber
-        required: true
-        range:
-          type: string
-      paymentGatewayDate:
-        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayDate
+      paymentGatewayInteractionStatus:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayInteractionStatus
         required: true
         range:
           type: string
@@ -764,13 +888,27 @@ entities:
         required: true
         range:
           type: string
-      internalResultCode:
-        uuid: cim/entity/PaymentGatewayInteractionLog/attr/internalResultCode
+      id:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/id
         required: true
         range:
           type: string
-      id:
-        uuid: cim/entity/PaymentGatewayInteractionLog/attr/id
+      paymentGatewayDate:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayDate
+        required: true
+        range:
+          type: string
+      paymentGatewayAuthorizationCode:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayAuthorizationCode
+        required: true
+        range:
+          type: string
+      paymentGatewayMessageText:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayMessageText
+        range:
+          type: string
+      paymentGatewayInteractionLogName:
+        uuid: cim/entity/PaymentGatewayInteractionLog/attr/paymentGatewayInteractionLogName
         required: true
         range:
           type: string
@@ -786,63 +924,35 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayInteractionType
     description: A log record of all messages exchanged with merchants made via the payment gateway, for authorizations and payments.
-  Payment Gateway Authorization Log:
-    uuid: cim/entity/PaymentGatewayAuthorizationLog
-    associations:
-      paymentGatewayResult:
-        allowMultiple: true
-        uuid: cim/entity/PaymentGatewayAuthorizationLog/attr/paymentGatewayResult
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayResultCode
-      paymentAuthorization:
-        allowMultiple: true
-        uuid: cim/entity/PaymentGatewayAuthorizationLog/attr/paymentAuthorization
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAuthorization
-    description: A log record of all requests made to financial institutions, made via the payment gateway, to authorize payments.
-  Payment Invoice Application:
-    uuid: cim/entity/PaymentInvoiceApplication
+  Payment Group:
+    uuid: cim/entity/PaymentGroup
     attributes:
-      paymentInvoiceApplicationType:
-        uuid: cim/entity/PaymentInvoiceApplication/attr/paymentInvoiceApplicationType
+      totalReversalAmount:
+        uuid: cim/entity/PaymentGroup/attr/totalReversalAmount
+        required: true
         range:
           type: string
-    associations:
-      payment:
-        allowMultiple: true
-        uuid: cim/entity/PaymentInvoiceApplication/attr/payment
+      totalAuthorizationAmount:
+        uuid: cim/entity/PaymentGroup/attr/totalAuthorizationAmount
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Payment
-    description: Facilitates applying/unapplying payment balance to an Invoice.
-  Capture Payment:
-    uuid: cim/entity/CapturePayment
-    associations:
-      salesOrderPaymentSummary:
-        allowMultiple: true
-        uuid: cim/entity/CapturePayment/attr/salesOrderPaymentSummary
+        range:
+          type: string
+      totalPaymentAmount:
+        uuid: cim/entity/PaymentGroup/attr/totalPaymentAmount
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderPaymentSummary
-      paymentAuthorization:
-        allowMultiple: true
-        uuid: cim/entity/CapturePayment/attr/paymentAuthorization
+        range:
+          type: string
+      paymentGroupNumber:
+        uuid: cim/entity/PaymentGroup/attr/paymentGroupNumber
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAuthorization
-    description: The transfer of money from the customer's account to the merchant's account.
-  Payment Credit Memo Allocation:
-    uuid: cim/entity/PaymentCreditMemoAllocation
-    attributes:
+        range:
+          type: string
       id:
-        uuid: cim/entity/PaymentCreditMemoAllocation/attr/id
+        uuid: cim/entity/PaymentGroup/attr/id
         required: true
         range:
           type: string
-    associations:
-      relatedPaymentAllocation:
-        allowMultiple: true
-        uuid: cim/entity/PaymentCreditMemoAllocation/attr/relatedPaymentAllocation
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAllocation
-    description: Facilitates applying a Payment Application to the line items of a Credit Memo.
+    description: Payment Group provides a way to associate payments and payment gateway events, where the payment is not associated with a Sales Order.
   Refund Payment:
     uuid: cim/entity/RefundPayment
     attributes:
@@ -858,112 +968,4 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderPaymentSummary
     description: Represents a repayment made, typically to a customer who isn’t satisfied with the goods or services purchased. Refunds are typically made after a payment has already been received from customers
-  Payment Gateway:
-    uuid: cim/entity/PaymentGateway
-    attributes:
-      paymentGatewayStatus:
-        uuid: cim/entity/PaymentGateway/attr/paymentGatewayStatus
-        required: true
-        range:
-          type: string
-      systemCredential:
-        uuid: cim/entity/PaymentGateway/attr/systemCredential
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PaymentGateway/attr/id
-        required: true
-        range:
-          type: string
-      paymentGatewayCommentText:
-        uuid: cim/entity/PaymentGateway/attr/paymentGatewayCommentText
-        range:
-          type: string
-      name:
-        uuid: cim/entity/PaymentGateway/attr/name
-        required: true
-        range:
-          type: string
-    associations:
-      paymentGatewayProvider:
-        allowMultiple: true
-        uuid: cim/entity/PaymentGateway/attr/paymentGatewayProvider
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentGatewayProvider
-    description: Holds the payment gateway merchant details which are used to interact external payment systems.
-  Payment Application:
-    uuid: cim/entity/PaymentApplication
-    attributes:
-      appliedAmount:
-        uuid: cim/entity/PaymentApplication/attr/appliedAmount
-        required: true
-        range:
-          type: string
-      paymentBalanceAmount:
-        uuid: cim/entity/PaymentApplication/attr/paymentBalanceAmount
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PaymentApplication/attr/id
-        required: true
-        range:
-          type: string
-      appliedDate:
-        uuid: cim/entity/PaymentApplication/attr/appliedDate
-        required: true
-        range:
-          type: string
-      effectiveDate:
-        uuid: cim/entity/PaymentApplication/attr/effectiveDate
-        required: true
-        range:
-          type: string
-      externalCreatedDate:
-        uuid: cim/entity/PaymentApplication/attr/externalCreatedDate
-        required: true
-        range:
-          type: string
-      name:
-        uuid: cim/entity/PaymentApplication/attr/name
-        required: true
-        range:
-          type: string
-      unappliedDate:
-        uuid: cim/entity/PaymentApplication/attr/unappliedDate
-        required: true
-        range:
-          type: string
-      commentText:
-        uuid: cim/entity/PaymentApplication/attr/commentText
-        range:
-          type: string
-      paymentApplicationType:
-        uuid: cim/entity/PaymentApplication/attr/paymentApplicationType
-        required: true
-        range:
-          type: string
-      hasBeenUnapplied:
-        uuid: cim/entity/PaymentApplication/attr/hasBeenUnapplied
-        range:
-          type: string
-    associations:
-      payment:
-        allowMultiple: true
-        uuid: cim/entity/PaymentApplication/attr/payment
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Payment
-    description: The designation of part or all of a Payment to satisfy a claim on the payment funds.
-  Payment Invoice Allocation:
-    uuid: cim/entity/PaymentInvoiceAllocation
-    associations:
-      relatedPaymentAllocation:
-        allowMultiple: true
-        uuid: cim/entity/PaymentInvoiceAllocation/attr/relatedPaymentAllocation
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentAllocation
-      paymentInvoiceApplication:
-        allowMultiple: true
-        uuid: cim/entity/PaymentInvoiceAllocation/attr/paymentInvoiceApplication
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentInvoiceApplication
-    description: Facilitates applying a Payment Application to the line items of an Invoice.
+description: "Example Entities included: Payment, Payment Group, Payment Authorization, Payment Gateway"

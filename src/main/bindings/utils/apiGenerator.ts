@@ -1,28 +1,19 @@
 import * as amf from '@api-modeling/amf-client-js';
+import base = Mocha.reporters.base;
+import {ApiParser} from "./apiParser";
 
-export class ApiParser {
-    private specUrl: string;
+export class ApiGenerator {
 
-    public static  RAML1 = "RAML 1.0";
-    public static OAS3 = "OAS 3.0";
-    public static OAS2 = "OAS 2.0";
-    public static AMF_GRAPH = "AMF Graph"
-    public static JSON_SCHEMA = "JSON Schema";
 
-    public static YAML = "application/yaml";
-    public static JSON = "application/json";
-    public static JSONLD = "application/ld+json";
-
-    private parsedUnit: Promise<amf.model.document.BaseUnit>;
     private initialized = false;
-    private parsed = false;
     private syntax: string;
     private format: string;
+    private baseUnit: amf.model.document.BaseUnit;
 
-    constructor(specUrl: string, format: string, syntax: string) {
-        this.specUrl = specUrl;
-        this.format = format;
-        this.syntax = syntax;
+    constructor(baseUnit: amf.model.document.BaseUnit, format: string, syntax: string) {
+        this.baseUnit = baseUnit
+        this.format   = format;
+        this.syntax   = syntax;
 
         if (syntax != ApiParser.YAML && syntax != ApiParser.JSON && syntax != ApiParser.JSONLD) {
             throw new Error(`Syntax must be either ${ApiParser.YAML}, ${ApiParser.JSON}, or ${ApiParser.JSONLD}`)
@@ -31,9 +22,7 @@ export class ApiParser {
             throw new Error(`Format must be either '${ApiParser.RAML1}', '${ApiParser.OAS2}', '${ApiParser.OAS3}', '${ApiParser.JSON_SCHEMA}' or ${ApiParser.AMF_GRAPH}`);
         }
 
-        this.parsedUnit = this.parse();
     }
-
 
     protected async init() {
         if (!this.initialized) {
@@ -43,12 +32,12 @@ export class ApiParser {
         }
     }
 
-    async parse(): Promise<amf.model.document.BaseUnit> {
+    async generate(): Promise<string> {
         await this.init();
-        const baseUnit = await amf.Core
-            .parser(this.format, this.syntax)
-            .parseFileAsync(this.specUrl);
-        this.parsed = true;
-        return baseUnit
+        const generated = await amf.Core
+            .generator(this.format, this.syntax)
+            .generateString(this.baseUnit);
+
+        return generated
     }
 }

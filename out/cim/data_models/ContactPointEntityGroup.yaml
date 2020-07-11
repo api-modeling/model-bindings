@@ -1,6 +1,74 @@
 #%DataModel 0.1
-uuid: cim/entitygroup/ContactPointEntityGroup/dataModel
+uuid: cim/entitygroup/ContactPointEntityGroup
+name: Contact Point
 entities:
+  Contact Point:
+    uuid: cim/entity/ContactPoint
+    attributes:
+      forPersonalUse:
+        uuid: cim/entity/ContactPoint/attr/forPersonalUse
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/ContactPoint/attr/id
+        required: true
+        range:
+          type: string
+      profileFirstCreatedDate:
+        uuid: cim/entity/ContactPoint/attr/profileFirstCreatedDate
+        range:
+          type: string
+      primaryFlag:
+        uuid: cim/entity/ContactPoint/attr/primaryFlag
+        range:
+          type: string
+      profileOccurrenceCount:
+        uuid: cim/entity/ContactPoint/attr/profileOccurrenceCount
+        range:
+          type: integer
+      activeToDate:
+        uuid: cim/entity/ContactPoint/attr/activeToDate
+        range:
+          type: string
+      activeFromDate:
+        uuid: cim/entity/ContactPoint/attr/activeFromDate
+        required: true
+        range:
+          type: string
+      bestTimeToContactStartTime:
+        uuid: cim/entity/ContactPoint/attr/bestTimeToContactStartTime
+        range:
+          type: string
+      bestTimeToContactEndTime:
+        uuid: cim/entity/ContactPoint/attr/bestTimeToContactEndTime
+        range:
+          type: string
+      profileLastUpdatedDate:
+        uuid: cim/entity/ContactPoint/attr/profileLastUpdatedDate
+        range:
+          type: string
+      forBusinessUse:
+        uuid: cim/entity/ContactPoint/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+    associations:
+      contactPointType:
+        allowMultiple: true
+        uuid: cim/entity/ContactPoint/attr/contactPointType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointType
+      partyRole:
+        allowMultiple: true
+        uuid: cim/entity/ContactPoint/attr/partyRole
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
+      party:
+        allowMultiple: true
+        uuid: cim/entity/ContactPoint/attr/party
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party
+    description: All contact points for a party e.g. phone 123-4567, email info@northerntrailoutfitters.com
   Contact Point Location:
     uuid: cim/entity/ContactPointLocation
     attributes:
@@ -15,20 +83,6 @@ entities:
         range:
           type: string
     description: Physical location for a party e.g. party Northern Trail Outfitters at Standford Shopping Mall
-  Contact Point Phone:
-    uuid: cim/entity/ContactPointPhone
-    attributes:
-      forBusinessUse:
-        uuid: cim/entity/ContactPointPhone/attr/forBusinessUse
-        required: true
-        range:
-          type: string
-      isFaxCapable:
-        uuid: cim/entity/ContactPointPhone/attr/isFaxCapable
-        required: true
-        range:
-          type: string
-    description: Phone number for a party e.g. phone 123-4567
   Party Web Address:
     uuid: cim/entity/PartyWebAddress
     attributes:
@@ -43,6 +97,47 @@ entities:
         range:
           type: string
     description: What is the Web URL for the Party
+  Contact Point Email:
+    uuid: cim/entity/ContactPointEmail
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/ContactPointEmail/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+      emailLatestBounceReasonText:
+        uuid: cim/entity/ContactPointEmail/attr/emailLatestBounceReasonText
+        required: true
+        range:
+          type: string
+    description: Email address for a party e.g. email info@northerntrailoutfitters.com
+  Contact Point Address:
+    uuid: cim/entity/ContactPointAddress
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/ContactPointAddress/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+    associations:
+      contactPhone:
+        allowMultiple: true
+        uuid: cim/entity/ContactPointAddress/attr/contactPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
+    description: Mailing address for a party e.g. 123 Main St, Big City, CA12345, USA
+  Contact Point App:
+    uuid: cim/entity/ContactPointApp
+    attributes:
+      forBusinessUse:
+        uuid: cim/entity/ContactPointApp/attr/forBusinessUse
+        required: true
+        range:
+          type: string
+      applicationLogin:
+        uuid: cim/entity/ContactPointApp/attr/applicationLogin
+        range:
+          type: string
+    description: Software Application for a party and optionally on a specific device e.g. John Doe have Strava App on device iPhone123
   Contact Point Type:
     uuid: cim/entity/ContactPointType
     attributes:
@@ -62,86 +157,6 @@ entities:
         range:
           type: string
     description: Contain the fixed list of types a contact point can be of e.g. phone, email
-  Contact Point App:
-    uuid: cim/entity/ContactPointApp
-    attributes:
-      forBusinessUse:
-        uuid: cim/entity/ContactPointApp/attr/forBusinessUse
-        required: true
-        range:
-          type: string
-      applicationLogin:
-        uuid: cim/entity/ContactPointApp/attr/applicationLogin
-        range:
-          type: string
-    description: Software Application for a party and optionally on a specific device e.g. John Doe have Strava App on device iPhone123
-  Contact Point:
-    uuid: cim/entity/ContactPoint
-    attributes:
-      profileLastUpdatedDate:
-        uuid: cim/entity/ContactPoint/attr/profileLastUpdatedDate
-        range:
-          type: string
-      profileFirstCreatedDate:
-        uuid: cim/entity/ContactPoint/attr/profileFirstCreatedDate
-        range:
-          type: string
-      primaryFlag:
-        uuid: cim/entity/ContactPoint/attr/primaryFlag
-        range:
-          type: string
-      activeToDate:
-        uuid: cim/entity/ContactPoint/attr/activeToDate
-        range:
-          type: string
-      activeFromDate:
-        uuid: cim/entity/ContactPoint/attr/activeFromDate
-        required: true
-        range:
-          type: string
-      forBusinessUse:
-        uuid: cim/entity/ContactPoint/attr/forBusinessUse
-        required: true
-        range:
-          type: string
-      bestTimeToContactEndTime:
-        uuid: cim/entity/ContactPoint/attr/bestTimeToContactEndTime
-        range:
-          type: string
-      id:
-        uuid: cim/entity/ContactPoint/attr/id
-        required: true
-        range:
-          type: string
-      forPersonalUse:
-        uuid: cim/entity/ContactPoint/attr/forPersonalUse
-        required: true
-        range:
-          type: string
-      profileOccurrenceCount:
-        uuid: cim/entity/ContactPoint/attr/profileOccurrenceCount
-        range:
-          type: integer
-      bestTimeToContactStartTime:
-        uuid: cim/entity/ContactPoint/attr/bestTimeToContactStartTime
-        range:
-          type: string
-    associations:
-      contactPointType:
-        allowMultiple: true
-        uuid: cim/entity/ContactPoint/attr/contactPointType
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointType
-      partyRole:
-        allowMultiple: true
-        uuid: cim/entity/ContactPoint/attr/partyRole
-        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole
-      party:
-        allowMultiple: true
-        uuid: cim/entity/ContactPoint/attr/party
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Party
-    description: All contact points for a party e.g. phone 123-4567, email info@northerntrailoutfitters.com
   Contact Point Social:
     uuid: cim/entity/ContactPointSocial
     attributes:
@@ -156,31 +171,18 @@ entities:
         range:
           type: string
     description: Social handle for a party e.g. trustednews at twitter
-  Contact Point Address:
-    uuid: cim/entity/ContactPointAddress
+  Contact Point Phone:
+    uuid: cim/entity/ContactPointPhone
     attributes:
       forBusinessUse:
-        uuid: cim/entity/ContactPointAddress/attr/forBusinessUse
+        uuid: cim/entity/ContactPointPhone/attr/forBusinessUse
         required: true
         range:
           type: string
-    associations:
-      contactPhone:
-        allowMultiple: true
-        uuid: cim/entity/ContactPointAddress/attr/contactPhone
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
-    description: Mailing address for a party e.g. 123 Main St, Big City, CA12345, USA
-  Contact Point Email:
-    uuid: cim/entity/ContactPointEmail
-    attributes:
-      forBusinessUse:
-        uuid: cim/entity/ContactPointEmail/attr/forBusinessUse
+      isFaxCapable:
+        uuid: cim/entity/ContactPointPhone/attr/isFaxCapable
         required: true
         range:
           type: string
-      emailLatestBounceReasonText:
-        uuid: cim/entity/ContactPointEmail/attr/emailLatestBounceReasonText
-        required: true
-        range:
-          type: string
-    description: Email address for a party e.g. email info@northerntrailoutfitters.com
+    description: Phone number for a party e.g. phone 123-4567
+description: "Example Entities included: Contact Point, Contact Consent, Contact Channel"

@@ -15,7 +15,7 @@
     ],
     "http://a.ml/vocabularies/document#encodes": [
       {
-        "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PartyRoleEntityGroup/dataModel",
+        "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PartyRoleEntityGroup",
         "@type": [
           "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DataModel",
           "http://a.ml/vocabularies/data-model#DataModel",
@@ -24,7 +24,12 @@
         ],
         "http://a.ml/vocabularies/data#uuid": [
           {
-            "@value": "cim/entitygroup/PartyRoleEntityGroup/dataModel"
+            "@value": "cim/entitygroup/PartyRoleEntityGroup"
+          }
+        ],
+        "http://a.ml/vocabularies/core#name": [
+          {
+            "@value": "Party Role"
           }
         ],
         "http://a.ml/vocabularies/data-model#entities": [
@@ -72,7 +77,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -164,7 +169,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
@@ -256,7 +261,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
@@ -348,7 +353,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/integer",
+                    "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
@@ -440,7 +445,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -537,7 +542,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -572,7 +577,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -607,7 +612,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -642,7 +647,7 @@
                 ],
                 "http://a.ml/vocabularies/data-model#range": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/uuid/string",
+                    "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
                       "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
@@ -694,6 +699,11 @@
                 "@value": "History of when customer changed frome one status to another"
               }
             ]
+          }
+        ],
+        "http://a.ml/vocabularies/core#description": [
+          {
+            "@value": "Example Entities included: Party Role, Buyer Role, Actor Role, Customer Role"
           }
         ]
       }

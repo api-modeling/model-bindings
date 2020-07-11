@@ -21,7 +21,7 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         await Promise.all(promises);
 
         const subjectAreasModules: Module[] = await this.parseSubjectAreas(store);
-        const entityGroupsModules: Module[] = await this.parseEntityGroups(store, subjectAreasModules);
+        const entityGroupsDataModels: DataModel[] = await this.parseEntityGroups(store, subjectAreasModules);
 
         // Modules
         const topLevel = new Module("CIM Distribution");
@@ -34,17 +34,14 @@ export class CIMBindingsPlugin extends BindingsPlugin {
 
 
         // Data Models
-        const dataModels: DataModel[] = entityGroupsModules.map((entityGroup) => {
+        const dataModels: DataModel[] = entityGroupsDataModels.map((entityGroup) => {
             const entities = this.parseEntityGroup(store, entityGroup);
-            const dataModel = new DataModel(entityGroup.id());
-            dataModel.uuid = entityGroup.uuid + "/dataModel";
-            dataModel.entities =  entities;
-            entityGroup.dataModels = [ dataModel.id() ];
-            return dataModel;
+            entityGroup.entities =  entities;
+            return entityGroup;
         });
 
         const allModels = dataModels.map(async (dataModel) => {
-            const dataModelId = dataModel.id().replace("/dataModel", "").split("/").pop();
+            const dataModelId = dataModel.id().split("/").pop();
             const dataModelDialect = new DataModelDialect();
             dataModelDialect.id = `http://cloudinformationmodel.org/modeling/${dataModelId}`;
             dataModelDialect.location = `data_models/${dataModelId}`;
@@ -62,7 +59,7 @@ export class CIMBindingsPlugin extends BindingsPlugin {
 
 
         // Bindings
-        const entityGroupsBindings: Binding[] = this.parseEntityGroupsBindings(entityGroupsModules);
+        const entityGroupsBindings: Binding[] = this.parseEntityGroupsBindings(entityGroupsDataModels);
         const subjectAreasBindings: Binding[] = this.parseSubjectAreasBindings(subjectAreasModules);
         const bindingsModel: BindingsModel = new BindingsModel();
         bindingsModel.uuid = "cim/bindings/modules";

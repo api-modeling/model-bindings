@@ -6,7 +6,7 @@ import path from "path";
 const cimPlugin = new CIMBindingsPlugin();
 const url = "src/test/resources/model.jsonld"
 const text = fs.readFileSync(url).toString()
-cimPlugin.import([{url: "file://"+ url, text: text}]).then((parsed) => {
+cimPlugin.import([],[{url: "file://"+ url, text: text}]).then((parsed) => {
     const base = "out/cim/";
     parsed.forEach((dialectInstance) => {
         const location = base + dialectInstance.location;

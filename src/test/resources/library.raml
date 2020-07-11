@@ -22,6 +22,13 @@ types:
       parents: Person[]
       children: Person[]
 
+  Vegetable:
+    description: Green organic matter
+    properties:
+      height: number
+
+  AliveThings: Animal | Vegetable
+
   Other:
     properties:
       external: !include fragment.raml

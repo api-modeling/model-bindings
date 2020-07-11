@@ -23,17 +23,30 @@ export class APIContractImporter {
         param.uuid = binding.uuid + "param";
         binding.uuid = `apiContract/bindings/DocumentTypeBinding/${dataModel.uuid}`
 
-        if (baseUnit instanceof amf.model.document.Document) {
+        // @ts-ignore
+        if (baseUnit.declares != null && baseUnit.encodes != null) {
             param.lexicalValue = "Open API Spec / RAML API Spec"
             binding.configuration = [param]
-        } else if (baseUnit instanceof amf.model.document.Fragment) {
+        // @ts-ignore
+        } else if (baseUnit.encodes != null) {
             param.lexicalValue = "JSON Schema / RAML Fragment"
-            binding.configuration = [param]
-        } else if (baseUnit instanceof amf.model.document.Module) {
+            // Let's mark the entity encoded at the top level in the fragment
+            // @ts-ignore
+            const topLevel = (dataModel.entities||[]).find((e) => e['top_level'] === true)
+            if (topLevel != null) { // @todo should we raise an error here?
+                const targetEntityParameter = new meta.BindingScalarValue();
+                targetEntityParameter.parameter = VOCAB.API_CONTRACT_DOCUMENT_TARGET_ENTITY_PARAMETER;
+                targetEntityParameter.uuid = binding.uuid + "target_type_param"
+                targetEntityParameter.lexicalValue = topLevel.name;
+                binding.configuration = [param, targetEntityParameter]
+            } else {
+                binding.configuration = [param]
+            }
+        // @ts-ignore
+        } else if (baseUnit.declares != null) {
             param.lexicalValue = "JSON Schema / RAML Library"
             binding.configuration = [param]
         }
-        binding.configuration = [param]
         return binding;
     }
 
@@ -70,19 +83,20 @@ export class APIContractImporter {
         let entities: meta.Entity[] = [];
         if (baseUnit instanceof amf.model.document.Module || baseUnit instanceof amf.model.document.Document) {
             const declarations = <amf.model.document.DeclaresModel>baseUnit;
-            (declarations.declares || []).forEach((domainElement) => this.parseShape(domainElement, entities))
+            (declarations.declares || []).forEach((domainElement) => this.parseShape(domainElement, entities, true))
         }
 
-        if (baseUnit instanceof amf.model.document.DataTypeFragment || baseUnit instanceof amf.model.document.Document) {
+        if (baseUnit instanceof amf.model.domain.DataType) {
             const encoded = <amf.model.document.EncodesModel>baseUnit;
-            this.parseShape(encoded.encodes, entities)
+            this.parseShape(encoded.encodes, entities, true)
         }
         return entities
     }
 
-    private parseShape(domainElement: amf.model.domain.DomainElement, entities: meta.Entity[]): meta.Entity|null {
+    private parseShape(domainElement: amf.model.domain.DomainElement, entities: meta.Entity[], topLevel: boolean = false): meta.Entity|null {
         const uuid = Md5.hashStr(domainElement.id).toString();
         const alreadyParsed = entities.find((e) => e.uuid === uuid);
+
         if (alreadyParsed != null) {
             return alreadyParsed;
         } else {
@@ -90,7 +104,7 @@ export class APIContractImporter {
                 const linkTarget = (<amf.model.domain.AnyShape>domainElement).linkTarget!.id;
                 const linkName = (<amf.model.domain.AnyShape>domainElement).linkLabel!.value()
                 const link = new meta.Entity(linkName);
-                link.uuid = Md5.hashStr(linkTarget).toString();;
+                link.uuid = Md5.hashStr(linkTarget).toString();
                 // @ts-ignore
                 link['isLink'] = true;
                 return link;
@@ -98,16 +112,33 @@ export class APIContractImporter {
                 let parsed: meta.Entity|null = null;
                 if (domainElement instanceof amf.model.domain.NodeShape) {
                     parsed = this.parseNodeShape(<amf.model.domain.NodeShape>domainElement, entities);
+                } else if (domainElement instanceof amf.model.domain.UnionShape) {
+                    parsed = this.parseUnionShape(<amf.model.domain.UnionShape>domainElement, entities);
                 } else if (domainElement instanceof amf.model.domain.AnyShape) {
-                    parsed = this.parseAnyShape(<amf.model.domain.AnyShape>domainElement, entities);
+                    // parsed = this.parseAnyShape(<amf.model.domain.AnyShape>domainElement, entities);
                 }
                 if (parsed != null) {
-                    entities.push(parsed)
+                    entities.push(this.uniqueName(parsed, entities))
+                    if (topLevel) {
+                        // @ts-ignore
+                        parsed['top_level'] = true
+                    }
                 }
                 return parsed;
             }
         }
         return null;
+    }
+
+    private parseUnionShape(unionShape: amf.model.domain.UnionShape, entities: meta.Entity[]) {
+        const name = this.getShapeName(unionShape)
+        const entity = new meta.Entity(name)
+        const unionMembers = unionShape.anyOf
+            .map((shape) => this.parseShape(shape, entities))
+            .filter((shape) => shape != null)
+            .map((s) => s!.id())
+        entity.disjoint = unionMembers
+        return entity;
     }
 
     /**
@@ -160,6 +191,12 @@ export class APIContractImporter {
         let objectProperties: (amf.model.domain.PropertyShape)[] = []
 
         nodeShape.properties.forEach((property) => {
+            // nil unions are a common pattern when instead of making something optional a X|nil union is used.
+            // If this is a nil union, let's first transform it into an optional property with the not nil member
+            if (property.range instanceof amf.model.domain.UnionShape && this.isNilUnion(property.range)) {
+                const notNil = this.extractFromNilUnion(property.range);
+                property.withRange(notNil).withMinCount(0);
+            }
             if (this.isScalarShape(property.range)) {
                 scalarProperties.push(property)
             } else if (this.isObjectShape(property.range)) {
@@ -172,11 +209,13 @@ export class APIContractImporter {
                     objectProperties.push(property)
                 } else {
                     // @todo
-                    throw new Error(`Unsupported property range array items shape ${arrayShape.items}`);
+                    // throw new Error(`Unsupported property range array items shape ${arrayShape.items}`);
+                    console.log(`Not supported type ${property.id} -> ${arrayShape.items}`)
                 }
             } else {
                 // @todo
-                throw new Error(`Unsupported property range shape ${property.range}`);
+                // throw new Error(`Unsupported property range shape ${property.range}`);
+                console.log(`Not supported type ${property.id} -> ${property.range}`)
             }
         });
 
@@ -192,10 +231,7 @@ export class APIContractImporter {
     }
 
     private isScalarShape(shape: amf.model.domain.Shape): boolean {
-        if (shape instanceof amf.model.domain.ScalarShape) {
-            return true;
-        }
-        return false;
+        return shape instanceof amf.model.domain.ScalarShape;
     }
 
     /**
@@ -203,13 +239,70 @@ export class APIContractImporter {
      * @param shape
      */
     private isObjectShape(shape: amf.model.domain.Shape): boolean {
+        if (shape instanceof amf.model.domain.ScalarShape) {
+            return false;
+        }
         if (shape instanceof amf.model.domain.NodeShape) {
             return true;
         }
+        if (shape instanceof amf.model.domain.UnionShape) {
+            let allObject = true;
+            (<amf.model.domain.UnionShape>shape).anyOf.forEach((member) => {
+                allObject = allObject && this.isObjectShape(member)
+            })
+            if (!allObject) {
+                throw new Error(`Unsupported scalar union ${shape.id}`) // @todo support this maybe with a custom scalar?
+            }
+            return allObject;
+        }
+        /*
         if (shape instanceof amf.model.domain.AnyShape) {
             return true;
         }
+         */
         return false;
+    }
+
+    private isNilUnion(shape: amf.model.domain.UnionShape): boolean {
+        if ((shape.anyOf||[]).length === 2) {
+            const notNil = shape.anyOf.filter((s) => {
+                return s instanceof amf.model.domain.NilShape
+            });
+
+            return notNil.length === 1;
+        } else {
+            return false;
+        }
+    }
+
+    private extractFromNilUnion(shape: amf.model.domain.UnionShape): amf.model.domain.Shape {
+        const notNil = shape.anyOf.filter((s) => {
+            return s instanceof amf.model.domain.NilShape
+        });
+
+        return notNil[0]!
+    }
+
+    private isNilUnionObject(shape: amf.model.domain.UnionShape): boolean {
+        if (this.isNilUnion(shape)) {
+            const notNil = shape.anyOf.filter((s) => {
+                return s instanceof amf.model.domain.NilShape
+            });
+            return this.isObjectShape(notNil[0]);
+        } else {
+            return false;
+        }
+    }
+
+    private isNilUnionScalar(shape: amf.model.domain.UnionShape): boolean {
+        if (this.isNilUnion(shape)) {
+            const notNil = shape.anyOf.filter((s) => {
+                return s instanceof amf.model.domain.NilShape
+            });
+            return this.isScalarShape(notNil[0]);
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -217,9 +310,9 @@ export class APIContractImporter {
      * @param shape
      */
     private getShapeName(shape: amf.model.domain.Shape, hint: string = "Entity"): string {
-        const name = shape.name.option || shape.displayName.option;
+        const name = shape.displayName.option || shape.name.option ;
         if (name != null && name !== "type") {
-            return (shape.name.option || shape.displayName.option)!
+            return name;
         } else {
             return this.genName(hint);
         }
@@ -236,6 +329,9 @@ export class APIContractImporter {
         let shape = property.range;
         if (shape instanceof amf.model.domain.ArrayShape) {
             shape = (<amf.model.domain.ArrayShape>shape).items
+        }
+        if (shape.isLink) {
+            shape = <amf.model.domain.Shape>shape.linkTarget
         }
         let scalarShape = <amf.model.domain.ScalarShape>shape;
 
@@ -323,4 +419,23 @@ export class APIContractImporter {
         entity.uuid = Md5.hashStr(id).toString();
         return entity.id();
     }
+
+    private uniqueName(parsed: meta.Entity, entities: meta.Entity[]) {
+        const names: {[name: string]: boolean} = {}
+        entities.forEach((e) => names[e.name] = true)
+        let c = 0;
+        let name = parsed.name
+        while (names[name]) {
+            c++
+            name = `${parsed.name}${c}`
+        }
+        parsed.name = name
+        if (parsed.displayName != null && c > 0) {
+            parsed.displayName = `${parsed.displayName}${c}`
+        }
+        names[parsed.name] = true;
+
+        return parsed;
+    }
+
 }
