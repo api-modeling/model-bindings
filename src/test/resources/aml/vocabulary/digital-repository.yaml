@@ -1,0 +1,216 @@
+#%Vocabulary 1.0
+
+vocabulary: Digital Repository
+base: http://anypoint.com/vocabs/digital-repository#
+
+uses:
+  core: file://vocabulary/core.yaml
+  anypoint: file://vocabulary/anypoint.yaml
+
+usage: |
+  Repository of digital design 'assets' supporting an authoring life cycle.
+  They can be edited, shared and versioned.
+  Assets can have dependencies on other assets.
+
+classTerms:
+  # Main model for an asset
+  Asset:
+    description: |
+      Any versionable design digital document
+    extends: core.DigitalDocument
+
+  APIGroupAsset:
+    description: |
+      An asset of type API Group. An API Group defines a collection of APIs
+      that can be managed all together.
+    extends: Asset
+
+  WebAPISpecAsset:
+    description: |
+      An asset of type Web API Spec. An API Spec defines the contract of an
+      API using a specialized language. RAML 0.8 and 1.0 and OAS 2.0 formats
+      are currently supported.
+    extends: Asset
+
+  WebAPISpecFragmentAsset:
+    description: |
+      An asset of type Web API Spec Fragment. A reusable part of an API Spec.
+      Currently RAML 1.0 Fragments are supported.
+    extends: Asset
+
+  MuleAppAsset:
+    description: |
+      An asset of type Mule Application. A Mule Application is an integration
+      application that runs on the Mule runtime.
+    extends: Asset
+
+  MuleConnectorAsset:
+    description: |
+      An asset of type Connector. A Connector can be used in Mule Applications
+      to connect to different SaaS instances, databases, queues and other data sources.
+    extends: Asset
+
+  MuleTemplateAsset:
+    description: |
+      An asset of type Template. A Template is a Mule Application implementing a
+      common use case, that can be modified, configured and deployed to fulfill that
+      use case.
+    extends: Asset
+
+  MuleExampleAsset:
+    description: |
+      An asset of type Example. A small Mule Application demonstrating a feature
+      of the Mule runtime.
+    extends: Asset
+
+  MulePolicyAsset:
+    description: |
+      An asset of type Policy. A Mule Policy can be applied to managed APIs to
+      enforce certain behaviors, for example, rate limiting or client id enforcement.
+    extends: Asset
+
+  SOAPSpecAsset:
+    description: An asset of type SOAP. A WSDL specification of a Web Service.
+    extends: Asset
+
+  UnknownSpecAPIAsset:
+    description: |
+      An asset representing and API which API Spec is unknown. It can be used to manage
+      that API by wrapping it with a proxy that points to a known endpoint.
+    extends: Asset
+
+  CustomAsset:
+    description: |
+      An asset of type Custom. It can be used to document any artifact, optionally
+      uploading a File.
+    extends: Asset
+
+  ExternalLibraryAsset:
+    description: |
+      An asset of type ExternalLibrary. It represents a java library to be used by Mule Applications
+    extends: Asset
+
+  MajorVersion:
+    description: |
+      Logically grouped set of versions of an asset.
+      Major versions are identified by a name and all nested minor versions that are
+      part of the same major version.
+
+  MinorVersion:
+    description: Logically grouped set of asset versions with the same major version.
+
+  PublicMinorVersion:
+    description: MinorVersion that should be visible in public asset listings
+
+  Version:
+    description: Set of files conforming a versioned asset
+
+  File:
+    description: Digital file in an asset version
+
+  CustomerMetadata:
+    description: |
+      Every piece of extra information that a customer can provide and can be attached to an Asset
+
+  SystemMetadata:
+    description: |
+      Every piece of extra information that is related to an Asset but belongs to a different domain. Temporal storage until those domains exist in ANG.
+
+propertyTerms:
+  dependency:
+    extends: anypoint.dependsOn
+    description: Other asset versions which a particular asset version depends on
+    range: Version
+  groupId:
+    extends: core.identifier
+    description: A text identifier of the asset's groupId, that is unique to a single organization.
+    range: string
+  assetId:
+    extends: core.identifier
+    description: A text identifier of the asset, it's defined by the publisher.
+    range: string
+  asset:
+    description: Any versionable design digital document
+    range: Asset
+  majorVersion:
+    description: Major versions associated to a particular asset
+    range: MajorVersion
+  minorVersion:
+    description: Minor versions associated to a particular asset
+    range: MinorVersion
+  version:
+    description: version of a particular asset
+    range: Version
+  file:
+    description: files in a version
+    range: File
+  semverVersion:
+    extends: core.version
+    description: The full asset version for an asset in semver format
+    range: string
+  majorVersionComponent:
+    extends: core.version
+    description: The major version part for asset version (1 in 1.2.3)
+    range: string
+  minorVersionComponent:
+    extends: core.version
+    description: The minor version part for asset version (2 in 1.2.3)
+    range: string
+  patchVersionComponent:
+    extends: core.version
+    description: The patch version part for asset version (3 in 1.2.3)
+    range: string
+  preReleaseVersionTag:
+    extends: core.version
+    description: The preRelase extension for the version
+    range: string
+  buildVersionTag:
+    extends: core.version
+    description: The build extension for the version
+    range: string
+  classifier:
+    description: |
+      An asset version can have multiple files. The classifier is used
+      to differentiate those different files.
+    range: string
+  packaging:
+    extends: core.encodingFormat
+    description: The extension of a distribution file.
+    range: string
+  generatedFrom:
+    description: |
+      A link to the object that was used to create this one. The existence
+      of this relation implies that the subject of the relation was generated
+      by the system.
+  isMutable:
+    description: Flag indicating this version can be republished, i.e. the version is a snapshot
+    range: boolean
+  isPublic:
+    description: Flag indicating this version is to be listed publicly
+    range: boolean
+  status:
+    description: The status of the asset. It can be published, deleted or deprecated.
+    range: string
+  mainFile:
+    description: The main file inside a packaged file.
+    range: string
+  md5:
+    description: A hash for the file.
+  sha1:
+    description: A hash for the file.
+  tags:
+    description: The tags for an asset. They can be either set by customer or by the publication process
+  keyValueTags:
+    description: Legacy tags that have keys and can have multiple values for a single key
+  categories:
+    description: The categories for an asset.
+  customFields:
+    description: The custom fields for an asset.
+  searchableValues:
+    description: The values for keyValueTags, categories and customFields that should be indexed for full text search
+  systemMetadata:
+    description: Associated system metadata.
+  customerMetadata:
+    description: Associated customer metadata.
+  externalLink:
+    description: link to an external system that exposes the implementation of an HTTP or SOAP API

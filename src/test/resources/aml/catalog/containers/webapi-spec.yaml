@@ -1,0 +1,59 @@
+#%Container Configuration 0.1
+
+namespace: webapi-spec
+
+pattern:
+  template: $container/{BaseUnit.groupId}/{BaseUnit.assetId}/{BaseUnit.semverVersion}
+
+indexes:
+  BaseUnit:
+    properties:
+      groupId: {}
+      assetId: {}
+      semverVersion: {}
+  WebAPI:
+    properties:
+      name: {}
+      description: {}
+  AbstractDeclaration:
+    properties:
+      name: {}
+      description: {}
+  Example:
+    properties:
+      name: {}
+      displayName: {}
+      description: {}
+  Shape:
+    properties:
+      name: {}
+      displayName: {}
+      description: {}
+  Server:
+    properties:
+      urlTemplate: {}
+  EndPoint:
+    properties:
+      path: {}
+      name: {}
+      summary: {}
+      description: {}
+  Operation:
+    properties:
+      description: {}
+  Parameter:
+    properties:
+      name: {}
+      description: {}
+
+links:
+  BaseUnit:
+    properties:
+      dependencies:
+        target:
+          - container: webapi-spec
+            node: ParsedUnitUnion
+
+schema: file://catalog/dialects/canonical-webapi-spec.yaml
+
+pageSize: 10

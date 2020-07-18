@@ -1,0 +1,56 @@
+[
+  {
+    "@id": "http://mulesoft.com/modeling/instances/uuid/755edb311080d07782190106cc4ffc37",
+    "@type": [
+      "http://a.ml/vocabularies/meta#DialectInstance",
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/meta#definedBy": [
+      {
+        "@id": "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modularity/schema/modularDialect.yaml"
+      }
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "http://mulesoft.com/modeling/instances/uuid/755edb311080d07782190106cc4ffc37",
+        "@type": [
+          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+          "http://a.ml/vocabularies/modularity#Module",
+          "http://a.ml/vocabularies/meta#DialectDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://a.ml/vocabularies/data#uuid": [
+          {
+            "@value": "755edb311080d07782190106cc4ffc37"
+          }
+        ],
+        "http://a.ml/vocabularies/core#name": [
+          {
+            "@value": "Imported spec dataModelDialect.yaml"
+          }
+        ],
+        "http://a.ml/vocabularies/modularity#dataModels": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/9d31901d0ffe3f82a3c883853e76e1dd"
+          },
+          {
+            "@id": "http://mulesoft.com/modeling/instances/99820d7a024bf3d5b4ce8e07a6c0e57d"
+          }
+        ]
+      }
+    ],
+    "http://a.ml/vocabularies/document#version": [
+      {
+        "@value": "2.1.0"
+      }
+    ],
+    "http://a.ml/vocabularies/document#root": [
+      {
+        "@value": false
+      }
+    ]
+  }
+]

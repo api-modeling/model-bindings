@@ -1,0 +1,162 @@
+#%Library / Dialect 1.0
+uses:
+  modeling: ../vocabulary/modelingVocabulary.yaml
+  core: ../../common/vocabulary/core.yaml
+
+nodeMappings:
+  Entity:
+    classTerm: modeling.Entity
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      extends:
+        propertyTerm: modeling.extends
+        mandatory: false
+        range: link
+      name:
+        propertyTerm: core.name
+        mandatory: true
+        range: string
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        mandatory: false
+        range: string
+      attributes:
+        propertyTerm: modeling.attributes
+        range: Attribute
+        allowMultiple: true
+        mapKey: name
+      associations:
+        propertyTerm: modeling.associations
+        range: Association
+        allowMultiple: true
+        mapKey: name
+      disjoint:
+        propertyTerm: modeling.disjoint
+        range: link
+        allowMultiple: true
+
+  String:
+    classTerm: modeling.String
+    idTemplate: "http://mulesoft.com/modeling/instances/string"
+
+  Integer:
+    classTerm: modeling.Integer
+    idTemplate: "http://mulesoft.com/modeling/instances/integer"
+
+  Boolean:
+    classTerm: modeling.Boolean
+    idTemplate: "http://mulesoft.com/modeling/instances/boolean"
+
+  Date:
+    classTerm: modeling.Date
+    idTemplate: "http://mulesoft.com/modeling/instances/date"
+
+  DateTime:
+    classTerm: modeling.DateTime
+    idTemplate: "http://mulesoft.com/modeling/instances/datetime"
+
+  Time:
+    classTerm: modeling.Time
+    idTemplate: "http://mulesoft.com/modeling/instances/time"
+
+  Float:
+    classTerm: modeling.Float
+    idTemplate: "http://mulesoft.com/modeling/instances/float"
+
+  Attribute:
+    classTerm: modeling.AttributeProperty
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    mapping:
+      isKey:
+        propertyTerm: modeling.isKey
+        range: boolean
+      uuid:
+        mandatory: true
+        range: string
+      name:
+        propertyTerm: core.name
+        mandatory: true
+        range: string
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        mandatory: false
+        range: string
+      required:
+        propertyTerm: modeling.required
+        range: boolean
+      allowMultiple:
+        propertyTerm: modeling.allowMultiple
+        range: boolean
+      range:
+        propertyTerm: modeling.range
+        range:
+          - String
+          - Integer
+          - Boolean
+          - Date
+          - DateTime
+          - Time
+          - Float
+        typeDiscriminatorName: type
+        typeDiscriminator:
+          string: String
+          integer: Integer
+          boolean: Boolean
+          date: Date
+          dateTime: DateTime
+          time: Time
+          float: Float
+      readOnly:
+        propertyTerm: modeling.readOnly
+        range: boolean
+      writeOnly:
+        propertyTerm: modeling.writeOnly
+        range: boolean
+
+  Association:
+    classTerm: modeling.AssociationProperty
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      name:
+        propertyTerm: core.name
+        mandatory: true
+        range: string
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        range: string
+      required:
+        propertyTerm: modeling.required
+        range: boolean
+      allowMultiple:
+        propertyTerm: modeling.allowMultiple
+        range: boolean
+      inverseOf:
+        propertyTerm: modeling.inverseOf
+        range: link
+      target:
+        propertyTerm: modeling.target
+        range: link
+      isComposition:
+        propertyTerm: modeling.isComposition
+        range: boolean
+      readOnly:
+        propertyTerm: modeling.readOnly
+        range: boolean
+      writeOnly:
+        propertyTerm: modeling.writeOnly
+        range: boolean

@@ -1,0 +1,2297 @@
+{
+  "@context": {
+    "schema": "file://api-federation/dialects/source.yaml#/declarations/",
+    "anypoint": "http://anypoint.com/vocabs/anypoint#",
+    "catalog": "http://anypoint.com/vocabs/digital-repository#",
+    "data": "http://a.ml/vocabularies/data#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "apiContract": "http://a.ml/vocabularies/apiContract#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "shacl": "http://www.w3.org/ns/shacl#",
+    "core": "http://a.ml/vocabularies/core#",
+    "security": "http://a.ml/vocabularies/security#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "shapes": "http://a.ml/vocabularies/shapes#",
+    "meta": "http://a.ml/vocabularies/meta#",
+    "doc": "http://a.ml/vocabularies/document#",
+    "apif": "http://ang.anypoint.com/vocabularies/api-federation#"
+  },
+  "@graph": [
+    {
+      "@id": "aq:delete-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:EndPoint",
+        "schema:EndPoint",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:method": "delete",
+      "data:path": "/customer/{customerId}/address"
+    },
+    {
+      "@id": "aq:get-end-point:/web-api/end-points/%2Faddress",
+      "@type": [
+        "apif:EndPoint",
+        "schema:EndPoint",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:method": "get",
+      "data:path": "/address"
+    },
+    {
+      "@id": "aq:get-end-point:/web-api/end-points/%2Faddress%2F%7BaddressId%7D",
+      "@type": [
+        "apif:EndPoint",
+        "schema:EndPoint",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:method": "get",
+      "data:path": "/address/{addressId}"
+    },
+    {
+      "@id": "aq:get-end-point:/web-api/end-points/%2Fcustomer",
+      "@type": [
+        "apif:EndPoint",
+        "schema:EndPoint",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:method": "get",
+      "data:path": "/customer"
+    },
+    {
+      "@id": "aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D",
+      "@type": [
+        "apif:EndPoint",
+        "schema:EndPoint",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:method": "get",
+      "data:path": "/customer/{customerId}"
+    },
+    {
+      "@id": "aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:EndPoint",
+        "schema:EndPoint",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:method": "get",
+      "data:path": "/customer/{customerId}/address"
+    },
+    {
+      "@id": "aq:parameter:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId",
+      "@type": [
+        "apif:Parameter",
+        "schema:Parameter",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:binding": "path",
+      "data:name": "addressId"
+    },
+    {
+      "@id": "aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId",
+      "@type": [
+        "apif:Parameter",
+        "schema:Parameter",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:binding": "path",
+      "data:name": "customerId"
+    },
+    {
+      "@id": "aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId",
+      "@type": [
+        "apif:Parameter",
+        "schema:Parameter",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:binding": "path",
+      "data:name": "customerId"
+    },
+    {
+      "@id": "aq:patch-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D",
+      "@type": [
+        "apif:EndPoint",
+        "schema:EndPoint",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:method": "patch",
+      "data:path": "/customer/{customerId}"
+    },
+    {
+      "@id": "aq:patch-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:EndPoint",
+        "schema:EndPoint",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:method": "patch",
+      "data:path": "/customer/{customerId}/address"
+    },
+    {
+      "@id": "aq:post-end-point:/web-api/end-points/%2Fcustomer",
+      "@type": [
+        "apif:EndPoint",
+        "schema:EndPoint",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:method": "post",
+      "data:path": "/customer"
+    },
+    {
+      "@id": "aq:post-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:EndPoint",
+        "schema:EndPoint",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:method": "post",
+      "data:path": "/customer/{customerId}/address"
+    },
+    {
+      "@id": "aq:property-shape:/declarations/types/Address/property/name",
+      "@type": [
+        "apif:PropertyShape",
+        "schema:PropertyShape",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "name"
+    },
+    {
+      "@id": "aq:property-shape:/declarations/types/Address/property/number",
+      "@type": [
+        "apif:PropertyShape",
+        "schema:PropertyShape",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "number"
+    },
+    {
+      "@id": "aq:property-shape:/declarations/types/Customer/property/customerId",
+      "@type": [
+        "apif:PropertyShape",
+        "schema:PropertyShape",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "customerId"
+    },
+    {
+      "@id": "aq:property-shape:/declarations/types/Customer/property/name",
+      "@type": [
+        "apif:PropertyShape",
+        "schema:PropertyShape",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "name"
+    },
+    {
+      "@id": "aq:server:/web-api/https%3A%2F%2Fanypoint.mulesoft.com%2Fmocking%2Fapi%2Fv1%2Flinks%2Faf50a732-daf9-4c18-a7ec-d7cc3b14af1b%2Fapi",
+      "@type": [
+        "apif:Server",
+        "schema:Server",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:url": "https://anypoint.mulesoft.com/mocking/api/v1/links/af50a732-daf9-4c18-a7ec-d7cc3b14af1b/api"
+    },
+    {
+      "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api",
+      "@type": [
+        "apif:WebApi",
+        "schema:WebApi",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "API Query Test API",
+      "data:servers": {
+        "@id": "aq:server:/web-api/https%3A%2F%2Fanypoint.mulesoft.com%2Fmocking%2Fapi%2Fv1%2Flinks%2Faf50a732-daf9-4c18-a7ec-d7cc3b14af1b%2Fapi"
+      },
+      "data:version": "1.1"
+    },
+    {
+      "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644",
+      "@type": [
+        "apif:WebApi",
+        "schema:WebApi",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "web-api",
+      "doc:link-target": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api"
+      }
+    },
+    {
+      "@id": "binding:http-api:aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api",
+      "@type": [
+        "apif:HttpApiBinding",
+        "schema:HttpApiBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:delete-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:endPoint": {
+        "@id": "aq:delete-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+      },
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:endPoint": {
+        "@id": "aq:get-end-point:/web-api/end-points/%2Faddress"
+      },
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress%2F%7BaddressId%7D",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:endPoint": {
+        "@id": "aq:get-end-point:/web-api/end-points/%2Faddress%2F%7BaddressId%7D"
+      },
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress%2F%7BaddressId%7D-type-constructor",
+      "@type": [
+        "apif:TypeConstructor",
+        "schema:TypeConstructor",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:binding": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress%2F%7BaddressId%7D"
+      },
+      "data:properties": [
+        "name",
+        "number"
+      ]
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/link--1800946728",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "%2Faddress%2F%7BaddressId%7D",
+      "doc:link-target": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress%2F%7BaddressId%7D"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress-type-constructor",
+      "@type": [
+        "apif:TypeConstructor",
+        "schema:TypeConstructor",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:binding": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress"
+      },
+      "data:properties": [
+        "name",
+        "number"
+      ]
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress/link--1146418524",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "%2Faddress",
+      "doc:link-target": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:endPoint": {
+        "@id": "aq:get-end-point:/web-api/end-points/%2Fcustomer"
+      },
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:endPoint": {
+        "@id": "aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D"
+      },
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:endPoint": {
+        "@id": "aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+      },
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress-type-constructor",
+      "@type": [
+        "apif:TypeConstructor",
+        "schema:TypeConstructor",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:binding": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+      },
+      "data:properties": [
+        "name",
+        "number"
+      ]
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/link-1177453818",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "doc:link-target": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D-type-constructor",
+      "@type": [
+        "apif:TypeConstructor",
+        "schema:TypeConstructor",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:binding": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D"
+      },
+      "data:properties": [
+        "customerId",
+        "name"
+      ]
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/link-63951620",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "%2Fcustomer%2F%7BcustomerId%7D",
+      "doc:link-target": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer-type-constructor",
+      "@type": [
+        "apif:TypeConstructor",
+        "schema:TypeConstructor",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:binding": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer"
+      },
+      "data:properties": [
+        "customerId",
+        "name"
+      ]
+    },
+    {
+      "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer/link--181352626",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "%2Fcustomer",
+      "doc:link-target": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:patch-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:endPoint": {
+        "@id": "aq:patch-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D"
+      },
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:patch-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:endPoint": {
+        "@id": "aq:patch-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+      },
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:post-end-point:/web-api/end-points/%2Fcustomer",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:endPoint": {
+        "@id": "aq:post-end-point:/web-api/end-points/%2Fcustomer"
+      },
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644"
+      }
+    },
+    {
+      "@id": "binding:http-end-point:aq:post-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:HttpEndPointBinding",
+        "schema:HttpEndPointBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:endPoint": {
+        "@id": "aq:post-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+      },
+      "data:webApi": {
+        "@id": "aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/link-147558644"
+      }
+    },
+    {
+      "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId",
+      "@type": [
+        "apif:HttpParameterBinding",
+        "schema:HttpParameterBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:parameter": {
+        "@id": "aq:parameter:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId"
+      }
+    },
+    {
+      "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId",
+      "@type": [
+        "apif:HttpParameterBinding",
+        "schema:HttpParameterBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:parameter": {
+        "@id": "aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId"
+      }
+    },
+    {
+      "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/link-1183376778",
+      "@type": [
+        "apif:HttpParameterBinding",
+        "schema:HttpParameterBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "customerId",
+      "doc:link-target": {
+        "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId"
+      }
+    },
+    {
+      "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId",
+      "@type": [
+        "apif:HttpParameterBinding",
+        "schema:HttpParameterBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:parameter": {
+        "@id": "aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId"
+      }
+    },
+    {
+      "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId/link-1912481541",
+      "@type": [
+        "apif:HttpParameterBinding",
+        "schema:HttpParameterBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "customerId",
+      "doc:link-target": {
+        "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId"
+      }
+    },
+    {
+      "@id": "binding:http-payload-binding:",
+      "@type": [
+        "apif:HttpPayloadBinding",
+        "schema:HttpPayloadBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "binding:http-payload-binding:/link--1408531840",
+      "@type": [
+        "apif:HttpPayloadBinding",
+        "schema:HttpPayloadBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "binding:http-payload-binding:",
+      "doc:link-target": {
+        "@id": "binding:http-payload-binding:"
+      }
+    },
+    {
+      "@id": "binding:http-payload-binding:application/json",
+      "@type": [
+        "apif:HttpPayloadBinding",
+        "schema:HttpPayloadBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:mediaTypes": "application/json"
+    },
+    {
+      "@id": "binding:http-payload-binding:application/json/link-263936211",
+      "@type": [
+        "apif:HttpPayloadBinding",
+        "schema:HttpPayloadBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "json",
+      "doc:link-target": {
+        "@id": "binding:http-payload-binding:application/json"
+      }
+    },
+    {
+      "@id": "binding:scalar-property:aq:property-shape:/declarations/types/Address/property/name",
+      "@type": [
+        "apif:HttpScalarPayloadBinding",
+        "schema:HttpScalarPayloadBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:property": {
+        "@id": "aq:property-shape:/declarations/types/Address/property/name"
+      }
+    },
+    {
+      "@id": "binding:scalar-property:aq:property-shape:/declarations/types/Address/property/number",
+      "@type": [
+        "apif:HttpScalarPayloadBinding",
+        "schema:HttpScalarPayloadBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:property": {
+        "@id": "aq:property-shape:/declarations/types/Address/property/number"
+      }
+    },
+    {
+      "@id": "binding:scalar-property:aq:property-shape:/declarations/types/Customer/property/customerId",
+      "@type": [
+        "apif:HttpScalarPayloadBinding",
+        "schema:HttpScalarPayloadBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:property": {
+        "@id": "aq:property-shape:/declarations/types/Customer/property/customerId"
+      }
+    },
+    {
+      "@id": "binding:scalar-property:aq:property-shape:/declarations/types/Customer/property/name",
+      "@type": [
+        "apif:HttpScalarPayloadBinding",
+        "schema:HttpScalarPayloadBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:property": {
+        "@id": "aq:property-shape:/declarations/types/Customer/property/name"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph",
+      "@type": [
+        "apif:DataGraph",
+        "schema:DataGraph",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:entryPoint": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/entry-point"
+      },
+      "data:targetNodesByShapeId": [
+        {
+          "@id": "mapEntry-file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Customer"
+        },
+        {
+          "@id": "mapEntry-file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Address"
+        },
+        {
+          "@id": "mapEntry-file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array"
+        },
+        {
+          "@id": "mapEntry-file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array"
+        }
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-delete-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-2103872330:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:delete-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+      },
+      "data:description": "Delete customer address",
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-delete-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-2103872330:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress:graphql-binding"
+      },
+      "data:name": "delete_customer_address_by_customerId",
+      "data:optional": true,
+      "data:parameters": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId557003101-349534512"
+      },
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any0"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-delete-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-2103872330:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "deleteCustomerAddressByCustomerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-address-entryPoint-473519988:/web-api/end-points/%2Faddress",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress/link--1146418524"
+      },
+      "data:description": "Get all addresses",
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-address-entryPoint-473519988:/web-api/end-points/%2Faddress:graphql-binding"
+      },
+      "data:name": "address",
+      "data:optional": false,
+      "data:parameters": [],
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-address-entryPoint-473519988:/web-api/end-points/%2Faddress:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "address"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-address-name-customerId--501707102:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/link-1177453818"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-address-name-customerId--501707102:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress:graphql-binding"
+      },
+      "data:name": "address",
+      "data:optional": true,
+      "data:parameters": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId-1757044120-1270087532"
+      },
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address/link--303228665"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-address-name-customerId--501707102:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "address"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-addressByAddressId-address-entryPoint--254398261:/web-api/end-points/%2Faddress%2F%7BaddressId%7D",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/link--1800946728"
+      },
+      "data:description": "Get an address by its id",
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-addressByAddressId-address-entryPoint--254398261:/web-api/end-points/%2Faddress%2F%7BaddressId%7D:graphql-binding"
+      },
+      "data:name": "address_by_addressId",
+      "data:optional": true,
+      "data:parameters": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId3075468101006756839"
+      },
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address/link--303228665"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-addressByAddressId-address-entryPoint--254398261:/web-api/end-points/%2Faddress%2F%7BaddressId%7D:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "addressByAddressId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customer-addressByAddressId-address-entryPoint-473519988:/web-api/end-points/%2Fcustomer",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer/link--181352626"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customer-addressByAddressId-address-entryPoint-473519988:/web-api/end-points/%2Fcustomer:graphql-binding"
+      },
+      "data:name": "customer",
+      "data:optional": false,
+      "data:parameters": [],
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customer-addressByAddressId-address-entryPoint-473519988:/web-api/end-points/%2Fcustomer:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "customer"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--1391118338:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/link-1177453818"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--1391118338:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress:graphql-binding"
+      },
+      "data:name": "customer_address_by_customerId",
+      "data:optional": true,
+      "data:parameters": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId-3990796921998875063"
+      },
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address/link--303228665"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--1391118338:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "customerAddressByCustomerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--714735302:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/link-63951620"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--714735302:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D:graphql-binding"
+      },
+      "data:name": "customer_by_customerId",
+      "data:optional": true,
+      "data:parameters": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId-12328800611353031082"
+      },
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer/link--247958589"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--714735302:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "customerByCustomerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-patch-updateCustomerAddressByCustomerId-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-623874614:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:patch-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+      },
+      "data:description": "Change customer address",
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-patch-updateCustomerAddressByCustomerId-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-623874614:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress:graphql-binding"
+      },
+      "data:name": "update_customer_address_by_customerId",
+      "data:optional": true,
+      "data:parameters": [
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId557003101-349534512/link--553997116"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/patch/request/application%2Fjson-618453554745937234"
+        }
+      ],
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any1"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-patch-updateCustomerAddressByCustomerId-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-623874614:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "updateCustomerAddressByCustomerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-patch-updateCustomerByCustomerId-updateCustomerAddressByCustomerId-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--1358728915:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:patch-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D"
+      },
+      "data:description": "Change customer address",
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-patch-updateCustomerByCustomerId-updateCustomerAddressByCustomerId-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--1358728915:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D:graphql-binding"
+      },
+      "data:name": "update_customer_by_customerId",
+      "data:optional": true,
+      "data:parameters": [
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId-678675251323928882"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/patch/request/application%2Fjson734639804-1926282334"
+        }
+      ],
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any2"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-patch-updateCustomerByCustomerId-updateCustomerAddressByCustomerId-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--1358728915:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "updateCustomerByCustomerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-post-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--608977703:/web-api/end-points/%2Fcustomer",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:post-end-point:/web-api/end-points/%2Fcustomer"
+      },
+      "data:description": "Create a new customer",
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-post-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--608977703:/web-api/end-points/%2Fcustomer:graphql-binding"
+      },
+      "data:name": "create_customer",
+      "data:optional": true,
+      "data:parameters": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer/post/request/application%2Fjson1002200953-1880564048"
+      },
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer/link--247958589"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-post-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--608977703:/web-api/end-points/%2Fcustomer:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "createCustomer"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-post-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-1785666993:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress",
+      "@type": [
+        "apif:NetworkEdge",
+        "schema:NetworkEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-end-point:aq:post-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+      },
+      "data:description": "Add customer address",
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-post-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-1785666993:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress:graphql-binding"
+      },
+      "data:name": "create_customer_address_by_customerId",
+      "data:optional": true,
+      "data:parameters": [
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId-3990796921998875063/link-1577519288"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/post/request/application%2Fjson-1353327446-1180434468"
+        }
+      ],
+      "data:securitySchemes": [],
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address/link--303228665"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-post-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-1785666993:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "createCustomerAddressByCustomerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId3075468101006756839",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId:graphql-binding"
+      },
+      "data:name": "addressId",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId/scalar/addressId"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "addressId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId-1757044120-1270087532",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId:graphql-binding"
+      },
+      "data:name": "customerId",
+      "data:optional": true,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/scalar/customerId"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId-3990796921998875063",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/link-1183376778"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId:graphql-binding/link-2004256836"
+      },
+      "data:name": "customerId",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/scalar/customerId/link--347918316"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId-3990796921998875063/link-1577519288",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "customerId-3990796921998875063",
+      "doc:link-target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId-3990796921998875063"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId557003101-349534512",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/link-1183376778"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId:graphql-binding/link-2004256836"
+      },
+      "data:name": "customerId",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/scalar/customerId/link--347918316"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId557003101-349534512/link--553997116",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "customerId557003101-349534512",
+      "doc:link-target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId557003101-349534512"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "customerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId:graphql-binding/link-2004256836",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "customerId:graphql-binding",
+      "doc:link-target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId:graphql-binding"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/patch/request/application%2Fjson-618453554745937234",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/patch/request/application%2Fjson:graphql-binding"
+      },
+      "data:name": "input",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address/link--303228665"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/patch/request/application%2Fjson:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "input"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/post/request/application%2Fjson-1353327446-1180434468",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/post/request/application%2Fjson:graphql-binding"
+      },
+      "data:name": "input",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address/link--303228665"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/post/request/application%2Fjson:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "input"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId-12328800611353031082",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId:graphql-binding"
+      },
+      "data:name": "customerId",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId/scalar/customerId"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId-678675251323928882",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-parameter:aq:parameter:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId/link-1912481541"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId:graphql-binding/link-1459905727"
+      },
+      "data:name": "customerId",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId/scalar/customerId/link-1580515599"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "customerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId:graphql-binding/link-1459905727",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "customerId:graphql-binding",
+      "doc:link-target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId:graphql-binding"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/patch/request/application%2Fjson734639804-1926282334",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/patch/request/application%2Fjson:graphql-binding"
+      },
+      "data:name": "input",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer/link--247958589"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/patch/request/application%2Fjson:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "input"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer/post/request/application%2Fjson1002200953-1880564048",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer/post/request/application%2Fjson:graphql-binding"
+      },
+      "data:name": "input",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer/link--247958589"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-:/web-api/end-points/%2Fcustomer/post/request/application%2Fjson:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "input"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-customerId:/declarations/types/Customer/property/customerId/scalar/customerId551895240-644752799",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:scalar-property:aq:property-shape:/declarations/types/Customer/property/customerId"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-customerId:/declarations/types/Customer/property/customerId/scalar/customerId:graphql-binding"
+      },
+      "data:name": "customerId",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Customer/property/customerId/scalar/customerId"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-customerId:/declarations/types/Customer/property/customerId/scalar/customerId:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "customerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-name:/declarations/types/Address/property/name/scalar/name583317210-1599836922",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:scalar-property:aq:property-shape:/declarations/types/Address/property/name"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-name:/declarations/types/Address/property/name/scalar/name:graphql-binding"
+      },
+      "data:name": "name",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Address/property/name/scalar/name"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-name:/declarations/types/Address/property/name/scalar/name:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "name"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-name:/declarations/types/Customer/property/name/scalar/name-1645443792-244845647",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:scalar-property:aq:property-shape:/declarations/types/Customer/property/name"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-name:/declarations/types/Customer/property/name/scalar/name:graphql-binding"
+      },
+      "data:name": "name",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Customer/property/name/scalar/name"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-name:/declarations/types/Customer/property/name/scalar/name:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "name"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-number:/declarations/types/Address/property/number/scalar/number5272857561354662757",
+      "@type": [
+        "apif:PropertyEdge",
+        "schema:PropertyEdge",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:scalar-property:aq:property-shape:/declarations/types/Address/property/number"
+      },
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-number:/declarations/types/Address/property/number/scalar/number:graphql-binding"
+      },
+      "data:name": "number",
+      "data:optional": false,
+      "data:target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Address/property/number/scalar/number"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-number:/declarations/types/Address/property/number/scalar/number:graphql-binding",
+      "@type": [
+        "apif:GraphQlFieldBinding",
+        "schema:GraphQlFieldBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:name": "number"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/entry-point",
+      "@type": [
+        "apif:EntryPoint",
+        "schema:EntryPointNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-api:aq:web-api:file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api"
+      },
+      "data:edges": [
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-address-entryPoint-473519988:/web-api/end-points/%2Faddress"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-addressByAddressId-address-entryPoint--254398261:/web-api/end-points/%2Faddress%2F%7BaddressId%7D"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customer-addressByAddressId-address-entryPoint-473519988:/web-api/end-points/%2Fcustomer"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--1391118338:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--714735302:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-post-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--608977703:/web-api/end-points/%2Fcustomer"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-post-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-1785666993:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-delete-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-2103872330:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-patch-updateCustomerAddressByCustomerId-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint-623874614:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-patch-updateCustomerByCustomerId-updateCustomerAddressByCustomerId-deleteCustomerAddressByCustomerId-createCustomerAddressByCustomerId-createCustomer-customerByCustomerId-customerAddressByCustomerId-customer-addressByAddressId-address-entryPoint--1358728915:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D"
+        }
+      ],
+      "data:name": "API Query Test API",
+      "data:nullable": false
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any0",
+      "@type": [
+        "apif:AnyResource",
+        "schema:AnyResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:"
+      },
+      "data:constructors": [],
+      "data:description": "",
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any0:graphql-binding"
+      },
+      "data:nullable": false,
+      "data:shapeId": ""
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any0:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any1",
+      "@type": [
+        "apif:AnyResource",
+        "schema:AnyResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:/link--1408531840"
+      },
+      "data:constructors": [],
+      "data:description": "",
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any1:graphql-binding"
+      },
+      "data:nullable": false,
+      "data:shapeId": ""
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any1:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any2",
+      "@type": [
+        "apif:AnyResource",
+        "schema:AnyResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:/link--1408531840"
+      },
+      "data:constructors": [],
+      "data:description": "",
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any2:graphql-binding"
+      },
+      "data:nullable": false,
+      "data:shapeId": ""
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/any2:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array",
+      "@type": [
+        "apif:ListResourceNode",
+        "schema:ListResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json"
+      },
+      "data:constructors": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress-type-constructor"
+      },
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array:graphql-binding"
+      },
+      "data:memberType": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address"
+      },
+      "data:nullable": false,
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array/link--1521064566",
+      "@type": [
+        "apif:ListResourceNode",
+        "schema:ListResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "default-array",
+      "doc:link-target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array",
+      "@type": [
+        "apif:ListResourceNode",
+        "schema:ListResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:constructors": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer-type-constructor"
+      },
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array:graphql-binding"
+      },
+      "data:memberType": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer"
+      },
+      "data:nullable": false,
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array/link--2092861602",
+      "@type": [
+        "apif:ListResourceNode",
+        "schema:ListResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "default-array",
+      "doc:link-target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address",
+      "@type": [
+        "apif:ObjectResource",
+        "schema:ObjectResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:closed": false,
+      "data:constructors": [
+        {
+          "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Faddress%2F%7BaddressId%7D-type-constructor"
+        },
+        {
+          "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress-type-constructor"
+        }
+      ],
+      "data:description": "A simple Address",
+      "data:edges": [
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-name:/declarations/types/Address/property/name/scalar/name583317210-1599836922"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-number:/declarations/types/Address/property/number/scalar/number5272857561354662757"
+        }
+      ],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address:graphql-binding"
+      },
+      "data:name": "Address",
+      "data:nullable": false,
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Address",
+      "data:shapeName": "Address"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address/link--303228665",
+      "@type": [
+        "apif:ObjectResource",
+        "schema:ObjectResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "Address",
+      "doc:link-target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:inputTypeName": "InputTypeAddress",
+      "data:outputTypeName": "Address"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer",
+      "@type": [
+        "apif:ObjectResource",
+        "schema:ObjectResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:closed": false,
+      "data:constructors": {
+        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D-type-constructor"
+      },
+      "data:description": "A simple Customer",
+      "data:edges": [
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-customerId:/declarations/types/Customer/property/customerId/scalar/customerId551895240-644752799"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/property-name:/declarations/types/Customer/property/name/scalar/name-1645443792-244845647"
+        },
+        {
+          "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/edges/network-get-address-name-customerId--501707102:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress"
+        }
+      ],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer:graphql-binding"
+      },
+      "data:name": "Customer",
+      "data:nullable": false,
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Customer",
+      "data:shapeName": "Customer"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer/link--247958589",
+      "@type": [
+        "apif:ObjectResource",
+        "schema:ObjectResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "Customer",
+      "doc:link-target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:inputTypeName": "InputTypeCustomer",
+      "data:outputTypeName": "Customer"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Address/property/name/scalar/name",
+      "@type": [
+        "apif:ScalarResource",
+        "schema:ScalarResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:constructors": [],
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Address/property/name/scalar/name:graphql-binding"
+      },
+      "data:name": "name",
+      "data:nullable": false,
+      "data:scalarType": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Address/property/name/scalar/name",
+      "data:shapeName": "name"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Address/property/name/scalar/name:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Address/property/number/scalar/number",
+      "@type": [
+        "apif:ScalarResource",
+        "schema:ScalarResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:constructors": [],
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Address/property/number/scalar/number:graphql-binding"
+      },
+      "data:name": "number",
+      "data:nullable": false,
+      "data:scalarType": {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Address/property/number/scalar/number",
+      "data:shapeName": "number"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Address/property/number/scalar/number:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Customer/property/customerId/scalar/customerId",
+      "@type": [
+        "apif:ScalarResource",
+        "schema:ScalarResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:constructors": [],
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Customer/property/customerId/scalar/customerId:graphql-binding"
+      },
+      "data:name": "customerId",
+      "data:nullable": false,
+      "data:scalarType": {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer/link-1613180487"
+      },
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Customer/property/customerId/scalar/customerId",
+      "data:shapeName": "customerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Customer/property/customerId/scalar/customerId:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Customer/property/name/scalar/name",
+      "@type": [
+        "apif:ScalarResource",
+        "schema:ScalarResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:constructors": [],
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Customer/property/name/scalar/name:graphql-binding"
+      },
+      "data:name": "name",
+      "data:nullable": false,
+      "data:scalarType": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string/link-820540713"
+      },
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Customer/property/name/scalar/name",
+      "data:shapeName": "name"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/declarations/types/Customer/property/name/scalar/name:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId/scalar/addressId",
+      "@type": [
+        "apif:ScalarResource",
+        "schema:ScalarResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:constructors": [],
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId/scalar/addressId:graphql-binding"
+      },
+      "data:name": "addressId",
+      "data:nullable": false,
+      "data:scalarType": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string/link-820540713"
+      },
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId/scalar/addressId",
+      "data:shapeName": "addressId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Faddress%2F%7BaddressId%7D/parameter/addressId/scalar/addressId:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/scalar/customerId",
+      "@type": [
+        "apif:ScalarResource",
+        "schema:ScalarResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:constructors": [],
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/scalar/customerId:graphql-binding"
+      },
+      "data:name": "customerId",
+      "data:nullable": false,
+      "data:scalarType": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string/link-820540713"
+      },
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/scalar/customerId",
+      "data:shapeName": "customerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/scalar/customerId/link--347918316",
+      "@type": [
+        "apif:ScalarResource",
+        "schema:ScalarResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "customerId",
+      "doc:link-target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/scalar/customerId"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D%2Faddress/parameter/customerId/scalar/customerId:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId/scalar/customerId",
+      "@type": [
+        "apif:ScalarResource",
+        "schema:ScalarResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:bindings": {
+        "@id": "binding:http-payload-binding:application/json/link-263936211"
+      },
+      "data:constructors": [],
+      "data:edges": [],
+      "data:graphQlBinding": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId/scalar/customerId:graphql-binding"
+      },
+      "data:name": "customerId",
+      "data:nullable": false,
+      "data:scalarType": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string/link-820540713"
+      },
+      "data:shapeId": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId/scalar/customerId",
+      "data:shapeName": "customerId"
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId/scalar/customerId/link-1580515599",
+      "@type": [
+        "apif:ScalarResource",
+        "schema:ScalarResourceNode",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "customerId",
+      "doc:link-target": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId/scalar/customerId"
+      }
+    },
+    {
+      "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/scalar:/web-api/end-points/%2Fcustomer%2F%7BcustomerId%7D/parameter/customerId/scalar/customerId:graphql-binding",
+      "@type": [
+        "apif:GraphQlTypeBinding",
+        "schema:GraphQlTypeBinding",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": [
+        "apif:ScalarType",
+        "schema:ScalarType",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:range": "integer"
+    },
+    {
+      "@id": "http://www.w3.org/2001/XMLSchema#integer/link-1613180487",
+      "@type": [
+        "apif:ScalarType",
+        "schema:ScalarType",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "integer",
+      "doc:link-target": {
+        "@id": "http://www.w3.org/2001/XMLSchema#integer"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": [
+        "apif:ScalarType",
+        "schema:ScalarType",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:range": "string"
+    },
+    {
+      "@id": "http://www.w3.org/2001/XMLSchema#string/link-820540713",
+      "@type": [
+        "apif:ScalarType",
+        "schema:ScalarType",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "doc:link-label": "string",
+      "doc:link-target": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": [
+        "meta:DialectInstance",
+        "doc:Document",
+        "doc:Fragment",
+        "doc:Module",
+        "doc:Unit",
+        "apif:Source",
+        "schema:Source",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:assetId": "orders-api",
+      "data:dataGraph": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph"
+      },
+      "data:endPoint": "http://orders-api.com/v1",
+      "data:environmentId": "8e71092e-5a5b-43ff-98fa-7ea37519cb17",
+      "data:groupId": "96754fff-58c1-456d-9a53-b392cb09758d",
+      "data:name": "Orders API",
+      "data:id": "8e71092e-5a5b-43ff-98fa-7ea37519cb17",
+      "data:organizationId": "96754fff-58c1-456d-9a53-b392cb09758d",
+      "data:securityScheme": "ClientSecret",
+      "data:version": "v1.0.0",
+      "doc:encodes": {
+        "@id": "./"
+      },
+      "doc:root": false,
+      "doc:version": "2.0.1",
+      "meta:definedBy": {
+        "@id": "file://api-federation/dialects/source.yaml"
+      }
+    },
+    {
+      "@id": "mapEntry-file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Address",
+      "@type": [
+        "apif:MapEntry",
+        "schema:MapEntry",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:key": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Address",
+      "data:value": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Address/link--303228665"
+      }
+    },
+    {
+      "@id": "mapEntry-file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Customer",
+      "@type": [
+        "apif:MapEntry",
+        "schema:MapEntry",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:key": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/declarations/types/Customer",
+      "data:value": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/object:/declarations/types/Customer/link--247958589"
+      }
+    },
+    {
+      "@id": "mapEntry-file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array",
+      "@type": [
+        "apif:MapEntry",
+        "schema:MapEntry",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:key": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array",
+      "data:value": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Faddress/get/200/default/array/default/array/default-array/link--1521064566"
+      }
+    },
+    {
+      "@id": "mapEntry-file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array",
+      "@type": [
+        "apif:MapEntry",
+        "schema:MapEntry",
+        "meta:DialectDomainElement",
+        "doc:DomainElement"
+      ],
+      "data:key": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array",
+      "data:value": {
+        "@id": "file:///Users/mforlenza/mulesoft/api-query-webapi/src/test/resources/spec/serialization/toFile/toJsonLd/raml-10.raml#/data-graph/nodes/list:/web-api/end-points/%2Fcustomer/get/200/default/array/default/array/default-array/link--2092861602"
+      }
+    }
+  ]
+}

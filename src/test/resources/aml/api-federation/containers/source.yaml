@@ -1,0 +1,24 @@
+#%Container Configuration 0.1
+
+namespace: source
+
+pattern:
+  template: $container/{Source.id}
+
+indexes:
+  Source:
+    properties:
+      id: {}
+      organizationId: {}
+      environmentId: {}
+      groupId: {}
+      assetId: {}
+      version: {}
+      name: {}
+      securityScheme: {}
+      endPoint: {}
+
+
+schema: file://api-federation/dialects/source.yaml
+
+pageSize: 50

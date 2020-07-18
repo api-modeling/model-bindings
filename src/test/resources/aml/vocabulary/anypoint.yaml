@@ -1,0 +1,64 @@
+#%Vocabulary 1.0
+
+vocabulary: Anypoint
+base: http://anypoint.com/vocabs/anypoint#
+
+uses:
+  core: file://vocabulary/core.yaml
+external:
+  doc: "http://a.ml/vocabularies/document#"
+
+usage: Contains common properties for use accross Anypoint Platform
+
+propertyTerms:
+  tenantId:
+    extends: core.identifier
+    description: A unique identifier for a tenant inside the Anypoint Platform.
+    range: string
+  organizationId:
+    extends: core.identifier
+    description: A unique identifier for a business unit inside the Anypoint Platform.
+    range: string
+  userId:
+    extends: core.identifier
+    description: The unique identifier of an Anypoint Platform user
+  organization:
+    description: The organization that owns this asset. Can be a master organization or a Business Group
+  dependsOn:
+    # Consider adding support for transitivity in dependencies
+    extends: core.requirements
+    description: Indicates a dependency between two entities.
+    range: doc.DomainElement
+  minMuleVersion:
+    extends: core.version
+    description: The minimum version of Mule that this can be used with
+    range: string
+  maxMuleVersion:
+    extends: core.version
+    description: The maximum version of Mule that this can be used with
+    range: string
+  metadata:
+    description: A pointer to metadata in another container.
+    range: doc.DomainElement
+  averageRating:
+    description: The average rating for an object
+  numberOfRatings:
+    description: The number of ratings for an object
+  projectId:
+    description: The id of a project
+  commitId:
+    description: The id of a commit in a project
+  branchId:
+    description: The id of a branch in a project
+  hasOperations:
+    description: Indicates if an extension has operations
+  hasMessageSources:
+    description: Indicates if an extension has message sources
+  hasConnectionProviders:
+    description: Indicates if an extension has connection providers
+  hasConfigurations:
+    description: Indicates if an extension has configurations
+  featureId:
+    description: The feature id of a mule 3 connector
+  fullVersion:
+    description: The full version of a mule 3 connector
