@@ -1,5 +1,14 @@
 import {BindingsPlugin, ConfigurationParameter, Resource} from "./BindingsPlugin";
-import {DialectWrapper, ModularityDialect, Module, Entity, Attribute, Association, IntegerScalar, StringScalar, DataModel, DataModelDialect, ModelBindingsDialect, BindingsModel, Binding} from "@api-modeling/api-modeling-metadata";
+import {
+    DialectWrapper,
+    ModularityDialect,
+    Module,
+    DataModel,
+    DataModelDialect,
+    ModelBindingsDialect,
+    BindingsModel,
+    Binding, Entity
+} from "@api-modeling/api-modeling-metadata";
 import * as graph from "./utils/N3Graph";
 import * as n3 from "n3";
 import {CIMImporter} from "./cim/importer";
@@ -36,7 +45,7 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         // Data Models
         const dataModels: DataModel[] = entityGroupsDataModels.map((entityGroup) => {
             const entities = this.parseEntityGroup(store, entityGroup);
-            entityGroup.entities =  entities;
+            entityGroup.entities = entities;
             return entityGroup;
         });
 
@@ -70,36 +79,100 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         const moduleBindings = new ModelBindingsDialect();
         moduleBindings.id = "http://cloudinformationmodel.org/modeling/modules_bindings";
         moduleBindings.location = "modules_bindings";
-        await  moduleBindings.encode(bindingsModel);
+        await moduleBindings.encode(bindingsModel);
 
         return ([modularityDialect]).concat(dataModelDialects).concat([moduleBindings]);
     }
 
     async export(configuration: ConfigurationParameter[], graphs: DialectWrapper[]): Promise<Resource[]> {
-        // @ts-ignore
-        const modules: ModularityDialect[] = graphs.filter((dialectWrapper) => {
-            return (dialectWrapper instanceof ModularityDialect);
-        });
-        // @ts-ignore
-        const dataModels: DataModelDialect[] = graphs.filter((dialectWrapper) => {
-            return (dialectWrapper instanceof DataModelDialect);
-        });
-        // @ts-ignore
-        const bindings: ModelBindingsDialect[] = graphs.filter((dialectWrapper) => {
-            return (dialectWrapper instanceof ModelBindingsDialect);
-        });
+        const version = configuration.find((p) => p.name == "cimVersion");
+        if (version == null) {
+            throw new Error("CIM version to export must be provided")
+        }
+        const outputFile = configuration.find((p) => p.name == "outputFile");
+        if (outputFile == null) {
+            throw new Error("Output file for the whole CIM distribution must be provided")
+        }
+
+        return (new Promise((s, f) => {
+            try {
+                // @ts-ignore
+                const modules: ModularityDialect[] = graphs.filter((dialectWrapper) => {
+                    return (dialectWrapper instanceof ModularityDialect);
+                });
+                // @ts-ignore
+                const dataModels: DataModelDialect[] = graphs.filter((dialectWrapper) => {
+                    return (dialectWrapper instanceof DataModelDialect);
+                });
+                // @ts-ignore
+                const bindings: ModelBindingsDialect[] = graphs.filter((dialectWrapper) => {
+                    return (dialectWrapper instanceof ModelBindingsDialect);
+                });
 
 
-        const subjectAreas = this.findSubjectAreas(modules, bindings);
-        return (new Promise((s,f) => {
-            f("Not implemented yet");
+                const subjectAreas = this.findSubjectAreas(modules, bindings);
+                const entityLinkingMap: {[id: string]: Entity} = {}
+                dataModels.forEach((dm) => {
+                    (dm.encodedDataModel()?.entities || []).forEach((e) => {
+                        entityLinkingMap[e.id()] = e;
+                    })
+                });
+
+                const exportedSubjectAreas = subjectAreas.map((sa) => {
+                    const entityGroupsDataModels = (sa.dataModels || []).map(id => {
+                        const found = dataModels.find((dm) => dm.encodedDataModel()?.id() == id)
+                        if (found != null) {
+                            return found
+                        } else {
+                            throw new Error(`Missing data model ${id} for subject area module ${sa.id()}`)
+                        }
+                    });
+                    let subjectAreaId = this.toId(sa.name);
+                    if (sa.uuid.indexOf("cim/subjectarea/") > -1) {
+                        subjectAreaId = sa.uuid.split("cim/subjectarea/").pop()!;
+                    }
+                    const entityGroups = entityGroupsDataModels.map((dm) => this.exportEntityGroup(subjectAreaId, dm!, version.value, entityLinkingMap));
+                    let json = {
+                        "@id": subjectAreaId + "SubjectArea",
+                        "@type": "SubjectArea",
+                        "version": version,
+                        "name": sa.name
+                    }
+
+                    if (sa.description) {
+                        // @ts-ignore
+                        json['description'] = sa.description;
+                    }
+                    // @ts-ignore
+                    json['entityGroups'] = entityGroups
+
+                    return json;
+                });
+
+                const finalJson = JSON.stringify({
+                    '@context': VOCAB.CONTEXT,
+                    'subjectAreas': exportedSubjectAreas
+                }, null, 2);
+
+
+                const resource: Resource = {
+                    "url": outputFile.value,
+                    "text": finalJson
+                };
+                s([resource]);
+            } catch (e) {
+                f(e);
+            }
         }));
     }
 
     protected async parseGlobalFile(resource: Resource, store?: n3.N3Store): Promise<n3.N3Store> {
         return await graph.loadGraph(resource.text, store);
     }
+
 }
 
-export interface CIMBindingsPlugin extends CIMImporter, CIMExporter {}
+export interface CIMBindingsPlugin extends CIMImporter, CIMExporter {
+}
+
 applyMixins(CIMBindingsPlugin, [CIMImporter, CIMExporter]);

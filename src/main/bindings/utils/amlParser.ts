@@ -25,8 +25,7 @@ export class AmlParser {
         await this.init();
         const baseUnit = await amf.Core
             .parser("AML 1.0", "application/yaml")
-            .parseFileAsync(this.specUrl)
-            // .parseStringAsync(this.text)
+            .parseStringAsync(this.specUrl, this.text)
         return baseUnit
     }
 }

@@ -14,7 +14,7 @@ export class CIMImporter {
     protected genUUID(prop: Attribute|Association, entity: Entity, path: n3.Quad_Object) {
         const base = entity.uuid;
         const propId = path.value.split("/").pop();
-        const propIdFin = propId ? propId.replace(' ','_') : propId;
+        const propIdFin = propId ? propId.replace(' ','') : propId;
         prop.uuid = `${base}/attr/${propIdFin}`;
     }
 
@@ -54,7 +54,7 @@ export class CIMImporter {
             const description = store.getObjects(id, VOCAB.RDFS_COMMENT, null)[0];
             const module = new Module(name.value);
             module.description = description.value;
-            const toReplace = name.value ? name.value.replace(' ','_') : name.value
+            const toReplace = name.value ? name.value.replace(' ','') : name.value
             module.uuid = `cim/subjectarea/${toReplace}`;
             // @ts-ignore
             module['_source'] = id.value;
@@ -71,7 +71,7 @@ export class CIMImporter {
             const subjectAreaId = subjectArea.id();
             const binding = new Binding(subjectAreaId, VOCAB.CIM_BINDINGS_SUBJECT_AREA)
             const subjectAreaName = subjectAreaId.split("/").pop();
-            const toReplace = subjectAreaName ? subjectAreaName.replace(' ','_') : subjectAreaName;
+            const toReplace = subjectAreaName ? subjectAreaName.replace(' ','') : subjectAreaName;
             binding.uuid = `cim/bindings/subjectArea/${toReplace}`
             return binding
         });
@@ -96,7 +96,7 @@ export class CIMImporter {
                 dataModel.name = name.value
                 dataModel.description = description.value;
                 const inter = id.value.split("/").pop();
-                const toReplace = inter!.replace(' ','_');
+                const toReplace = inter!.replace(' ','');
                 dataModel.uuid = `cim/entitygroup/${toReplace}`;
                 subjectArea.dataModels!.push(dataModel.id());
                 // @ts-ignore
@@ -117,7 +117,7 @@ export class CIMImporter {
             const entityGroupId = entityGroup.id();
             const binding = new Binding(entityGroupId, VOCAB.CIM_BINDINGS_ENTITY_GROUP)
             const subjectAreaName = entityGroupId.split("/").pop();
-            const toReplace = subjectAreaName ? subjectAreaName.replace(' ','_') : subjectAreaName;
+            const toReplace = subjectAreaName ? subjectAreaName.replace(' ','') : subjectAreaName;
             binding.uuid = `cim/bindings/entityGroup/${toReplace}`
             return binding
         });
@@ -182,9 +182,9 @@ export class CIMImporter {
                         this.fillPropertyData(association, minCount, maxCount, description, displayName);
                         const targetEntity = new Entity("");
                         const inter = node.value.split("/").pop()
-                        const toReplace = inter ? inter.replace(' ','_') : inter
+                        const toReplace = inter ? inter.replace(' ','') : inter
                         targetEntity.uuid = `cim/entity/${toReplace}`;
-                        association.target = targetEntity.id();
+                        association.target = targetEntity;
                         associations.push(association)
                     }
                 }

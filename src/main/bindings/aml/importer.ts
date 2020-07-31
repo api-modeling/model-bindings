@@ -245,7 +245,6 @@ export class AMLImporter {
             association.required = (property.minCount().option || 0) !== 0;
             association.allowMultiple = property.allowMultiple().option || false
             association.target = this.genEntityLink(property.objectRange()[0]!.value());
-
             return association;
         } else {
             const name = "Union "+ this.idGenerator;
@@ -257,10 +256,10 @@ export class AMLImporter {
         }
     }
 
-    private genEntityLink(id: string): string {
+    private genEntityLink(id: string): meta.Entity {
         const uuid = Md5.hashStr(id).toString()
         const entity = new meta.Entity("")
         entity.uuid = uuid;
-        return entity.id();
+        return entity;
     }
 }

@@ -1,0 +1,54 @@
+#%Bindings Profile 0.1
+
+name: api_contract
+version: 0.1.0
+
+importParameters:
+  - uuid: api-contracts-import-format
+    name: format
+    dataType: string
+    required: true
+    enum:
+      - RAML 1.0 (application/yaml)
+      - OAS 3.0.0 (application/yaml)
+      - OAS 3.0.0 (application/json)
+      - OAS 2.0 (application/yaml)
+      - OAS 2.0 (application/json)
+      - JSON Schema (application/json)
+      - AMF Graph (application/ld+json)
+
+exportParameters:
+  - uuid: api-contracts-export-format
+    name: format
+    dataType: string
+    required: true
+    enum:
+      - RAML 1.0 (application/yaml)
+      - OAS 3.0.0 (application/yaml)
+      - OAS 3.0.0 (application/json)
+      - OAS 2.0 (application/yaml)
+      - OAS 2.0 (application/json)
+      - JSON Schema (application/json)
+      - AMF Graph (application/ld+json)
+
+dataModelBindings:
+  - name: DocumentTypeBinding
+    label: API specification document type
+    profile: api_contract
+    description: Selects the type of API spec file that will be used to export a model inside a module
+    canBeGlobal: false
+    parameters:
+      - name: API spec documents
+        description: type of document selected for a module
+        uuid: api-contract-bindings-document-type-param
+        type: Scalar
+        range: string
+        enum:
+          - JSON Schema / RAML Library
+          - JSON Schema / RAML Fragment
+          - Open API Specification / RAML API Specification
+      - name: Target entity
+        description: By default, all entities in the data model. This parameter can be used to select by name a single entity to export from the data model.
+        uuid: api-contract-bindings-document-target-entity
+        type: Scalar
+        range: string
