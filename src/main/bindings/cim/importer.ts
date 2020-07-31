@@ -47,7 +47,7 @@ export class CIMImporter {
      * Parses all the subject areas in a CIM model and generates modeling Modules
      * @param store
      */
-    protected async parseSubjectAreas(store: n3.N3Store): Promise<Module[]> {
+    protected async parseSubjectAreas(store: n3.Store): Promise<Module[]> {
         let subjectAreas = store.getSubjects(VOCAB.RDF_TYPE, VOCAB.CIM_SUBJECT_AREA, null);
         return subjectAreas.map((id) => {
             const name = store.getObjects(id, VOCAB.RDFS_LABEL, null)[0];
@@ -82,7 +82,7 @@ export class CIMImporter {
      * @param store
      * @param subjectAreas
      */
-    protected parseEntityGroups(store: n3.N3Store, subjectAreas: Module[]): DataModel[] {
+    protected parseEntityGroups(store: n3.Store, subjectAreas: Module[]): DataModel[] {
         const acc: DataModel[] = [];
         subjectAreas.forEach((subjectArea) => {
             // @ts-ignore
@@ -128,7 +128,7 @@ export class CIMImporter {
      * @param store
      * @param entityGroup
      */
-    protected parseEntityGroup(store: n3.N3Store, entityGroup: DataModel): Entity[] {
+    protected parseEntityGroup(store: n3.Store, entityGroup: DataModel): Entity[] {
         // @ts-ignore
         const entityGroupId = entityGroup['_source'];
         const source = $rdf.namedNode(entityGroupId);

@@ -5,6 +5,7 @@ import * as fs from 'fs';
 import * as graph from "../../main/bindings/utils/N3Graph";
 import { Module, DataModel, BindingsModel, ModularityDialect, DataModelDialect, ModelBindingsDialect } from "@api-modeling/api-modeling-metadata"
 import {VOCAB} from "../../main/bindings/cim/constants";
+import {NamedNode, Quad_Subject} from "n3";
 
 describe('CIMBindingsPlugin', function() {
     this.timeout(500000);
@@ -52,17 +53,17 @@ describe('CIMBindingsPlugin', function() {
         assert.isNotEmpty(entityGroups);
         assert.isNotEmpty(shapes);
 
-        subjectAreas.forEach((sa) => {
+        subjectAreas.forEach((sa: Quad_Subject) => {
             const found = storeParsed.getQuads(sa.id, VOCAB.RDF_TYPE, VOCAB.CIM_SUBJECT_AREA, null)
             assert.equal(found.length, 1)
         });
 
-        entityGroups.forEach((sa) => {
+        entityGroups.forEach((sa: Quad_Subject) => {
             const found = storeParsed.getQuads(sa.id, VOCAB.RDF_TYPE, VOCAB.CIM_ENTITY_GROUP, null)
             assert.equal(found.length, 1)
         });
 
-        shapes.forEach((sa) => {
+        shapes.forEach((sa: Quad_Subject) => {
             const found = storeParsed.getQuads(sa.id, VOCAB.RDF_TYPE, VOCAB.SH_SHAPE, null)
             assert.equal(found.length, 1)
         });
