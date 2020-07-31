@@ -1,0 +1,53 @@
+#%Container Configuration 0.1
+
+namespace: asset-minor-versions
+
+pattern:
+  template: $container/{MinorVersionNode.groupId}/{MinorVersionNode.assetId}/{MinorVersionNode.majorVersionComponent}/{MinorVersionNode.minorVersionComponent}
+
+indexes :
+  MinorVersionNode:
+    properties:
+      groupId: {}
+      assetId: {}
+      majorVersionComponent: {}
+      minorVersionComponent: {}
+
+schema: file://catalog/dialects/asset.yaml
+
+fragment: Minor
+
+links:
+  MinorVersionNode:
+    properties:
+      customerMetadata:
+        target:
+          -
+            container: customer-metadata
+            node: CustomerMetadataNode
+      additionalTechnicalContent:
+        target:
+          -
+            container: asset-documentation
+            node: DocumentationNode
+      majorVersion:
+        target:
+          -
+            container: asset-major-versions
+            node: MajorVersionNode
+  VersionNode:
+    properties:
+      metadata:
+        target:
+          - container: webapi-spec
+            node: ParsedUnitUnion
+      dependencies:
+        target:
+          - container: asset-minor-versions
+            node: VersionNode
+      systemMetadata:
+        target:
+          - container: system-metadata
+            node: SystemMetadataNode
+
+pageSize: 10

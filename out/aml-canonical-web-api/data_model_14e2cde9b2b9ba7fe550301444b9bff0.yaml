@@ -1,0 +1,2784 @@
+#%DataModel 0.1
+uuid: 14e2cde9b2b9ba7fe550301444b9bff0
+name: canonical-webapi-spec.yaml
+entities:
+  ResourceType:
+    uuid: 7c85e887d9c6f4de8ca9a2a56daac491
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/6d68cc7636563b48624cf17e68ad00c8
+  AnyShape:
+    uuid: 8f1580ee5528db048402c5efa399dcbe
+    attributes:
+      comment:
+        allowMultiple: false
+        uuid: 5ebdc0dd8871c59ef3e13a677020618d
+        required: false
+        range:
+          type: string
+      raw:
+        allowMultiple: false
+        uuid: 19cf7c2fe4a3030e1fc142c0e137612b
+        required: false
+        range:
+          type: string
+      referenceId:
+        allowMultiple: false
+        uuid: 45d7e7e7f3d140d7760f19be01cf242c
+        required: false
+        range:
+          type: string
+      location:
+        allowMultiple: false
+        uuid: cb1bc2dd274d031e0af09d61913cc433
+        required: false
+        range:
+          type: string
+    associations:
+      documentation:
+        allowMultiple: false
+        uuid: 54986b359cb23aad71ac97fa6cb161a1
+        required: false
+        target: http://mulesoft.com/modeling/instances/6689a0f6c7ff1358b4a659ae09863b7e
+      XMLSerialization:
+        allowMultiple: false
+        uuid: d0f8c1f1516bf4e5e79857295d54cb04
+        required: false
+        target: http://mulesoft.com/modeling/instances/26057d12cc681037ca56a0b2eb7e78cc
+      examples:
+        allowMultiple: true
+        uuid: 827904888a93007a6408bba81fd5febf
+        required: false
+        target: http://mulesoft.com/modeling/instances/380139ca32da0851032ab603950be949
+    extends: http://mulesoft.com/modeling/instances/c37c64e5fb6f43d058097af7265eecf0
+  XMLSerializer:
+    uuid: 26057d12cc681037ca56a0b2eb7e78cc
+    attributes:
+      xmlAttribute:
+        allowMultiple: false
+        uuid: 38bd2adef63733a001224f97ee51965e
+        required: false
+        range:
+          type: boolean
+      xmlWrapped:
+        allowMultiple: false
+        uuid: a1c1a8127267b98193256a0536c04568
+        required: false
+        range:
+          type: boolean
+      xmlPrefix:
+        allowMultiple: false
+        uuid: 26861dea5422e2b8873c60133c8376fa
+        required: false
+        range:
+          type: string
+      xmlName:
+        allowMultiple: false
+        uuid: 70d3c93005cd5960810411bcff8044b1
+        required: false
+        range:
+          type: string
+      xmlNamespace:
+        allowMultiple: false
+        uuid: 2b97e050b1e13ba3cac1571cd0636183
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: 10ca2f4266f29cfaf938bc4a4799d84b
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  PayloadFragment:
+    uuid: 6252ea89fe0b946c0a533e64b2446e0d
+    attributes:
+      mediaType:
+        allowMultiple: false
+        uuid: 81fc3196e43f97570bbd3b3c61b891b3
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/14eea0d0e94adc972addddd1931f2552
+  TupleShape:
+    uuid: b3ac725a0edb4eb7eeed75b70aed3bfd
+    attributes:
+      closedItems:
+        allowMultiple: false
+        uuid: f54d20b0e778548c1a5306c2cf3cb1c1
+        required: false
+        range:
+          type: boolean
+    associations:
+      additionalItemsSchema:
+        allowMultiple: false
+        uuid: 27bbb3e12112e16aef3d21b39f007232
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+    extends: http://mulesoft.com/modeling/instances/f3de1e8d2ec0a9469871edad95d0c678
+  ScalarShape:
+    uuid: d4013271522af4d447dde9a5b539196f
+    attributes:
+      datatype:
+        allowMultiple: false
+        uuid: d9b5e882a545af1185b36cb450c67d50
+        required: false
+        range:
+          type: string
+      pattern:
+        allowMultiple: false
+        uuid: ffccfbfe557f994b8fa068df94a9cc24
+        required: false
+        range:
+          type: string
+      max.Exclusive:
+        allowMultiple: false
+        uuid: e1465cd9385c44ac0ba02e174953e388
+        required: false
+        range:
+          type: boolean
+      min.Inclusive:
+        allowMultiple: false
+        uuid: 5f154eadc3c1ae5674f40af60ed68e6b
+        required: false
+        range:
+          type: float
+      max.Length:
+        allowMultiple: false
+        uuid: c67f867dcf85bb004e58e667457b9020
+        required: false
+        range:
+          type: integer
+      max.Inclusive:
+        allowMultiple: false
+        uuid: 8f4c7f8ab39e30e1bb46cf5e439927ad
+        required: false
+        range:
+          type: float
+      min.Length:
+        allowMultiple: false
+        uuid: 9255507def0ce87020a5ccaea959529e
+        required: false
+        range:
+          type: integer
+      min.Exclusive:
+        allowMultiple: false
+        uuid: d63a96ab59b554f8d22608182b231d01
+        required: false
+        range:
+          type: boolean
+      format:
+        allowMultiple: false
+        uuid: 6a53213767cd87cf82ce5722c1730c17
+        required: false
+        range:
+          type: string
+      multipleOf:
+        allowMultiple: false
+        uuid: 44a209a6a1196e2ad5d68ad86d140539
+        required: false
+        range:
+          type: float
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/1f61ab9636cc3c808d7d2b0880a61328
+  SecuritySettingsUnion:
+    uuid: 92b55100-3657-4019-9f9d-4fa6ee5c68ff
+    disjoint:
+      - http://mulesoft.com/modeling/instances/396b80cf4377eb9bc44bbe794ab975a9
+      - http://mulesoft.com/modeling/instances/1fa3feaa9b0d69a4de2a21b8fa9c334a
+      - http://mulesoft.com/modeling/instances/2d418d1b3386e1203a39e2d4997a39a1
+      - http://mulesoft.com/modeling/instances/87dc05d4cc9f0d9aa56e6e39cd66276c
+      - http://mulesoft.com/modeling/instances/2a1cbfa3d21bca20c30802dfa2470be2
+  MqttServerLastWill:
+    uuid: 4be76ef61e6bf13b14de928793c548cd
+    attributes:
+      topic:
+        allowMultiple: false
+        uuid: a2b54d91cb01bb2e23f76048ed60fbcd
+        required: false
+        range:
+          type: string
+      qos:
+        allowMultiple: false
+        uuid: 3a80267205ee9efb0fb97f956d746a1c
+        required: false
+        range:
+          type: integer
+      retain:
+        allowMultiple: false
+        uuid: 5454b83a649173f8ea2383166985d498
+        required: false
+        range:
+          type: boolean
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: 24eb944e941bbe98c8faffa8bff35d25
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  KafkaMessageBinding:
+    uuid: b9c7cd5fcac68a0ee57792fc96470a70
+    attributes:
+      key:
+        allowMultiple: false
+        uuid: d9614f192b7d4db6270825771c1783c3
+        required: false
+        range:
+          type: string
+      bindingVersion:
+        allowMultiple: false
+        uuid: 112197e5f2b29f8279c93526df3f0f26
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/803060dbcf6a4cda67c309e94d539156
+  LinkNode:
+    uuid: fc27dcc9856e4c93a3cedbffcf8047c8
+    attributes:
+      value:
+        allowMultiple: false
+        uuid: 8e9973a50916cba434784441c25aae72
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/2e02f5406d75b88a481f61798dec8ef2
+  SchemaShape:
+    uuid: 4b1d9580a91fbf8cea95e3c1470f840c
+    attributes:
+      mediaType:
+        allowMultiple: false
+        uuid: 21740b04508f701f9ad5c7b8a00a6c2e
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/1f61ab9636cc3c808d7d2b0880a61328
+  Encoding:
+    uuid: 9083b8af63b1b1bdd2aa09a20d3aa7f2
+    attributes:
+      allowReserved:
+        allowMultiple: false
+        uuid: fed08e5d775de2eee20a4ef894471b72
+        required: false
+        range:
+          type: boolean
+      explode:
+        allowMultiple: false
+        uuid: 5377ce544bdf9ce80780c294951f9aef
+        required: false
+        range:
+          type: boolean
+      propertyName:
+        allowMultiple: false
+        uuid: af624f5f9ee19cca191dba819e298967
+        required: false
+        range:
+          type: string
+      contentType:
+        allowMultiple: false
+        uuid: 93d21801051dd8f79cb4f17370882ca4
+        required: false
+        range:
+          type: string
+      style:
+        allowMultiple: false
+        uuid: 690aa146b56d081fefb5c8fba563515e
+        required: false
+        range:
+          type: string
+    associations:
+      header:
+        allowMultiple: true
+        uuid: 7606a12e2995274ab7c79f444388c98b
+        required: false
+        target: http://mulesoft.com/modeling/instances/492194778ff72c55f78d7dd0700a8e31
+      designAnnotations:
+        allowMultiple: true
+        uuid: 2e838e2735899b88c7559f3b7b2c681a
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  Trait:
+    uuid: 9ecb9cf73b8402c2eef2154fc39a05bf
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/6d68cc7636563b48624cf17e68ad00c8
+  ParametrizedSecurityScheme:
+    uuid: 3388557e400f305659714a0508d4e8a9
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 9d1db4a03736b9b046ac8044dd70666c
+        required: false
+        range:
+          type: string
+    associations:
+      scheme:
+        allowMultiple: false
+        uuid: c52d846dba0ea93433122de355f7f055
+        required: false
+        target: http://mulesoft.com/modeling/instances/b708af51d08cb0b946c17a8740f74aaf
+      settings:
+        allowMultiple: false
+        uuid: ef5ee79730837319c01ea5d9dd4dee6e
+        required: false
+        target: http://mulesoft.com/modeling/instances/43539710642bc0a3f08f83776cb37867
+      designAnnotations:
+        allowMultiple: true
+        uuid: 53e90e62d295e6b1f6ffa735b828c19d
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  SecuritySchemeFragment:
+    uuid: dea47faefcb797ae3a96194f643fe99d
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/14eea0d0e94adc972addddd1931f2552
+  ParametrizedResourceType:
+    uuid: 14835fbf73ad82fcd8975be190af6848
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/eea1a08767df545529b91c95a8e541db
+  HttpOperationBinding:
+    uuid: 46dd7a54a932cf6914136e3c0dbace8f
+    attributes:
+      type:
+        allowMultiple: false
+        uuid: 3a81046bb6a13259e702fbe57eb940ac
+        required: false
+        range:
+          type: string
+      method:
+        allowMultiple: false
+        uuid: 5895a4b41ec14e603d4cb4c4218d367b
+        required: false
+        range:
+          type: string
+      bindingVersion:
+        allowMultiple: false
+        uuid: 1b1410203c3f3f54931cd38d25955d08
+        required: false
+        range:
+          type: string
+    associations:
+      query:
+        allowMultiple: false
+        uuid: 552c4d254ab75c093424160a4396ab43
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+    extends: http://mulesoft.com/modeling/instances/240480b754a8cd5a0b5be7f3c0d26d77
+  VariableValue:
+    uuid: 6c4f94dcc597cdb35b8fc9651239b45f
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 793faaa28926cdadc47048695bc81b2e
+        required: false
+        range:
+          type: string
+    associations:
+      value:
+        allowMultiple: false
+        uuid: cc4fcbaa663a8de0ce841ffc19eab391
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+      designAnnotations:
+        allowMultiple: true
+        uuid: b90d01b40f997f716a2d4edd51fdf706
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  DataNodeUnion:
+    uuid: 07cec439-bc66-44cf-9f9d-28c9bcdacf33
+    disjoint:
+      - http://mulesoft.com/modeling/instances/4b092421d85b443468838fa73b70abe7
+      - http://mulesoft.com/modeling/instances/ebc3d08a9d457e1c61fdad0f1c14f0ab
+      - http://mulesoft.com/modeling/instances/fc27dcc9856e4c93a3cedbffcf8047c8
+      - http://mulesoft.com/modeling/instances/d2c48785e9b6b2bd8ba38bce24275dbb
+  OperationBinding:
+    uuid: a1a589999d9f6ba58d4c8e9602ca8cbc
+    attributes: {}
+    associations: {}
+  Server:
+    uuid: e2d64edb5ea7aaecdfa2bdec929e6f2f
+    attributes:
+      description:
+        allowMultiple: false
+        uuid: 3dfb7ff4431fa153f738f6b4a9130f83
+        required: false
+        range:
+          type: string
+      urlTemplate:
+        allowMultiple: false
+        uuid: a51f78dbf2dbb2002bc6eb236ebdc2c5
+        required: false
+        range:
+          type: string
+      protocol:
+        allowMultiple: false
+        uuid: 9db5f36e5a05a94719c6c8cbd095decc
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: e24ade77e95c9c463feedf0628b4a616
+        required: false
+        range:
+          type: string
+      protocolVersion:
+        allowMultiple: false
+        uuid: 962390974a474d8669da059374bc7d20
+        required: false
+        range:
+          type: string
+    associations:
+      variable:
+        allowMultiple: true
+        uuid: 9e72e3dc2b5487e162fb68ee646f3056
+        required: false
+        target: http://mulesoft.com/modeling/instances/492194778ff72c55f78d7dd0700a8e31
+      security:
+        allowMultiple: true
+        uuid: a6685b338685661963c6703b1e8e92a7
+        required: false
+        target: http://mulesoft.com/modeling/instances/e9cc23b4fb33eac3114128eee2867e17
+      binding:
+        allowMultiple: true
+        uuid: 4ae3f557732a289e02b890ac55076937
+        required: false
+        target: http://mulesoft.com/modeling/instances/be9f30ecf91dd9b1af54b0d5e1565698
+      designAnnotations:
+        allowMultiple: true
+        uuid: 4f17849578706f96482a2b8cf0ed9794
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  HTTPSettings:
+    uuid: 87dc05d4cc9f0d9aa56e6e39cd66276c
+    attributes:
+      scheme:
+        allowMultiple: false
+        uuid: 0383c67262fc82cb78670be687b58769
+        required: false
+        range:
+          type: string
+      bearerFormat:
+        allowMultiple: false
+        uuid: a58ec481d3ab39e6ecbd3ed6f9ddd896
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/051526598612cd5ea620bbf2f2a729c7
+  ScalarNode:
+    uuid: 4b092421d85b443468838fa73b70abe7
+    attributes:
+      value:
+        allowMultiple: false
+        uuid: e28ee9eb66809df71370d153d483adec
+        required: false
+        range:
+          type: string
+      dataType:
+        allowMultiple: false
+        uuid: a0ca27742fcb8e3d8fe48c26cbe5d72b
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/2e02f5406d75b88a481f61798dec8ef2
+  APIKeySettings:
+    uuid: 2d418d1b3386e1203a39e2d4997a39a1
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: ea07ee50b322bb63529336144537a158
+        required: false
+        range:
+          type: string
+      in:
+        allowMultiple: false
+        uuid: c22493ecea0c478d0850a153f12cac2b
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/051526598612cd5ea620bbf2f2a729c7
+  ResourceTypeFragment:
+    uuid: fedd4e5b019088c202535f7982a15d45
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/14eea0d0e94adc972addddd1931f2552
+  KafkaOperationBinding:
+    uuid: abfc82a7a538a5d701bbbedde36572ae
+    attributes:
+      groupId:
+        allowMultiple: false
+        uuid: ba38f9a4de918f837bfd14d42bccb5cb
+        required: false
+        range:
+          type: string
+      clientId:
+        allowMultiple: false
+        uuid: 77e60d5c64a9ab658ea472c42ba0183c
+        required: false
+        range:
+          type: string
+      bindingVersion:
+        allowMultiple: false
+        uuid: 3fcc55d9c95085a8924fbbe54f8c9381
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/240480b754a8cd5a0b5be7f3c0d26d77
+  CustomDomainProperty:
+    uuid: 54a035d51ffe3e7cda79c259d4f78490
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: b1fc3c8301fc1c4cfb9d004e4e7ed83c
+        required: false
+        range:
+          type: string
+      designLink:
+        allowMultiple: false
+        uuid: e389406553d3755194d4e03d199db9fc
+        required: false
+        range:
+          type: string
+      domain:
+        allowMultiple: true
+        uuid: e33c55bc790ed38c6cd701fb4b963986
+        required: false
+        range:
+          type: string
+    associations:
+      schema:
+        allowMultiple: false
+        uuid: d9b332deb0083ceb83fc42438c4d7c0c
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      designAnnotations:
+        allowMultiple: true
+        uuid: c3d0da0e47a44cfcb2ad6b28d626a73d
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  IriTemplate:
+    uuid: dcc57e47b05adbc409c44ca746ecca50
+    attributes:
+      templateVariable:
+        allowMultiple: false
+        uuid: 113104fd7c88ef117f31fd0a2382b864
+        required: false
+        range:
+          type: string
+      linkExpression:
+        allowMultiple: false
+        uuid: 7b56a54e0199d6467b214b50caca2d7f
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: e0fba8efd5bbd6be96042ea4f5614247
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  Callback:
+    uuid: 78c98035d26b20ba9c563b6c5bb6e4d2
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: ffa14933662881377b2f677158df8279
+        required: false
+        range:
+          type: string
+      expression:
+        allowMultiple: false
+        uuid: 2d1464445278c9dd5887ddc556b2e1d4
+        required: false
+        range:
+          type: string
+    associations:
+      endpoint:
+        allowMultiple: false
+        uuid: f6d37a3ad63fb378264dcdffbe6e33af
+        required: false
+        target: http://mulesoft.com/modeling/instances/422b17bf2ed1d523e65a1e0a5d039dc8
+      designAnnotations:
+        allowMultiple: true
+        uuid: aa9f544bfc4d2164fe4fa951ff0e8e40
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  BaseUnit:
+    uuid: 8c6d919b1cd9abed10fbbc2f48565830
+    attributes:
+      dependencies:
+        allowMultiple: true
+        uuid: 863fd1f221a940cb06e0f749d919ded5
+        required: false
+        range:
+          type: string
+      version:
+        allowMultiple: false
+        uuid: aadb4bec712ace08c4d92f476e4e29cc
+        required: false
+        range:
+          type: string
+      tenantId:
+        allowMultiple: false
+        uuid: fced77da0a527e7c98a9a26b25abc902
+        required: true
+        range:
+          type: string
+      describedBy:
+        allowMultiple: false
+        uuid: e22dbe37bd6e3ed2d26a40edc7356285
+        required: false
+        range:
+          type: string
+      root:
+        allowMultiple: false
+        uuid: 3805b6721701d8a895be7cba7bb3971e
+        required: false
+        range:
+          type: boolean
+      semverVersion:
+        allowMultiple: false
+        uuid: 3ac92e9a09c2997ce4ecbe89e5ade581
+        required: true
+        range:
+          type: string
+      organizationId:
+        allowMultiple: false
+        uuid: b836331b15e6a6a13ee27ee4271db25c
+        required: true
+        range:
+          type: string
+      usage:
+        allowMultiple: false
+        uuid: 099d240ea5108354bf1b34993c355c6a
+        required: false
+        range:
+          type: string
+      assetId:
+        allowMultiple: false
+        uuid: 164437ebee5cfbd25aae9cba8f420ae4
+        required: true
+        range:
+          type: string
+      groupId:
+        allowMultiple: false
+        uuid: 6dd7f28b091d7b39f4cd478165f292fc
+        required: true
+        range:
+          type: string
+    associations:
+      references:
+        allowMultiple: true
+        uuid: ad0cfb3851121a8a8b30ff7f740d8282
+        required: false
+        target: http://mulesoft.com/modeling/instances/28b40c3fc7f915b0757f9491b761aee6
+  Scope:
+    uuid: becd43e1501c5bea4fb95998bd5459ca
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: aee4bd85ae5332ad77690d960deaf067
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: 8b0be6f896d2ea3d40b17c5338d0c14f
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: d09314cec1eb08ee2dca53845470c85b
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  Fragment:
+    uuid: 882f7dedec144f8092605054da3becd5
+    attributes: {}
+    associations:
+      encodes:
+        allowMultiple: false
+        uuid: 2f7b77507f2cad845fcca3ebd1903b8e
+        required: false
+        target: http://mulesoft.com/modeling/instances/e0dc0b7dc90a48822697e2cb4868eab7
+    extends: http://mulesoft.com/modeling/instances/6715f463e329baf51c4d6c4b8a67bd32
+  ServerBinding:
+    uuid: be9f30ecf91dd9b1af54b0d5e1565698
+    attributes: {}
+    associations: {}
+  EmptyBinding:
+    uuid: 2c06707c4a598c481aa1d0abcc9b716e
+    attributes:
+      type:
+        allowMultiple: false
+        uuid: 3cead7e865a7c9c547458d99b0cf775a
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: a68b61e26c1122976a700912bde26a03
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  Document:
+    uuid: f9b1785f9dd1781549f6c09aae1a7c5a
+    attributes: {}
+    associations:
+      encodes:
+        allowMultiple: false
+        uuid: 680de85cd35d34ee3a324daf6c460ce6
+        required: false
+        target: http://mulesoft.com/modeling/instances/e0dc0b7dc90a48822697e2cb4868eab7
+      declares:
+        allowMultiple: true
+        uuid: 019d739391ef2126bb5f9ed8ea2088d9
+        required: false
+        target: http://mulesoft.com/modeling/instances/e0dc0b7dc90a48822697e2cb4868eab7
+    extends: http://mulesoft.com/modeling/instances/6715f463e329baf51c4d6c4b8a67bd32
+  CreativeWork:
+    uuid: 6689a0f6c7ff1358b4a659ae09863b7e
+    attributes:
+      url:
+        allowMultiple: false
+        uuid: b8fba3d60c43e7fbfa1e34fc75296534
+        required: false
+        range:
+          type: string
+      title:
+        allowMultiple: false
+        uuid: 758a486e98f41349472fd0978e14eed8
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: f3250c28d1dfecc1788acca527a01566
+        required: false
+        range:
+          type: string
+      designLink:
+        allowMultiple: false
+        uuid: 84f19c442cf5166faf6d3ebe8f3ff772
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: 95c7de940bc35fc6b9edb03ddc253948
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  Amqp091ChannelExchange:
+    uuid: dbde08a2174d51a2a0b24d31156fb9f5
+    attributes:
+      vhost:
+        allowMultiple: false
+        uuid: ea822d6098c8868c52a7d6e7928afac1
+        required: false
+        range:
+          type: string
+      autoDelete:
+        allowMultiple: false
+        uuid: b2f718447ff98372bf389db9202654d2
+        required: false
+        range:
+          type: boolean
+      durable:
+        allowMultiple: false
+        uuid: 75d02c62341acbbd9c752c74cf051c51
+        required: false
+        range:
+          type: boolean
+      type:
+        allowMultiple: false
+        uuid: c3ce261b560fef23a9b6ab3b7f48cd71
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: b5a34a263bb7042d7b7138089deb45e5
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: 34ca1b2c75a8a4efa77988a5b012b80d
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  DocumentationItemFragment:
+    uuid: 68384b3cae0de60ff4433ee350741ed0
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/14eea0d0e94adc972addddd1931f2552
+  EndPoint:
+    uuid: 422b17bf2ed1d523e65a1e0a5d039dc8
+    attributes:
+      path:
+        allowMultiple: false
+        uuid: 6752833be3d8c21589fab849629890f1
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: a3fd003c59e33e11ef1ad4c785d04341
+        required: false
+        range:
+          type: string
+      summary:
+        allowMultiple: false
+        uuid: dee07b37630372094f8c610e7010c5cc
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: 07bca839c0cb2d0df3d674659c3c5361
+        required: false
+        range:
+          type: string
+    associations:
+      payload:
+        allowMultiple: true
+        uuid: efd49ecd9b908e9d1d3c36cec4e0fd68
+        required: false
+        target: http://mulesoft.com/modeling/instances/d0999824453ecf2088ce555942b74ebf
+      binding:
+        allowMultiple: true
+        uuid: b06a0319c559740704cfbb3060dfdf31
+        required: false
+        target: http://mulesoft.com/modeling/instances/25de7b527b89291364d61e86d70d63b5
+      parameter:
+        allowMultiple: true
+        uuid: 32039d40fdc02dafbb9eed31235d0ee7
+        required: false
+        target: http://mulesoft.com/modeling/instances/492194778ff72c55f78d7dd0700a8e31
+      designAnnotations:
+        allowMultiple: true
+        uuid: f3e92a2706fa5a459264baeafd5ff958
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+      servers:
+        allowMultiple: true
+        uuid: 52a8e4a31a8cc22c3bd86ad54b0f650c
+        required: false
+        target: http://mulesoft.com/modeling/instances/e2d64edb5ea7aaecdfa2bdec929e6f2f
+      supportedOperation:
+        allowMultiple: true
+        uuid: 7c58d7ce2d97bf57857204acc1050648
+        required: false
+        target: http://mulesoft.com/modeling/instances/34c20f58305fa6567d8ece60e0968f60
+      security:
+        allowMultiple: true
+        uuid: 7a2c0504d764663fe003588279b7e1de
+        required: false
+        target: http://mulesoft.com/modeling/instances/e9cc23b4fb33eac3114128eee2867e17
+  RecursiveShape:
+    uuid: 5698f0c2b9e0f720f281a77f94ae537f
+    attributes:
+      fixpoint:
+        allowMultiple: false
+        uuid: 067f621931339806073d97b05e0efa14
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/c37c64e5fb6f43d058097af7265eecf0
+  Amqp091Queue:
+    uuid: 9bd33bc70f06d7e3b02e98a85dc89916
+    attributes:
+      exclusive:
+        allowMultiple: false
+        uuid: b53eb8c32cd568f6995dc78332bcec77
+        required: false
+        range:
+          type: boolean
+      autoDelete:
+        allowMultiple: false
+        uuid: 78e78597f4784c7cdbc00d4d118f7c19
+        required: false
+        range:
+          type: boolean
+      vhost:
+        allowMultiple: false
+        uuid: 6f7b7583dd4783631ca76b156da37fd3
+        required: false
+        range:
+          type: string
+      durable:
+        allowMultiple: false
+        uuid: 8f2dd44a2620f75458e9764e8c3aaad1
+        required: false
+        range:
+          type: boolean
+      name:
+        allowMultiple: false
+        uuid: 5a4509dab31924aa468d380483b1893a
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: da6058c8ea0a216314492aab2fa09863
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  DataNode:
+    uuid: 336167b37e9b4e9908ee444363658e6b
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: a467aa6befdad07aaeeaec5fc47daace
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: 44b12c9da57ee93268a5a498ff642ee2
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  ArrayShape:
+    uuid: 3dfed60cd55097249c26059c7e8df3c4
+    attributes:
+      uinqueItems:
+        allowMultiple: false
+        uuid: c7f8606adbbbb1f27dda28ce8bc27f74
+        required: false
+        range:
+          type: boolean
+      collectionFormat:
+        allowMultiple: false
+        uuid: a8fa2899a1cb868140d27dba65df3c66
+        required: false
+        range:
+          type: string
+      minCount:
+        allowMultiple: false
+        uuid: 0ff4b5a8196a7fc5e0a18d74f02bf1ab
+        required: false
+        range:
+          type: integer
+      maxCount:
+        allowMultiple: false
+        uuid: 68e93cd2f7effe43d43b01bc6b8df368
+        required: false
+        range:
+          type: integer
+    associations:
+      items:
+        allowMultiple: false
+        uuid: b5fcf65cafa4de13855b3e67c2b17540
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      contains:
+        allowMultiple: false
+        uuid: 25914e4eaab1ac8507fef5b1dde717a3
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+    extends: http://mulesoft.com/modeling/instances/1f61ab9636cc3c808d7d2b0880a61328
+  ParametrizedDeclaration:
+    uuid: b0ec51731a388c87aab5e81a4107bd33
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 9911739191723703f6b227804159a7ec
+        required: false
+        range:
+          type: string
+    associations:
+      variable:
+        allowMultiple: true
+        uuid: f1dad4b933dc426ad1eca32e040afa13
+        required: false
+        target: http://mulesoft.com/modeling/instances/6c4f94dcc597cdb35b8fc9651239b45f
+      designAnnotations:
+        allowMultiple: true
+        uuid: b03c9c320b6777f220c2b5033065f11d
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  ObjectNode:
+    uuid: d2c48785e9b6b2bd8ba38bce24275dbb
+    attributes: {}
+    associations:
+      properties:
+        allowMultiple: true
+        uuid: d340a944429ef752b1c80adc934c8e5f
+        required: false
+        target: http://mulesoft.com/modeling/instances/ab2b91c07d7fac82202161d407fd31f4
+    extends: http://mulesoft.com/modeling/instances/2e02f5406d75b88a481f61798dec8ef2
+  ExternalFragment:
+    uuid: 8624a534ff4653d7ac0b547b714cb67b
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/14eea0d0e94adc972addddd1931f2552
+  SecurityRequirement:
+    uuid: e9cc23b4fb33eac3114128eee2867e17
+    attributes: {}
+    associations:
+      schemes:
+        allowMultiple: true
+        uuid: 529264d6d373845162787a46f3618b47
+        required: false
+        target: http://mulesoft.com/modeling/instances/3388557e400f305659714a0508d4e8a9
+      designAnnotations:
+        allowMultiple: true
+        uuid: ff67d4c8fa49e659e309a7facff94e86
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  License:
+    uuid: 190948eb29312c0f9e08101f185a58fe
+    attributes:
+      url:
+        allowMultiple: false
+        uuid: f1089d461dc4bccc0abb6b6391cb3976
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 0ea80edadbd631db1c719f3739b16384
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: a92598c77c387f34d7942fb04b114182
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  Extension:
+    uuid: b4f279c707b5c3bfacaa8ba08f7df06d
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/624f8e46d572e3b1a493099ac0d9be41
+  Response:
+    uuid: 009453d18fb1305e904091b641b3df3a
+    attributes:
+      statusCode:
+        allowMultiple: false
+        uuid: 0265640bee98b9e4a98ea4c3132ad2f6
+        required: false
+        range:
+          type: string
+    associations:
+      links:
+        allowMultiple: true
+        uuid: 5dd2287fc9881bee84766d4d5550db82
+        required: false
+        target: http://mulesoft.com/modeling/instances/0d202c9d523ea0948735454b0cfe992c
+    extends: http://mulesoft.com/modeling/instances/8b24fe9949d293e2a4898d76db9e6989
+  ParsedUnitUnion:
+    uuid: 13cd7a81-c5db-4f60-966c-c488fa00f21b
+    disjoint:
+      - http://mulesoft.com/modeling/instances/b97b653910b69b22e9ff6b4f08c19dc8
+      - http://mulesoft.com/modeling/instances/68384b3cae0de60ff4433ee350741ed0
+      - http://mulesoft.com/modeling/instances/0b517c7eb73ce44f62fc82ab0ac93c4d
+      - http://mulesoft.com/modeling/instances/fedd4e5b019088c202535f7982a15d45
+      - http://mulesoft.com/modeling/instances/a4e9b6cc7b94d55ee89c55e6147d2205
+      - http://mulesoft.com/modeling/instances/dea47faefcb797ae3a96194f643fe99d
+      - http://mulesoft.com/modeling/instances/0789dc6ddd56df0aff357e49838f2501
+      - http://mulesoft.com/modeling/instances/f9b1785f9dd1781549f6c09aae1a7c5a
+      - http://mulesoft.com/modeling/instances/b4f279c707b5c3bfacaa8ba08f7df06d
+      - http://mulesoft.com/modeling/instances/025c44c8c78398fdddc4931954211b51
+  MqttMessageBinding:
+    uuid: 3cbda87ae84fb8b615a06abc7f1df8c6
+    attributes:
+      bindingVersion:
+        allowMultiple: false
+        uuid: 372857769d02e56d97ac7bbb51a76b00
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/803060dbcf6a4cda67c309e94d539156
+  DomainExtension:
+    uuid: 62101687ac890c3379fd8c81d84fd674
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: eee19082b009747cf1e3b2557d50289b
+        required: false
+        range:
+          type: string
+      element:
+        allowMultiple: false
+        uuid: 4a0f0f7616c874b1bbb1316a02b79b1b
+        required: false
+        range:
+          type: string
+    associations:
+      definedBy:
+        allowMultiple: false
+        uuid: 77b5811b097b0419f03c318affe793ac
+        required: false
+        target: http://mulesoft.com/modeling/instances/54a035d51ffe3e7cda79c259d4f78490
+      extension:
+        allowMultiple: false
+        uuid: f30d4b6b81d620958ecb682bc0c01455
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+      designAnnotations:
+        allowMultiple: true
+        uuid: ad725fe7c59aedb0170f2a0c7fe92bc4
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  AnnotationTypeFragment:
+    uuid: 3079c3f119d7e4b192c13ff77f488a3a
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/14eea0d0e94adc972addddd1931f2552
+  Operation:
+    uuid: 34c20f58305fa6567d8ece60e0968f60
+    attributes:
+      designLink:
+        allowMultiple: false
+        uuid: 23ab8350c5c17b43f87ac857304a8ba1
+        required: false
+        range:
+          type: string
+      scheme:
+        allowMultiple: true
+        uuid: 1bf4ace4f30efad6740ce87e6cdf4756
+        required: false
+        range:
+          type: string
+      isAbstract:
+        allowMultiple: false
+        uuid: 6c01d81a16c653da3e53006e24c7a7f2
+        required: false
+        range:
+          type: boolean
+      mediaType:
+        allowMultiple: true
+        uuid: 0088b0a1ef2f02f3a88b240a59f89532
+        required: false
+        range:
+          type: string
+      accepts:
+        allowMultiple: true
+        uuid: 756f4d5767dbc3c26554af618ec6076f
+        required: false
+        range:
+          type: string
+      deprecated:
+        allowMultiple: false
+        uuid: 959eec0d5cdd49bedad78b3fe0aa176c
+        required: false
+        range:
+          type: boolean
+      guiSummary:
+        allowMultiple: false
+        uuid: 7248cc2cd3b9ac525b35cc81a9bb2506
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 86040d7a35a14e6c69e5dbd046c7ad76
+        required: false
+        range:
+          type: string
+      method:
+        allowMultiple: false
+        uuid: 3b1686eed1aa33f6d3a7f7894f5f4fd4
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: f1d07bfc0e5b90fb6d01f05e9a89901b
+        required: false
+        range:
+          type: string
+    associations:
+      returns:
+        allowMultiple: true
+        uuid: bdf7b85e409c8cf9bddd7d08dce8597b
+        required: false
+        target: http://mulesoft.com/modeling/instances/009453d18fb1305e904091b641b3df3a
+      binding:
+        allowMultiple: true
+        uuid: 3a24c2cbab2376867dda457f08c1ab90
+        required: false
+        target: http://mulesoft.com/modeling/instances/a1a589999d9f6ba58d4c8e9602ca8cbc
+      tag:
+        allowMultiple: true
+        uuid: 715f1117ccf64a5e1b383ddf44a8c056
+        required: false
+        target: http://mulesoft.com/modeling/instances/1c2f22230c742b18bdb47277bed6f95d
+      server:
+        allowMultiple: true
+        uuid: c13efe2243b6feec034a147a40e2956f
+        required: false
+        target: http://mulesoft.com/modeling/instances/e2d64edb5ea7aaecdfa2bdec929e6f2f
+      callback:
+        allowMultiple: true
+        uuid: 9e3a7816b164ec6f75efe5b9d0f89121
+        required: false
+        target: http://mulesoft.com/modeling/instances/78c98035d26b20ba9c563b6c5bb6e4d2
+      security:
+        allowMultiple: true
+        uuid: 5a98102d4556bc160d454aacb0274e62
+        required: false
+        target: http://mulesoft.com/modeling/instances/e9cc23b4fb33eac3114128eee2867e17
+      designAnnotations:
+        allowMultiple: true
+        uuid: 1e8d27cd959025bb22b037ba610f78c0
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+      extends:
+        allowMultiple: true
+        uuid: 2c537bf9856a307f3fa8751788aae78e
+        required: false
+        target: http://mulesoft.com/modeling/instances/e6187770a923a6d0c6ada86fd7dbba9a
+      expects:
+        allowMultiple: true
+        uuid: fa9b5b0e6fbdbc34eca560835e1af5f3
+        required: false
+        target: http://mulesoft.com/modeling/instances/9f20234f4373e14333780ed77aa5df84
+      documentation:
+        allowMultiple: false
+        uuid: d80997dd70beeca151494e60166a3bb3
+        required: false
+        target: http://mulesoft.com/modeling/instances/6689a0f6c7ff1358b4a659ae09863b7e
+  ExternalDomainElement:
+    uuid: 6ead0ca271cc68b5a9edf3223b478440
+    attributes:
+      raw:
+        allowMultiple: false
+        uuid: 02928d7cdc4198a318c60edbb7153383
+        required: false
+        range:
+          type: string
+      mediaType:
+        allowMultiple: false
+        uuid: 1da8cc6bfec31e4a39f5da2b172ce269
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: 5f92d93aa5a8c76ce5978067e3777da1
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  FileShape:
+    uuid: 5b61c8efdcb818fd8fcbc69be7b9d7b1
+    attributes:
+      min.Length:
+        allowMultiple: false
+        uuid: c948f5f0c4d68b4a7b821bdeec483c26
+        required: false
+        range:
+          type: integer
+      fileType:
+        allowMultiple: true
+        uuid: ebcdea41848cc4bda0a5c1206ffa6570
+        required: false
+        range:
+          type: string
+      pattern:
+        allowMultiple: false
+        uuid: c2454b032203bb7abbb5c46973f7b8a8
+        required: false
+        range:
+          type: string
+      max.Length:
+        allowMultiple: false
+        uuid: ef39b9278efd3051cc103b49246146f8
+        required: false
+        range:
+          type: integer
+      multipleOf:
+        allowMultiple: false
+        uuid: bccc28d6a5668b5f5a815cb369b0adfc
+        required: false
+        range:
+          type: float
+      format:
+        allowMultiple: false
+        uuid: 90a0e440aaec43922cec411e900f9698
+        required: false
+        range:
+          type: string
+      min.Exclusive:
+        allowMultiple: false
+        uuid: 7b802eac24b37cdc101cc59218d54850
+        required: false
+        range:
+          type: boolean
+      max.Inclusive:
+        allowMultiple: false
+        uuid: 51ff92e7971da31c2fe77e4fbff74ead
+        required: false
+        range:
+          type: float
+      max.Exclusive:
+        allowMultiple: false
+        uuid: c778ddac39481fb7c49b1d7d9340dcd8
+        required: false
+        range:
+          type: boolean
+      min.Inclusive:
+        allowMultiple: false
+        uuid: 3cd74425d1c10850d119f816a4cc7f4a
+        required: false
+        range:
+          type: float
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/1f61ab9636cc3c808d7d2b0880a61328
+  ChannelBinding:
+    uuid: 25de7b527b89291364d61e86d70d63b5
+    attributes: {}
+    associations: {}
+  Amqp091MessageBinding:
+    uuid: 73a39ee10da50ba39032f33e707826d5
+    attributes:
+      contentEncoding:
+        allowMultiple: false
+        uuid: 97d3fbdb776848627e2e40157d68098a
+        required: false
+        range:
+          type: string
+      messageType:
+        allowMultiple: false
+        uuid: e95881d9c6cc21a2dfc0e38f89baad0f
+        required: false
+        range:
+          type: string
+      bindingVersion:
+        allowMultiple: false
+        uuid: 33b011d54304d63c7369f51c82295484
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/803060dbcf6a4cda67c309e94d539156
+  TraitFragment:
+    uuid: a4e9b6cc7b94d55ee89c55e6147d2205
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/14eea0d0e94adc972addddd1931f2552
+  DataTypeFragment:
+    uuid: b97b653910b69b22e9ff6b4f08c19dc8
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/14eea0d0e94adc972addddd1931f2552
+  NodeShape:
+    uuid: dcd899a0bafeb6626e5aa6bcc8ba045b
+    attributes:
+      discriminatorValue:
+        allowMultiple: false
+        uuid: fe9c825a5437ec4f65521458d0a008eb
+        required: false
+        range:
+          type: string
+      maxProperties:
+        allowMultiple: false
+        uuid: 679cba1bfa6bf049f37030159ff8d89f
+        required: false
+        range:
+          type: integer
+      discriminator:
+        allowMultiple: false
+        uuid: 2d5ecd2c9b1d3577dd3826b6a624f4f4
+        required: false
+        range:
+          type: string
+      closed:
+        allowMultiple: false
+        uuid: 73a9e3d9a83862abffe16c42996a53ec
+        required: false
+        range:
+          type: boolean
+      minProperties:
+        allowMultiple: false
+        uuid: 7f557783b96ed2766c6a95534bae39f2
+        required: false
+        range:
+          type: integer
+    associations:
+      property:
+        allowMultiple: true
+        uuid: a315132729ddcf79d7f16743555b5bb1
+        required: false
+        target: http://mulesoft.com/modeling/instances/ed9a262aa28026231a7bce6ec9184914
+      discriminatorMapping:
+        allowMultiple: true
+        uuid: bb87ed17cff0a85a0f7d3160a8602fe5
+        required: false
+        target: http://mulesoft.com/modeling/instances/dcc57e47b05adbc409c44ca746ecca50
+      propertyNames:
+        allowMultiple: false
+        uuid: 64a787c929c3efb160d7eed4fae3d807
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      additionalPropertiesSchema:
+        allowMultiple: false
+        uuid: 20b912e02afa722ab380cd63eee5fabf
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      dependencies:
+        allowMultiple: true
+        uuid: ff0d2cec06ab13ea7f6886d0379c3d4f
+        required: false
+        target: http://mulesoft.com/modeling/instances/61f8c1732531381d4e4e75951587c8cc
+    extends: http://mulesoft.com/modeling/instances/1f61ab9636cc3c808d7d2b0880a61328
+  DynamicBinding:
+    uuid: b2d5f3b377080ea7349251374f6fc3eb
+    attributes: {}
+    associations:
+      definition:
+        allowMultiple: false
+        uuid: 710ec80163435b8f808b0cb96170b01c
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+      designAnnotations:
+        allowMultiple: true
+        uuid: a5686496621c6c94e5f2e1541515be4f
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  NamedExampleFragment:
+    uuid: 0b517c7eb73ce44f62fc82ab0ac93c4d
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/14eea0d0e94adc972addddd1931f2552
+  ArrayNode:
+    uuid: ebc3d08a9d457e1c61fdad0f1c14f0ab
+    attributes: {}
+    associations:
+      member:
+        allowMultiple: true
+        uuid: f6031d3db330a90799ebdc6f708cedeb
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+    extends: http://mulesoft.com/modeling/instances/2e02f5406d75b88a481f61798dec8ef2
+  Tag:
+    uuid: 1c2f22230c742b18bdb47277bed6f95d
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 9645ebc3fee4575bd5efd790476d4b4a
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: ba469e9b6bbbf6feab477b0320c53f2b
+        required: false
+        range:
+          type: string
+    associations:
+      documentation:
+        allowMultiple: false
+        uuid: 3d224488c3c68bf3286da71e594e2f35
+        required: false
+        target: http://mulesoft.com/modeling/instances/6689a0f6c7ff1358b4a659ae09863b7e
+      designAnnotations:
+        allowMultiple: true
+        uuid: 7be99e70a67e9099c80f2ab64aa861c3
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  PropertyDependencies:
+    uuid: 61f8c1732531381d4e4e75951587c8cc
+    attributes:
+      propertySource:
+        allowMultiple: false
+        uuid: 05a28bb37de68710ad8f854af94fec40
+        required: false
+        range:
+          type: string
+      propertyTarget:
+        allowMultiple: true
+        uuid: 38642f53436df44722e6b32e6d9a1f21
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: e08e0dec37e429bac4af6b01310d9089
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  Amqp091ChannelBinding:
+    uuid: c699ce7ca58b44d432bb7d6c20af4735
+    attributes:
+      is:
+        allowMultiple: false
+        uuid: a5527ca86d45eb2ad8a4cd199611d763
+        required: false
+        range:
+          type: string
+      bindingVersion:
+        allowMultiple: false
+        uuid: cc0dce54527a496798a34e083a9b3cf1
+        required: false
+        range:
+          type: string
+    associations:
+      exchange:
+        allowMultiple: false
+        uuid: 43ae6059e8c448f770052529932cac51
+        required: false
+        target: http://mulesoft.com/modeling/instances/dbde08a2174d51a2a0b24d31156fb9f5
+      queue:
+        allowMultiple: false
+        uuid: 1a74f7afd237338ba9202945b0b5b5b8
+        required: false
+        target: http://mulesoft.com/modeling/instances/9bd33bc70f06d7e3b02e98a85dc89916
+    extends: http://mulesoft.com/modeling/instances/012c47bc1075796c1fd28838c184d186
+  CorrelationId:
+    uuid: e7a61f532ec20cd6eeb3aec47f65543f
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 299683060b0b384a0d5034046dfa7178
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: 876bb7f97b038e8c4f48ac4ae5b34b86
+        required: false
+        range:
+          type: string
+      location:
+        allowMultiple: false
+        uuid: 9e10e33d24ebbed7cc0884bc8a6ec304
+        required: false
+        range:
+          type: string
+      designLink:
+        allowMultiple: false
+        uuid: 6ee0f0b8aabfcae6678ecb6fe49f3afd
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: c61417e031f553f95991ee9e1fd5a20d
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  OAuth2Settings:
+    uuid: 396b80cf4377eb9bc44bbe794ab975a9
+    attributes:
+      authorizationGrant:
+        allowMultiple: true
+        uuid: a084d9568b979d2c55d09b63dad804d8
+        required: false
+        range:
+          type: string
+    associations:
+      flows:
+        allowMultiple: true
+        uuid: 67c710a02ee15d302df9132af5528b13
+        required: false
+        target: http://mulesoft.com/modeling/instances/9c98066f18d3dbd50839a3924183e00b
+    extends: http://mulesoft.com/modeling/instances/051526598612cd5ea620bbf2f2a729c7
+  Example:
+    uuid: 380139ca32da0851032ab603950be949
+    attributes:
+      mediaType:
+        allowMultiple: false
+        uuid: e67834678171aab50c7cfcd7e967544c
+        required: false
+        range:
+          type: string
+      designLink:
+        allowMultiple: false
+        uuid: 2afb117b493e7922f9c90a1fb1f90372
+        required: false
+        range:
+          type: string
+      location:
+        allowMultiple: false
+        uuid: d657f35cd2d7bc68820b5c28ce2fdcc8
+        required: false
+        range:
+          type: string
+      raw:
+        allowMultiple: false
+        uuid: adf8b358d4144212297716279d2dc107
+        required: false
+        range:
+          type: string
+      externalValue:
+        allowMultiple: false
+        uuid: df7d9ff91640f3f9c48a1863600c8d9a
+        required: false
+        range:
+          type: string
+      displayName:
+        allowMultiple: false
+        uuid: 87185bbd7ced683c359b7087da6b66d1
+        required: false
+        range:
+          type: string
+      guiSummary:
+        allowMultiple: false
+        uuid: d3150e79df0f33631b2fc4ee430cd73e
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: ad97863d22f200f67e7d36b0571ff477
+        required: false
+        range:
+          type: string
+      strict:
+        allowMultiple: false
+        uuid: 63503335eba2a12aa8c7ce62cabbe77a
+        required: false
+        range:
+          type: boolean
+      name:
+        allowMultiple: false
+        uuid: 88db6f9b51a562074fb51c39b7c62e1f
+        required: false
+        range:
+          type: string
+      referenceId:
+        allowMultiple: false
+        uuid: e5141ba423436066cddfe06422991e05
+        required: false
+        range:
+          type: string
+    associations:
+      structuredValue:
+        allowMultiple: false
+        uuid: 50d0848c28d374bc918616b4ae79bd7b
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+      designAnnotations:
+        allowMultiple: true
+        uuid: 0617493428e71b38047878d70c09deca
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  DataShapesUnion:
+    uuid: eb968365-0f19-48a7-9426-f2291f37ed2e
+    disjoint:
+      - http://mulesoft.com/modeling/instances/d791fb90baafed7850a08592bb6d1d49
+      - http://mulesoft.com/modeling/instances/b3ac725a0edb4eb7eeed75b70aed3bfd
+      - http://mulesoft.com/modeling/instances/dcd899a0bafeb6626e5aa6bcc8ba045b
+      - http://mulesoft.com/modeling/instances/3dfed60cd55097249c26059c7e8df3c4
+      - http://mulesoft.com/modeling/instances/4b1d9580a91fbf8cea95e3c1470f840c
+      - http://mulesoft.com/modeling/instances/5b61c8efdcb818fd8fcbc69be7b9d7b1
+      - http://mulesoft.com/modeling/instances/784aafdcfffa56264a67a3600181eb02
+      - http://mulesoft.com/modeling/instances/9dce9200805594b6a371f914d4747cba
+      - http://mulesoft.com/modeling/instances/d4013271522af4d447dde9a5b539196f
+      - http://mulesoft.com/modeling/instances/8f1580ee5528db048402c5efa399dcbe
+      - http://mulesoft.com/modeling/instances/5698f0c2b9e0f720f281a77f94ae537f
+  Message:
+    uuid: c667b11c4c833db22ec9fc21103041a8
+    attributes:
+      isAbstract:
+        allowMultiple: false
+        uuid: 50015918c414ca5073ddac2df7d14aeb
+        required: false
+        range:
+          type: boolean
+      description:
+        allowMultiple: false
+        uuid: a8fa849617b2a22203aeca756353407e
+        required: false
+        range:
+          type: string
+      displayName:
+        allowMultiple: false
+        uuid: 2d98fcda1e8844bb4b602bb9cef70b6b
+        required: false
+        range:
+          type: string
+      summary:
+        allowMultiple: false
+        uuid: f436eb6f6a6f11a8986788eb71e8853f
+        required: false
+        range:
+          type: string
+      title:
+        allowMultiple: false
+        uuid: 92a2d215a8b3e550d960fc8f780baa34
+        required: false
+        range:
+          type: string
+      designLink:
+        allowMultiple: false
+        uuid: 7bf541445eda5cf5516b1bf96d16fbeb
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 71f0a2d40fa9f19fea4385c833fde4db
+        required: false
+        range:
+          type: string
+    associations:
+      tag:
+        allowMultiple: true
+        uuid: 63deeace8176501c0bd3716ccd092cb9
+        required: false
+        target: http://mulesoft.com/modeling/instances/1c2f22230c742b18bdb47277bed6f95d
+      designAnnotations:
+        allowMultiple: true
+        uuid: 7c674c1d6093ba571af9dff45f54c1ee
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+      documentation:
+        allowMultiple: false
+        uuid: 90a0d2c2098fe85a6fd16af4bf61544e
+        required: false
+        target: http://mulesoft.com/modeling/instances/6689a0f6c7ff1358b4a659ae09863b7e
+      correlationId:
+        allowMultiple: false
+        uuid: f11e1f68ce89b0fbea65cf8be8458567
+        required: false
+        target: http://mulesoft.com/modeling/instances/e7a61f532ec20cd6eeb3aec47f65543f
+      examples:
+        allowMultiple: true
+        uuid: 99344a730d826bd620ccf50fd5de82de
+        required: false
+        target: http://mulesoft.com/modeling/instances/380139ca32da0851032ab603950be949
+      binding:
+        allowMultiple: true
+        uuid: bc73bb3634b0306d6a8a271ea1c3023c
+        required: false
+        target: http://mulesoft.com/modeling/instances/301ae5e8ca4ed94af700a65ad4f9b6ca
+      header:
+        allowMultiple: true
+        uuid: 5f9e92bb21c18d4cd0f305b4136661d0
+        required: false
+        target: http://mulesoft.com/modeling/instances/492194778ff72c55f78d7dd0700a8e31
+      payload:
+        allowMultiple: true
+        uuid: 8e0e7dcc9340c5d41fce3624e81dec65
+        required: false
+        target: http://mulesoft.com/modeling/instances/d0999824453ecf2088ce555942b74ebf
+  PropertyNode:
+    uuid: ab2b91c07d7fac82202161d407fd31f4
+    attributes: {}
+    associations:
+      range:
+        allowMultiple: false
+        uuid: 9b625164f52c17cd36a5121031dc8d5f
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+    extends: http://mulesoft.com/modeling/instances/2e02f5406d75b88a481f61798dec8ef2
+  SecurityScheme:
+    uuid: b708af51d08cb0b946c17a8740f74aaf
+    attributes:
+      type:
+        allowMultiple: false
+        uuid: 46e3d7ced98a241934d93548d54f8578
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: bec22b1831ffc8cbb10d421dd068201c
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: a88be4d55ac941c9a2fffa8bc447bff3
+        required: false
+        range:
+          type: string
+      designLink:
+        allowMultiple: false
+        uuid: a740dcbd395126c75f63081a1c73b32f
+        required: false
+        range:
+          type: string
+      displayName:
+        allowMultiple: false
+        uuid: 2bebb8098dc613c6e7e0b55798057fa7
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: 962c23018eb3fad12a57c1884b9c8e4c
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+      queryString:
+        allowMultiple: false
+        uuid: f5a3a7205a2f04fd385891619d45fc1a
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      header:
+        allowMultiple: true
+        uuid: f7823b07bcd9c9b95a9cce9c5c0b0fb2
+        required: false
+        target: http://mulesoft.com/modeling/instances/492194778ff72c55f78d7dd0700a8e31
+      settings:
+        allowMultiple: false
+        uuid: 96f04c44189f47e5ca2238d81acb8bac
+        required: false
+        target: http://mulesoft.com/modeling/instances/43539710642bc0a3f08f83776cb37867
+      response:
+        allowMultiple: true
+        uuid: 2d8dcd1d9afe33c21432a20e3b582dff
+        required: false
+        target: http://mulesoft.com/modeling/instances/009453d18fb1305e904091b641b3df3a
+      parameter:
+        allowMultiple: true
+        uuid: 8b5005e9e88ecd14e3d2b459a506924e
+        required: false
+        target: http://mulesoft.com/modeling/instances/492194778ff72c55f78d7dd0700a8e31
+  PropertyShape:
+    uuid: ed9a262aa28026231a7bce6ec9184914
+    attributes:
+      patternName:
+        allowMultiple: false
+        uuid: 554ddced61267f7662bea84ad6c93e2f
+        required: false
+        range:
+          type: string
+      min.Count:
+        allowMultiple: false
+        uuid: f824c5f6fccafc54a84429306faa0192
+        required: false
+        range:
+          type: integer
+      max.Count:
+        allowMultiple: false
+        uuid: bbb8404ffec29cac581de90d70377110
+        required: false
+        range:
+          type: integer
+      path:
+        allowMultiple: false
+        uuid: d379fa70c70f6e4f28112c45f9049fc1
+        required: false
+        range:
+          type: string
+    associations:
+      range:
+        allowMultiple: false
+        uuid: aad52e3dd0e09245e355b4dce7aa7348
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+    extends: http://mulesoft.com/modeling/instances/c37c64e5fb6f43d058097af7265eecf0
+  UnionShape:
+    uuid: d791fb90baafed7850a08592bb6d1d49
+    attributes: {}
+    associations:
+      anyOf:
+        allowMultiple: true
+        uuid: c254660eded325bd6c6d365a7f00c1fc
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+    extends: http://mulesoft.com/modeling/instances/1f61ab9636cc3c808d7d2b0880a61328
+  ShapeExtension:
+    uuid: 36fa810c4f345fbc924040fb9c28aa85
+    attributes: {}
+    associations:
+      definedBy:
+        allowMultiple: false
+        uuid: 8ca4c28560d864ee34fe2b97ed164a99
+        required: false
+        target: http://mulesoft.com/modeling/instances/54a035d51ffe3e7cda79c259d4f78490
+      extension:
+        allowMultiple: false
+        uuid: 6b1df7e6721eaf89aa66a09575196f9b
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+      designAnnotations:
+        allowMultiple: true
+        uuid: faf93f1a0970c0724a87934ec8a5475a
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  ParametrizedTrait:
+    uuid: e6187770a923a6d0c6ada86fd7dbba9a
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/eea1a08767df545529b91c95a8e541db
+  AbstractDeclaration:
+    uuid: 650f0f6d746a643bbae1ceee8c932b03
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 77ea9ad03b8cc89c9b46817471339c66
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: 81dc0b109cad954daba3b1ec27014387
+        required: false
+        range:
+          type: string
+      variable:
+        allowMultiple: true
+        uuid: 8df67fecac6fca3c7507feff9e9a4951
+        required: false
+        range:
+          type: string
+      designLink:
+        allowMultiple: false
+        uuid: ffcee94454f1987630371f0cc2084521
+        required: false
+        range:
+          type: string
+    associations:
+      dataNode:
+        allowMultiple: false
+        uuid: 80f38349499f444da9592cd93df038de
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+      designAnnotations:
+        allowMultiple: true
+        uuid: c810478ad2dcf60bb3e17d39da31670d
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  MqttServerBinding:
+    uuid: ca1a2026c865019cdd794e54dbfb4b6d
+    attributes:
+      clientId:
+        allowMultiple: false
+        uuid: 31d4a7339a1c3ded598116492a518d85
+        required: false
+        range:
+          type: string
+      cleanSession:
+        allowMultiple: false
+        uuid: 90b2a5c705755e6c9861416b1c3345fb
+        required: false
+        range:
+          type: boolean
+      keepAlive:
+        allowMultiple: false
+        uuid: 792600beff069468a59762d459abb182
+        required: false
+        range:
+          type: integer
+      bindingVersion:
+        allowMultiple: false
+        uuid: 10e96f8eaf84048be072b67d69ac61a0
+        required: false
+        range:
+          type: string
+    associations:
+      lastWill:
+        allowMultiple: false
+        uuid: 03216484bbdc675a257bf4243d7ef1d6
+        required: false
+        target: http://mulesoft.com/modeling/instances/4be76ef61e6bf13b14de928793c548cd
+    extends: http://mulesoft.com/modeling/instances/129bfefb8b787d1ef5f64ce2c95ecaa9
+  NilShape:
+    uuid: 9dce9200805594b6a371f914d4747cba
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/1f61ab9636cc3c808d7d2b0880a61328
+  Module:
+    uuid: 0789dc6ddd56df0aff357e49838f2501
+    attributes: {}
+    associations:
+      declares:
+        allowMultiple: true
+        uuid: 0312a8cbcfe6136bd7864a15ec825dc2
+        required: false
+        target: http://mulesoft.com/modeling/instances/e0dc0b7dc90a48822697e2cb4868eab7
+    extends: http://mulesoft.com/modeling/instances/6715f463e329baf51c4d6c4b8a67bd32
+  OAuth1Settings:
+    uuid: 1fa3feaa9b0d69a4de2a21b8fa9c334a
+    attributes:
+      requestTokenURI:
+        allowMultiple: false
+        uuid: e4f54170b56bbcf53f7599864bd22e3a
+        required: false
+        range:
+          type: string
+      authorizationURI:
+        allowMultiple: false
+        uuid: 14f80d7bbfca5f1a34990d56fb4269c4
+        required: false
+        range:
+          type: string
+      tokenCredentialsURI:
+        allowMultiple: false
+        uuid: 35a7895ed95eecc3202590f694ef2a09
+        required: false
+        range:
+          type: string
+      signature:
+        allowMultiple: true
+        uuid: 7343b89fc479bdb13912a5f8d90a85d4
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/051526598612cd5ea620bbf2f2a729c7
+  WebSocketsChannelBinding:
+    uuid: 3fe49120dc1192cf32cac2dc35fe9242
+    attributes:
+      method:
+        allowMultiple: false
+        uuid: 659564d6775a53501f14da66078b0037
+        required: false
+        range:
+          type: string
+      bindingVersion:
+        allowMultiple: false
+        uuid: fd8ff6ad6d4b40707f61d12ff7de7e08
+        required: false
+        range:
+          type: string
+    associations:
+      query:
+        allowMultiple: false
+        uuid: f1127dc794f67645a9abb0537b6d382a
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      query1:
+        allowMultiple: false
+        uuid: bc6ca53c7b94b33b92fa58baae956967
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+    extends: http://mulesoft.com/modeling/instances/012c47bc1075796c1fd28838c184d186
+  Shape:
+    uuid: 24adb77824d057700f9135eafe1bdea0
+    attributes:
+      defaultValueString:
+        allowMultiple: false
+        uuid: d73e5bfe9ff558c59f73e97d9cfef3f6
+        required: false
+        range:
+          type: string
+      writeOnly:
+        allowMultiple: false
+        uuid: f3f33bacd2114824b2804306154c9e24
+        required: false
+        range:
+          type: boolean
+      inheritanceClosure:
+        allowMultiple: true
+        uuid: 0565e595d0fc69a23734bde60b63cce5
+        required: false
+        range:
+          type: string
+      displayName:
+        allowMultiple: false
+        uuid: 7a8d3f9632780c42eba6e23a14c65fcb
+        required: false
+        range:
+          type: string
+      deprecated:
+        allowMultiple: false
+        uuid: c511917d63a5289cfadaeff45ec631b5
+        required: false
+        range:
+          type: boolean
+      name:
+        allowMultiple: false
+        uuid: be4d5ebcd4ba0951e1b43cbf9c77440f
+        required: false
+        range:
+          type: string
+      readOnly:
+        allowMultiple: false
+        uuid: 03da74033fe33fba302090c36cb6e66b
+        required: false
+        range:
+          type: boolean
+      designLink:
+        allowMultiple: false
+        uuid: c0e599b2b262895f358ffccdde64779e
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: d9b5a46081df15fc42d6f8b5f5baa093
+        required: false
+        range:
+          type: string
+    associations:
+      inherits:
+        allowMultiple: true
+        uuid: bbcbb4a702b03eaa9d0a2c1dc48f45bb
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      not:
+        allowMultiple: false
+        uuid: 435485561d0071aa823f516478113366
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      if:
+        allowMultiple: false
+        uuid: de814783765a1d511f52bbc39f0fc70e
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      defaultValue:
+        allowMultiple: false
+        uuid: 18b5253db1156098f78d319531975cbc
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+      else:
+        allowMultiple: false
+        uuid: 67dcea5b252d2bdcf24206421d273a1e
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      then:
+        allowMultiple: false
+        uuid: 907c1a61b0fd574fad8db3950c452d9b
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      in:
+        allowMultiple: true
+        uuid: dd748bddf06754a337f2010435c2e6ad
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+      designAnnotations:
+        allowMultiple: true
+        uuid: 5607c80b39d47a1c14c77425a2c40176
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+      and:
+        allowMultiple: true
+        uuid: 2f99390a1fe8cd7cca457cae58eaebaf
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      exclusiveOr:
+        allowMultiple: true
+        uuid: 59bec3c968d5dea851cc278b0c6fa33d
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      or:
+        allowMultiple: true
+        uuid: 02c276e6c3ef3a59d42f16a932fd8ee5
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+  Parameter:
+    uuid: 492194778ff72c55f78d7dd0700a8e31
+    attributes:
+      allowReserved:
+        allowMultiple: false
+        uuid: 864a6b369e223e6afa4a2b106743f70b
+        required: false
+        range:
+          type: boolean
+      paramName:
+        allowMultiple: false
+        uuid: e9698cb70eb6b764dfd599f8b9e9f2f8
+        required: false
+        range:
+          type: string
+      explode:
+        allowMultiple: false
+        uuid: 690b6428b9f57dc7efede3ad38b1f038
+        required: false
+        range:
+          type: boolean
+      required:
+        allowMultiple: false
+        uuid: 7df21b68dd9fdce59f46b3c04c72faed
+        required: false
+        range:
+          type: boolean
+      style:
+        allowMultiple: false
+        uuid: 5765e7f370195cddbbeba87f274c4b0d
+        required: false
+        range:
+          type: string
+      binding:
+        allowMultiple: false
+        uuid: 4622f7fa7102c8367c230a6a2ce277c6
+        required: false
+        range:
+          type: string
+      allowEmptyValue:
+        allowMultiple: false
+        uuid: 2961015b1fc78cb5882d354790a2774f
+        required: false
+        range:
+          type: boolean
+      designLink:
+        allowMultiple: false
+        uuid: dae1951ec0c31e003926df46c2c7d77c
+        required: false
+        range:
+          type: string
+      deprecated:
+        allowMultiple: false
+        uuid: 0e4cdcd81352417a91e04653ed0c604b
+        required: false
+        range:
+          type: boolean
+      name:
+        allowMultiple: false
+        uuid: be7e244cdb9d45f2acc2d75c5f241a96
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: e0f0d1f913b425e8090cdeb9bb5927d1
+        required: false
+        range:
+          type: string
+    associations:
+      schema:
+        allowMultiple: false
+        uuid: d116b06362cade5b1abe29acc32f2a18
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      payload:
+        allowMultiple: true
+        uuid: 0e2d31df514d25a603bc08a92620a99d
+        required: false
+        target: http://mulesoft.com/modeling/instances/d0999824453ecf2088ce555942b74ebf
+      examples:
+        allowMultiple: true
+        uuid: 628ddb4799562e5bcdd1e7f547a44c34
+        required: false
+        target: http://mulesoft.com/modeling/instances/380139ca32da0851032ab603950be949
+      designAnnotations:
+        allowMultiple: true
+        uuid: 5d12473551a1a939241cba07d024ae3c
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  OAuth2Flow:
+    uuid: 9c98066f18d3dbd50839a3924183e00b
+    attributes:
+      authorizationURI:
+        allowMultiple: false
+        uuid: 52d6e29aad2aa78b771429da1e064f72
+        required: false
+        range:
+          type: string
+      accessTokenURI:
+        allowMultiple: false
+        uuid: 851a48e388f4f053845a5df7d730d4e3
+        required: false
+        range:
+          type: string
+      flow:
+        allowMultiple: false
+        uuid: 30d8516a44dbb8300f576a08ce2a8798
+        required: false
+        range:
+          type: string
+      refreshURI:
+        allowMultiple: false
+        uuid: a0377b28ffa9a6136e1fe2d29cbe409f
+        required: false
+        range:
+          type: string
+    associations:
+      scope:
+        allowMultiple: true
+        uuid: 2ccff04867850e0ac5ac1a26e6348ef7
+        required: false
+        target: http://mulesoft.com/modeling/instances/becd43e1501c5bea4fb95998bd5459ca
+      designAnnotations:
+        allowMultiple: true
+        uuid: ef4287802f57fbd09241dd3f489d6a39
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  Payload:
+    uuid: d0999824453ecf2088ce555942b74ebf
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 65370063fd901c46c46c91bc7426e685
+        required: false
+        range:
+          type: string
+      mediaType:
+        allowMultiple: false
+        uuid: 5e08ff06162bf647bb1f675bf0f14a1b
+        required: false
+        range:
+          type: string
+      schemaMediaType:
+        allowMultiple: false
+        uuid: 8547a29d23d38b4b9f70c7a81a01b6af
+        required: false
+        range:
+          type: string
+      designLink:
+        allowMultiple: false
+        uuid: 8271660ea37e9b5c4eba8266485d7f6e
+        required: false
+        range:
+          type: string
+    associations:
+      schema:
+        allowMultiple: false
+        uuid: fb2b96ae1e555642d18982fee1cf684b
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      examples:
+        allowMultiple: true
+        uuid: 17bc5a7aa4720bcfdcb406e62853b365
+        required: false
+        target: http://mulesoft.com/modeling/instances/380139ca32da0851032ab603950be949
+      encoding:
+        allowMultiple: true
+        uuid: af18bdbe7f9a1583a6db18cf0cbbbebf
+        required: false
+        target: http://mulesoft.com/modeling/instances/9083b8af63b1b1bdd2aa09a20d3aa7f2
+      designAnnotations:
+        allowMultiple: true
+        uuid: bedd4286afed25e83bd82cc2c592a51d
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  OverlayModel:
+    uuid: 025c44c8c78398fdddc4931954211b51
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/624f8e46d572e3b1a493099ac0d9be41
+  Settings:
+    uuid: 7596db1d0afdc919e6388768954c9989
+    attributes: {}
+    associations:
+      additionalProperties:
+        allowMultiple: false
+        uuid: 35e9b66cd4398b452eaf4e26453837ed
+        required: false
+        target: http://mulesoft.com/modeling/instances/2107d029eeb95e82c569193012dc9823
+      designAnnotations:
+        allowMultiple: true
+        uuid: 28579781f9ad6afea1e02a2937cb9621
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  WebAPI:
+    uuid: eb2a2e74089c0116dd6483329ad8af91
+    attributes:
+      version:
+        allowMultiple: false
+        uuid: 4ce4eafc1ffed0df8addc9b269bf5f0e
+        required: false
+        range:
+          type: string
+      scheme:
+        allowMultiple: true
+        uuid: ec392ffb2adecce1105cda4e7312c8a0
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: cc9bf071c34ab3075bdf32b633804106
+        required: false
+        range:
+          type: string
+      termsOfService:
+        allowMultiple: false
+        uuid: f9d1899af362dc6fda3a476349127673
+        required: false
+        range:
+          type: string
+      accepts:
+        allowMultiple: true
+        uuid: 4b5a0850ae171f98ae379a10757f3392
+        required: false
+        range:
+          type: string
+      contentType:
+        allowMultiple: true
+        uuid: 7c0769a6918b90f8ddea0115110d6b74
+        required: false
+        range:
+          type: string
+      identifier:
+        allowMultiple: false
+        uuid: f2b5ae7355c3aa7d991f523247734379
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 6db08b8c49774c89052a15797ec22def
+        required: false
+        range:
+          type: string
+    associations:
+      tag:
+        allowMultiple: true
+        uuid: 256f58894dac5757462a40b2d92d9d46
+        required: false
+        target: http://mulesoft.com/modeling/instances/1c2f22230c742b18bdb47277bed6f95d
+      server:
+        allowMultiple: true
+        uuid: a3edb0a75f9340556f166961f7c4676a
+        required: false
+        target: http://mulesoft.com/modeling/instances/e2d64edb5ea7aaecdfa2bdec929e6f2f
+      documentation:
+        allowMultiple: true
+        uuid: ea49ba0927e6b3a67d0180e4499327ce
+        required: false
+        target: http://mulesoft.com/modeling/instances/6689a0f6c7ff1358b4a659ae09863b7e
+      provider:
+        allowMultiple: false
+        uuid: 9b83bace35e064fd2eae0490ad891bc3
+        required: false
+        target: http://mulesoft.com/modeling/instances/7409270319f1ab22e3aa6faef224137e
+      designAnnotations:
+        allowMultiple: true
+        uuid: e662be6c71ca1c6bd78429929e4f7d50
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+      security:
+        allowMultiple: true
+        uuid: d0a64e6b881cb488292546ae5f725c8d
+        required: false
+        target: http://mulesoft.com/modeling/instances/e9cc23b4fb33eac3114128eee2867e17
+      endpoint:
+        allowMultiple: true
+        uuid: e4437f39d45ec3e01fa9915dc5f73868
+        required: false
+        target: http://mulesoft.com/modeling/instances/422b17bf2ed1d523e65a1e0a5d039dc8
+      license:
+        allowMultiple: false
+        uuid: 89a3794439188430f9211dda3c16c297
+        required: false
+        target: http://mulesoft.com/modeling/instances/190948eb29312c0f9e08101f185a58fe
+  MatrixShape:
+    uuid: 784aafdcfffa56264a67a3600181eb02
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/f3de1e8d2ec0a9469871edad95d0c678
+  DomainElementUnion:
+    uuid: 35f910b0-3754-4c9b-882c-e9ef7930632d
+    disjoint:
+      - http://mulesoft.com/modeling/instances/d791fb90baafed7850a08592bb6d1d49
+      - http://mulesoft.com/modeling/instances/b3ac725a0edb4eb7eeed75b70aed3bfd
+      - http://mulesoft.com/modeling/instances/dcd899a0bafeb6626e5aa6bcc8ba045b
+      - http://mulesoft.com/modeling/instances/3dfed60cd55097249c26059c7e8df3c4
+      - http://mulesoft.com/modeling/instances/4b1d9580a91fbf8cea95e3c1470f840c
+      - http://mulesoft.com/modeling/instances/5b61c8efdcb818fd8fcbc69be7b9d7b1
+      - http://mulesoft.com/modeling/instances/784aafdcfffa56264a67a3600181eb02
+      - http://mulesoft.com/modeling/instances/9dce9200805594b6a371f914d4747cba
+      - http://mulesoft.com/modeling/instances/d4013271522af4d447dde9a5b539196f
+      - http://mulesoft.com/modeling/instances/8f1580ee5528db048402c5efa399dcbe
+      - http://mulesoft.com/modeling/instances/5698f0c2b9e0f720f281a77f94ae537f
+      - http://mulesoft.com/modeling/instances/b708af51d08cb0b946c17a8740f74aaf
+      - http://mulesoft.com/modeling/instances/492194778ff72c55f78d7dd0700a8e31
+      - http://mulesoft.com/modeling/instances/9f20234f4373e14333780ed77aa5df84
+      - http://mulesoft.com/modeling/instances/78c98035d26b20ba9c563b6c5bb6e4d2
+      - http://mulesoft.com/modeling/instances/1c2f22230c742b18bdb47277bed6f95d
+      - http://mulesoft.com/modeling/instances/eb2a2e74089c0116dd6483329ad8af91
+      - http://mulesoft.com/modeling/instances/380139ca32da0851032ab603950be949
+      - http://mulesoft.com/modeling/instances/9ecb9cf73b8402c2eef2154fc39a05bf
+      - http://mulesoft.com/modeling/instances/0d202c9d523ea0948735454b0cfe992c
+      - http://mulesoft.com/modeling/instances/e2d64edb5ea7aaecdfa2bdec929e6f2f
+      - http://mulesoft.com/modeling/instances/7c85e887d9c6f4de8ca9a2a56daac491
+      - http://mulesoft.com/modeling/instances/54a035d51ffe3e7cda79c259d4f78490
+  HttpMessageBinding:
+    uuid: 27c8882cdddd119281a433601bacfd85
+    attributes:
+      bindingVersion:
+        allowMultiple: false
+        uuid: 26113d5b4f195dbf4d20fb82c699f998
+        required: false
+        range:
+          type: string
+    associations:
+      headers:
+        allowMultiple: false
+        uuid: a0e6af2214ac8f4a55d4df081f939733
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+    extends: http://mulesoft.com/modeling/instances/803060dbcf6a4cda67c309e94d539156
+  TemplatedLink:
+    uuid: 0d202c9d523ea0948735454b0cfe992c
+    attributes:
+      requestBody:
+        allowMultiple: false
+        uuid: d99ea09b400e55499a5d538ee621f002
+        required: false
+        range:
+          type: string
+      designLink:
+        allowMultiple: false
+        uuid: 60517881435fb31c7a5bea9affd8b02d
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 5e1eae03541df990cd5b28129db56cce
+        required: false
+        range:
+          type: string
+      operationID:
+        allowMultiple: false
+        uuid: aa551d93c363ed573c515a86d191a743
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: e3a5fc1d311e2fe06fb51caa3c1277c7
+        required: false
+        range:
+          type: string
+      template:
+        allowMultiple: false
+        uuid: b3bb33a2f51da37d8f06514336ad3118
+        required: false
+        range:
+          type: string
+    associations:
+      mapping:
+        allowMultiple: true
+        uuid: 55ac637eb09cc9236a35f7e5f4dbac8f
+        required: false
+        target: http://mulesoft.com/modeling/instances/dcc57e47b05adbc409c44ca746ecca50
+      server:
+        allowMultiple: false
+        uuid: 839ed958baccb92ebe11b8db24b47e0e
+        required: false
+        target: http://mulesoft.com/modeling/instances/e2d64edb5ea7aaecdfa2bdec929e6f2f
+      designAnnotations:
+        allowMultiple: true
+        uuid: c74c73f8f74430af358a256781c4101d
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  Amqp091OperationBinding:
+    uuid: 9398211a0f2b1d0984d94389da49d23f
+    attributes:
+      priority:
+        allowMultiple: false
+        uuid: 7e3eb1b1c70e370b389dd6736b5675b3
+        required: false
+        range:
+          type: integer
+      mandatory:
+        allowMultiple: false
+        uuid: 6300c8f0ef3afc789383cd94a1bfd397
+        required: false
+        range:
+          type: boolean
+      cc:
+        allowMultiple: true
+        uuid: 2917fe8b5cea9e09ed7623d850daafef
+        required: false
+        range:
+          type: string
+      deliveryMode:
+        allowMultiple: false
+        uuid: bde4390966d705dd770c068ad5e46272
+        required: false
+        range:
+          type: integer
+      bcc:
+        allowMultiple: true
+        uuid: 8330fe81a05ba7509f7b83279dabc2fa
+        required: false
+        range:
+          type: string
+      userId:
+        allowMultiple: false
+        uuid: 4ac93bb274368f8beeed00da718076db
+        required: false
+        range:
+          type: string
+      bindingVersion:
+        allowMultiple: false
+        uuid: 4e72fe2730446a396dc7ac29f1aeaf31
+        required: false
+        range:
+          type: string
+      timestamp:
+        allowMultiple: false
+        uuid: a0ff290f82984efa96b2565a61fb74a2
+        required: false
+        range:
+          type: boolean
+      ack:
+        allowMultiple: false
+        uuid: ea1ea139234ec33f00d9bd06a64de032
+        required: false
+        range:
+          type: boolean
+      expiration:
+        allowMultiple: false
+        uuid: 2a2637f0ffda29ca3dae82f36fd782f8
+        required: false
+        range:
+          type: integer
+      replyTo:
+        allowMultiple: false
+        uuid: 95231f2c1ac0b682f17086247773c942
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/240480b754a8cd5a0b5be7f3c0d26d77
+  OpenIDSettings:
+    uuid: 2a1cbfa3d21bca20c30802dfa2470be2
+    attributes:
+      OpenIDConnectURL:
+        allowMultiple: false
+        uuid: b9f938567731d1d8540e5a1ee9ab47aa
+        required: false
+        range:
+          type: string
+    associations:
+      scope:
+        allowMultiple: true
+        uuid: b0aefab57f7c52ab81b89f36a595470c
+        required: false
+        target: http://mulesoft.com/modeling/instances/becd43e1501c5bea4fb95998bd5459ca
+    extends: http://mulesoft.com/modeling/instances/051526598612cd5ea620bbf2f2a729c7
+  Organization:
+    uuid: 7409270319f1ab22e3aa6faef224137e
+    attributes:
+      url:
+        allowMultiple: false
+        uuid: 25f2b743f9120fcb890329f7865ffd67
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 31549886a699d7adb8ad15fc21dfc132
+        required: false
+        range:
+          type: string
+      email:
+        allowMultiple: false
+        uuid: 667bfd37154d8d4ed1cb8041d01ef16f
+        required: false
+        range:
+          type: string
+    associations:
+      designAnnotations:
+        allowMultiple: true
+        uuid: 1cc38608be4ae7d01d823e0adb8a6aa6
+        required: false
+        target: http://mulesoft.com/modeling/instances/62101687ac890c3379fd8c81d84fd674
+  Request:
+    uuid: 9f20234f4373e14333780ed77aa5df84
+    attributes:
+      required:
+        allowMultiple: false
+        uuid: 606bb148eaae346c687e7ffbdf2ff8be
+        required: false
+        range:
+          type: boolean
+    associations:
+      parameter:
+        allowMultiple: true
+        uuid: bba873f1342e39008621e8e47d83b998
+        required: false
+        target: http://mulesoft.com/modeling/instances/492194778ff72c55f78d7dd0700a8e31
+      queryString:
+        allowMultiple: false
+        uuid: 7384b9d24c818ea51f94caad9b08bcaf
+        required: false
+        target: http://mulesoft.com/modeling/instances/c7164f1f11b5c2af2cf5b8d182d9d82b
+      uriParameter:
+        allowMultiple: true
+        uuid: 2315b4d201b351c7215e92eeeaef5bcf
+        required: false
+        target: http://mulesoft.com/modeling/instances/492194778ff72c55f78d7dd0700a8e31
+      cookieParameter:
+        allowMultiple: true
+        uuid: 4a24dc51089b99f58f7740f549f9a74d
+        required: false
+        target: http://mulesoft.com/modeling/instances/492194778ff72c55f78d7dd0700a8e31
+    extends: http://mulesoft.com/modeling/instances/8b24fe9949d293e2a4898d76db9e6989
+  MqttOperationBinding:
+    uuid: 8b4aac0c12c453201364d8bf043e05d5
+    attributes:
+      qos:
+        allowMultiple: false
+        uuid: 2ef3065cac81763bc04d5881a7cd5f0f
+        required: false
+        range:
+          type: integer
+      retain:
+        allowMultiple: false
+        uuid: d2080c70f5d1c9a23bdef2116ffbf71d
+        required: false
+        range:
+          type: boolean
+      bindingVersion:
+        allowMultiple: false
+        uuid: 4ed61bc558c6ab86694c400ed28097bc
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/240480b754a8cd5a0b5be7f3c0d26d77
+  MessageBinding:
+    uuid: 301ae5e8ca4ed94af700a65ad4f9b6ca
+    attributes: {}
+    associations: {}
+  DocumentExtension:
+    uuid: a4501cf357cbe3efa9d931857976f9e1
+    attributes: {}
+    associations:
+      encodes:
+        allowMultiple: false
+        uuid: b387b1e61eb0fe54a618c740545fcba6
+        required: false
+        target: http://mulesoft.com/modeling/instances/e0dc0b7dc90a48822697e2cb4868eab7
+      declares:
+        allowMultiple: true
+        uuid: 7d0bc4a49c4c7e575ccee61be277b0b4
+        required: false
+        target: http://mulesoft.com/modeling/instances/e0dc0b7dc90a48822697e2cb4868eab7
+    extends: http://mulesoft.com/modeling/instances/6715f463e329baf51c4d6c4b8a67bd32
+  HttpAPIKeySettings:
+    uuid: cd28835246ff9118589117eaa543f691
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 66e5b1610506bbef211bdedbb2ae1ac7
+        required: false
+        range:
+          type: string
+      in:
+        allowMultiple: false
+        uuid: 0240a697489546d988433175150d0998
+        required: false
+        range:
+          type: string
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/051526598612cd5ea620bbf2f2a729c7
+  ExternalSourceElement:
+    uuid: 39cbf94c3f89ce182374c26340371097
+    attributes:
+      raw:
+        allowMultiple: false
+        uuid: 0a9b8d9bba415deec855330960e9bf59
+        required: false
+        range:
+          type: string
+      referenceId:
+        allowMultiple: false
+        uuid: 70aed15f30ac2efd979747829d55f3a1
+        required: false
+        range:
+          type: string
+      location:
+        allowMultiple: false
+        uuid: 284e83454720663346b1819d6f938eb5
+        required: false
+        range:
+          type: string
+    associations: {}

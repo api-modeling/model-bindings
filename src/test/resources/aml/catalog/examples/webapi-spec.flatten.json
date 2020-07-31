@@ -1,0 +1,252 @@
+{
+  "@context": {
+    "schema": "file://catalog/dialects/canonical-webapi-spec.yaml#/declarations/",
+    "anypoint": "http://anypoint.com/vocabs/anypoint#",
+    "catalog": "http://anypoint.com/vocabs/digital-repository#",
+    "data": "http://a.ml/vocabularies/data#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "apiContract": "http://a.ml/vocabularies/apiContract#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "shacl": "http://www.w3.org/ns/shacl#",
+    "core": "http://a.ml/vocabularies/core#",
+    "security": "http://a.ml/vocabularies/security#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "shapes": "http://a.ml/vocabularies/shapes#",
+    "meta": "http://a.ml/vocabularies/meta#",
+    "doc": "http://a.ml/vocabularies/document#",
+    "dependency_1": "https://amf-service.devx.msap.io/e2c426f7-6844-4a29-8435-f74ce0ef5333/g-fragment/1.0.1#",
+    "dependency_0": "https://amf-service.devx.msap.io/e2c426f7-6844-4a29-8435-f74ce0ef5333/g-trait/1.0.0#"
+  },
+  "@graph": [
+    {
+      "@id": "file://collection.raml#",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:ResourceTypeFragment",
+        "apiContract:ResourceTypeFragment"
+      ],
+      "doc:encodes": {
+        "@id": "file://collection.raml#/resourceType"
+      },
+      "doc:dependencies": {
+        "@id": "https://amf-service.devx.msap.io/e2c426f7-6844-4a29-8435-f74ce0ef5333/g-fragment/1.0.1"
+      },
+      "doc:usage": "Use this to describe a resource that lists items",
+      "doc:version": "2.0.0"
+    },
+    {
+      "@id": "file://collection.raml#/resourceType",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:ResourceType",
+        "apiContract:ResourceType"
+      ],
+      "core:name": "resourceType"
+    },
+    {
+      "@id": "./",
+      "@type": [
+        "doc:Unit",
+        "doc:Module",
+        "doc:Fragment",
+        "doc:Document",
+        "meta:DialectInstance"
+      ],
+      "doc:encodes": {
+        "@id": "#/rootAsset"
+      },
+      "doc:dependencies": {
+        "@id": "https://amf-service.devx.msap.io/e2c426f7-6844-4a29-8435-f74ce0ef5333/g-trait/1.0.0"
+      },
+      "anypoint:tenantId": "tenantId",
+      "anypoint:organizationId": "organizationId",
+      "catalog:assetId": "assetId",
+      "catalog:groupId": "groupId",
+      "catalog:semverVersion": "1.0.0",
+      "doc:version": "2.0.0",
+      "meta:definedBy": {
+        "@id": "file://catalog/dialects/canonical-webapi-spec.yaml"
+      }
+    },
+    {
+      "@id": "#/declarations/resourceTypes/collection",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:ResourceType",
+        "apiContract:ResourceType"
+      ],
+      "core:name": "collection",
+      "doc:design-link-target": {
+        "@id": "file://collection.raml#/resourceType"
+      },
+      "doc:link-label": "collection.raml"
+    },
+    {
+      "@id": "#/declarations/traits/id",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:Trait",
+        "apiContract:Trait"
+      ],
+      "core:name": "id",
+      "doc:design-link-target": {
+        "@id": "dependency_0:/trait"
+      },
+      "doc:link-label": "/exchange_modules/e2c426f7-6844-4a29-8435-f74ce0ef5333/g-trait/1.0.0/g-trait.raml"
+    },
+    {
+      "@id": "#/rootAsset",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:Document",
+        "doc:Document"
+      ],
+      "doc:declares": [
+        {
+          "@id": "#/declarations/resourceTypes/collection"
+        },
+        {
+          "@id": "#/declarations/traits/id"
+        }
+      ],
+      "doc:encodes": {
+        "@id": "#/web-api"
+      },
+      "doc:references": {
+        "@id": "file://collection.raml#"
+      },
+      "doc:version": "2.0.0"
+    },
+    {
+      "@id": "#/web-api",
+      "@type": [
+        "doc:DomainElement",
+        "schema:WebAPI",
+        "meta:DialectDomainElement",
+        "apiContract:WebAPI"
+      ],
+      "apiContract:accepts": "application/json",
+      "apiContract:contentType": "application/json",
+      "apiContract:endpoint": [
+        {
+          "@id": "#/web-api/end-points/%2Finvoice"
+        },
+        {
+          "@id": "#/web-api/end-points/%2Fping"
+        }
+      ],
+      "apiContract:scheme": "HTTP",
+      "apiContract:server": {
+        "@id": "#/web-api/petstore.swagger.io%2Fv1"
+      },
+      "core:name": "g-api",
+      "core:version": "1"
+    },
+    {
+      "@id": "#/web-api/end-points/%2Finvoice",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:EndPoint",
+        "apiContract:EndPoint"
+      ],
+      "apiContract:path": "/invoice",
+      "doc:extends": {
+        "@id": "#/web-api/end-points/%2Finvoice/collection"
+      }
+    },
+    {
+      "@id": "#/web-api/end-points/%2Finvoice/collection",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:ParametrizedResourceType",
+        "apiContract:ParametrizedResourceType"
+      ],
+      "core:name": "collection",
+      "doc:target": {
+        "@id": "#/web-api/end-points/%2Finvoice/collection/default-abstract"
+      }
+    },
+    {
+      "@id": "#/web-api/end-points/%2Finvoice/collection/default-abstract",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:ResourceType",
+        "apiContract:ResourceType"
+      ],
+      "doc:design-link-target": {
+        "@id": "#/declarations/resourceTypes/collection"
+      },
+      "doc:link-label": "collection"
+    },
+    {
+      "@id": "#/web-api/end-points/%2Fping",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:EndPoint",
+        "apiContract:EndPoint"
+      ],
+      "apiContract:path": "/ping",
+      "apiContract:supportedOperation": {
+        "@id": "#/web-api/end-points/%2Fping/get"
+      }
+    },
+    {
+      "@id": "#/web-api/end-points/%2Fping/get",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:Operation",
+        "apiContract:Operation"
+      ],
+      "apiContract:method": "get",
+      "doc:extends": {
+        "@id": "#/web-api/end-points/%2Fping/get/id"
+      }
+    },
+    {
+      "@id": "#/web-api/end-points/%2Fping/get/id",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:ParametrizedTrait",
+        "apiContract:ParametrizedTrait"
+      ],
+      "core:name": "id",
+      "doc:target": {
+        "@id": "#/web-api/end-points/%2Fping/get/id/default-abstract"
+      }
+    },
+    {
+      "@id": "#/web-api/end-points/%2Fping/get/id/default-abstract",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:Trait",
+        "apiContract:Trait"
+      ],
+      "doc:design-link-target": {
+        "@id": "#/declarations/traits/id"
+      },
+      "doc:link-label": "id"
+    },
+    {
+      "@id": "#/web-api/petstore.swagger.io%2Fv1",
+      "@type": [
+        "doc:DomainElement",
+        "meta:DialectDomainElement",
+        "schema:Server",
+        "apiContract:Server"
+      ],
+      "core:urlTemplate": "petstore.swagger.io/v1"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+#%View / Container Configuration 0.1
+namespace: asset-minor-versions-view
+coreContainer: asset-minor-versions
+containers:
+
+  assets:
+    indexes:
+      AssetNode:
+        properties:
+          assetId: {}
+          groupId: {}
+          organizationId: {}
+          tenantId: {}
+          name: {}
+          description: {}
+          numberOfRatings: {}
+          averageRating: {}
+      FileNode:
+        properties:
+          packaging: {}
+          mainFile: {}
+          classifier: {}
+          sha1: {}
+
+  asset-major-versions:
+    indexes:
+      MajorVersionNode:
+        properties:
+          majorVersionComponent: {}
+          displayName: {}
+          asset: {}
+
+  asset-minor-versions:
+    indexes:
+      MinorVersionNode:
+        properties:
+          assetId: {}
+          groupId: {}
+          organizationId: {}
+          majorVersionComponent: {}
+          minorVersionComponent: {}
+          majorVersion: {}
+          additionalTechnicalContent: {}
+          numberOfRatings: {}
+          averageRating: {}
+          customerMetadata: {}
+          updatedAt: {}
+          isPublic: {}
+      VersionNode:
+        properties:
+          patchVersionComponent: {}
+          semverVersion: {}
+          preReleaseVersionTag: {}
+          buildVersionTag: {}
+          isMutable: {}
+          createdById: {}
+          createdBy: {}
+          createdAt: {}
+          status: {}
+          systemMetadata: {}
+          generatedFrom: {}
+          metadata: {}
+      FileNode:
+        properties:
+          packaging: {}
+          mainFile: {}
+          classifier: {}
+          sha1: {}
+
+  asset-documentation:
+    indexes:
+      DocumentationNode:
+        properties:
+          title: {}
+          content: {}
+
+  customer-metadata:
+    indexes:
+      CustomerMetadataNode:
+        properties:
+          tags: {}
+          keyValueTags: {}
+          categories: {}
+          fields: {}
+          searchableValues: {}
+
+  system-metadata:
+    indexes:
+      SystemMetadataNode:
+        properties:
+          tags: {}
+          projectId: {}
+          commitId: {}
+          branchId: {}
+          hasOperations: {}
+          hasMessageSources: {}
+          hasConnectionProviders: {}
+          hasConfigurations: {}
+          minMuleVersion: {}
+          featureId: {}
+          fullVersion: {}
+          externalLink: {}
+
+  webapi-spec:
+    indexes:
+      WebAPI:
+        properties:
+          name: {}
+          description: {}
+      AbstractDeclaration:
+        properties:
+          name: {}
+          description: {}
+      Example:
+        properties:
+          name: {}
+          displayName: {}
+          description: {}
+      Shape:
+        properties:
+          name: {}
+          displayName: {}
+          description: {}
+      Server:
+        properties:
+          urlTemplate: {}
+      EndPoint:
+        properties:
+          path: {}
+          name: {}
+          summary: {}
+          description: {}
+      Operation:
+        properties:
+          description: {}
+      Parameter:
+        properties:
+          name: {}
+          description: {}

@@ -1,0 +1,28 @@
+#%Container Configuration 0.1
+
+namespace: assets
+
+pattern:
+  template: $container/{AssetNode.groupId}/{AssetNode.assetId}
+
+indexes:
+  AssetNode:
+    properties:
+      groupId: {}
+      assetId : {}
+
+schema: file://catalog/dialects/asset.yaml
+
+links:
+  AssetNode:
+    properties:
+      majorVersions:
+        target:
+          - container: asset-major-versions
+            node: MajorVersionNode
+      organization:
+        target:
+          - container: anypoint-organizations
+            node: AnypointOrganizationNode
+
+pageSize: 20

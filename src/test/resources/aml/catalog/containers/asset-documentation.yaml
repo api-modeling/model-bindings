@@ -1,0 +1,23 @@
+#%Container Configuration 0.1
+
+namespace: asset-documentation
+
+pattern:
+  template: $container/$uuid
+
+indexes:
+  DocumentationNode:
+    properties:
+      organizationId: {}
+      groupId: {}
+      assetId: {}
+      majorVersionComponent: {}
+      minorVersionComponent: {}
+      content: {}
+      title: {}
+
+schema: file://catalog/dialects/asset.yaml
+
+fragment: Documentation
+
+pageSize: 10

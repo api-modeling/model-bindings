@@ -2,6 +2,7 @@ import * as meta from "@api-modeling/api-modeling-metadata";
 import * as amf from "@api-modeling/amf-client-js";
 import {Md5} from 'ts-md5/dist/md5';
 import {VOCAB} from "./constants";
+import {Entity} from "@api-modeling/api-modeling-metadata";
 
 export class APIContractImporter {
 
@@ -127,7 +128,6 @@ export class APIContractImporter {
                 return parsed;
             }
         }
-        return null;
     }
 
     private parseUnionShape(unionShape: amf.model.domain.UnionShape, entities: meta.Entity[]) {
@@ -136,8 +136,7 @@ export class APIContractImporter {
         const unionMembers = unionShape.anyOf
             .map((shape) => this.parseShape(shape, entities))
             .filter((shape) => shape != null)
-            .map((s) => s!.id())
-        entity.disjoint = unionMembers
+        entity.disjoint = <Entity[]>unionMembers;
         return entity;
     }
 
@@ -169,12 +168,7 @@ export class APIContractImporter {
         // Process extensions using the base shapes in the model
         if (nodeShape.inherits.length !== 0) {
             const extensions = nodeShape.inherits.map((baseShape) => {
-                const extendedFrom = this.parseShape(baseShape, entities);
-                if (extendedFrom != null) {
-                    return extendedFrom!.id()
-                } else {
-                    return null;
-                }
+                return this.parseShape(baseShape, entities);
             }).filter((uuid) => uuid != null);
             if (extensions.length > 1) {
                 // @todo
@@ -417,7 +411,7 @@ export class APIContractImporter {
         }
         const entity = new meta.Entity("")
         entity.uuid = Md5.hashStr(id).toString();
-        return entity.id();
+        return entity;
     }
 
     private uniqueName(parsed: meta.Entity, entities: meta.Entity[]) {

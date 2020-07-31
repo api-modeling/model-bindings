@@ -1,0 +1,122 @@
+#%Dialect 1.0
+
+dialect: Model Bindings
+version: 0.1
+
+uses:
+  core: ../../common/vocabulary/core.yaml
+  bindingsConcepts: ../vocabulary/bindingsVocabulary.yaml
+
+documents:
+  root:
+    encodes: BindingsModel
+
+nodeMappings:
+
+  BindingsModel:
+    classTerm: bindingsConcepts.BindingModel
+    idTemplate: "http://mulesoft.com/modeling/bindings/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      bindings:
+        propertyTerm: bindingsConcepts.binding
+        range: Binding
+        allowMultiple: true
+      declaration:
+        propertyTerm: bindingsConcepts.bindingDeclaration
+        range: link
+      source:
+        propertyTerm: bindingsConcepts.bindingSource
+        range: link
+
+  Binding:
+    classTerm: bindingsConcepts.Binding
+    idTemplate: "http://mulesoft.com/modeling/bindings/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      source:
+        propertyTerm: bindingsConcepts.bindingSource
+        range: link
+      declaration:
+        propertyTerm: bindingsConcepts.bindingDeclarationSource
+        range: link
+        mandatory: true
+      configuration:
+        propertyTerm: bindingsConcepts.bindingConfiguration
+        range: BindingValuesUnion
+        allowMultiple: true
+
+  BindingValuesUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      Scalar: BindingScalarValue
+      Dictionary: BindingDictionaryValue
+      Array: BindingArrayValue
+    union:
+      - BindingScalarValue
+      - BindingArrayValue
+      - BindingDictionaryValue
+
+  BindingScalarValue:
+    classTerm: bindingsConcepts.BindingScalarValue
+    idTemplate: "http://mulesoft.com/modeling/bindings/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      parameter:
+        propertyTerm: bindingsConcepts.parameterSource
+        range: link
+      lexicalValue:
+        propertyTerm: bindingsConcepts.lexicalValue
+        range: string
+
+  BindingArrayValue:
+    classTerm: bindingsConcepts.BindingArrayValue
+    idTemplate: "http://mulesoft.com/modeling/bindings/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      parameter:
+        propertyTerm: bindingsConcepts.parameterSource
+        range: link
+      lexicalValues:
+        propertyTerm: bindingsConcepts.lexicalValue
+        range: string
+        allowMultiple: true
+
+  BindingDictionaryValue:
+    classTerm: bindingsConcepts.BindingDictionaryValue
+    idTemplate: "http://mulesoft.com/modeling/bindings/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      parameter:
+        propertyTerm: bindingsConcepts.parameterSource
+        range: link
+      pairs:
+        range: BindingDictonaryKeyValue
+        allowMultiple: true
+
+  BindingDictonaryKeyValue:
+    classTerm: bindingsConcepts.BindingDictionaryKeyValue
+    idTemplate: "http://mulesoft.com/modeling/bindings/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      key:
+        propertyTerm: bindingsConcepts.parameterSource
+        range: string
+      lexicalValue:
+        propertyTerm: bindingsConcepts.lexicalValue
+        range: string
+          
+    
+
