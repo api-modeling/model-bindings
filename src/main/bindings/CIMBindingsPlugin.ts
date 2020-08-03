@@ -97,7 +97,7 @@ export class CIMBindingsPlugin extends BindingsPlugin {
     }
 
     protected async parseGlobalFile(resource: Resource, store?: n3.N3Store): Promise<n3.N3Store> {
-        return await graph.loadGraph(resource.text, store);
+        return await graph.loadGraph(resource.text ? resource.text : '', store);
     }
 }
 

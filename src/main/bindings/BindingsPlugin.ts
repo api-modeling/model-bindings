@@ -5,7 +5,7 @@ import * as meta from "@api-modeling/api-modeling-metadata";
  */
 export interface Resource {
     url: string
-    text: string
+    text?: string
 }
 
 /**
@@ -20,6 +20,7 @@ export interface ConfigurationParameter {
  * Common interface for all bindings plugins
  */
 export abstract class BindingsPlugin  {
+    constructor(){}
     /**
      * Imports resources into DialectWrappers containing the native model graphs
      * @param configuration

@@ -11343,7 +11343,7 @@
               "description": "Standardized methods for transferring purchased products or services to the destination of fulfillment. Delivery methods are characterized by the means of transportation used, and by the delivering organization or group."
             },
             {
-              "@id": "ProductRelationshipType",
+              "@id": "ProductRelationshipType2",
               "name": "Sales Order Product Relationship Type",
               "@type": "Class",
               "description": "Reasons why products are related such as bundle, option or covering"
@@ -11473,7 +11473,7 @@
               "@id": "parentProductRole",
               "@type": "Property",
               "domain": [
-                "ProductRelationshipType"
+                "ProductRelationshipType2"
               ]
             },
             {
@@ -12308,7 +12308,7 @@
                 "SalesOrderType",
                 "SalesChannel",
                 "SalesOrderProductNote",
-                "ProductRelationshipType",
+                "ProductRelationshipType2",
                 "SalesOrderSegment",
                 "SalesOrderPriceAdjustmentType",
                 "SalesOrderProductReason",
@@ -12446,7 +12446,7 @@
               "@id": "childProductRole",
               "@type": "Property",
               "domain": [
-                "ProductRelationshipType"
+                "ProductRelationshipType2"
               ]
             },
             {
@@ -15188,7 +15188,7 @@
             },
             {
               "@type": "Shape",
-              "@id": "ProductRelationshipType",
+              "@id": "ProductRelationshipType2",
               "properties": [
                 {
                   "path": "childProductRole",
@@ -23523,7 +23523,7 @@
           "@type": "Property",
           "description": "What is the relation between product 1 and 2 e.g. consist of/component of",
           "name": "Product Relationship Type",
-          "range": "ProductRelationshipType"
+          "range": "ProductRelationshipType2"
         },
         {
           "@id": "fromDate",
