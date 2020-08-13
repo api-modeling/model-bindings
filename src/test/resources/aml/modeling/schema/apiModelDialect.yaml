@@ -1,0 +1,171 @@
+#%Dialect 1.0
+
+dialect: ApiModel
+version: 0.1
+
+uses:
+  core: ../../common/vocabulary/core.yaml
+  modeling: ../vocabulary/modelingVocabulary.yaml
+  dataModeling: ./dataModelingLibrary.yaml
+
+documents:
+  root:
+    encodes: ApiModel
+
+
+nodeMappings:
+
+  ApiModel:
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    classTerm: modeling.ApiModel
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      name:
+        propertyTerm: core.name
+        range: string
+      version:
+        propertyTerm: core.version
+        range: string
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        range: string
+      entryPoint:
+        propertyTerm: modeling.entrypoint
+        range: Resource
+      resources:
+        propertyTerm: modeling.resource
+        range: Resource
+        allowMultiple: true
+        mapKey: name
+      entities:
+        propertyTerm: modeling.entities
+        range: dataModeling.Entity
+        allowMultiple: true
+        mapKey: name
+
+
+  Resource:
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      name:
+        propertyTerm: core.name
+        range: string
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        range: string
+      schema:
+        propertyTerm: modeling.schema
+        range: dataModeling.Entity
+      isCollection:
+        propertyTerm: modeling.isCollection
+        range: boolean
+        mandatory: true
+      operations:
+        propertyTerm: modeling.operation
+        allowMultiple: true
+        range: Operation
+
+  Operation:
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    classTerm: modeling.Operation
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      name:
+        propertyTerm: core.name
+        range: string
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        range: string
+      inputs:
+        propertyTerm: modeling.input
+        range: OperationParameter
+        allowMultiple: true
+      output:
+        propertyTerm: modeling.output
+        range: OperationParameter
+      transition:
+        propertyTerm: modeling.transition
+        range: ResourceTransition
+      isMutation:
+        propertyTerm: modeling.isMutation
+        range: boolean
+
+  OperationParameter:
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    classTerm: modeling.OperationParameter
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      name:
+        propertyTerm: core.name
+        range: string
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        range: string
+      scalarRange:
+        propertyTerm: modeling.scalarRange
+        range:
+          - dataModeling.String
+          - dataModeling.Integer
+          - dataModeling.Boolean
+          - dataModeling.Date
+          - dataModeling.DateTime
+          - dataModeling.Time
+          - dataModeling.Float
+        typeDiscriminatorName: type
+        typeDiscriminator:
+          string: dataModeling.String
+          integer: dataModeling.Integer
+          boolean: dataModeling.Boolean
+          date: dataModeling.Date
+          dateTime: dataModeling.DateTime
+          time: dataModeling.Time
+          float: dataModeling.Float
+      objectRange:
+        propertyTerm: modeling.objectRange
+        range: link # link to one data model Entity
+      allowMultiple:
+        propertyTerm: modeling.allowMultiple
+        range: boolean
+      required:
+        propertyTerm: modeling.required
+        range: boolean
+
+  ResourceTransition:
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      name:
+        propertyTerm: core.name
+        range: string
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        range: string
+      target:
+        propertyTerm: modeling.transitionTarget
+        range: link # target resource in the model

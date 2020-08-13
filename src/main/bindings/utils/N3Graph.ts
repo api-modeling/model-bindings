@@ -1,6 +1,6 @@
 import * as n3 from "n3";
 import {JsonLdParser} from "jsonld-streaming-parser";
-import {N3Store} from "n3";
+import {Store} from "n3";
 
 export const $rdf = n3.DataFactory;
 // @ts-ignore
@@ -39,12 +39,12 @@ $rdf.graph = function() {
     return store;
 };
 
-export function store(): n3.N3Store {
+export function store(): n3.Store {
     // @ts-ignore
     return $rdf.graph();
 }
 
-export function loadGraph(str: string, existingStore?: n3.N3Store): Promise<n3.N3Store> {
+export function loadGraph(str: string, existingStore?: n3.Store): Promise<n3.Store> {
    return new Promise((resolve, reject) => {
         // @ts-ignore
         const store: n3.N3Store = existingStore || $rdf.graph();
@@ -71,7 +71,7 @@ export function loadGraph(str: string, existingStore?: n3.N3Store): Promise<n3.N
  * @param subject
  * @param path
  */
-export function findPath(store: n3.N3Store, subject: n3.Quad_Object, path: n3.Quad_Object[]): n3.Quad_Object|null {
+export function findPath(store: n3.Store, subject: n3.Quad_Object, path: n3.Quad_Object[]): n3.Quad_Object|null {
     const next = path.shift()!;
     const nextSubject = store.getObjects(subject, next, null)[0];
     if (nextSubject) {

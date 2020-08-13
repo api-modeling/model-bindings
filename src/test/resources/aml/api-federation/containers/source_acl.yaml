@@ -1,0 +1,20 @@
+#%Container Auth 0.1
+
+namespace: api-query
+resource:
+  template: /organizations/{org}/environments/{envId}/sources
+indexes:
+  Source:
+    properties:
+      organizationId:
+        alias: org
+      environmentId:
+        alias: envId
+
+modes:
+  Read:
+    action: GET
+  Write:
+    action: PUT
+  Delete:
+    action: DELETE

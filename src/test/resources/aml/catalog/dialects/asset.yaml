@@ -1,0 +1,614 @@
+#%Dialect 1.0
+
+dialect: Asset
+version: 1.0
+
+uses:
+  digital-repo: file://vocabulary/digital-repository.yaml
+  core: file://vocabulary/core.yaml
+  anypoint: file://vocabulary/anypoint.yaml
+
+nodeMappings:
+
+  AssetNode:
+    classTerm: digital-repo.Asset
+    mapping:
+      tenantId:
+        propertyTerm: anypoint.tenantId
+        range: string
+        mandatory: true
+        # immutable
+      organizationId:
+        propertyTerm: anypoint.organizationId
+        range: string
+        mandatory: true
+        # immutable
+      groupId:
+        propertyTerm: digital-repo.groupId
+        range: string
+        mandatory: true
+        unique: true
+        # immutable
+      assetId:
+        propertyTerm: digital-repo.assetId
+        range: string
+        mandatory: true
+        unique: true
+        # immutable
+      organization:
+        propertyTerm: anypoint.organization
+        range: anyUri # AnypointOrganizationNode
+        # immutable
+      name:
+        propertyTerm: core.name
+        range: string
+        mandatory: true
+        # mutable
+      description:
+        propertyTerm: core.description
+        range: string
+        mandatory: false
+        # mutable
+      icon:
+        propertyTerm: digital-repo.file
+        range: FileNode
+        # mutable
+      averageRating:
+        propertyTerm: anypoint.averageRating
+        range: float
+        # mutable
+      numberOfRatings:
+        propertyTerm: anypoint.numberOfRatings
+        range: integer
+        # mutable
+      majorVersions:
+        propertyTerm: digital-repo.majorVersion
+        range: link # MajorVersionNode
+        allowMultiple: true
+        # mutable
+
+  APIGroupAssetNode:
+    classTerm: digital-repo.APIGroupAsset
+    extends: AssetNode
+
+  WebAPISpecAssetNode:
+    classTerm: digital-repo.WebAPISpecAsset
+    extends: AssetNode
+
+  WebAPISpecFragmentAssetNode:
+    classTerm: digital-repo.WebAPISpecFragmentAsset
+    extends: AssetNode
+
+  MuleAppAssetNode:
+    classTerm: digital-repo.MuleAppAsset
+    extends: AssetNode
+
+  MuleConnectorAssetNode:
+    classTerm: digital-repo.MuleConnectorAsset
+    extends: AssetNode
+
+  MuleTemplateAssetNode:
+    classTerm: digital-repo.MuleTemplateAsset
+    extends: AssetNode
+
+  MuleExampleAssetNode:
+    classTerm: digital-repo.MuleExampleAsset
+    extends: AssetNode
+
+  MulePolicyAssetNode:
+    classTerm: digital-repo.MulePolicyAsset
+    extends: AssetNode
+
+  SOAPSpecAssetNode:
+    classTerm: digital-repo.SOAPSpecAsset
+    extends: AssetNode
+
+  ExternalLibraryAssetNode:
+    classTerm: digital-repo.ExternalLibraryAsset
+    extends: AssetNode
+
+  UnknownSpecAPIAssetNode:
+    classTerm: digital-repo.UnknownSpecAPIAsset
+    extends: AssetNode
+
+  CustomAssetNode:
+    classTerm: digital-repo.CustomAsset
+    extends: AssetNode
+
+  AssetUnionNode:
+    union:
+      - APIGroupAssetNode
+      - WebAPISpecAssetNode
+      - WebAPISpecFragmentAssetNode
+      - MuleAppAssetNode
+      - MuleConnectorAssetNode
+      - MuleTemplateAssetNode
+      - MuleExampleAssetNode
+      - MulePolicyAssetNode
+      - SOAPSpecAssetNode
+      - UnknownSpecAPIAssetNode
+      - CustomAssetNode
+      - ExternalLibraryAssetNode
+    typeDiscriminator:
+      APIGroup: APIGroupAssetNode
+      WebAPISpec: WebAPISpecAssetNode
+      WebAPISpecFragment: WebAPISpecFragmentAssetNode
+      MuleApp: MuleAppAssetNode
+      MuleConnector: MuleConnectorAssetNode
+      MuleTemplate: MuleTemplateAssetNode
+      MuleExample: MuleExampleAssetNode
+      MulePolicy: MulePolicyAssetNode
+      SOAPSpec: SOAPSpecAssetNode
+      UnknownAPI: UnknownSpecAPIAssetNode
+      Custom: CustomAssetNode
+      ExternalLibrary: ExternalLibraryAssetNode
+    typeDiscriminatorName: assetType
+
+  MajorVersionNode:
+    classTerm: digital-repo.MajorVersion
+    mapping:
+      tenantId:
+        propertyTerm: anypoint.tenantId
+        range: string
+        mandatory: true
+        # immutable
+      organizationId:
+        propertyTerm: anypoint.organizationId
+        range: string
+        mandatory: true
+        # immutable
+      groupId:
+        propertyTerm: digital-repo.groupId
+        range: string
+        mandatory: true
+        # immutable
+      assetId:
+        propertyTerm: digital-repo.assetId
+        range: string
+        mandatory: true
+        # immutable
+      asset:
+        propertyTerm: digital-repo.asset
+        range: link
+        mandatory: true
+        # immutable
+      majorVersionComponent:
+        propertyTerm: digital-repo.majorVersionComponent
+        range: integer
+        mandatory: true
+        unique: true
+        # immutable
+      displayName:
+        propertyTerm: core.name
+        range: string
+        mandatory: true
+        # immutable
+      minorVersions:
+        propertyTerm: digital-repo.minorVersion
+        range: link # MinorVersionNode
+        allowMultiple: true
+        # mutable
+
+  MinorVersionNode:
+    classTerm: digital-repo.MinorVersion
+    mapping:
+      tenantId:
+        propertyTerm: anypoint.tenantId
+        range: string
+        mandatory: true
+        # immutable
+      organizationId:
+        propertyTerm: anypoint.organizationId
+        range: string
+        mandatory: true
+        # immutable
+      groupId:
+        propertyTerm: digital-repo.groupId
+        range: string
+        mandatory: true
+        # immutable
+      assetId:
+        propertyTerm: digital-repo.assetId
+        range: string
+        mandatory: true
+        # immutable
+      majorVersionComponent:
+        propertyTerm: digital-repo.majorVersionComponent
+        range: integer
+        mandatory: true
+        unique: true
+        # immutable
+      minorVersionComponent:
+        propertyTerm: digital-repo.minorVersionComponent
+        range: integer
+        mandatory: true
+        unique: true
+        # immutable
+      majorVersion:
+        propertyTerm: digital-repo.majorVersion
+        range: link # MajorVersionNode
+        mandatory: true
+        # immutable
+      additionalTechnicalContent:
+        propertyTerm: core.documentation
+        range: link # DocumentationNode
+        allowMultiple: true
+        # mutable
+      customerMetadata:
+        propertyTerm: digital-repo.customerMetadata
+        range: link # CustomerMetadataNode
+        # immutable
+      versions:
+        propertyTerm: digital-repo.version
+        range: VersionNode
+        allowMultiple: true
+        # mutable
+      averageRating:
+        propertyTerm: anypoint.averageRating
+        range: float
+        # mutable
+      numberOfRatings:
+        propertyTerm: anypoint.numberOfRatings
+        range: integer
+        # mutable
+      updatedAt:
+        propertyTerm: core.dateModified
+        range: dateTime
+        # mutable
+      isPublic:
+        propertyTerm: digital-repo.isPublic
+        range: boolean
+        # mutable
+
+  VersionNode:
+    classTerm: digital-repo.Version
+    mapping:
+      semverVersion:
+        propertyTerm: digital-repo.semverVersion
+        range: string
+        mandatory: true
+        unique: true
+        # inmutable
+      patchVersionComponent:
+        propertyTerm: digital-repo.patchVersionComponent
+        range: integer
+        mandatory: true
+        # immutable
+      preReleaseVersionTag:
+        propertyTerm: digital-repo.preReleaseVersionTag
+        range: string
+        # immutable
+      buildVersionTag:
+        propertyTerm: digital-repo.buildVersionTag
+        range: string
+        # immutable
+      isMutable:
+        # Changing from isSnapshot to isMutable
+        propertyTerm: digital-repo.isMutable
+        range: boolean
+        mandatory: true
+        # immutable
+      files:
+        propertyTerm: digital-repo.file
+        range: FileNode
+        allowMultiple: true
+        # immutable -> implementation of snapshots make this mutable (and icons)
+      dependencies:
+        propertyTerm: digital-repo.dependency
+        range: link
+        allowMultiple: true
+        # immutable -> implementation of snapshots make this mutable
+      status:
+        propertyTerm: digital-repo.status
+        range: string
+        mandatory: true
+        # mutable
+      createdById:
+        propertyTerm: anypoint.userId
+        range: string # Anypoint userId
+        mandatory: true
+        # immutable
+      createdBy:
+        propertyTerm: core.creator
+        range: anyUri # to an Anypoint user
+        # immutable
+      createdAt:
+        propertyTerm: core.dateCreated
+        range: dateTime
+        mandatory: true
+        # immutable
+      metadata:
+        propertyTerm: anypoint.metadata
+        range: link
+      systemMetadata:
+        propertyTerm: digital-repo.systemMetadata
+        range: link # SystemMetadataNode
+        # immutable
+      generatedFrom:
+        propertyTerm: digital-repo.generatedFrom
+        range: anyUri
+        # immutable
+
+  FileNode:
+    classTerm: digital-repo.File
+    mapping:
+      classifier:
+        propertyTerm: digital-repo.classifier
+        range: string
+        enum:
+          - raml
+          - oas
+          - fat-raml
+          - mule-plugin
+          - studio-plugin
+          - mule-application
+          - mule-application-example
+          - mule-application-template
+          - mule-policy
+          - raml-fragment
+          - old
+          - external-library
+          - wsdl
+          - http
+          - custom
+          - "null"
+          - icon
+        mandatory: true
+        # immutable
+      packaging:
+        propertyTerm: digital-repo.packaging
+        range: string
+        mandatory: true
+        # immutable
+      mainFile:
+        propertyTerm: digital-repo.mainFile
+        range: uri
+        # immutable
+      sha1:
+        propertyTerm: digital-repo.sha1
+        range: string
+        # immutable
+      md5:
+        propertyTerm: digital-repo.md5
+        range: string
+        # immutable
+      size:
+        propertyTerm: core.fileSize
+        range: integer
+        # immutable
+      generatedFrom:
+        propertyTerm: digital-repo.generatedFrom
+        range: anyUri
+        # immutable
+      createdAt:
+        propertyTerm: core.dateCreated
+        range: dateTime
+        mandatory: true
+        # immutable
+
+  DocumentationNode:
+    classTerm: core.TechArticle
+    mapping:
+      tenantId:
+        propertyTerm: anypoint.tenantId
+        range: string
+        mandatory: true
+        # immutable
+      organizationId:
+        propertyTerm: anypoint.organizationId
+        range: string
+        mandatory: true
+        # immutable
+      groupId:
+        propertyTerm: digital-repo.groupId
+        range: string
+        mandatory: true
+        # immutable
+      assetId:
+        propertyTerm: digital-repo.assetId
+        range: string
+        mandatory: true
+        # immutable
+      majorVersionComponent:
+        propertyTerm: digital-repo.majorVersionComponent
+        range: integer
+        mandatory: true
+        unique: true
+        # immutable
+      minorVersionComponent:
+        propertyTerm: digital-repo.minorVersionComponent
+        range: integer
+        mandatory: true
+        unique: true
+        # immutable
+      title:
+        propertyTerm: core.title
+        range: string
+        mandatory: true
+        unique: true
+        # mutable
+      content:
+        propertyTerm: core.articleBody
+        range: string
+        mandatory: true
+        # mutable
+
+  CustomerMetadataNode:
+    classTerm: digital-repo.CustomerMetadata
+    mapping:
+      tenantId:
+        propertyTerm: anypoint.tenantId
+        range: string
+        mandatory: true
+        # immutable
+      organizationId:
+        propertyTerm: anypoint.organizationId
+        range: string
+        mandatory: true
+        # immutable
+      groupId:
+        propertyTerm: digital-repo.groupId
+        range: string
+        mandatory: true
+        unique: true
+        # immutable
+      assetId:
+        propertyTerm: digital-repo.assetId
+        range: string
+        mandatory: true
+        unique: true
+        # immutable
+      majorVersionComponent:
+        propertyTerm: digital-repo.majorVersionComponent
+        range: integer
+        mandatory: true
+        unique: true
+        # immutable
+      minorVersionComponent:
+        propertyTerm: digital-repo.minorVersionComponent
+        range: integer
+        mandatory: true
+        unique: true
+        # immutable
+      tags:
+        propertyTerm: digital-repo.tags
+        range: string
+        allowMultiple: true
+      keyValueTags:
+        propertyTerm: digital-repo.keyValueTags
+        range: string
+        allowMultiple: true
+      categories:
+        propertyTerm: digital-repo.categories
+        range: string
+        allowMultiple: true
+      fields:
+        propertyTerm: digital-repo.customFields
+        range: string
+        allowMultiple: true
+      searchableValues:
+        propertyTerm: digital-repo.searchableValues
+        range: string
+        allowMultiple: true
+
+  SystemMetadataNode:
+    classTerm: digital-repo.SystemMetadata
+    mapping:
+      tenantId:
+        propertyTerm: anypoint.tenantId
+        range: string
+        mandatory: true
+        # immutable
+      organizationId:
+        propertyTerm: anypoint.organizationId
+        range: string
+        mandatory: true
+        # immutable
+      groupId:
+        propertyTerm: digital-repo.groupId
+        range: string
+        mandatory: true
+        unique: true
+        # immutable
+      assetId:
+        propertyTerm: digital-repo.assetId
+        range: string
+        mandatory: true
+        unique: true
+        # immutable
+      semverVersion:
+        propertyTerm: digital-repo.semverVersion
+        range: string
+        mandatory: true
+        unique: true
+        # inmutable
+      projectId:
+        propertyTerm: anypoint.projectId
+        range: string
+      commitId:
+        propertyTerm: anypoint.commitId
+        range: string
+      branchId:
+        propertyTerm: anypoint.branchId
+        range: string
+      hasOperations:
+        propertyTerm: anypoint.hasOperations
+        range: string
+      hasMessageSources:
+        propertyTerm: anypoint.hasMessageSources
+        range: string
+      hasConnectionProviders:
+        propertyTerm: anypoint.hasConnectionProviders
+        range: string
+      hasConfigurations:
+        propertyTerm: anypoint.hasConfigurations
+        range: string
+      minMuleVersion:
+        propertyTerm: anypoint.minMuleVersion
+        range: string
+      featureId:
+        propertyTerm: anypoint.featureId
+        range: string
+      fullVersion:
+        propertyTerm: anypoint.fullVersion
+        range: string
+      externalLink:
+        propertyTerm: digital-repo.externalLink
+        range: string
+      tags:
+        propertyTerm: digital-repo.tags
+        range: string
+        allowMultiple: true
+
+  PublicMinorVersionNode:
+    classTerm: digital-repo.PublicMinorVersion
+    mapping:
+      tenantId:
+        propertyTerm: anypoint.tenantId
+        range: string
+        mandatory: true
+        # immutable
+      organizationId:
+        propertyTerm: anypoint.organizationId
+        range: string
+        mandatory: true
+        # immutable
+      groupId:
+        propertyTerm: digital-repo.groupId
+        range: string
+        mandatory: true
+        # immutable
+      assetId:
+        propertyTerm: digital-repo.assetId
+        range: string
+        mandatory: true
+        # immutable
+      majorVersionComponent:
+        propertyTerm: digital-repo.majorVersionComponent
+        range: integer
+        mandatory: true
+        unique: true
+        # immutable
+      minorVersionComponent:
+        propertyTerm: digital-repo.minorVersionComponent
+        range: integer
+        mandatory: true
+        unique: true
+        # immutable
+      publicMinorVersion:
+        propertyTerm: digital-repo.minorVersion
+        range: link # MinorVersionNode
+        mandatory: true
+        # immutable
+
+documents:
+  root:
+    encodes: AssetUnionNode
+  fragments:
+    encodes:
+      Documentation: DocumentationNode
+      Major: MajorVersionNode
+      Minor: MinorVersionNode
+      Public: PublicMinorVersionNode
+      CustomerMetadata: CustomerMetadataNode
+      SystemMetadata: SystemMetadataNode

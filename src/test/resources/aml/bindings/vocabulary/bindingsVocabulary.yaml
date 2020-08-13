@@ -1,0 +1,211 @@
+#%Vocabulary 1.0
+
+base: http://a.ml/vocabularies/bindings#
+
+uses:
+  mod: ../../modularity/vocabulary/modularVocab.yaml
+
+external:
+  rdfs: https://www.w3.org/2000/01/rdf-schema
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+classTerms:
+
+  BindingProfile:
+    displayName: Binding Profile
+    description: |
+      Set of Binding Decclarations that map transformations from the
+      data model to a particular format
+    properties:
+      - moduleBindingDeclaration
+      - entityBindingDeclaration
+      - attributeBindingDeclaration
+      - associationBindingDeclaration
+
+  BindingDeclaration:
+    displayName: Binding Declaration
+    description: |
+      Base concept for all declarations of binding transformations.
+      Bindings are basically mappings from nodes in the model to nodes
+      in the graph describing the target format of the binding.
+
+  ModuleBindingDeclaration:
+    displayName: Module Binding Declaration
+    description: |
+      Binding declaration that must be applied specifically to Modules
+
+  DataModelBindingDeclaration:
+    displayName: DataModel Binding Declaration
+    description: |
+      Binding declaration that must be applied specifically a full DataModel
+
+  EntityBindingDeclaration:
+    displayName: Entity Binding Declaration
+    description: |
+      Binding declaration that must be applied specifically to Entities
+
+  AttributeBindingDeclaration:
+    displayName: Module Binding Declaration
+    description: |
+      Binding declaration that must be applied specifically to Attributes
+
+  AssociationBindingDeclaration:
+    displayName: Entity Binding Declaration
+    description: |
+      Binding declaration that must be applied specifically to Associations
+
+  BindingParameter:
+    displayName: Binding Parameter
+    description: |
+      Parameter associated to a BindingDeclaration that can be used
+      to configure the binding
+
+  BindingScalarParameter:
+    extends: BindingParameter
+
+  BindingConfigurationParameter:
+    extends: BindingScalarParameter
+
+  BindingArrayParameter:
+    extends: BindingParameter
+
+  BindingDictionaryParameter:
+    extends: BindingParameter
+
+  BindingModel:
+    displayName: Binding Model
+    description: Layer of bindings enriching a data model
+
+  Binding:
+    displayName: Binding
+    description: |
+      A binding for a data model element. It links a node in the model to a
+      BindingDeclaration in a Binding Profile. It can be seen as the application
+      of a function that transforms the data model element into a node in the
+      graph describing the profile format.
+
+  BindingValue:
+    displayName: Binding Value
+    description: Value for the parameters of a binding
+
+  BindingScalarValue:
+    extends: BindingValue
+
+  BindingArrayValue:
+    extends: BindingValue
+
+  BindingDictionaryValue:
+    extends: BindingValue
+
+  BindingDictionaryKeyValue:
+    displayName: Binding Dictionary Key Value
+    description: Pair key-value that is part of a BindingDictionaryValue
+
+propertyTerms:
+
+  importParameters:
+    description: options to control how to import a model from an external format
+    range: BindingScalarParameter
+
+  exportParameters:
+    description: options to control how to export a model to an external format
+    range: BindingScalarParameter
+
+  profile:
+    description: profile a binding declaration belongs to
+    range: string
+
+  canBeGlobal:
+    displayName: can be global
+    description: |
+      Property indicating that this binding can be applied to all
+      the target nodes in the model
+    range: boolean
+
+  profileNamespace:
+    displayName: profile namespace
+    description: URI prefix for all the bindings in a profile
+    range: string
+
+  bindingDeclaration:
+    displayName: binding declaration
+    description: Binding declaration associated to a profile
+
+  moduleBindingDeclaration:
+    displayName: module binding
+    description: ModuleBindingDeclaration associated to a profile
+    extends: bindingDeclaration
+    range: ModuleBindingDeclaration
+
+  dataModelBindingDeclaration:
+    displayName: dataModel binding
+    description: DataModelBindingDeclaration associated to a profile
+    extends: bindingDeclaration
+    range: DataModelBindingDeclaration
+
+  entityBindingDeclaration:
+    displayName: entity binding
+    description: EntityBindingDeclaration associated to a profile
+    extends: bindingDeclaration
+    range: EntityBindingDeclaration
+
+  attributeBindingDeclaration:
+    displayName: attribute binding
+    description: AttributeBindingDeclaration associated to a profile
+    extends: bindingDeclaration
+    range: AttributeBindingDeclaration
+
+  associationBindingDeclaration:
+    displayName: association binding
+    description: AssociationBindingDeclaration associated to a profile
+    extends: bindingDeclaration
+    range: AssociationBindingDeclaration
+
+  label:
+    displayName: label
+    description: Human readable name of a mapping
+    range: string
+
+  binding:
+    displayName: binding
+    description: |
+      An actual binding association between a node in the data model
+      and a declared binding
+    range: Binding
+
+  bindingSource:
+    displayName: binding source
+    description: link to the element in the data model being bound
+    range: any
+
+  bindingDeclarationSource:
+    displayName: binding declaration source
+    description: |
+      link to the binding declaration defining the type of binding
+      applied to an element in the data model
+    range: any
+
+  bindingConfiguration:
+    displayName: binding configuration
+    description: |
+      list of values configured for the application of a particular
+      binding declaration over a data model element
+
+  requiredConfiguration:
+    displayName: required configuration
+    description: Marks a configuration parameter as mandatory
+    range: boolean
+
+  parameterSource:
+    displayName: parameter source
+    description: link to the parameter declaration for a binding value
+    range: any
+
+  lexicalValue:
+    displayName: parameter lexical value
+    description: lexical string encoded serialization of the value for a binding
+    range: string
+
+  bindingParameterEnumConstraint:
+    displayName: enum constraint for the values of a binding parameter
+    range: string

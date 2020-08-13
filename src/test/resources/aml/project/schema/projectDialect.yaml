@@ -1,0 +1,35 @@
+#%Dialect 1.0
+
+dialect: Project
+version: 0.1
+
+uses:
+  # mod: ../../modularity/vocabulary/modularVocab.yaml
+  proj: ../vocabulary/projectVocabulary.yaml
+  core: ../../common/vocabulary/core.yaml
+
+documents:
+  root:
+    encodes:  Project
+
+nodeMappings:
+  Project:
+    classTerm: proj.Project
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    mapping:
+      uuid:
+        range: string
+        mandatory: true
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        range: string
+      owner:
+        propertyTerm: proj.owner
+        range: string
+      modules:
+        propertyTerm: proj.modules
+        range: string
+        allowMultiple: true

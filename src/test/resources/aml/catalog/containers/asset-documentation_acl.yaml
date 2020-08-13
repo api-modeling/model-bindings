@@ -1,0 +1,24 @@
+#%Container Auth 0.1
+
+namespace: exchange
+
+resource:
+  template: /organizations/{org}/assets/{assetGroupId}/{assetId}
+
+indexes:
+  DocumentationNode:
+    properties:
+      organizationId:
+        alias: org
+      groupId:
+        alias: assetGroupId
+      assetId:
+        alias: assetId
+
+modes:
+  Read:
+    action: GET
+  Write:
+    action: PUT
+  Delete:
+    action: DELETE

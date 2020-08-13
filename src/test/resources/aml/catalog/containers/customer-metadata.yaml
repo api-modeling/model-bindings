@@ -1,0 +1,20 @@
+#%Container Configuration 0.1
+
+namespace: customer-metadata
+
+pattern:
+  template: $container/{CustomerMetadataNode.groupId}/{CustomerMetadataNode.assetId}/{CustomerMetadataNode.majorVersionComponent}/{CustomerMetadataNode.minorVersionComponent}
+
+indexes:
+  CustomerMetadataNode:
+    properties:
+      groupId: {}
+      assetId: {}
+      majorVersionComponent: {}
+      minorVersionComponent: {}
+
+schema: file://catalog/dialects/asset.yaml
+
+fragment: CustomerMetadata
+
+pageSize: 10

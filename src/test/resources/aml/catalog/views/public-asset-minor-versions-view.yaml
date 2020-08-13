@@ -1,0 +1,105 @@
+#%View / Container Configuration 0.1
+namespace: public-asset-minor-versions-view
+coreContainer: public-asset-minor-versions
+containers:
+  assets:
+    indexes:
+      AssetNode:
+        properties:
+          assetId: {}
+          groupId: {}
+          organizationId: {}
+          tenantId: {}
+          name: {}
+          description: {}
+          numberOfRatings: {}
+          averageRating: {}
+      FileNode:
+        properties:
+          packaging: {}
+          mainFile: {}
+          classifier: {}
+          sha1: {}
+  asset-major-versions:
+    indexes:
+      MajorVersionNode:
+        properties:
+          majorVersionComponent: {}
+          displayName: {}
+          asset: {}
+
+  public-asset-minor-versions:
+    indexes:
+      PublicMinorVersionNode:
+        properties:
+          publicMinorVersion: {}
+
+  asset-minor-versions:
+    indexes:
+      MinorVersionNode:
+        properties:
+          assetId: {}
+          groupId: {}
+          organizationId: {}
+          majorVersionComponent: {}
+          minorVersionComponent: {}
+          majorVersion: {}
+          additionalTechnicalContent: {}
+          numberOfRatings: {}
+          averageRating: {}
+          customerMetadata: {}
+          updatedAt: {}
+          isPublic: {}
+      VersionNode:
+        properties:
+          patchVersionComponent: {}
+          semverVersion: {}
+          preReleaseVersionTag: {}
+          buildVersionTag: {}
+          isMutable: {}
+          createdById: {}
+          createdBy: {}
+          createdAt: {}
+          status: {}
+          systemMetadata: {}
+          generatedFrom: {}
+      FileNode:
+        properties:
+          packaging: {}
+          mainFile: {}
+          classifier: {}
+          sha1: {}
+
+  asset-documentation:
+    indexes:
+      DocumentationNode:
+        properties:
+          title: {}
+          content: {}
+
+  customer-metadata:
+    indexes:
+      CustomerMetadataNode:
+        properties:
+          tags: {}
+          keyValueTags: {}
+          categories: {}
+          fields: {}
+          searchableValues: {}
+
+  system-metadata:
+    indexes:
+      SystemMetadataNode:
+        properties:
+          tags: {}
+          projectId: {}
+          commitId: {}
+          branchId: {}
+          hasOperations: {}
+          hasMessageSources: {}
+          hasConnectionProviders: {}
+          hasConfigurations: {}
+          minMuleVersion: {}
+          featureId: {}
+          fullVersion: {}
+          externalLink: {}

@@ -1,0 +1,52 @@
+#%Bindings Profile 0.1
+
+name: cim
+version: 0.1.0
+
+exportParameters:
+  - name: outputFile
+    dataType: string
+    required: true
+  - name: cimVersion
+    dataType: string
+    required: true
+
+moduleBindings:
+
+  - name: SubjectAreaBinding
+    label: Subject Area Module
+    profile: cim
+    description: Marks a module as a CIM subject Area
+    canBeGlobal: false
+
+dataModelBindings:
+
+  - name: EntityGroupBinding
+    label: Entity Group Module
+    profile: cim
+    description: Marks a data mdoel as a cim Entity Group
+    canBeGlobal: false
+
+attributeBindings:
+
+  - name: CustomScalarBinding
+    label: Custom Scalar
+    profile: cim
+    description: Selects an optional CIM custom scalar for an entity attribute
+    canBeGlobal: false
+    parameters:
+      - name: Custom CIM scalar type
+        description: type of custom scalar to use
+        uuid: cim-bindings-custom-scalar-type-param
+        type: Scalar
+        range: string
+        enum:
+          - Phone
+          - Number
+          - Latitude
+          - Longitude
+          - Percentage
+          - Amount
+          - URL
+          - Html
+          - Email

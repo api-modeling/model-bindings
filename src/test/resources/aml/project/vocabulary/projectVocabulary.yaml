@@ -1,0 +1,28 @@
+#%Vocabulary 1.0
+
+base: http://a.ml/vocabularies/project#
+
+uses:
+  core: ../../common/vocabulary/core.yaml
+  mod: ../../modularity/vocabulary/modularVocab.yaml
+  cont: ../../containers/vocabulary/containersVocabulary.yaml
+
+classTerms:
+
+  Project:
+    extends: cont.Container
+    properties:
+    - owner
+    - modules
+    - bindings
+
+propertyTerms:
+  uuid:
+    range: string
+  owner:
+    range: string
+  modules:
+    extends:
+    - cont.containing
+    - cont.objectDestructive
+    range: mod.Module

@@ -1,0 +1,234 @@
+#%Vocabulary 1.0
+
+base: http://a.ml/vocabularies/data-model#
+
+uses:
+# mod: ../../modularity/vocabulary/modularVocab.yaml
+  cont: ../../containers/vocabulary/containersVocabulary.yaml
+
+external:
+  rdfs: https://www.w3.org/2000/01/rdf-schema
+  xsd: http://www.w3.org/2001/XMLSchema#
+  core: ../../common/vocabulary/core.yaml
+
+#? do we need multiple containment/scoping properties
+# names must be unambiguous in their scope
+
+# All objects have the following - can be moved to modularity or above (are these rdfs standard?)
+
+# entities, a` la CIM
+# no particular additional items
+# does this extend rdfs:Class - or is it an rdfs:Class, with cim:Entity extending?
+
+classTerms:
+
+  Thing:
+    #extends: rdfs:Class
+    properties:
+    - extends
+    - core.name # rdfs:label
+    - core.description # rdfs:comment
+
+  Datatype:
+    extends: Thing
+
+  Entity:
+    extends:
+    - Thing
+    - cont.Container
+    properties:
+    - attributes # - separated in CIM model - literals
+    - associations # - pointers to other Entities
+
+  # particular datatypes extend datatype
+  String:
+    extends: Datatype
+  Integer:
+    extends: Datatype
+  Boolean:
+    extends: Datatype
+  Date:
+    extends: Datatype
+  DateTime:
+    extends: Datatype
+  Time:
+    extends: Datatype
+  Float:
+    extends: Datatype
+
+  Property:
+    properties:
+    - domain
+    - required
+    - allowMultiple
+    - inverseOf
+
+  # attributeProperty
+  AttributeProperty:
+    extends: Property
+    properties:
+    - range
+    - isKey
+
+  # is a property type from entities to datatypes
+  # and particular attribute has type Attribute
+  # module can be the (single) domain
+
+  AssociationProperty:
+    extends: Property
+    properties:
+    - target
+    - isComposition
+
+  DataModel:
+    extends: cont.Container
+    properties:
+    - entities
+    - attributes
+    - associations
+
+  ApiModel:
+    extends: cont.Container
+    properties:
+      - entrypoint
+      - entities
+  Resource:
+    extends:
+      - Thing
+    properties:
+      - schema
+      - isCollection
+      - operation
+
+  Operation:
+    extends:
+      - Thing
+    properties:
+      - input
+      - output
+      - transition
+      - isMutation
+
+  OperationParameter:
+    extends:
+      - Thing
+    properties:
+      - scalarRange
+      - objectRange
+      - allowMultiple
+      - required
+
+  ResourceTransition:
+    extends:
+      - Thing
+    properties:
+      - transitionTarget
+
+#annotation extends concept (like datatype)
+propertyTerms:
+  attribute:
+    range: AttributeProperty
+  association:
+    range: AssociationProperty
+  domain:
+    extends: rdfs.domain
+    range: Entity
+  required:
+    range: boolean
+  allowMultiple:
+    range: boolean
+  range:
+    range: Datatype
+  target:
+    range: Entity
+  entities:
+    extends:
+    - cont.containing
+    - cont.objectDestructive
+    range: Entity
+  attributes:
+    extends:
+    - cont.containing
+    - cont.objectDestructive
+    range: AttributeProperty
+  associations:
+    extends:
+    - cont.containing
+    - cont.objectDestructive
+    range: AssociationProperty
+  inverseOf:
+    range: AssociationProperty
+  extends:
+    range: Entity
+  disjoint:
+    displayName: disjoint
+    description: tagged union of types defining this entity
+    range: Entity
+  isComposition:
+    displayName: is key?
+    description: |
+      Marks the association as a composition relationship where the identity
+      of the data aggregate is the one of the composite entity that has
+      ownership over the components and their lifecycle
+    range: boolean
+  isKey:
+    displayName: is key?
+    range: boolean
+    description: Marks an attribute as being part of th key for the entity
+  entrypoint:
+    displayName: entrypoint
+    range: Resource
+    description: Entrypoint for an API model
+  resource:
+    displayName: resource
+    range: Resource
+    description: Non-entrypoint resource accessible through an API model
+  schema:
+    displayName: schema
+    range: Entity
+    description: entity describing the data schema for the resource representation
+  isCollection:
+    displayName: is collection?
+    description: Marks a resources as a collection resource
+    range: boolean
+  operation:
+    displayName: operation
+    description: One affordance over a resource API
+    range: Operation
+  input:
+    displayName: input
+    description: Input parameters for an API operation
+    range: OperationParameter
+  output:
+    displayName: output
+    description: output parameters for an API operation
+    range: OperationParameter
+  transition:
+    displayName: transition
+    description: |
+      State transition that should happen in the client application state when the
+      operation is successfully invoked
+    range: Resource
+  scalarRange:
+    displayName: scalar range
+    description: Marks an operation parameter as being a scalar
+    range: Datatype
+  objectRange:
+    displayName: object range
+    description: Marks an operation parameter as being an entity
+    range: Entity
+  transitionTarget:
+    displayName: target
+    description: Target resource for a transition
+    range: Resource
+  isMutation:
+    displayName: is idempotent?
+    description: marks this operation as being idempotent
+    range: boolean
+  readOnly:
+    displayName: is read-only?
+    description: is this attribute visible only in non-mutation operations
+    range: boolean
+  writeOnly:
+    displayName: is this attribute visible only in mutation operation
+    range: boolean
