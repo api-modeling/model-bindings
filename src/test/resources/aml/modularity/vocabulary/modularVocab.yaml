@@ -1,0 +1,45 @@
+#%Vocabulary 1.0
+
+base: http://a.ml/vocabularies/modularity#
+#version: 0.1
+
+uses:
+  cont: ../../containers/vocabulary/containersVocabulary.yaml
+  mod: ../../modeling/vocabulary/modelingVocabulary.yaml
+  #proj: ../../project/vocabulary/projectVocabulary.yaml
+
+external:
+  owl: "http://www.w3.org/2002/07/owl#"
+
+# Modularity principles
+# - Modules form a tree, not a dag
+# - There are some metaconstructs around module trees
+# - Particular modeling frameworks (e.g., CIM) can inherit from these to create their own constructs
+
+classTerms:
+  Module:
+    extends: cont.Container
+    displayName: Module
+    properties:
+    - dataModels
+    - modules
+
+propertyTerms:
+  identifier:
+    range: string
+  dataModels:
+    displayName: Data Model
+    range: mod.DataModel
+    extends:
+    - cont.containing
+    - cont.objectDestructive
+    description: >
+      the DataModel describing the Entities,etc., contained in the Module
+      | all Modules should have either 'subModules' or 'dataModel'
+  modules:
+    displayName: Modules
+    description: definitions of contained modules
+    extends:
+    - cont.containing
+    - cont.objectDestructive
+    range: Module

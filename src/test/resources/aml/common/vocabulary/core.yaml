@@ -1,0 +1,133 @@
+#%Vocabulary 1.0
+vocabulary: Core
+base: http://a.ml/vocabularies/core#
+usage: Core vocabulary with common classes and properties
+classTerms:
+  CorrelationId:
+    displayName: CorrelationId
+    description: Model defining an identifier that can used for message tracing and correlation
+  CreativeWork:
+    displayName: Creative Work
+    description: The most generic kind of creative work, including books, movies, photographs, software programs, etc.
+  License:
+    displayName: License
+    description: Licensing information for a resource
+  Organization:
+    displayName: Organization
+    description: Organization providing an good or service
+  DigitalDocument:
+    description: An electronic file or document.
+  TechArticle:
+    description: |
+      A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc.
+propertyTerms:
+  comment:
+    displayName: comment
+    description: A comment on an item. The comment's content is expressed via the text
+    range: string
+  correlationId:
+    displayName: correlationId
+    description: an identifier that can be used for message tracing and correlation
+    range: CorrelationId
+  deprecated:
+    displayName: deprecated
+    description: Marks the operation as deprecated
+    range: boolean
+  dependencies:
+    displayName: dependencies
+    description: Represents a dependecy between to entities
+  description:
+    displayName: description
+    description: Human readable description of an element
+    range: string
+  displayName:
+    displayName: display name
+    description: Human readable name for the term
+    range: string
+  documentation:
+    displayName: documentation
+    description: Documentation about the tag
+    range: CreativeWork
+  email:
+    displayName: email
+    description: Contact email for the organization
+    range: string
+  extensionName:
+    displayName: name
+    description: Name of an extension entity
+    range: string
+  identifier:
+    displayName: identifier
+    description: The identifier property represents any kind of identifier, such as ISBNs, GTIN codes, UUIDs, etc.
+    range: string
+  license:
+    displayName: license
+    description: License for the entity
+    range: License
+  location:
+    displayName: location
+    description: Structural location of a piece of information
+    range: string
+  mediaType:
+    displayName: mediaType
+    description: HTTP Media type associated to the encoded fragment information
+    range: string
+  name:
+    displayName: name
+    description: Name for an entity
+    range: string
+  provider:
+    displayName: provider
+    description: Organization providing some kind of asset or service
+    range: Organization
+  summary:
+    displayName: summary
+    description: Human readable short description of the endpoint
+    range: string
+  termsOfService:
+    displayName: terms of service
+    description: Terms and conditions when using the API
+    range: string
+  title:
+    displayName: title
+    description: Title of the item
+    range: string
+  url:
+    displayName: url
+    description: URL identifying the organization
+    range: uri
+  urlTemplate:
+    displayName: urlTemplate
+    description: URL (potentially a template) for the server
+    range: string
+  version:
+    displayName: version
+    description: Version of the API
+    range: string
+  requirements:
+    description: |
+      Component dependency requirements for application.
+      This includes runtime environments and shared libraries that are not included in the application distribution package,
+      but required to run the application (Examples: DirectX, Java or .NET runtime).
+  encodingFormat:
+    description: |
+      Media type typically expressed using a MIME format (see IANA site and MDN reference) e.g. application/zip for a
+      SoftwareApplication binary, audio/mpeg for .mp3 etc.).
+      In cases where a CreativeWork has several media type representations, encoding can be used to indicate each MediaObject
+      alongside particular encodingFormat information.
+      Unregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web
+      page or a Wikipedia/Wikidata entry.
+  dateCreated:
+    description: The date on which the CreativeWork was created or the item was added to a DataFeed.
+  dateModified:
+    description: The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.
+  creator:
+    description: The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
+  downloadUrl:
+    description: If the file can be downloaded, URL to download the binary.
+  fileSize:
+    description: Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB will be assumed.
+  articleBody:
+    description: The actual body of the article.
+  value:
+    description: The value of the quantitative value or property value node.

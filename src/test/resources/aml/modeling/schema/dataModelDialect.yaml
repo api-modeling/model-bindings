@@ -1,0 +1,46 @@
+#%Dialect 1.0
+
+dialect: DataModel
+version: 0.1
+
+uses:
+  modeling: ../vocabulary/modelingVocabulary.yaml
+  core: ../../common/vocabulary/core.yaml
+  dataModeling: ./dataModelingLibrary.yaml
+
+documents:
+  root:
+    encodes: DataModel
+  fragments:
+    encodes:
+      Entity: dataModeling.Entity
+      Attribute: dataModeling.Attribute
+      Association: dataModeling.Association
+
+nodeMappings:
+
+  DataModel:
+    classTerm: modeling.DataModel
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      version:
+        propertyTerm: core.version
+        range: string
+      name:
+        propertyTerm: core.name
+        range: string
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        range: string
+      entities:
+        propertyTerm: modeling.entities
+        range: dataModeling.Entity
+        allowMultiple: true
+        mapKey: name
+

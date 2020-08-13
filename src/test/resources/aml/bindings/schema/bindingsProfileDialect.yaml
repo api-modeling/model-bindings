@@ -1,0 +1,165 @@
+#%Dialect 1.0
+
+dialect: Bindings Profile
+version: 0.1
+
+uses:
+  core: ../../common/vocabulary/core.yaml
+  bindingsConcepts: ../vocabulary/bindingsVocabulary.yaml
+
+documents:
+  root:
+    encodes: BindingsProfile
+
+nodeMappings:
+
+  BindingsProfile:
+    classTerm: bindingsConcepts.BindingProfile
+    idTemplate: "http://mulesoft.com/modeling/instances/bindings/{name}"
+    mapping:
+      name:
+        propertyTerm: core.name
+        range: string
+        mandatory: true
+      version:
+        propertyTerm: core.version
+        range: string
+        mandatory: true
+      importParameters:
+        propertyTerm: bindingsConcepts.importParameters
+        range: ConfigurationScalarParameter
+        allowMultiple: true
+      exportParameters:
+        propertyTerm: bindingsConcepts.exportParameters
+        range: ConfigurationScalarParameter
+        allowMultiple: true
+      moduleBindings:
+        propertyTerm: bindingsConcepts.moduleBindingDeclaration
+        range: ModuleBindingDeclaration
+        allowMultiple: true
+      dataModelBindings:
+        propertyTerm: bindingsConcepts.dataModelBindingDeclaration
+        range: DataModelBindingDeclaration
+        allowMultiple: true
+      entityBindings:
+        propertyTerm: bindingsConcepts.entityBindingDeclaration
+        range: EntityBindingDeclaration
+        allowMultiple: true
+      attributeBindings:
+        propertyTerm: bindingsConcepts.attributeBindingDeclaration
+        range: AttributeBindingDeclaration
+        allowMultiple: true
+      associationBindings:
+        propertyTerm: bindingsConcepts.associationBindingDeclaration
+        range: AssociationBindingDeclaration
+        allowMultiple: true
+
+  BindingDeclaration:
+    classTerm: bindingsConcepts.BindingDeclaration
+    idTemplate: "http://mulesoft.com/modeling/instances/bindings/{profile}/{name}"
+    mapping:
+      name:
+        propertyTerm: core.name
+        range: string
+        mandatory: true
+        unique: true
+      profile:
+        propertyTerm: bindingsConcepts.profile
+        range: string
+        mandatory: true
+        unique: true
+      label:
+        propertyTerm: bindingsConcepts.label
+        range: string
+        mandatory: true
+      description:
+        propertyTerm: core.description
+        mandatory: true
+      canBeGlobal:
+        propertyTerm: bindingsConcepts.canBeGlobal
+      parameters:
+        range: BindingParameterUnion
+        allowMultiple: true
+
+
+  ModuleBindingDeclaration:
+    classTerm: bindingsConcepts.ModuleBindingDeclaration
+    extends: BindingDeclaration
+
+  DataModelBindingDeclaration:
+    classTerm: bindingsConcepts.DataModelBindingDeclaration
+    extends: BindingDeclaration
+
+  EntityBindingDeclaration:
+    classTerm: bindingsConcepts.EntityBindingDeclaration
+    extends: BindingDeclaration
+
+  AttributeBindingDeclaration:
+    classTerm: bindingsConcepts.AttributeBindingDeclaration
+    extends: BindingDeclaration    
+
+  AssociationBindingDeclaration:
+    classTerm: bindingsConcepts.AssociationBindingDeclaration
+    extends: BindingDeclaration    
+
+
+  BindingParameterUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      Scalar: BindingScalarParameter
+      Dictionary: BindingDictionaryParameter
+      Array: BindingArrayParameter
+    union:
+      - BindingScalarParameter
+      - BindingDictionaryParameter
+      - BindingArrayParameter
+
+
+  BindingParameter:
+    idTemplate: "http://mulesoft.com/modeling/instances/uuid/{uuid}"
+    classTerm: bindingsConcepts.BindingParameter
+    mapping:
+      uuid:
+        mandatory: true
+        range: string
+      name:
+        propertyTerm: core.name
+        mandatory: true
+        range: string
+        unique: true
+      description:
+        propertyTerm: core.description
+        range: string
+      dataType:
+        range: string
+        enum:
+          - integer
+          - float
+          - string
+          - uri
+      enum:      
+        propertyTerm: bindingsConcepts.bindingParameterEnumConstraint
+        range: string
+        allowMultiple: true
+
+  BindingScalarParameter:
+    classTerm: bindingsConcepts.BindingScalarParameter
+    extends: BindingParameter
+
+  ConfigurationScalarParameter:
+    classTerm: bindingsConcepts.BindingConfigurationParameter
+    extends: BindingScalarParameter
+    mapping:
+      required:
+        propertyTerm: bindingsConcepts.requiredConfiguration
+        mandatory: true
+        range: boolean
+
+
+  BindingDictionaryParameter:
+    classTerm: bindingsConcepts.BindingDictionaryParameter
+    extends: BindingParameter
+
+  BindingArrayParameter:
+    classTerm: bindingsConcepts.BindingArrayParameter
+    extends: BindingParameter

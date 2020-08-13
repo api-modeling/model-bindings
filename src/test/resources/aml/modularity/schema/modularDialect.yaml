@@ -1,0 +1,43 @@
+#%Dialect 1.0
+
+dialect: ModuleTree
+version: 0.1
+
+uses:
+  mod: ../vocabulary/modularVocab.yaml
+  des: ../../modeling/vocabulary/modelingVocabulary.yaml
+  core: ../../common/vocabulary/core.yaml
+
+documents:
+  root:
+    encodes:  Module
+    declares:
+      modules: Module
+
+
+nodeMappings:
+  Module:
+    classTerm: mod.Module
+    idTemplate: "http://mulesoft.com/modeling/instances/{uuid}"
+    mapping:
+      uuid:
+        range: string
+        mandatory: true
+      name:
+        propertyTerm: core.name
+        range: string
+        mandatory: true
+      displayName:
+        propertyTerm: core.displayName
+        range: string
+      description:
+        propertyTerm: core.description
+        range: string
+      dataModels:
+        propertyTerm: mod.dataModels
+        range: link
+        allowMultiple: true
+      nested:
+        propertyTerm: mod.modules
+        allowMultiple: true
+        range: Module

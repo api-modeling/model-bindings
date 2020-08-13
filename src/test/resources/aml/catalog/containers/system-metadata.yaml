@@ -1,0 +1,19 @@
+#%Container Configuration 0.1
+
+namespace: system-metadata
+
+pattern:
+  template: $container/{SystemMetadataNode.groupId}/{SystemMetadataNode.assetId}/{SystemMetadataNode.semverVersion}
+
+indexes:
+  SystemMetadataNode:
+    properties:
+      groupId: {}
+      assetId: {}
+      semverVersion: {}
+
+schema: file://catalog/dialects/asset.yaml
+
+fragment: SystemMetadata
+
+pageSize: 10

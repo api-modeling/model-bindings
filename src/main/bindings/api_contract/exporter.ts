@@ -90,7 +90,7 @@ export class APIContractExporter extends ExporterBaseUtils {
     private isNodeShape(entity: meta.Entity): boolean {
         const fieldNum = (entity.attributes || []).length + (entity.associations || []).length
         if (entity.extends != null) {
-            const baseEntity = this.findEntityById(entity.extends);
+            const baseEntity = this.findEntityById(entity.extends.id());
             return this.isNodeShape(baseEntity) || fieldNum > 0; // Object can extend Any
         } else {
             return fieldNum > 0
@@ -185,7 +185,7 @@ export class APIContractExporter extends ExporterBaseUtils {
         nodeShape.withProperties(scalarPropertyShapes.concat(objectPropertyShapes));
 
         if (entity.extends != null) {
-            const baseLink = this.generateLink(entity.id(), entity.extends!);
+            const baseLink = this.generateLink(entity.id(), entity.extends!.id());
             nodeShape.withInherits([baseLink]);
         }
 
@@ -203,7 +203,7 @@ export class APIContractExporter extends ExporterBaseUtils {
             unionShape.withDescription(entity.description);
         }
 
-        const members = (entity.disjoint || []).map((entityId) => this.generateLink(entity.id(), entityId));
+        const members = (entity.disjoint || []).map((unionEntity) => this.generateLink(entity.id(), unionEntity.id()));
         unionShape.withAnyOf(members);
 
         return unionShape;
@@ -221,7 +221,7 @@ export class APIContractExporter extends ExporterBaseUtils {
         }
 
         if (entity.extends != null) {
-            const baseLink = this.generateLink(entity.id(), entity.extends!);
+            const baseLink = this.generateLink(entity.id(), entity.extends!.id());
             anyShape.withInherits([baseLink]);
         }
 
@@ -286,7 +286,7 @@ export class APIContractExporter extends ExporterBaseUtils {
     private exportAssociation(entity: meta.Entity, assoc: meta.Association): amf.model.domain.PropertyShape {
         const target = assoc.target;
         if (target != null) {
-            const targetShape = this.generateLink(entity.id(), target!);
+            const targetShape = this.generateLink(entity.id(), target!.id());
 
             // The actual property shape
             const propertyShape: amf.model.domain.PropertyShape = new amf.model.domain.PropertyShape();

@@ -1,0 +1,641 @@
+[
+  {
+    "@id": "190bb64f-ada6-4a3c-ba2e-0caed4159754:8bd9d771-ad9d-473e-9b54-498f38f6200f:190bb64f-ada6-4a3c-ba2e-0caed4159754:date-only-type:v1.0",
+    "@type": [
+      "http://a.ml/vocabularies/meta#DialectInstance",
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/meta#definedBy": [
+      {
+        "@id": "file://api-federation/dialects/source.yaml"
+      }
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "190bb64f-ada6-4a3c-ba2e-0caed4159754:8bd9d771-ad9d-473e-9b54-498f38f6200f:190bb64f-ada6-4a3c-ba2e-0caed4159754:date-only-type:v1.0",
+        "@type": [
+          "http://ang.anypoint.com/vocabularies/api-federation#Source",
+          "file://api-federation/dialects/source.yaml#/declarations/Source",
+          "http://a.ml/vocabularies/meta#DialectDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://a.ml/vocabularies/data#version": [
+          {
+            "@value": "v1.0"
+          }
+        ],
+        "http://a.ml/vocabularies/data#id": [
+          {
+            "@value": "8e71092e-5a5b-43ff-98fa-7ea37519cb17"
+          }
+        ],
+        "http://a.ml/vocabularies/data#assetId": [
+          {
+            "@value": "date-only-type"
+          }
+        ],
+        "http://a.ml/vocabularies/data#groupId": [
+          {
+            "@value": "190bb64f-ada6-4a3c-ba2e-0caed4159754"
+          }
+        ],
+        "http://a.ml/vocabularies/data#dataGraph": [
+          {
+            "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph",
+            "@type": [
+              "http://ang.anypoint.com/vocabularies/api-federation#DataGraph",
+              "file://api-federation/dialects/source.yaml#/declarations/DataGraph",
+              "http://a.ml/vocabularies/meta#DialectDomainElement",
+              "http://a.ml/vocabularies/document#DomainElement"
+            ],
+            "http://a.ml/vocabularies/data#entryPoint": [
+              {
+                "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/entry-point",
+                "@type": [
+                  "http://ang.anypoint.com/vocabularies/api-federation#EntryPoint",
+                  "file://api-federation/dialects/source.yaml#/declarations/EntryPointNode",
+                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                  "http://a.ml/vocabularies/document#DomainElement"
+                ],
+                "http://a.ml/vocabularies/data#bindings": [
+                  {
+                    "@id": "binding:http-api:aq:web-api:file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/web-api",
+                    "@type": [
+                      "http://ang.anypoint.com/vocabularies/api-federation#HttpApiBinding",
+                      "file://api-federation/dialects/source.yaml#/declarations/HttpApiBinding",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#webApi": [
+                      {
+                        "@id": "aq:web-api:file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/web-api",
+                        "@type": [
+                          "http://ang.anypoint.com/vocabularies/api-federation#WebApi",
+                          "file://api-federation/dialects/source.yaml#/declarations/WebApi",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#servers": [],
+                        "http://a.ml/vocabularies/data#version": [
+                          {
+                            "@value": "v1"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#name": [
+                          {
+                            "@value": "Flights API"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#schemes": [
+                          {
+                            "@value": "https"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "http://a.ml/vocabularies/data#edges": [
+                  {
+                    "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/edges/network-get-flights-entryPoint-473519988:/web-api/end-points/%2Fflights",
+                    "@type": [
+                      "http://ang.anypoint.com/vocabularies/api-federation#NetworkEdge",
+                      "file://api-federation/dialects/source.yaml#/declarations/NetworkEdge",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#securitySchemes": [],
+                    "http://a.ml/vocabularies/data#parameters": [],
+                    "http://a.ml/vocabularies/data#bindings": [
+                      {
+                        "@id": "binding:http-end-point:aq:get-end-point:/web-api/end-points/%2Fflights",
+                        "@type": [
+                          "http://ang.anypoint.com/vocabularies/api-federation#HttpEndPointBinding",
+                          "file://api-federation/dialects/source.yaml#/declarations/HttpEndPointBinding",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#webApi": [
+                          {
+                            "@id": "aq:web-api:file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/web-api/link--1045432492",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#WebApi",
+                              "file://api-federation/dialects/source.yaml#/declarations/WebApi",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/document#link-target": [
+                              {
+                                "@id": "aq:web-api:file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/web-api"
+                              }
+                            ],
+                            "http://a.ml/vocabularies/document#link-label": [
+                              {
+                                "@value": "web-api"
+                              }
+                            ]
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#endPoint": [
+                          {
+                            "@id": "aq:get-end-point:/web-api/end-points/%2Fflights",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#EndPoint",
+                              "file://api-federation/dialects/source.yaml#/declarations/EndPoint",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/data#path": [
+                              {
+                                "@value": "/flights"
+                              }
+                            ],
+                            "http://a.ml/vocabularies/data#method": [
+                              {
+                                "@value": "get"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data#graphQlBinding": [
+                      {
+                        "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/edges/network-get-flights-entryPoint-473519988:/web-api/end-points/%2Fflights:graphql-binding",
+                        "@type": [
+                          "http://ang.anypoint.com/vocabularies/api-federation#GraphQlFieldBinding",
+                          "file://api-federation/dialects/source.yaml#/declarations/GraphQlFieldBinding",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#name": [
+                          {
+                            "@value": "flights"
+                          }
+                        ]
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data#target": [
+                      {
+                        "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/nodes/scalar:/web-api/end-points/%2Fflights/get/200/default/scalar/default",
+                        "@type": [
+                          "http://ang.anypoint.com/vocabularies/api-federation#ScalarResource",
+                          "file://api-federation/dialects/source.yaml#/declarations/ScalarResourceNode",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#shapeId": [
+                          {
+                            "@value": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/web-api/end-points/%2Fflights/get/200/default/scalar/default"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#shapeName": [
+                          {
+                            "@value": "default"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#bindings": [
+                          {
+                            "@id": "binding:http-payload-binding:application/json",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#HttpPayloadBinding",
+                              "file://api-federation/dialects/source.yaml#/declarations/HttpPayloadBinding",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/data#mediaTypes": [
+                              {
+                                "@value": "application/json"
+                              }
+                            ]
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#constructors": [],
+                        "http://a.ml/vocabularies/data#graphQlBinding": [
+                          {
+                            "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/nodes/scalar:/web-api/end-points/%2Fflights/get/200/default/scalar/default:graphql-binding",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#GraphQlTypeBinding",
+                              "file://api-federation/dialects/source.yaml#/declarations/GraphQlTypeBinding",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#edges": [],
+                        "http://a.ml/vocabularies/data#nullable": [
+                          {
+                            "@value": false
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#name": [
+                          {
+                            "@value": "default"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#scalarType": [
+                          {
+                            "@id": "http://www.w3.org/2001/XMLSchema#date",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#ScalarType",
+                              "file://api-federation/dialects/source.yaml#/declarations/ScalarType",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/data#range": [
+                              {
+                                "@value": "date"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data#name": [
+                      {
+                        "@value": "flights"
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data#optional": [
+                      {
+                        "@value": true
+                      }
+                    ]
+                  },
+                  {
+                    "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/edges/network-post-createFlights-flights-entryPoint-1739636744:/web-api/end-points/%2Fflights",
+                    "@type": [
+                      "http://ang.anypoint.com/vocabularies/api-federation#NetworkEdge",
+                      "file://api-federation/dialects/source.yaml#/declarations/NetworkEdge",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#securitySchemes": [],
+                    "http://a.ml/vocabularies/data#parameters": [
+                      {
+                        "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/edges/property-:/web-api/end-points/%2Fflights/post/request/input-14959810",
+                        "@type": [
+                          "http://ang.anypoint.com/vocabularies/api-federation#PropertyEdge",
+                          "file://api-federation/dialects/source.yaml#/declarations/PropertyEdge",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#bindings": [
+                          {
+                            "@id": "binding:http-payload-binding:application/json/link-263936211",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#HttpPayloadBinding",
+                              "file://api-federation/dialects/source.yaml#/declarations/HttpPayloadBinding",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/document#link-target": [
+                              {
+                                "@id": "binding:http-payload-binding:application/json"
+                              }
+                            ],
+                            "http://a.ml/vocabularies/document#link-label": [
+                              {
+                                "@value": "json"
+                              }
+                            ]
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#graphQlBinding": [
+                          {
+                            "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/edges/property-:/web-api/end-points/%2Fflights/post/request/input:graphql-binding",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#GraphQlFieldBinding",
+                              "file://api-federation/dialects/source.yaml#/declarations/GraphQlFieldBinding",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/data#name": [
+                              {
+                                "@value": "input"
+                              }
+                            ]
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#target": [
+                          {
+                            "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/nodes/scalar:/web-api/end-points/%2Fflights/post/request/input/scalar/input",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#ScalarResource",
+                              "file://api-federation/dialects/source.yaml#/declarations/ScalarResourceNode",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/data#shapeId": [
+                              {
+                                "@value": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/web-api/end-points/%2Fflights/post/request/input/scalar/input"
+                              }
+                            ],
+                            "http://a.ml/vocabularies/data#shapeName": [
+                              {
+                                "@value": "input"
+                              }
+                            ],
+                            "http://a.ml/vocabularies/data#bindings": [
+                              {
+                                "@id": "binding:http-payload-binding:application/json/link-263936211",
+                                "@type": [
+                                  "http://ang.anypoint.com/vocabularies/api-federation#HttpPayloadBinding",
+                                  "file://api-federation/dialects/source.yaml#/declarations/HttpPayloadBinding",
+                                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                                  "http://a.ml/vocabularies/document#DomainElement"
+                                ],
+                                "http://a.ml/vocabularies/document#link-target": [
+                                  {
+                                    "@id": "binding:http-payload-binding:application/json"
+                                  }
+                                ],
+                                "http://a.ml/vocabularies/document#link-label": [
+                                  {
+                                    "@value": "json"
+                                  }
+                                ]
+                              }
+                            ],
+                            "http://a.ml/vocabularies/data#constructors": [],
+                            "http://a.ml/vocabularies/data#graphQlBinding": [
+                              {
+                                "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/nodes/scalar:/web-api/end-points/%2Fflights/post/request/input/scalar/input:graphql-binding",
+                                "@type": [
+                                  "http://ang.anypoint.com/vocabularies/api-federation#GraphQlTypeBinding",
+                                  "file://api-federation/dialects/source.yaml#/declarations/GraphQlTypeBinding",
+                                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                                  "http://a.ml/vocabularies/document#DomainElement"
+                                ]
+                              }
+                            ],
+                            "http://a.ml/vocabularies/data#edges": [],
+                            "http://a.ml/vocabularies/data#nullable": [
+                              {
+                                "@value": false
+                              }
+                            ],
+                            "http://a.ml/vocabularies/data#name": [
+                              {
+                                "@value": "input"
+                              }
+                            ],
+                            "http://a.ml/vocabularies/data#scalarType": [
+                              {
+                                "@id": "http://www.w3.org/2001/XMLSchema#date/link--499246685",
+                                "@type": [
+                                  "http://ang.anypoint.com/vocabularies/api-federation#ScalarType",
+                                  "file://api-federation/dialects/source.yaml#/declarations/ScalarType",
+                                  "http://a.ml/vocabularies/meta#DialectDomainElement",
+                                  "http://a.ml/vocabularies/document#DomainElement"
+                                ],
+                                "http://a.ml/vocabularies/document#link-target": [
+                                  {
+                                    "@id": "http://www.w3.org/2001/XMLSchema#date"
+                                  }
+                                ],
+                                "http://a.ml/vocabularies/document#link-label": [
+                                  {
+                                    "@value": "date"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#name": [
+                          {
+                            "@value": "input"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#optional": [
+                          {
+                            "@value": false
+                          }
+                        ]
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data#bindings": [
+                      {
+                        "@id": "binding:http-end-point:aq:post-end-point:/web-api/end-points/%2Fflights",
+                        "@type": [
+                          "http://ang.anypoint.com/vocabularies/api-federation#HttpEndPointBinding",
+                          "file://api-federation/dialects/source.yaml#/declarations/HttpEndPointBinding",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#webApi": [
+                          {
+                            "@id": "aq:web-api:file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/web-api/link--1045432492",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#WebApi",
+                              "file://api-federation/dialects/source.yaml#/declarations/WebApi",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/document#link-target": [
+                              {
+                                "@id": "aq:web-api:file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/web-api"
+                              }
+                            ],
+                            "http://a.ml/vocabularies/document#link-label": [
+                              {
+                                "@value": "web-api"
+                              }
+                            ]
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#endPoint": [
+                          {
+                            "@id": "aq:post-end-point:/web-api/end-points/%2Fflights",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#EndPoint",
+                              "file://api-federation/dialects/source.yaml#/declarations/EndPoint",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/data#path": [
+                              {
+                                "@value": "/flights"
+                              }
+                            ],
+                            "http://a.ml/vocabularies/data#method": [
+                              {
+                                "@value": "post"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data#graphQlBinding": [
+                      {
+                        "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/edges/network-post-createFlights-flights-entryPoint-1739636744:/web-api/end-points/%2Fflights:graphql-binding",
+                        "@type": [
+                          "http://ang.anypoint.com/vocabularies/api-federation#GraphQlFieldBinding",
+                          "file://api-federation/dialects/source.yaml#/declarations/GraphQlFieldBinding",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#name": [
+                          {
+                            "@value": "createFlights"
+                          }
+                        ]
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data#target": [
+                      {
+                        "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/nodes/scalar:/web-api/end-points/%2Fflights/post/200/default/scalar/default",
+                        "@type": [
+                          "http://ang.anypoint.com/vocabularies/api-federation#ScalarResource",
+                          "file://api-federation/dialects/source.yaml#/declarations/ScalarResourceNode",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#shapeId": [
+                          {
+                            "@value": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/web-api/end-points/%2Fflights/post/200/default/scalar/default"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#shapeName": [
+                          {
+                            "@value": "default"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#bindings": [
+                          {
+                            "@id": "binding:http-payload-binding:application/json/link-263936211",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#HttpPayloadBinding",
+                              "file://api-federation/dialects/source.yaml#/declarations/HttpPayloadBinding",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/document#link-target": [
+                              {
+                                "@id": "binding:http-payload-binding:application/json"
+                              }
+                            ],
+                            "http://a.ml/vocabularies/document#link-label": [
+                              {
+                                "@value": "json"
+                              }
+                            ]
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#constructors": [],
+                        "http://a.ml/vocabularies/data#graphQlBinding": [
+                          {
+                            "@id": "file:///Users/leandro.luck/mulesoft/api-query/src/test/resources/spec/response/response-types/date-only-type/oas-2.yaml#/data-graph/nodes/scalar:/web-api/end-points/%2Fflights/post/200/default/scalar/default:graphql-binding",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#GraphQlTypeBinding",
+                              "file://api-federation/dialects/source.yaml#/declarations/GraphQlTypeBinding",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#edges": [],
+                        "http://a.ml/vocabularies/data#nullable": [
+                          {
+                            "@value": false
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#name": [
+                          {
+                            "@value": "default"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data#scalarType": [
+                          {
+                            "@id": "http://www.w3.org/2001/XMLSchema#date/link--499246685",
+                            "@type": [
+                              "http://ang.anypoint.com/vocabularies/api-federation#ScalarType",
+                              "file://api-federation/dialects/source.yaml#/declarations/ScalarType",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ],
+                            "http://a.ml/vocabularies/document#link-target": [
+                              {
+                                "@id": "http://www.w3.org/2001/XMLSchema#date"
+                              }
+                            ],
+                            "http://a.ml/vocabularies/document#link-label": [
+                              {
+                                "@value": "date"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data#description": [
+                      {
+                        "@value": "Retrieves flights."
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data#name": [
+                      {
+                        "@value": "create_flights"
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data#optional": [
+                      {
+                        "@value": true
+                      }
+                    ]
+                  }
+                ],
+                "http://a.ml/vocabularies/data#nullable": [
+                  {
+                    "@value": false
+                  }
+                ],
+                "http://a.ml/vocabularies/data#description": [
+                  {
+                    "@value": "API for viewing and managing your flights."
+                  }
+                ],
+                "http://a.ml/vocabularies/data#name": [
+                  {
+                    "@value": "Flights API"
+                  }
+                ]
+              }
+            ],
+            "http://a.ml/vocabularies/data#targetNodesByShapeId": []
+          }
+        ],
+        "http://a.ml/vocabularies/data#organizationId": [
+          {
+            "@value": "190bb64f-ada6-4a3c-ba2e-0caed4159754"
+          }
+        ],
+        "http://a.ml/vocabularies/data#environmentId": [
+          {
+            "@value": "8bd9d771-ad9d-473e-9b54-498f38f6200f"
+          }
+        ],
+        "http://a.ml/vocabularies/data#name": [
+          {
+            "@value": "date-only-type"
+          }
+        ]
+      }
+    ],
+    "http://a.ml/vocabularies/document#version": [
+      {
+        "@value": "2.0.1"
+      }
+    ],
+    "http://a.ml/vocabularies/document#root": [
+      {
+        "@value": false
+      }
+    ]
+  }
+]

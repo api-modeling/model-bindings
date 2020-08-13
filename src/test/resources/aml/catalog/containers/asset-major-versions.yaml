@@ -1,0 +1,33 @@
+#%Container Configuration 0.1
+
+namespace: asset-major-versions
+
+pattern:
+  template: $container/{MajorVersionNode.groupId}/{MajorVersionNode.assetId}/{MajorVersionNode.majorVersionComponent}
+
+indexes:
+  MajorVersionNode:
+    properties:
+      groupId: {}
+      assetId: {}
+      majorVersionComponent: {}
+
+schema: file://catalog/dialects/asset.yaml
+
+fragment: Major
+
+links:
+  MajorVersionNode:
+    properties:
+      minorVersions:
+        target:
+          -
+            container: asset-minor-versions
+            node: MinorVersionNode
+      asset:
+        target:
+          -
+            container: assets
+            node: AssetNode
+
+pageSize: 10

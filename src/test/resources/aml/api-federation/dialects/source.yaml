@@ -1,0 +1,540 @@
+#%Dialect 1.0
+
+dialect: Source
+version: 0.1
+
+documents:
+  root:
+    encodes: Source
+    declares:
+      nodes: Source
+
+external:
+  af: http://ang.anypoint.com/vocabularies/api-federation#
+  doc: http://a.ml/vocabularies/document#
+
+nodeMappings:
+
+  DataGraphElement:
+    classTerm: af.DataGraphElement
+    mapping:
+      elementProperties:
+        range: Property
+        allowMultiple: true
+
+  Property:
+    classTerm: af.Property
+    extends: DataGraphElement
+
+  Source:
+    classTerm: af.Source
+    extends: DataGraphElement
+    mapping:
+      id:
+        range: string
+        mandatory: true
+      organizationId:
+        range: string
+        mandatory: true
+      environmentId:
+        range: string
+        mandatory: true
+      groupId:
+        range: string
+        mandatory: true
+      assetId:
+        range: string
+        mandatory: true
+      version:
+        range: string
+        mandatory: true
+      name:
+        range: string
+        mandatory: true
+      securityScheme:
+        range: string
+        mandatory: false
+      endPoint:
+        range: string
+        mandatory: false
+      dataGraph:
+        range: DataGraph
+        mandatory: true
+      customizations:
+        range: Customization
+        allowMultiple: true
+
+  DataGraphElementUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      EntryPoint: EntryPointNode
+      Map: MapResourceNode
+      Scalar: ScalarResourceNode
+      Enum: EnumResourceNode
+      List: ListResourceNode
+      Union: UnionResourceNode
+      Nil: NilResourceNode
+      Any: AnyResourceNode
+      Object: ObjectResourceNode
+      ExternalFormat: ExternalFormatResourceNode
+      Recursive: RecursiveResourceNode
+    union:
+      - EntryPointNode
+      - MapResourceNode
+      - EnumResourceNode
+      - ListResourceNode
+      - UnionResourceNode
+      - NilResourceNode
+      - AnyResourceNode
+      - ObjectResourceNode
+      - ExternalFormatResourceNode
+      - RecursiveResourceNode
+
+  DataGraph:
+    classTerm: af.DataGraph
+    extends: DataGraphElement
+    mapping:
+      entryPoint:
+        range: EntryPointNode
+        mandatory: true
+      targetNodesByShapeId:
+        range: MapEntry
+        allowMultiple: true
+
+  MapEntry:
+    classTerm: af.MapEntry
+    mapping:
+      key:
+        range: string
+        mandatory: true
+      value:
+        range: DataGraphElementUnion
+        mandatory: true
+
+  ApiBindingUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      HttpApi: HttpApiBinding
+      HttpEndPoint: HttpEndPointBinding
+      HttpPayload: HttpPayloadBinding
+      HttpParameter: HttpParameterBinding
+      HttpNestedPayload: HttpNestedPayloadBinding
+      ScalarProperty: HttpScalarPayloadBinding
+    union:
+      - HttpApiBinding
+      - HttpEndPointBinding
+      - HttpPayloadBinding
+      - HttpParameterBinding
+      - HttpNestedPayloadBinding
+      - HttpScalarPayloadBinding
+
+  GraphQlBindingUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      TypeBinding: GraphQlTypeBinding
+      FieldBinding: GraphQlFieldBinding
+    union:
+      - GraphQlTypeBinding
+      - GraphQlFieldBinding
+
+  DataGraphEdgeUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      Network: NetworkEdge
+      Property: PropertyEdge
+    union:
+      - NetworkEdge
+      - PropertyEdge
+
+  SecuritySchemeUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      NoAuth: NoAuthSecurityScheme
+      HttpAuth: HttpAuthSecurityScheme
+      HttpBasicAuth: HttpBasicAuthSecurityScheme
+    union:
+      - NoAuthSecurityScheme
+      - HttpAuthSecurityScheme
+      - HttpBasicAuthSecurityScheme
+
+  PropertyEdge:
+    classTerm: af.PropertyEdge
+    extends: DataGraphEdge
+    mapping:
+      target:
+        range: DataGraphElementUnion
+      bindings:
+        range: ApiBindingUnion
+      graphQlBinding:
+        range: GraphQlBindingUnion
+
+  DataGraphEdge:
+    classTerm: af.DataGraphEdge
+    extends: DataGraphElement
+    mapping:
+      name:
+        range: string
+      description:
+        range: string
+      optional:
+        range: boolean
+      target:
+        range: DataGraphElementUnion
+      parameters:
+        range: PropertyEdge
+        allowMultiple: true
+      bindings:
+        range: ApiBindingUnion
+      regex:
+        range: string
+      defaultValue:
+        range: string
+      graphQlBinding:
+        range: GraphQlBindingUnion
+
+  SecurityScheme:
+    classTerm: af.SecurityScheme
+    extends: DataGraphElement
+
+  NoAuthSecurityScheme:
+    classTerm: af.NoAuthSecurityScheme
+    extends: SecurityScheme
+
+  HttpAuthSecurityScheme:
+    classTerm: af.HttpAuthSecurityScheme
+    extends: SecurityScheme
+    mapping:
+      queryParameters:
+        range: string
+        allowMultiple: true
+      headers:
+        range: string
+        allowMultiple: true
+      cookies:
+        range: string
+        allowMultiple: true
+
+  HttpBasicAuthSecurityScheme:
+    classTerm: af.HttpBasicAuthSecurityScheme
+    extends: HttpAuthSecurityScheme
+
+  NetworkEdge:
+    classTerm: af.NetworkEdge
+    extends: DataGraphEdge
+    mapping:
+      securitySchemes:
+        range: SecuritySchemeUnion
+        allowMultiple: true
+      method:
+        range: string
+
+  HttpApiBinding:
+    classTerm: af.HttpApiBinding
+    extends: DataGraphElement
+    mapping:
+      webApi:
+        range: WebApi
+
+  HttpEndPointBinding:
+    classTerm: af.HttpEndPointBinding
+    extends: DataGraphElement
+    mapping:
+      webApi:
+        range: WebApi
+      endPoint:
+        range: EndPoint
+
+  HttpPayloadBinding:
+    classTerm: af.HttpPayloadBinding
+    extends: DataGraphElement
+    mapping:
+      mediaTypes:
+        range: string
+        allowMultiple: true
+
+  HttpParameterBinding:
+    classTerm: af.HttpParameterBinding
+    extends: DataGraphElement
+    mapping:
+      parameter:
+        range: Parameter
+
+  HttpNestedPayloadBinding:
+    classTerm: af.HttpNestedPayloadBinding
+    extends: DataGraphElement
+    mapping:
+      property:
+        range: PropertyShape
+      mediaTypes:
+        range: string
+        allowMultiple: true
+
+  HttpScalarPayloadBinding:
+    classTerm: af.HttpScalarPayloadBinding
+    extends: DataGraphElement
+    mapping:
+      property:
+        range: PropertyShape
+
+  DataEdge:
+    classTerm: af.DataEdge
+    extends: DataGraphEdge
+
+  DataGraphNode:
+    classTerm: af.DataGraphNode
+    extends: DataGraphElement
+    mapping:
+      name:
+        range: string
+      description:
+        range: string
+      nullable:
+        range: boolean
+      edges:
+        range: DataGraphEdgeUnion
+        allowMultiple: true
+      shapeId:
+        range: string
+      shapeName:
+        range: string
+      bindings:
+        range: ApiBindingUnion
+      defaultValue:
+        range: string
+      graphQlBinding:
+        range: GraphQlBindingUnion
+      constructors:
+        range: TypeConstructor
+        allowMultiple: true
+
+  EntryPointNode:
+    classTerm: af.EntryPoint
+    extends: DataGraphNode
+
+  MapResourceNode:
+    classTerm: af.MapResource
+    extends: DataGraphNode
+    mapping:
+      valueType:
+        range: DataGraphElementUnion
+      regex:
+        range: string
+
+  TypeConstructor:
+    classTerm: af.TypeConstructor
+    extends: DataGraphElement
+    mapping:
+      binding:
+        range: HttpEndPointBinding
+        mandatory: true
+      properties:
+        range: string
+        allowMultiple: true
+
+  ScalarResourceNode:
+    classTerm: af.ScalarResource
+    extends: DataGraphNode
+    mapping:
+      scalarType:
+        range: ScalarType
+        mandatory: true
+
+  ScalarType:
+    classTerm: af.ScalarType
+    extends: DataGraphElement
+    mapping:
+      range:
+        range: string
+      format:
+        range: string
+
+  EnumValue:
+    classTerm: af.EnumValue
+    extends: DataGraphElement
+    mapping:
+      name:
+        range: string
+        mandatory: true
+      description:
+        range: string
+      value:
+        range: string
+        mandatory: true
+      graphQlBinding:
+        range: GraphQlFieldBinding
+
+  EnumResourceNode:
+    classTerm: af.EnumResource
+    extends: DataGraphNode
+    mapping:
+      scalarType:
+        range: ScalarType
+      values:
+        range: EnumValue
+        allowMultiple: true
+        mapKey: name
+
+  ListResourceNode:
+    classTerm: af.ListResourceNode
+    extends: DataGraphNode
+    mapping:
+      memberType:
+        range: DataGraphElementUnion
+
+  UnionResourceNode:
+    classTerm: af.UnionResource
+    extends: DataGraphNode
+    mapping:
+      unionTypes:
+        range: DataGraphElementUnion
+        allowMultiple: true
+
+  NilResourceNode:
+    classTerm: af.NilResource
+    extends: DataGraphNode
+
+  AnyResourceNode:
+    classTerm: af.AnyResource
+    extends: DataGraphNode
+
+  ObjectResourceNode:
+    classTerm: af.ObjectResource
+    extends: DataGraphNode
+    mapping:
+      scalarEdges:
+        range: DataEdge
+        allowMultiple: true
+      closed:
+        range: boolean
+
+  ExternalFormatResourceNode:
+    classTerm: af.ExternalFormatResource
+    extends: DataGraphNode
+    mapping:
+      mediaType:
+        range: string
+
+  RecursiveResourceNode:
+    classTerm: af.RecursiveResource
+    extends: DataGraphNode
+    mapping:
+      fixpoint:
+        range: string
+
+  WrapperResourceNode:
+    classTerm: af.WrapperResource
+    extends: DataGraphNode
+    mapping:
+      memberType:
+        range: DataGraphElementUnion
+        mandatory: true
+      scalarEdges:
+        range: DataEdge
+        allowMultiple: true
+
+  AqElement:
+    classTerm: af.AqElement
+    extends: DataGraphElement
+
+  WebApi:
+    classTerm: af.WebApi
+    extends: AqElement
+    mapping:
+      servers:
+        range: Server
+        allowMultiple: true
+      schemes:
+        range: string
+        allowMultiple: true
+      name:
+        range: string
+      version:
+        range: string
+
+  Server:
+    classTerm: af.Server
+    extends: AqElement
+    mapping:
+      url:
+        range: string
+        mandatory: true
+
+  EndPoint:
+    classTerm: af.EndPoint
+    extends: AqElement
+    mapping:
+      method:
+        range: string
+        mandatory: true
+      path:
+        range: string
+        mandatory: true
+
+  Parameter:
+    classTerm: af.Parameter
+    extends: AqElement
+    mapping:
+      name:
+        range: string
+        mandatory: true
+      binding:
+        range: string
+        mandatory: true
+
+  PropertyShape:
+    classTerm: af.PropertyShape
+    extends: AqElement
+    mapping:
+      name:
+        range: string
+        mandatory: true
+
+  GraphQlBinding:
+    classTerm: af.GraphQlBinding
+    extends: DataGraphElement
+
+  GraphQlTypeBinding:
+    classTerm: af.GraphQlTypeBinding
+    extends: GraphQlBinding
+    mapping:
+      outputTypeName:
+        range: string
+      inputTypeName:
+        range: string
+      disjointProperties:
+        range: string
+        allowMultiple: true
+
+  GraphQlFieldBinding:
+    classTerm: af.GraphQlFieldBinding
+    extends: GraphQlBinding
+    mapping:
+      name:
+        range: string
+
+  ObjectProperty:
+    classTerm: af.ObjectProperty
+    extends: Property
+
+  PrimaryKey:
+    classTerm: af.PrimaryKey
+    extends: ObjectProperty
+    mapping:
+      fields:
+        range: string
+        allowMultiple: true
+
+  Customization:
+    classTerm: af.Customization
+    extends: DataGraphElement
+    mapping:
+      element:
+        range: DataGraphElement
+
+  PrimaryKeyCustomization:
+    classTerm: af.PrimaryKeyCustomization
+    extends: Customization
+    mapping:
+      keys:
+        range: string
+        allowMultiple: true

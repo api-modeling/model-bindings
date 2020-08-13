@@ -1,0 +1,29 @@
+#%Container Configuration 0.1
+
+namespace: public-asset-minor-versions
+
+pattern:
+  template: $container/{PublicMinorVersionNode.groupId}/{PublicMinorVersionNode.assetId}/{PublicMinorVersionNode.majorVersionComponent}/{PublicMinorVersionNode.minorVersionComponent}
+
+indexes :
+  PublicMinorVersionNode:
+    properties:
+        groupId: {}
+        assetId: {}
+        majorVersionComponent: {}
+        minorVersionComponent: {}
+
+schema: file://catalog/dialects/asset.yaml
+
+fragment: Public
+
+pageSize: 10
+
+links:
+  PublicMinorVersionNode:
+    properties:
+      publicMinorVersion:
+        target:
+          -
+            container: asset-minor-versions
+            node: MinorVersionNode
