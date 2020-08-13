@@ -47,7 +47,7 @@ export function store(): n3.Store {
 export function loadGraph(str: string, existingStore?: n3.Store): Promise<n3.Store> {
    return new Promise((resolve, reject) => {
         // @ts-ignore
-        const store: n3.N3Store = existingStore || $rdf.graph();
+        const store: n3.Store = existingStore || $rdf.graph();
 
         const myParser = new JsonLdParser({
             dataFactory: $rdf
