@@ -7,21 +7,21 @@ import {ApiParser} from "./bindings/utils/apiParser";
 const apiContractPlugin = new APIContractBindingsPlugin();
 
 const stripeUrl = "src/test/resources/stripe.json"
-const ramlUrl = "src/test/resources/library.raml"
-const url = stripeUrl; // CHANGE ME
+const ramlUrl = "src/test/resources/api1.raml"
+const url = ramlUrl; // CHANGE ME
 const text = fs.readFileSync(url).toString()
 
 const outStripe = "out/stripe/";
-const outRaml = "out/raml/"
-const outBase = outStripe // CHANGE ME
+const outRaml = "out/orders/"
+const outBase = outRaml // CHANGE ME
 
 const stripeConfig = [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.JSON}]
 const stripeFile =  [{url: "file://"+ stripeUrl, text: text}]
 const ramlConfig = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}]
 const ramlFile =  [{url: "file://"+ ramlUrl, text: text}]
 
-const config = stripeConfig; // CHANGE ME
-const file = stripeFile; // CHANGE ME
+const config = ramlConfig; // CHANGE ME
+const file = ramlFile; // CHANGE ME
 
 apiContractPlugin.import(config,file).then((parsed) => {
     const base = outBase;
@@ -32,9 +32,11 @@ apiContractPlugin.import(config,file).then((parsed) => {
             fs.mkdirSync(locationDir, {recursive: true});
         }
         dialectInstance.toYaml().then((data) => {
+            console.log("WRITING " + location)
             fs.writeFileSync(location + ".yaml", data);
         });
         dialectInstance.toJsonLd().then((data) => {
+            console.log("WRITING " + location)
             fs.writeFileSync(location + ".jsonld", data);
         });
     });

@@ -1,0 +1,20 @@
+#%RAML 1.0 Library
+
+types:
+
+  ShoppingCart:
+    properties:
+      id: string
+      createdAt: datetime
+      items: CheckLineItem[]
+      subtotalPrice: MonetaryAmount
+
+  MonetaryAmount:
+    properties:
+      currency: string
+      amont: number
+
+  CheckLineItem:
+    properties:
+      variantId: string
+      quantity: number
