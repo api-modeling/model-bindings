@@ -1,0 +1,62 @@
+#%DataModel 0.1
+uuid: 90f055bc97c7794172d78cb29dabf536
+name: orders.raml
+entities:
+  ShoppingCart:
+    uuid: 7c3a4f55489cd476bdd39a4d7d46d12a
+    attributes:
+      id:
+        allowMultiple: false
+        uuid: 0fae68b33cfc67cb79925d89e11e619d
+        required: true
+        range:
+          type: string
+      createdAt:
+        allowMultiple: false
+        uuid: 5e0290fa146498e0ff414e2cc4a29934
+        required: true
+        range:
+          type: dateTime
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 8e870066cd2996a02195277f0122ab98
+        required: true
+        target: http://mulesoft.com/modeling/instances/8feebf5bb006dd97ab9b0701720550eb
+      subtotalPrice:
+        allowMultiple: false
+        uuid: 7789597d292c5e586f5e2e56cd4c019b
+        required: true
+        target: http://mulesoft.com/modeling/instances/fb25932527487e81cb1a72fcbadbcb39
+  MonetaryAmount:
+    uuid: fb25932527487e81cb1a72fcbadbcb39
+    attributes:
+      currency:
+        allowMultiple: false
+        uuid: 983ed449482b1f67723bba02c8ffacec
+        required: true
+        range:
+          type: string
+      amont:
+        allowMultiple: false
+        uuid: f423e862f1c21a33808d858ddf24c325
+        required: true
+        range:
+          type: float
+    associations: {}
+  CheckLineItem:
+    uuid: 8feebf5bb006dd97ab9b0701720550eb
+    attributes:
+      variantId:
+        allowMultiple: false
+        uuid: 190ad3a17b255f91e5e15d712f8ead04
+        required: true
+        range:
+          type: string
+      quantity:
+        allowMultiple: false
+        uuid: 111442e8152badbe98123c7ffa9ab9e7
+        required: true
+        range:
+          type: float
+    associations: {}

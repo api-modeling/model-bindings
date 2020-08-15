@@ -1,0 +1,56 @@
+#%RAML 1.0
+
+uses:
+  dataModel: orders.raml
+
+title: test api 1
+version: 1.0.0
+
+types:
+  PaymentMessage:
+    properties:
+      text:
+      code:
+
+/shoppingCarts:
+  get:
+    queryParameters:
+      limit:
+        type: integer
+      offset:
+        type: integer
+    responses:
+      200:
+        body:
+          application/json: dataModel.ShoppingCart[]
+  post:
+    body:
+      application/json: dataModel.ShoppingCart
+    responses:
+      201:
+        headers:
+          location:
+            type: string
+  /{id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: dataModel.ShoppingCart
+    delete:
+    put:
+      body:
+        application/json: dataModel.ShoppingCart
+      responses:
+        200:
+    /pay:
+      post:
+        body:
+          application/json: dataModel.MonetaryAmount
+        responses:
+          200:
+            body:
+              application/json:
+                properties:
+                  successful: boolean
+                  message: PaymentMessage

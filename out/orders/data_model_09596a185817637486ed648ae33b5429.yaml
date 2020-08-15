@@ -1,0 +1,20 @@
+#%DataModel 0.1
+uuid: 09596a185817637486ed648ae33b5429
+name: api1.raml
+entities:
+  PaymentMessage:
+    uuid: e5eda0685899311fec467514bfb8a0f8
+    attributes:
+      text:
+        allowMultiple: false
+        uuid: 5c1a845c77fa550baf50b04ebe427ed9
+        required: true
+        range:
+          type: string
+      code:
+        allowMultiple: false
+        uuid: f8344758219e6d43ad79085e4a080c0d
+        required: true
+        range:
+          type: string
+    associations: {}
