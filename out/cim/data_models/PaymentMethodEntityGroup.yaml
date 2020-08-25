@@ -2,107 +2,107 @@
 uuid: cim/entitygroup/PaymentMethodEntityGroup
 name: Payment Method
 entities:
-  Credit Tender:
-    uuid: cim/entity/CreditTender
-    associations:
-      paymentMethodType:
-        allowMultiple: true
-        uuid: cim/entity/CreditTender/attr/paymentMethodType
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType
-      account:
-        allowMultiple: true
-        uuid: cim/entity/CreditTender/attr/account
-        target: http://mulesoft.com/modeling/instances/cim/entity/Account
-    description: Payment to the seller that results in an agreement to pay at a later date, usually via a credit account.
-  Coupon:
-    uuid: cim/entity/Coupon
-    attributes:
-      discountAmount:
-        uuid: cim/entity/Coupon/attr/discountAmount
-        range:
-          type: string
-    associations:
-      paymentMethodType:
-        allowMultiple: true
-        uuid: cim/entity/Coupon/attr/paymentMethodType
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType
-    description: Payment in the form of a voucher entitling the holder to a discount for a particular product.
   Payment Method:
-    uuid: cim/entity/PaymentMethod
+    uuid: cim/entity/PaymentMethod/PaymentMethod
     attributes:
       paymentMethodStatus:
-        uuid: cim/entity/PaymentMethod/attr/paymentMethodStatus
+        uuid: cim/entity/PaymentMethod/PaymentMethod/attr/paymentMethodStatus
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/PaymentMethod/attr/id
+        uuid: cim/entity/PaymentMethod/PaymentMethod/attr/id
         required: true
         range:
           type: string
     associations:
       paymentMethodType:
         allowMultiple: true
-        uuid: cim/entity/PaymentMethod/attr/paymentMethodType
+        uuid: cim/entity/PaymentMethod/PaymentMethod/attr/paymentMethodType
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethodType
     description: A means by which a buyer compensates a seller for a purchased good or service.
-  Payment Method Type:
-    uuid: cim/entity/PaymentMethodType
+  Credit Tender:
+    uuid: cim/entity/PaymentMethod/CreditTender
+    associations:
+      paymentMethodType:
+        allowMultiple: true
+        uuid: cim/entity/PaymentMethod/CreditTender/attr/paymentMethodType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethodType
+      account:
+        allowMultiple: true
+        uuid: cim/entity/PaymentMethod/CreditTender/attr/account
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account/Account
+    description: Payment to the seller that results in an agreement to pay at a later date, usually via a credit account.
+  Payment Card:
+    uuid: cim/entity/PaymentMethod/PaymentCard
     attributes:
-      maxPerPeriodTransactionCount:
-        uuid: cim/entity/PaymentMethodType/attr/maxPerPeriodTransactionCount
-        range:
-          type: integer
-      mediaType:
-        uuid: cim/entity/PaymentMethodType/attr/mediaType
-        range:
-          type: string
-      typeRequiredIdentification:
-        uuid: cim/entity/PaymentMethodType/attr/typeRequiredIdentification
-        range:
-          type: string
-      id:
-        uuid: cim/entity/PaymentMethodType/attr/id
+      expirationMonth:
+        uuid: cim/entity/PaymentMethod/PaymentCard/attr/expirationMonth
         required: true
         range:
           type: string
-      name:
-        uuid: cim/entity/PaymentMethodType/attr/name
-        range:
-          type: string
+    associations:
+      paymentMethodType:
+        allowMultiple: true
+        uuid: cim/entity/PaymentMethod/PaymentCard/attr/paymentMethodType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethodType
+    description: A payment system issued by a financial institution to a customer that allows its owner (the cardholder) to access funds in designated bank accounts
+  Payment Method Type:
+    uuid: cim/entity/PaymentMethod/PaymentMethodType
+    attributes:
       useMinimumAgeYear:
-        uuid: cim/entity/PaymentMethodType/attr/useMinimumAgeYear
+        uuid: cim/entity/PaymentMethod/PaymentMethodType/attr/useMinimumAgeYear
         range:
           type: integer
-      maxTransactionAmount:
-        uuid: cim/entity/PaymentMethodType/attr/maxTransactionAmount
+      name:
+        uuid: cim/entity/PaymentMethod/PaymentMethodType/attr/name
         range:
           type: string
       typeDescription:
-        uuid: cim/entity/PaymentMethodType/attr/typeDescription
+        uuid: cim/entity/PaymentMethod/PaymentMethodType/attr/typeDescription
+        range:
+          type: string
+      typeRequiredIdentification:
+        uuid: cim/entity/PaymentMethod/PaymentMethodType/attr/typeRequiredIdentification
+        range:
+          type: string
+      id:
+        uuid: cim/entity/PaymentMethod/PaymentMethodType/attr/id
+        required: true
         range:
           type: string
       maxPerPeriodAmount:
-        uuid: cim/entity/PaymentMethodType/attr/maxPerPeriodAmount
+        uuid: cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodAmount
         range:
           type: string
+      maxTransactionAmount:
+        uuid: cim/entity/PaymentMethod/PaymentMethodType/attr/maxTransactionAmount
+        range:
+          type: string
+      mediaType:
+        uuid: cim/entity/PaymentMethod/PaymentMethodType/attr/mediaType
+        range:
+          type: string
+      maxPerPeriodTransactionCount:
+        uuid: cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodTransactionCount
+        range:
+          type: integer
     description: The category of payment method, such as payment card, check or digital wallet.
-  Payment Card:
-    uuid: cim/entity/PaymentCard
+  Coupon:
+    uuid: cim/entity/PaymentMethod/Coupon
     attributes:
-      expirationMonth:
-        uuid: cim/entity/PaymentCard/attr/expirationMonth
-        required: true
+      discountAmount:
+        uuid: cim/entity/PaymentMethod/Coupon/attr/discountAmount
         range:
           type: string
     associations:
       paymentMethodType:
         allowMultiple: true
-        uuid: cim/entity/PaymentCard/attr/paymentMethodType
+        uuid: cim/entity/PaymentMethod/Coupon/attr/paymentMethodType
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType
-    description: A payment system issued by a financial institution to a customer that allows its owner (the cardholder) to access funds in designated bank accounts
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethodType
+    description: Payment in the form of a voucher entitling the holder to a discount for a particular product.
 description: "Example Entities included: Payment Method Type, Payment Card Tender, Digital Wallet Tender"

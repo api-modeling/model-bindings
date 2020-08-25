@@ -101,6 +101,20 @@ export class CIMImporter {
                 subjectArea.dataModels!.push(dataModel.id());
                 // @ts-ignore
                 dataModel['_source'] = id.value;
+
+
+                // let's pre-populate the entities
+                const entityIds = store.getObjects(id.value, VOCAB.CIM_CLASSES, null);
+                const entities = entityIds.map((entityId) => {
+                    const entityName = store.getObjects(entityId, VOCAB.RDFS_LABEL, null)[0];
+                    const entity = new Entity(entityName.value);
+                    entity.uuid = `cim/entity/${dataModel.name}/${entityId.value.split("/").pop()}`.replace(" ", "");
+                    // @ts-ignore
+                    entity['@id'] = entityId.value
+                    return entity
+                });
+                dataModel.entities = entities;
+
                 acc.push(dataModel);
             })
         });
@@ -127,16 +141,16 @@ export class CIMImporter {
      * Parses all the entities in a CIM entity group and returns the generated modeling entities
      * @param store
      * @param entityGroup
+     * @param entityMap
      */
-    protected parseEntityGroup(store: n3.Store, entityGroup: DataModel): Entity[] {
+    protected parseEntityGroup(store: n3.Store, entityGroup: DataModel, entityMap: {[id: string]: string}): Entity[] {
         // @ts-ignore
         const entityGroupId = entityGroup['_source'];
         const source = $rdf.namedNode(entityGroupId);
         const entityIds = store.getObjects(source, VOCAB.CIM_CLASSES, null);
-        return entityIds.map((entityId) => {
-            const name = store.getObjects(entityId, VOCAB.RDFS_LABEL, null)[0];
-            const entity = new Entity(name.value);
-            entity.uuid = `cim/entity/${entityId.value.split("/").pop()}`;
+        return (entityGroup.entities||[]).map((entity:Entity) => {
+            // @ts-ignore
+            const entityId = entity['@id'];
 
             const description = store.getObjects(entityId, VOCAB.RDFS_COMMENT, null)[0];
             entity.description = description.value;
@@ -181,9 +195,7 @@ export class CIMImporter {
                         this.genUUID(association, entity, path);
                         this.fillPropertyData(association, minCount, maxCount, description, displayName);
                         const targetEntity = new Entity("");
-                        const inter = node.value.split("/").pop()
-                        const toReplace = inter ? inter.replace(' ','') : inter
-                        targetEntity.uuid = `cim/entity/${toReplace}`;
+                        targetEntity.uuid = entityMap[node.value]
                         association.target = targetEntity;
                         associations.push(association)
                     }

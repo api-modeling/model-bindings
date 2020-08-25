@@ -2,1211 +2,1211 @@
 uuid: cim/entitygroup/SalesOrderEntityGroup
 name: Sales Order
 entities:
-  Sales Order Status:
-    uuid: cim/entity/SalesOrderStatus
+  Sales Order Product:
+    uuid: cim/entity/SalesOrder/SalesOrderProduct
     attributes:
-      name:
-        uuid: cim/entity/SalesOrderStatus/attr/name
-        required: true
+      unitPriceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/unitPriceAmount
+        range:
+          type: string
+      totalManualAdjustmentAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalManualAdjustmentAmount
+        range:
+          type: string
+      commentText:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/commentText
+        range:
+          type: string
+      shippingCostAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/shippingCostAmount
+        range:
+          type: string
+      shippingTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/shippingTaxAmount
+        range:
+          type: string
+      totalUnitPriceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalUnitPriceAmount
+        range:
+          type: string
+      isGift:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/isGift
+        range:
+          type: string
+      allocatedQuantity:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/allocatedQuantity
+        range:
+          type: string
+      listPriceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/listPriceAmount
         range:
           type: string
       id:
-        uuid: cim/entity/SalesOrderStatus/attr/id
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/id
         required: true
         range:
           type: string
-    description: The status of a Sales Order
-  Sales Order Tax:
-    uuid: cim/entity/SalesOrderTax
-    attributes:
-      taxAddressStreet1Text:
-        uuid: cim/entity/SalesOrderTax/attr/taxAddressStreet1Text
-        range:
-          type: string
-      taxErrorMessageText:
-        uuid: cim/entity/SalesOrderTax/attr/taxErrorMessageText
-        range:
-          type: string
-      taxRatePercent:
-        uuid: cim/entity/SalesOrderTax/attr/taxRatePercent
-        required: true
+      discountPercent:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/discountPercent
         range:
           type: integer
-      id:
-        uuid: cim/entity/SalesOrderTax/attr/id
+      isBundleRoot:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/isBundleRoot
+        range:
+          type: string
+      lineAdjustmentSubTotalAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/lineAdjustmentSubTotalAmount
+        range:
+          type: string
+      requestedStartDate:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/requestedStartDate
+        range:
+          type: string
+      giftRecipientTelephoneNumber:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/giftRecipientTelephoneNumber
+        range:
+          type: string
+      provisioningDate:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/provisioningDate
+        range:
+          type: string
+      totalPriceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalPriceAmount
         required: true
         range:
           type: string
-      salesOrderTaxAmount:
-        uuid: cim/entity/SalesOrderTax/attr/salesOrderTaxAmount
+      subscriptionRenewalMonthQuantity:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/subscriptionRenewalMonthQuantity
         range:
           type: string
-      taxAddressCityName:
-        uuid: cim/entity/SalesOrderTax/attr/taxAddressCityName
+      cancelledQuantity:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/cancelledQuantity
         range:
           type: string
-      name:
-        uuid: cim/entity/SalesOrderTax/attr/name
+      segmentIndex:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/segmentIndex
+        range:
+          type: integer
+      promisedDate:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/promisedDate
+        range:
+          type: string
+      orderManualAdjustmentSubTotalAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/orderManualAdjustmentSubTotalAmount
+        range:
+          type: string
+      totalRecurringPriceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalRecurringPriceAmount
+        range:
+          type: string
+      totalDistributedAdjustmentAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalDistributedAdjustmentAmount
+        range:
+          type: string
+      quantityOrderedUOM:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/quantityOrderedUOM
         required: true
         range:
           type: string
-      taxAddressStreet2Text:
-        uuid: cim/entity/SalesOrderTax/attr/taxAddressStreet2Text
+      giftOrderMessageText:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/giftOrderMessageText
         range:
           type: string
-    description: "A charge that is imposed by a government entity for public purposes. Types are aligned to phases of the process: SalesOrderTax, FulfillmentProductTax and ShipmentProductTax"
-  Sales Order Product Reason Category:
-    uuid: cim/entity/SalesOrderProductReasonCategory
-    attributes:
-      name:
-        uuid: cim/entity/SalesOrderProductReasonCategory/attr/name
+      isAutomaticallyRenewed:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/isAutomaticallyRenewed
+        range:
+          type: string
+      totalProductTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalProductTaxAmount
+        range:
+          type: string
+      endDate:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/endDate
+        range:
+          type: string
+      listPriceQuantityUOM:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/listPriceQuantityUOM
         required: true
         range:
           type: string
-      id:
-        uuid: cim/entity/SalesOrderProductReasonCategory/attr/id
+      totalAdjustmentTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalAdjustmentTaxAmount
+        range:
+          type: string
+      fulfilledQuantity:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/fulfilledQuantity
+        range:
+          type: integer
+      totalTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalTaxAmount
+        range:
+          type: string
+      handlingCostAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/handlingCostAmount
+        range:
+          type: string
+      recurringPriceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/recurringPriceAmount
+        range:
+          type: string
+      requestedEndDate:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/requestedEndDate
+        range:
+          type: string
+      unitTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/unitTaxAmount
+        range:
+          type: integer
+      allocationPartitionName:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/allocationPartitionName
+        range:
+          type: string
+      totalDistributedAdjustmentTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalDistributedAdjustmentTaxAmount
+        range:
+          type: string
+      orderProductNumber:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/orderProductNumber
         required: true
         range:
           type: string
-    description: Groupings of Sales Order Product Reasons, such as product related or service related
-  Sales Order Product Group Type:
-    uuid: cim/entity/SalesOrderProductGroupType
-    attributes:
-      name:
-        uuid: cim/entity/SalesOrderProductGroupType/attr/name
+      adjustedDeliveryTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/adjustedDeliveryTaxAmount
+        range:
+          type: string
+      discountAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/discountAmount
+        range:
+          type: string
+      orderAdjustmentSubTotalAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/orderAdjustmentSubTotalAmount
+        range:
+          type: string
+      availableQuantity:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/availableQuantity
+        range:
+          type: string
+      totalAdjustmentAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalAdjustmentAmount
+        range:
+          type: string
+      totalLineAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalLineAmount
+        range:
+          type: string
+      orderedQuantity:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/orderedQuantity
         required: true
         range:
           type: string
-      id:
-        uuid: cim/entity/SalesOrderProductGroupType/attr/id
+      segmentIndexNumber:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/segmentIndexNumber
+        range:
+          type: string
+      salesOrderProductAdjustedTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/salesOrderProductAdjustedTaxAmount
+        range:
+          type: string
+      totalListPriceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalListPriceAmount
+        range:
+          type: string
+      totalDistributedTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalDistributedTaxAmount
+        range:
+          type: string
+      allocationGroupName:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/allocationGroupName
+        range:
+          type: string
+      subscriptionTermQuantity:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/subscriptionTermQuantity
+        range:
+          type: string
+      description:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/description
         required: true
         range:
           type: string
-    description: Reasons for grouping products together on sales orders, for example products that ship together.
-  Product Relationship Type:
-    uuid: cim/entity/ProductRelationshipType
-    attributes:
-      childProductRole:
-        uuid: cim/entity/ProductRelationshipType/attr/childProductRole
-        required: true
+      deliveryTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/deliveryTaxAmount
         range:
           type: string
-      parentProductRole:
-        uuid: cim/entity/ProductRelationshipType/attr/parentProductRole
-        required: true
+      totalLineAdjustmentAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/totalLineAdjustmentAmount
         range:
           type: string
-      id:
-        uuid: cim/entity/ProductRelationshipType/attr/id
-        required: true
-        range:
-          type: string
-    description: What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of
-  Sales Channel Type:
-    uuid: cim/entity/SalesChannelType
-    attributes:
-      name:
-        uuid: cim/entity/SalesChannelType/attr/name
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/SalesChannelType/attr/id
-        required: true
-        range:
-          type: string
-    description: Standard ways of selling products such as web, retail, direct marketing, etc
-  Sales Order Product Reason:
-    uuid: cim/entity/SalesOrderProductReason
-    attributes:
-      name:
-        uuid: cim/entity/SalesOrderProductReason/attr/name
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/SalesOrderProductReason/attr/id
-        required: true
+      isBonusProduct:
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/isBonusProduct
         range:
           type: string
     associations:
-      salesOrderProductReasonCategory:
+      listPriceTermUOM:
         allowMultiple: true
-        uuid: cim/entity/SalesOrderProductReason/attr/salesOrderProductReasonCategory
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/listPriceTermUOM
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductAttribute/ProductValidityTimePeriodUOM
+      shippingAddress:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/shippingAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointAddress
+      subscriptionTermUnit:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/subscriptionTermUnit
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductAttribute/ProductValidityTimePeriodUOM
+      priceBookEntry:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/priceBookEntry
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProductReasonCategory
-    description: The customer motive for ordering a product or service, such as replacement, new purchase, upgrade
-  Sales Order ChangeT ype:
-    uuid: cim/entity/SalesOrderChangeType
-    attributes:
-      salesOrderChangeTypeName:
-        uuid: cim/entity/SalesOrderChangeType/attr/salesOrderChangeTypeName
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductAttribute/PriceBookEntry
+      salesOrderProductStatus:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/salesOrderProductStatus
         required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/SalesOrderChangeType/attr/id
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderProductStatus
+      salesOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/salesOrder
         required: true
-        range:
-          type: string
-    description: The reason for a revision of an earlier sales order, e.g. quantity change, new distributed adjustment, new line adjustment, etc.
-  Sales Order Delivery Status:
-    uuid: cim/entity/SalesOrderDeliveryStatus
-    attributes:
-      name:
-        uuid: cim/entity/SalesOrderDeliveryStatus/attr/name
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrder
+      originalOrderProduct:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/originalOrderProduct
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderProduct
+      shippingEmail:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/shippingEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointEmail
+      sellerAccount:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/sellerAccount
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account/Account
+      salesOrderDeliveryGroup:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/salesOrderDeliveryGroup
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderDeliveryGroup
+      product:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/product
         required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/SalesOrderDeliveryStatus/attr/id
-        required: true
-        range:
-          type: string
-    description: The progress of a delivery such as awaiting pickup, in progress or complete
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product/Product
+      salesOrderProductReason:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/salesOrderProductReason
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderProductReason
+      shippingPhone:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProduct/attr/shippingPhone
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointPhone
+    description: A component of a Sales Order that identifies a product or service that will be sold to the customer
   Price Adjustment Method:
-    uuid: cim/entity/PriceAdjustmentMethod
+    uuid: cim/entity/SalesOrder/PriceAdjustmentMethod
     attributes:
       name:
-        uuid: cim/entity/PriceAdjustmentMethod/attr/name
+        uuid: cim/entity/SalesOrder/PriceAdjustmentMethod/attr/name
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/PriceAdjustmentMethod/attr/id
+        uuid: cim/entity/SalesOrder/PriceAdjustmentMethod/attr/id
         required: true
         range:
           type: string
     description: "Defines how the adjustment will be calculated. Valid values used in Commerce Cloud are: percentage, fixed_price, amount, free, price_book_price, bonus, total_fixed_price, bonus_choice, percentage_off_options"
-  Sales Order Confirmation Status:
-    uuid: cim/entity/SalesOrderConfirmationStatus
+  Price Adjustment Group:
+    uuid: cim/entity/SalesOrder/PriceAdjustmentGroup
+    description: "Supertype of: Sales Order Price Adjustment, Sales Order Product Price Adjustment, and FulfillmentOrderProductPriceAdjustment"
+  Sales Order Product Status:
+    uuid: cim/entity/SalesOrder/SalesOrderProductStatus
     attributes:
       name:
-        uuid: cim/entity/SalesOrderConfirmationStatus/attr/name
+        uuid: cim/entity/SalesOrder/SalesOrderProductStatus/attr/name
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/SalesOrderConfirmationStatus/attr/id
+        uuid: cim/entity/SalesOrder/SalesOrderProductStatus/attr/id
+        required: true
+        range:
+          type: string
+    description: The status of a line component of a Sales Order
+  Sales Order Price Adjustment:
+    uuid: cim/entity/SalesOrder/SalesOrderPriceAdjustment
+    attributes:
+      totalAdjustmentTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderPriceAdjustment/attr/totalAdjustmentTaxAmount
+        range:
+          type: string
+    description: A change to the price of a Sales Order that is made before order fulfillment. A Sales Order Price Adjustment may be comprised of Sales Order Product Price Adjustments that allocate the overall adjustment amount to one or more of the products and services
+  Sales Order Confirmation Status:
+    uuid: cim/entity/SalesOrder/SalesOrderConfirmationStatus
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrder/SalesOrderConfirmationStatus/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesOrderConfirmationStatus/attr/id
         required: true
         range:
           type: string
     description: Stages of customer approval and finalization of a Sales Order.
-  Sales Order Delivery Group:
-    uuid: cim/entity/SalesOrderDeliveryGroup
+  Sales Order:
+    uuid: cim/entity/SalesOrder/SalesOrder
     attributes:
-      totalDeliveryChargeTaxAmount:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalDeliveryChargeTaxAmount
+      orderNumber:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/orderNumber
+        required: true
         range:
           type: string
+      checkoutDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/checkoutDate
+        range:
+          type: string
+      totalPendingBillingAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalPendingBillingAmount
+        range:
+          type: string
+      orderDiscount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/orderDiscount
+        range:
+          type: integer
       description:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/description
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/description
         required: true
         range:
           type: string
-      promisedDate:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/promisedDate
+      customerAuthorizedDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/customerAuthorizedDate
         range:
           type: string
-      totalPriceAmount:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalPriceAmount
-        required: true
+      promiseFulfillmentDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/promiseFulfillmentDate
         range:
           type: string
-      totalDeliveryChargeAmount:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalDeliveryChargeAmount
+      isContracted:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/isContracted
         range:
           type: string
-      isGift:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/isGift
+      adjustedProductTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/adjustedProductTaxAmount
         range:
           type: string
-      totalDeliveryAdjustmentTaxAmount:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalDeliveryAdjustmentTaxAmount
+      priceCalculationStatusMessageText:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/priceCalculationStatusMessageText
         range:
           type: string
-      totalDeliveryAdjustmentAmount:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalDeliveryAdjustmentAmount
+      isGiftOrder:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/isGiftOrder
         range:
           type: string
-      totalDeliveryTaxAmount:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalDeliveryTaxAmount
+      isTaxExempt:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/isTaxExempt
         range:
           type: string
-      desiredDeliveryDate:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/desiredDeliveryDate
+      promiseDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/promiseDate
         range:
           type: string
-      deliveryInstructionsText:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/deliveryInstructionsText
+      totalCancelledBillingAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalCancelledBillingAmount
         range:
           type: string
-      id:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/id
-        required: true
+      isClosed:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/isClosed
         range:
           type: string
       totalProductTaxAmount:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalProductTaxAmount
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalProductTaxAmount
         range:
           type: string
-      grandTotalDeliveryAmount:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/grandTotalDeliveryAmount
+      purchaseOrderNumber:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/purchaseOrderNumber
         range:
           type: string
-      totalUnitPriceAmount:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalUnitPriceAmount
-        required: true
+      totalDeliveryTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalDeliveryTaxAmount
         range:
           type: string
-      name:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/name
-        required: true
+      taxRate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/taxRate
         range:
           type: string
-      giftMessageText:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/giftMessageText
+      paidDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/paidDate
+        range:
+          type: string
+      totalAdjustedDeliveryTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalAdjustedDeliveryTaxAmount
+        range:
+          type: string
+      isAnonymous:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/isAnonymous
         range:
           type: string
       totalTaxAmount:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/totalTaxAmount
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalTaxAmount
         range:
           type: string
-      salesOrderDeliveryGroupNumber:
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/salesOrderDeliveryGroupNumber
+      orderInsuranceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/orderInsuranceAmount
+        range:
+          type: string
+      totalBookingAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalBookingAmount
+        range:
+          type: string
+      isAlerted:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/isAlerted
+        range:
+          type: string
+      companyAuthorizedDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/companyAuthorizedDate
+        range:
+          type: string
+      cancelDateType:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/cancelDateType
+        range:
+          type: string
+      cancelDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/cancelDate
+        range:
+          type: string
+      canBillNow:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/canBillNow
+        range:
+          type: string
+      adjustedTotalProductAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/adjustedTotalProductAmount
+        range:
+          type: string
+      grandTotalAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/grandTotalAmount
+        range:
+          type: string
+      billingDayOfTheMonth:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/billingDayOfTheMonth
+        range:
+          type: integer
+      totalDeliveryFeeAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalDeliveryFeeAmount
+        range:
+          type: string
+      isHistoricalOnly:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/isHistoricalOnly
+        range:
+          type: string
+      isReductionOrder:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/isReductionOrder
+        range:
+          type: string
+      totalAdjustmentTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalAdjustmentTaxAmount
+        range:
+          type: string
+      developerStatusCode:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/developerStatusCode
         required: true
+        range:
+          type: string
+      packedDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/packedDate
+        range:
+          type: string
+      confirmationRecipientEmailText:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/confirmationRecipientEmailText
+        required: true
+        range:
+          type: string
+      requestedStartDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/requestedStartDate
+        required: true
+        range:
+          type: string
+      totalDeliveryAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalDeliveryAmount
+        range:
+          type: string
+      isSuspended:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/isSuspended
+        range:
+          type: string
+      totalProductAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalProductAmount
+        range:
+          type: string
+      salesOrderSystemStatus:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/salesOrderSystemStatus
+        range:
+          type: string
+      filedDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/filedDate
+        range:
+          type: string
+      totalAdjustmentAmount:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/totalAdjustmentAmount
+        range:
+          type: string
+      iSOCulture:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/iSOCulture
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/id
+        required: true
+        range:
+          type: string
+      orderStartDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/orderStartDate
+        range:
+          type: string
+      activatedDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/activatedDate
+        range:
+          type: string
+      purchaseOrderDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/purchaseOrderDate
+        range:
+          type: string
+      renewalUpliftRate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/renewalUpliftRate
+        range:
+          type: integer
+      name:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/name
+        required: true
+        range:
+          type: string
+      orderEndDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/orderEndDate
+        range:
+          type: string
+      fulfilledDate:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/fulfilledDate
         range:
           type: string
     associations:
-      salesOrder:
+      userDeviceSession:
         allowMultiple: true
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/salesOrder
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/userDeviceSession
+        target: http://mulesoft.com/modeling/instances/cim/entity/ProductAttribute/DeviceUserSession
+      billToContact:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/billToContact
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
-      originalDeliveryGroup:
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account/AccountContact
+      seller:
         allowMultiple: true
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/originalDeliveryGroup
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderDeliveryGroup
-      contactPointAddress:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/seller
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole/Seller
+      soldToCustomer:
         allowMultiple: true
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/contactPointAddress
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/soldToCustomer
+        target: http://mulesoft.com/modeling/instances/cim/entity/PartyRole/Customer
+      shipToAddress:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/shipToAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointAddress
+      billToEmail:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/billToEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointEmail
+      salesChannel:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/salesChannel
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
-      salesOrderDeliveryStatus:
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesChannel
+      shipToContact:
         allowMultiple: true
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/salesOrderDeliveryStatus
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderDeliveryStatus
-      orderDeliveryMethod:
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/shipToContact
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account/AccountContact
+      billToAccount:
         allowMultiple: true
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/orderDeliveryMethod
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/billToAccount
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/OrderDeliveryMethod
-      accountContact:
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account/Account
+      shipToEmail:
         allowMultiple: true
-        uuid: cim/entity/SalesOrderDeliveryGroup/attr/accountContact
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/shipToEmail
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointEmail
+      billToPhoneNumber:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/billToPhoneNumber
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointPhone
+      renewalTerm:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/renewalTerm
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/RenewalTerm
+      salesOrderConfirmationStatus:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/salesOrderConfirmationStatus
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
-    description: One or more Sales Order Products that share a common Sales Order Delivery Method, and Shipping Address
-  Sales Order Change Log:
-    uuid: cim/entity/SalesOrderChangeLog
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderConfirmationStatus
+      originalOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/originalOrder
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrder
+      internalBusinessUnit:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/internalBusinessUnit
+        target: http://mulesoft.com/modeling/instances/cim/entity/Party/InternalBusinessUnit
+      paymentMethod:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/paymentMethod
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethod
+      salesOrderType:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/salesOrderType
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderType
+      billToAddress:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/billToAddress
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointAddress
+      salesOrderStatus:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrder/attr/salesOrderStatus
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderStatus
+    description: An internal document generated by the seller, indicating that the customer is now ready to purchase products and services
+  Sales Order ChangeT ype:
+    uuid: cim/entity/SalesOrder/SalesOrderChangeType
     attributes:
-      name:
-        uuid: cim/entity/SalesOrderChangeLog/attr/name
+      salesOrderChangeTypeName:
+        uuid: cim/entity/SalesOrder/SalesOrderChangeType/attr/salesOrderChangeTypeName
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/SalesOrderChangeLog/attr/id
+        uuid: cim/entity/SalesOrder/SalesOrderChangeType/attr/id
         required: true
         range:
           type: string
-    associations:
-      changeSalesOrder:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderChangeLog/attr/changeSalesOrder
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
-      relatedSalesOrder:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderChangeLog/attr/relatedSalesOrder
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
-      relatedSalesOrderProduct:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderChangeLog/attr/relatedSalesOrderProduct
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
-      changeSalesOrderProduct:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderChangeLog/attr/changeSalesOrderProduct
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
-    description: Change log for sales order
-  Order Delivery Method:
-    uuid: cim/entity/OrderDeliveryMethod
-    attributes:
-      externalRecord:
-        uuid: cim/entity/OrderDeliveryMethod/attr/externalRecord
-        required: true
-        range:
-          type: string
-      name:
-        uuid: cim/entity/OrderDeliveryMethod/attr/name
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/OrderDeliveryMethod/attr/id
-        required: true
-        range:
-          type: string
-    associations:
-      product:
-        allowMultiple: true
-        uuid: cim/entity/OrderDeliveryMethod/attr/product
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Product
-    description: Standardized methods for transferring purchased products or services to the destination of fulfillment. Delivery methods are characterized by the means of transportation used, and by the delivering organization or group.
+    description: The reason for a revision of an earlier sales order, e.g. quantity change, new distributed adjustment, new line adjustment, etc.
   Sales Channel:
-    uuid: cim/entity/SalesChannel
+    uuid: cim/entity/SalesOrder/SalesChannel
     attributes:
-      description:
-        uuid: cim/entity/SalesChannel/attr/description
+      name:
+        uuid: cim/entity/SalesOrder/SalesChannel/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesChannel/attr/id
+        required: true
+        range:
+          type: string
+      externalRecord:
+        uuid: cim/entity/SalesOrder/SalesChannel/attr/externalRecord
         required: true
         range:
           type: string
       salesChannelNumber:
-        uuid: cim/entity/SalesChannel/attr/salesChannelNumber
+        uuid: cim/entity/SalesOrder/SalesChannel/attr/salesChannelNumber
         required: true
         range:
           type: string
-      name:
-        uuid: cim/entity/SalesChannel/attr/name
-        required: true
-        range:
-          type: string
-      externalRecord:
-        uuid: cim/entity/SalesChannel/attr/externalRecord
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/SalesChannel/attr/id
+      description:
+        uuid: cim/entity/SalesOrder/SalesChannel/attr/description
         required: true
         range:
           type: string
     associations:
       salesChannelType:
         allowMultiple: true
-        uuid: cim/entity/SalesChannel/attr/salesChannelType
+        uuid: cim/entity/SalesOrder/SalesChannel/attr/salesChannelType
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesChannelType
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesChannelType
     description: Which channel is used to sell goods e.g. Web Store, Retail Store, Street Faire
-  Sales Order Price Adjustment Type:
-    uuid: cim/entity/SalesOrderPriceAdjustmentType
+  Sales Order Status:
+    uuid: cim/entity/SalesOrder/SalesOrderStatus
     attributes:
       name:
-        uuid: cim/entity/SalesOrderPriceAdjustmentType/attr/name
+        uuid: cim/entity/SalesOrder/SalesOrderStatus/attr/name
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/SalesOrderPriceAdjustmentType/attr/id
+        uuid: cim/entity/SalesOrder/SalesOrderStatus/attr/id
         required: true
         range:
           type: string
-    description: Reasons for adjusting the price of an order such as promotional discount, or customer satisfaction issue
-  Sales Order Payment Summary:
-    uuid: cim/entity/SalesOrderPaymentSummary
+    description: The status of a Sales Order
+  Renewal Term:
+    uuid: cim/entity/SalesOrder/RenewalTerm
     attributes:
-      authorizationReversalAmount:
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/authorizationReversalAmount
-        range:
-          type: string
-      availableToApplyBalanceAmount:
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/availableToApplyBalanceAmount
-        range:
-          type: string
-      paymentAmount:
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/paymentAmount
-        range:
-          type: string
-      authorizationAmount:
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/authorizationAmount
-        range:
-          type: string
-      unappliedAmount:
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/unappliedAmount
-        range:
-          type: string
-      capturedAmount:
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/capturedAmount
-        range:
-          type: string
-      id:
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/id
+      name:
+        uuid: cim/entity/SalesOrder/RenewalTerm/attr/name
         required: true
         range:
           type: string
-      appliedAmount:
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/appliedAmount
+      id:
+        uuid: cim/entity/SalesOrder/RenewalTerm/attr/id
+        required: true
+        range:
+          type: string
+    description: For renewal orders, the length of the renewal term
+  Order Delivery Method:
+    uuid: cim/entity/SalesOrder/OrderDeliveryMethod
+    attributes:
+      externalRecord:
+        uuid: cim/entity/SalesOrder/OrderDeliveryMethod/attr/externalRecord
+        required: true
         range:
           type: string
       name:
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/name
-        required: true
-        range:
-          type: string
-    associations:
-      salesOrder:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/salesOrder
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
-      paymentMethod:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderPaymentSummary/attr/paymentMethod
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
-    description: One or more Payments having the same Payment Method, that have been applied to a single Sales Order.
-  Sales Order Product:
-    uuid: cim/entity/SalesOrderProduct
-    attributes:
-      totalUnitPriceAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalUnitPriceAmount
-        range:
-          type: string
-      totalAdjustmentAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalAdjustmentAmount
-        range:
-          type: string
-      totalRecurringPriceAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalRecurringPriceAmount
-        range:
-          type: string
-      allocatedQuantity:
-        uuid: cim/entity/SalesOrderProduct/attr/allocatedQuantity
-        range:
-          type: string
-      endDate:
-        uuid: cim/entity/SalesOrderProduct/attr/endDate
-        range:
-          type: string
-      commentText:
-        uuid: cim/entity/SalesOrderProduct/attr/commentText
-        range:
-          type: string
-      listPriceQuantityUOM:
-        uuid: cim/entity/SalesOrderProduct/attr/listPriceQuantityUOM
-        required: true
-        range:
-          type: string
-      orderAdjustmentSubTotalAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/orderAdjustmentSubTotalAmount
-        range:
-          type: string
-      subscriptionTermQuantity:
-        uuid: cim/entity/SalesOrderProduct/attr/subscriptionTermQuantity
-        range:
-          type: string
-      totalManualAdjustmentAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalManualAdjustmentAmount
-        range:
-          type: string
-      shippingCostAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/shippingCostAmount
-        range:
-          type: string
-      totalLineAdjustmentAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalLineAdjustmentAmount
-        range:
-          type: string
-      isAutomaticallyRenewed:
-        uuid: cim/entity/SalesOrderProduct/attr/isAutomaticallyRenewed
-        range:
-          type: string
-      orderProductNumber:
-        uuid: cim/entity/SalesOrderProduct/attr/orderProductNumber
-        required: true
-        range:
-          type: string
-      listPriceAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/listPriceAmount
-        range:
-          type: string
-      giftRecipientTelephoneNumber:
-        uuid: cim/entity/SalesOrderProduct/attr/giftRecipientTelephoneNumber
-        range:
-          type: string
-      segmentIndexNumber:
-        uuid: cim/entity/SalesOrderProduct/attr/segmentIndexNumber
-        range:
-          type: string
-      salesOrderProductAdjustedTaxAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/salesOrderProductAdjustedTaxAmount
-        range:
-          type: string
-      discountAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/discountAmount
-        range:
-          type: string
-      totalProductTaxAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalProductTaxAmount
-        range:
-          type: string
-      lineAdjustmentSubTotalAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/lineAdjustmentSubTotalAmount
-        range:
-          type: string
-      totalAdjustmentTaxAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalAdjustmentTaxAmount
-        range:
-          type: string
-      totalListPriceAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalListPriceAmount
-        range:
-          type: string
-      totalDistributedAdjustmentAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalDistributedAdjustmentAmount
-        range:
-          type: string
-      isGift:
-        uuid: cim/entity/SalesOrderProduct/attr/isGift
-        range:
-          type: string
-      description:
-        uuid: cim/entity/SalesOrderProduct/attr/description
+        uuid: cim/entity/SalesOrder/OrderDeliveryMethod/attr/name
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/SalesOrderProduct/attr/id
+        uuid: cim/entity/SalesOrder/OrderDeliveryMethod/attr/id
         required: true
-        range:
-          type: string
-      totalDistributedTaxAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalDistributedTaxAmount
-        range:
-          type: string
-      handlingCostAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/handlingCostAmount
-        range:
-          type: string
-      orderManualAdjustmentSubTotalAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/orderManualAdjustmentSubTotalAmount
-        range:
-          type: string
-      isBundleRoot:
-        uuid: cim/entity/SalesOrderProduct/attr/isBundleRoot
-        range:
-          type: string
-      segmentIndex:
-        uuid: cim/entity/SalesOrderProduct/attr/segmentIndex
-        range:
-          type: integer
-      totalPriceAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalPriceAmount
-        required: true
-        range:
-          type: string
-      subscriptionRenewalMonthQuantity:
-        uuid: cim/entity/SalesOrderProduct/attr/subscriptionRenewalMonthQuantity
-        range:
-          type: string
-      requestedStartDate:
-        uuid: cim/entity/SalesOrderProduct/attr/requestedStartDate
-        range:
-          type: string
-      unitPriceAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/unitPriceAmount
-        range:
-          type: string
-      cancelledQuantity:
-        uuid: cim/entity/SalesOrderProduct/attr/cancelledQuantity
-        range:
-          type: string
-      unitTaxAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/unitTaxAmount
-        range:
-          type: integer
-      isBonusProduct:
-        uuid: cim/entity/SalesOrderProduct/attr/isBonusProduct
-        range:
-          type: string
-      promisedDate:
-        uuid: cim/entity/SalesOrderProduct/attr/promisedDate
-        range:
-          type: string
-      discountPercent:
-        uuid: cim/entity/SalesOrderProduct/attr/discountPercent
-        range:
-          type: integer
-      recurringPriceAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/recurringPriceAmount
-        range:
-          type: string
-      totalDistributedAdjustmentTaxAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalDistributedAdjustmentTaxAmount
-        range:
-          type: string
-      totalLineAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalLineAmount
-        range:
-          type: string
-      allocationPartitionName:
-        uuid: cim/entity/SalesOrderProduct/attr/allocationPartitionName
-        range:
-          type: string
-      shippingTaxAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/shippingTaxAmount
-        range:
-          type: string
-      adjustedDeliveryTaxAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/adjustedDeliveryTaxAmount
-        range:
-          type: string
-      orderedQuantity:
-        uuid: cim/entity/SalesOrderProduct/attr/orderedQuantity
-        required: true
-        range:
-          type: string
-      requestedEndDate:
-        uuid: cim/entity/SalesOrderProduct/attr/requestedEndDate
-        range:
-          type: string
-      totalTaxAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/totalTaxAmount
-        range:
-          type: string
-      deliveryTaxAmount:
-        uuid: cim/entity/SalesOrderProduct/attr/deliveryTaxAmount
-        range:
-          type: string
-      provisioningDate:
-        uuid: cim/entity/SalesOrderProduct/attr/provisioningDate
-        range:
-          type: string
-      availableQuantity:
-        uuid: cim/entity/SalesOrderProduct/attr/availableQuantity
-        range:
-          type: string
-      quantityOrderedUOM:
-        uuid: cim/entity/SalesOrderProduct/attr/quantityOrderedUOM
-        required: true
-        range:
-          type: string
-      allocationGroupName:
-        uuid: cim/entity/SalesOrderProduct/attr/allocationGroupName
-        range:
-          type: string
-      fulfilledQuantity:
-        uuid: cim/entity/SalesOrderProduct/attr/fulfilledQuantity
-        range:
-          type: integer
-      giftOrderMessageText:
-        uuid: cim/entity/SalesOrderProduct/attr/giftOrderMessageText
         range:
           type: string
     associations:
       product:
         allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/product
+        uuid: cim/entity/SalesOrder/OrderDeliveryMethod/attr/product
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Product
-      salesOrderProductReason:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/salesOrderProductReason
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProductReason
-      shippingEmail:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/shippingEmail
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
-      salesOrderProductStatus:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/salesOrderProductStatus
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProductStatus
-      shippingAddress:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/shippingAddress
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
-      listPriceTermUOM:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/listPriceTermUOM
-        target: http://mulesoft.com/modeling/instances/cim/entity/ProductValidityTimePeriodUOM
-      originalOrderProduct:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/originalOrderProduct
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
-      shippingPhone:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/shippingPhone
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
-      salesOrder:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/salesOrder
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
-      priceBookEntry:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/priceBookEntry
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PriceBookEntry
-      salesOrderDeliveryGroup:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/salesOrderDeliveryGroup
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderDeliveryGroup
-      subscriptionTermUnit:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/subscriptionTermUnit
-        target: http://mulesoft.com/modeling/instances/cim/entity/ProductValidityTimePeriodUOM
-      sellerAccount:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrderProduct/attr/sellerAccount
-        target: http://mulesoft.com/modeling/instances/cim/entity/Account
-    description: A component of a Sales Order that identifies a product or service that will be sold to the customer
-  Sales Order Price Adjustment:
-    uuid: cim/entity/SalesOrderPriceAdjustment
-    attributes:
-      totalAdjustmentTaxAmount:
-        uuid: cim/entity/SalesOrderPriceAdjustment/attr/totalAdjustmentTaxAmount
-        range:
-          type: string
-    description: A change to the price of a Sales Order that is made before order fulfillment. A Sales Order Price Adjustment may be comprised of Sales Order Product Price Adjustments that allocate the overall adjustment amount to one or more of the products and services
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product/Product
+    description: Standardized methods for transferring purchased products or services to the destination of fulfillment. Delivery methods are characterized by the means of transportation used, and by the delivering organization or group.
   Sales Order Segment:
-    uuid: cim/entity/SalesOrderSegment
+    uuid: cim/entity/SalesOrder/SalesOrderSegment
     attributes:
       name:
-        uuid: cim/entity/SalesOrderSegment/attr/name
+        uuid: cim/entity/SalesOrder/SalesOrderSegment/attr/name
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/SalesOrderSegment/attr/id
+        uuid: cim/entity/SalesOrder/SalesOrderSegment/attr/id
         required: true
         range:
           type: string
     description: A sub-period of an overall subscription which has pricing associated with it
-  Sales Order Product Note:
-    uuid: cim/entity/SalesOrderProductNote
-    attributes:
-      noteText:
-        uuid: cim/entity/SalesOrderProductNote/attr/noteText
-        required: true
-        range:
-          type: string
-      description:
-        uuid: cim/entity/SalesOrderProductNote/attr/description
-        range:
-          type: string
-      id:
-        uuid: cim/entity/SalesOrderProductNote/attr/id
-        required: true
-        range:
-          type: string
-    description: A document accompanying a Sales Order that lists the description, quantity of the goods to be delivered or other information.
-  Sales Order Product Status:
-    uuid: cim/entity/SalesOrderProductStatus
+  Sales Order Price Adjustment Type:
+    uuid: cim/entity/SalesOrder/SalesOrderPriceAdjustmentType
     attributes:
       name:
-        uuid: cim/entity/SalesOrderProductStatus/attr/name
+        uuid: cim/entity/SalesOrder/SalesOrderPriceAdjustmentType/attr/name
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/SalesOrderProductStatus/attr/id
+        uuid: cim/entity/SalesOrder/SalesOrderPriceAdjustmentType/attr/id
         required: true
         range:
           type: string
-    description: The status of a line component of a Sales Order
-  Price Adjustment Group:
-    uuid: cim/entity/PriceAdjustmentGroup
-    description: "Supertype of: Sales Order Price Adjustment, Sales Order Product Price Adjustment, and FulfillmentOrderProductPriceAdjustment"
+    description: Reasons for adjusting the price of an order such as promotional discount, or customer satisfaction issue
+  Sales Channel Type:
+    uuid: cim/entity/SalesOrder/SalesChannelType
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrder/SalesChannelType/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesChannelType/attr/id
+        required: true
+        range:
+          type: string
+    description: Standard ways of selling products such as web, retail, direct marketing, etc
+  Sales Order Product Tax:
+    uuid: cim/entity/SalesOrder/SalesOrderProductTax
+    attributes:
+      salesOrderTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProductTax/attr/salesOrderTaxAmount
+        range:
+          type: string
+      taxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderProductTax/attr/taxAmount
+        required: true
+        range:
+          type: string
+    description: A tax on the price of a Sales Order Product.
+  Sales Order Product Reason:
+    uuid: cim/entity/SalesOrder/SalesOrderProductReason
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrder/SalesOrderProductReason/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesOrderProductReason/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      salesOrderProductReasonCategory:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderProductReason/attr/salesOrderProductReasonCategory
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderProductReasonCategory
+    description: The customer motive for ordering a product or service, such as replacement, new purchase, upgrade
+  Product Relationship Type:
+    uuid: cim/entity/SalesOrder/ProductRelationshipType
+    attributes:
+      childProductRole:
+        uuid: cim/entity/SalesOrder/ProductRelationshipType/attr/childProductRole
+        required: true
+        range:
+          type: string
+      parentProductRole:
+        uuid: cim/entity/SalesOrder/ProductRelationshipType/attr/parentProductRole
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/ProductRelationshipType/attr/id
+        required: true
+        range:
+          type: string
+    description: What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of
+  Sales Order Type:
+    uuid: cim/entity/SalesOrder/SalesOrderType
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrder/SalesOrderType/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesOrderType/attr/id
+        required: true
+        range:
+          type: string
+    description: Classifies a Sales Order as a New, Renewal or Change order
+  Sales Order Change Log:
+    uuid: cim/entity/SalesOrder/SalesOrderChangeLog
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrder/SalesOrderChangeLog/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesOrderChangeLog/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      changeSalesOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderChangeLog/attr/changeSalesOrder
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrder
+      relatedSalesOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderChangeLog/attr/relatedSalesOrder
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrder
+      relatedSalesOrderProduct:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderChangeLog/attr/relatedSalesOrderProduct
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderProduct
+      changeSalesOrderProduct:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderChangeLog/attr/changeSalesOrderProduct
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderProduct
+    description: Change log for sales order
   Sales Order Product Group:
-    uuid: cim/entity/SalesOrderProductGroup
+    uuid: cim/entity/SalesOrder/SalesOrderProductGroup
     attributes:
       description:
-        uuid: cim/entity/SalesOrderProductGroup/attr/description
+        uuid: cim/entity/SalesOrder/SalesOrderProductGroup/attr/description
         required: true
         range:
           type: string
       name:
-        uuid: cim/entity/SalesOrderProductGroup/attr/name
+        uuid: cim/entity/SalesOrder/SalesOrderProductGroup/attr/name
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/SalesOrderProductGroup/attr/id
+        uuid: cim/entity/SalesOrder/SalesOrderProductGroup/attr/id
         required: true
         range:
           type: string
     associations:
       salesOrderProductGroupType:
         allowMultiple: true
-        uuid: cim/entity/SalesOrderProductGroup/attr/salesOrderProductGroupType
+        uuid: cim/entity/SalesOrder/SalesOrderProductGroup/attr/salesOrderProductGroupType
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProductGroupType
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderProductGroupType
     description: Products may be grouped together for various reasons, such as products that should be shipped together. Every product in a Sales Order Product Group is not required to be a Sales Order Product.
-  Renewal Term:
-    uuid: cim/entity/RenewalTerm
+  Sales Order Delivery Group:
+    uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup
     attributes:
-      name:
-        uuid: cim/entity/RenewalTerm/attr/name
-        required: true
+      isGift:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/isGift
+        range:
+          type: string
+      totalDeliveryChargeTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/totalDeliveryChargeTaxAmount
+        range:
+          type: string
+      giftMessageText:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/giftMessageText
         range:
           type: string
       id:
-        uuid: cim/entity/RenewalTerm/attr/id
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/id
         required: true
         range:
           type: string
-    description: For renewal orders, the length of the renewal term
-  Sales Order Product Tax:
-    uuid: cim/entity/SalesOrderProductTax
-    attributes:
-      salesOrderTaxAmount:
-        uuid: cim/entity/SalesOrderProductTax/attr/salesOrderTaxAmount
-        range:
-          type: string
-      taxAmount:
-        uuid: cim/entity/SalesOrderProductTax/attr/taxAmount
-        required: true
-        range:
-          type: string
-    description: A tax on the price of a Sales Order Product.
-  Sales Order:
-    uuid: cim/entity/SalesOrder
-    attributes:
-      totalDeliveryAmount:
-        uuid: cim/entity/SalesOrder/attr/totalDeliveryAmount
-        range:
-          type: string
-      isAlerted:
-        uuid: cim/entity/SalesOrder/attr/isAlerted
-        range:
-          type: string
-      isGiftOrder:
-        uuid: cim/entity/SalesOrder/attr/isGiftOrder
-        range:
-          type: string
-      isClosed:
-        uuid: cim/entity/SalesOrder/attr/isClosed
-        range:
-          type: string
-      adjustedProductTaxAmount:
-        uuid: cim/entity/SalesOrder/attr/adjustedProductTaxAmount
-        range:
-          type: string
-      cancelDateType:
-        uuid: cim/entity/SalesOrder/attr/cancelDateType
-        range:
-          type: string
-      totalProductAmount:
-        uuid: cim/entity/SalesOrder/attr/totalProductAmount
-        range:
-          type: string
-      isTaxExempt:
-        uuid: cim/entity/SalesOrder/attr/isTaxExempt
-        range:
-          type: string
-      isSuspended:
-        uuid: cim/entity/SalesOrder/attr/isSuspended
-        range:
-          type: string
-      totalDeliveryTaxAmount:
-        uuid: cim/entity/SalesOrder/attr/totalDeliveryTaxAmount
-        range:
-          type: string
-      totalAdjustmentAmount:
-        uuid: cim/entity/SalesOrder/attr/totalAdjustmentAmount
-        range:
-          type: string
-      adjustedTotalProductAmount:
-        uuid: cim/entity/SalesOrder/attr/adjustedTotalProductAmount
-        range:
-          type: string
-      id:
-        uuid: cim/entity/SalesOrder/attr/id
-        required: true
-        range:
-          type: string
-      totalDeliveryFeeAmount:
-        uuid: cim/entity/SalesOrder/attr/totalDeliveryFeeAmount
-        range:
-          type: string
-      orderEndDate:
-        uuid: cim/entity/SalesOrder/attr/orderEndDate
-        range:
-          type: string
-      purchaseOrderNumber:
-        uuid: cim/entity/SalesOrder/attr/purchaseOrderNumber
-        range:
-          type: string
-      orderNumber:
-        uuid: cim/entity/SalesOrder/attr/orderNumber
-        required: true
-        range:
-          type: string
-      renewalUpliftRate:
-        uuid: cim/entity/SalesOrder/attr/renewalUpliftRate
-        range:
-          type: integer
-      taxRate:
-        uuid: cim/entity/SalesOrder/attr/taxRate
-        range:
-          type: string
-      orderInsuranceAmount:
-        uuid: cim/entity/SalesOrder/attr/orderInsuranceAmount
-        range:
-          type: string
-      totalAdjustedDeliveryTaxAmount:
-        uuid: cim/entity/SalesOrder/attr/totalAdjustedDeliveryTaxAmount
-        range:
-          type: string
-      companyAuthorizedDate:
-        uuid: cim/entity/SalesOrder/attr/companyAuthorizedDate
-        range:
-          type: string
-      packedDate:
-        uuid: cim/entity/SalesOrder/attr/packedDate
+      totalDeliveryAdjustmentAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/totalDeliveryAdjustmentAmount
         range:
           type: string
       description:
-        uuid: cim/entity/SalesOrder/attr/description
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/description
         required: true
         range:
           type: string
-      billingDayOfTheMonth:
-        uuid: cim/entity/SalesOrder/attr/billingDayOfTheMonth
+      totalDeliveryTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/totalDeliveryTaxAmount
         range:
-          type: integer
+          type: string
+      grandTotalDeliveryAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/grandTotalDeliveryAmount
+        range:
+          type: string
       name:
-        uuid: cim/entity/SalesOrder/attr/name
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/name
         required: true
         range:
           type: string
-      totalCancelledBillingAmount:
-        uuid: cim/entity/SalesOrder/attr/totalCancelledBillingAmount
+      totalPriceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/totalPriceAmount
+        required: true
         range:
           type: string
-      grandTotalAmount:
-        uuid: cim/entity/SalesOrder/attr/grandTotalAmount
+      totalDeliveryChargeAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/totalDeliveryChargeAmount
         range:
           type: string
-      fulfilledDate:
-        uuid: cim/entity/SalesOrder/attr/fulfilledDate
+      desiredDeliveryDate:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/desiredDeliveryDate
         range:
           type: string
-      priceCalculationStatusMessageText:
-        uuid: cim/entity/SalesOrder/attr/priceCalculationStatusMessageText
+      deliveryInstructionsText:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/deliveryInstructionsText
         range:
           type: string
-      iSOCulture:
-        uuid: cim/entity/SalesOrder/attr/iSOCulture
-        range:
-          type: string
-      orderStartDate:
-        uuid: cim/entity/SalesOrder/attr/orderStartDate
-        range:
-          type: string
-      checkoutDate:
-        uuid: cim/entity/SalesOrder/attr/checkoutDate
+      totalProductTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/totalProductTaxAmount
         range:
           type: string
       totalTaxAmount:
-        uuid: cim/entity/SalesOrder/attr/totalTaxAmount
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/totalTaxAmount
         range:
           type: string
-      promiseDate:
-        uuid: cim/entity/SalesOrder/attr/promiseDate
-        range:
-          type: string
-      totalPendingBillingAmount:
-        uuid: cim/entity/SalesOrder/attr/totalPendingBillingAmount
-        range:
-          type: string
-      paidDate:
-        uuid: cim/entity/SalesOrder/attr/paidDate
-        range:
-          type: string
-      cancelDate:
-        uuid: cim/entity/SalesOrder/attr/cancelDate
-        range:
-          type: string
-      filedDate:
-        uuid: cim/entity/SalesOrder/attr/filedDate
-        range:
-          type: string
-      isReductionOrder:
-        uuid: cim/entity/SalesOrder/attr/isReductionOrder
-        range:
-          type: string
-      orderDiscount:
-        uuid: cim/entity/SalesOrder/attr/orderDiscount
-        range:
-          type: integer
-      totalProductTaxAmount:
-        uuid: cim/entity/SalesOrder/attr/totalProductTaxAmount
-        range:
-          type: string
-      isAnonymous:
-        uuid: cim/entity/SalesOrder/attr/isAnonymous
-        range:
-          type: string
-      totalBookingAmount:
-        uuid: cim/entity/SalesOrder/attr/totalBookingAmount
-        range:
-          type: string
-      customerAuthorizedDate:
-        uuid: cim/entity/SalesOrder/attr/customerAuthorizedDate
-        range:
-          type: string
-      developerStatusCode:
-        uuid: cim/entity/SalesOrder/attr/developerStatusCode
+      totalUnitPriceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/totalUnitPriceAmount
         required: true
         range:
           type: string
-      promiseFulfillmentDate:
-        uuid: cim/entity/SalesOrder/attr/promiseFulfillmentDate
+      promisedDate:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/promisedDate
         range:
           type: string
-      confirmationRecipientEmailText:
-        uuid: cim/entity/SalesOrder/attr/confirmationRecipientEmailText
+      salesOrderDeliveryGroupNumber:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/salesOrderDeliveryGroupNumber
         required: true
         range:
           type: string
-      canBillNow:
-        uuid: cim/entity/SalesOrder/attr/canBillNow
-        range:
-          type: string
-      salesOrderSystemStatus:
-        uuid: cim/entity/SalesOrder/attr/salesOrderSystemStatus
-        range:
-          type: string
-      requestedStartDate:
-        uuid: cim/entity/SalesOrder/attr/requestedStartDate
-        required: true
-        range:
-          type: string
-      isHistoricalOnly:
-        uuid: cim/entity/SalesOrder/attr/isHistoricalOnly
-        range:
-          type: string
-      purchaseOrderDate:
-        uuid: cim/entity/SalesOrder/attr/purchaseOrderDate
-        range:
-          type: string
-      isContracted:
-        uuid: cim/entity/SalesOrder/attr/isContracted
-        range:
-          type: string
-      activatedDate:
-        uuid: cim/entity/SalesOrder/attr/activatedDate
-        range:
-          type: string
-      totalAdjustmentTaxAmount:
-        uuid: cim/entity/SalesOrder/attr/totalAdjustmentTaxAmount
+      totalDeliveryAdjustmentTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/totalDeliveryAdjustmentTaxAmount
         range:
           type: string
     associations:
-      salesOrderType:
+      salesOrder:
         allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/salesOrderType
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/salesOrder
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderType
-      salesOrderConfirmationStatus:
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrder
+      orderDeliveryMethod:
         allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/salesOrderConfirmationStatus
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/orderDeliveryMethod
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderConfirmationStatus
-      billToContact:
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/OrderDeliveryMethod
+      salesOrderDeliveryStatus:
         allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/billToContact
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/salesOrderDeliveryStatus
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
-      billToEmail:
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderDeliveryStatus
+      accountContact:
         allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/billToEmail
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
-      renewalTerm:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/renewalTerm
-        target: http://mulesoft.com/modeling/instances/cim/entity/RenewalTerm
-      salesChannel:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/salesChannel
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/accountContact
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesChannel
-      internalBusinessUnit:
+        target: http://mulesoft.com/modeling/instances/cim/entity/Account/AccountContact
+      originalDeliveryGroup:
         allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/internalBusinessUnit
-        target: http://mulesoft.com/modeling/instances/cim/entity/InternalBusinessUnit
-      shipToContact:
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/originalDeliveryGroup
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderDeliveryGroup
+      contactPointAddress:
         allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/shipToContact
-        target: http://mulesoft.com/modeling/instances/cim/entity/AccountContact
-      shipToAddress:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/shipToAddress
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
-      billToAccount:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/billToAccount
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryGroup/attr/contactPointAddress
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Account
-      seller:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/seller
-        target: http://mulesoft.com/modeling/instances/cim/entity/Seller
-      originalOrder:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/originalOrder
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
-      paymentMethod:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/paymentMethod
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod
-      billToAddress:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/billToAddress
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
-      soldToCustomer:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/soldToCustomer
-        target: http://mulesoft.com/modeling/instances/cim/entity/Customer
-      salesOrderStatus:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/salesOrderStatus
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderStatus
-      shipToEmail:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/shipToEmail
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail
-      userDeviceSession:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/userDeviceSession
-        target: http://mulesoft.com/modeling/instances/cim/entity/DeviceUserSession
-      billToPhoneNumber:
-        allowMultiple: true
-        uuid: cim/entity/SalesOrder/attr/billToPhoneNumber
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone
-    description: An internal document generated by the seller, indicating that the customer is now ready to purchase products and services
-  Sales Order Type:
-    uuid: cim/entity/SalesOrderType
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointAddress
+    description: One or more Sales Order Products that share a common Sales Order Delivery Method, and Shipping Address
+  Sales Order Delivery Status:
+    uuid: cim/entity/SalesOrder/SalesOrderDeliveryStatus
     attributes:
       name:
-        uuid: cim/entity/SalesOrderType/attr/name
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryStatus/attr/name
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/SalesOrderType/attr/id
+        uuid: cim/entity/SalesOrder/SalesOrderDeliveryStatus/attr/id
         required: true
         range:
           type: string
-    description: Classifies a Sales Order as a New, Renewal or Change order
+    description: The progress of a delivery such as awaiting pickup, in progress or complete
+  Sales Order Product Reason Category:
+    uuid: cim/entity/SalesOrder/SalesOrderProductReasonCategory
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrder/SalesOrderProductReasonCategory/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesOrderProductReasonCategory/attr/id
+        required: true
+        range:
+          type: string
+    description: Groupings of Sales Order Product Reasons, such as product related or service related
+  Sales Order Tax:
+    uuid: cim/entity/SalesOrder/SalesOrderTax
+    attributes:
+      salesOrderTaxAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderTax/attr/salesOrderTaxAmount
+        range:
+          type: string
+      taxErrorMessageText:
+        uuid: cim/entity/SalesOrder/SalesOrderTax/attr/taxErrorMessageText
+        range:
+          type: string
+      name:
+        uuid: cim/entity/SalesOrder/SalesOrderTax/attr/name
+        required: true
+        range:
+          type: string
+      taxRatePercent:
+        uuid: cim/entity/SalesOrder/SalesOrderTax/attr/taxRatePercent
+        required: true
+        range:
+          type: integer
+      id:
+        uuid: cim/entity/SalesOrder/SalesOrderTax/attr/id
+        required: true
+        range:
+          type: string
+      taxAddressStreet1Text:
+        uuid: cim/entity/SalesOrder/SalesOrderTax/attr/taxAddressStreet1Text
+        range:
+          type: string
+      taxAddressStreet2Text:
+        uuid: cim/entity/SalesOrder/SalesOrderTax/attr/taxAddressStreet2Text
+        range:
+          type: string
+      taxAddressCityName:
+        uuid: cim/entity/SalesOrder/SalesOrderTax/attr/taxAddressCityName
+        range:
+          type: string
+    description: "A charge that is imposed by a government entity for public purposes. Types are aligned to phases of the process: SalesOrderTax, FulfillmentProductTax and ShipmentProductTax"
+  Sales Order Product Group Type:
+    uuid: cim/entity/SalesOrder/SalesOrderProductGroupType
+    attributes:
+      name:
+        uuid: cim/entity/SalesOrder/SalesOrderProductGroupType/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesOrderProductGroupType/attr/id
+        required: true
+        range:
+          type: string
+    description: Reasons for grouping products together on sales orders, for example products that ship together.
+  Sales Order Payment Summary:
+    uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary
+    attributes:
+      authorizationAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/authorizationAmount
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/id
+        required: true
+        range:
+          type: string
+      availableToApplyBalanceAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/availableToApplyBalanceAmount
+        range:
+          type: string
+      unappliedAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/unappliedAmount
+        range:
+          type: string
+      capturedAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/capturedAmount
+        range:
+          type: string
+      name:
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/name
+        required: true
+        range:
+          type: string
+      appliedAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/appliedAmount
+        range:
+          type: string
+      paymentAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/paymentAmount
+        range:
+          type: string
+      authorizationReversalAmount:
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/authorizationReversalAmount
+        range:
+          type: string
+    associations:
+      salesOrder:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/salesOrder
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrder
+      paymentMethod:
+        allowMultiple: true
+        uuid: cim/entity/SalesOrder/SalesOrderPaymentSummary/attr/paymentMethod
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethod
+    description: One or more Payments having the same Payment Method, that have been applied to a single Sales Order.
+  Sales Order Product Note:
+    uuid: cim/entity/SalesOrder/SalesOrderProductNote
+    attributes:
+      noteText:
+        uuid: cim/entity/SalesOrder/SalesOrderProductNote/attr/noteText
+        required: true
+        range:
+          type: string
+      description:
+        uuid: cim/entity/SalesOrder/SalesOrderProductNote/attr/description
+        range:
+          type: string
+      id:
+        uuid: cim/entity/SalesOrder/SalesOrderProductNote/attr/id
+        required: true
+        range:
+          type: string
+    description: A document accompanying a Sales Order that lists the description, quantity of the goods to be delivered or other information.
 description: "Example Entities included: Sales Order, Opportunity, Payment Method"

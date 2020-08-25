@@ -10,14 +10,14 @@
     ],
     "http://a.ml/vocabularies/meta#definedBy": [
       {
-        "@id": "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml"
+        "@id": "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelDialect.yaml"
       }
     ],
     "http://a.ml/vocabularies/document#encodes": [
       {
         "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/PaymentMethodEntityGroup",
         "@type": [
-          "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DataModel",
+          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DataModel",
           "http://a.ml/vocabularies/data-model#DataModel",
           "http://a.ml/vocabularies/meta#DialectDomainElement",
           "http://a.ml/vocabularies/document#DomainElement"
@@ -34,16 +34,16 @@
         ],
         "http://a.ml/vocabularies/data-model#entities": [
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethod",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/PaymentMethod"
+                "@value": "cim/entity/PaymentMethod/PaymentMethod"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -53,16 +53,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/attr/paymentMethodStatus",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethod/attr/paymentMethodStatus",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethod/attr/paymentMethodStatus"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethod/attr/paymentMethodStatus"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -79,7 +79,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -88,16 +88,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/attr/id",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethod/attr/id",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethod/attr/id"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethod/attr/id"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -114,7 +114,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -125,9 +125,9 @@
             ],
             "http://a.ml/vocabularies/data-model#associations": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/attr/paymentMethodType",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethod/attr/paymentMethodType",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Association",
                   "http://a.ml/vocabularies/data-model#AssociationProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
@@ -139,7 +139,7 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethod/attr/paymentMethodType"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethod/attr/paymentMethodType"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -154,7 +154,18 @@
                 ],
                 "http://a.ml/vocabularies/data-model#target": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType"
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethodType",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
+                      "http://a.ml/vocabularies/data-model#Entity",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#uuid": [
+                      {
+                        "@value": "cim/entity/PaymentMethod/PaymentMethodType"
+                      }
+                    ]
                   }
                 ]
               }
@@ -166,16 +177,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethodType",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/PaymentMethodType"
+                "@value": "cim/entity/PaymentMethod/PaymentMethodType"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -185,16 +196,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethodType/attr/maxTransactionAmount",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxTransactionAmount",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethodType/attr/maxTransactionAmount"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxTransactionAmount"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -206,7 +217,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -215,16 +226,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethodType/attr/maxPerPeriodAmount",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodAmount",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethodType/attr/maxPerPeriodAmount"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodAmount"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -236,7 +247,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -245,16 +256,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethodType/attr/useMinimumAgeYear",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/useMinimumAgeYear",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethodType/attr/useMinimumAgeYear"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/useMinimumAgeYear"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -266,7 +277,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -275,16 +286,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethodType/attr/maxPerPeriodTransactionCount",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodTransactionCount",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethodType/attr/maxPerPeriodTransactionCount"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodTransactionCount"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -296,7 +307,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -305,16 +316,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethodType/attr/typeRequiredIdentification",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/typeRequiredIdentification",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethodType/attr/typeRequiredIdentification"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/typeRequiredIdentification"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -326,7 +337,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -335,16 +346,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethodType/attr/mediaType",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/mediaType",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethodType/attr/mediaType"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/mediaType"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -356,7 +367,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -365,16 +376,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethodType/attr/typeDescription",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/typeDescription",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethodType/attr/typeDescription"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/typeDescription"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -386,7 +397,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -395,16 +406,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethodType/attr/name",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/name",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethodType/attr/name"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/name"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -416,7 +427,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -425,16 +436,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethodType/attr/id",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/id",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentMethodType/attr/id"
+                    "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/id"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -451,7 +462,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -467,16 +478,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentCard",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentCard",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/PaymentCard"
+                "@value": "cim/entity/PaymentMethod/PaymentCard"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -486,16 +497,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentCard/attr/expirationMonth",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentCard/attr/expirationMonth",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentCard/attr/expirationMonth"
+                    "@value": "cim/entity/PaymentMethod/PaymentCard/attr/expirationMonth"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -512,7 +523,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -523,9 +534,9 @@
             ],
             "http://a.ml/vocabularies/data-model#associations": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentCard/attr/paymentMethodType",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentCard/attr/paymentMethodType",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Association",
                   "http://a.ml/vocabularies/data-model#AssociationProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
@@ -537,7 +548,7 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PaymentCard/attr/paymentMethodType"
+                    "@value": "cim/entity/PaymentMethod/PaymentCard/attr/paymentMethodType"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -552,7 +563,305 @@
                 ],
                 "http://a.ml/vocabularies/data-model#target": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType"
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethodType",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
+                      "http://a.ml/vocabularies/data-model#Entity",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#uuid": [
+                      {
+                        "@value": "cim/entity/PaymentMethod/PaymentMethodType"
+                      }
+                    ],
+                    "http://a.ml/vocabularies/core#name": [
+                      {
+                        "@value": "Payment Method Type"
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data-model#attributes": [
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxTransactionAmount",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxTransactionAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "maxTransactionAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodAmount",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "maxPerPeriodAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/useMinimumAgeYear",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/useMinimumAgeYear"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "useMinimumAgeYear"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/integer",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Integer",
+                              "http://a.ml/vocabularies/data-model#Integer",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodTransactionCount",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodTransactionCount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "maxPerPeriodTransactionCount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/integer",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Integer",
+                              "http://a.ml/vocabularies/data-model#Integer",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/typeRequiredIdentification",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/typeRequiredIdentification"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "typeRequiredIdentification"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/mediaType",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/mediaType"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "mediaType"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/typeDescription",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/typeDescription"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "typeDescription"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/name",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/name"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "name"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/id",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/id"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "id"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#required": [
+                          {
+                            "@value": true
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "http://a.ml/vocabularies/core#description": [
+                      {
+                        "@value": "The category of payment method, such as payment card, check or digital wallet."
+                      }
+                    ]
                   }
                 ]
               }
@@ -564,16 +873,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/Coupon",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/Coupon",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/Coupon"
+                "@value": "cim/entity/PaymentMethod/Coupon"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -583,16 +892,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Coupon/attr/discountAmount",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/Coupon/attr/discountAmount",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/Coupon/attr/discountAmount"
+                    "@value": "cim/entity/PaymentMethod/Coupon/attr/discountAmount"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -604,7 +913,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -615,9 +924,9 @@
             ],
             "http://a.ml/vocabularies/data-model#associations": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/Coupon/attr/paymentMethodType",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/Coupon/attr/paymentMethodType",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Association",
                   "http://a.ml/vocabularies/data-model#AssociationProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
@@ -629,7 +938,7 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/Coupon/attr/paymentMethodType"
+                    "@value": "cim/entity/PaymentMethod/Coupon/attr/paymentMethodType"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -644,7 +953,305 @@
                 ],
                 "http://a.ml/vocabularies/data-model#target": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType"
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethodType",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
+                      "http://a.ml/vocabularies/data-model#Entity",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#uuid": [
+                      {
+                        "@value": "cim/entity/PaymentMethod/PaymentMethodType"
+                      }
+                    ],
+                    "http://a.ml/vocabularies/core#name": [
+                      {
+                        "@value": "Payment Method Type"
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data-model#attributes": [
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxTransactionAmount",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxTransactionAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "maxTransactionAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodAmount",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "maxPerPeriodAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/useMinimumAgeYear",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/useMinimumAgeYear"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "useMinimumAgeYear"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/integer",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Integer",
+                              "http://a.ml/vocabularies/data-model#Integer",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodTransactionCount",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodTransactionCount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "maxPerPeriodTransactionCount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/integer",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Integer",
+                              "http://a.ml/vocabularies/data-model#Integer",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/typeRequiredIdentification",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/typeRequiredIdentification"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "typeRequiredIdentification"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/mediaType",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/mediaType"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "mediaType"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/typeDescription",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/typeDescription"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "typeDescription"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/name",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/name"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "name"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/id",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/id"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "id"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#required": [
+                          {
+                            "@value": true
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "http://a.ml/vocabularies/core#description": [
+                      {
+                        "@value": "The category of payment method, such as payment card, check or digital wallet."
+                      }
+                    ]
                   }
                 ]
               }
@@ -656,16 +1263,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/CreditTender",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/CreditTender",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/CreditTender"
+                "@value": "cim/entity/PaymentMethod/CreditTender"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -675,9 +1282,9 @@
             ],
             "http://a.ml/vocabularies/data-model#associations": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/CreditTender/attr/paymentMethodType",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/CreditTender/attr/paymentMethodType",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Association",
                   "http://a.ml/vocabularies/data-model#AssociationProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
@@ -689,7 +1296,7 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/CreditTender/attr/paymentMethodType"
+                    "@value": "cim/entity/PaymentMethod/CreditTender/attr/paymentMethodType"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -704,14 +1311,312 @@
                 ],
                 "http://a.ml/vocabularies/data-model#target": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethodType"
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PaymentMethod/PaymentMethodType",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
+                      "http://a.ml/vocabularies/data-model#Entity",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#uuid": [
+                      {
+                        "@value": "cim/entity/PaymentMethod/PaymentMethodType"
+                      }
+                    ],
+                    "http://a.ml/vocabularies/core#name": [
+                      {
+                        "@value": "Payment Method Type"
+                      }
+                    ],
+                    "http://a.ml/vocabularies/data-model#attributes": [
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxTransactionAmount",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxTransactionAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "maxTransactionAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodAmount",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "maxPerPeriodAmount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/useMinimumAgeYear",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/useMinimumAgeYear"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "useMinimumAgeYear"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/integer",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Integer",
+                              "http://a.ml/vocabularies/data-model#Integer",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodTransactionCount",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/maxPerPeriodTransactionCount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "maxPerPeriodTransactionCount"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/integer",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Integer",
+                              "http://a.ml/vocabularies/data-model#Integer",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/typeRequiredIdentification",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/typeRequiredIdentification"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "typeRequiredIdentification"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/mediaType",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/mediaType"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "mediaType"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/typeDescription",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/typeDescription"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "typeDescription"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/name",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/name"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "name"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/PaymentMethodType/attr/id",
+                        "@type": [
+                          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
+                          "http://a.ml/vocabularies/data-model#AttributeProperty",
+                          "http://a.ml/vocabularies/meta#DialectDomainElement",
+                          "http://a.ml/vocabularies/document#DomainElement"
+                        ],
+                        "http://a.ml/vocabularies/data#uuid": [
+                          {
+                            "@value": "cim/entity/PaymentMethod/PaymentMethodType/attr/id"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/core#name": [
+                          {
+                            "@value": "id"
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#required": [
+                          {
+                            "@value": true
+                          }
+                        ],
+                        "http://a.ml/vocabularies/data-model#range": [
+                          {
+                            "@id": "http://mulesoft.com/modeling/instances/string",
+                            "@type": [
+                              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
+                              "http://a.ml/vocabularies/data-model#String",
+                              "http://a.ml/vocabularies/meta#DialectDomainElement",
+                              "http://a.ml/vocabularies/document#DomainElement"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "http://a.ml/vocabularies/core#description": [
+                      {
+                        "@value": "The category of payment method, such as payment card, check or digital wallet."
+                      }
+                    ]
                   }
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/CreditTender/attr/account",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PaymentMethod/CreditTender/attr/account",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Association",
                   "http://a.ml/vocabularies/data-model#AssociationProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
@@ -723,7 +1628,7 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/CreditTender/attr/account"
+                    "@value": "cim/entity/PaymentMethod/CreditTender/attr/account"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -733,7 +1638,18 @@
                 ],
                 "http://a.ml/vocabularies/data-model#target": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Account"
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Account/Account",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
+                      "http://a.ml/vocabularies/data-model#Entity",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#uuid": [
+                      {
+                        "@value": "cim/entity/Account/Account"
+                      }
+                    ]
                   }
                 ]
               }

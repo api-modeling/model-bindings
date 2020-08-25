@@ -81,31 +81,31 @@
           "description": "Example Entities included: Account, Account Contact, Bill Frequency",
           "classConcepts": [
             {
-              "@id": "Account",
+              "@id": "Account/Account",
               "name": "Account",
               "@type": "Class",
               "description": "How the party want to interact with your enterprise e.g. have multiple billing accounts"
             },
             {
-              "@id": "AccountContact",
+              "@id": "Account/AccountContact",
               "name": "Account Contact",
               "@type": "Class",
               "description": "An individual who has a role specific to an Account."
             },
             {
-              "@id": "AccountContactRole",
+              "@id": "Account/AccountContactRole",
               "name": "Account Contact Role",
               "@type": "Class",
               "description": "What role does a contact play on an account e.g. decision maker, influencer"
             },
             {
-              "@id": "AccountPartner",
+              "@id": "Account/AccountPartner",
               "name": "Account Partner",
               "@type": "Class",
               "description": "State what partner (account) is related to/have access to another account"
             },
             {
-              "@id": "BillingFrequency",
+              "@id": "Account/BillingFrequency",
               "name": "Billing Frequency",
               "@type": "Class",
               "description": "Describes a period of time used for recurring bills e.g. monthly or semi-monthly"
@@ -915,55 +915,55 @@
           "description": "Example Entities included: Contact Point, Contact Consent, Contact Channel",
           "classConcepts": [
             {
-              "@id": "ContactPointAddress",
+              "@id": "ContactPoint/ContactPointAddress",
               "name": "Contact Point Address",
               "@type": "Class",
               "description": "Mailing address for a party e.g. 123 Main St, Big City, CA12345, USA"
             },
             {
-              "@id": "ContactPointEmail",
+              "@id": "ContactPoint/ContactPointEmail",
               "name": "Contact Point Email",
               "@type": "Class",
               "description": "Email address for a party e.g. email info@northerntrailoutfitters.com"
             },
             {
-              "@id": "ContactPointPhone",
+              "@id": "ContactPoint/ContactPointPhone",
               "name": "Contact Point Phone",
               "@type": "Class",
               "description": "Phone number for a party e.g. phone 123-4567"
             },
             {
-              "@id": "ContactPoint",
+              "@id": "ContactPoint/ContactPoint",
               "name": "Contact Point",
               "@type": "Class",
               "description": "All contact points for a party e.g. phone 123-4567, email info@northerntrailoutfitters.com"
             },
             {
-              "@id": "PartyWebAddress",
+              "@id": "ContactPoint/PartyWebAddress",
               "name": "Party Web Address",
               "@type": "Class",
               "description": "What is the Web URL for the Party"
             },
             {
-              "@id": "ContactPointType",
+              "@id": "ContactPoint/ContactPointType",
               "name": "Contact Point Type",
               "@type": "Class",
               "description": "Contain the fixed list of types a contact point can be of e.g. phone, email"
             },
             {
-              "@id": "ContactPointSocial",
+              "@id": "ContactPoint/ContactPointSocial",
               "name": "Contact Point Social",
               "@type": "Class",
               "description": "Social handle for a party e.g. trustednews at twitter"
             },
             {
-              "@id": "ContactPointLocation",
+              "@id": "ContactPoint/ContactPointLocation",
               "name": "Contact Point Location",
               "@type": "Class",
               "description": "Physical location for a party e.g. party Northern Trail Outfitters at Standford Shopping Mall"
             },
             {
-              "@id": "ContactPointApp",
+              "@id": "ContactPoint/ContactPointApp",
               "name": "Contact Point App",
               "@type": "Class",
               "description": "Software Application for a party and optionally on a specific device e.g. John Doe have Strava App on device iPhone123"
@@ -1374,37 +1374,37 @@
           "description": "Example Entities included: Party Role, Buyer Role, Actor Role, Customer Role",
           "classConcepts": [
             {
-              "@id": "PartyRole",
+              "@id": "PartyRole/PartyRole",
               "name": "Party Role",
               "@type": "Class",
               "description": "Trading roles a party may play at the same time i.e. Customer, Supplier, Seller, Competitor, Worker"
             },
             {
-              "@id": "Customer",
+              "@id": "PartyRole/Customer",
               "name": "Customer",
               "@type": "Class",
               "description": "Information about a party playing role of customer e.g. life time value, life cycle status"
             },
             {
-              "@id": "Seller",
+              "@id": "PartyRole/Seller",
               "name": "Seller",
               "@type": "Class",
               "description": "Information about a party playing role of seller e.g. customer satisfaction score"
             },
             {
-              "@id": "Supplier",
+              "@id": "PartyRole/Supplier",
               "name": "Supplier",
               "@type": "Class",
               "description": "Information about a party playing role of supplier e.g. vendor ranking"
             },
             {
-              "@id": "Competitor",
+              "@id": "PartyRole/Competitor",
               "name": "Competitor",
               "@type": "Class",
               "description": "Information about a party playing role of competitor e.g. strength (in products), weaknesses (in offerings), opportunities (to overtake), threats (to our business)"
             },
             {
-              "@id": "CustomerStatusHistory",
+              "@id": "PartyRole/CustomerStatusHistory",
               "name": "Customer Status History",
               "@type": "Class",
               "description": "History of when customer changed frome one status to another"
@@ -1617,7 +1617,7 @@
           "description": "Example Entities included: Lead, Lead Status, Lead Source",
           "classConcepts": [
             {
-              "@id": "Lead",
+              "@id": "Lead/Lead",
               "name": "Lead",
               "@type": "Class",
               "description": "A person or company that showed interest in the company's products"
@@ -1999,79 +1999,79 @@
           "description": "Example Entities included: Organization, Individual, Affiliate Group, Uncategorized",
           "classConcepts": [
             {
-              "@id": "Party",
+              "@id": "Party/Party",
               "name": "Party",
               "@type": "Class",
               "description": "A unified, in system, definition of who you are dealing with e.g. John Doe, Northern Trail Outfitters and can be of different types e.g. individual, business, affiliation group."
             },
             {
-              "@id": "Individual",
+              "@id": "Party/Individual",
               "name": "Individual",
               "@type": "Class",
               "description": "Represent the person you are, or will be, dealing with using the system"
             },
             {
-              "@id": "Household",
+              "@id": "Party/Household",
               "name": "Household",
               "@type": "Class",
               "description": "A combination of people, normally recorded in the system for marketing or service purposes"
             },
             {
-              "@id": "InternalBusinessUnit",
+              "@id": "Party/InternalBusinessUnit",
               "name": "Internal Business Unit",
               "@type": "Class",
               "description": "Defining a part of your own internal organization. May be anything from a holding company, a line of business, a country division, a department and for which you may want to track e.g. if it is a legal entity, default GL Code, profit-and-loss etc against."
             },
             {
-              "@id": "UncategorizedParty",
+              "@id": "Party/UncategorizedParty",
               "name": "Uncategorized Party",
               "@type": "Class",
               "description": "A party we may be, or will be, dealing with but we do not know who they are yet e.g. Social Handle 'TrustedNews' which we do not yet know if a person or a business but complain about our company so we want to log a case to investigate further. E.g. an ord"
             },
             {
-              "@id": "PartyAdditionalName",
+              "@id": "Party/PartyAdditionalName",
               "name": "Party Additional Name",
               "@type": "Class",
               "description": "Under what name is a person also known as( AKA), under what alternate name is a business doing business as (DBA)"
             },
             {
-              "@id": "PersonLanguage",
+              "@id": "Party/PersonLanguage",
               "name": "Person Language",
               "@type": "Class",
               "description": "Languages a person can comprehend and level of comprehension"
             },
             {
-              "@id": "PartyRelatedParty",
+              "@id": "Party/PartyRelatedParty",
               "name": "Party Related Party",
               "@type": "Class",
               "description": "Relates any two parties together e.g. Jane and John Doe part of The Doe Household"
             },
             {
-              "@id": "PartyRelationshipType",
+              "@id": "Party/PartyRelationshipType",
               "name": "Party Relationship Type",
               "@type": "Class",
               "description": "Define name of a relationship and how to read the relationship both ways e.g. household for / household member of"
             },
             {
-              "@id": "PartyIdentification",
+              "@id": "Party/PartyIdentification",
               "name": "Party Identification",
               "@type": "Class",
               "description": "Set of ways to identify a party e.g. driving license, birth certificate"
             },
             {
-              "@id": "PersonEmployment",
+              "@id": "Party/PersonEmployment",
               "name": "Person Employment",
               "@type": "Class",
               "description": "Information about an employee"
             },
             {
-              "@id": "PersonLifeEvent",
+              "@id": "Party/PersonLifeEvent",
               "name": "Person Life Event",
               "@type": "Class",
               "description": "Major events a person had in their lives e.g. graudation date, marriage date"
             },
             {
-              "@id": "PersonEducation",
+              "@id": "Party/PersonEducation",
               "name": "Person Education",
               "@type": "Class",
               "description": "Education a person has e.g. Phd, High School"
@@ -2928,157 +2928,157 @@
           "description": "Example Entities included: Payment, Payment Group, Payment Authorization, Payment Gateway",
           "classConcepts": [
             {
-              "@id": "Payment",
+              "@id": "Payment/Payment",
               "name": "Payment",
               "@type": "Class",
               "description": "An amount of currency paid."
             },
             {
-              "@id": "CapturePayment",
+              "@id": "Payment/CapturePayment",
               "name": "Capture Payment",
               "@type": "Class",
               "description": "The transfer of money from the customer's account to the merchant's account."
             },
             {
-              "@id": "RefundPayment",
+              "@id": "Payment/RefundPayment",
               "name": "Refund Payment",
               "@type": "Class",
               "description": "Represents a repayment made, typically to a customer who isn’t satisfied with the goods or services purchased. Refunds are typically made after a payment has already been received from customers"
             },
             {
-              "@id": "PaymentPolicy",
+              "@id": "Payment/PaymentPolicy",
               "name": "Payment Policy",
               "@type": "Class",
               "description": "This entity stores policy information for an org or an account which can be used to automate the process of payment application to invoice based on business needs."
             },
             {
-              "@id": "RefundCreditMemoAllocation",
+              "@id": "Payment/RefundCreditMemoAllocation",
               "name": "Refund Credit Memo Allocation",
               "@type": "Class",
               "description": "Facilitates applying/unapplying refund balance to a credit memo."
             },
             {
-              "@id": "RefundAllocation",
+              "@id": "Payment/RefundAllocation",
               "name": "Refund Allocation",
               "@type": "Class",
               "description": "Facilitates applying/unapplying a capture payment, or a credit memo to a Refund Payment."
             },
             {
-              "@id": "PaymentGroup",
+              "@id": "Payment/PaymentGroup",
               "name": "Payment Group",
               "@type": "Class",
               "description": "Payment Group provides a way to associate payments and payment gateway events, where the payment is not associated with a Sales Order."
             },
             {
-              "@id": "PaymentTreatmentMethod",
+              "@id": "Payment/PaymentTreatmentMethod",
               "name": "Payment Treatment Method",
               "@type": "Class",
               "description": "Represents a specific algorithm or method to apply. For example - pay for taxes first, pay for charges first, pay for oldest due invoice first etc. It can also point to a rule based on which application can be done. Treatment has a method."
             },
             {
-              "@id": "PaymentTreatment",
+              "@id": "Payment/PaymentTreatment",
               "name": "Payment Treatment",
               "@type": "Class",
               "description": "This entity has the information which controls the way in which payment can be applied based on a legal entity or workflow. A policy has multiple treatments associated."
             },
             {
-              "@id": "PaymentAuthorization",
+              "@id": "Payment/PaymentAuthorization",
               "name": "Payment Authorization",
               "@type": "Class",
               "description": "An approval from the issuer of a payment instrument (usually a card), that the customer has sufficient funds to cover the cost of the transaction."
             },
             {
-              "@id": "PaymentGatewayAuthReversalLog",
+              "@id": "Payment/PaymentGatewayAuthReversalLog",
               "name": "Payment Gateway Authorization Reversal Log",
               "@type": "Class",
               "description": "A log record of all requests made to financial institutions, made via the payment gateway, to cancel payment authorizations."
             },
             {
-              "@id": "PaymentGatewayInteractionLog",
+              "@id": "Payment/PaymentGatewayInteractionLog",
               "name": "Payment Gateway Interaction Log",
               "@type": "Class",
               "description": "A log record of all messages exchanged with merchants made via the payment gateway, for authorizations and payments."
             },
             {
-              "@id": "PaymentGatewayPaymentLog",
+              "@id": "Payment/PaymentGatewayPaymentLog",
               "name": "Payment Gateway Payment Log",
               "@type": "Class",
               "description": "A log record of all messages originating with financial institutions that previously provided payment authorizations, that payments have been deducted from customers' accounts."
             },
             {
-              "@id": "PaymentGatewayAuthorizationLog",
+              "@id": "Payment/PaymentGatewayAuthorizationLog",
               "name": "Payment Gateway Authorization Log",
               "@type": "Class",
               "description": "A log record of all requests made to financial institutions, made via the payment gateway, to authorize payments."
             },
             {
-              "@id": "PaymentGatewayInteractionType",
+              "@id": "Payment/PaymentGatewayInteractionType",
               "name": "Payment Gateway Interaction Type",
               "@type": "Class",
               "description": "Reasons for accessing the Payment Gateway, including authorization, Sale and Void."
             },
             {
-              "@id": "PaymentGateway",
+              "@id": "Payment/PaymentGateway",
               "name": "Payment Gateway",
               "@type": "Class",
               "description": "Holds the payment gateway merchant details which are used to interact external payment systems."
             },
             {
-              "@id": "PaymentGatewayProvider",
+              "@id": "Payment/PaymentGatewayProvider",
               "name": "Payment Gateway Provider",
               "@type": "Class",
               "description": "Stores class details needed for maintaining Apex adapter."
             },
             {
-              "@id": "PaymentGatewayResultCode",
+              "@id": "Payment/PaymentGatewayResultCode",
               "name": "Payment Gateway Result Code",
               "@type": "Class",
               "description": "The response from the Payment Gateway."
             },
             {
-              "@id": "PaymentApplication",
+              "@id": "Payment/PaymentApplication",
               "name": "Payment Application",
               "@type": "Class",
               "description": "The designation of part or all of a Payment to satisfy a claim on the payment funds."
             },
             {
-              "@id": "PaymentInvoiceApplication",
+              "@id": "Payment/PaymentInvoiceApplication",
               "name": "Payment Invoice Application",
               "@type": "Class",
               "description": "Facilitates applying/unapplying payment balance to an Invoice."
             },
             {
-              "@id": "PaymentAllocation",
+              "@id": "Payment/PaymentAllocation",
               "name": "Payment Allocation",
               "@type": "Class",
               "description": "A Payment Application may be further broken down, to allocate payment funds to one or more line items within an Invoice or Credit Memo"
             },
             {
-              "@id": "PaymentCreditMemoApplication",
+              "@id": "Payment/PaymentCreditMemoApplication",
               "name": "Payment Credit Memo Application",
               "@type": "Class",
               "description": "Facilitates applying/unapplying payment balance to a credit memo."
             },
             {
-              "@id": "PaymentCreditMemoAllocation",
+              "@id": "Payment/PaymentCreditMemoAllocation",
               "name": "Payment Credit Memo Allocation",
               "@type": "Class",
               "description": "Facilitates applying a Payment Application to the line items of a Credit Memo."
             },
             {
-              "@id": "PaymentInvoiceAllocation",
+              "@id": "Payment/PaymentInvoiceAllocation",
               "name": "Payment Invoice Allocation",
               "@type": "Class",
               "description": "Facilitates applying a Payment Application to the line items of an Invoice."
             },
             {
-              "@id": "RefundPaymentAllocation",
+              "@id": "Payment/RefundPaymentAllocation",
               "name": "Refund Payment Allocation",
               "@type": "Class",
               "description": "Facilitates applying/unapplying refund balance to a payment."
             },
             {
-              "@id": "PaymentAuthorizationReversal",
+              "@id": "Payment/PaymentAuthorizationReversal",
               "name": "Payment Authorization Reversal",
               "@type": "Class",
               "description": "An authorization reversal is a message that alerts the issuer that part or all of a sale has been cancelled and the authorization hold should be rescinded."
@@ -5086,31 +5086,31 @@
           "description": "Example Entities included: Payment Method Type, Payment Card Tender, Digital Wallet Tender",
           "classConcepts": [
             {
-              "@id": "PaymentMethod",
+              "@id": "PaymentMethod/PaymentMethod",
               "name": "Payment Method",
               "@type": "Class",
               "description": "A means by which a buyer compensates a seller for a purchased good or service."
             },
             {
-              "@id": "PaymentMethodType",
+              "@id": "PaymentMethod/PaymentMethodType",
               "name": "Payment Method Type",
               "@type": "Class",
               "description": "The category of payment method, such as payment card, check or digital wallet."
             },
             {
-              "@id": "PaymentCard",
+              "@id": "PaymentMethod/PaymentCard",
               "name": "Payment Card",
               "@type": "Class",
               "description": "A payment system issued by a financial institution to a customer that allows its owner (the cardholder) to access funds in designated bank accounts"
             },
             {
-              "@id": "Coupon",
+              "@id": "PaymentMethod/Coupon",
               "name": "Coupon",
               "@type": "Class",
               "description": "Payment in the form of a voucher entitling the holder to a discount for a particular product."
             },
             {
-              "@id": "CreditTender",
+              "@id": "PaymentMethod/CreditTender",
               "name": "Credit Tender",
               "@type": "Class",
               "description": "Payment to the seller that results in an agreement to pay at a later date, usually via a credit account."
@@ -5369,61 +5369,61 @@
           "description": "Example Entities included: Product Type, Product Item, Product Attribute, Product Relation",
           "classConcepts": [
             {
-              "@id": "Product",
+              "@id": "Product/Product",
               "name": "Product",
               "@type": "Class",
               "description": "What is intended to be sold e.g. goods, services, bundles, made to order products."
             },
             {
-              "@id": "GoodsProduct",
+              "@id": "Product/GoodsProduct",
               "name": "Goods Product",
               "@type": "Class",
               "description": "Products you can touch e.g. cart of milk, pallet of coffee, mobile phone x model 1"
             },
             {
-              "@id": "ServiceProduct",
+              "@id": "Product/ServiceProduct",
               "name": "Service Product",
               "@type": "Class",
               "description": "Products that are intangible e.g. labor, software subscription"
             },
             {
-              "@id": "BundleProduct",
+              "@id": "Product/BundleProduct",
               "name": "Bundle Product",
               "@type": "Class",
               "description": "Product groups e.g. mobile phone package include phone, call plan and charger"
             },
             {
-              "@id": "ProductTranslation",
+              "@id": "Product/ProductTranslation",
               "name": "Product Translation",
               "@type": "Class",
               "description": "Translated attributes for a product"
             },
             {
-              "@id": "ProductRelatedProduct",
+              "@id": "Product/ProductRelatedProduct",
               "name": "Product Related Product",
               "@type": "Class",
               "description": "A grouping of products such as a product bundle"
             },
             {
-              "@id": "ProductRelationshipType",
+              "@id": "Product/ProductRelationshipType",
               "name": "Product Relationship Type",
               "@type": "Class",
               "description": "What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of"
             },
             {
-              "@id": "ProductImage",
+              "@id": "Product/ProductImage",
               "name": "Product Image",
               "@type": "Class",
               "description": "Images of a product"
             },
             {
-              "@id": "ProductImageTranslation",
+              "@id": "Product/ProductImageTranslation",
               "name": "Product Image Translation",
               "@type": "Class",
               "description": "Translated attributes for a product image"
             },
             {
-              "@id": "Brand",
+              "@id": "Product/Brand",
               "name": "Brand",
               "@type": "Class",
               "description": "What is the brand of the product e.g. Snike shoes"
@@ -6687,61 +6687,61 @@
           "description": "Example Entities included: Attribute Set, Attribute Set Attribute",
           "classConcepts": [
             {
-              "@id": "ProductValidityTimePeriodUOM",
+              "@id": "ProductAttribute/ProductValidityTimePeriodUOM",
               "name": "Product Validity Time Period UOM",
               "@type": "Class",
               "description": "Standard units of measure for time, for example minute, second, hour and day"
             },
             {
-              "@id": "ProductCollateral",
+              "@id": "ProductAttribute/ProductCollateral",
               "name": "Product Collateral",
               "@type": "Class",
               "description": "Collateral for a product e.g. link to brochure one"
             },
             {
-              "@id": "AttributeSetTranslation",
+              "@id": "ProductAttribute/AttributeSetTranslation",
               "name": "Attribute Set Translation",
               "@type": "Class",
               "description": "Translated attributes for an attribute set"
             },
             {
-              "@id": "AttributeTranslation",
+              "@id": "ProductAttribute/AttributeTranslation",
               "name": "Attribute Translation",
               "@type": "Class",
               "description": "Translated attributes for an attribute"
             },
             {
-              "@id": "AttributeValue",
+              "@id": "ProductAttribute/AttributeValue",
               "name": "Attribute Value",
               "@type": "Class",
               "description": "A predefine set of values for a product attribute e.g. shoe lace length 10, 12, 14 centimeter"
             },
             {
-              "@id": "AttributeValueTranslation",
+              "@id": "ProductAttribute/AttributeValueTranslation",
               "name": "Attribute Value Translation",
               "@type": "Class",
               "description": "Translated attributes for an attribute value"
             },
             {
-              "@id": "ProductAttributeValue",
+              "@id": "ProductAttribute/ProductAttributeValue",
               "name": "Product Attribute Value",
               "@type": "Class",
               "description": "Assignment of an attribute value to a product e.g. shoe lace"
             },
             {
-              "@id": "ProductAttributeSet",
+              "@id": "ProductAttribute/ProductAttributeSet",
               "name": "Product Attribute Set",
               "@type": "Class",
               "description": "A set of attributes e.g. shoe attributes that are assigned to a particular instance of Product"
             },
             {
-              "@id": "PriceBookEntry",
+              "@id": "ProductAttribute/PriceBookEntry",
               "name": "Price Book Entry",
               "@type": "Class",
               "description": "A list of products and their prices."
             },
             {
-              "@id": "DeviceUserSession",
+              "@id": "ProductAttribute/DeviceUserSession",
               "name": "Device User Session",
               "@type": "Class",
               "description": "A time-bound period when a person used a website or other service, also known as a Visit"
@@ -7173,37 +7173,37 @@
           "description": "Example Entities included: Product Catalog, Product Catalog Category, Product Catalog Assignment",
           "classConcepts": [
             {
-              "@id": "ProductCategory",
+              "@id": "ProductCatalog/ProductCategory",
               "name": "Product Category",
               "@type": "Class",
               "description": "A product may consist of many categories e.g. shoes, tshirts"
             },
             {
-              "@id": "ProductCatalog",
+              "@id": "ProductCatalog/ProductCatalog",
               "name": "Product Catalog",
               "@type": "Class",
               "description": "A catalog used for a certain business process e.g. inventory, merchandizing"
             },
             {
-              "@id": "ProductCatalogTranslation",
+              "@id": "ProductCatalog/ProductCatalogTranslation",
               "name": "Product Catalog Translation",
               "@type": "Class",
               "description": "Translated attributes for a product catalog"
             },
             {
-              "@id": "ProductCategoryTranslation",
+              "@id": "ProductCatalog/ProductCategoryTranslation",
               "name": "Product Category Translation",
               "@type": "Class",
               "description": "Translated attributes for a product category"
             },
             {
-              "@id": "ProductCategoryProduct",
+              "@id": "ProductCatalog/ProductCategoryProduct",
               "name": "Product Category Product",
               "@type": "Class",
               "description": "Assignment of product to categories e.g. the Nikedas shoe assigned to shoe and running categories"
             },
             {
-              "@id": "ProductCategoryAttributeSet",
+              "@id": "ProductCatalog/ProductCategoryAttributeSet",
               "name": "Product Category Attribute Set",
               "@type": "Class",
               "description": "Assignment of an Attribute Set to a Product Category e.g. the Shoe attribute set assigned to the Shoes category"
@@ -7502,169 +7502,169 @@
           "description": "Example Entities included: Sales Order, Opportunity, Payment Method",
           "classConcepts": [
             {
-              "@id": "OrderDeliveryMethod",
+              "@id": "SalesOrder/OrderDeliveryMethod",
               "name": "Order Delivery Method",
               "@type": "Class",
               "description": "Standardized methods for transferring purchased products or services to the destination of fulfillment. Delivery methods are characterized by the means of transportation used, and by the delivering organization or group."
             },
             {
-              "@id": "SalesOrderPaymentSummary",
+              "@id": "SalesOrder/SalesOrderPaymentSummary",
               "name": "Sales Order Payment Summary",
               "@type": "Class",
               "description": "One or more Payments having the same Payment Method, that have been applied to a single Sales Order."
             },
             {
-              "@id": "ProductRelationshipType",
+              "@id": "SalesOrder/ProductRelationshipType",
               "name": "Product Relationship Type",
               "@type": "Class",
               "description": "What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of"
             },
             {
-              "@id": "SalesChannel",
+              "@id": "SalesOrder/SalesChannel",
               "name": "Sales Channel",
               "@type": "Class",
               "description": "Which channel is used to sell goods e.g. Web Store, Retail Store, Street Faire"
             },
             {
-              "@id": "SalesOrderProduct",
+              "@id": "SalesOrder/SalesOrderProduct",
               "name": "Sales Order Product",
               "@type": "Class",
               "description": "A component of a Sales Order that identifies a product or service that will be sold to the customer"
             },
             {
-              "@id": "SalesChannelType",
+              "@id": "SalesOrder/SalesChannelType",
               "name": "Sales Channel Type",
               "@type": "Class",
               "description": "Standard ways of selling products such as web, retail, direct marketing, etc"
             },
             {
-              "@id": "SalesOrder",
+              "@id": "SalesOrder/SalesOrder",
               "name": "Sales Order",
               "@type": "Class",
               "description": "An internal document generated by the seller, indicating that the customer is now ready to purchase products and services"
             },
             {
-              "@id": "SalesOrderStatus",
+              "@id": "SalesOrder/SalesOrderStatus",
               "name": "Sales Order Status",
               "@type": "Class",
               "description": "The status of a Sales Order"
             },
             {
-              "@id": "SalesOrderSegment",
+              "@id": "SalesOrder/SalesOrderSegment",
               "name": "Sales Order Segment",
               "@type": "Class",
               "description": "A sub-period of an overall subscription which has pricing associated with it"
             },
             {
-              "@id": "SalesOrderConfirmationStatus",
+              "@id": "SalesOrder/SalesOrderConfirmationStatus",
               "name": "Sales Order Confirmation Status",
               "@type": "Class",
               "description": "Stages of customer approval and finalization of a Sales Order."
             },
             {
-              "@id": "SalesOrderType",
+              "@id": "SalesOrder/SalesOrderType",
               "name": "Sales Order Type",
               "@type": "Class",
               "description": "Classifies a Sales Order as a New, Renewal or Change order"
             },
             {
-              "@id": "RenewalTerm",
+              "@id": "SalesOrder/RenewalTerm",
               "name": "Renewal Term",
               "@type": "Class",
               "description": "For renewal orders, the length of the renewal term"
             },
             {
-              "@id": "SalesOrderProductStatus",
+              "@id": "SalesOrder/SalesOrderProductStatus",
               "name": "Sales Order Product Status",
               "@type": "Class",
               "description": "The status of a line component of a Sales Order"
             },
             {
-              "@id": "SalesOrderProductReasonCategory",
+              "@id": "SalesOrder/SalesOrderProductReasonCategory",
               "name": "Sales Order Product Reason Category",
               "@type": "Class",
               "description": "Groupings of Sales Order Product Reasons, such as product related or service related"
             },
             {
-              "@id": "SalesOrderProductReason",
+              "@id": "SalesOrder/SalesOrderProductReason",
               "name": "Sales Order Product Reason",
               "@type": "Class",
               "description": "The customer motive for ordering a product or service, such as replacement, new purchase, upgrade"
             },
             {
-              "@id": "SalesOrderPriceAdjustment",
+              "@id": "SalesOrder/SalesOrderPriceAdjustment",
               "name": "Sales Order Price Adjustment",
               "@type": "Class",
               "description": "A change to the price of a Sales Order that is made before order fulfillment. A Sales Order Price Adjustment may be comprised of Sales Order Product Price Adjustments that allocate the overall adjustment amount to one or more of the products and services"
             },
             {
-              "@id": "PriceAdjustmentGroup",
+              "@id": "SalesOrder/PriceAdjustmentGroup",
               "name": "Price Adjustment Group",
               "@type": "Class",
               "description": "Supertype of: Sales Order Price Adjustment, Sales Order Product Price Adjustment, and FulfillmentOrderProductPriceAdjustment"
             },
             {
-              "@id": "SalesOrderPriceAdjustmentType",
+              "@id": "SalesOrder/SalesOrderPriceAdjustmentType",
               "name": "Sales Order Price Adjustment Type",
               "@type": "Class",
               "description": "Reasons for adjusting the price of an order such as promotional discount, or customer satisfaction issue"
             },
             {
-              "@id": "PriceAdjustmentMethod",
+              "@id": "SalesOrder/PriceAdjustmentMethod",
               "name": "Price Adjustment Method",
               "@type": "Class",
               "description": "Defines how the adjustment will be calculated. Valid values used in Commerce Cloud are: percentage, fixed_price, amount, free, price_book_price, bonus, total_fixed_price, bonus_choice, percentage_off_options"
             },
             {
-              "@id": "SalesOrderProductTax",
+              "@id": "SalesOrder/SalesOrderProductTax",
               "name": "Sales Order Product Tax",
               "@type": "Class",
               "description": "A tax on the price of a Sales Order Product."
             },
             {
-              "@id": "SalesOrderTax",
+              "@id": "SalesOrder/SalesOrderTax",
               "name": "Sales Order Tax",
               "@type": "Class",
               "description": "A charge that is imposed by a government entity for public purposes. Types are aligned to phases of the process: SalesOrderTax, FulfillmentProductTax and ShipmentProductTax"
             },
             {
-              "@id": "SalesOrderDeliveryGroup",
+              "@id": "SalesOrder/SalesOrderDeliveryGroup",
               "name": "Sales Order Delivery Group",
               "@type": "Class",
               "description": "One or more Sales Order Products that share a common Sales Order Delivery Method, and Shipping Address"
             },
             {
-              "@id": "SalesOrderDeliveryStatus",
+              "@id": "SalesOrder/SalesOrderDeliveryStatus",
               "name": "Sales Order Delivery Status",
               "@type": "Class",
               "description": "The progress of a delivery such as awaiting pickup, in progress or complete"
             },
             {
-              "@id": "SalesOrderProductGroup",
+              "@id": "SalesOrder/SalesOrderProductGroup",
               "name": "Sales Order Product Group",
               "@type": "Class",
               "description": "Products may be grouped together for various reasons, such as products that should be shipped together. Every product in a Sales Order Product Group is not required to be a Sales Order Product."
             },
             {
-              "@id": "SalesOrderProductGroupType",
+              "@id": "SalesOrder/SalesOrderProductGroupType",
               "name": "Sales Order Product Group Type",
               "@type": "Class",
               "description": "Reasons for grouping products together on sales orders, for example products that ship together."
             },
             {
-              "@id": "SalesOrderProductNote",
+              "@id": "SalesOrder/SalesOrderProductNote",
               "name": "Sales Order Product Note",
               "@type": "Class",
               "description": "A document accompanying a Sales Order that lists the description, quantity of the goods to be delivered or other information."
             },
             {
-              "@id": "SalesOrderChangeLog",
+              "@id": "SalesOrder/SalesOrderChangeLog",
               "name": "Sales Order Change Log",
               "@type": "Class",
               "description": "Change log for sales order"
             },
             {
-              "@id": "SalesOrderChangeType",
+              "@id": "SalesOrder/SalesOrderChangeType",
               "name": "Sales Order ChangeT ype",
               "@type": "Class",
               "description": "The reason for a revision of an earlier sales order, e.g. quantity change, new distributed adjustment, new line adjustment, etc."
@@ -10472,49 +10472,49 @@
           "description": "Example Entities included: Shipment, Shipment Package, Shipment Document, Shipment Product",
           "classConcepts": [
             {
-              "@id": "Shipment",
+              "@id": "Shipment/Shipment",
               "name": "Shipment",
               "@type": "Class",
               "description": "A quantity of goods sent together to a place, or the act of sending them"
             },
             {
-              "@id": "ShipmentStatus",
+              "@id": "Shipment/ShipmentStatus",
               "name": "Shipment Status",
               "@type": "Class",
               "description": "The stage of a shipment. Possible values could be pre-transit, in transit, delayed, delivered"
             },
             {
-              "@id": "ShippingMethod",
+              "@id": "Shipment/ShippingMethod",
               "name": "Shipping Method",
               "@type": "Class",
               "description": "A parcel of one or more items bundled together, so that they arrive at the customer's address as a single unit."
             },
             {
-              "@id": "ShipmentProduct",
+              "@id": "Shipment/ShipmentProduct",
               "name": "Shipment Product",
               "@type": "Class",
               "description": "An item on a list of one or more that comprises a shipment."
             },
             {
-              "@id": "ShipmentDocument",
+              "@id": "Shipment/ShipmentDocument",
               "name": "Shipment Document",
               "@type": "Class",
               "description": "A receipt, bill of lading or other document that is delivered with the shipment to explain the purchase or shipment contents."
             },
             {
-              "@id": "ShipmentPackage",
+              "@id": "Shipment/ShipmentPackage",
               "name": "Shipment Package",
               "@type": "Class",
               "description": "A parcel of one or more items bundled together, so that they arrive at the customer's address as a single unit."
             },
             {
-              "@id": "ShipmentProductPriceAdjustmentTax",
+              "@id": "Shipment/ShipmentProductPriceAdjustmentTax",
               "name": "Shipment Product Price Adjustment Tax",
               "@type": "Class",
               "description": "A tax on the price of a Sales Order Product."
             },
             {
-              "@id": "ShipmentProductPriceAdjustment",
+              "@id": "Shipment/ShipmentProductPriceAdjustment",
               "name": "Shipment Product Price Adjustment",
               "@type": "Class",
               "description": "A change to the price of an ordered product or service that is made after Fulfillment."

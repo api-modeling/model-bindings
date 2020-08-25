@@ -3,238 +3,238 @@ uuid: cim/entitygroup/ShipmentEntityGroup
 name: Shipment
 entities:
   Shipment Product:
-    uuid: cim/entity/ShipmentProduct
+    uuid: cim/entity/Shipment/ShipmentProduct
     attributes:
       shipmentProductCount:
-        uuid: cim/entity/ShipmentProduct/attr/shipmentProductCount
+        uuid: cim/entity/Shipment/ShipmentProduct/attr/shipmentProductCount
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/ShipmentProduct/attr/id
+        uuid: cim/entity/Shipment/ShipmentProduct/attr/id
         required: true
         range:
           type: string
     associations:
       shipment:
         allowMultiple: true
-        uuid: cim/entity/ShipmentProduct/attr/shipment
+        uuid: cim/entity/Shipment/ShipmentProduct/attr/shipment
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment
+        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment/Shipment
       product:
         allowMultiple: true
-        uuid: cim/entity/ShipmentProduct/attr/product
+        uuid: cim/entity/Shipment/ShipmentProduct/attr/product
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Product
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product/Product
       shipmentPackage:
         allowMultiple: true
-        uuid: cim/entity/ShipmentProduct/attr/shipmentPackage
+        uuid: cim/entity/Shipment/ShipmentProduct/attr/shipmentPackage
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/ShipmentPackage
+        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment/ShipmentPackage
       salesOrderProduct:
         allowMultiple: true
-        uuid: cim/entity/ShipmentProduct/attr/salesOrderProduct
+        uuid: cim/entity/Shipment/ShipmentProduct/attr/salesOrderProduct
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderProduct
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderProduct
     description: An item on a list of one or more that comprises a shipment.
-  Shipment Product Price Adjustment:
-    uuid: cim/entity/ShipmentProductPriceAdjustment
+  Shipment Package:
+    uuid: cim/entity/Shipment/ShipmentPackage
     attributes:
-      adjustmentTaxAmount:
-        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/adjustmentTaxAmount
+      shipmentProductCount:
+        uuid: cim/entity/Shipment/ShipmentPackage/attr/shipmentProductCount
+        required: true
+        range:
+          type: string
+      shipmentProductDescription:
+        uuid: cim/entity/Shipment/ShipmentPackage/attr/shipmentProductDescription
+        required: true
         range:
           type: string
       id:
-        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/id
+        uuid: cim/entity/Shipment/ShipmentPackage/attr/id
         required: true
         range:
           type: string
-      description:
-        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/description
+    associations:
+      shipment:
+        allowMultiple: true
+        uuid: cim/entity/Shipment/ShipmentPackage/attr/shipment
         required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment/Shipment
+    description: A parcel of one or more items bundled together, so that they arrive at the customer's address as a single unit.
+  Shipping Method:
+    uuid: cim/entity/Shipment/ShippingMethod
+    attributes:
+      description:
+        uuid: cim/entity/Shipment/ShippingMethod/attr/description
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/Shipment/ShippingMethod/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Shipment/ShippingMethod/attr/id
+        required: true
+        range:
+          type: string
+    associations:
+      product:
+        allowMultiple: true
+        uuid: cim/entity/Shipment/ShippingMethod/attr/product
+        required: true
+        target: http://mulesoft.com/modeling/instances/cim/entity/Product/Product
+    description: A parcel of one or more items bundled together, so that they arrive at the customer's address as a single unit.
+  Shipment Status:
+    uuid: cim/entity/Shipment/ShipmentStatus
+    attributes:
+      description:
+        uuid: cim/entity/Shipment/ShipmentStatus/attr/description
+        required: true
+        range:
+          type: string
+      name:
+        uuid: cim/entity/Shipment/ShipmentStatus/attr/name
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Shipment/ShipmentStatus/attr/id
+        required: true
+        range:
+          type: string
+    description: The stage of a shipment. Possible values could be pre-transit, in transit, delayed, delivered
+  Shipment Product Price Adjustment:
+    uuid: cim/entity/Shipment/ShipmentProductPriceAdjustment
+    attributes:
+      description:
+        uuid: cim/entity/Shipment/ShipmentProductPriceAdjustment/attr/description
+        required: true
+        range:
+          type: string
+      id:
+        uuid: cim/entity/Shipment/ShipmentProductPriceAdjustment/attr/id
+        required: true
+        range:
+          type: string
+      adjustmentTaxAmount:
+        uuid: cim/entity/Shipment/ShipmentProductPriceAdjustment/attr/adjustmentTaxAmount
         range:
           type: string
       adjustmentAmount:
-        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/adjustmentAmount
+        uuid: cim/entity/Shipment/ShipmentProductPriceAdjustment/attr/adjustmentAmount
         required: true
         range:
           type: string
       shipmentProductPriceAdjustmentAmount:
-        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/shipmentProductPriceAdjustmentAmount
+        uuid: cim/entity/Shipment/ShipmentProductPriceAdjustment/attr/shipmentProductPriceAdjustmentAmount
         range:
           type: string
     associations:
       shipmentProduct:
         allowMultiple: true
-        uuid: cim/entity/ShipmentProductPriceAdjustment/attr/shipmentProduct
+        uuid: cim/entity/Shipment/ShipmentProductPriceAdjustment/attr/shipmentProduct
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/ShipmentProduct
+        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment/ShipmentProduct
     description: A change to the price of an ordered product or service that is made after Fulfillment.
-  Shipment:
-    uuid: cim/entity/Shipment
-    attributes:
-      scheduledDeliveryDateTime:
-        uuid: cim/entity/Shipment/attr/scheduledDeliveryDateTime
-        range:
-          type: string
-      id:
-        uuid: cim/entity/Shipment/attr/id
-        required: true
-        range:
-          type: string
-      shipmentNumber:
-        uuid: cim/entity/Shipment/attr/shipmentNumber
-        range:
-          type: string
-      giftMessageText:
-        uuid: cim/entity/Shipment/attr/giftMessageText
-        range:
-          type: string
-      actualDeliveryDateTime:
-        uuid: cim/entity/Shipment/attr/actualDeliveryDateTime
-        range:
-          type: string
-      isGift:
-        uuid: cim/entity/Shipment/attr/isGift
-        range:
-          type: string
-      specialInstructionsText:
-        uuid: cim/entity/Shipment/attr/specialInstructionsText
-        range:
-          type: string
-      carrierTrackingNumber:
-        uuid: cim/entity/Shipment/attr/carrierTrackingNumber
-        range:
-          type: string
-      shipmentDate:
-        uuid: cim/entity/Shipment/attr/shipmentDate
-        required: true
-        range:
-          type: string
-      estimatedDeliveryDateTime:
-        uuid: cim/entity/Shipment/attr/estimatedDeliveryDateTime
-        range:
-          type: string
-    associations:
-      shipToAddress:
-        allowMultiple: true
-        uuid: cim/entity/Shipment/attr/shipToAddress
-        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress
-      shipmentStatus:
-        allowMultiple: true
-        uuid: cim/entity/Shipment/attr/shipmentStatus
-        target: http://mulesoft.com/modeling/instances/cim/entity/ShipmentStatus
-      salesOrderDeliveryGroup:
-        allowMultiple: true
-        uuid: cim/entity/Shipment/attr/salesOrderDeliveryGroup
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrderDeliveryGroup
-      salesOrder:
-        allowMultiple: true
-        uuid: cim/entity/Shipment/attr/salesOrder
-        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder
-    description: A quantity of goods sent together to a place, or the act of sending them
   Shipment Product Price Adjustment Tax:
-    uuid: cim/entity/ShipmentProductPriceAdjustmentTax
+    uuid: cim/entity/Shipment/ShipmentProductPriceAdjustmentTax
     attributes:
       name:
-        uuid: cim/entity/ShipmentProductPriceAdjustmentTax/attr/name
+        uuid: cim/entity/Shipment/ShipmentProductPriceAdjustmentTax/attr/name
         required: true
         range:
           type: string
       id:
-        uuid: cim/entity/ShipmentProductPriceAdjustmentTax/attr/id
+        uuid: cim/entity/Shipment/ShipmentProductPriceAdjustmentTax/attr/id
         required: true
         range:
           type: string
     associations:
       shipmentProductPriceAdjustment:
         allowMultiple: true
-        uuid: cim/entity/ShipmentProductPriceAdjustmentTax/attr/shipmentProductPriceAdjustment
+        uuid: cim/entity/Shipment/ShipmentProductPriceAdjustmentTax/attr/shipmentProductPriceAdjustment
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/ShipmentProductPriceAdjustment
+        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment/ShipmentProductPriceAdjustment
     description: A tax on the price of a Sales Order Product.
-  Shipping Method:
-    uuid: cim/entity/ShippingMethod
+  Shipment:
+    uuid: cim/entity/Shipment/Shipment
     attributes:
-      description:
-        uuid: cim/entity/ShippingMethod/attr/description
-        required: true
-        range:
-          type: string
-      name:
-        uuid: cim/entity/ShippingMethod/attr/name
-        required: true
+      estimatedDeliveryDateTime:
+        uuid: cim/entity/Shipment/Shipment/attr/estimatedDeliveryDateTime
         range:
           type: string
       id:
-        uuid: cim/entity/ShippingMethod/attr/id
+        uuid: cim/entity/Shipment/Shipment/attr/id
         required: true
+        range:
+          type: string
+      shipmentNumber:
+        uuid: cim/entity/Shipment/Shipment/attr/shipmentNumber
+        range:
+          type: string
+      shipmentDate:
+        uuid: cim/entity/Shipment/Shipment/attr/shipmentDate
+        required: true
+        range:
+          type: string
+      scheduledDeliveryDateTime:
+        uuid: cim/entity/Shipment/Shipment/attr/scheduledDeliveryDateTime
+        range:
+          type: string
+      carrierTrackingNumber:
+        uuid: cim/entity/Shipment/Shipment/attr/carrierTrackingNumber
+        range:
+          type: string
+      actualDeliveryDateTime:
+        uuid: cim/entity/Shipment/Shipment/attr/actualDeliveryDateTime
+        range:
+          type: string
+      specialInstructionsText:
+        uuid: cim/entity/Shipment/Shipment/attr/specialInstructionsText
+        range:
+          type: string
+      isGift:
+        uuid: cim/entity/Shipment/Shipment/attr/isGift
+        range:
+          type: string
+      giftMessageText:
+        uuid: cim/entity/Shipment/Shipment/attr/giftMessageText
         range:
           type: string
     associations:
-      product:
+      shipToAddress:
         allowMultiple: true
-        uuid: cim/entity/ShippingMethod/attr/product
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Product
-    description: A parcel of one or more items bundled together, so that they arrive at the customer's address as a single unit.
-  Shipment Status:
-    uuid: cim/entity/ShipmentStatus
-    attributes:
-      description:
-        uuid: cim/entity/ShipmentStatus/attr/description
-        required: true
-        range:
-          type: string
-      name:
-        uuid: cim/entity/ShipmentStatus/attr/name
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/ShipmentStatus/attr/id
-        required: true
-        range:
-          type: string
-    description: The stage of a shipment. Possible values could be pre-transit, in transit, delayed, delivered
-  Shipment Package:
-    uuid: cim/entity/ShipmentPackage
-    attributes:
-      shipmentProductCount:
-        uuid: cim/entity/ShipmentPackage/attr/shipmentProductCount
-        required: true
-        range:
-          type: string
-      shipmentProductDescription:
-        uuid: cim/entity/ShipmentPackage/attr/shipmentProductDescription
-        required: true
-        range:
-          type: string
-      id:
-        uuid: cim/entity/ShipmentPackage/attr/id
-        required: true
-        range:
-          type: string
-    associations:
-      shipment:
+        uuid: cim/entity/Shipment/Shipment/attr/shipToAddress
+        target: http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointAddress
+      shipmentStatus:
         allowMultiple: true
-        uuid: cim/entity/ShipmentPackage/attr/shipment
-        required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment
-    description: A parcel of one or more items bundled together, so that they arrive at the customer's address as a single unit.
+        uuid: cim/entity/Shipment/Shipment/attr/shipmentStatus
+        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment/ShipmentStatus
+      salesOrderDeliveryGroup:
+        allowMultiple: true
+        uuid: cim/entity/Shipment/Shipment/attr/salesOrderDeliveryGroup
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrderDeliveryGroup
+      salesOrder:
+        allowMultiple: true
+        uuid: cim/entity/Shipment/Shipment/attr/salesOrder
+        target: http://mulesoft.com/modeling/instances/cim/entity/SalesOrder/SalesOrder
+    description: A quantity of goods sent together to a place, or the act of sending them
   Shipment Document:
-    uuid: cim/entity/ShipmentDocument
+    uuid: cim/entity/Shipment/ShipmentDocument
     attributes:
       id:
-        uuid: cim/entity/ShipmentDocument/attr/id
+        uuid: cim/entity/Shipment/ShipmentDocument/attr/id
         required: true
         range:
           type: string
     associations:
       shipment:
         allowMultiple: true
-        uuid: cim/entity/ShipmentDocument/attr/shipment
+        uuid: cim/entity/Shipment/ShipmentDocument/attr/shipment
         required: true
-        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment
+        target: http://mulesoft.com/modeling/instances/cim/entity/Shipment/Shipment
     description: A receipt, bill of lading or other document that is delivered with the shipment to explain the purchase or shipment contents.
 description: "Example Entities included: Shipment, Shipment Package, Shipment Document, Shipment Product"
