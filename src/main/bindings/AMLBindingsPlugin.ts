@@ -6,9 +6,9 @@ import {AMLImporter} from "./aml/importer";
 import {applyMixins} from "./utils/mixins";
 import {AmlParser} from "./utils/amlParser";
 
-export class AMLBindingsPlugin extends BindingsPlugin {
+export class AMLBindingsPlugin /* extends BindingsPlugin */ {
     constructor() {
-        super();
+        //super();
     }
 
     async export(configuration: ConfigurationParameter[], graphs: DialectWrapper[]): Promise<Resource[]> {
@@ -26,7 +26,7 @@ export class AMLBindingsPlugin extends BindingsPlugin {
         try {
             const resource = resources[0];
 
-            const parser = new AmlParser(resource.url, resource.text);
+            const parser = new AmlParser(resource.url, resource.text || '');
             let baseUnit = await parser.parse();
             const name = baseUnit.id.split("/").pop();
             const module = new meta.Module("Imported spec " + name);

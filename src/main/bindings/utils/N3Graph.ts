@@ -71,14 +71,33 @@ export function loadGraph(str: string, existingStore?: n3.Store): Promise<n3.Sto
  * @param subject
  * @param path
  */
-export function findPath(store: n3.Store, subject: n3.Quad_Object, path: n3.Quad_Object[]): n3.Quad_Object|null {
+//rewriting as recursive map/reduce over lists
+export function findPath(store: n3.Store, subject: n3.Quad_Object, path: n3.Quad_Object[]): n3.Quad_Object[] {
+    const next = path.shift()!;
+    const nextSubject = store.getObjects(subject, next, null);
+    if (nextSubject.length > 0) {
+        if (path.length === 0) {
+            return nextSubject;
+        } else {
+            let maps = nextSubject.map(ns => {
+                return findPath(store, ns, path)
+            })
+            let reducer : n3.Quad_Object[] = []
+            maps.forEach(m => reducer = reducer.concat(m))
+            return reducer;
+        }
+    } else {
+        return [];
+    }
+}
+export function findPathOld(store: n3.Store, subject: n3.Quad_Object, path: n3.Quad_Object[]): n3.Quad_Object|null {
     const next = path.shift()!;
     const nextSubject = store.getObjects(subject, next, null)[0];
     if (nextSubject) {
         if (path.length === 0) {
             return nextSubject;
         } else {
-            return findPath(store, nextSubject, path);
+            return null //findPath(store, nextSubject, path);
         }
     } else {
         return null;

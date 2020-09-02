@@ -128,7 +128,8 @@ export class CIMImporter {
      * @param store
      * @param entityGroup
      */
-    protected parseEntityGroup(store: n3.Store, entityGroup: DataModel): Entity[] {
+    protected parseEntityGroup(store: n3.Store, entityGroup: DataModel,
+                               entityMap: { [key: string] : Entity }, extendsMap: { [key: string] : string }): Entity[] {
         // @ts-ignore
         const entityGroupId = entityGroup['_source'];
         const source = $rdf.namedNode(entityGroupId);
@@ -137,12 +138,14 @@ export class CIMImporter {
             const name = store.getObjects(entityId, VOCAB.RDFS_LABEL, null)[0];
             const entity = new Entity(name.value);
             entity.uuid = `cim/entity/${entityId.value.split("/").pop()}`;
+            entityMap[entityId.value] = entity;
 
             const description = store.getObjects(entityId, VOCAB.RDFS_COMMENT, null)[0];
             entity.description = description.value;
 
             let properties = store.getObjects(entityId, VOCAB.SH_PROPERTY, null);
-            let parentProperties = findPath(store, entityId, [VOCAB.SH_AND, VOCAB.RDF_FIRST, VOCAB.SH_PROPERTY]) || [];
+            let parent = findPath(store, entityId, [VOCAB.SH_AND, VOCAB.RDF_FIRST])[0] || null;
+            let parentProperties : n3.Quad_Object[] = []; //findPath(store, entityId, [VOCAB.SH_AND, VOCAB.RDF_FIRST, VOCAB.SH_PROPERTY]) || [];
             let extendedProperties = findPath(store, entityId, [VOCAB.SH_AND, VOCAB.RDF_REST, VOCAB.RDF_FIRST, VOCAB.SH_PROPERTY]) || [];
 
             const attributes: Attribute[] = [];
@@ -195,6 +198,9 @@ export class CIMImporter {
             }
             if (associations.length > 0) {
                 entity.associations = associations;
+            }
+            if (parent){
+                extendsMap[entityId.value] = parent.id;
             }
             return entity
         });

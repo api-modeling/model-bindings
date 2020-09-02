@@ -135,26 +135,29 @@ export class CIMExporter {
             let json: {[n: string]: any} = {
                 "path": path
             };
-            if (attr.range.id() === this.INT_SCALAR_ID) {
-                json['datatype'] = VOCAB.XSD_NS + "integer";
-            } else if (path == "id") {
-                json['datatype'] = VOCAB.CIM_NS + "id";
-            } else {
-                json['datatype'] = VOCAB.XSD_NS + "string";
-            }
+            try {
+                if (attr.range.id() === this.INT_SCALAR_ID) {
+                    json['datatype'] = VOCAB.XSD_NS + "integer";
+                } else if (path == "id") {
+                    json['datatype'] = VOCAB.CIM_NS + "id";
+                } else {
+                    json['datatype'] = VOCAB.XSD_NS + "string";
+                }
 
-            if (attr.required) {
-                json[VOCAB.SH_MIN_COUNT.value] = 1
-            }
-            if (!attr.allowMultiple) {
-                json[VOCAB.SH_MAX_COUNT.value] = 1
-            }
+                if (attr.required) {
+                    json[VOCAB.SH_MIN_COUNT.value] = 1
+                }
+                if (!attr.allowMultiple) {
+                    json[VOCAB.SH_MAX_COUNT.value] = 1
+                }
 
-            // keep the inverse map of properties
-            const propDomain = propAcc[path] || [];
-            propDomain.push(id)
-            propAcc[path] = propDomain
-
+                // keep the inverse map of properties
+                const propDomain = propAcc[path] || [];
+                propDomain.push(id)
+                propAcc[path] = propDomain
+            } catch (error) {
+                console.log("blow up at "+attr.name)
+            }
             return json;
         });
 
@@ -234,6 +237,11 @@ export class CIMExporter {
     }
 
     protected toId(name: string) {
+        try {
         return name.replace(/\s+/, "").replace("_", "")
+        } catch(e){
+            console.log("toId blowup "+e)
+            return ""
+        }
     }
 }

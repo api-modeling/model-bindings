@@ -1,4 +1,10 @@
 import {BindingsPlugin, ConfigurationParameter, Resource} from "./BindingsPlugin";
+import { NamedNode,DataFactory } from 'n3';
+const { namedNode } = DataFactory;
+import { startup, post, store, transitiveGet, get, schPref, literal } from '@api-modeling/metadata-store'
+
+const rdfType : NamedNode = namedNode(schPref.rdf + 'type')
+
 import {
     DialectWrapper,
     ModularityDialect,
@@ -44,7 +50,10 @@ export class CIMBindingsPlugin extends BindingsPlugin {
 
         // Data Models
         const dataModels: DataModel[] = entityGroupsDataModels.map((entityGroup) => {
-            const entities = this.parseEntityGroup(store, entityGroup);
+            const entityMap : { [key: string] : Entity} = {}
+            const extendsMap : { [key: string] : string } = {}
+            const entities = this.parseEntityGroup(store, entityGroup, entityMap, extendsMap);
+            Object.entries(extendsMap).forEach(ex => entityMap[ex[0]].extends = entityMap[ex[1]])
             entityGroup.entities = entities;
             return entityGroup;
         });
@@ -171,6 +180,47 @@ export class CIMBindingsPlugin extends BindingsPlugin {
     protected async parseGlobalFile(resource: Resource, store?: n3.Store): Promise<n3.Store> {
         return await graph.loadGraph(resource.text ? resource.text : '', store);
     }
+    private modName : NamedNode= namedNode(schPref.amlm + 'Module')
+    private boundName = namedNode(schPref.bind + "boundBy")
+    private dmName = namedNode(schPref.amldm + 'DataModel')
+
+    updateBindings(bindName : string):void{
+        //finding who doesn't have a binding
+        // get all Modules not "boundBy" bindName
+        const rootBind = namedNode(bindName)
+        let modsToAnnotate = store.getSubjects(rdfType,this.modName).
+        filter((m : any) => store.getObjects(m, this.boundName).
+            filter((o : any) => store.countQuads(o,rdfType,null,rootBind) > 0).length === 0)
+        modsToAnnotate.forEach((mta : NamedNode) => {
+            let uuid = store.getObjects(mta,namedNode(schPref.amldata+'uuid'))[0].value
+            let bindingName = this.createBinding(bindName, 'http://mulesoft.com/modeling/instances/bindings/cim/SubjectAreaBinding', uuid)
+            store.addQuad(rootBind, namedNode('http://a.ml/vocabularies/bindings#binding'), namedNode(bindingName), rootBind)
+        })
+        // get all DataModels not "boundBy" bindname
+        let dmsToAnnotate : NamedNode[] = store.getSubjects(rdfType,this.dmName).
+        filter((m : NamedNode) => store.getObjects(m, this.boundName).
+            filter((o : NamedNode) => store.countQuads(o,rdfType,null,rootBind) > 0).length === 0)
+        dmsToAnnotate.forEach((mta : NamedNode) => {
+            let uuid = store.getObjects(mta,namedNode(schPref.amldata+'uuid'))[0].value
+            let bindingName = this.createBinding(bindName, 'http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding', uuid)
+            store.addQuad(rootBind, namedNode('http://a.ml/vocabularies/bindings#binding'), namedNode(bindingName), rootBind)
+        })
+
+    }
+    initBindings(bindUuid: string): string {
+        let bn = namedNode('http://mulesoft.com/modeling/bindings/'+bindUuid)
+        store.addQuad(bn, namedNode('http://a.ml/vocabularies/data#uuid'),bindUuid,bn)
+        store.addQuad(bn, rdfType, namedNode('http://a.ml/vocabularies/bindings#BindingModel'),bn)
+        let stupid = `file://${process.cwd()}/node_modules/@api-modeling/api-modeling-metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/BindingsModel`
+        store.addQuad(bn, rdfType, namedNode('http://a.ml/vocabularies/meta#DialectDomainElement'),bn)
+        store.addQuad(bn, rdfType, namedNode('http://a.ml/vocabularies/document#DomainElement'),bn)
+        store.addQuad(bn, rdfType, namedNode(stupid), bn)
+        store.addQuad(bn, namedNode('http://a.ml/vocabularies/bindings#bindingDeclaration'), namedNode('http://mulesoft.com/modeling/instances/bindings/cim'))
+        store.addQuad(bn, namedNode('http://a.ml/vocabularies/bindings#bindingSource'),
+              namedNode('http://mulesoft.com/modeling/instances/uuid/cim_distribution'))
+        return 'http://mulesoft.com/modeling/bindings/'+bindUuid
+      }
+
 
 }
 
