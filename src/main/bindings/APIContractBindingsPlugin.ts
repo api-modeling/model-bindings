@@ -13,7 +13,7 @@ import {ApiGenerator} from "./utils/apiGenerator";
 const  SUPPORTED_FORMATS = [ApiParser.RAML1, ApiParser.OAS3 + ".0", ApiParser.OAS2, ApiParser.AMF_GRAPH, ApiParser.JSON_SCHEMA];
 const SUPPORTED_SYNTAXES = [ApiParser.YAML, ApiParser.JSONLD, ApiParser.JSON]
 
-export class APIContractBindingsPlugin extends BindingsPlugin {
+export class APIContractBindingsPlugin /* extends BindingsPlugin */{
 
 
     async export(configuration: ConfigurationParameter[], graphs: meta.DialectWrapper[]): Promise<Resource[]> {

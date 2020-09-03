@@ -155,7 +155,6 @@ export class CIMExporter {
             const propDomain = propAcc[path] || [];
             propDomain.push(id)
             propAcc[path] = propDomain
-
             return json;
         });
 
