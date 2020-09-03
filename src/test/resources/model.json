@@ -918,21 +918,30 @@
               "@id": "ContactPointAddress",
               "name": "Contact Point Address",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "ContactPoint",
+=======
+>>>>>>> master
               "description": "Mailing address for a party e.g. 123 Main St, Big City, CA12345, USA"
             },
             {
               "@id": "ContactPointEmail",
               "name": "Contact Point Email",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "ContactPoint",
+=======
+>>>>>>> master
               "description": "Email address for a party e.g. email info@northerntrailoutfitters.com"
             },
             {
               "@id": "ContactPointPhone",
               "name": "Contact Point Phone",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "ContactPoint",
+=======
+>>>>>>> master
               "description": "Phone number for a party e.g. phone 123-4567"
             },
             {
@@ -945,7 +954,10 @@
               "@id": "PartyWebAddress",
               "name": "Party Web Address",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "ContactPoint",
+=======
+>>>>>>> master
               "description": "What is the Web URL for the Party"
             },
             {
@@ -958,26 +970,36 @@
               "@id": "ContactPointSocial",
               "name": "Contact Point Social",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "ContactPoint",
+=======
+>>>>>>> master
               "description": "Social handle for a party e.g. trustednews at twitter"
             },
             {
               "@id": "ContactPointLocation",
               "name": "Contact Point Location",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "ContactPoint",
+=======
+>>>>>>> master
               "description": "Physical location for a party e.g. party Northern Trail Outfitters at Standford Shopping Mall"
             },
             {
               "@id": "ContactPointApp",
               "name": "Contact Point App",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "ContactPoint",
+=======
+>>>>>>> master
               "description": "Software Application for a party and optionally on a specific device e.g. John Doe have Strava App on device iPhone123"
             }
           ],
           "propertyConcepts": [
             {
+<<<<<<< HEAD
               "@id": "countryName",
               "@type": "Property",
               "domain": [
@@ -1071,6 +1093,9 @@
             },
             {
               "@id": "id",
+=======
+              "@id": "forBusinessUse",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "ContactPointAddress",
@@ -1078,7 +1103,10 @@
                 "ContactPointPhone",
                 "ContactPoint",
                 "PartyWebAddress",
+<<<<<<< HEAD
                 "ContactPointType",
+=======
+>>>>>>> master
                 "ContactPointSocial",
                 "ContactPointLocation",
                 "ContactPointApp"
@@ -1099,6 +1127,7 @@
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "emailLatestBounceDateTime",
               "@type": "Property",
               "domain": [
@@ -1127,6 +1156,8 @@
               ]
             },
             {
+=======
+>>>>>>> master
               "@id": "isFaxCapable",
               "@type": "Property",
               "domain": [
@@ -1134,6 +1165,7 @@
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "isSMSCapable",
               "@type": "Property",
               "domain": [
@@ -1211,6 +1243,8 @@
               ]
             },
             {
+=======
+>>>>>>> master
               "@id": "forPersonalUse",
               "@type": "Property",
               "domain": [
@@ -1274,6 +1308,18 @@
               ]
             },
             {
+<<<<<<< HEAD
+=======
+              "@id": "id",
+              "@type": "Property",
+              "domain": [
+                "ContactPoint",
+                "ContactPointType",
+                "ContactPointLocation"
+              ]
+            },
+            {
+>>>>>>> master
               "@id": "contactPointType",
               "@type": "Property",
               "domain": [
@@ -1291,8 +1337,12 @@
               "@id": "party",
               "@type": "Property",
               "domain": [
+<<<<<<< HEAD
                 "ContactPoint",
                 "PartyWebAddress"
+=======
+                "ContactPoint"
+>>>>>>> master
               ]
             },
             {
@@ -1324,6 +1374,7 @@
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "socialFanStatus",
               "@type": "Property",
               "domain": [
@@ -1359,6 +1410,8 @@
               ]
             },
             {
+=======
+>>>>>>> master
               "@id": "applicationLogin",
               "@type": "Property",
               "domain": [
@@ -1370,6 +1423,7 @@
             {
               "@type": "Shape",
               "@id": "ContactPointAddress",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "ContactPoint"
@@ -1452,12 +1506,25 @@
                       "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "forBusinessUse",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "contactPhone",
+                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
+>>>>>>> master
                 }
               ]
             },
             {
               "@type": "Shape",
               "@id": "ContactPointEmail",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "ContactPoint"
@@ -1501,12 +1568,27 @@
                       "http://www.w3.org/ns/shacl#maxCount": 1
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "forBusinessUse",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "emailLatestBounceReasonText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             },
             {
               "@type": "Shape",
               "@id": "ContactPointPhone",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "ContactPoint"
@@ -1586,6 +1668,20 @@
                       "http://www.w3.org/ns/shacl#maxCount": 1
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "forBusinessUse",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "isFaxCapable",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             },
@@ -1671,6 +1767,7 @@
             {
               "@type": "Shape",
               "@id": "PartyWebAddress",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "ContactPoint"
@@ -1704,12 +1801,39 @@
               "properties": [
                 {
                   "path": "optInPriority",
+=======
+              "properties": [
+                {
+                  "path": "forBusinessUse",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "name",
+=======
+                  "path": "webSiteURL",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "ContactPointType",
+              "properties": [
+                {
+                  "path": "optInPriority",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
                   "path": "name",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
@@ -1725,6 +1849,7 @@
             {
               "@type": "Shape",
               "@id": "ContactPointSocial",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "ContactPoint"
@@ -1774,12 +1899,27 @@
                       "http://www.w3.org/ns/shacl#maxCount": 1
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "forBusinessUse",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "socialNetworkProvider",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             },
             {
               "@type": "Shape",
               "@id": "ContactPointLocation",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "ContactPoint"
@@ -1793,12 +1933,27 @@
                       "http://www.w3.org/ns/shacl#maxCount": 1
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "forBusinessUse",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             },
             {
               "@type": "Shape",
               "@id": "ContactPointApp",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "ContactPoint"
@@ -1817,6 +1972,19 @@
                       "http://www.w3.org/ns/shacl#maxCount": 1
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "forBusinessUse",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "applicationLogin",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             }
@@ -1842,28 +2010,40 @@
               "@id": "Customer",
               "name": "Customer",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "PartyRole",
+=======
+>>>>>>> master
               "description": "Information about a party playing role of customer e.g. life time value, life cycle status"
             },
             {
               "@id": "Seller",
               "name": "Seller",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "PartyRole",
+=======
+>>>>>>> master
               "description": "Information about a party playing role of seller e.g. customer satisfaction score"
             },
             {
               "@id": "Supplier",
               "name": "Supplier",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "PartyRole",
+=======
+>>>>>>> master
               "description": "Information about a party playing role of supplier e.g. vendor ranking"
             },
             {
               "@id": "Competitor",
               "name": "Competitor",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "PartyRole",
+=======
+>>>>>>> master
               "description": "Information about a party playing role of competitor e.g. strength (in products), weaknesses (in offerings), opportunities (to overtake), threats (to our business)"
             },
             {
@@ -1879,10 +2059,13 @@
               "@type": "Property",
               "domain": [
                 "PartyRole",
+<<<<<<< HEAD
                 "Customer",
                 "Seller",
                 "Supplier",
                 "Competitor",
+=======
+>>>>>>> master
                 "CustomerStatusHistory"
               ]
             },
@@ -1890,13 +2073,22 @@
               "@id": "party",
               "@type": "Property",
               "domain": [
+<<<<<<< HEAD
                 "PartyRole"
+=======
+                "PartyRole",
+                "Customer",
+                "Seller",
+                "Supplier",
+                "Competitor"
+>>>>>>> master
               ]
             },
             {
               "@id": "customerSatisfactionScore",
               "@type": "Property",
               "domain": [
+<<<<<<< HEAD
                 "Customer",
                 "Seller"
               ]
@@ -3297,6 +3489,405 @@
               "@type": "Property",
               "domain": [
                 "Lead"
+=======
+                "Customer"
+              ]
+            },
+            {
+              "@id": "newCustomerAcquisitionCount",
+              "@type": "Property",
+              "domain": [
+                "Seller"
+              ]
+            },
+            {
+              "@id": "competitiveMarketingRank",
+              "@type": "Property",
+              "domain": [
+                "Supplier"
+              ]
+            },
+            {
+              "@id": "assetTurnoverRatio",
+              "@type": "Property",
+              "domain": [
+                "Competitor"
+              ]
+            },
+            {
+              "@id": "endDateTIme",
+              "@type": "Property",
+              "domain": [
+                "CustomerStatusHistory"
+              ]
+            },
+            {
+              "@id": "startDateTime",
+              "@type": "Property",
+              "domain": [
+                "CustomerStatusHistory"
+              ]
+            },
+            {
+              "@id": "partyRoleStatus",
+              "@type": "Property",
+              "domain": [
+                "CustomerStatusHistory"
+              ]
+            },
+            {
+              "@id": "partyRole",
+              "@type": "Property",
+              "domain": [
+                "CustomerStatusHistory"
+              ]
+            }
+          ],
+          "schemas": [
+            {
+              "@type": "Shape",
+              "@id": "PartyRole",
+              "properties": [
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "party",
+                  "http://www.w3.org/ns/shacl#node": "Party",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "Customer",
+              "properties": [
+                {
+                  "path": "customerSatisfactionScore",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "party",
+                  "http://www.w3.org/ns/shacl#node": "Party",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "Seller",
+              "properties": [
+                {
+                  "path": "newCustomerAcquisitionCount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "party",
+                  "http://www.w3.org/ns/shacl#node": "Party",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "Supplier",
+              "properties": [
+                {
+                  "path": "competitiveMarketingRank",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "party",
+                  "http://www.w3.org/ns/shacl#node": "Party",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "Competitor",
+              "properties": [
+                {
+                  "path": "assetTurnoverRatio",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "party",
+                  "http://www.w3.org/ns/shacl#node": "Party",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "CustomerStatusHistory",
+              "properties": [
+                {
+                  "path": "endDateTIme",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "startDateTime",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "partyRoleStatus",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "partyRole",
+                  "http://www.w3.org/ns/shacl#node": "PartyRole",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "@id": "LeadEntityGroup",
+          "name": "Lead",
+          "@type": "EntityGroup",
+          "version": "0.2",
+          "subjectArea": {
+            "@id": "Party"
+          },
+          "description": "Example Entities included: Lead, Lead Status, Lead Source",
+          "classConcepts": [
+            {
+              "@id": "Lead",
+              "name": "Lead",
+              "@type": "Class",
+              "description": "A person or company that showed interest in the company's products"
+            }
+          ],
+          "propertyConcepts": [
+            {
+              "@id": "geoCodeAccuracy",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "geoCodeLongitude",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "geoCodeLatitude",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "website",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "leadScore",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "leadRating",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "photoURL",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "lastActivityDate",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "companyName",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "annualRevenue",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "countryName",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "stateProvinceName",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "streetName",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "emailBouncedReason",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "emailBouncedDate",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "convertedDate",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "isConverted",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "description",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "leadStatus",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "leadSource",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "id",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "partnerAccount",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "faxContactPhone",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "mobileContactPhone",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "phoneContactPoint",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "contactPointEmail",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "contactAddress",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "convertedToAccountContact",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "convertedToAccount",
+              "@type": "Property",
+              "domain": [
+                "Lead"
+              ]
+            },
+            {
+              "@id": "partyRole",
+              "@type": "Property",
+              "domain": [
+                "Lead"
               ]
             }
           ],
@@ -3411,6 +4002,822 @@
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "partnerAccount",
+                  "http://www.w3.org/ns/shacl#node": "Account"
+                },
+                {
+                  "path": "faxContactPhone",
+                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
+                },
+                {
+                  "path": "mobileContactPhone",
+                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
+                },
+                {
+                  "path": "phoneContactPoint",
+                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
+                },
+                {
+                  "path": "contactPointEmail",
+                  "http://www.w3.org/ns/shacl#node": "ContactPointEmail"
+                },
+                {
+                  "path": "contactAddress",
+                  "http://www.w3.org/ns/shacl#node": "ContactPointAddress"
+                },
+                {
+                  "path": "convertedToAccountContact",
+                  "http://www.w3.org/ns/shacl#node": "AccountContact"
+                },
+                {
+                  "path": "convertedToAccount",
+                  "http://www.w3.org/ns/shacl#node": "Account"
+                },
+                {
+                  "path": "partyRole",
+                  "http://www.w3.org/ns/shacl#node": "PartyRole",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "@id": "PartyEntityGroup",
+          "name": "Party",
+          "@type": "EntityGroup",
+          "version": "0.2",
+          "subjectArea": {
+            "@id": "Party"
+          },
+          "description": "Example Entities included: Organization, Individual, Affiliate Group, Uncategorized",
+          "classConcepts": [
+            {
+              "@id": "Party",
+              "name": "Party",
+              "@type": "Class",
+              "description": "A unified, in system, definition of who you are dealing with e.g. John Doe, Northern Trail Outfitters and can be of different types e.g. individual, business, affiliation group."
+            },
+            {
+              "@id": "Individual",
+              "name": "Individual",
+              "@type": "Class",
+              "description": "Represent the person you are, or will be, dealing with using the system"
+            },
+            {
+              "@id": "Household",
+              "name": "Household",
+              "@type": "Class",
+              "description": "A combination of people, normally recorded in the system for marketing or service purposes"
+            },
+            {
+              "@id": "InternalBusinessUnit",
+              "name": "Internal Business Unit",
+              "@type": "Class",
+              "description": "Defining a part of your own internal organization. May be anything from a holding company, a line of business, a country division, a department and for which you may want to track e.g. if it is a legal entity, default GL Code, profit-and-loss etc against."
+            },
+            {
+              "@id": "UncategorizedParty",
+              "name": "Uncategorized Party",
+              "@type": "Class",
+              "description": "A party we may be, or will be, dealing with but we do not know who they are yet e.g. Social Handle 'TrustedNews' which we do not yet know if a person or a business but complain about our company so we want to log a case to investigate further. E.g. an ord"
+            },
+            {
+              "@id": "PartyAdditionalName",
+              "name": "Party Additional Name",
+              "@type": "Class",
+              "description": "Under what name is a person also known as( AKA), under what alternate name is a business doing business as (DBA)"
+            },
+            {
+              "@id": "PersonLanguage",
+              "name": "Person Language",
+              "@type": "Class",
+              "description": "Languages a person can comprehend and level of comprehension"
+            },
+            {
+              "@id": "PartyRelatedParty",
+              "name": "Party Related Party",
+              "@type": "Class",
+              "description": "Relates any two parties together e.g. Jane and John Doe part of The Doe Household"
+            },
+            {
+              "@id": "PartyRelationshipType",
+              "name": "Party Relationship Type",
+              "@type": "Class",
+              "description": "Define name of a relationship and how to read the relationship both ways e.g. household for / household member of"
+            },
+            {
+              "@id": "PartyIdentification",
+              "name": "Party Identification",
+              "@type": "Class",
+              "description": "Set of ways to identify a party e.g. driving license, birth certificate"
+            },
+            {
+              "@id": "PersonEmployment",
+              "name": "Person Employment",
+              "@type": "Class",
+              "description": "Information about an employee"
+            },
+            {
+              "@id": "PersonLifeEvent",
+              "name": "Person Life Event",
+              "@type": "Class",
+              "description": "Major events a person had in their lives e.g. graudation date, marriage date"
+            },
+            {
+              "@id": "PersonEducation",
+              "name": "Person Education",
+              "@type": "Class",
+              "description": "Education a person has e.g. Phd, High School"
+            }
+          ],
+          "propertyConcepts": [
+            {
+              "@id": "noMergeReason",
+              "@type": "Property",
+              "domain": [
+                "Party",
+                "Individual",
+                "Household",
+                "InternalBusinessUnit",
+                "UncategorizedParty"
+              ]
+            },
+            {
+              "@id": "partyType",
+              "@type": "Property",
+              "domain": [
+                "Party"
+              ]
+            },
+            {
+              "@id": "globalParty",
+              "@type": "Property",
+              "domain": [
+                "Party"
+              ]
+            },
+            {
+              "@id": "id",
+              "@type": "Property",
+              "domain": [
+                "Party",
+                "PartyAdditionalName",
+                "PersonLanguage",
+                "PartyRelatedParty",
+                "PartyRelationshipType",
+                "PartyIdentification",
+                "PersonEmployment",
+                "PersonLifeEvent",
+                "PersonEducation"
+              ]
+            },
+            {
+              "@id": "primaryAccount",
+              "@type": "Property",
+              "domain": [
+                "Party"
+              ]
+            },
+            {
+              "@id": "convictionsCount",
+              "@type": "Property",
+              "domain": [
+                "Individual"
+              ]
+            },
+            {
+              "@id": "householdDissolvedDate",
+              "@type": "Property",
+              "domain": [
+                "Household"
+              ]
+            },
+            {
+              "@id": "parentInternalBusinessUnit",
+              "@type": "Property",
+              "domain": [
+                "InternalBusinessUnit"
+              ]
+            },
+            {
+              "@id": "creationReason",
+              "@type": "Property",
+              "domain": [
+                "UncategorizedParty"
+              ]
+            },
+            {
+              "@id": "additionalNameType",
+              "@type": "Property",
+              "domain": [
+                "PartyAdditionalName"
+              ]
+            },
+            {
+              "@id": "name",
+              "@type": "Property",
+              "domain": [
+                "PartyAdditionalName",
+                "PartyIdentification"
+              ]
+            },
+            {
+              "@id": "party",
+              "@type": "Property",
+              "domain": [
+                "PartyAdditionalName",
+                "PartyRelatedParty",
+                "PartyIdentification"
+              ]
+            },
+            {
+              "@id": "writtenProficiencyLevel",
+              "@type": "Property",
+              "domain": [
+                "PersonLanguage"
+              ]
+            },
+            {
+              "@id": "spokenProficiencyLevel",
+              "@type": "Property",
+              "domain": [
+                "PersonLanguage"
+              ]
+            },
+            {
+              "@id": "individual",
+              "@type": "Property",
+              "domain": [
+                "PersonLanguage",
+                "PersonEmployment",
+                "PersonLifeEvent",
+                "PersonEducation"
+              ]
+            },
+            {
+              "@id": "relatedToDate",
+              "@type": "Property",
+              "domain": [
+                "PartyRelatedParty"
+              ]
+            },
+            {
+              "@id": "relatedFromDate",
+              "@type": "Property",
+              "domain": [
+                "PartyRelatedParty"
+              ]
+            },
+            {
+              "@id": "partyRelationshipType",
+              "@type": "Property",
+              "domain": [
+                "PartyRelatedParty"
+              ]
+            },
+            {
+              "@id": "relatedParty",
+              "@type": "Property",
+              "domain": [
+                "PartyRelatedParty"
+              ]
+            },
+            {
+              "@id": "isBidirectional",
+              "@type": "Property",
+              "domain": [
+                "PartyRelationshipType"
+              ]
+            },
+            {
+              "@id": "relatedPartyRole",
+              "@type": "Property",
+              "domain": [
+                "PartyRelationshipType"
+              ]
+            },
+            {
+              "@id": "partyRole",
+              "@type": "Property",
+              "domain": [
+                "PartyRelationshipType",
+                "PartyIdentification"
+              ]
+            },
+            {
+              "@id": "verifiedDate",
+              "@type": "Property",
+              "domain": [
+                "PartyIdentification"
+              ]
+            },
+            {
+              "@id": "expiryDate",
+              "@type": "Property",
+              "domain": [
+                "PartyIdentification"
+              ]
+            },
+            {
+              "@id": "issuedAtLocation",
+              "@type": "Property",
+              "domain": [
+                "PartyIdentification"
+              ]
+            },
+            {
+              "@id": "issuedByAuthority",
+              "@type": "Property",
+              "domain": [
+                "PartyIdentification"
+              ]
+            },
+            {
+              "@id": "issuedDate",
+              "@type": "Property",
+              "domain": [
+                "PartyIdentification"
+              ]
+            },
+            {
+              "@id": "identificationNumber",
+              "@type": "Property",
+              "domain": [
+                "PartyIdentification"
+              ]
+            },
+            {
+              "@id": "partyIdentificationType",
+              "@type": "Property",
+              "domain": [
+                "PartyIdentification"
+              ]
+            },
+            {
+              "@id": "employerPostalCodeText",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "employerCityName",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "employerAddressLine4",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "employerAddressLine3",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "employerAddressLine2",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "employerAddressLine1",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "employerPhoneNumber",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "occupationText",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "positionText",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "employmentStatus",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "annualIncome",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "employerName",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "endDate",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "startDate",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "employerContactPointAddress",
+              "@type": "Property",
+              "domain": [
+                "PersonEmployment"
+              ]
+            },
+            {
+              "@id": "personLifeEventDateTime",
+              "@type": "Property",
+              "domain": [
+                "PersonLifeEvent"
+              ]
+            },
+            {
+              "@id": "personLifeEventType",
+              "@type": "Property",
+              "domain": [
+                "PersonLifeEvent"
+              ]
+            },
+            {
+              "@id": "institutionName",
+              "@type": "Property",
+              "domain": [
+                "PersonEducation"
+              ]
+            },
+            {
+              "@id": "graduationDate",
+              "@type": "Property",
+              "domain": [
+                "PersonEducation"
+              ]
+            },
+            {
+              "@id": "educationLevel",
+              "@type": "Property",
+              "domain": [
+                "PersonEducation"
+              ]
+            },
+            {
+              "@id": "educationName",
+              "@type": "Property",
+              "domain": [
+                "PersonEducation"
+>>>>>>> master
+              ]
+            }
+          ],
+          "schemas": [
+            {
+              "@type": "Shape",
+<<<<<<< HEAD
+              "@id": "Lead",
+              "properties": [
+                {
+                  "path": "geoCodeAccuracy",
+=======
+              "@id": "Party",
+              "properties": [
+                {
+                  "path": "noMergeReason",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "geoCodeLongitude",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "geoCodeLatitude",
+=======
+                  "path": "partyType",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "globalParty",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "website",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "leadScore",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "leadRating",
+=======
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "primaryAccount",
+                  "http://www.w3.org/ns/shacl#node": "Account"
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "Individual",
+              "properties": [
+                {
+                  "path": "noMergeReason",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "photoURL",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "lastActivityDate",
+=======
+                  "path": "convictionsCount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "Household",
+              "properties": [
+                {
+                  "path": "noMergeReason",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "companyName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "annualRevenue",
+=======
+                  "path": "householdDissolvedDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "InternalBusinessUnit",
+              "properties": [
+                {
+                  "path": "noMergeReason",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "countryName",
+=======
+                  "path": "parentInternalBusinessUnit",
+                  "http://www.w3.org/ns/shacl#node": "InternalBusinessUnit"
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "UncategorizedParty",
+              "properties": [
+                {
+                  "path": "noMergeReason",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "stateProvinceName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "streetName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "emailBouncedReason",
+=======
+                  "path": "creationReason",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PartyAdditionalName",
+              "properties": [
+                {
+                  "path": "additionalNameType",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "name",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "party",
+                  "http://www.w3.org/ns/shacl#node": "Party",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PersonLanguage",
+              "properties": [
+                {
+                  "path": "writtenProficiencyLevel",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "emailBouncedDate",
+=======
+                  "path": "spokenProficiencyLevel",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "convertedDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "isConverted",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "description",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "leadStatus",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "leadSource",
+=======
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "individual",
+                  "http://www.w3.org/ns/shacl#node": "Individual",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PartyRelatedParty",
+              "properties": [
+                {
+                  "path": "relatedToDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "relatedFromDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "partyRelationshipType",
+                  "http://www.w3.org/ns/shacl#node": "PartyRelationshipType",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "relatedParty",
+                  "http://www.w3.org/ns/shacl#node": "Party",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "party",
+                  "http://www.w3.org/ns/shacl#node": "Party",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PartyRelationshipType",
+              "properties": [
+                {
+                  "path": "isBidirectional",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "relatedPartyRole",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "partyRole",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+<<<<<<< HEAD
                 },
                 {
                   "path": "partnerAccount",
@@ -4511,28 +5918,55 @@
               "@type": "Property",
               "domain": [
                 "PersonEducation"
+=======
+                }
               ]
-            }
-          ],
-          "schemas": [
+            },
             {
               "@type": "Shape",
-              "@id": "Party",
+              "@id": "PartyIdentification",
               "properties": [
                 {
-                  "path": "noMergeReason",
+                  "path": "verifiedDate",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
-                  "path": "partyType",
+                  "path": "expiryDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "issuedAtLocation",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "issuedByAuthority",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "issuedDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "identificationNumber",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
-                  "path": "globalParty",
+                  "path": "name",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "partyIdentificationType",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
@@ -4542,6 +5976,1260 @@
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+                  "path": "partyRole",
+                  "http://www.w3.org/ns/shacl#node": "PartyRole"
+                },
+                {
+                  "path": "party",
+                  "http://www.w3.org/ns/shacl#node": "Party",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PersonEmployment",
+              "properties": [
+                {
+                  "path": "employerPostalCodeText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "employerCityName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "employerAddressLine4",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "employerAddressLine3",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "employerAddressLine2",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "employerAddressLine1",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "employerPhoneNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "occupationText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "positionText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "employmentStatus",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "annualIncome",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "employerName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "endDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "startDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "employerContactPointAddress",
+                  "http://www.w3.org/ns/shacl#node": "ContactPointAddress"
+                },
+                {
+                  "path": "individual",
+                  "http://www.w3.org/ns/shacl#node": "Individual",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PersonLifeEvent",
+              "properties": [
+                {
+                  "path": "personLifeEventDateTime",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "personLifeEventType",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "individual",
+                  "http://www.w3.org/ns/shacl#node": "Individual",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PersonEducation",
+              "properties": [
+                {
+                  "path": "institutionName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "graduationDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "educationLevel",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "educationName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "individual",
+                  "http://www.w3.org/ns/shacl#node": "Individual",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "PaymentSubjectArea",
+      "@type": "SubjectArea",
+      "version": {
+        "name": "cimVersion",
+        "value": "0.2"
+      },
+      "name": "Payment",
+      "description": "A submitted payment. Includes information about whether a submitted payment was successfully processed or not.",
+      "entityGroups": [
+        {
+          "@id": "PaymentEntityGroup",
+          "name": "Payment",
+          "@type": "EntityGroup",
+          "version": "0.2",
+          "subjectArea": {
+            "@id": "Payment"
+          },
+          "description": "Example Entities included: Payment, Payment Group, Payment Authorization, Payment Gateway",
+          "classConcepts": [
+            {
+              "@id": "Payment",
+              "name": "Payment",
+              "@type": "Class",
+              "description": "An amount of currency paid."
+            },
+            {
+              "@id": "CapturePayment",
+              "name": "Capture Payment",
+              "@type": "Class",
+              "description": "The transfer of money from the customer's account to the merchant's account."
+            },
+            {
+              "@id": "RefundPayment",
+              "name": "Refund Payment",
+              "@type": "Class",
+              "description": "Represents a repayment made, typically to a customer who isn’t satisfied with the goods or services purchased. Refunds are typically made after a payment has already been received from customers"
+            },
+            {
+              "@id": "PaymentPolicy",
+              "name": "Payment Policy",
+              "@type": "Class",
+              "description": "This entity stores policy information for an org or an account which can be used to automate the process of payment application to invoice based on business needs."
+            },
+            {
+              "@id": "RefundCreditMemoAllocation",
+              "name": "Refund Credit Memo Allocation",
+              "@type": "Class",
+              "description": "Facilitates applying/unapplying refund balance to a credit memo."
+            },
+            {
+              "@id": "RefundAllocation",
+              "name": "Refund Allocation",
+              "@type": "Class",
+              "description": "Facilitates applying/unapplying a capture payment, or a credit memo to a Refund Payment."
+            },
+            {
+              "@id": "PaymentGroup",
+              "name": "Payment Group",
+              "@type": "Class",
+              "description": "Payment Group provides a way to associate payments and payment gateway events, where the payment is not associated with a Sales Order."
+            },
+            {
+              "@id": "PaymentTreatmentMethod",
+              "name": "Payment Treatment Method",
+              "@type": "Class",
+              "description": "Represents a specific algorithm or method to apply. For example - pay for taxes first, pay for charges first, pay for oldest due invoice first etc. It can also point to a rule based on which application can be done. Treatment has a method."
+            },
+            {
+              "@id": "PaymentTreatment",
+              "name": "Payment Treatment",
+              "@type": "Class",
+              "description": "This entity has the information which controls the way in which payment can be applied based on a legal entity or workflow. A policy has multiple treatments associated."
+            },
+            {
+              "@id": "PaymentAuthorization",
+              "name": "Payment Authorization",
+              "@type": "Class",
+              "description": "An approval from the issuer of a payment instrument (usually a card), that the customer has sufficient funds to cover the cost of the transaction."
+            },
+            {
+              "@id": "PaymentGatewayAuthReversalLog",
+              "name": "Payment Gateway Authorization Reversal Log",
+              "@type": "Class",
+              "description": "A log record of all requests made to financial institutions, made via the payment gateway, to cancel payment authorizations."
+            },
+            {
+              "@id": "PaymentGatewayInteractionLog",
+              "name": "Payment Gateway Interaction Log",
+              "@type": "Class",
+              "description": "A log record of all messages exchanged with merchants made via the payment gateway, for authorizations and payments."
+            },
+            {
+              "@id": "PaymentGatewayPaymentLog",
+              "name": "Payment Gateway Payment Log",
+              "@type": "Class",
+              "description": "A log record of all messages originating with financial institutions that previously provided payment authorizations, that payments have been deducted from customers' accounts."
+            },
+            {
+              "@id": "PaymentGatewayAuthorizationLog",
+              "name": "Payment Gateway Authorization Log",
+              "@type": "Class",
+              "description": "A log record of all requests made to financial institutions, made via the payment gateway, to authorize payments."
+            },
+            {
+              "@id": "PaymentGatewayInteractionType",
+              "name": "Payment Gateway Interaction Type",
+              "@type": "Class",
+              "description": "Reasons for accessing the Payment Gateway, including authorization, Sale and Void."
+            },
+            {
+              "@id": "PaymentGateway",
+              "name": "Payment Gateway",
+              "@type": "Class",
+              "description": "Holds the payment gateway merchant details which are used to interact external payment systems."
+            },
+            {
+              "@id": "PaymentGatewayProvider",
+              "name": "Payment Gateway Provider",
+              "@type": "Class",
+              "description": "Stores class details needed for maintaining Apex adapter."
+            },
+            {
+              "@id": "PaymentGatewayResultCode",
+              "name": "Payment Gateway Result Code",
+              "@type": "Class",
+              "description": "The response from the Payment Gateway."
+            },
+            {
+              "@id": "PaymentApplication",
+              "name": "Payment Application",
+              "@type": "Class",
+              "description": "The designation of part or all of a Payment to satisfy a claim on the payment funds."
+            },
+            {
+              "@id": "PaymentInvoiceApplication",
+              "name": "Payment Invoice Application",
+              "@type": "Class",
+              "description": "Facilitates applying/unapplying payment balance to an Invoice."
+            },
+            {
+              "@id": "PaymentAllocation",
+              "name": "Payment Allocation",
+              "@type": "Class",
+              "description": "A Payment Application may be further broken down, to allocate payment funds to one or more line items within an Invoice or Credit Memo"
+            },
+            {
+              "@id": "PaymentCreditMemoApplication",
+              "name": "Payment Credit Memo Application",
+              "@type": "Class",
+              "description": "Facilitates applying/unapplying payment balance to a credit memo."
+            },
+            {
+              "@id": "PaymentCreditMemoAllocation",
+              "name": "Payment Credit Memo Allocation",
+              "@type": "Class",
+              "description": "Facilitates applying a Payment Application to the line items of a Credit Memo."
+            },
+            {
+              "@id": "PaymentInvoiceAllocation",
+              "name": "Payment Invoice Allocation",
+              "@type": "Class",
+              "description": "Facilitates applying a Payment Application to the line items of an Invoice."
+            },
+            {
+              "@id": "RefundPaymentAllocation",
+              "name": "Refund Payment Allocation",
+              "@type": "Class",
+              "description": "Facilitates applying/unapplying refund balance to a payment."
+            },
+            {
+              "@id": "PaymentAuthorizationReversal",
+              "name": "Payment Authorization Reversal",
+              "@type": "Class",
+              "description": "An authorization reversal is a message that alerts the issuer that part or all of a sale has been cancelled and the authorization hold should be rescinded."
+            }
+          ],
+          "propertyConcepts": [
+            {
+              "@id": "paymentType",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "authorizationProcessingMode",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "latestGatewayInternalResult",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "paymentStatus",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "id",
+              "@type": "Property",
+              "domain": [
+                "Payment",
+                "RefundPayment",
+                "PaymentPolicy",
+                "RefundCreditMemoAllocation",
+                "RefundAllocation",
+                "PaymentGroup",
+                "PaymentTreatmentMethod",
+                "PaymentTreatment",
+                "PaymentAuthorization",
+                "PaymentGatewayInteractionLog",
+                "PaymentGatewayInteractionType",
+                "PaymentGateway",
+                "PaymentGatewayProvider",
+                "PaymentGatewayResultCode",
+                "PaymentApplication",
+                "PaymentAllocation",
+                "PaymentCreditMemoApplication",
+                "PaymentCreditMemoAllocation",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "customerPhoneNumber",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "customerEmailAddress",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "name",
+              "@type": "Property",
+              "domain": [
+                "Payment",
+                "PaymentPolicy",
+                "PaymentGatewayInteractionType",
+                "PaymentGateway",
+                "PaymentGatewayResultCode",
+                "PaymentApplication"
+              ]
+            },
+            {
+              "@id": "latestGatewayReferenceNumber",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "latestGatewayInternalReferenceNumber",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "latestPaymentGatewayMessageText",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "macAddress",
+              "@type": "Property",
+              "domain": [
+                "Payment",
+                "PaymentAuthorization",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "iPAddress",
+              "@type": "Property",
+              "domain": [
+                "Payment",
+                "PaymentAuthorization",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "paymentNumber",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "commentText",
+              "@type": "Property",
+              "domain": [
+                "Payment",
+                "PaymentApplication"
+              ]
+            },
+            {
+              "@id": "paymentAmount",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "netAppliedAmount",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "totalAppliedAmount",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "totalUnappliedAmount",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "balanceAmount",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "latestGatewayDate",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "externalCreatedDate",
+              "@type": "Property",
+              "domain": [
+                "Payment",
+                "RefundAllocation",
+                "PaymentAuthorization",
+                "PaymentApplication",
+                "PaymentAllocation",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "paymentEffectiveDate",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "paymentCancellationDate",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "salesOrderPaymentSummary",
+              "@type": "Property",
+              "domain": [
+                "Payment",
+                "CapturePayment",
+                "RefundPayment",
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "paymentGroup",
+              "@type": "Property",
+              "domain": [
+                "Payment",
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "paymentGateway",
+              "@type": "Property",
+              "domain": [
+                "Payment",
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "paymentTreatment",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "internalBusinessUnit",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "account",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "paymentMethod",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "latestGatewayResultCode",
+              "@type": "Property",
+              "domain": [
+                "Payment"
+              ]
+            },
+            {
+              "@id": "paymentAuthorization",
+              "@type": "Property",
+              "domain": [
+                "CapturePayment",
+                "PaymentGatewayAuthorizationLog",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "paymentPolicyStatus",
+              "@type": "Property",
+              "domain": [
+                "PaymentPolicy"
+              ]
+            },
+            {
+              "@id": "paymentPolicyTreatmentSelection",
+              "@type": "Property",
+              "domain": [
+                "PaymentPolicy"
+              ]
+            },
+            {
+              "@id": "description",
+              "@type": "Property",
+              "domain": [
+                "PaymentPolicy",
+                "PaymentGatewayInteractionType",
+                "PaymentGatewayResultCode"
+              ]
+            },
+            {
+              "@id": "refundPayment",
+              "@type": "Property",
+              "domain": [
+                "RefundCreditMemoAllocation",
+                "RefundAllocation",
+                "RefundPaymentAllocation"
+              ]
+            },
+            {
+              "@id": "refundAllocationType",
+              "@type": "Property",
+              "domain": [
+                "RefundAllocation"
+              ]
+            },
+            {
+              "@id": "refundAllocationName",
+              "@type": "Property",
+              "domain": [
+                "RefundAllocation"
+              ]
+            },
+            {
+              "@id": "refundBalanceAmount",
+              "@type": "Property",
+              "domain": [
+                "RefundAllocation"
+              ]
+            },
+            {
+              "@id": "allocatedAmount",
+              "@type": "Property",
+              "domain": [
+                "RefundAllocation"
+              ]
+            },
+            {
+              "@id": "appliedDate",
+              "@type": "Property",
+              "domain": [
+                "RefundAllocation",
+                "PaymentApplication"
+              ]
+            },
+            {
+              "@id": "effectiveDate",
+              "@type": "Property",
+              "domain": [
+                "RefundAllocation",
+                "PaymentApplication"
+              ]
+            },
+            {
+              "@id": "unappliedDate",
+              "@type": "Property",
+              "domain": [
+                "RefundAllocation",
+                "PaymentApplication"
+              ]
+            },
+            {
+              "@id": "hasBeenUnapplied",
+              "@type": "Property",
+              "domain": [
+                "RefundAllocation",
+                "PaymentApplication"
+              ]
+            },
+            {
+              "@id": "relatedRefundAllocation",
+              "@type": "Property",
+              "domain": [
+                "RefundAllocation"
+              ]
+            },
+            {
+              "@id": "paymentGroupNumber",
+              "@type": "Property",
+              "domain": [
+                "PaymentGroup"
+              ]
+            },
+            {
+              "@id": "totalPaymentAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentGroup"
+              ]
+            },
+            {
+              "@id": "totalAuthorizationAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentGroup"
+              ]
+            },
+            {
+              "@id": "totalReversalAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentGroup"
+              ]
+            },
+            {
+              "@id": "paymentTreatmentMethodName",
+              "@type": "Property",
+              "domain": [
+                "PaymentTreatmentMethod"
+              ]
+            },
+            {
+              "@id": "paymentTreatmentMethodDescription",
+              "@type": "Property",
+              "domain": [
+                "PaymentTreatmentMethod"
+              ]
+            },
+            {
+              "@id": "paymentTreatmentMethodCode",
+              "@type": "Property",
+              "domain": [
+                "PaymentTreatmentMethod"
+              ]
+            },
+            {
+              "@id": "paymentTreatmentStatus",
+              "@type": "Property",
+              "domain": [
+                "PaymentTreatment"
+              ]
+            },
+            {
+              "@id": "paymentApplicationLevel",
+              "@type": "Property",
+              "domain": [
+                "PaymentTreatment"
+              ]
+            },
+            {
+              "@id": "paymentTreatmentName",
+              "@type": "Property",
+              "domain": [
+                "PaymentTreatment"
+              ]
+            },
+            {
+              "@id": "shouldAutoInvoice",
+              "@type": "Property",
+              "domain": [
+                "PaymentTreatment"
+              ]
+            },
+            {
+              "@id": "paymentPolicy",
+              "@type": "Property",
+              "domain": [
+                "PaymentTreatment"
+              ]
+            },
+            {
+              "@id": "paymentTreatmentMethod",
+              "@type": "Property",
+              "domain": [
+                "PaymentTreatment"
+              ]
+            },
+            {
+              "@id": "paymentAuthorizationStatus",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "paymentAuthorizationProcessingMode",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "paymentAuthorizationNumber",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "paymentAuthorizationCommentText",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "gatewayAuthorizationCode",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "paymentGatewayReferenceNumber",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization",
+                "PaymentGatewayInteractionLog",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "paymentGatewayInternalReferenceNumber",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "gatewayReferenceDetailsText",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "gatewayResultCodeDescription",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "availableBalanceAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "authorizationAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "totalPaymentCaptureAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "totalAuthorizationReversalAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "paymentGatewayDate",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization",
+                "PaymentGatewayInteractionLog",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "requestDate",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "expirationDate",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "paymentMethodID",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization"
+              ]
+            },
+            {
+              "@id": "paymentGatewayResult",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorization",
+                "PaymentGatewayAuthReversalLog",
+                "PaymentGatewayInteractionLog",
+                "PaymentGatewayPaymentLog",
+                "PaymentGatewayAuthorizationLog",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "paymentAuthorizationReversal",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayAuthReversalLog"
+              ]
+            },
+            {
+              "@id": "internalResultCode",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayInteractionLog"
+              ]
+            },
+            {
+              "@id": "paymentGatewayInteractionStatus",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayInteractionLog"
+              ]
+            },
+            {
+              "@id": "paymentGatewayInteractionLogName",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayInteractionLog"
+              ]
+            },
+            {
+              "@id": "paymentGatewayAuthorizationCode",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayInteractionLog"
+              ]
+            },
+            {
+              "@id": "paymentGatewayAVSCode",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayInteractionLog"
+              ]
+            },
+            {
+              "@id": "paymentGatewayMessageText",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayInteractionLog"
+              ]
+            },
+            {
+              "@id": "internalReferenceNumber",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayInteractionLog"
+              ]
+            },
+            {
+              "@id": "paymentGatewayInteractionType",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayInteractionLog"
+              ]
+            },
+            {
+              "@id": "payment",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayPaymentLog",
+                "PaymentApplication",
+                "PaymentInvoiceApplication",
+                "PaymentCreditMemoApplication"
+              ]
+            },
+            {
+              "@id": "paymentGatewayStatus",
+              "@type": "Property",
+              "domain": [
+                "PaymentGateway"
+              ]
+            },
+            {
+              "@id": "systemCredential",
+              "@type": "Property",
+              "domain": [
+                "PaymentGateway"
+              ]
+            },
+            {
+              "@id": "paymentGatewayCommentText",
+              "@type": "Property",
+              "domain": [
+                "PaymentGateway"
+              ]
+            },
+            {
+              "@id": "paymentGatewayProvider",
+              "@type": "Property",
+              "domain": [
+                "PaymentGateway"
+              ]
+            },
+            {
+              "@id": "paymentGatewayProviderName",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayProvider"
+              ]
+            },
+            {
+              "@id": "apexAdapterClassName",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayProvider"
+              ]
+            },
+            {
+              "@id": "paymentGatewayProviderCommentText",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayProvider"
+              ]
+            },
+            {
+              "@id": "developerName",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayProvider"
+              ]
+            },
+            {
+              "@id": "namespacePrefixText",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayProvider"
+              ]
+            },
+            {
+              "@id": "paymentApplicationType",
+              "@type": "Property",
+              "domain": [
+                "PaymentApplication"
+              ]
+            },
+            {
+              "@id": "appliedAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentApplication"
+              ]
+            },
+            {
+              "@id": "paymentBalanceAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentApplication"
+              ]
+            },
+            {
+              "@id": "paymentInvoiceApplicationType",
+              "@type": "Property",
+              "domain": [
+                "PaymentInvoiceApplication"
+              ]
+            },
+            {
+              "@id": "paymentAllocationName",
+              "@type": "Property",
+              "domain": [
+                "PaymentAllocation"
+              ]
+            },
+            {
+              "@id": "relatedPaymentAllocation",
+              "@type": "Property",
+              "domain": [
+                "PaymentAllocation",
+                "PaymentCreditMemoAllocation",
+                "PaymentInvoiceAllocation"
+              ]
+            },
+            {
+              "@id": "paymentInvoiceApplication",
+              "@type": "Property",
+              "domain": [
+                "PaymentInvoiceAllocation"
+              ]
+            },
+            {
+              "@id": "capturePayment",
+              "@type": "Property",
+              "domain": [
+                "RefundPaymentAllocation",
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "paymentAuthorizationReversalStatus",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "customerAuthorizationReversalPhone",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "customerAuthorizationReversalEmail",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "paymentAuthorizationReversalName",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "paymentAuthorizationReversalCommentText",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorizationReversal"
+              ]
+            },
+            {
+              "@id": "authorizationReversalAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorizationReversal"
+>>>>>>> master
+              ]
+            }
+          ],
+          "schemas": [
+            {
+              "@type": "Shape",
+<<<<<<< HEAD
+              "@id": "Party",
+              "properties": [
+                {
+                  "path": "noMergeReason",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "partyType",
+=======
+              "@id": "Payment",
+              "properties": [
+                {
+                  "path": "paymentType",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "authorizationProcessingMode",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "globalParty",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+=======
+                  "path": "latestGatewayInternalResult",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentStatus",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+>>>>>>> master
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
                   "path": "primaryAccount",
                   "http://www.w3.org/ns/shacl#node": "Account"
                 }
@@ -5089,6 +7777,15 @@
                   "path": "additionalNameType",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
+=======
+                  "path": "customerPhoneNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "customerEmailAddress",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+>>>>>>> master
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
@@ -5098,12 +7795,18 @@
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "id",
                   "datatype": "http://cloudinformationmodel.org/model/id",
+=======
+                  "path": "latestGatewayReferenceNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+>>>>>>> master
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "party",
                   "http://www.w3.org/ns/shacl#node": "Party",
                   "http://www.w3.org/ns/shacl#minCount": 1
@@ -5121,10 +7824,20 @@
                 },
                 {
                   "path": "spokenProficiencyLevel",
+=======
+                  "path": "latestGatewayInternalReferenceNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "latestPaymentGatewayMessageText",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "id",
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
@@ -5149,17 +7862,36 @@
                 },
                 {
                   "path": "relatedFromDate",
+=======
+                  "path": "macAddress",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "iPAddress",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentNumber",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "id",
                   "datatype": "http://cloudinformationmodel.org/model/id",
+=======
+                  "path": "commentText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+>>>>>>> master
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "partyRelationshipType",
                   "http://www.w3.org/ns/shacl#node": "PartyRelationshipType",
                   "http://www.w3.org/ns/shacl#minCount": 1
@@ -5182,23 +7914,35 @@
               "properties": [
                 {
                   "path": "isBidirectional",
+=======
+                  "path": "paymentAmount",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "relatedPartyRole",
+=======
+                  "path": "netAppliedAmount",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "partyRole",
+=======
+                  "path": "totalAppliedAmount",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "id",
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
@@ -5237,11 +7981,45 @@
                 },
                 {
                   "path": "identificationNumber",
+=======
+                  "path": "totalUnappliedAmount",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+                  "path": "balanceAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "latestGatewayDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "externalCreatedDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentEffectiveDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentCancellationDate",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
                   "path": "name",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
@@ -5254,24 +8032,93 @@
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
-                  "path": "id",
-                  "datatype": "http://cloudinformationmodel.org/model/id",
-                  "http://www.w3.org/ns/shacl#minCount": 1,
-                  "http://www.w3.org/ns/shacl#maxCount": 1
+=======
+                  "path": "salesOrderPaymentSummary",
+                  "http://www.w3.org/ns/shacl#node": "SalesOrderPaymentSummary",
+                  "http://www.w3.org/ns/shacl#minCount": 1
                 },
                 {
-                  "path": "partyRole",
-                  "http://www.w3.org/ns/shacl#node": "PartyRole"
+                  "path": "paymentGroup",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGroup",
+                  "http://www.w3.org/ns/shacl#minCount": 1
                 },
                 {
-                  "path": "party",
-                  "http://www.w3.org/ns/shacl#node": "Party",
+                  "path": "paymentGateway",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGateway",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "paymentTreatment",
+                  "http://www.w3.org/ns/shacl#node": "PaymentTreatment",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "internalBusinessUnit",
+                  "http://www.w3.org/ns/shacl#node": "InternalBusinessUnit",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "account",
+                  "http://www.w3.org/ns/shacl#node": "Account"
+                },
+                {
+                  "path": "paymentMethod",
+                  "http://www.w3.org/ns/shacl#node": "PaymentMethod",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "latestGatewayResultCode",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayResultCode",
                   "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
             {
               "@type": "Shape",
+              "@id": "CapturePayment",
+              "properties": [
+                {
+                  "path": "salesOrderPaymentSummary",
+                  "http://www.w3.org/ns/shacl#node": "SalesOrderPaymentSummary",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "paymentAuthorization",
+                  "http://www.w3.org/ns/shacl#node": "PaymentAuthorization",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "RefundPayment",
+              "properties": [
+                {
+>>>>>>> master
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
+                  "path": "partyRole",
+                  "http://www.w3.org/ns/shacl#node": "PartyRole"
+                },
+                {
+                  "path": "party",
+                  "http://www.w3.org/ns/shacl#node": "Party",
+=======
+                  "path": "salesOrderPaymentSummary",
+                  "http://www.w3.org/ns/shacl#node": "SalesOrderPaymentSummary",
+>>>>>>> master
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+<<<<<<< HEAD
               "@id": "PersonEmployment",
               "properties": [
                 {
@@ -5301,17 +8148,82 @@
                 },
                 {
                   "path": "employerAddressLine1",
+=======
+              "@id": "PaymentPolicy",
+              "properties": [
+                {
+                  "path": "paymentPolicyStatus",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+                  "path": "paymentPolicyTreatmentSelection",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "name",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "description",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "RefundCreditMemoAllocation",
+              "properties": [
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "refundPayment",
+                  "http://www.w3.org/ns/shacl#node": "RefundPayment",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "RefundAllocation",
+              "properties": [
+                {
+                  "path": "refundAllocationType",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
                   "path": "employerPhoneNumber",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
+=======
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+>>>>>>> master
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "occupationText",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
@@ -5319,41 +8231,70 @@
                 },
                 {
                   "path": "positionText",
+=======
+                  "path": "refundAllocationName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "refundBalanceAmount",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "employmentStatus",
+=======
+                  "path": "allocatedAmount",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "annualIncome",
+=======
+                  "path": "appliedDate",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "employerName",
+=======
+                  "path": "effectiveDate",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "endDate",
+=======
+                  "path": "unappliedDate",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "startDate",
+=======
+                  "path": "externalCreatedDate",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "id",
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
@@ -5366,74 +8307,159 @@
                 {
                   "path": "individual",
                   "http://www.w3.org/ns/shacl#node": "Individual",
+=======
+                  "path": "hasBeenUnapplied",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "refundPayment",
+                  "http://www.w3.org/ns/shacl#node": "RefundPayment",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "relatedRefundAllocation",
+                  "http://www.w3.org/ns/shacl#node": "RefundAllocation",
+>>>>>>> master
                   "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
             {
               "@type": "Shape",
+<<<<<<< HEAD
               "@id": "PersonLifeEvent",
               "properties": [
                 {
                   "path": "personLifeEventDateTime",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
+=======
+              "@id": "PaymentGroup",
+              "properties": [
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+>>>>>>> master
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "personLifeEventType",
+=======
+                  "path": "paymentGroupNumber",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "id",
                   "datatype": "http://cloudinformationmodel.org/model/id",
+=======
+                  "path": "totalPaymentAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+>>>>>>> master
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "individual",
                   "http://www.w3.org/ns/shacl#node": "Individual",
                   "http://www.w3.org/ns/shacl#minCount": 1
+=======
+                  "path": "totalAuthorizationAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "totalReversalAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             },
             {
               "@type": "Shape",
+<<<<<<< HEAD
               "@id": "PersonEducation",
               "properties": [
                 {
                   "path": "institutionName",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
+=======
+              "@id": "PaymentTreatmentMethod",
+              "properties": [
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+>>>>>>> master
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "graduationDate",
+=======
+                  "path": "paymentTreatmentMethodName",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "educationLevel",
+=======
+                  "path": "paymentTreatmentMethodDescription",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "educationName",
+=======
+                  "path": "paymentTreatmentMethodCode",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentTreatment",
+              "properties": [
+                {
+                  "path": "paymentTreatmentStatus",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
+=======
+                  "path": "paymentApplicationLevel",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+>>>>>>> master
                   "path": "id",
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "individual",
                   "http://www.w3.org/ns/shacl#node": "Individual",
                   "http://www.w3.org/ns/shacl#minCount": 1
@@ -7869,10 +10895,291 @@
                   "path": "capturePayment",
                   "http://www.w3.org/ns/shacl#node": "CapturePayment"
                 },
+=======
+                  "path": "paymentTreatmentName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "shouldAutoInvoice",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentPolicy",
+                  "http://www.w3.org/ns/shacl#node": "PaymentPolicy",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "paymentTreatmentMethod",
+                  "http://www.w3.org/ns/shacl#node": "PaymentTreatmentMethod",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentAuthorization",
+              "properties": [
+                {
+                  "path": "paymentAuthorizationStatus",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentAuthorizationProcessingMode",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentAuthorizationNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentAuthorizationCommentText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "gatewayAuthorizationCode",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "iPAddress",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "macAddress",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayReferenceNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayInternalReferenceNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "gatewayReferenceDetailsText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "gatewayResultCodeDescription",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "availableBalanceAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "authorizationAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "totalPaymentCaptureAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "totalAuthorizationReversalAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "requestDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "expirationDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "externalCreatedDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGroup",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGroup",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "salesOrderPaymentSummary",
+                  "http://www.w3.org/ns/shacl#node": "SalesOrderPaymentSummary",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "paymentGateway",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGateway",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "paymentMethodID",
+                  "http://www.w3.org/ns/shacl#node": "PaymentMethod",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
                 {
                   "path": "paymentGatewayResult",
                   "http://www.w3.org/ns/shacl#node": "PaymentGatewayResultCode",
                   "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentGatewayAuthReversalLog",
+              "properties": [
+                {
+                  "path": "paymentGatewayResult",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayResultCode",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "paymentAuthorizationReversal",
+                  "http://www.w3.org/ns/shacl#node": "PaymentAuthorizationReversal"
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentGatewayInteractionLog",
+              "properties": [
+                {
+                  "path": "internalResultCode",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayInteractionStatus",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayInteractionLogName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayAuthorizationCode",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayAVSCode",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayMessageText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayReferenceNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "internalReferenceNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayResult",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayResultCode",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "paymentGatewayInteractionType",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayInteractionType",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentGatewayPaymentLog",
+              "properties": [
+                {
+                  "path": "paymentGatewayResult",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayResultCode",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "payment",
+                  "http://www.w3.org/ns/shacl#node": "Payment",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentGatewayAuthorizationLog",
+              "properties": [
+>>>>>>> master
+                {
+                  "path": "paymentGatewayResult",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayResultCode",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+<<<<<<< HEAD
                 }
               ]
             }
@@ -8235,6 +11542,149 @@
               "properties": [
                 {
                   "path": "paymentMethodStatus",
+=======
+                },
+                {
+                  "path": "paymentAuthorization",
+                  "http://www.w3.org/ns/shacl#node": "PaymentAuthorization",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentGatewayInteractionType",
+              "properties": [
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "name",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "description",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentGateway",
+              "properties": [
+                {
+                  "path": "paymentGatewayStatus",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "systemCredential",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "name",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayCommentText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayProvider",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayProvider",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentGatewayProvider",
+              "properties": [
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayProviderName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "apexAdapterClassName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayProviderCommentText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "developerName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "namespacePrefixText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentGatewayResultCode",
+              "properties": [
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "name",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "description",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentApplication",
+              "properties": [
+                {
+                  "path": "paymentApplicationType",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
@@ -8246,6 +11696,198 @@
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+                  "path": "commentText",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "name",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "appliedAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentBalanceAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "appliedDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "effectiveDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "unappliedDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "externalCreatedDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "hasBeenUnapplied",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "payment",
+                  "http://www.w3.org/ns/shacl#node": "Payment",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentInvoiceApplication",
+              "properties": [
+                {
+                  "path": "paymentInvoiceApplicationType",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "payment",
+                  "http://www.w3.org/ns/shacl#node": "Payment",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentAllocation",
+              "properties": [
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentAllocationName",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "externalCreatedDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "relatedPaymentAllocation",
+                  "http://www.w3.org/ns/shacl#node": "PaymentAllocation",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentCreditMemoApplication",
+              "properties": [
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "payment",
+                  "http://www.w3.org/ns/shacl#node": "Payment",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentCreditMemoAllocation",
+              "properties": [
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "relatedPaymentAllocation",
+                  "http://www.w3.org/ns/shacl#node": "PaymentAllocation",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentInvoiceAllocation",
+              "properties": [
+                {
+                  "path": "relatedPaymentAllocation",
+                  "http://www.w3.org/ns/shacl#node": "PaymentAllocation",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "paymentInvoiceApplication",
+                  "http://www.w3.org/ns/shacl#node": "PaymentInvoiceApplication"
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "RefundPaymentAllocation",
+              "properties": [
+                {
+                  "path": "refundPayment",
+                  "http://www.w3.org/ns/shacl#node": "RefundPayment",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "capturePayment",
+                  "http://www.w3.org/ns/shacl#node": "CapturePayment",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentAuthorizationReversal",
+              "properties": [
+                {
+                  "path": "paymentAuthorizationReversalStatus",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentAuthorizationProcessingMode",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
                   "path": "paymentMethodType",
                   "http://www.w3.org/ns/shacl#node": "PaymentMethodType",
                   "http://www.w3.org/ns/shacl#minCount": 1
@@ -8258,30 +11900,55 @@
               "properties": [
                 {
                   "path": "maxTransactionAmount",
+=======
+                  "path": "customerAuthorizationReversalPhone",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+                  "path": "customerAuthorizationReversalEmail",
+>>>>>>> master
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+<<<<<<< HEAD
                   "path": "maxPerPeriodAmount",
+=======
+                  "path": "paymentAuthorizationReversalName",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "useMinimumAgeYear",
+=======
+                  "path": "paymentAuthorizationReversalCommentText",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "maxPerPeriodTransactionCount",
+=======
+                  "path": "iPAddress",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "typeRequiredIdentification",
+=======
+                  "path": "macAddress",
+>>>>>>> master
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
+<<<<<<< HEAD
                   "path": "mediaType",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#maxCount": 1
@@ -8521,6 +12188,56 @@
                       "http://www.w3.org/ns/shacl#node": "Account"
                     }
                   ]
+=======
+                  "path": "paymentGatewayInternalReferenceNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayReferenceNumber",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "authorizationReversalAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "requestDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentGatewayDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "externalCreatedDate",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentAuthorization",
+                  "http://www.w3.org/ns/shacl#node": "PaymentAuthorization",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "capturePayment",
+                  "http://www.w3.org/ns/shacl#node": "CapturePayment"
+                },
+                {
+                  "path": "paymentGatewayResult",
+                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayResultCode",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+>>>>>>> master
                 }
               ]
             }
@@ -8529,12 +12246,17 @@
       ]
     },
     {
+<<<<<<< HEAD
       "@id": "ProductSubjectArea",
+=======
+      "@id": "PaymentMethodSubjectArea",
+>>>>>>> master
       "@type": "SubjectArea",
       "version": {
         "name": "cimVersion",
         "value": "0.2"
       },
+<<<<<<< HEAD
       "name": "Product",
       "description": "Anything you plan to sell or any part of a product that needs to be tracked for service purposes. For example, you are selling a green tractor.",
       "entityGroups": [
@@ -8901,166 +12623,661 @@
             },
             {
               "@id": "requiresInvididualUnitPricing",
+=======
+      "name": "Payment Method",
+      "description": "A method of paying for a product or service, like a credit card or check.",
+      "entityGroups": [
+        {
+          "@id": "PaymentMethodEntityGroup",
+          "name": "Payment Method",
+          "@type": "EntityGroup",
+          "version": "0.2",
+          "subjectArea": {
+            "@id": "PaymentMethod"
+          },
+          "description": "Example Entities included: Payment Method Type, Payment Card Tender, Digital Wallet Tender",
+          "classConcepts": [
+            {
+              "@id": "PaymentMethod",
+              "name": "Payment Method",
+              "@type": "Class",
+              "description": "A means by which a buyer compensates a seller for a purchased good or service."
+            },
+            {
+              "@id": "PaymentMethodType",
+              "name": "Payment Method Type",
+              "@type": "Class",
+              "description": "The category of payment method, such as payment card, check or digital wallet."
+            },
+            {
+              "@id": "PaymentCard",
+              "name": "Payment Card",
+              "@type": "Class",
+              "description": "A payment system issued by a financial institution to a customer that allows its owner (the cardholder) to access funds in designated bank accounts"
+            },
+            {
+              "@id": "Coupon",
+              "name": "Coupon",
+              "@type": "Class",
+              "description": "Payment in the form of a voucher entitling the holder to a discount for a particular product."
+            },
+            {
+              "@id": "CreditTender",
+              "name": "Credit Tender",
+              "@type": "Class",
+              "description": "Payment to the seller that results in an agreement to pay at a later date, usually via a credit account."
+            }
+          ],
+          "propertyConcepts": [
+            {
+              "@id": "paymentMethodStatus",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethod"
+              ]
+            },
+            {
+              "@id": "id",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethod",
+                "PaymentMethodType"
+              ]
+            },
+            {
+              "@id": "paymentMethodType",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethod",
+                "PaymentCard",
+                "Coupon",
+                "CreditTender"
+              ]
+            },
+            {
+              "@id": "maxTransactionAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethodType"
+              ]
+            },
+            {
+              "@id": "maxPerPeriodAmount",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethodType"
+              ]
+            },
+            {
+              "@id": "useMinimumAgeYear",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethodType"
+              ]
+            },
+            {
+              "@id": "maxPerPeriodTransactionCount",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethodType"
+              ]
+            },
+            {
+              "@id": "typeRequiredIdentification",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethodType"
+              ]
+            },
+            {
+              "@id": "mediaType",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethodType"
+              ]
+            },
+            {
+              "@id": "typeDescription",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethodType"
+              ]
+            },
+            {
+              "@id": "name",
+              "@type": "Property",
+              "domain": [
+                "PaymentMethodType"
+              ]
+            },
+            {
+              "@id": "expirationMonth",
+              "@type": "Property",
+              "domain": [
+                "PaymentCard"
+              ]
+            },
+            {
+              "@id": "discountAmount",
+              "@type": "Property",
+              "domain": [
+                "Coupon"
+              ]
+            },
+            {
+              "@id": "account",
+              "@type": "Property",
+              "domain": [
+                "CreditTender"
+              ]
+            }
+          ],
+          "schemas": [
+            {
+              "@type": "Shape",
+              "@id": "PaymentMethod",
+              "properties": [
+                {
+                  "path": "paymentMethodStatus",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentMethodType",
+                  "http://www.w3.org/ns/shacl#node": "PaymentMethodType",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentMethodType",
+              "properties": [
+                {
+                  "path": "maxTransactionAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "maxPerPeriodAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "useMinimumAgeYear",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "maxPerPeriodTransactionCount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "typeRequiredIdentification",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "mediaType",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "typeDescription",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "name",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "PaymentCard",
+              "properties": [
+                {
+                  "path": "expirationMonth",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentMethodType",
+                  "http://www.w3.org/ns/shacl#node": "PaymentMethodType",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "Coupon",
+              "properties": [
+                {
+                  "path": "discountAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "paymentMethodType",
+                  "http://www.w3.org/ns/shacl#node": "PaymentMethodType",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+              "@id": "CreditTender",
+              "properties": [
+                {
+                  "path": "paymentMethodType",
+                  "http://www.w3.org/ns/shacl#node": "PaymentMethodType",
+                  "http://www.w3.org/ns/shacl#minCount": 1
+                },
+                {
+                  "path": "account",
+                  "http://www.w3.org/ns/shacl#node": "Account"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "ProductSubjectArea",
+      "@type": "SubjectArea",
+      "version": {
+        "name": "cimVersion",
+        "value": "0.2"
+      },
+      "name": "Product",
+      "description": "Anything you plan to sell or any part of a product that needs to be tracked for service purposes. For example, you are selling a green tractor.",
+      "entityGroups": [
+        {
+          "@id": "ProductEntityGroup",
+          "name": "Product",
+          "@type": "EntityGroup",
+          "version": "0.2",
+          "subjectArea": {
+            "@id": "Product"
+          },
+          "description": "Example Entities included: Product Type, Product Item, Product Attribute, Product Relation",
+          "classConcepts": [
+            {
+              "@id": "Product",
+              "name": "Product",
+              "@type": "Class",
+              "description": "What is intended to be sold e.g. goods, services, bundles, made to order products."
+            },
+            {
+              "@id": "GoodsProduct",
+              "name": "Goods Product",
+              "@type": "Class",
+              "description": "Products you can touch e.g. cart of milk, pallet of coffee, mobile phone x model 1"
+            },
+            {
+              "@id": "ServiceProduct",
+              "name": "Service Product",
+              "@type": "Class",
+              "description": "Products that are intangible e.g. labor, software subscription"
+            },
+            {
+              "@id": "BundleProduct",
+              "name": "Bundle Product",
+              "@type": "Class",
+              "description": "Product groups e.g. mobile phone package include phone, call plan and charger"
+            },
+            {
+              "@id": "ProductTranslation",
+              "name": "Product Translation",
+              "@type": "Class",
+              "description": "Translated attributes for a product"
+            },
+            {
+              "@id": "ProductRelatedProduct",
+              "name": "Product Related Product",
+              "@type": "Class",
+              "description": "A grouping of products such as a product bundle"
+            },
+            {
+              "@id": "ProductRelationshipType",
+              "name": "Product Relationship Type",
+              "@type": "Class",
+              "description": "What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of"
+            },
+            {
+              "@id": "ProductImage",
+              "name": "Product Image",
+              "@type": "Class",
+              "description": "Images of a product"
+            },
+            {
+              "@id": "ProductImageTranslation",
+              "name": "Product Image Translation",
+              "@type": "Class",
+              "description": "Translated attributes for a product image"
+            },
+            {
+              "@id": "Brand",
+              "name": "Brand",
+              "@type": "Class",
+              "description": "What is the brand of the product e.g. Snike shoes"
+            }
+          ],
+          "propertyConcepts": [
+            {
+              "@id": "type",
+              "@type": "Property",
+              "domain": [
+                "Product",
+                "GoodsProduct",
+                "ServiceProduct",
+                "BundleProduct"
+              ]
+            },
+            {
+              "@id": "brandGrade",
+              "@type": "Property",
+              "domain": [
+                "Product",
+                "Brand"
+              ]
+            },
+            {
+              "@id": "name",
+              "@type": "Property",
+              "domain": [
+                "Product",
+                "ProductTranslation",
+                "ProductRelatedProduct",
+                "Brand"
+              ]
+            },
+            {
+              "@id": "description",
+              "@type": "Property",
+              "domain": [
+                "Product",
+                "ProductTranslation"
+              ]
+            },
+            {
+              "@id": "longDescription",
+              "@type": "Property",
+              "domain": [
+                "Product",
+                "ProductTranslation"
+              ]
+            },
+            {
+              "@id": "displayUrl",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "priceChargeType",
+=======
+              "@id": "isDynamicBundle",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "minimumAdvertisementAmountStartDate",
+=======
+              "@id": "revenueInstallmentCount",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "minimumAdvertisementAmount",
+=======
+              "@id": "revenueInstallmentPeriod",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "mSRPAmount",
+=======
+              "@id": "revenueScheduleType",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "isBackOrdered",
+=======
+              "@id": "canUseRevenueSchedule",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "isReturnable",
+=======
+              "@id": "quantityInstallmentCount",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "isSellableWithoutPrice",
+=======
+              "@id": "quantityInstallmentPeriod",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "isSellableIndependently",
+=======
+              "@id": "quantityScheduleType",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "isSellable",
+=======
+              "@id": "canUseQuantitySchedule",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "isPreOrderable",
+=======
+              "@id": "disposalType",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "productStatus",
+=======
+              "@id": "allowPartialRefund",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "isIntellectualPropertyProtected",
+=======
+              "@id": "allowCustomerReturn",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "externalSourceRecord",
+=======
+              "@id": "validForPeriodCount",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "lotIdentifier",
+=======
+              "@id": "validToDate",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "stockLedgerValuationAmount",
+=======
+              "@id": "validFromDate",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "glAccountCode",
+=======
+              "@id": "standardWarrantyLengthMonth",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "isSerialized",
+=======
+              "@id": "isAutoProvisionable",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "versionNumber",
+=======
+              "@id": "isInstallable",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "modelNumber",
+=======
+              "@id": "isQualityVerificationRequired",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "modelYear",
+=======
+              "@id": "isQuantityEntryRequired",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "manufacturerName",
+=======
+              "@id": "isWeightEntryRequired",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "productSKU",
+=======
+              "@id": "isManualPriceEntryRequired",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "id",
               "@type": "Property",
               "domain": [
@@ -9078,40 +13295,60 @@
             },
             {
               "@id": "validForPeriodUOM",
+=======
+              "@id": "rewardProgramPointsCount",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "primarySalesChannel",
+=======
+              "@id": "isFoodstampPaymentAllowed",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "primaryProductCategory",
+=======
+              "@id": "isPartnerDiscountAllowed",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "brand",
+=======
+              "@id": "isWorkerDiscountAllowed",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "masterProduct",
+=======
+              "@id": "isCustomerDiscountAllowed",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "Product"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "requiresUnitPriceLabel",
               "@type": "Property",
               "domain": [
@@ -9423,6 +13660,281 @@
             },
             {
               "@id": "bundledProductsSoldTogether",
+=======
+              "@id": "isMultipleCouponsAllowed",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "isCouponRedemptionAllowed",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "requiredDepositPercentage",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "requiredDepositAmount",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "isRainCheckAllowed",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "maximumOrderQuantityCount",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "minimumOrderQuantityCount",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "requiresInvididualUnitPricing",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "priceChargeType",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "minimumAdvertisementAmountStartDate",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "minimumAdvertisementAmount",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "mSRPAmount",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "isBackOrdered",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "isReturnable",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "isSellableWithoutPrice",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "isSellableIndependently",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "isSellable",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "isPreOrderable",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "productStatus",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "isIntellectualPropertyProtected",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "externalSourceRecord",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "lotIdentifier",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "stockLedgerValuationAmount",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "glAccountCode",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "isSerialized",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "versionNumber",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "modelNumber",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "modelYear",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "manufacturerName",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "productSKU",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "id",
+              "@type": "Property",
+              "domain": [
+                "Product",
+                "ProductTranslation",
+                "ProductRelatedProduct",
+                "ProductRelationshipType",
+                "ProductImage",
+                "ProductImageTranslation",
+                "Brand"
+              ]
+            },
+            {
+              "@id": "validForPeriodUOM",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "primarySalesChannel",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "primaryProductCategory",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "brand",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "masterProduct",
+              "@type": "Property",
+              "domain": [
+                "Product"
+              ]
+            },
+            {
+              "@id": "requiresUnitPriceLabel",
+              "@type": "Property",
+              "domain": [
+                "GoodsProduct"
+              ]
+            },
+            {
+              "@id": "evergreenContractEstimatedChargeAmount",
+              "@type": "Property",
+              "domain": [
+                "ServiceProduct"
+              ]
+            },
+            {
+              "@id": "weightUOM",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "BundleProduct"
@@ -9915,6 +14427,7 @@
             {
               "@type": "Shape",
               "@id": "GoodsProduct",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "Product"
@@ -10082,12 +14595,26 @@
                       "http://www.w3.org/ns/shacl#maxCount": 1
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "type",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "requiresUnitPriceLabel",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             },
             {
               "@type": "Shape",
               "@id": "ServiceProduct",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "Product"
@@ -10141,12 +14668,25 @@
                       "http://www.w3.org/ns/shacl#node": "Account"
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "type",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "evergreenContractEstimatedChargeAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             },
             {
               "@type": "Shape",
               "@id": "BundleProduct",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "Product"
@@ -10207,6 +14747,18 @@
                       "http://www.w3.org/ns/shacl#maxCount": 1
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "type",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "weightUOM",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             },
@@ -11242,6 +15794,15 @@
               "description": "One or more Payments having the same Payment Method, that have been applied to a single Sales Order."
             },
             {
+<<<<<<< HEAD
+=======
+              "@id": "ProductRelationshipType",
+              "name": "Product Relationship Type",
+              "@type": "Class",
+              "description": "What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of"
+            },
+            {
+>>>>>>> master
               "@id": "SalesChannel",
               "name": "Sales Channel",
               "@type": "Class",
@@ -11317,7 +15878,10 @@
               "@id": "SalesOrderPriceAdjustment",
               "name": "Sales Order Price Adjustment",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "PriceAdjustment Group",
+=======
+>>>>>>> master
               "description": "A change to the price of a Sales Order that is made before order fulfillment. A Sales Order Price Adjustment may be comprised of Sales Order Product Price Adjustments that allocate the overall adjustment amount to one or more of the products and services"
             },
             {
@@ -11342,7 +15906,10 @@
               "@id": "SalesOrderProductTax",
               "name": "Sales Order Product Tax",
               "@type": "Class",
+<<<<<<< HEAD
               "subClassOf": "SalesOrder Tax",
+=======
+>>>>>>> master
               "description": "A tax on the price of a Sales Order Product."
             },
             {
@@ -11364,12 +15931,15 @@
               "description": "The progress of a delivery such as awaiting pickup, in progress or complete"
             },
             {
+<<<<<<< HEAD
               "@id": "ProductRelationshipType2",
               "name": "Sales Order Product Relationship Type",
               "@type": "Class",
               "description": "Reasons why products are related such as bundle, option or covering"
             },
             {
+=======
+>>>>>>> master
               "@id": "SalesOrderProductGroup",
               "name": "Sales Order Product Group",
               "@type": "Class",
@@ -11428,7 +15998,10 @@
                 "SalesOrderProductReason",
                 "SalesOrderPriceAdjustmentType",
                 "PriceAdjustmentMethod",
+<<<<<<< HEAD
                 "SalesOrderProductTax",
+=======
+>>>>>>> master
                 "SalesOrderTax",
                 "SalesOrderDeliveryGroup",
                 "SalesOrderDeliveryStatus",
@@ -11443,6 +16016,10 @@
               "domain": [
                 "OrderDeliveryMethod",
                 "SalesOrderPaymentSummary",
+<<<<<<< HEAD
+=======
+                "ProductRelationshipType",
+>>>>>>> master
                 "SalesChannel",
                 "SalesOrderProduct",
                 "SalesChannelType",
@@ -11455,6 +16032,7 @@
                 "SalesOrderProductStatus",
                 "SalesOrderProductReasonCategory",
                 "SalesOrderProductReason",
+<<<<<<< HEAD
                 "SalesOrderPriceAdjustment",
                 "SalesOrderPriceAdjustmentType",
                 "PriceAdjustmentMethod",
@@ -11463,6 +16041,13 @@
                 "SalesOrderDeliveryGroup",
                 "SalesOrderDeliveryStatus",
                 "ProductRelationshipType2",
+=======
+                "SalesOrderPriceAdjustmentType",
+                "PriceAdjustmentMethod",
+                "SalesOrderTax",
+                "SalesOrderDeliveryGroup",
+                "SalesOrderDeliveryStatus",
+>>>>>>> master
                 "SalesOrderProductGroup",
                 "SalesOrderProductGroupType",
                 "SalesOrderProductNote",
@@ -11533,7 +16118,10 @@
               "domain": [
                 "SalesOrderPaymentSummary",
                 "SalesOrderProduct",
+<<<<<<< HEAD
                 "SalesOrderPriceAdjustment",
+=======
+>>>>>>> master
                 "SalesOrderDeliveryGroup"
               ]
             },
@@ -11546,6 +16134,23 @@
               ]
             },
             {
+<<<<<<< HEAD
+=======
+              "@id": "childProductRole",
+              "@type": "Property",
+              "domain": [
+                "ProductRelationshipType"
+              ]
+            },
+            {
+              "@id": "parentProductRole",
+              "@type": "Property",
+              "domain": [
+                "ProductRelationshipType"
+              ]
+            },
+            {
+>>>>>>> master
               "@id": "salesChannelNumber",
               "@type": "Property",
               "domain": [
@@ -11559,7 +16164,10 @@
                 "SalesChannel",
                 "SalesOrderProduct",
                 "SalesOrder",
+<<<<<<< HEAD
                 "SalesOrderProductTax",
+=======
+>>>>>>> master
                 "SalesOrderDeliveryGroup",
                 "SalesOrderProductGroup",
                 "SalesOrderProductNote"
@@ -12517,6 +17125,7 @@
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "taxAmount",
               "@type": "Property",
               "domain": [
@@ -12539,12 +17148,24 @@
             },
             {
               "@id": "originalSalesOrderProductTax",
+=======
+              "@id": "salesOrderTaxAmount",
+              "@type": "Property",
+              "domain": [
+                "SalesOrderProductTax",
+                "SalesOrderTax"
+              ]
+            },
+            {
+              "@id": "taxAmount",
+>>>>>>> master
               "@type": "Property",
               "domain": [
                 "SalesOrderProductTax"
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "salesOrderTaxAmount",
               "@type": "Property",
               "domain": [
@@ -12552,6 +17173,8 @@
               ]
             },
             {
+=======
+>>>>>>> master
               "@id": "taxRatePercent",
               "@type": "Property",
               "domain": [
@@ -12685,6 +17308,7 @@
               ]
             },
             {
+<<<<<<< HEAD
               "@id": "childProductRole",
               "@type": "Property",
               "domain": [
@@ -12699,6 +17323,8 @@
               ]
             },
             {
+=======
+>>>>>>> master
               "@id": "salesOrderProductGroupType",
               "@type": "Property",
               "domain": [
@@ -12843,6 +17469,33 @@
             },
             {
               "@type": "Shape",
+<<<<<<< HEAD
+=======
+              "@id": "ProductRelationshipType",
+              "properties": [
+                {
+                  "path": "childProductRole",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "parentProductRole",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "id",
+                  "datatype": "http://cloudinformationmodel.org/model/id",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                }
+              ]
+            },
+            {
+              "@type": "Shape",
+>>>>>>> master
               "@id": "SalesChannel",
               "properties": [
                 {
@@ -13783,6 +18436,7 @@
             {
               "@type": "Shape",
               "@id": "SalesOrderPriceAdjustment",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "PriceAdjustment Group"
@@ -13806,6 +18460,13 @@
                       "http://www.w3.org/ns/shacl#minCount": 1
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "totalAdjustmentTaxAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             },
@@ -13853,6 +18514,7 @@
             {
               "@type": "Shape",
               "@id": "SalesOrderProductTax",
+<<<<<<< HEAD
               "and": [
                 {
                   "@id": "SalesOrder Tax"
@@ -13898,6 +18560,19 @@
                       "http://www.w3.org/ns/shacl#node": "SalesOrderProductTax"
                     }
                   ]
+=======
+              "properties": [
+                {
+                  "path": "salesOrderTaxAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+                },
+                {
+                  "path": "taxAmount",
+                  "datatype": "http://www.w3.org/2001/XMLSchema#string",
+                  "http://www.w3.org/ns/shacl#minCount": 1,
+                  "http://www.w3.org/ns/shacl#maxCount": 1
+>>>>>>> master
                 }
               ]
             },
@@ -14106,6 +18781,7 @@
             },
             {
               "@type": "Shape",
+<<<<<<< HEAD
               "@id": "ProductRelationshipType2",
               "properties": [
                 {
@@ -14130,6 +18806,8 @@
             },
             {
               "@type": "Shape",
+=======
+>>>>>>> master
               "@id": "SalesOrderProductGroup",
               "properties": [
                 {

@@ -135,29 +135,25 @@ export class CIMExporter {
             let json: {[n: string]: any} = {
                 "path": path
             };
-            try {
-                if (attr.range.id() === this.INT_SCALAR_ID) {
-                    json['datatype'] = VOCAB.XSD_NS + "integer";
-                } else if (path == "id") {
-                    json['datatype'] = VOCAB.CIM_NS + "id";
-                } else {
-                    json['datatype'] = VOCAB.XSD_NS + "string";
-                }
-
-                if (attr.required) {
-                    json[VOCAB.SH_MIN_COUNT.value] = 1
-                }
-                if (!attr.allowMultiple) {
-                    json[VOCAB.SH_MAX_COUNT.value] = 1
-                }
-
-                // keep the inverse map of properties
-                const propDomain = propAcc[path] || [];
-                propDomain.push(id)
-                propAcc[path] = propDomain
-            } catch (error) {
-                console.log("Attribute error at "+attr.name)
+            if (attr.range.id() === this.INT_SCALAR_ID) {
+                json['datatype'] = VOCAB.XSD_NS + "integer";
+            } else if (path == "id") {
+                json['datatype'] = VOCAB.CIM_NS + "id";
+            } else {
+                json['datatype'] = VOCAB.XSD_NS + "string";
             }
+
+            if (attr.required) {
+                json[VOCAB.SH_MIN_COUNT.value] = 1
+            }
+            if (!attr.allowMultiple) {
+                json[VOCAB.SH_MAX_COUNT.value] = 1
+            }
+
+            // keep the inverse map of properties
+            const propDomain = propAcc[path] || [];
+            propDomain.push(id)
+            propAcc[path] = propDomain
             return json;
         });
 
@@ -237,10 +233,6 @@ export class CIMExporter {
     }
 
     protected toId(name: string) {
-        try {
         return name.replace(/\s+/, "").replace("_", "")
-        } catch(e){
-            return ""
-        }
     }
 }
