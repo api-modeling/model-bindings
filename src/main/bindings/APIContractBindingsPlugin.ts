@@ -1,5 +1,6 @@
 import {BindingsPlugin, ConfigurationParameter, Resource} from "./BindingsPlugin";
 import * as meta from "@api-modeling/api-modeling-metadata";
+import * as amf from '@api-modeling/amf-client-js';
 import {ApiParser} from "./utils/apiParser";
 import {APIContractImporter} from "./api_contract/importer";
 import {applyMixins} from "./utils/mixins";
@@ -68,8 +69,22 @@ export class APIContractBindingsPlugin /* extends BindingsPlugin */{
             const name = baseUnit.id.split("/").pop();
             const module = new meta.Module("Imported spec " + name);
             module.uuid = Md5.hashStr(baseUnit.id + "_module").toString();
-            const dataModels = this.parseBaseUnit(module.id(), baseUnit)
+            const dataModels = this.parseBaseUnitDataModel(module.id(), baseUnit)
             module.dataModels = dataModels.map((dm) => dm.id());
+
+            let apiWrapper: meta.ApiModelDialect[] = []
+
+            if (baseUnit instanceof amf.model.document.Document) {
+                const entityMap = this.collectEntities(dataModels)
+                const apiModel = this.parseBaseUnitApiModel(module.id(), baseUnit, entityMap)
+                module.dataModels.push(apiModel.id())
+                const apiModelDialect: meta.ApiModelDialect = new meta.ApiModelDialect();
+                apiModelDialect.id = apiModel.id();
+                apiModelDialect.location = "api_model_" + apiModel.uuid // @todo check the extension
+                await apiModelDialect.encode(apiModel)
+                apiWrapper.push(apiModelDialect);
+            }
+
 
             // bindings wrapper
             const dataModelBindings = new meta.BindingsModel()
@@ -106,7 +121,7 @@ export class APIContractBindingsPlugin /* extends BindingsPlugin */{
             });
             const dataModelWrappers = await Promise.all(dataModelWrappersPromises);
 
-            const allWrappers = await Promise.all(bindingsWrapper.concat(moduleWrapper.concat(dataModelWrappers)));
+            const allWrappers = await Promise.all(bindingsWrapper.concat(moduleWrapper.concat(dataModelWrappers)).concat(apiWrapper));
             return Promise.resolve(allWrappers);
         } catch (e) {
             console.log("ERROR:" + e.message)
@@ -154,6 +169,17 @@ export class APIContractBindingsPlugin /* extends BindingsPlugin */{
         } else {
             return "json"
         }
+    }
+
+    private collectEntities(dataModels: meta.DataModel[]) {
+        const acc: {[id:string]: string} = {};
+        dataModels.forEach((dm) => {
+            dm.entities?.forEach((e) => {
+                acc[e.uuid] = e.name;
+            })
+        });
+
+        return acc;
     }
 }
 export interface APIContractBindingsPlugin extends APIContractImporter {}

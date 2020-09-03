@@ -10,14 +10,14 @@
     ],
     "http://a.ml/vocabularies/meta#definedBy": [
       {
-        "@id": "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml"
+        "@id": "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelDialect.yaml"
       }
     ],
     "http://a.ml/vocabularies/document#encodes": [
       {
         "@id": "http://mulesoft.com/modeling/instances/cim/entitygroup/ContactPointEntityGroup",
         "@type": [
-          "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DataModel",
+          "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/DataModel",
           "http://a.ml/vocabularies/data-model#DataModel",
           "http://a.ml/vocabularies/meta#DialectDomainElement",
           "http://a.ml/vocabularies/document#DomainElement"
@@ -34,16 +34,16 @@
         ],
         "http://a.ml/vocabularies/data-model#entities": [
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointAddress",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointAddress",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/ContactPointAddress"
+                "@value": "cim/entity/ContactPoint/ContactPointAddress"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -53,16 +53,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointAddress/attr/forBusinessUse",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointAddress/attr/forBusinessUse",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointAddress/attr/forBusinessUse"
+                    "@value": "cim/entity/ContactPoint/ContactPointAddress/attr/forBusinessUse"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -79,7 +79,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -90,9 +90,9 @@
             ],
             "http://a.ml/vocabularies/data-model#associations": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointAddress/attr/contactPhone",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointAddress/attr/contactPhone",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Association",
                   "http://a.ml/vocabularies/data-model#AssociationProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
@@ -104,7 +104,7 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointAddress/attr/contactPhone"
+                    "@value": "cim/entity/ContactPoint/ContactPointAddress/attr/contactPhone"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -114,7 +114,18 @@
                 ],
                 "http://a.ml/vocabularies/data-model#target": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone"
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointPhone",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
+                      "http://a.ml/vocabularies/data-model#Entity",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#uuid": [
+                      {
+                        "@value": "cim/entity/ContactPoint/ContactPointPhone"
+                      }
+                    ]
                   }
                 ]
               }
@@ -126,16 +137,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointEmail",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointEmail",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/ContactPointEmail"
+                "@value": "cim/entity/ContactPoint/ContactPointEmail"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -145,16 +156,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointEmail/attr/forBusinessUse",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointEmail/attr/forBusinessUse",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointEmail/attr/forBusinessUse"
+                    "@value": "cim/entity/ContactPoint/ContactPointEmail/attr/forBusinessUse"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -171,7 +182,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -180,16 +191,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointEmail/attr/emailLatestBounceReasonText",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointEmail/attr/emailLatestBounceReasonText",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointEmail/attr/emailLatestBounceReasonText"
+                    "@value": "cim/entity/ContactPoint/ContactPointEmail/attr/emailLatestBounceReasonText"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -206,7 +217,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -222,16 +233,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointPhone",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointPhone",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/ContactPointPhone"
+                "@value": "cim/entity/ContactPoint/ContactPointPhone"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -241,16 +252,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointPhone/attr/forBusinessUse",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointPhone/attr/forBusinessUse",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointPhone/attr/forBusinessUse"
+                    "@value": "cim/entity/ContactPoint/ContactPointPhone/attr/forBusinessUse"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -267,7 +278,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -276,16 +287,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointPhone/attr/isFaxCapable",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointPhone/attr/isFaxCapable",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointPhone/attr/isFaxCapable"
+                    "@value": "cim/entity/ContactPoint/ContactPointPhone/attr/isFaxCapable"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -302,7 +313,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -318,16 +329,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPoint",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/ContactPoint"
+                "@value": "cim/entity/ContactPoint/ContactPoint"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -337,16 +348,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/forBusinessUse",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/forBusinessUse",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/forBusinessUse"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/forBusinessUse"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -363,7 +374,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -372,16 +383,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/forPersonalUse",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/forPersonalUse",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/forPersonalUse"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/forPersonalUse"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -398,7 +409,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -407,16 +418,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/profileOccurrenceCount",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/profileOccurrenceCount",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/profileOccurrenceCount"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/profileOccurrenceCount"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -428,7 +439,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -437,16 +448,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/profileLastUpdatedDate",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/profileLastUpdatedDate",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/profileLastUpdatedDate"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/profileLastUpdatedDate"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -458,7 +469,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -467,16 +478,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/profileFirstCreatedDate",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/profileFirstCreatedDate",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/profileFirstCreatedDate"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/profileFirstCreatedDate"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -488,7 +499,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -497,16 +508,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/primaryFlag",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/primaryFlag",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/primaryFlag"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/primaryFlag"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -518,7 +529,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -527,16 +538,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/bestTimeToContactEndTime",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/bestTimeToContactEndTime",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/bestTimeToContactEndTime"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/bestTimeToContactEndTime"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -548,7 +559,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -557,16 +568,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/bestTimeToContactStartTime",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/bestTimeToContactStartTime",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/bestTimeToContactStartTime"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/bestTimeToContactStartTime"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -578,7 +589,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -587,16 +598,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/activeToDate",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/activeToDate",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/activeToDate"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/activeToDate"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -608,7 +619,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -617,16 +628,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/activeFromDate",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/activeFromDate",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/activeFromDate"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/activeFromDate"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -643,7 +654,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -652,16 +663,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/id",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/id",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/id"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/id"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -678,7 +689,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -689,9 +700,9 @@
             ],
             "http://a.ml/vocabularies/data-model#associations": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/contactPointType",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/contactPointType",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Association",
                   "http://a.ml/vocabularies/data-model#AssociationProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
@@ -703,7 +714,7 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/contactPointType"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/contactPointType"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -718,14 +729,25 @@
                 ],
                 "http://a.ml/vocabularies/data-model#target": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointType"
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointType",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
+                      "http://a.ml/vocabularies/data-model#Entity",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#uuid": [
+                      {
+                        "@value": "cim/entity/ContactPoint/ContactPointType"
+                      }
+                    ]
                   }
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/partyRole",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/partyRole",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Association",
                   "http://a.ml/vocabularies/data-model#AssociationProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
@@ -737,7 +759,7 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/partyRole"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/partyRole"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -747,14 +769,25 @@
                 ],
                 "http://a.ml/vocabularies/data-model#target": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PartyRole"
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/PartyRole/PartyRole",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
+                      "http://a.ml/vocabularies/data-model#Entity",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#uuid": [
+                      {
+                        "@value": "cim/entity/PartyRole/PartyRole"
+                      }
+                    ]
                   }
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/attr/party",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPoint/attr/party",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Association",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Association",
                   "http://a.ml/vocabularies/data-model#AssociationProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
@@ -766,7 +799,7 @@
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPoint/attr/party"
+                    "@value": "cim/entity/ContactPoint/ContactPoint/attr/party"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -781,7 +814,18 @@
                 ],
                 "http://a.ml/vocabularies/data-model#target": [
                   {
-                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Party"
+                    "@id": "http://mulesoft.com/modeling/instances/cim/entity/Party/Party",
+                    "@type": [
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
+                      "http://a.ml/vocabularies/data-model#Entity",
+                      "http://a.ml/vocabularies/meta#DialectDomainElement",
+                      "http://a.ml/vocabularies/document#DomainElement"
+                    ],
+                    "http://a.ml/vocabularies/data#uuid": [
+                      {
+                        "@value": "cim/entity/Party/Party"
+                      }
+                    ]
                   }
                 ]
               }
@@ -793,16 +837,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/PartyWebAddress",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/PartyWebAddress",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/PartyWebAddress"
+                "@value": "cim/entity/ContactPoint/PartyWebAddress"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -812,16 +856,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PartyWebAddress/attr/forBusinessUse",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/PartyWebAddress/attr/forBusinessUse",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PartyWebAddress/attr/forBusinessUse"
+                    "@value": "cim/entity/ContactPoint/PartyWebAddress/attr/forBusinessUse"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -838,7 +882,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -847,16 +891,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/PartyWebAddress/attr/webSiteURL",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/PartyWebAddress/attr/webSiteURL",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/PartyWebAddress/attr/webSiteURL"
+                    "@value": "cim/entity/ContactPoint/PartyWebAddress/attr/webSiteURL"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -873,7 +917,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -889,16 +933,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointType",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointType",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/ContactPointType"
+                "@value": "cim/entity/ContactPoint/ContactPointType"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -908,16 +952,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointType/attr/optInPriority",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointType/attr/optInPriority",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointType/attr/optInPriority"
+                    "@value": "cim/entity/ContactPoint/ContactPointType/attr/optInPriority"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -934,7 +978,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/integer",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Integer",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Integer",
                       "http://a.ml/vocabularies/data-model#Integer",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -943,16 +987,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointType/attr/name",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointType/attr/name",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointType/attr/name"
+                    "@value": "cim/entity/ContactPoint/ContactPointType/attr/name"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -969,7 +1013,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -978,16 +1022,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointType/attr/id",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointType/attr/id",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointType/attr/id"
+                    "@value": "cim/entity/ContactPoint/ContactPointType/attr/id"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -1004,7 +1048,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -1020,16 +1064,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointSocial",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointSocial",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/ContactPointSocial"
+                "@value": "cim/entity/ContactPoint/ContactPointSocial"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -1039,16 +1083,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointSocial/attr/forBusinessUse",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointSocial/attr/forBusinessUse",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointSocial/attr/forBusinessUse"
+                    "@value": "cim/entity/ContactPoint/ContactPointSocial/attr/forBusinessUse"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -1065,7 +1109,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -1074,16 +1118,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointSocial/attr/socialNetworkProvider",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointSocial/attr/socialNetworkProvider",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointSocial/attr/socialNetworkProvider"
+                    "@value": "cim/entity/ContactPoint/ContactPointSocial/attr/socialNetworkProvider"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -1100,7 +1144,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -1116,16 +1160,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointLocation",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointLocation",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/ContactPointLocation"
+                "@value": "cim/entity/ContactPoint/ContactPointLocation"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -1135,16 +1179,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointLocation/attr/forBusinessUse",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointLocation/attr/forBusinessUse",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointLocation/attr/forBusinessUse"
+                    "@value": "cim/entity/ContactPoint/ContactPointLocation/attr/forBusinessUse"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -1161,7 +1205,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -1170,16 +1214,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointLocation/attr/id",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointLocation/attr/id",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointLocation/attr/id"
+                    "@value": "cim/entity/ContactPoint/ContactPointLocation/attr/id"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -1196,7 +1240,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -1212,16 +1256,16 @@
             ]
           },
           {
-            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPointApp",
+            "@id": "http://mulesoft.com/modeling/instances/cim/entity/ContactPoint/ContactPointApp",
             "@type": [
-              "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Entity",
+              "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Entity",
               "http://a.ml/vocabularies/data-model#Entity",
               "http://a.ml/vocabularies/meta#DialectDomainElement",
               "http://a.ml/vocabularies/document#DomainElement"
             ],
             "http://a.ml/vocabularies/data#uuid": [
               {
-                "@value": "cim/entity/ContactPointApp"
+                "@value": "cim/entity/ContactPoint/ContactPointApp"
               }
             ],
             "http://a.ml/vocabularies/core#name": [
@@ -1231,16 +1275,16 @@
             ],
             "http://a.ml/vocabularies/data-model#attributes": [
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointApp/attr/forBusinessUse",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointApp/attr/forBusinessUse",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointApp/attr/forBusinessUse"
+                    "@value": "cim/entity/ContactPoint/ContactPointApp/attr/forBusinessUse"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -1257,7 +1301,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"
@@ -1266,16 +1310,16 @@
                 ]
               },
               {
-                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPointApp/attr/applicationLogin",
+                "@id": "http://mulesoft.com/modeling/instances/uuid/cim/entity/ContactPoint/ContactPointApp/attr/applicationLogin",
                 "@type": [
-                  "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/Attribute",
+                  "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/Attribute",
                   "http://a.ml/vocabularies/data-model#AttributeProperty",
                   "http://a.ml/vocabularies/meta#DialectDomainElement",
                   "http://a.ml/vocabularies/document#DomainElement"
                 ],
                 "http://a.ml/vocabularies/data#uuid": [
                   {
-                    "@value": "cim/entity/ContactPointApp/attr/applicationLogin"
+                    "@value": "cim/entity/ContactPoint/ContactPointApp/attr/applicationLogin"
                   }
                 ],
                 "http://a.ml/vocabularies/core#name": [
@@ -1287,7 +1331,7 @@
                   {
                     "@id": "http://mulesoft.com/modeling/instances/string",
                     "@type": [
-                      "file:///home/agarrote/Development/api-modeling/metadata/model/modeling/schema/dataModelDialect.yaml#/declarations/String",
+                      "file:///home/agarrote/Development/api-modeling/model-bindings/node_modules/@api-modeling/api-modeling-metadata/model/modeling/schema/dataModelingLibrary.yaml#/declarations/String",
                       "http://a.ml/vocabularies/data-model#String",
                       "http://a.ml/vocabularies/meta#DialectDomainElement",
                       "http://a.ml/vocabularies/document#DomainElement"

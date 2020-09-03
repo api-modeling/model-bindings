@@ -120,6 +120,7 @@ export class CIMExporter {
         let id = this.toId(entity.name); // @todo we need a binding for this
         if (entity.uuid.indexOf("cim/entity/") > -1) {
             id = entity.uuid.split("cim/entity/").pop()!;
+            id = id.split("/").pop()!; // we are concatenating entity group name and entitiy name
         }
         return id;
     }

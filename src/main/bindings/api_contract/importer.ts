@@ -1,8 +1,10 @@
 import * as meta from "@api-modeling/api-modeling-metadata";
+import {Scalar} from "@api-modeling/api-modeling-metadata";
 import * as amf from "@api-modeling/amf-client-js";
 import {Md5} from 'ts-md5/dist/md5';
 import {VOCAB} from "./constants";
-import {Entity} from "@api-modeling/api-modeling-metadata";
+import assert from "assert";
+
 
 export class APIContractImporter {
 
@@ -55,7 +57,7 @@ export class APIContractImporter {
      * Parses an AMF BaseUnit and generates one or more modules with associated data models for the modeling tool
      * @param baseUnit
      */
-    protected parseBaseUnit(moduleUri: string, baseUnit: amf.model.document.BaseUnit, parsed: meta.DataModel[] = []): meta.DataModel[] {
+    protected parseBaseUnitDataModel(moduleUri: string, baseUnit: amf.model.document.BaseUnit, parsed: meta.DataModel[] = []): meta.DataModel[] {
         const name = baseUnit.location.split("/").reverse()[0];
 
         if (!parsed.find((dm) => dm.uuid === baseUnit.id)) {
@@ -69,10 +71,337 @@ export class APIContractImporter {
             dataModel['parsed'] = baseUnit;
             parsed.push(dataModel);
             baseUnit.references().map((ref) => {
-                this.parseBaseUnit(moduleUri, ref, parsed);
+                this.parseBaseUnitDataModel(moduleUri, ref, parsed);
             })
         }
         return parsed;
+    }
+
+    /**
+     * Parses an AMF BaseUnit and generates one or more modules with associated data models for the modeling tool
+     * @param moduleUri
+     * @param baseUnit
+     */
+    protected parseBaseUnitApiModel(moduleUri: string, baseUnit: amf.model.document.Document, entityMap: {[id: string]: string}): meta.ApiModel {
+        const webapi = <amf.model.domain.WebApi>baseUnit.encodes;
+        const entrypoint = new meta.Resource();
+        entrypoint.uuid = Md5.hashStr(webapi.id + "_entrypoint").toString()
+
+        entrypoint.name = webapi.name.value();
+        if (webapi.description.option) {
+            entrypoint.description = webapi.description.value();
+        }
+        const endpoints: amf.model.domain.EndPoint[] = webapi.endPoints.sort((a,b) => {
+            if (a.path.value().indexOf(b.path.value()) === 0) {
+                return 1;
+            } else {
+                return -1;
+            }
+        });
+
+        const accEntities: meta.Entity[] = [];
+        const accResources: meta.Resource[] = [];
+
+        this.parseResourceLinks(entrypoint, "", [], endpoints, accEntities, accResources, entityMap)
+
+
+        const apiModel = new meta.ApiModel();
+        apiModel.uuid = Md5.hashStr(webapi.id).toString();
+        apiModel.entryPoint = entrypoint;
+
+        apiModel.resources = accResources;
+        apiModel.entities = accEntities;
+
+        return apiModel;
+
+    }
+
+    private adaptOrCreate(schema: amf.model.domain.Shape, adaptedIdSuffix: string, accEntities: meta.Entity[],entityMap: {[id: string]: string}): meta.Entity|null {
+        const schemaId = Md5.hashStr(schema.id).toString();
+        const adaptedName = entityMap[schemaId];
+        if (adaptedName) {
+            const entity = new meta.Entity(adaptedName);
+            entity.uuid = Md5.hashStr(schema.id + adaptedIdSuffix).toString();
+            const link = new meta.Entity(adaptedName);
+            link.uuid = schemaId;
+            entity.adapts = link;
+            return entity;
+        } else {
+            const parsed = this.parseShape(schema, accEntities)
+            // @ts-ignore
+            if (parsed != null && parsed['isLink']) {
+                const entity = new meta.Entity(parsed.name);
+                entity.uuid = Md5.hashStr(schema.id + adaptedIdSuffix).toString();
+                entity.adapts = parsed;
+                return entity;
+            } else {
+                return parsed;
+            }
+        }
+    }
+
+    private parseResource(endpoint: amf.model.domain.EndPoint, parent: string, pathParams: string[], group: amf.model.domain.EndPoint[], accEntities: meta.Entity[], accResources: meta.Resource[], entityMap: {[id: string]: string}): meta.Resource {
+        const resource = new meta.Resource();
+        accResources.push(resource);
+        resource.operations = [];
+
+        const getOperation = endpoint.operations.find((op) => op.method.value() === "get");
+        let resp: amf.model.domain.Response|undefined;
+        if (getOperation != null) {
+            resp = getOperation.responses.find((r) => r.statusCode.value() === "200");
+            if (resp == null) {
+                resp = getOperation.responses.find((r) => r.statusCode.value().startsWith("2"));
+            }
+        }
+
+        if (getOperation != null && resp != null) {
+            const payload = resp.payloads.find((pl) => pl.schema != null)
+            if (payload != null) {
+                let effectiveShape = payload.schema
+                if (effectiveShape instanceof amf.model.domain.ArrayShape) {
+                    effectiveShape = (<amf.model.domain.ArrayShape>effectiveShape).items;
+                    resource.isCollection = true
+                }
+                const entity = this.adaptOrCreate(effectiveShape, endpoint.id + "get", accEntities, entityMap)
+                if (entity) {
+                    resource.schema = entity
+                } else {
+                    throw new Error("Cannot process resource schema for endpoint " + endpoint.id)
+                }
+            }
+        }
+        const otherOperations = endpoint.operations.filter((op) => op.method.value() !== "get");
+        if (otherOperations.length > 0) {
+            otherOperations.forEach((op) => {
+                const controlOperation = this.parseMutableOperation([], op, accEntities, entityMap);
+                const method = op.method.value();
+                let action = "Invoke"
+                if (method == "post") {
+                    action = 'Create'
+                } else if (method === "put") {
+                    action = 'Update'
+                } else if (method === "delete") {
+                    action = "Delete"
+                } else if (method === "patch") {
+                    action = 'Patch'
+                } else {
+                    action = op.method.value()
+                }
+                controlOperation.name = action
+
+                resource.operations!.push(controlOperation)
+            });
+        }
+
+        this.parseResourceLinks(resource, endpoint.path.value(), pathParams, group, accEntities, accResources, entityMap)
+
+        resource.name = `Resource ${endpoint.path}`
+        if (endpoint.description.option) {
+            resource.description = endpoint.description.value()
+        }
+        return resource
+    }
+
+    protected parseResourceLinks(resource: meta.Resource, path: string, pathParams: string[], endpoints: amf.model.domain.EndPoint[], accEntities: meta.Entity[], accResources: meta.Resource[], entityMap: {[id: string]: string}): meta.Resource {
+        if (endpoints.length > 0) {
+            const groups: amf.model.domain.EndPoint[][] = [];
+            let currentGroup: amf.model.domain.EndPoint[] = [];
+            endpoints.forEach((ep) => {
+                let current = currentGroup[0]
+                const nestedPath = current == null || ep.path.value().indexOf(current.path.value()) == 0;
+                const getOperation = ep.operations.find((op) => op.method.value() == "get") != null
+
+                if ( nestedPath && getOperation) { // nested resource
+                    currentGroup.push(ep)
+                } else if (currentGroup.length > 0) { // nested operation over a nested resource
+                    currentGroup.push(ep)
+                } else { // nested operation over the top level resource
+                    groups.push([ep]);
+                    currentGroup = [];
+                }
+            });
+            if (currentGroup.length > 0) {
+                groups.push(currentGroup)
+            }
+
+            const operations: meta.Operation[] = [];
+
+            groups.map((group) => {
+                const linkedEndpoint = group.shift()!;
+                const linkedEndpointOperations = (linkedEndpoint.operations || []);
+                const getOperation = linkedEndpointOperations.find((op) => op.method.value() === "get")
+
+                const newPathParams: amf.model.domain.Parameter[] = linkedEndpoint.parameters.filter((p: amf.model.domain.Parameter) => {
+                    return !pathParams.includes(p.name.value())
+                });
+
+
+                // linked resource
+                if (getOperation != null) {
+                    const nestedResource = this.parseResource(linkedEndpoint, path, pathParams, group, accEntities, accResources, entityMap)
+                    const linkOperation = this.parseGetOperation(newPathParams, getOperation, accEntities, entityMap)
+                    linkOperation.name = `Find ${nestedResource.name}`
+
+                    // setup the output parameter to the schema of the linked resource
+                    // const outputParameter = new meta.OperationParameter();
+                    // outputParameter.uuid = Md5.hashStr(getOperation.id + "output").toString();
+                    // outputParameter.name = nestedResource.name;
+                    // outputParameter.objectRange = nestedResource.schema;
+                    // linkOperation.output = outputParameter;
+
+                    // connect both resources through a transition
+                    const transition = new meta.ResourceTransition();
+                    transition.uuid = Md5.hashStr(getOperation.id + "transition").toString();
+                    transition.target = nestedResource
+                    linkOperation.transition = transition;
+
+                    operations.push(linkOperation)
+
+                } else  { // nested operations
+                    assert(group.length === 0) // 0 because I have shifted the member
+                    linkedEndpoint.operations.forEach((op)=> {
+                        const controlOperation = this.parseMutableOperation(newPathParams, op, accEntities, entityMap);
+                        const method = op.method.value();
+                        let action = "Invoke"
+                        if (method == "post") {
+                            action = 'Create'
+                        } else if (method === "put") {
+                            action = 'Update'
+                        } else if (method === "delete") {
+                            action = "Delete"
+                        } else if (method === "patch") {
+                            action = 'Patch'
+                        }
+
+                        let pathFragment = linkedEndpoint.path.value().replace(path, "")
+                        if (pathFragment.startsWith("/")) {
+                            pathFragment = pathFragment.substring(1)
+                        }
+                        controlOperation.name = `${action} ${pathFragment}`
+
+                        operations.push(controlOperation)
+                    }) ;
+                }
+            });
+
+            const oldOperations = resource.operations || [];
+            resource.operations = oldOperations.concat(operations);
+        }
+
+        return resource;
+    }
+
+    private parseGetOperation(newPathParams: amf.model.domain.Parameter[], apiOperation: amf.model.domain.Operation, acc: meta.Entity[], entityMap: {[id: string]: string}): meta.Operation {
+        const operation = new meta.Operation();
+        operation.uuid = Md5.hashStr(apiOperation.id).toString();
+        operation.isMutation = false;
+
+        let toParseParams = newPathParams;
+        if (apiOperation.request != null && apiOperation.request.queryParameters != null) {
+            toParseParams = toParseParams.concat(apiOperation.request.queryParameters)
+        }
+        operation.inputs = toParseParams.map((p) => {
+            return this.parseParameter(p, acc, entityMap)
+        });
+
+        return operation;
+    }
+
+    private parseMutableOperation(newPathParams: amf.model.domain.Parameter[], apiOperation: amf.model.domain.Operation, acc: meta.Entity[], entityMap: {[id: string]: string}): meta.Operation {
+        const operation = new meta.Operation();
+        operation.uuid = Md5.hashStr(apiOperation.id).toString();
+        operation.isMutation = true;
+
+        let toParseParams = newPathParams;
+        if (apiOperation.request != null && apiOperation.request.queryParameters != null) {
+            toParseParams = toParseParams.concat(apiOperation.request.queryParameters)
+        }
+        operation.inputs = toParseParams.map((p) => {
+            return this.parseParameter(p, acc, entityMap)
+        });
+
+        if (apiOperation.request) {
+            const inputPayload = (apiOperation.request.payloads || []).find((p) => p.schema != null)
+            if (inputPayload != null) {
+                const inputPayloadParam = new meta.OperationParameter();
+                inputPayloadParam.uuid = Md5.hashStr(`${apiOperation.id}inputPayloadParam`).toString()
+                const inputPayloadSchema = this.parseParamShape(inputPayload.schema, acc, entityMap)
+                if (inputPayloadSchema instanceof Scalar) {
+                    inputPayloadParam.scalarRange = inputPayloadSchema
+                } else {
+                    // if this is a reference an adapted type will be returned
+                    // we extract it because params only accept links
+                    if (inputPayloadSchema.adapts != null) {
+                        inputPayloadParam.objectRange = inputPayloadSchema.adapts
+                    } else {
+                        acc.push(inputPayloadSchema)
+                        inputPayloadParam.objectRange = inputPayloadSchema
+                    }
+
+                }
+                operation.inputs = (operation.inputs || []).concat([inputPayloadParam])
+            }
+        }
+
+        const maybeResponse = apiOperation.responses.filter((resp) => {
+            const statusCode = (resp.statusCode.option || "")
+            return statusCode === "default" || statusCode.startsWith("2")
+        }).find(resp => resp.payloads.find((p) => p.schema != null))
+
+        if (maybeResponse != null) {
+            const outputParam = new meta.OperationParameter();
+            outputParam.uuid = Md5.hashStr(`${apiOperation.id}output`).toString()
+
+            const payload = maybeResponse.payloads.find((p) => p.schema != null)!
+            const payloadSchema = this.parseParamShape(payload.schema, acc, entityMap)
+            if (payloadSchema instanceof Scalar) {
+                outputParam.scalarRange = payloadSchema
+            } else {
+                outputParam.objectRange = payloadSchema
+            }
+
+            operation.output = outputParam
+        }
+        return operation;
+    }
+
+    private parseParameter(p: amf.model.domain.Parameter, acc: meta.Entity[], entityMap: {[id: string]: string}): meta.OperationParameter {
+        const param = new meta.OperationParameter();
+        param.uuid = Md5.hashStr(p.id).toString();
+        param.name = p.name.value();
+        if (p.description.option) {
+            param.description = p.description.value()
+        }
+        param.required = p.required.option || false;
+
+        if (p.schema != null) {
+            const payloadSchema = this.parseParamShape(p.schema, acc, entityMap)
+            if (payloadSchema instanceof Scalar) {
+                param.scalarRange = payloadSchema
+            } else {
+                param.objectRange = payloadSchema
+            }
+        } else {
+            // default argument, is a string
+            param.scalarRange = new meta.StringScalar();
+        }
+
+        return param;
+    }
+
+    private parseParamShape(schema: amf.model.domain.Shape, acc: meta.Entity[], entityMap: {[id: string]: string}): meta.Scalar | meta.Entity {
+        if (this.isScalarShape(schema)) {
+            const fakeProp = new amf.model.domain.PropertyShape().withRange(schema).withId(schema.id + "_fake_prop");
+            const attr = this.parseAttribute(fakeProp);
+            return attr.range;
+        } else {
+            const parsed = this.adaptOrCreate(schema, this.genName("param"), acc, entityMap)
+            if (parsed != null) {
+                return parsed
+            } else {
+                throw new Error("Parsing of object entity parameter failed");
+            }
+        }
     }
 
     /**
@@ -136,7 +465,7 @@ export class APIContractImporter {
         const unionMembers = unionShape.anyOf
             .map((shape) => this.parseShape(shape, entities))
             .filter((shape) => shape != null)
-        entity.disjoint = <Entity[]>unionMembers;
+        entity.disjoint = <meta.Entity[]>unionMembers;
         return entity;
     }
 
@@ -277,35 +606,13 @@ export class APIContractImporter {
         return notNil[0]!
     }
 
-    private isNilUnionObject(shape: amf.model.domain.UnionShape): boolean {
-        if (this.isNilUnion(shape)) {
-            const notNil = shape.anyOf.filter((s) => {
-                return s instanceof amf.model.domain.NilShape
-            });
-            return this.isObjectShape(notNil[0]);
-        } else {
-            return false;
-        }
-    }
-
-    private isNilUnionScalar(shape: amf.model.domain.UnionShape): boolean {
-        if (this.isNilUnion(shape)) {
-            const notNil = shape.anyOf.filter((s) => {
-                return s instanceof amf.model.domain.NilShape
-            });
-            return this.isScalarShape(notNil[0]);
-        } else {
-            return false;
-        }
-    }
-
     /**
      * Checks that a shape can be transformed into a modeling Scalar value
      * @param shape
      */
     private getShapeName(shape: amf.model.domain.Shape, hint: string = "Entity"): string {
         const name = shape.displayName.option || shape.name.option ;
-        if (name != null && name !== "type") {
+        if (name != null && name !== "type" && name !== "schema") {
             return name;
         } else {
             return this.genName(hint);

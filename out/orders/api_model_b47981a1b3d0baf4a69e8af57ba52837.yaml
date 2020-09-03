@@ -1,0 +1,124 @@
+#%ApiModel 0.1
+uuid: b47981a1b3d0baf4a69e8af57ba52837
+entities:
+  Entity6:
+    uuid: eb43d8f1172ff02488cb186fa6c73b87
+    attributes:
+      successful:
+        allowMultiple: false
+        uuid: 39d9ffd856b7b1facf93fe9b984af0a2
+        required: true
+        range:
+          type: boolean
+    associations:
+      message:
+        allowMultiple: false
+        uuid: 97abe617fcbb1ad728de0cac086fa84c
+        required: true
+        target: http://mulesoft.com/modeling/instances/e5eda0685899311fec467514bfb8a0f8
+entryPoint:
+  uuid: 0eff0578de494d4635bb931138204790
+  isCollection: false
+  name: test api 1
+  operations:
+    -
+      uuid: 48f68a7fd8c4b896bb02772229a5cc74
+      name: Find Resource /shoppingCarts
+      transition:
+        uuid: 17d3ec24c252bb8de26612d78d936614
+        target: http://mulesoft.com/modeling/instances/8eae68a2-8613-42c5-9e73-971e603af2cf
+      inputs:
+        -
+          scalarRange:
+            type: integer
+          allowMultiple: false
+          uuid: 1903b1caa643c3ffe550af88b59550da
+          name: limit
+          required: true
+        -
+          scalarRange:
+            type: integer
+          allowMultiple: false
+          uuid: aa16f7ee987997be07cf359beade8340
+          name: offset
+          required: true
+      isMutation: false
+resources:
+  Resource /shoppingCarts:
+    uuid: 8eae68a2-8613-42c5-9e73-971e603af2cf
+    isCollection: true
+    schema:
+      uuid: 8cc413859c16ab529ba70808a07fbe12
+      name: dataModel.ShoppingCart
+      adapts: http://mulesoft.com/modeling/instances/7c3a4f55489cd476bdd39a4d7d46d12a
+    operations:
+      -
+        uuid: f5a0e5174e852dde7decbd4a54c93d27
+        name: Create
+        inputs:
+          -
+            allowMultiple: false
+            uuid: 1dc13b2984d70f6704b7a35b804961d6
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/7c3a4f55489cd476bdd39a4d7d46d12a
+        isMutation: true
+      -
+        uuid: 219f786982643b58563ab75cbccaf5fe
+        name: Find Resource /shoppingCarts/{id}
+        transition:
+          uuid: 623e67d7d3a5ce2a35fc75a8fb7b9808
+          target: http://mulesoft.com/modeling/instances/b50431fe-d7ee-40fc-84df-3eec06d3d3dd
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 3671f0c91375d83abfaf4018adb973c8
+            name: id
+            required: true
+        isMutation: false
+  Resource /shoppingCarts/{id}:
+    uuid: b50431fe-d7ee-40fc-84df-3eec06d3d3dd
+    isCollection: false
+    schema:
+      uuid: 52f39a73dff6dcf68d30f4fd555d0aed
+      name: dataModel.ShoppingCart
+      adapts: http://mulesoft.com/modeling/instances/7c3a4f55489cd476bdd39a4d7d46d12a
+    operations:
+      -
+        uuid: 29bfa48931ff41fc9217d66fddff809a
+        name: Delete
+        inputs: []
+        isMutation: true
+      -
+        uuid: 145734e2f619cc3cc6da425f8fcbfbde
+        name: Update
+        inputs:
+          -
+            allowMultiple: false
+            uuid: 45712f308856920fb7ef669e2234aac3
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/7c3a4f55489cd476bdd39a4d7d46d12a
+        isMutation: true
+      -
+        uuid: bc80d72e1daacefafe55233187c677c4
+        name: Create pay
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 6aa805fdf9ad0d1fdc112cf3d79be517
+            name: id
+            required: true
+          -
+            allowMultiple: false
+            uuid: 683a7e84aa33683f2d25aa3f807eac7b
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/fb25932527487e81cb1a72fcbadbcb39
+        output:
+          allowMultiple: false
+          uuid: e7ddf7dee0ea54f1903ee362a5f32d12
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/eb43d8f1172ff02488cb186fa6c73b87
+        isMutation: true

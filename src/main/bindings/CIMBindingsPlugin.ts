@@ -49,6 +49,11 @@ export class CIMBindingsPlugin extends BindingsPlugin {
 
 
         // Data Models
+        const entityMap: {[name: string]: string} = {};
+        entityGroupsDataModels.forEach((dm) => {
+            // @ts-ignore
+            dm.entities?.forEach((e) => entityMap[e['@id']] = e.uuid)
+        })
         const dataModels: DataModel[] = entityGroupsDataModels.map((entityGroup) => {
             const entityMap : { [key: string] : Entity} = {}
             const extendsMap : { [key: string] : string } = {}
