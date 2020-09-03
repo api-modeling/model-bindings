@@ -235,6 +235,10 @@ export class CIMExporter {
     }
 
     protected toId(name: string) {
-        return name.replace(/\s+/, "").replace("_", "")
+        try {
+            return name.replace(/\s+/, "").replace("_", "")
+        } catch(e){
+            return ""
+        }
     }
 }
