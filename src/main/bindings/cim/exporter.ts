@@ -156,7 +156,7 @@ export class CIMExporter {
                 propDomain.push(id)
                 propAcc[path] = propDomain
             } catch (error) {
-                console.log("blow up at "+attr.name)
+                console.log("Attribute error at "+attr.name)
             }
             return json;
         });
@@ -240,7 +240,6 @@ export class CIMExporter {
         try {
         return name.replace(/\s+/, "").replace("_", "")
         } catch(e){
-            console.log("toId blowup "+e)
             return ""
         }
     }

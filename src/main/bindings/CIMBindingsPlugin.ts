@@ -183,6 +183,8 @@ export class CIMBindingsPlugin extends BindingsPlugin {
     private modName : NamedNode= namedNode(schPref.amlm + 'Module')
     private boundName = namedNode(schPref.bind + "boundBy")
     private dmName = namedNode(schPref.amldm + 'DataModel')
+    private uuidNN = namedNode(schPref.amldata+'uuid')
+    private binding = namedNode('http://a.ml/vocabularies/bindings#binding')
 
     updateBindings(bindName : string):void{
         //finding who doesn't have a binding
@@ -192,32 +194,38 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         filter((m : any) => store.getObjects(m, this.boundName).
             filter((o : any) => store.countQuads(o,rdfType,null,rootBind) > 0).length === 0)
         modsToAnnotate.forEach((mta : NamedNode) => {
-            let uuid = store.getObjects(mta,namedNode(schPref.amldata+'uuid'))[0].value
+            let uuid = store.getObjects(mta,this.uuidNN)[0].value
             let bindingName = this.createBinding(bindName, 'http://mulesoft.com/modeling/instances/bindings/cim/SubjectAreaBinding', uuid)
-            store.addQuad(rootBind, namedNode('http://a.ml/vocabularies/bindings#binding'), namedNode(bindingName), rootBind)
+            store.addQuad(rootBind, this.binding, namedNode(bindingName), rootBind)
         })
         // get all DataModels not "boundBy" bindname
         let dmsToAnnotate : NamedNode[] = store.getSubjects(rdfType,this.dmName).
         filter((m : NamedNode) => store.getObjects(m, this.boundName).
             filter((o : NamedNode) => store.countQuads(o,rdfType,null,rootBind) > 0).length === 0)
         dmsToAnnotate.forEach((mta : NamedNode) => {
-            let uuid = store.getObjects(mta,namedNode(schPref.amldata+'uuid'))[0].value
+            let uuid = store.getObjects(mta,this.uuidNN)[0].value
             let bindingName = this.createBinding(bindName, 'http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding', uuid)
-            store.addQuad(rootBind, namedNode('http://a.ml/vocabularies/bindings#binding'), namedNode(bindingName), rootBind)
+            store.addQuad(rootBind, this.binding, namedNode(bindingName), rootBind)
         })
 
     }
+    private bindingModel = namedNode('http://a.ml/vocabularies/bindings#BindingModel')
+    //private dde = namedNode('http://a.ml/vocabularies/meta#DialectDomainElement')
+    //private de = namedNode('http://a.ml/vocabularies/document#DomainElement')
+    private bd = namedNode('http://a.ml/vocabularies/bindings#bindingDeclaration')
+    private cimNN = namedNode('http://mulesoft.com/modeling/instances/bindings/cim')
+    private bs = namedNode('http://a.ml/vocabularies/bindings#bindingSource')
+    private cimd = namedNode('http://mulesoft.com/modeling/instances/uuid/cim_distribution')
     initBindings(bindUuid: string): string {
         let bn = namedNode('http://mulesoft.com/modeling/bindings/'+bindUuid)
-        store.addQuad(bn, namedNode('http://a.ml/vocabularies/data#uuid'),bindUuid,bn)
-        store.addQuad(bn, rdfType, namedNode('http://a.ml/vocabularies/bindings#BindingModel'),bn)
+        store.addQuad(bn, this.uuidNN,bindUuid,bn)
+        store.addQuad(bn, rdfType, this.bindingModel,bn)
         let stupid = `file://${process.cwd()}/node_modules/@api-modeling/api-modeling-metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/BindingsModel`
-        store.addQuad(bn, rdfType, namedNode('http://a.ml/vocabularies/meta#DialectDomainElement'),bn)
-        store.addQuad(bn, rdfType, namedNode('http://a.ml/vocabularies/document#DomainElement'),bn)
+        store.addQuad(bn, rdfType, this.dde,bn)
+        store.addQuad(bn, rdfType, this.de,bn)
         store.addQuad(bn, rdfType, namedNode(stupid), bn)
-        store.addQuad(bn, namedNode('http://a.ml/vocabularies/bindings#bindingDeclaration'), namedNode('http://mulesoft.com/modeling/instances/bindings/cim'))
-        store.addQuad(bn, namedNode('http://a.ml/vocabularies/bindings#bindingSource'),
-              namedNode('http://mulesoft.com/modeling/instances/uuid/cim_distribution'))
+        store.addQuad(bn, this.bd, this.cimNN)
+        store.addQuad(bn, this.bs, this.cimd)
         return 'http://mulesoft.com/modeling/bindings/'+bindUuid
       }
 

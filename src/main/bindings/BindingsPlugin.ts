@@ -52,6 +52,8 @@ export abstract class BindingsPlugin  {
     private bsName = namedNode(schPref.bind + 'bindingSource')
     private bbName = namedNode(schPref.bind + 'boundBy')
     private bName = namedNode(schPref.bind + 'binding')
+    protected dde = namedNode('http://a.ml/vocabularies/meta#DialectDomainElement')
+    protected de = namedNode('http://a.ml/vocabularies/document#DomainElement')
 
     createBinding(regime: string, bindingDeclSrc: string, source : string){
         let uuid = uuidv4()
@@ -61,9 +63,9 @@ export abstract class BindingsPlugin  {
         let graph = namedNode(regime)
         let bindingDeclarationSource = namedNode(bindingDeclSrc)
         let stupid = `file://${process.cwd()}/node_modules/@api-modeling/api-modeling-metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/Binding`
-        store.addQuad(bindNode, rdfType, namedNode('http://a.ml/vocabularies/bindings#Binding'),graph)
-        store.addQuad(bindNode, rdfType, namedNode('http://a.ml/vocabularies/meta#DialectDomainElement'),graph)
-        store.addQuad(bindNode, rdfType, namedNode('http://a.ml/vocabularies/document#DomainElement'),graph)
+        store.addQuad(bindNode, rdfType, bindName,graph)
+        store.addQuad(bindNode, rdfType, this.dde,graph)
+        store.addQuad(bindNode, rdfType, this.de,graph)
         store.addQuad(bindNode, rdfType, namedNode(stupid), graph)
         store.addQuad(bindNode,this.uuidName, literal(uuid), graph)
         store.addQuad(bindNode, this.bsName, sourceNode, graph)
