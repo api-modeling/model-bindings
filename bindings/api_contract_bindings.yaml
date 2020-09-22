@@ -52,3 +52,85 @@ dataModelBindings:
         uuid: api-contract-bindings-document-target-entity
         type: Scalar
         range: string
+apiModelBindings:
+  - name: ServerBaseUrlBinding
+    label: Server Base URL
+    description: Base URL for a server exposing an API model
+    canBeGlobal: true
+    parameters:
+      - name: Base URL
+        description: Base URL for the server
+        uuid: api-contract-bindings-base-url-binding
+        type: Scalar
+        range: string
+
+operationBindings:
+  - name: OperationHTTPPathBinding
+    label: HTTP URL path for the operation
+    description: URL path template that must be requested to invoke an API model operation. It can contain path variables.
+    canBeGlobal: false
+    parameters:
+      - name: HTTP Path
+        description: URL path template over the API base URL. It can contain variables
+        uuid: api-contract-bindings-operation-http-path-binding
+        type: Scalar
+        range: string
+
+  - name: OperationHTTPMethodBinding
+    label: HTTP method for the operation
+    description: HTTP method that must be invoked to invoke an API model operation
+    canBeGlobal: false
+    parameters:
+      - name: HTTP method
+        description: HTTP method that must be used in the invocation
+        uuid: api-contract-bindings-operation-http-method-binding
+        type: Scalar
+        range: string
+        enum:
+          - GET
+          - POST
+          - PUT
+          - PATCH
+          - DELETE
+          - HEAD
+          - OPTIONS
+          - TRACE
+          - CONNECT
+  - name: OperationHTTPParameterBinding
+    label: HTTP parameter binding
+    description: Binding of the operation parameter on the HTTP request
+    canBeGlobal: false
+    parameters:
+      - name: HTTP binding
+        description: Part of the HTTP request/response where this parameter should be encoded
+        uuid: api-contract-bindings-operation-parameter-http-binding
+        type: Scalar
+        range: string
+        enum:
+          - header
+          - path
+          - query
+          - cookie
+          - body
+  - name: OperationHTTPResponseStatusCodeBinding
+    label: HTTP response status code binding
+    description: Binding of the operation response binding on the HTTP response status code
+    canBeGlobal: false
+    parameters:
+      - name: HTTP status code binding
+        description: HTTP status code returned by this poperation
+        uuid: api-contract-bindings-operation-response-http-status-code-binding
+        type: Scalar
+        range: string
+
+parameterBindings:
+  - name: OperationHTTPResponseMediaTypeCodeBinding
+    label: HTTP response media type binding
+    description: Binding of the operation response binding on the HTTP response media type
+    canBeGlobal: false
+    parameters:
+      - name: HTTP media type binding
+        description: HTTP media type encoding the payload returned by this poperation
+        uuid: api-contract-bindings-operation-response-http-media-type-binding
+        type: Scalar
+        range: string

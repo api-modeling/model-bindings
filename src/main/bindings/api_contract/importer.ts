@@ -1,10 +1,16 @@
 import * as meta from "@api-modeling/api-modeling-metadata";
-import {Scalar} from "@api-modeling/api-modeling-metadata";
+import {Binding, BindingScalarValue, Entity, Scalar} from "@api-modeling/api-modeling-metadata";
 import * as amf from "@api-modeling/amf-client-js";
 import {Md5} from 'ts-md5/dist/md5';
 import {VOCAB} from "./constants";
 import assert from "assert";
+import base = Mocha.reporters.base;
+import {model} from "@api-modeling/amf-client-js";
 
+interface ParsedShape {
+    schema: Entity|Scalar,
+    allowMultiple: boolean
+}
 
 export class APIContractImporter {
 
@@ -19,7 +25,7 @@ export class APIContractImporter {
      * @param baseUnit
      * @param dataModel
      */
-    protected parseBaseUnitBindings(baseUnit: amf.model.document.BaseUnit, dataModel: meta.DataModel): meta.Binding {
+    protected parseBaseUnitBindings(baseUnit: amf.model.document.BaseUnit, dataModel: meta.DataModel|meta.ApiModel): meta.Binding {
         const binding = new meta.Binding(dataModel.id(), VOCAB.API_CONTRACT_DOCUMENT_TYPE_BINDING);
         const param = new meta.BindingScalarValue();
         param.parameter = VOCAB.API_CONTRACT_DOCUMENT_TYPE_BINDING_PARAMETER
@@ -27,11 +33,11 @@ export class APIContractImporter {
         binding.uuid = `apiContract/bindings/DocumentTypeBinding/${dataModel.uuid}`
 
         // @ts-ignore
-        if (baseUnit.declares != null && baseUnit.encodes != null) {
+        if (dataModel instanceof meta.ApiModel) {
             param.lexicalValue = "Open API Spec / RAML API Spec"
             binding.configuration = [param]
         // @ts-ignore
-        } else if (baseUnit.encodes != null) {
+        } else if (baseUnit.encodes != null && !(baseUnit instanceof amf.model.document.Document)) {
             param.lexicalValue = "JSON Schema / RAML Fragment"
             // Let's mark the entity encoded at the top level in the fragment
             // @ts-ignore
@@ -81,8 +87,13 @@ export class APIContractImporter {
      * Parses an AMF BaseUnit and generates one or more modules with associated data models for the modeling tool
      * @param moduleUri
      * @param baseUnit
+     * @param entityMap
+     * @param bindings
+     * @param entityMap
+     * @param bindings
      */
-    protected parseBaseUnitApiModel(moduleUri: string, baseUnit: amf.model.document.Document, entityMap: {[id: string]: string}): meta.ApiModel {
+    protected parseBaseUnitApiModel(moduleUri: string, baseUnit: amf.model.document.Document, entityMap: {[id: string]: string}, bindings: Binding[]): meta.ApiModel {
+        const name = baseUnit.location.split("/").reverse()[0];
         const webapi = <amf.model.domain.WebApi>baseUnit.encodes;
         const entrypoint = new meta.Resource();
         entrypoint.uuid = Md5.hashStr(webapi.id + "_entrypoint").toString()
@@ -91,6 +102,7 @@ export class APIContractImporter {
         if (webapi.description.option) {
             entrypoint.description = webapi.description.value();
         }
+
         const endpoints: amf.model.domain.EndPoint[] = webapi.endPoints.sort((a,b) => {
             if (a.path.value().indexOf(b.path.value()) === 0) {
                 return 1;
@@ -102,15 +114,18 @@ export class APIContractImporter {
         const accEntities: meta.Entity[] = [];
         const accResources: meta.Resource[] = [];
 
-        this.parseResourceLinks(entrypoint, "", [], endpoints, accEntities, accResources, entityMap)
+        this.parseResourceLinks(entrypoint, "", [], endpoints, accEntities, accResources, entityMap, bindings)
 
 
         const apiModel = new meta.ApiModel();
         apiModel.uuid = Md5.hashStr(webapi.id).toString();
+        apiModel.name = name;
         apiModel.entryPoint = entrypoint;
-
         apiModel.resources = accResources;
         apiModel.entities = accEntities;
+
+        // bindings
+        this.buildServerBindings(webapi, apiModel, bindings);
 
         return apiModel;
 
@@ -140,10 +155,8 @@ export class APIContractImporter {
         }
     }
 
-    private parseResource(endpoint: amf.model.domain.EndPoint, parent: string, pathParams: string[], group: amf.model.domain.EndPoint[], accEntities: meta.Entity[], accResources: meta.Resource[], entityMap: {[id: string]: string}): meta.Resource {
-        const resource = new meta.Resource();
-        accResources.push(resource);
-        resource.operations = [];
+    private parseResource(endpoint: amf.model.domain.EndPoint, parent: string, pathParams: string[], group: amf.model.domain.EndPoint[], accEntities: meta.Entity[], accResources: meta.Resource[], entityMap: {[id: string]: string}, bindings: Binding[]): meta.Resource {
+
 
         const getOperation = endpoint.operations.find((op) => op.method.value() === "get");
         let resp: amf.model.domain.Response|undefined;
@@ -154,26 +167,39 @@ export class APIContractImporter {
             }
         }
 
+        let resource: meta.Resource|undefined;
+
         if (getOperation != null && resp != null) {
             const payload = resp.payloads.find((pl) => pl.schema != null)
             if (payload != null) {
                 let effectiveShape = payload.schema
                 if (effectiveShape instanceof amf.model.domain.ArrayShape) {
-                    effectiveShape = (<amf.model.domain.ArrayShape>effectiveShape).items;
-                    resource.isCollection = true
-                }
-                const entity = this.adaptOrCreate(effectiveShape, endpoint.id + "get", accEntities, entityMap)
-                if (entity) {
-                    resource.schema = entity
+                    // effectiveShape = (<amf.model.domain.ArrayShape>effectiveShape).items;
+                    resource = new meta.CollectionResource();
                 } else {
-                    throw new Error("Cannot process resource schema for endpoint " + endpoint.id)
+                    const entity = this.adaptOrCreate(effectiveShape, endpoint.id + "get", accEntities, entityMap)
+                    if (entity) {
+                        // resource.isCollection = true @todo: generate collection here
+                        resource = new meta.Resource();
+                        resource.schema = entity
+                    } else {
+                        throw new Error("Cannot process resource schema for endpoint " + endpoint.id)
+                    }
                 }
             }
         }
+
+        if (resource) {
+            accResources.push(resource);
+            resource.operations = [];
+        } else {
+            throw new Error(`Cannot generate resource for endpoint ${endpoint.id}`)
+        }
+
         const otherOperations = endpoint.operations.filter((op) => op.method.value() !== "get");
         if (otherOperations.length > 0) {
             otherOperations.forEach((op) => {
-                const controlOperation = this.parseMutableOperation([], op, accEntities, entityMap);
+                const controlOperation = this.parseMutableOperation([], op, accEntities, entityMap, bindings);
                 const method = op.method.value();
                 let action = "Invoke"
                 if (method == "post") {
@@ -189,11 +215,14 @@ export class APIContractImporter {
                 }
                 controlOperation.name = action
 
-                resource.operations!.push(controlOperation)
+                // add bindings
+                this.addOperationBindings(endpoint, op, controlOperation, bindings)
+
+                resource!.operations!.push(controlOperation)
             });
         }
 
-        this.parseResourceLinks(resource, endpoint.path.value(), pathParams, group, accEntities, accResources, entityMap)
+        this.parseResourceLinks(resource, endpoint.path.value(), pathParams, group, accEntities, accResources, entityMap, bindings)
 
         resource.name = `Resource ${endpoint.path}`
         if (endpoint.description.option) {
@@ -202,7 +231,7 @@ export class APIContractImporter {
         return resource
     }
 
-    protected parseResourceLinks(resource: meta.Resource, path: string, pathParams: string[], endpoints: amf.model.domain.EndPoint[], accEntities: meta.Entity[], accResources: meta.Resource[], entityMap: {[id: string]: string}): meta.Resource {
+    protected parseResourceLinks(resource: meta.Resource, path: string, pathParams: string[], endpoints: amf.model.domain.EndPoint[], accEntities: meta.Entity[], accResources: meta.Resource[], entityMap: {[id: string]: string}, bindings: Binding[]): meta.Resource {
         if (endpoints.length > 0) {
             const groups: amf.model.domain.EndPoint[][] = [];
             let currentGroup: amf.model.domain.EndPoint[] = [];
@@ -238,8 +267,8 @@ export class APIContractImporter {
 
                 // linked resource
                 if (getOperation != null) {
-                    const nestedResource = this.parseResource(linkedEndpoint, path, pathParams, group, accEntities, accResources, entityMap)
-                    const linkOperation = this.parseGetOperation(newPathParams, getOperation, accEntities, entityMap)
+                    const nestedResource = this.parseResource(linkedEndpoint, path, pathParams, group, accEntities, accResources, entityMap, bindings)
+                    const linkOperation = this.parseGetOperation(newPathParams, getOperation, accEntities, entityMap, bindings, (resource instanceof meta.CollectionResource))
                     linkOperation.name = `Find ${nestedResource.name}`
 
                     // setup the output parameter to the schema of the linked resource
@@ -249,18 +278,26 @@ export class APIContractImporter {
                     // outputParameter.objectRange = nestedResource.schema;
                     // linkOperation.output = outputParameter;
 
-                    // connect both resources through a transition
-                    const transition = new meta.ResourceTransition();
-                    transition.uuid = Md5.hashStr(getOperation.id + "transition").toString();
-                    transition.target = nestedResource
-                    linkOperation.transition = transition;
+                    if (resource instanceof meta.CollectionResource) {
+                        // connect both resources through membership
+                        (<meta.CollectionResource>resource).member = nestedResource;
+                    } else {
+                        // connect both resources through a transition
+                        const transition = new meta.ResourceTransition();
+                        transition.uuid = Md5.hashStr(getOperation.id + "transition").toString();
+                        transition.target = nestedResource
+                        linkOperation.transition = transition;
+                    }
+
+                    // add bindings
+                    this.addOperationBindings(linkedEndpoint, getOperation, linkOperation, bindings)
 
                     operations.push(linkOperation)
 
                 } else  { // nested operations
                     assert(group.length === 0) // 0 because I have shifted the member
                     linkedEndpoint.operations.forEach((op)=> {
-                        const controlOperation = this.parseMutableOperation(newPathParams, op, accEntities, entityMap);
+                        const controlOperation = this.parseMutableOperation(newPathParams, op, accEntities, entityMap, bindings);
                         const method = op.method.value();
                         let action = "Invoke"
                         if (method == "post") {
@@ -279,6 +316,9 @@ export class APIContractImporter {
                         }
                         controlOperation.name = `${action} ${pathFragment}`
 
+                        // add bindings
+                        this.addOperationBindings(linkedEndpoint, op, controlOperation, bindings)
+
                         operations.push(controlOperation)
                     }) ;
                 }
@@ -291,8 +331,8 @@ export class APIContractImporter {
         return resource;
     }
 
-    private parseGetOperation(newPathParams: amf.model.domain.Parameter[], apiOperation: amf.model.domain.Operation, acc: meta.Entity[], entityMap: {[id: string]: string}): meta.Operation {
-        const operation = new meta.Operation();
+    private parseGetOperation(newPathParams: amf.model.domain.Parameter[], apiOperation: amf.model.domain.Operation, acc: meta.Entity[], entityMap: {[id: string]: string}, bindings: Binding[], isCollection: boolean): meta.Operation {
+        const operation = new meta.CustomOperation();
         operation.uuid = Md5.hashStr(apiOperation.id).toString();
         operation.isMutation = false;
 
@@ -301,24 +341,36 @@ export class APIContractImporter {
             toParseParams = toParseParams.concat(apiOperation.request.queryParameters)
         }
         operation.inputs = toParseParams.map((p) => {
-            return this.parseParameter(p, acc, entityMap)
+            const parsedParam = this.parseParameter(p, acc, entityMap)
+            this.addParameterBinding(parsedParam, p.binding.value(), bindings);
+            return parsedParam
         });
+
+        this.parseOperationOutput(apiOperation, operation, acc, entityMap, bindings)
 
         return operation;
     }
 
-    private parseMutableOperation(newPathParams: amf.model.domain.Parameter[], apiOperation: amf.model.domain.Operation, acc: meta.Entity[], entityMap: {[id: string]: string}): meta.Operation {
-        const operation = new meta.Operation();
+    private parseMutableOperation(newPathParams: amf.model.domain.Parameter[], apiOperation: amf.model.domain.Operation, acc: meta.Entity[], entityMap: {[id: string]: string}, bindings: Binding[]): meta.Operation {
+        const operation = new meta.CustomOperation();
         operation.uuid = Md5.hashStr(apiOperation.id).toString();
         operation.isMutation = true;
 
-        let toParseParams = newPathParams;
-        if (apiOperation.request != null && apiOperation.request.queryParameters != null) {
-            toParseParams = toParseParams.concat(apiOperation.request.queryParameters)
-        }
-        operation.inputs = toParseParams.map((p) => {
-            return this.parseParameter(p, acc, entityMap)
+        // bindings
+        operation.inputs = newPathParams.map((param) => {
+            const parsedParam = this.parseParameter(param, acc, entityMap);
+            this.addParameterBinding(parsedParam, "path", bindings);
+            return parsedParam
         });
+
+
+        if (apiOperation.request != null && apiOperation.request.queryParameters != null) {
+            apiOperation.request.queryParameters.forEach((param) => {
+                const parsedParam = this.parseParameter(param, acc, entityMap)
+                this.addParameterBinding(parsedParam, "query", bindings);
+                operation.inputs?.push(parsedParam);
+            });
+        }
 
         if (apiOperation.request) {
             const inputPayload = (apiOperation.request.payloads || []).find((p) => p.schema != null)
@@ -326,43 +378,53 @@ export class APIContractImporter {
                 const inputPayloadParam = new meta.OperationParameter();
                 inputPayloadParam.uuid = Md5.hashStr(`${apiOperation.id}inputPayloadParam`).toString()
                 const inputPayloadSchema = this.parseParamShape(inputPayload.schema, acc, entityMap)
-                if (inputPayloadSchema instanceof Scalar) {
-                    inputPayloadParam.scalarRange = inputPayloadSchema
+                if (inputPayloadSchema.schema instanceof Scalar) {
+                    inputPayloadParam.scalarRange = inputPayloadSchema.schema
                 } else {
                     // if this is a reference an adapted type will be returned
                     // we extract it because params only accept links
-                    if (inputPayloadSchema.adapts != null) {
-                        inputPayloadParam.objectRange = inputPayloadSchema.adapts
+                    if (inputPayloadSchema.schema.adapts != null) {
+                        inputPayloadParam.objectRange = inputPayloadSchema.schema.adapts
                     } else {
-                        acc.push(inputPayloadSchema)
-                        inputPayloadParam.objectRange = inputPayloadSchema
+                        acc.push(inputPayloadSchema.schema)
+                        inputPayloadParam.objectRange = inputPayloadSchema.schema
                     }
-
                 }
+                inputPayloadParam.allowMultiple = inputPayloadSchema.allowMultiple;
+                this.addParameterBinding(inputPayloadParam, "body", bindings);
                 operation.inputs = (operation.inputs || []).concat([inputPayloadParam])
             }
         }
 
+        this.parseOperationOutput(apiOperation, operation, acc, entityMap, bindings)
+
+        return operation;
+    }
+
+    private parseOperationOutput(apiOperation: amf.model.domain.Operation, operation: meta.Operation, acc: meta.Entity[], entityMap: {[id: string]: string}, bindings: meta.Binding[]) {
         const maybeResponse = apiOperation.responses.filter((resp) => {
             const statusCode = (resp.statusCode.option || "")
             return statusCode === "default" || statusCode.startsWith("2")
-        }).find(resp => resp.payloads.find((p) => p.schema != null))
+        }).find(resp => resp.payloads.find((p) => p.schema != null));
 
         if (maybeResponse != null) {
             const outputParam = new meta.OperationParameter();
-            outputParam.uuid = Md5.hashStr(`${apiOperation.id}output`).toString()
+            outputParam.uuid = Md5.hashStr(`${apiOperation.id}output`).toString();
 
-            const payload = maybeResponse.payloads.find((p) => p.schema != null)!
-            const payloadSchema = this.parseParamShape(payload.schema, acc, entityMap)
-            if (payloadSchema instanceof Scalar) {
-                outputParam.scalarRange = payloadSchema
+            const payload = maybeResponse.payloads.find((p) => p.schema != null)!;
+
+            this.buildResponseBindings(maybeResponse, payload, operation, bindings);
+
+            let payloadSchema = this.parseParamShape(payload.schema, acc, entityMap);
+            if (payloadSchema.schema instanceof Scalar) {
+                outputParam.scalarRange = payloadSchema.schema;
             } else {
-                outputParam.objectRange = payloadSchema
+                outputParam.objectRange = payloadSchema.schema;
             }
+            outputParam.allowMultiple = payloadSchema.allowMultiple;
 
             operation.output = outputParam
         }
-        return operation;
     }
 
     private parseParameter(p: amf.model.domain.Parameter, acc: meta.Entity[], entityMap: {[id: string]: string}): meta.OperationParameter {
@@ -376,11 +438,12 @@ export class APIContractImporter {
 
         if (p.schema != null) {
             const payloadSchema = this.parseParamShape(p.schema, acc, entityMap)
-            if (payloadSchema instanceof Scalar) {
-                param.scalarRange = payloadSchema
+            if (payloadSchema.schema instanceof Scalar) {
+                param.scalarRange = payloadSchema.schema
             } else {
-                param.objectRange = payloadSchema
+                param.objectRange = payloadSchema.schema
             }
+        param.allowMultiple = payloadSchema.allowMultiple;
         } else {
             // default argument, is a string
             param.scalarRange = new meta.StringScalar();
@@ -389,15 +452,20 @@ export class APIContractImporter {
         return param;
     }
 
-    private parseParamShape(schema: amf.model.domain.Shape, acc: meta.Entity[], entityMap: {[id: string]: string}): meta.Scalar | meta.Entity {
+    private parseParamShape(schema: amf.model.domain.Shape, acc: meta.Entity[], entityMap: {[id: string]: string}): ParsedShape {
+        const isArray = (schema instanceof amf.model.domain.ArrayShape);
+
+        if (isArray) {
+            schema = (<amf.model.domain.ArrayShape>schema).items
+        }
         if (this.isScalarShape(schema)) {
             const fakeProp = new amf.model.domain.PropertyShape().withRange(schema).withId(schema.id + "_fake_prop");
             const attr = this.parseAttribute(fakeProp);
-            return attr.range;
+            return { allowMultiple: isArray, schema: attr.range};
         } else {
             const parsed = this.adaptOrCreate(schema, this.genName("param"), acc, entityMap)
             if (parsed != null) {
-                return parsed
+                return { allowMultiple: isArray, schema: parsed}
             } else {
                 throw new Error("Parsing of object entity parameter failed");
             }
@@ -739,4 +807,97 @@ export class APIContractImporter {
         return parsed;
     }
 
+    private addOperationBindings(linkedEndpoint: amf.model.domain.EndPoint, operation: amf.model.domain.Operation, linkOperation: meta.Operation, bindings: meta.Binding[]) {
+        const path = linkedEndpoint.path.value();
+        const method = operation.method.value();
+
+        const methodBinding = this.buildStringParameterBinding(
+            linkOperation.id(),
+            VOCAB.API_CONTRACT_OPERATION_METHOD_BINDING,
+            VOCAB.API_CONTRACT_OPERATION_METHOD_BINDING_PARAMETER,
+            method.toUpperCase(),
+            `api_contract_operation_method_binding/${linkOperation.uuid}`,
+            `api_contract_operation_method_binding/param/${linkOperation.uuid}`
+        )
+        bindings.push(methodBinding);
+
+        const pathBinding = this.buildStringParameterBinding(
+            linkOperation.id(),
+            VOCAB.API_CONTRACT_OPERATION_PATH_BINDING,
+            VOCAB.API_CONTRACT_OPERATION_PATH_BINDING_PARAMETER,
+            path,
+            `api_contract_operation_path_binding/${linkOperation.uuid}`,
+            `api_contract_operation_path_binding/param/${linkOperation.uuid}`
+        )
+        bindings.push(pathBinding);
+    }
+
+    private addParameterBinding(parsedParam: meta.OperationParameter, httpBinding: string, bindings: Binding[]) {
+        const parameterBinding = this.buildStringParameterBinding(
+            parsedParam.id(),
+            VOCAB.API_CONTRACT_OPERATION_PARAMETER_BINDING,
+            VOCAB.API_CONTRACT_OPERATION_PARAMETER_BINDING_PARAMETER,
+            httpBinding,
+            `api_contract_operation_parameter_binding/${parsedParam.uuid}`,
+            `api_contract_operation_method_binding/param/${parsedParam.uuid}`
+        )
+        bindings.push(parameterBinding)
+    }
+
+    private buildResponseBindings(response: amf.model.domain.Response, payload: amf.model.domain.Payload, operation: meta.Operation, bindings: Binding[]) {
+        const statusCode = response.statusCode.option
+        if (statusCode != null) {
+            const statusBinding = this.buildStringParameterBinding(
+                operation.id(),
+                VOCAB.API_CONTRACT_OPERATION_STATUS_CODE_BINDING,
+                VOCAB.API_CONTRACT_OPERATION_STATUS_CODE_BINDING_PARAMETER,
+                statusCode,
+                `api_contract_operation_status_code_parameter_binding/${operation.uuid}`,
+                `api_contract_operation_status_code_parameter_binding/value/${operation.uuid}`
+            )
+            bindings.push(statusBinding)
+        }
+
+        const mediaType = payload.mediaType.option
+        if (mediaType != null) {
+            const statusBinding = this.buildStringParameterBinding(
+                operation.id(),
+                VOCAB.API_CONTRACT_OPERATION_MEDIA_TYPE_BINDING,
+                VOCAB.API_CONTRACT_OPERATION_MEDIA_TYPE_BINDING_PARAMETER,
+                mediaType,
+                `api_contract_operation_media_type_parameter_binding/${operation.uuid}`,
+                `api_contract_operation_media_type_parameter_binding/value/${operation.uuid}`
+            )
+            bindings.push(statusBinding)
+        }
+    }
+
+    private buildServerBindings(webapi: amf.model.domain.WebApi, apiModel: meta.ApiModel, bindings: Binding[]) {
+        const urls = (webapi.servers || []).map((s) => s.url.option).filter((url) => url != null);
+        if (urls.length > 0) {
+            const statusBinding = this.buildStringParameterBinding(
+                apiModel.id(),
+                VOCAB.API_CONTRACT_SERVER_URL_BINDING,
+                VOCAB.API_CONTRACT_SERVER_URL_BINDING_PARAMETER,
+                urls[0]!,
+                `api_contract_operation_server_url_parameter_binding/${apiModel.uuid}`,
+                `api_contract_operation_server_url_parameter_binding/value/${apiModel.uuid}`
+            )
+            bindings.push(statusBinding)
+        }
+    }
+
+    private buildStringParameterBinding(sourceId: string, declarationId: string, paramDeclarationId: string, paramValue: string, UUID: string, paramUUID: string) {
+        const binding = new Binding(sourceId, declarationId)
+        binding.uuid = UUID
+        const parameterBinding = new BindingScalarValue()
+        parameterBinding.parameter = paramDeclarationId
+        parameterBinding.uuid = paramUUID
+        parameterBinding.lexicalValue = paramValue;
+        binding.configuration =[
+            parameterBinding
+        ];
+
+        return binding;
+    }
 }

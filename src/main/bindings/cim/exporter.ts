@@ -1,7 +1,5 @@
 import {VOCAB} from "./constants";
-import {DialectWrapper, ModularityDialect, Module, Entity, Attribute, Association, IntegerScalar, StringScalar, DataModel, DataModelDialect, ModelBindingsDialect, BindingsModel, Binding} from "@api-modeling/api-modeling-metadata";
-import * as n3 from "n3";
-import {model} from "@api-modeling/amf-client-js";
+import {ModularityDialect, Module, Entity, IntegerScalar, DataModelDialect, ModelBindingsDialect, BindingsModel, Binding} from "@api-modeling/api-modeling-metadata";
 
 export class CIMExporter {
 
