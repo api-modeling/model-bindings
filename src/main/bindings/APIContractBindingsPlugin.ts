@@ -9,6 +9,7 @@ import {Md5} from "ts-md5";
 import {VOCAB} from "./api_contract/constants";
 import {APIContractExporter} from "./api_contract/exporter";
 import {ApiGenerator} from "./utils/apiGenerator";
+import {ApiModel, Binding, BindingScalarValue, DataModel} from "@api-modeling/api-modeling-metadata";
 
 const  SUPPORTED_FORMATS = [ApiParser.RAML1, ApiParser.OAS3 + ".0", ApiParser.OAS2, ApiParser.AMF_GRAPH, ApiParser.JSON_SCHEMA];
 const SUPPORTED_SYNTAXES = [ApiParser.YAML, ApiParser.JSONLD, ApiParser.JSON]
@@ -19,6 +20,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
     async export(configuration: ConfigurationParameter[], graphs: meta.DialectWrapper[]): Promise<Resource[]> {
         const bindings: meta.ModelBindingsDialect[] = [];
         const dataModels: meta.DataModelDialect[] = [];
+        const apiModels: meta.ApiModelDialect[] = [];
         const modules: meta.ModularityDialect[] = [];
 
         graphs.forEach((graph) => {
@@ -26,8 +28,10 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
                 bindings.push(graph);
             } else if (graph instanceof meta.ModularityDialect) {
                 modules.push(graph);
-            } else if (graph instanceof meta.DataModelDialect) {
+            } else if (graph instanceof meta.DataModelDialect && !(graph instanceof meta.ApiModelDialect)) {
                 dataModels.push(graph);
+            } else if (graph instanceof meta.ApiModelDialect) {
+                apiModels.push(graph);
             } else {
                 throw new Error(`Unsupported type of model ${graph}`);
             }
@@ -38,7 +42,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
         const format = tuple[0].value;
         const syntax = tuple[1].value;
 
-        const baseUnits =  new APIContractExporter(modules, dataModels, bindings, formatExtension).export();
+        const baseUnits =  new APIContractExporter(modules, dataModels, apiModels, bindings, formatExtension).export();
         const maybeResources = baseUnits.map(async (baseUnit) => {
             const generator = new ApiGenerator(baseUnit, format, syntax);
             const text = await generator.generate();
@@ -65,43 +69,52 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
         const parser = new ApiParser(resources[0].url, format.value, syntax.value);
         try {
 
+            const bindings = new meta.BindingsModel()
+            bindings.bindings = []; // acc
+            const bindingsWrappers: meta.DialectWrapper[] = []
+            let dataModels: DataModel[];
+            let apiModel: ApiModel;
             let baseUnit = await parser.parse();
             const name = baseUnit.id.split("/").pop();
             const module = new meta.Module("Imported spec " + name);
             module.uuid = Md5.hashStr(baseUnit.id + "_module").toString();
-            const dataModels = this.parseBaseUnitDataModel(module.id(), baseUnit)
+            dataModels = this.parseBaseUnitDataModel(module.id(), baseUnit)
             module.dataModels = dataModels.map((dm) => dm.id());
 
             let apiWrapper: meta.ApiModelDialect[] = []
 
             if (baseUnit instanceof amf.model.document.Document) {
                 const entityMap = this.collectEntities(dataModels)
-                const apiModel = this.parseBaseUnitApiModel(module.id(), baseUnit, entityMap)
+                apiModel = this.parseBaseUnitApiModel(module.id(), baseUnit, entityMap, bindings.bindings)
+                // @ts-ignore
+                apiModel['parsed'] = baseUnit;
                 module.dataModels.push(apiModel.id())
                 const apiModelDialect: meta.ApiModelDialect = new meta.ApiModelDialect();
                 apiModelDialect.id = apiModel.id();
                 apiModelDialect.location = "api_model_" + apiModel.uuid // @todo check the extension
                 await apiModelDialect.encode(apiModel)
                 apiWrapper.push(apiModelDialect);
+
             }
 
 
             // bindings wrapper
-            const dataModelBindings = new meta.BindingsModel()
-            dataModelBindings.uuid = Md5.hashStr(module.id() + "_datamodel_bindings").toString()
-            dataModelBindings.bindings = dataModels.map((dataModel) => {
+            bindings.uuid = Md5.hashStr(module.id() + "_bindings").toString()
+            // @ts-ignore
+            const allModelsForBindings = dataModels.concat([apiModel]).filter((m) => m != null)
+            bindings.bindings = bindings.bindings.concat(allModelsForBindings.map((dataModel) => {
                 // @ts-ignore
                 const baseUnit = dataModel['parsed'];
                 return this.parseBaseUnitBindings(baseUnit, dataModel)
-            });
-            dataModelBindings.source = module.id();
-            dataModelBindings.declaration = VOCAB.API_CONTRACT_BINDINGS_PROFILE;
+            }));
+            bindings.source = module.id();
+            bindings.declaration = VOCAB.API_CONTRACT_BINDINGS_PROFILE;
 
             const bindingsDialect: meta.DialectWrapper = new meta.ModelBindingsDialect();
             bindingsDialect.id = module.id() + "_datamodel_bindings"
-            bindingsDialect.location = "datamodel_bindings";
-            await bindingsDialect.encode(dataModelBindings)
-            const bindingsWrapper = [bindingsDialect];
+            bindingsDialect.location = "bindings";
+            await bindingsDialect.encode(bindings)
+            bindingsWrappers.push(bindingsDialect);
 
             // modularity wrapper
             const modularityDialect: meta.DialectWrapper = new meta.ModularityDialect();
@@ -121,7 +134,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
             });
             const dataModelWrappers = await Promise.all(dataModelWrappersPromises);
 
-            const allWrappers = await Promise.all(bindingsWrapper.concat(moduleWrapper.concat(dataModelWrappers)).concat(apiWrapper));
+            const allWrappers = await Promise.all(bindingsWrappers.concat(moduleWrapper.concat(dataModelWrappers)).concat(apiWrapper));
             return Promise.resolve(allWrappers);
         } catch (e) {
             console.log("ERROR:" + e.message)
@@ -174,7 +187,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
     private collectEntities(dataModels: meta.DataModel[]) {
         const acc: {[id:string]: string} = {};
         dataModels.forEach((dm) => {
-            dm.entities?.forEach((e) => {
+            (dm.entities||[]).forEach((e) => {
                 acc[e.uuid] = e.name;
             })
         });

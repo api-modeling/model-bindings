@@ -2,13 +2,23 @@ import { describe } from 'mocha'
 import { assert } from 'chai';
 import {APIContractBindingsPlugin} from "../../main/bindings/APIContractBindingsPlugin";
 import * as fs from 'fs';
-import { Module, DataModel, BindingsModel, ModularityDialect, DataModelDialect, ModelBindingsDialect } from "@api-modeling/api-modeling-metadata"
+import {
+    Operation,
+    Module,
+    DataModel,
+    BindingsModel,
+    ModularityDialect,
+    DataModelDialect,
+    ModelBindingsDialect,
+    ApiModel,
+    ApiModelDialect
+} from "@api-modeling/api-modeling-metadata"
 import {ApiParser} from "../../main/bindings/utils/apiParser";
 import exp from "constants";
 
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
-    it('should parse RAML specs and generate matching modules', async function () {
+    it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/library.raml";
         const textData = fs.readFileSync(textUrl).toString();
@@ -32,7 +42,7 @@ describe('APIBindingsPlugin', function() {
         assert.equal(allBindings, dataModels.length)
     });
 
-    it ('should export API models to RAML specs', async function() {
+    it ('should export API models to RAML Library specs', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/library2.raml";
         const textData = fs.readFileSync(textUrl).toString();
@@ -92,4 +102,91 @@ describe('APIBindingsPlugin', function() {
             assert.equal(g.text, expectedText)
         });
     });
+
+    it('should parse RAML API specs and generate matching modules', async function () {
+        const apiPlugin = new APIContractBindingsPlugin();
+        const textUrl = "src/test/resources/api1.raml";
+        const textData = fs.readFileSync(textUrl).toString();
+        const parsed = await apiPlugin.import(
+            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
+            [{ url: "file://"+ textUrl, text: textData}]
+        );
+        assert.equal(parsed.length, 5); // all the models: modules, entities, bindings
+
+        const modules = parsed.filter((parsed) => parsed instanceof ModularityDialect)
+        const dataModels = parsed.filter((parsed) => (parsed instanceof DataModelDialect) && !(parsed instanceof ApiModelDialect))
+        const apiModels = parsed.filter((parsed) => parsed instanceof ApiModelDialect)
+        const bindingsModels = parsed.filter((parsed) => parsed instanceof ModelBindingsDialect)
+
+        const allModules = modules.map((module) => (<Module>module.encodesWrapper!).dataModels!.length ).reduce((acc, i) => { return acc + i }, 0)
+        const allApiResources = apiModels.map((module) => (<ApiModel>module.encodesWrapper!).resources! ).reduce((acc, resources) => acc.concat(resources), [])
+        const allOperations = apiModels.map((module) => {
+            const apiModel = (<ApiModel>module.encodesWrapper!)
+            const resources = apiModel.resources!.concat([apiModel.entryPoint!])
+            const operations = resources.map((r) => r.operations!)
+            return operations.reduce((a,o)=> a.concat(o), [])
+        }).reduce((a,o) => a.concat(o), [])
+        const allApiEntities = apiModels.map((module) => (<ApiModel>module.encodesWrapper!).entities! ).reduce((acc, entities) => acc.concat(entities), [])
+        const allEntities = dataModels.map((module) => (<DataModel>module.encodesWrapper!).entities! ).reduce((acc, entities) => acc.concat(entities), [])
+        const allBindings = bindingsModels.map((module) => (<BindingsModel>module.encodesWrapper!).bindings! ).reduce((acc, bindings) => acc.concat(bindings))
+
+        assert.equal(allModules, 3);
+        assert.equal(dataModels.length, 2);
+        assert.equal(apiModels.length, 1);
+        const entityNames = allEntities.map((e) => e.name).sort();
+        assert.deepEqual(entityNames, [
+            "CheckLineItem",
+            "MonetaryAmount",
+            "PaymentMessage",
+            "ShoppingCart"
+        ]);
+        assert.equal(allEntities.length, 4);
+        assert.equal(allApiResources.length, 2);
+        assert.deepEqual(allApiResources.map((r) => r.name), [
+            "Resource /shoppingCarts",
+            "Resource /shoppingCarts/{id}"
+        ]);
+        assert.equal(allOperations.length, 6);
+        assert.deepEqual(allOperations.map((o) => {
+            // @ts-ignore
+            return (<Operation>o).name
+        }).sort(), [
+            "Create",
+            "Create pay",
+            "Delete",
+            "Find Resource /shoppingCarts",
+            "Find Resource /shoppingCarts/{id}",
+            "Update"
+        ]);
+        assert.equal(allApiEntities.length, 1);
+        assert.deepEqual(allApiEntities.map((e) => {
+            let attrs = e.attributes!.map((a) => a.name);
+            let assocs = e.associations!.map((a) => a.name);
+            return attrs.concat(assocs).sort().join("::");
+        }), [
+            "message::successful"
+        ]);
+        assert.equal(allBindings.length, 28);
+    });
+
+    it ('should export API models to RAML API specs', async function() {
+        const apiPlugin = new APIContractBindingsPlugin();
+        const textUrl = "src/test/resources/api1.raml";
+        const textData = fs.readFileSync(textUrl).toString();
+        let config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
+        const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
+
+        config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
+        const generated = await apiPlugin.export(config, parsed);
+        assert(generated.length === 3);
+        /*
+        generated.forEach((g) => {
+            console.log(g.url)
+            console.log("------------------")
+            console.log(g.text)
+            console.log("\n\n")
+        })
+         */
+    });
+
 });

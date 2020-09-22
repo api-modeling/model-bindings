@@ -28,6 +28,23 @@
         API_CONTRACT_DOCUMENT_TYPE_BINDING = "http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding";
         API_CONTRACT_DOCUMENT_TYPE_BINDING_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param"
         API_CONTRACT_DOCUMENT_TARGET_ENTITY_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity"
+
+        API_CONTRACT_OPERATION_METHOD_BINDING = "http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding"
+        API_CONTRACT_OPERATION_METHOD_BINDING_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding"
+        API_CONTRACT_OPERATION_PATH_BINDING = "http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding"
+        API_CONTRACT_OPERATION_PATH_BINDING_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding"
+
+        API_CONTRACT_OPERATION_PARAMETER_BINDING = "http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding"
+        API_CONTRACT_OPERATION_PARAMETER_BINDING_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding"
+
+        API_CONTRACT_OPERATION_STATUS_CODE_BINDING = "http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseStatusCodeBinding"
+        API_CONTRACT_OPERATION_STATUS_CODE_BINDING_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-status-code-binding"
+
+        API_CONTRACT_OPERATION_MEDIA_TYPE_BINDING = "http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding"
+        API_CONTRACT_OPERATION_MEDIA_TYPE_BINDING_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding"
+
+        API_CONTRACT_SERVER_URL_BINDING = "http://mulesoft.com/modeling/instances/bindings/apiContract/ServerBaseUrlBinding"
+        API_CONTRACT_SERVER_URL_BINDING_PARAMETER = "http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-base-url-binding"
     }
 
 export const VOCAB = new ApiConstractConstantsSingleton();

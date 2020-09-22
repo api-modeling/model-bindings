@@ -4,10 +4,10 @@ import path from "path";
 
 // Small utility to serialize CIM using the modeling tool schemas
 const amlPlugin = new AMLBindingsPlugin();
-const url = "src/test/resources/aml/modeling/schema/apiModelDialect.yaml"
+const url = "src/test/resources/aml/catalog/dialects/canonical-webapi-spec.yaml"
 const text = fs.readFileSync(url).toString()
 amlPlugin.import([],[{url: "file://"+ url, text: text}]).then((parsed) => {
-    const base = "out/aml-modeling-tool/";
+    const base = "out/aml-canonical-webapi-spec/";
     parsed.forEach((dialectInstance) => {
         const location = base + dialectInstance.location;
         const locationDir = path.dirname(location);
