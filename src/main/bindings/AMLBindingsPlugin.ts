@@ -59,6 +59,7 @@ export class AMLBindingsPlugin extends BindingsPlugin {
 
         } catch (e) {
             console.log("ERROR:" + e.message)
+            console.log(e.stack)
             throw e;
         }
     }

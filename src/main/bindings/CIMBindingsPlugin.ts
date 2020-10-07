@@ -1,4 +1,10 @@
 import {BindingsPlugin, ConfigurationParameter, Resource} from "./BindingsPlugin";
+import { NamedNode,DataFactory } from 'n3';
+const { namedNode } = DataFactory;
+import { DataStore,  schPref } from '@api-modeling/metadata-store'
+
+const rdfType : NamedNode = namedNode(schPref.rdf + 'type')
+
 import {
     DialectWrapper,
     ModularityDialect,
@@ -16,8 +22,8 @@ import {CIMExporter} from "./cim/exporter";
 import {applyMixins} from "./utils/mixins";
 import {VOCAB} from "./cim/constants";
 
+const df = DataStore.getDataStore()
 export class CIMBindingsPlugin extends BindingsPlugin {
-
     constructor() {
         super();
     }
@@ -184,22 +190,22 @@ export class CIMBindingsPlugin extends BindingsPlugin {
         //finding who doesn't have a binding
         // get all Modules not "boundBy" bindName
         const rootBind = namedNode(bindName)
-        let modsToAnnotate = store.getSubjects(rdfType,this.modName).
-        filter((m : any) => store.getObjects(m, this.boundName).
-            filter((o : any) => store.countQuads(o,rdfType,null,rootBind) > 0).length === 0)
-        modsToAnnotate.forEach((mta : NamedNode) => {
-            let uuid = store.getObjects(mta,this.uuidNN)[0].value
+        let modsToAnnotate = df.store.getSubjects(rdfType,this.modName,null).
+        filter((m : any) => df.store.getObjects(m, this.boundName,null).
+            filter((o : any) => df.store.countQuads(o,rdfType,null,rootBind) > 0).length === 0)
+        modsToAnnotate.forEach((mta) => {
+            let uuid = df.store.getObjects(mta,this.uuidNN,null)[0].value
             let bindingName = this.createBinding(bindName, 'http://mulesoft.com/modeling/instances/bindings/cim/SubjectAreaBinding', uuid)
-            store.addQuad(rootBind, this.binding, namedNode(bindingName), rootBind)
+            df.store.addQuad(rootBind, this.binding, namedNode(bindingName), rootBind)
         })
         // get all DataModels not "boundBy" bindname
-        let dmsToAnnotate : NamedNode[] = store.getSubjects(rdfType,this.dmName).
-        filter((m : NamedNode) => store.getObjects(m, this.boundName).
-            filter((o : NamedNode) => store.countQuads(o,rdfType,null,rootBind) > 0).length === 0)
-        dmsToAnnotate.forEach((mta : NamedNode) => {
-            let uuid = store.getObjects(mta,this.uuidNN)[0].value
+        let dmsToAnnotate = df.store.getSubjects(rdfType,this.dmName,null).
+        filter((m) => df.store.getObjects(m, this.boundName,null).
+            filter((o) => df.store.countQuads(o,rdfType,null,rootBind) > 0).length === 0)
+        dmsToAnnotate.forEach((mta) => {
+            let uuid = df.store.getObjects(mta,this.uuidNN,null)[0].value
             let bindingName = this.createBinding(bindName, 'http://mulesoft.com/modeling/instances/bindings/cim/EntityGroupBinding', uuid)
-            store.addQuad(rootBind, this.binding, namedNode(bindingName), rootBind)
+            df.store.addQuad(rootBind, this.binding, namedNode(bindingName), rootBind)
         })
 
     }
@@ -212,14 +218,14 @@ export class CIMBindingsPlugin extends BindingsPlugin {
     private cimd = namedNode('http://mulesoft.com/modeling/instances/uuid/cim_distribution')
     initBindings(bindUuid: string): string {
         let bn = namedNode('http://mulesoft.com/modeling/bindings/'+bindUuid)
-        store.addQuad(bn, this.uuidNN,bindUuid,bn)
-        store.addQuad(bn, rdfType, this.bindingModel,bn)
+        df.store.addQuad(bn, this.uuidNN,namedNode(bindUuid),bn)
+        df.store.addQuad(bn, rdfType, this.bindingModel,bn)
         let stupid = `file://${process.cwd()}/node_modules/@api-modeling/api-modeling-metadata/model/bindings/schema/modelBindingsDialect.yaml#/declarations/BindingsModel`
-        store.addQuad(bn, rdfType, this.dde,bn)
-        store.addQuad(bn, rdfType, this.de,bn)
-        store.addQuad(bn, rdfType, namedNode(stupid), bn)
-        store.addQuad(bn, this.bd, this.cimNN)
-        store.addQuad(bn, this.bs, this.cimd)
+        df.store.addQuad(bn, rdfType, this.dde,bn)
+        df.store.addQuad(bn, rdfType, this.de,bn)
+        df.store.addQuad(bn, rdfType, namedNode(stupid), bn)
+        df.store.addQuad(bn, this.bd, this.cimNN)
+        df.store.addQuad(bn, this.bs, this.cimd)
         return 'http://mulesoft.com/modeling/bindings/'+bindUuid
       }
 

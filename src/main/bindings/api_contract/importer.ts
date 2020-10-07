@@ -292,7 +292,7 @@ export class APIContractImporter {
     }
 
     private parseGetOperation(newPathParams: amf.model.domain.Parameter[], apiOperation: amf.model.domain.Operation, acc: meta.Entity[], entityMap: {[id: string]: string}): meta.Operation {
-        const operation = new meta.Operation();
+        const operation = new meta.ReadOperation();
         operation.uuid = Md5.hashStr(apiOperation.id).toString();
         operation.isMutation = false;
 
@@ -308,7 +308,7 @@ export class APIContractImporter {
     }
 
     private parseMutableOperation(newPathParams: amf.model.domain.Parameter[], apiOperation: amf.model.domain.Operation, acc: meta.Entity[], entityMap: {[id: string]: string}): meta.Operation {
-        const operation = new meta.Operation();
+        const operation = new meta.UpdateOperation();
         operation.uuid = Md5.hashStr(apiOperation.id).toString();
         operation.isMutation = true;
 

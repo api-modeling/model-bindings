@@ -10,11 +10,20 @@ import {VOCAB} from "./api_contract/constants";
 import {APIContractExporter} from "./api_contract/exporter";
 import {ApiGenerator} from "./utils/apiGenerator";
 
+import { NamedNode,DataFactory } from 'n3';
+const { namedNode } = DataFactory;
+import {  schPref } from '@api-modeling/metadata-store'
+
+const rdfType : NamedNode = namedNode(schPref.rdf + 'type')
+
+
 const  SUPPORTED_FORMATS = [ApiParser.RAML1, ApiParser.OAS3 + ".0", ApiParser.OAS2, ApiParser.AMF_GRAPH, ApiParser.JSON_SCHEMA];
 const SUPPORTED_SYNTAXES = [ApiParser.YAML, ApiParser.JSONLD, ApiParser.JSON]
 
 export class APIContractBindingsPlugin extends BindingsPlugin {
 
+    updateBindings(bindName : string):void{}
+    initBindings(bindUuid: string): string { return '' }
 
     async export(configuration: ConfigurationParameter[], graphs: meta.DialectWrapper[]): Promise<Resource[]> {
         const bindings: meta.ModelBindingsDialect[] = [];
@@ -125,6 +134,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
             return Promise.resolve(allWrappers);
         } catch (e) {
             console.log("ERROR:" + e.message)
+            console.log(e.stack)
             throw e;
         }
     }

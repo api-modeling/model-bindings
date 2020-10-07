@@ -195,7 +195,7 @@ export class CIMImporter {
                         this.genUUID(association, entity, path);
                         this.fillPropertyData(association, minCount, maxCount, description, displayName);
                         const targetEntity = new Entity("");
-                        targetEntity.uuid = entityMap[node.value]
+                        targetEntity.uuid = entityMap[node.value].uuid
                         association.target = targetEntity;
                         associations.push(association)
                     }
