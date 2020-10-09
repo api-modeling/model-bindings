@@ -1,0 +1,98 @@
+#%RAML 1.0
+title: Raml Example API
+baseUri: http://mybaseuri.com
+
+types:
+  attribute:
+    type: object
+    properties:
+      name: string
+      value: string
+  order:
+    type: object
+    properties:
+      date: date-only
+      total: number
+  user:
+    type: object
+    properties:
+      username: string
+      email: string
+
+/api:
+
+  /users:
+    get:
+      displayName: Get users
+      description: Get users
+      responses:
+        200:
+          body:
+            application/json:
+              type: user[]
+    post:
+      displayName: Create user
+      description: Create user
+      body:
+        application/json:
+          type: user
+        application/xml:
+          type: user
+
+    options:
+      description: options request for this resource
+      responses:
+        204:
+
+  /transactionLogs:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+    post:
+      body:
+        application/json:
+      responses:
+        200:
+          body:
+            application/json:
+    options:
+      responses:
+        204:
+    head:
+      responses:
+        204:
+
+  ##This endpoint uses a different base uri.
+  /{CPID}/orders:
+    uriParameters:
+      CPID : string
+    get:
+      description: Gets all orders from a company that match a pattern
+      queryParameters:
+        s : string
+      responses:
+        200:
+          body:
+            application/json:
+              type: order[]
+
+  /files:
+    post:
+      displayName: Upload IP with attributes
+      body:
+        multipart/form:
+          properties:
+            requestid:
+              description: File attributes
+              type: string
+            attributes:
+              description: File attributes
+              type: attribute[]
+            file:
+              description: File to upload
+              type: file
+      responses:
+        200:
+          description: Successful call

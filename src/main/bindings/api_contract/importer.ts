@@ -183,7 +183,7 @@ export class APIContractImporter {
                         resource = new meta.Resource();
                         resource.schema = entity
                     } else {
-                        throw new Error("Cannot process resource schema for endpoint " + endpoint.id)
+                        resource = new meta.Resource();
                     }
                 }
             }
@@ -377,7 +377,7 @@ export class APIContractImporter {
             if (inputPayload != null) {
                 const inputPayloadParam = new meta.OperationParameter();
                 inputPayloadParam.uuid = Md5.hashStr(`${apiOperation.id}inputPayloadParam`).toString()
-                const inputPayloadSchema = this.parseParamShape(inputPayload.schema, acc, entityMap)
+                const inputPayloadSchema = this.parseParamShape(inputPayload.schema, true, acc, entityMap)
                 if (inputPayloadSchema.schema instanceof Scalar) {
                     inputPayloadParam.scalarRange = inputPayloadSchema.schema
                 } else {
@@ -415,7 +415,7 @@ export class APIContractImporter {
 
             this.buildResponseBindings(maybeResponse, payload, operation, bindings);
 
-            let payloadSchema = this.parseParamShape(payload.schema, acc, entityMap);
+            let payloadSchema = this.parseParamShape(payload.schema, true, acc, entityMap);
             if (payloadSchema.schema instanceof Scalar) {
                 outputParam.scalarRange = payloadSchema.schema;
             } else {
@@ -437,7 +437,7 @@ export class APIContractImporter {
         param.required = p.required.option || false;
 
         if (p.schema != null) {
-            const payloadSchema = this.parseParamShape(p.schema, acc, entityMap)
+            const payloadSchema = this.parseParamShape(p.schema, false, acc, entityMap)
             if (payloadSchema.schema instanceof Scalar) {
                 param.scalarRange = payloadSchema.schema
             } else {
@@ -452,7 +452,7 @@ export class APIContractImporter {
         return param;
     }
 
-    private parseParamShape(schema: amf.model.domain.Shape, acc: meta.Entity[], entityMap: {[id: string]: string}): ParsedShape {
+    private parseParamShape(schema: amf.model.domain.Shape, isBody: boolean, acc: meta.Entity[], entityMap: {[id: string]: string}): ParsedShape {
         const isArray = (schema instanceof amf.model.domain.ArrayShape);
 
         if (isArray) {
@@ -467,7 +467,14 @@ export class APIContractImporter {
             if (parsed != null) {
                 return { allowMultiple: isArray, schema: parsed}
             } else {
-                throw new Error("Parsing of object entity parameter failed");
+                if (isBody) {
+                    const fakeBody = new meta.Entity(this.genName(schema.name.option || "Body"))
+                    return {allowMultiple: isArray, schema: fakeBody }   
+                } else {
+                    const fakeProp = new amf.model.domain.PropertyShape().withRange(new amf.model.domain.ScalarShape().withDataType(VOCAB.XSD_STRING)).withId(schema.id + "_fake_prop");
+                    const attr = this.parseAttribute(fakeProp);
+                    return {allowMultiple: isArray,schema:  attr.range }   
+                }                
             }
         }
     }
@@ -598,11 +605,15 @@ export class APIContractImporter {
                     scalarProperties.push(property)
                 } else if (this.isObjectShape(arrayShape.items)) {
                     objectProperties.push(property)
+                } else if (this.isIgnoredShape(arrayShape.items)) {
+                    return;
                 } else {
                     // @todo
                     // throw new Error(`Unsupported property range array items shape ${arrayShape.items}`);
                     console.log(`Not supported type ${property.id} -> ${arrayShape.items}`)
                 }
+            } else if (this.isIgnoredShape(property.range)) {
+                return;
             } else {
                 // @todo
                 // throw new Error(`Unsupported property range shape ${property.range}`);
@@ -623,6 +634,14 @@ export class APIContractImporter {
 
     private isScalarShape(shape: amf.model.domain.Shape): boolean {
         return shape instanceof amf.model.domain.ScalarShape;
+    }
+
+    private isIgnoredShape(shape: amf.model.domain.Shape): boolean {
+        if (shape instanceof amf.model.domain.FileShape || shape instanceof amf.model.domain.AnyShape) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

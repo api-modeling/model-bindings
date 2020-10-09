@@ -177,16 +177,16 @@ describe('APIBindingsPlugin', function() {
         const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
 
         config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
-        const generated = await apiPlugin.export(config, parsed);
-        assert(generated.length === 3);
-        /*
+        const generated = await apiPlugin.export(config, parsed);    
+/*
         generated.forEach((g) => {
             console.log(g.url)
             console.log("------------------")
             console.log(g.text)
             console.log("\n\n")
         })
-         */
+*/
+        assert(generated.length === 3);        
     });
 
 });
