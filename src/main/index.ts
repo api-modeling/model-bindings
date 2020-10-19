@@ -2,6 +2,8 @@
 import {ApiParser} from "./bindings/utils/apiParser";
 import { ApiGenerator } from "./bindings/utils/apiGenerator";
 import { PluginController } from './bindings/PluginController'
+import { CIMBindingsPlugin } from './bindings/CIMBindingsPlugin'
+import { APIContractBindingsPlugin } from './bindings/APIContractBindingsPlugin'
 const Writer = require('n3').Writer;
 
 const deepEqual = require('deep-equal')

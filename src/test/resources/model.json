@@ -3082,7 +3082,7 @@
           "description": "Example Entities included: Lead, Lead Status, Lead Source",
           "classConcepts": [
             {
-              "@id": "Lead",
+              "@id": "Lead/Lead",
               "name": "Lead",
               "@type": "Class",
               "description": "A person or company that showed interest in the company's products"
@@ -3464,84 +3464,83 @@
           "description": "Example Entities included: Organization, Individual, Affiliate Group, Uncategorized",
           "classConcepts": [
             {
-              "@id": "Party",
+              "@id": "Party/Party",
               "name": "Party",
               "@type": "Class",
               "description": "A unified, in system, definition of who you are dealing with e.g. John Doe, Northern Trail Outfitters and can be of different types e.g. individual, business, affiliation group."
             },
             {
-              "@id": "Individual",
+              "@id": "Party/Individual",
               "name": "Individual",
               "@type": "Class",
               "subClassOf": "Party",
               "description": "Represent the person you are, or will be, dealing with using the system"
             },
             {
-              "@id": "Household",
+              "@id": "Party/Household",
               "name": "Household",
-
               "@type": "Class",
               "subClassOf": "Party",
               "description": "A combination of people, normally recorded in the system for marketing or service purposes"
             },
             {
-              "@id": "InternalBusinessUnit",
+              "@id": "Party/InternalBusinessUnit",
               "name": "Internal Business Unit",
               "@type": "Class",
               "subClassOf": "Party",
               "description": "Defining a part of your own internal organization. May be anything from a holding company, a line of business, a country division, a department and for which you may want to track e.g. if it is a legal entity, default GL Code, profit-and-loss etc against."
             },
             {
-              "@id": "UncategorizedParty",
+              "@id": "Party/UncategorizedParty",
               "name": "Uncategorized Party",
               "@type": "Class",
               "subClassOf": "Party",
               "description": "A party we may be, or will be, dealing with but we do not know who they are yet e.g. Social Handle 'TrustedNews' which we do not yet know if a person or a business but complain about our company so we want to log a case to investigate further. E.g. an ord"
             },
             {
-              "@id": "PartyAdditionalName",
+              "@id": "Party/PartyAdditionalName",
               "name": "Party Additional Name",
               "@type": "Class",
               "description": "Under what name is a person also known as( AKA), under what alternate name is a business doing business as (DBA)"
             },
             {
-              "@id": "PersonLanguage",
+              "@id": "Party/PersonLanguage",
               "name": "Person Language",
               "@type": "Class",
               "description": "Languages a person can comprehend and level of comprehension"
             },
             {
-              "@id": "PartyRelatedParty",
+              "@id": "Party/PartyRelatedParty",
               "name": "Party Related Party",
               "@type": "Class",
               "description": "Relates any two parties together e.g. Jane and John Doe part of The Doe Household"
             },
             {
-              "@id": "PartyRelationshipType",
+              "@id": "Party/PartyRelationshipType",
               "name": "Party Relationship Type",
               "@type": "Class",
               "description": "Define name of a relationship and how to read the relationship both ways e.g. household for / household member of"
             },
             {
-              "@id": "PartyIdentification",
+              "@id": "Party/PartyIdentification",
               "name": "Party Identification",
               "@type": "Class",
               "description": "Set of ways to identify a party e.g. driving license, birth certificate"
             },
             {
-              "@id": "PersonEmployment",
+              "@id": "Party/PersonEmployment",
               "name": "Person Employment",
               "@type": "Class",
               "description": "Information about an employee"
             },
             {
-              "@id": "PersonLifeEvent",
+              "@id": "Party/PersonLifeEvent",
               "name": "Person Life Event",
               "@type": "Class",
               "description": "Major events a person had in their lives e.g. graudation date, marriage date"
             },
             {
-              "@id": "PersonEducation",
+              "@id": "Party/PersonEducation",
               "name": "Person Education",
               "@type": "Class",
               "description": "Education a person has e.g. Phd, High School"
@@ -4141,7 +4140,6 @@
                 "Individual"
               ]
             },
-
             {
               "@id": "photoURL",
               "@type": "Property",
@@ -8578,37 +8576,37 @@
               "description": "Product groups e.g. mobile phone package include phone, call plan and charger"
             },
             {
-              "@id": "ProductTranslation",
+              "@id": "Product/ProductTranslation",
               "name": "Product Translation",
               "@type": "Class",
               "description": "Translated attributes for a product"
             },
             {
-              "@id": "ProductRelatedProduct",
+              "@id": "Product/ProductRelatedProduct",
               "name": "Product Related Product",
               "@type": "Class",
               "description": "A grouping of products such as a product bundle"
             },
             {
-              "@id": "ProductRelationshipType",
+              "@id": "Product/ProductRelationshipType",
               "name": "Product Relationship Type",
               "@type": "Class",
               "description": "What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of"
             },
             {
-              "@id": "ProductImage",
+              "@id": "Product/ProductImage",
               "name": "Product Image",
               "@type": "Class",
               "description": "Images of a product"
             },
             {
-              "@id": "ProductImageTranslation",
+              "@id": "Product/ProductImageTranslation",
               "name": "Product Image Translation",
               "@type": "Class",
               "description": "Translated attributes for a product image"
             },
             {
-              "@id": "Brand",
+              "@id": "Product/Brand",
               "name": "Brand",
               "@type": "Class",
               "description": "What is the brand of the product e.g. Snike shoes"
@@ -11244,7 +11242,7 @@
               "description": "One or more Payments having the same Payment Method, that have been applied to a single Sales Order."
             },
             {
-              "@id": "SalesChannel",
+              "@id": "SalesOrder/SalesChannel",
               "name": "Sales Channel",
               "@type": "Class",
               "description": "Which channel is used to sell goods e.g. Web Store, Retail Store, Street Faire"
@@ -11366,13 +11364,13 @@
               "description": "The progress of a delivery such as awaiting pickup, in progress or complete"
             },
             {
-              "@id": "ProductRelationshipType2",
+              "@id": "SalesOrder/ProductRelationshipType2",
               "name": "Sales Order Product Relationship Type",
               "@type": "Class",
               "description": "Reasons why products are related such as bundle, option or covering"
             },
             {
-              "@id": "SalesOrderProductGroup",
+              "@id": "SalesOrder/SalesOrderProductGroup",
               "name": "Sales Order Product Group",
               "@type": "Class",
               "description": "Products may be grouped together for various reasons, such as products that should be shipped together. Every product in a Sales Order Product Group is not required to be a Sales Order Product."

@@ -41,7 +41,7 @@ describe('CIMBindingsPlugin', function() {
         await graph.loadGraph(textData, store);
 
         const storeParsed = graph.store();
-        await graph.loadGraph(generated[0].text, storeParsed);
+        await graph.loadGraph(generated[0].text ? generated[0].text : '', storeParsed);
 
         fs.writeFileSync(textUrl.replace(".jsonld", ".json"), generated[0].text);
 
