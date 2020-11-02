@@ -81,31 +81,31 @@
           "description": "Example Entities included: Account, Account Contact, Bill Frequency",
           "classConcepts": [
             {
-              "@id": "Account/Account",
+              "@id": "Account",
               "name": "Account",
               "@type": "Class",
               "description": "How the party want to interact with your enterprise e.g. have multiple billing accounts"
             },
             {
-              "@id": "Account/AccountContact",
+              "@id": "AccountContact",
               "name": "Account Contact",
               "@type": "Class",
               "description": "An individual who has a role specific to an Account."
             },
             {
-              "@id": "Account/AccountContactRole",
+              "@id": "AccountContactRole",
               "name": "Account Contact Role",
               "@type": "Class",
               "description": "What role does a contact play on an account e.g. decision maker, influencer"
             },
             {
-              "@id": "Account/AccountPartner",
+              "@id": "AccountPartner",
               "name": "Account Partner",
               "@type": "Class",
               "description": "State what partner (account) is related to/have access to another account"
             },
             {
-              "@id": "Account/BillingFrequency",
+              "@id": "BillingFrequency",
               "name": "Billing Frequency",
               "@type": "Class",
               "description": "Describes a period of time used for recurring bills e.g. monthly or semi-monthly"
@@ -294,99 +294,7 @@
               ]
             },
             {
-              "@id": "autoPaymentMethod",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "billFrequency",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "billContactAddress",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
               "@id": "parentAccount",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "orderDeliveryMethod",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "shippingAddress",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "shippingEmail",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "shippingPhoneid",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "shippingContact",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "faxPhone",
-              "@type": "Property",
-              "domain": [
-                "Account",
-                "AccountContact"
-              ]
-            },
-            {
-              "@id": "salesPhone",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "primarySalesContactPoint",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "partyRole",
-              "@type": "Property",
-              "domain": [
-                "Account"
-              ]
-            },
-            {
-              "@id": "party",
               "@type": "Property",
               "domain": [
                 "Account"
@@ -436,55 +344,6 @@
             },
             {
               "@id": "reportsToAccountContact",
-              "@type": "Property",
-              "domain": [
-                "AccountContact"
-              ]
-            },
-            {
-              "@id": "otherContactAddress",
-              "@type": "Property",
-              "domain": [
-                "AccountContact"
-              ]
-            },
-            {
-              "@id": "mailingAddress",
-              "@type": "Property",
-              "domain": [
-                "AccountContact"
-              ]
-            },
-            {
-              "@id": "mobilePhone",
-              "@type": "Property",
-              "domain": [
-                "AccountContact"
-              ]
-            },
-            {
-              "@id": "businessPhone",
-              "@type": "Property",
-              "domain": [
-                "AccountContact"
-              ]
-            },
-            {
-              "@id": "homePhone",
-              "@type": "Property",
-              "domain": [
-                "AccountContact"
-              ]
-            },
-            {
-              "@id": "contactEmail",
-              "@type": "Property",
-              "domain": [
-                "AccountContact"
-              ]
-            },
-            {
-              "@id": "individual",
               "@type": "Property",
               "domain": [
                 "AccountContact"
@@ -680,60 +539,8 @@
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
-                  "path": "autoPaymentMethod",
-                  "http://www.w3.org/ns/shacl#node": "PaymentMethod"
-                },
-                {
-                  "path": "billFrequency",
-                  "http://www.w3.org/ns/shacl#node": "BillingFrequency"
-                },
-                {
-                  "path": "billContactAddress",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointAddress"
-                },
-                {
                   "path": "parentAccount",
                   "http://www.w3.org/ns/shacl#node": "Account"
-                },
-                {
-                  "path": "orderDeliveryMethod",
-                  "http://www.w3.org/ns/shacl#node": "OrderDeliveryMethod"
-                },
-                {
-                  "path": "shippingAddress",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointAddress"
-                },
-                {
-                  "path": "shippingEmail",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointEmail"
-                },
-                {
-                  "path": "shippingPhoneid",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
-                },
-                {
-                  "path": "shippingContact",
-                  "http://www.w3.org/ns/shacl#node": "AccountContact"
-                },
-                {
-                  "path": "faxPhone",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
-                },
-                {
-                  "path": "salesPhone",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
-                },
-                {
-                  "path": "primarySalesContactPoint",
-                  "http://www.w3.org/ns/shacl#node": "ContactPoint"
-                },
-                {
-                  "path": "partyRole",
-                  "http://www.w3.org/ns/shacl#node": "PartyRole"
-                },
-                {
-                  "path": "party",
-                  "http://www.w3.org/ns/shacl#node": "Party"
                 }
               ]
             },
@@ -784,39 +591,6 @@
                 {
                   "path": "reportsToAccountContact",
                   "http://www.w3.org/ns/shacl#node": "AccountContact"
-                },
-                {
-                  "path": "otherContactAddress",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointAddress"
-                },
-                {
-                  "path": "mailingAddress",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointAddress"
-                },
-                {
-                  "path": "mobilePhone",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
-                },
-                {
-                  "path": "faxPhone",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
-                },
-                {
-                  "path": "businessPhone",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
-                },
-                {
-                  "path": "homePhone",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
-                },
-                {
-                  "path": "contactEmail",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointEmail"
-                },
-                {
-                  "path": "individual",
-                  "http://www.w3.org/ns/shacl#node": "Individual",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 },
                 {
                   "path": "account",
@@ -915,61 +689,61 @@
           "description": "Example Entities included: Contact Point, Contact Consent, Contact Channel",
           "classConcepts": [
             {
-              "@id": "ContactPoint/ContactPointAddress",
+              "@id": "ContactPointAddress",
               "name": "Contact Point Address",
               "@type": "Class",
               "subClassOf": "ContactPoint",
               "description": "Mailing address for a party e.g. 123 Main St, Big City, CA12345, USA"
             },
             {
-              "@id": "ContactPoint/ContactPointEmail",
+              "@id": "ContactPointEmail",
               "name": "Contact Point Email",
               "@type": "Class",
               "subClassOf": "ContactPoint",
               "description": "Email address for a party e.g. email info@northerntrailoutfitters.com"
             },
             {
-              "@id": "ContactPoint/ContactPointPhone",
+              "@id": "ContactPointPhone",
               "name": "Contact Point Phone",
               "@type": "Class",
               "subClassOf": "ContactPoint",
               "description": "Phone number for a party e.g. phone 123-4567"
             },
             {
-              "@id": "ContactPoint/ContactPoint",
+              "@id": "ContactPoint",
               "name": "Contact Point",
               "@type": "Class",
               "description": "All contact points for a party e.g. phone 123-4567, email info@northerntrailoutfitters.com"
             },
             {
-              "@id": "ContactPoint/PartyWebAddress",
+              "@id": "PartyWebAddress",
               "name": "Party Web Address",
               "@type": "Class",
               "subClassOf": "ContactPoint",
               "description": "What is the Web URL for the Party"
             },
             {
-              "@id": "ContactPoint/ContactPointType",
+              "@id": "ContactPointType",
               "name": "Contact Point Type",
               "@type": "Class",
               "description": "Contain the fixed list of types a contact point can be of e.g. phone, email"
             },
             {
-              "@id": "ContactPoint/ContactPointSocial",
+              "@id": "ContactPointSocial",
               "name": "Contact Point Social",
               "@type": "Class",
               "subClassOf": "ContactPoint",
               "description": "Social handle for a party e.g. trustednews at twitter"
             },
             {
-              "@id": "ContactPoint/ContactPointLocation",
+              "@id": "ContactPointLocation",
               "name": "Contact Point Location",
               "@type": "Class",
               "subClassOf": "ContactPoint",
               "description": "Physical location for a party e.g. party Northern Trail Outfitters at Standford Shopping Mall"
             },
             {
-              "@id": "ContactPoint/ContactPointApp",
+              "@id": "ContactPointApp",
               "name": "Contact Point App",
               "@type": "Class",
               "subClassOf": "ContactPoint",
@@ -1082,13 +856,6 @@
                 "ContactPointSocial",
                 "ContactPointLocation",
                 "ContactPointApp"
-              ]
-            },
-            {
-              "@id": "contactPhone",
-              "@type": "Property",
-              "domain": [
-                "ContactPointAddress"
               ]
             },
             {
@@ -1274,28 +1041,6 @@
               ]
             },
             {
-              "@id": "contactPointType",
-              "@type": "Property",
-              "domain": [
-                "ContactPoint"
-              ]
-            },
-            {
-              "@id": "partyRole",
-              "@type": "Property",
-              "domain": [
-                "ContactPoint"
-              ]
-            },
-            {
-              "@id": "party",
-              "@type": "Property",
-              "domain": [
-                "ContactPoint",
-                "PartyWebAddress"
-              ]
-            },
-            {
               "@id": "webSiteURL",
               "@type": "Property",
               "domain": [
@@ -1446,10 +1191,6 @@
                       "datatype": "http://cloudinformationmodel.org/model/id",
                       "http://www.w3.org/ns/shacl#minCount": 1,
                       "http://www.w3.org/ns/shacl#maxCount": 1
-                    },
-                    {
-                      "path": "contactPhone",
-                      "http://www.w3.org/ns/shacl#node": "ContactPointPhone"
                     }
                   ]
                 }
@@ -1651,20 +1392,6 @@
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
-                },
-                {
-                  "path": "contactPointType",
-                  "http://www.w3.org/ns/shacl#node": "ContactPointType",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "partyRole",
-                  "http://www.w3.org/ns/shacl#node": "PartyRole"
-                },
-                {
-                  "path": "party",
-                  "http://www.w3.org/ns/shacl#node": "Party",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
@@ -1688,11 +1415,6 @@
                       "datatype": "http://cloudinformationmodel.org/model/id",
                       "http://www.w3.org/ns/shacl#minCount": 1,
                       "http://www.w3.org/ns/shacl#maxCount": 1
-                    },
-                    {
-                      "path": "party",
-                      "http://www.w3.org/ns/shacl#node": "Party",
-                      "http://www.w3.org/ns/shacl#minCount": 1
                     }
                   ]
                 }
@@ -1833,41 +1555,41 @@
           "description": "Example Entities included: Party Role, Buyer Role, Actor Role, Customer Role",
           "classConcepts": [
             {
-              "@id": "PartyRole/PartyRole",
+              "@id": "PartyRole",
               "name": "Party Role",
               "@type": "Class",
               "description": "Trading roles a party may play at the same time i.e. Customer, Supplier, Seller, Competitor, Worker"
             },
             {
-              "@id": "PartyRole/Customer",
+              "@id": "Customer",
               "name": "Customer",
               "@type": "Class",
               "subClassOf": "PartyRole",
               "description": "Information about a party playing role of customer e.g. life time value, life cycle status"
             },
             {
-              "@id": "PartyRole/Seller",
+              "@id": "Seller",
               "name": "Seller",
               "@type": "Class",
               "subClassOf": "PartyRole",
               "description": "Information about a party playing role of seller e.g. customer satisfaction score"
             },
             {
-              "@id": "PartyRole/Supplier",
+              "@id": "Supplier",
               "name": "Supplier",
               "@type": "Class",
               "subClassOf": "PartyRole",
               "description": "Information about a party playing role of supplier e.g. vendor ranking"
             },
             {
-              "@id": "PartyRole/Competitor",
+              "@id": "Competitor",
               "name": "Competitor",
               "@type": "Class",
               "subClassOf": "PartyRole",
               "description": "Information about a party playing role of competitor e.g. strength (in products), weaknesses (in offerings), opportunities (to overtake), threats (to our business)"
             },
             {
-              "@id": "PartyRole/CustomerStatusHistory",
+              "@id": "CustomerStatusHistory",
               "name": "Customer Status History",
               "@type": "Class",
               "description": "History of when customer changed frome one status to another"
@@ -1884,13 +1606,6 @@
                 "Supplier",
                 "Competitor",
                 "CustomerStatusHistory"
-              ]
-            },
-            {
-              "@id": "party",
-              "@type": "Property",
-              "domain": [
-                "PartyRole"
               ]
             },
             {
@@ -2516,11 +2231,6 @@
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
-                },
-                {
-                  "path": "party",
-                  "http://www.w3.org/ns/shacl#node": "Party",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
@@ -3082,7 +2792,7 @@
           "description": "Example Entities included: Lead, Lead Status, Lead Source",
           "classConcepts": [
             {
-              "@id": "Lead/Lead",
+              "@id": "Lead",
               "name": "Lead",
               "@type": "Class",
               "description": "A person or company that showed interest in the company's products"
@@ -3464,83 +3174,83 @@
           "description": "Example Entities included: Organization, Individual, Affiliate Group, Uncategorized",
           "classConcepts": [
             {
-              "@id": "Party/Party",
+              "@id": "Party",
               "name": "Party",
               "@type": "Class",
               "description": "A unified, in system, definition of who you are dealing with e.g. John Doe, Northern Trail Outfitters and can be of different types e.g. individual, business, affiliation group."
             },
             {
-              "@id": "Party/Individual",
+              "@id": "Individual",
               "name": "Individual",
               "@type": "Class",
               "subClassOf": "Party",
               "description": "Represent the person you are, or will be, dealing with using the system"
             },
             {
-              "@id": "Party/Household",
+              "@id": "Household",
               "name": "Household",
               "@type": "Class",
               "subClassOf": "Party",
               "description": "A combination of people, normally recorded in the system for marketing or service purposes"
             },
             {
-              "@id": "Party/InternalBusinessUnit",
+              "@id": "InternalBusinessUnit",
               "name": "Internal Business Unit",
               "@type": "Class",
               "subClassOf": "Party",
               "description": "Defining a part of your own internal organization. May be anything from a holding company, a line of business, a country division, a department and for which you may want to track e.g. if it is a legal entity, default GL Code, profit-and-loss etc against."
             },
             {
-              "@id": "Party/UncategorizedParty",
+              "@id": "UncategorizedParty",
               "name": "Uncategorized Party",
               "@type": "Class",
               "subClassOf": "Party",
               "description": "A party we may be, or will be, dealing with but we do not know who they are yet e.g. Social Handle 'TrustedNews' which we do not yet know if a person or a business but complain about our company so we want to log a case to investigate further. E.g. an ord"
             },
             {
-              "@id": "Party/PartyAdditionalName",
+              "@id": "PartyAdditionalName",
               "name": "Party Additional Name",
               "@type": "Class",
               "description": "Under what name is a person also known as( AKA), under what alternate name is a business doing business as (DBA)"
             },
             {
-              "@id": "Party/PersonLanguage",
+              "@id": "PersonLanguage",
               "name": "Person Language",
               "@type": "Class",
               "description": "Languages a person can comprehend and level of comprehension"
             },
             {
-              "@id": "Party/PartyRelatedParty",
+              "@id": "PartyRelatedParty",
               "name": "Party Related Party",
               "@type": "Class",
               "description": "Relates any two parties together e.g. Jane and John Doe part of The Doe Household"
             },
             {
-              "@id": "Party/PartyRelationshipType",
+              "@id": "PartyRelationshipType",
               "name": "Party Relationship Type",
               "@type": "Class",
               "description": "Define name of a relationship and how to read the relationship both ways e.g. household for / household member of"
             },
             {
-              "@id": "Party/PartyIdentification",
+              "@id": "PartyIdentification",
               "name": "Party Identification",
               "@type": "Class",
               "description": "Set of ways to identify a party e.g. driving license, birth certificate"
             },
             {
-              "@id": "Party/PersonEmployment",
+              "@id": "PersonEmployment",
               "name": "Person Employment",
               "@type": "Class",
               "description": "Information about an employee"
             },
             {
-              "@id": "Party/PersonLifeEvent",
+              "@id": "PersonLifeEvent",
               "name": "Person Life Event",
               "@type": "Class",
               "description": "Major events a person had in their lives e.g. graudation date, marriage date"
             },
             {
-              "@id": "Party/PersonEducation",
+              "@id": "PersonEducation",
               "name": "Person Education",
               "@type": "Class",
               "description": "Education a person has e.g. Phd, High School"
@@ -4148,13 +3858,6 @@
               ]
             },
             {
-              "@id": "primaryHousehold",
-              "@type": "Property",
-              "domain": [
-                "Individual"
-              ]
-            },
-            {
               "@id": "householdDissolvedDate",
               "@type": "Property",
               "domain": [
@@ -4276,13 +3979,6 @@
             },
             {
               "@id": "relatedFromDate",
-              "@type": "Property",
-              "domain": [
-                "PartyRelatedParty"
-              ]
-            },
-            {
-              "@id": "partyRelationshipType",
               "@type": "Property",
               "domain": [
                 "PartyRelatedParty"
@@ -4957,10 +4653,6 @@
                       "datatype": "http://cloudinformationmodel.org/model/id",
                       "http://www.w3.org/ns/shacl#minCount": 1,
                       "http://www.w3.org/ns/shacl#maxCount": 1
-                    },
-                    {
-                      "path": "primaryHousehold",
-                      "http://www.w3.org/ns/shacl#node": "Household"
                     }
                   ]
                 }
@@ -5158,11 +4850,6 @@
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
-                },
-                {
-                  "path": "partyRelationshipType",
-                  "http://www.w3.org/ns/shacl#node": "PartyRelationshipType",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 },
                 {
                   "path": "relatedParty",
@@ -5465,168 +5152,168 @@
           "description": "Example Entities included: Payment, Payment Group, Payment Authorization, Payment Gateway",
           "classConcepts": [
             {
-              "@id": "Payment/Payment",
+              "@id": "Payment",
               "name": "Payment",
               "@type": "Class",
               "description": "An amount of currency paid."
             },
             {
-              "@id": "Payment/CapturePayment",
+              "@id": "CapturePayment",
               "name": "Capture Payment",
               "@type": "Class",
               "subClassOf": "Payment",
               "description": "The transfer of money from the customer's account to the merchant's account."
             },
             {
-              "@id": "Payment/RefundPayment",
+              "@id": "RefundPayment",
               "name": "Refund Payment",
               "@type": "Class",
               "subClassOf": "Payment",
               "description": "Represents a repayment made, typically to a customer who isn’t satisfied with the goods or services purchased. Refunds are typically made after a payment has already been received from customers"
             },
             {
-              "@id": "Payment/PaymentPolicy",
+              "@id": "PaymentPolicy",
               "name": "Payment Policy",
               "@type": "Class",
               "description": "This entity stores policy information for an org or an account which can be used to automate the process of payment application to invoice based on business needs."
             },
             {
-              "@id": "Payment/RefundCreditMemoAllocation",
+              "@id": "RefundCreditMemoAllocation",
               "name": "Refund Credit Memo Allocation",
               "@type": "Class",
               "subClassOf": "RefundAllocation",
               "description": "Facilitates applying/unapplying refund balance to a credit memo."
             },
             {
-              "@id": "Payment/RefundAllocation",
+              "@id": "RefundAllocation",
               "name": "Refund Allocation",
               "@type": "Class",
               "description": "Facilitates applying/unapplying a capture payment, or a credit memo to a Refund Payment."
             },
             {
-              "@id": "Payment/PaymentGroup",
+              "@id": "PaymentGroup",
               "name": "Payment Group",
               "@type": "Class",
               "description": "Payment Group provides a way to associate payments and payment gateway events, where the payment is not associated with a Sales Order."
             },
             {
-              "@id": "Payment/PaymentTreatmentMethod",
+              "@id": "PaymentTreatmentMethod",
               "name": "Payment Treatment Method",
               "@type": "Class",
               "description": "Represents a specific algorithm or method to apply. For example - pay for taxes first, pay for charges first, pay for oldest due invoice first etc. It can also point to a rule based on which application can be done. Treatment has a method."
             },
             {
-              "@id": "Payment/PaymentTreatment",
+              "@id": "PaymentTreatment",
               "name": "Payment Treatment",
               "@type": "Class",
               "description": "This entity has the information which controls the way in which payment can be applied based on a legal entity or workflow. A policy has multiple treatments associated."
             },
             {
-              "@id": "Payment/PaymentAuthorization",
+              "@id": "PaymentAuthorization",
               "name": "Payment Authorization",
               "@type": "Class",
               "description": "An approval from the issuer of a payment instrument (usually a card), that the customer has sufficient funds to cover the cost of the transaction."
             },
             {
-              "@id": "Payment/PaymentGatewayAuthReversalLog",
+              "@id": "PaymentGatewayAuthReversalLog",
               "name": "Payment Gateway Authorization Reversal Log",
               "@type": "Class",
               "subClassOf": "PaymentGateway Interaction Log",
               "description": "A log record of all requests made to financial institutions, made via the payment gateway, to cancel payment authorizations."
             },
             {
-              "@id": "Payment/PaymentGatewayInteractionLog",
+              "@id": "PaymentGatewayInteractionLog",
               "name": "Payment Gateway Interaction Log",
               "@type": "Class",
               "description": "A log record of all messages exchanged with merchants made via the payment gateway, for authorizations and payments."
             },
             {
-              "@id": "Payment/PaymentGatewayPaymentLog",
+              "@id": "PaymentGatewayPaymentLog",
               "name": "Payment Gateway Payment Log",
               "@type": "Class",
               "subClassOf": "PaymentGateway Interaction Log",
               "description": "A log record of all messages originating with financial institutions that previously provided payment authorizations, that payments have been deducted from customers' accounts."
             },
             {
-              "@id": "Payment/PaymentGatewayAuthorizationLog",
+              "@id": "PaymentGatewayAuthorizationLog",
               "name": "Payment Gateway Authorization Log",
               "@type": "Class",
               "subClassOf": "PaymentGateway Interaction Log",
               "description": "A log record of all requests made to financial institutions, made via the payment gateway, to authorize payments."
             },
             {
-              "@id": "Payment/PaymentGatewayInteractionType",
+              "@id": "PaymentGatewayInteractionType",
               "name": "Payment Gateway Interaction Type",
               "@type": "Class",
               "description": "Reasons for accessing the Payment Gateway, including authorization, Sale and Void."
             },
             {
-              "@id": "Payment/PaymentGateway",
+              "@id": "PaymentGateway",
               "name": "Payment Gateway",
               "@type": "Class",
               "description": "Holds the payment gateway merchant details which are used to interact external payment systems."
             },
             {
-              "@id": "Payment/PaymentGatewayProvider",
+              "@id": "PaymentGatewayProvider",
               "name": "Payment Gateway Provider",
               "@type": "Class",
               "description": "Stores class details needed for maintaining Apex adapter."
             },
             {
-              "@id": "Payment/PaymentGatewayResultCode",
+              "@id": "PaymentGatewayResultCode",
               "name": "Payment Gateway Result Code",
               "@type": "Class",
               "description": "The response from the Payment Gateway."
             },
             {
-              "@id": "Payment/PaymentApplication",
+              "@id": "PaymentApplication",
               "name": "Payment Application",
               "@type": "Class",
               "description": "The designation of part or all of a Payment to satisfy a claim on the payment funds."
             },
             {
-              "@id": "Payment/PaymentInvoiceApplication",
+              "@id": "PaymentInvoiceApplication",
               "name": "Payment Invoice Application",
               "@type": "Class",
               "subClassOf": "PaymentApplication",
               "description": "Facilitates applying/unapplying payment balance to an Invoice."
             },
             {
-              "@id": "Payment/PaymentAllocation",
+              "@id": "PaymentAllocation",
               "name": "Payment Allocation",
               "@type": "Class",
               "description": "A Payment Application may be further broken down, to allocate payment funds to one or more line items within an Invoice or Credit Memo"
             },
             {
-              "@id": "Payment/PaymentCreditMemoApplication",
+              "@id": "PaymentCreditMemoApplication",
               "name": "Payment Credit Memo Application",
               "@type": "Class",
               "subClassOf": "PaymentApplication",
               "description": "Facilitates applying/unapplying payment balance to a credit memo."
             },
             {
-              "@id": "Payment/PaymentCreditMemoAllocation",
+              "@id": "PaymentCreditMemoAllocation",
               "name": "Payment Credit Memo Allocation",
               "@type": "Class",
               "subClassOf": "PaymentAllocation",
               "description": "Facilitates applying a Payment Application to the line items of a Credit Memo."
             },
             {
-              "@id": "Payment/PaymentInvoiceAllocation",
+              "@id": "PaymentInvoiceAllocation",
               "name": "Payment Invoice Allocation",
               "@type": "Class",
               "subClassOf": "PaymentAllocation",
               "description": "Facilitates applying a Payment Application to the line items of an Invoice."
             },
             {
-              "@id": "Payment/RefundPaymentAllocation",
+              "@id": "RefundPaymentAllocation",
               "name": "Refund Payment Allocation",
               "@type": "Class",
               "subClassOf": "RefundAllocation",
               "description": "Facilitates applying/unapplying refund balance to a payment."
             },
             {
-              "@id": "Payment/PaymentAuthorizationReversal",
+              "@id": "PaymentAuthorizationReversal",
               "name": "Payment Authorization Reversal",
               "@type": "Class",
               "description": "An authorization reversal is a message that alerts the issuer that part or all of a sale has been cancelled and the authorization hold should be rescinded."
@@ -5851,37 +5538,6 @@
               ]
             },
             {
-              "@id": "salesOrderPaymentSummary",
-              "@type": "Property",
-              "domain": [
-                "Payment",
-                "PaymentAuthorization"
-              ]
-            },
-            {
-              "@id": "paymentGroup",
-              "@type": "Property",
-              "domain": [
-                "Payment",
-                "PaymentAuthorization"
-              ]
-            },
-            {
-              "@id": "paymentGateway",
-              "@type": "Property",
-              "domain": [
-                "Payment",
-                "PaymentAuthorization"
-              ]
-            },
-            {
-              "@id": "paymentTreatment",
-              "@type": "Property",
-              "domain": [
-                "Payment"
-              ]
-            },
-            {
               "@id": "internalBusinessUnit",
               "@type": "Property",
               "domain": [
@@ -5890,20 +5546,6 @@
             },
             {
               "@id": "account",
-              "@type": "Property",
-              "domain": [
-                "Payment"
-              ]
-            },
-            {
-              "@id": "paymentMethod",
-              "@type": "Property",
-              "domain": [
-                "Payment"
-              ]
-            },
-            {
-              "@id": "latestGatewayResultCode",
               "@type": "Property",
               "domain": [
                 "Payment"
@@ -5928,15 +5570,6 @@
               "@type": "Property",
               "domain": [
                 "CapturePayment"
-              ]
-            },
-            {
-              "@id": "paymentAuthorization",
-              "@type": "Property",
-              "domain": [
-                "CapturePayment",
-                "PaymentGatewayAuthorizationLog",
-                "PaymentAuthorizationReversal"
               ]
             },
             {
@@ -6247,26 +5880,10 @@
               ]
             },
             {
-              "@id": "paymentMethodID",
+              "@id": "paymentGroup",
               "@type": "Property",
               "domain": [
                 "PaymentAuthorization"
-              ]
-            },
-            {
-              "@id": "paymentGatewayResult",
-              "@type": "Property",
-              "domain": [
-                "PaymentAuthorization",
-                "PaymentGatewayInteractionLog",
-                "PaymentAuthorizationReversal"
-              ]
-            },
-            {
-              "@id": "paymentAuthorizationReversal",
-              "@type": "Property",
-              "domain": [
-                "PaymentGatewayAuthReversalLog"
               ]
             },
             {
@@ -6319,18 +5936,19 @@
               ]
             },
             {
-              "@id": "paymentGatewayInteractionType",
-              "@type": "Property",
-              "domain": [
-                "PaymentGatewayInteractionLog"
-              ]
-            },
-            {
               "@id": "payment",
               "@type": "Property",
               "domain": [
                 "PaymentGatewayPaymentLog",
                 "PaymentApplication"
+              ]
+            },
+            {
+              "@id": "paymentAuthorization",
+              "@type": "Property",
+              "domain": [
+                "PaymentGatewayAuthorizationLog",
+                "PaymentAuthorizationReversal"
               ]
             },
             {
@@ -6349,13 +5967,6 @@
             },
             {
               "@id": "paymentGatewayCommentText",
-              "@type": "Property",
-              "domain": [
-                "PaymentGateway"
-              ]
-            },
-            {
-              "@id": "paymentGatewayProvider",
               "@type": "Property",
               "domain": [
                 "PaymentGateway"
@@ -6547,6 +6158,13 @@
               "domain": [
                 "PaymentAuthorizationReversal"
               ]
+            },
+            {
+              "@id": "paymentGatewayResult",
+              "@type": "Property",
+              "domain": [
+                "PaymentAuthorizationReversal"
+              ]
             }
           ],
           "schemas": [
@@ -6694,26 +6312,6 @@
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
-                  "path": "salesOrderPaymentSummary",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderPaymentSummary",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "paymentGroup",
-                  "http://www.w3.org/ns/shacl#node": "PaymentGroup",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "paymentGateway",
-                  "http://www.w3.org/ns/shacl#node": "PaymentGateway",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "paymentTreatment",
-                  "http://www.w3.org/ns/shacl#node": "PaymentTreatment",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
                   "path": "internalBusinessUnit",
                   "http://www.w3.org/ns/shacl#node": "InternalBusinessUnit",
                   "http://www.w3.org/ns/shacl#minCount": 1
@@ -6721,16 +6319,6 @@
                 {
                   "path": "account",
                   "http://www.w3.org/ns/shacl#node": "Account"
-                },
-                {
-                  "path": "paymentMethod",
-                  "http://www.w3.org/ns/shacl#node": "PaymentMethod",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "latestGatewayResultCode",
-                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayResultCode",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
@@ -6769,11 +6357,6 @@
                       "path": "isFinalCapture",
                       "datatype": "http://www.w3.org/2001/XMLSchema#string",
                       "http://www.w3.org/ns/shacl#maxCount": 1
-                    },
-                    {
-                      "path": "paymentAuthorization",
-                      "http://www.w3.org/ns/shacl#node": "PaymentAuthorization",
-                      "http://www.w3.org/ns/shacl#minCount": 1
                     }
                   ]
                 }
@@ -7176,26 +6759,6 @@
                   "path": "paymentGroup",
                   "http://www.w3.org/ns/shacl#node": "PaymentGroup",
                   "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "salesOrderPaymentSummary",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderPaymentSummary",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "paymentGateway",
-                  "http://www.w3.org/ns/shacl#node": "PaymentGateway",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "paymentMethodID",
-                  "http://www.w3.org/ns/shacl#node": "PaymentMethod",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "paymentGatewayResult",
-                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayResultCode",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
@@ -7218,10 +6781,6 @@
                       "path": "name",
                       "datatype": "http://www.w3.org/2001/XMLSchema#string",
                       "http://www.w3.org/ns/shacl#maxCount": 1
-                    },
-                    {
-                      "path": "paymentAuthorizationReversal",
-                      "http://www.w3.org/ns/shacl#node": "PaymentAuthorizationReversal"
                     }
                   ]
                 }
@@ -7289,16 +6848,6 @@
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
-                },
-                {
-                  "path": "paymentGatewayResult",
-                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayResultCode",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "paymentGatewayInteractionType",
-                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayInteractionType",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
@@ -7415,11 +6964,6 @@
                   "path": "paymentGatewayCommentText",
                   "datatype": "http://www.w3.org/2001/XMLSchema#string",
                   "http://www.w3.org/ns/shacl#maxCount": 1
-                },
-                {
-                  "path": "paymentGatewayProvider",
-                  "http://www.w3.org/ns/shacl#node": "PaymentGatewayProvider",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
@@ -7901,33 +7445,33 @@
           "description": "Example Entities included: Payment Method Type, Payment Card Tender, Digital Wallet Tender",
           "classConcepts": [
             {
-              "@id": "PaymentMethod/PaymentMethod",
+              "@id": "PaymentMethod",
               "name": "Payment Method",
               "@type": "Class",
               "description": "A means by which a buyer compensates a seller for a purchased good or service."
             },
             {
-              "@id": "PaymentMethod/PaymentMethodType",
+              "@id": "PaymentMethodType",
               "name": "Payment Method Type",
               "@type": "Class",
               "description": "The category of payment method, such as payment card, check or digital wallet."
             },
             {
-              "@id": "PaymentMethod/PaymentCard",
+              "@id": "PaymentCard",
               "name": "Payment Card",
               "@type": "Class",
               "subClassOf": "PaymentMethod",
               "description": "A payment system issued by a financial institution to a customer that allows its owner (the cardholder) to access funds in designated bank accounts"
             },
             {
-              "@id": "PaymentMethod/Coupon",
+              "@id": "Coupon",
               "name": "Coupon",
               "@type": "Class",
               "subClassOf": "PaymentMethod",
               "description": "Payment in the form of a voucher entitling the holder to a discount for a particular product."
             },
             {
-              "@id": "PaymentMethod/CreditTender",
+              "@id": "CreditTender",
               "name": "Credit Tender",
               "@type": "Class",
               "subClassOf": "PaymentMethod",
@@ -7951,13 +7495,6 @@
                 "PaymentCard",
                 "Coupon",
                 "CreditTender"
-              ]
-            },
-            {
-              "@id": "paymentMethodType",
-              "@type": "Property",
-              "domain": [
-                "PaymentMethod"
               ]
             },
             {
@@ -8244,11 +7781,6 @@
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
-                },
-                {
-                  "path": "paymentMethodType",
-                  "http://www.w3.org/ns/shacl#node": "PaymentMethodType",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
@@ -8549,64 +8081,64 @@
           "description": "Example Entities included: Product Type, Product Item, Product Attribute, Product Relation",
           "classConcepts": [
             {
-              "@id": "Product/Product",
+              "@id": "Product",
               "name": "Product",
               "@type": "Class",
               "description": "What is intended to be sold e.g. goods, services, bundles, made to order products."
             },
             {
-              "@id": "Product/GoodsProduct",
+              "@id": "GoodsProduct",
               "name": "Goods Product",
               "@type": "Class",
               "subClassOf": "Product",
               "description": "Products you can touch e.g. cart of milk, pallet of coffee, mobile phone x model 1"
             },
             {
-              "@id": "Product/ServiceProduct",
+              "@id": "ServiceProduct",
               "name": "Service Product",
               "@type": "Class",
               "subClassOf": "Product",
               "description": "Products that are intangible e.g. labor, software subscription"
             },
             {
-              "@id": "Product/BundleProduct",
+              "@id": "BundleProduct",
               "name": "Bundle Product",
               "@type": "Class",
               "subClassOf": "Product",
               "description": "Product groups e.g. mobile phone package include phone, call plan and charger"
             },
             {
-              "@id": "Product/ProductTranslation",
+              "@id": "ProductTranslation",
               "name": "Product Translation",
               "@type": "Class",
               "description": "Translated attributes for a product"
             },
             {
-              "@id": "Product/ProductRelatedProduct",
+              "@id": "ProductRelatedProduct",
               "name": "Product Related Product",
               "@type": "Class",
               "description": "A grouping of products such as a product bundle"
             },
             {
-              "@id": "Product/ProductRelationshipType",
+              "@id": "ProductRelationshipType",
               "name": "Product Relationship Type",
               "@type": "Class",
               "description": "What are the types of relationships available e.g. bundled with/bundled in, substitute for/substitute of"
             },
             {
-              "@id": "Product/ProductImage",
+              "@id": "ProductImage",
               "name": "Product Image",
               "@type": "Class",
               "description": "Images of a product"
             },
             {
-              "@id": "Product/ProductImageTranslation",
+              "@id": "ProductImageTranslation",
               "name": "Product Image Translation",
               "@type": "Class",
               "description": "Translated attributes for a product image"
             },
             {
-              "@id": "Product/Brand",
+              "@id": "Brand",
               "name": "Brand",
               "@type": "Class",
               "description": "What is the brand of the product e.g. Snike shoes"
@@ -9077,34 +8609,6 @@
               ]
             },
             {
-              "@id": "validForPeriodUOM",
-              "@type": "Property",
-              "domain": [
-                "Product"
-              ]
-            },
-            {
-              "@id": "primarySalesChannel",
-              "@type": "Property",
-              "domain": [
-                "Product"
-              ]
-            },
-            {
-              "@id": "primaryProductCategory",
-              "@type": "Property",
-              "domain": [
-                "Product"
-              ]
-            },
-            {
-              "@id": "brand",
-              "@type": "Property",
-              "domain": [
-                "Product"
-              ]
-            },
-            {
               "@id": "masterProduct",
               "@type": "Property",
               "domain": [
@@ -9465,28 +8969,7 @@
               ]
             },
             {
-              "@id": "productRelationshipType",
-              "@type": "Property",
-              "domain": [
-                "ProductRelatedProduct"
-              ]
-            },
-            {
               "@id": "childProduct",
-              "@type": "Property",
-              "domain": [
-                "ProductRelatedProduct"
-              ]
-            },
-            {
-              "@id": "salesOrderProduct1",
-              "@type": "Property",
-              "domain": [
-                "ProductRelatedProduct"
-              ]
-            },
-            {
-              "@id": "salesOrderProduct2",
               "@type": "Property",
               "domain": [
                 "ProductRelatedProduct"
@@ -9891,22 +9374,6 @@
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
-                  "path": "validForPeriodUOM",
-                  "http://www.w3.org/ns/shacl#node": "ProductValidityTimePeriodUOM"
-                },
-                {
-                  "path": "primarySalesChannel",
-                  "http://www.w3.org/ns/shacl#node": "SalesChannel"
-                },
-                {
-                  "path": "primaryProductCategory",
-                  "http://www.w3.org/ns/shacl#node": "ProductCategory"
-                },
-                {
-                  "path": "brand",
-                  "http://www.w3.org/ns/shacl#node": "Brand"
-                },
-                {
                   "path": "masterProduct",
                   "http://www.w3.org/ns/shacl#node": "Product"
                 }
@@ -10282,23 +9749,8 @@
                   "http://www.w3.org/ns/shacl#minCount": 1
                 },
                 {
-                  "path": "productRelationshipType",
-                  "http://www.w3.org/ns/shacl#node": "ProductRelationshipType",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
                   "path": "childProduct",
                   "http://www.w3.org/ns/shacl#node": "Product",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "salesOrderProduct1",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderProduct",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "salesOrderProduct2",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderProduct",
                   "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
@@ -10415,61 +9867,61 @@
           "description": "Example Entities included: Attribute Set, Attribute Set Attribute",
           "classConcepts": [
             {
-              "@id": "ProductAttribute/ProductValidityTimePeriodUOM",
+              "@id": "ProductValidityTimePeriodUOM",
               "name": "Product Validity Time Period UOM",
               "@type": "Class",
               "description": "Standard units of measure for time, for example minute, second, hour and day"
             },
             {
-              "@id": "ProductAttribute/ProductCollateral",
+              "@id": "ProductCollateral",
               "name": "Product Collateral",
               "@type": "Class",
               "description": "Collateral for a product e.g. link to brochure one"
             },
             {
-              "@id": "ProductAttribute/AttributeSetTranslation",
+              "@id": "AttributeSetTranslation",
               "name": "Attribute Set Translation",
               "@type": "Class",
               "description": "Translated attributes for an attribute set"
             },
             {
-              "@id": "ProductAttribute/AttributeTranslation",
+              "@id": "AttributeTranslation",
               "name": "Attribute Translation",
               "@type": "Class",
               "description": "Translated attributes for an attribute"
             },
             {
-              "@id": "ProductAttribute/AttributeValue",
+              "@id": "AttributeValue",
               "name": "Attribute Value",
               "@type": "Class",
               "description": "A predefine set of values for a product attribute e.g. shoe lace length 10, 12, 14 centimeter"
             },
             {
-              "@id": "ProductAttribute/AttributeValueTranslation",
+              "@id": "AttributeValueTranslation",
               "name": "Attribute Value Translation",
               "@type": "Class",
               "description": "Translated attributes for an attribute value"
             },
             {
-              "@id": "ProductAttribute/ProductAttributeValue",
+              "@id": "ProductAttributeValue",
               "name": "Product Attribute Value",
               "@type": "Class",
               "description": "Assignment of an attribute value to a product e.g. shoe lace"
             },
             {
-              "@id": "ProductAttribute/ProductAttributeSet",
+              "@id": "ProductAttributeSet",
               "name": "Product Attribute Set",
               "@type": "Class",
               "description": "A set of attributes e.g. shoe attributes that are assigned to a particular instance of Product"
             },
             {
-              "@id": "ProductAttribute/PriceBookEntry",
+              "@id": "PriceBookEntry",
               "name": "Price Book Entry",
               "@type": "Class",
               "description": "A list of products and their prices."
             },
             {
-              "@id": "ProductAttribute/DeviceUserSession",
+              "@id": "DeviceUserSession",
               "name": "Device User Session",
               "@type": "Class",
               "description": "A time-bound period when a person used a website or other service, also known as a Visit"
@@ -10901,37 +10353,37 @@
           "description": "Example Entities included: Product Catalog, Product Catalog Category, Product Catalog Assignment",
           "classConcepts": [
             {
-              "@id": "ProductCatalog/ProductCategory",
+              "@id": "ProductCategory",
               "name": "Product Category",
               "@type": "Class",
               "description": "A product may consist of many categories e.g. shoes, tshirts"
             },
             {
-              "@id": "ProductCatalog/ProductCatalog",
+              "@id": "ProductCatalog",
               "name": "Product Catalog",
               "@type": "Class",
               "description": "A catalog used for a certain business process e.g. inventory, merchandizing"
             },
             {
-              "@id": "ProductCatalog/ProductCatalogTranslation",
+              "@id": "ProductCatalogTranslation",
               "name": "Product Catalog Translation",
               "@type": "Class",
               "description": "Translated attributes for a product catalog"
             },
             {
-              "@id": "ProductCatalog/ProductCategoryTranslation",
+              "@id": "ProductCategoryTranslation",
               "name": "Product Category Translation",
               "@type": "Class",
               "description": "Translated attributes for a product category"
             },
             {
-              "@id": "ProductCatalog/ProductCategoryProduct",
+              "@id": "ProductCategoryProduct",
               "name": "Product Category Product",
               "@type": "Class",
               "description": "Assignment of product to categories e.g. the Nikedas shoe assigned to shoe and running categories"
             },
             {
-              "@id": "ProductCatalog/ProductCategoryAttributeSet",
+              "@id": "ProductCategoryAttributeSet",
               "name": "Product Category Attribute Set",
               "@type": "Class",
               "description": "Assignment of an Attribute Set to a Product Category e.g. the Shoe attribute set assigned to the Shoes category"
@@ -10982,19 +10434,18 @@
               ]
             },
             {
-              "@id": "productCatalog",
-              "@type": "Property",
-              "domain": [
-                "ProductCategory",
-                "ProductCatalogTranslation"
-              ]
-            },
-            {
               "@id": "translatedName",
               "@type": "Property",
               "domain": [
                 "ProductCatalogTranslation",
                 "ProductCategoryTranslation"
+              ]
+            },
+            {
+              "@id": "productCatalog",
+              "@type": "Property",
+              "domain": [
+                "ProductCatalogTranslation"
               ]
             },
             {
@@ -11066,11 +10517,6 @@
                 {
                   "path": "parentCategory",
                   "http://www.w3.org/ns/shacl#node": "ProductCategory"
-                },
-                {
-                  "path": "productCatalog",
-                  "http://www.w3.org/ns/shacl#node": "ProductCatalog",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
@@ -11230,171 +10676,171 @@
           "description": "Example Entities included: Sales Order, Opportunity, Payment Method",
           "classConcepts": [
             {
-              "@id": "SalesOrder/OrderDeliveryMethod",
+              "@id": "OrderDeliveryMethod",
               "name": "Order Delivery Method",
               "@type": "Class",
               "description": "Standardized methods for transferring purchased products or services to the destination of fulfillment. Delivery methods are characterized by the means of transportation used, and by the delivering organization or group."
             },
             {
-              "@id": "SalesOrder/SalesOrderPaymentSummary",
+              "@id": "SalesOrderPaymentSummary",
               "name": "Sales Order Payment Summary",
               "@type": "Class",
               "description": "One or more Payments having the same Payment Method, that have been applied to a single Sales Order."
             },
             {
-              "@id": "SalesOrder/SalesChannel",
+              "@id": "SalesChannel",
               "name": "Sales Channel",
               "@type": "Class",
               "description": "Which channel is used to sell goods e.g. Web Store, Retail Store, Street Faire"
             },
             {
-              "@id": "SalesOrder/SalesOrderProduct",
+              "@id": "SalesOrderProduct",
               "name": "Sales Order Product",
               "@type": "Class",
               "description": "A component of a Sales Order that identifies a product or service that will be sold to the customer"
             },
             {
-              "@id": "SalesOrder/SalesChannelType",
+              "@id": "SalesChannelType",
               "name": "Sales Channel Type",
               "@type": "Class",
               "description": "Standard ways of selling products such as web, retail, direct marketing, etc"
             },
             {
-              "@id": "SalesOrder/SalesOrder",
+              "@id": "SalesOrder",
               "name": "Sales Order",
               "@type": "Class",
               "description": "An internal document generated by the seller, indicating that the customer is now ready to purchase products and services"
             },
             {
-              "@id": "SalesOrder/SalesOrderStatus",
+              "@id": "SalesOrderStatus",
               "name": "Sales Order Status",
               "@type": "Class",
               "description": "The status of a Sales Order"
             },
             {
-              "@id": "SalesOrder/SalesOrderSegment",
+              "@id": "SalesOrderSegment",
               "name": "Sales Order Segment",
               "@type": "Class",
               "description": "A sub-period of an overall subscription which has pricing associated with it"
             },
             {
-              "@id": "SalesOrder/SalesOrderConfirmationStatus",
+              "@id": "SalesOrderConfirmationStatus",
               "name": "Sales Order Confirmation Status",
               "@type": "Class",
               "description": "Stages of customer approval and finalization of a Sales Order."
             },
             {
-              "@id": "SalesOrder/SalesOrderType",
+              "@id": "SalesOrderType",
               "name": "Sales Order Type",
               "@type": "Class",
               "description": "Classifies a Sales Order as a New, Renewal or Change order"
             },
             {
-              "@id": "SalesOrder/RenewalTerm",
+              "@id": "RenewalTerm",
               "name": "Renewal Term",
               "@type": "Class",
               "description": "For renewal orders, the length of the renewal term"
             },
             {
-              "@id": "SalesOrder/SalesOrderProductStatus",
+              "@id": "SalesOrderProductStatus",
               "name": "Sales Order Product Status",
               "@type": "Class",
               "description": "The status of a line component of a Sales Order"
             },
             {
-              "@id": "SalesOrder/SalesOrderProductReasonCategory",
+              "@id": "SalesOrderProductReasonCategory",
               "name": "Sales Order Product Reason Category",
               "@type": "Class",
               "description": "Groupings of Sales Order Product Reasons, such as product related or service related"
             },
             {
-              "@id": "SalesOrder/SalesOrderProductReason",
+              "@id": "SalesOrderProductReason",
               "name": "Sales Order Product Reason",
               "@type": "Class",
               "description": "The customer motive for ordering a product or service, such as replacement, new purchase, upgrade"
             },
             {
-              "@id": "SalesOrder/SalesOrderPriceAdjustment",
+              "@id": "SalesOrderPriceAdjustment",
               "name": "Sales Order Price Adjustment",
               "@type": "Class",
               "subClassOf": "PriceAdjustment Group",
               "description": "A change to the price of a Sales Order that is made before order fulfillment. A Sales Order Price Adjustment may be comprised of Sales Order Product Price Adjustments that allocate the overall adjustment amount to one or more of the products and services"
             },
             {
-              "@id": "SalesOrder/PriceAdjustmentGroup",
+              "@id": "PriceAdjustmentGroup",
               "name": "Price Adjustment Group",
               "@type": "Class",
               "description": "Supertype of: Sales Order Price Adjustment, Sales Order Product Price Adjustment, and FulfillmentOrderProductPriceAdjustment"
             },
             {
-              "@id": "SalesOrder/SalesOrderPriceAdjustmentType",
+              "@id": "SalesOrderPriceAdjustmentType",
               "name": "Sales Order Price Adjustment Type",
               "@type": "Class",
               "description": "Reasons for adjusting the price of an order such as promotional discount, or customer satisfaction issue"
             },
             {
-              "@id": "SalesOrder/PriceAdjustmentMethod",
+              "@id": "PriceAdjustmentMethod",
               "name": "Price Adjustment Method",
               "@type": "Class",
               "description": "Defines how the adjustment will be calculated. Valid values used in Commerce Cloud are: percentage, fixed_price, amount, free, price_book_price, bonus, total_fixed_price, bonus_choice, percentage_off_options"
             },
             {
-              "@id": "SalesOrder/SalesOrderProductTax",
+              "@id": "SalesOrderProductTax",
               "name": "Sales Order Product Tax",
               "@type": "Class",
               "subClassOf": "SalesOrder Tax",
               "description": "A tax on the price of a Sales Order Product."
             },
             {
-              "@id": "SalesOrder/SalesOrderTax",
+              "@id": "SalesOrderTax",
               "name": "Sales Order Tax",
               "@type": "Class",
               "description": "A charge that is imposed by a government entity for public purposes. Types are aligned to phases of the process: SalesOrderTax, FulfillmentProductTax and ShipmentProductTax"
             },
             {
-              "@id": "SalesOrder/SalesOrderDeliveryGroup",
+              "@id": "SalesOrderDeliveryGroup",
               "name": "Sales Order Delivery Group",
               "@type": "Class",
               "description": "One or more Sales Order Products that share a common Sales Order Delivery Method, and Shipping Address"
             },
             {
-              "@id": "SalesOrder/SalesOrderDeliveryStatus",
+              "@id": "SalesOrderDeliveryStatus",
               "name": "Sales Order Delivery Status",
               "@type": "Class",
               "description": "The progress of a delivery such as awaiting pickup, in progress or complete"
             },
             {
-              "@id": "SalesOrder/ProductRelationshipType2",
+              "@id": "ProductRelationshipType2",
               "name": "Sales Order Product Relationship Type",
               "@type": "Class",
               "description": "Reasons why products are related such as bundle, option or covering"
             },
             {
-              "@id": "SalesOrder/SalesOrderProductGroup",
+              "@id": "SalesOrderProductGroup",
               "name": "Sales Order Product Group",
               "@type": "Class",
               "description": "Products may be grouped together for various reasons, such as products that should be shipped together. Every product in a Sales Order Product Group is not required to be a Sales Order Product."
             },
             {
-              "@id": "SalesOrder/SalesOrderProductGroupType",
+              "@id": "SalesOrderProductGroupType",
               "name": "Sales Order Product Group Type",
               "@type": "Class",
               "description": "Reasons for grouping products together on sales orders, for example products that ship together."
             },
             {
-              "@id": "SalesOrder/SalesOrderProductNote",
+              "@id": "SalesOrderProductNote",
               "name": "Sales Order Product Note",
               "@type": "Class",
               "description": "A document accompanying a Sales Order that lists the description, quantity of the goods to be delivered or other information."
             },
             {
-              "@id": "SalesOrder/SalesOrderChangeLog",
+              "@id": "SalesOrderChangeLog",
               "name": "Sales Order Change Log",
               "@type": "Class",
               "description": "Change log for sales order"
             },
             {
-              "@id": "SalesOrder/SalesOrderChangeType",
+              "@id": "SalesOrderChangeType",
               "name": "Sales Order ChangeT ype",
               "@type": "Class",
               "description": "The reason for a revision of an earlier sales order, e.g. quantity change, new distributed adjustment, new line adjustment, etc."
@@ -11528,16 +10974,6 @@
               ]
             },
             {
-              "@id": "salesOrder",
-              "@type": "Property",
-              "domain": [
-                "SalesOrderPaymentSummary",
-                "SalesOrderProduct",
-                "SalesOrderPriceAdjustment",
-                "SalesOrderDeliveryGroup"
-              ]
-            },
-            {
               "@id": "paymentMethod",
               "@type": "Property",
               "domain": [
@@ -11563,13 +10999,6 @@
                 "SalesOrderDeliveryGroup",
                 "SalesOrderProductGroup",
                 "SalesOrderProductNote"
-              ]
-            },
-            {
-              "@id": "salesChannelType",
-              "@type": "Property",
-              "domain": [
-                "SalesChannel"
               ]
             },
             {
@@ -12019,27 +11448,6 @@
               ]
             },
             {
-              "@id": "salesOrderProductStatus",
-              "@type": "Property",
-              "domain": [
-                "SalesOrderProduct"
-              ]
-            },
-            {
-              "@id": "salesOrderProductReason",
-              "@type": "Property",
-              "domain": [
-                "SalesOrderProduct"
-              ]
-            },
-            {
-              "@id": "salesOrderDeliveryGroup",
-              "@type": "Property",
-              "domain": [
-                "SalesOrderProduct"
-              ]
-            },
-            {
               "@id": "originalOrderProduct",
               "@type": "Property",
               "domain": [
@@ -12426,35 +11834,7 @@
               ]
             },
             {
-              "@id": "salesOrderType",
-              "@type": "Property",
-              "domain": [
-                "SalesOrder"
-              ]
-            },
-            {
-              "@id": "salesOrderStatus",
-              "@type": "Property",
-              "domain": [
-                "SalesOrder"
-              ]
-            },
-            {
-              "@id": "salesOrderConfirmationStatus",
-              "@type": "Property",
-              "domain": [
-                "SalesOrder"
-              ]
-            },
-            {
               "@id": "salesChannel",
-              "@type": "Property",
-              "domain": [
-                "SalesOrder"
-              ]
-            },
-            {
-              "@id": "renewalTerm",
               "@type": "Property",
               "domain": [
                 "SalesOrder"
@@ -12514,6 +11894,14 @@
               "@type": "Property",
               "domain": [
                 "SalesOrderProductReason"
+              ]
+            },
+            {
+              "@id": "salesOrder",
+              "@type": "Property",
+              "domain": [
+                "SalesOrderPriceAdjustment",
+                "SalesOrderDeliveryGroup"
               ]
             },
             {
@@ -12650,13 +12038,6 @@
               ]
             },
             {
-              "@id": "salesOrderDeliveryStatus",
-              "@type": "Property",
-              "domain": [
-                "SalesOrderDeliveryGroup"
-              ]
-            },
-            {
               "@id": "originalDeliveryGroup",
               "@type": "Property",
               "domain": [
@@ -12696,13 +12077,6 @@
               "@type": "Property",
               "domain": [
                 "ProductRelationshipType2"
-              ]
-            },
-            {
-              "@id": "salesOrderProductGroupType",
-              "@type": "Property",
-              "domain": [
-                "SalesOrderProductGroup"
               ]
             },
             {
@@ -12830,11 +12204,6 @@
                   "http://www.w3.org/ns/shacl#maxCount": 1
                 },
                 {
-                  "path": "salesOrder",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrder",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
                   "path": "paymentMethod",
                   "http://www.w3.org/ns/shacl#node": "PaymentMethod",
                   "http://www.w3.org/ns/shacl#minCount": 1
@@ -12874,11 +12243,6 @@
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
-                },
-                {
-                  "path": "salesChannelType",
-                  "http://www.w3.org/ns/shacl#node": "SalesChannelType",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
@@ -13208,26 +12572,8 @@
                   "http://www.w3.org/ns/shacl#node": "Account"
                 },
                 {
-                  "path": "salesOrderProductStatus",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderProductStatus",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "salesOrderProductReason",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderProductReason"
-                },
-                {
-                  "path": "salesOrderDeliveryGroup",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderDeliveryGroup"
-                },
-                {
                   "path": "product",
                   "http://www.w3.org/ns/shacl#node": "Product",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "salesOrder",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrder",
                   "http://www.w3.org/ns/shacl#minCount": 1
                 },
                 {
@@ -13575,28 +12921,9 @@
                   "http://www.w3.org/ns/shacl#node": "Seller"
                 },
                 {
-                  "path": "salesOrderType",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderType",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "salesOrderStatus",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderStatus",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "salesOrderConfirmationStatus",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderConfirmationStatus",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
                   "path": "salesChannel",
                   "http://www.w3.org/ns/shacl#node": "SalesChannel",
                   "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
-                  "path": "renewalTerm",
-                  "http://www.w3.org/ns/shacl#node": "RenewalTerm"
                 },
                 {
                   "path": "originalOrder",
@@ -14061,11 +13388,6 @@
                   "http://www.w3.org/ns/shacl#minCount": 1
                 },
                 {
-                  "path": "salesOrderDeliveryStatus",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderDeliveryStatus",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
                   "path": "originalDeliveryGroup",
                   "http://www.w3.org/ns/shacl#node": "SalesOrderDeliveryGroup"
                 },
@@ -14149,11 +13471,6 @@
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
-                },
-                {
-                  "path": "salesOrderProductGroupType",
-                  "http://www.w3.org/ns/shacl#node": "SalesOrderProductGroupType",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },
@@ -14279,49 +13596,49 @@
           "description": "Example Entities included: Shipment, Shipment Package, Shipment Document, Shipment Product",
           "classConcepts": [
             {
-              "@id": "Shipment/Shipment",
+              "@id": "Shipment",
               "name": "Shipment",
               "@type": "Class",
               "description": "A quantity of goods sent together to a place, or the act of sending them"
             },
             {
-              "@id": "Shipment/ShipmentStatus",
+              "@id": "ShipmentStatus",
               "name": "Shipment Status",
               "@type": "Class",
               "description": "The stage of a shipment. Possible values could be pre-transit, in transit, delayed, delivered"
             },
             {
-              "@id": "Shipment/ShippingMethod",
+              "@id": "ShippingMethod",
               "name": "Shipping Method",
               "@type": "Class",
               "description": "A parcel of one or more items bundled together, so that they arrive at the customer's address as a single unit."
             },
             {
-              "@id": "Shipment/ShipmentProduct",
+              "@id": "ShipmentProduct",
               "name": "Shipment Product",
               "@type": "Class",
               "description": "An item on a list of one or more that comprises a shipment."
             },
             {
-              "@id": "Shipment/ShipmentDocument",
+              "@id": "ShipmentDocument",
               "name": "Shipment Document",
               "@type": "Class",
               "description": "A receipt, bill of lading or other document that is delivered with the shipment to explain the purchase or shipment contents."
             },
             {
-              "@id": "Shipment/ShipmentPackage",
+              "@id": "ShipmentPackage",
               "name": "Shipment Package",
               "@type": "Class",
               "description": "A parcel of one or more items bundled together, so that they arrive at the customer's address as a single unit."
             },
             {
-              "@id": "Shipment/ShipmentProductPriceAdjustmentTax",
+              "@id": "ShipmentProductPriceAdjustmentTax",
               "name": "Shipment Product Price Adjustment Tax",
               "@type": "Class",
               "description": "A tax on the price of a Sales Order Product."
             },
             {
-              "@id": "Shipment/ShipmentProductPriceAdjustment",
+              "@id": "ShipmentProductPriceAdjustment",
               "name": "Shipment Product Price Adjustment",
               "@type": "Class",
               "description": "A change to the price of an ordered product or service that is made after Fulfillment."
@@ -14413,13 +13730,6 @@
               ]
             },
             {
-              "@id": "shipmentStatus",
-              "@type": "Property",
-              "domain": [
-                "Shipment"
-              ]
-            },
-            {
               "@id": "salesOrderDeliveryGroup",
               "@type": "Property",
               "domain": [
@@ -14477,13 +13787,6 @@
               ]
             },
             {
-              "@id": "shipmentPackage",
-              "@type": "Property",
-              "domain": [
-                "ShipmentProduct"
-              ]
-            },
-            {
               "@id": "salesOrderProduct",
               "@type": "Property",
               "domain": [
@@ -14495,13 +13798,6 @@
               "@type": "Property",
               "domain": [
                 "ShipmentPackage"
-              ]
-            },
-            {
-              "@id": "shipmentProductPriceAdjustment",
-              "@type": "Property",
-              "domain": [
-                "ShipmentProductPriceAdjustmentTax"
               ]
             },
             {
@@ -14595,10 +13891,6 @@
                   "http://www.w3.org/ns/shacl#node": "ContactPointAddress"
                 },
                 {
-                  "path": "shipmentStatus",
-                  "http://www.w3.org/ns/shacl#node": "ShipmentStatus"
-                },
-                {
                   "path": "salesOrderDeliveryGroup",
                   "http://www.w3.org/ns/shacl#node": "SalesOrderDeliveryGroup"
                 },
@@ -14688,11 +13980,6 @@
                   "http://www.w3.org/ns/shacl#minCount": 1
                 },
                 {
-                  "path": "shipmentPackage",
-                  "http://www.w3.org/ns/shacl#node": "ShipmentPackage",
-                  "http://www.w3.org/ns/shacl#minCount": 1
-                },
-                {
                   "path": "salesOrderProduct",
                   "http://www.w3.org/ns/shacl#node": "SalesOrderProduct",
                   "http://www.w3.org/ns/shacl#minCount": 1
@@ -14760,11 +14047,6 @@
                   "datatype": "http://cloudinformationmodel.org/model/id",
                   "http://www.w3.org/ns/shacl#minCount": 1,
                   "http://www.w3.org/ns/shacl#maxCount": 1
-                },
-                {
-                  "path": "shipmentProductPriceAdjustment",
-                  "http://www.w3.org/ns/shacl#node": "ShipmentProductPriceAdjustment",
-                  "http://www.w3.org/ns/shacl#minCount": 1
                 }
               ]
             },

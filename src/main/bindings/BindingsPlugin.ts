@@ -24,6 +24,7 @@ export interface ConfigurationParameter {
     value: any
 }
 
+
 /**
  * Common interface for all bindings plugins
  */

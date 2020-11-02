@@ -150,7 +150,9 @@ export class CIMBindingsPlugin extends BindingsPlugin {
                     if (sa.uuid.indexOf("cim/subjectarea/") > -1) {
                         subjectAreaId = sa.uuid.split("cim/subjectarea/").pop()!;
                     }
-                    const entityGroups = entityGroupsDataModels.map((dm) => this.exportEntityGroup(subjectAreaId, dm!, version.value, entityLinkingMap));
+                    const entityGroups = entityGroupsDataModels.map((dm) =>
+                        this.exportEntityGroup(subjectAreaId, dm!, version.value, entityLinkingMap)
+                        );
                     let json = {
                         "@id": subjectAreaId + "SubjectArea",
                         "@type": "SubjectArea",

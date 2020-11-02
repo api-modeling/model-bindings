@@ -141,9 +141,12 @@ export class APIContractImporter {
     }
 
     private parseResource(endpoint: amf.model.domain.EndPoint, parent: string, pathParams: string[], group: amf.model.domain.EndPoint[], accEntities: meta.Entity[], accResources: meta.Resource[], entityMap: {[id: string]: string}): meta.Resource {
+        /* Moving down belos because 'isCollection' isn't a member on resource
         const resource = new meta.Resource();
         accResources.push(resource);
         resource.operations = [];
+        */
+        let resource = new meta.Resource()
 
         const getOperation = endpoint.operations.find((op) => op.method.value() === "get");
         let resp: amf.model.domain.Response|undefined;
@@ -160,7 +163,10 @@ export class APIContractImporter {
                 let effectiveShape = payload.schema
                 if (effectiveShape instanceof amf.model.domain.ArrayShape) {
                     effectiveShape = (<amf.model.domain.ArrayShape>effectiveShape).items;
-                    resource.isCollection = true
+                    resource = new meta.CollectionResource()
+                    //resource.isCollection = true
+                } else {
+                    resource = new meta.Resource();
                 }
                 const entity = this.adaptOrCreate(effectiveShape, endpoint.id + "get", accEntities, entityMap)
                 if (entity) {
@@ -170,6 +176,8 @@ export class APIContractImporter {
                 }
             }
         }
+        accResources.push(resource);
+        resource.operations = [];
         const otherOperations = endpoint.operations.filter((op) => op.method.value() !== "get");
         if (otherOperations.length > 0) {
             otherOperations.forEach((op) => {
