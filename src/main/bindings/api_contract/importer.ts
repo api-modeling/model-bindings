@@ -104,12 +104,14 @@ export class APIContractImporter {
         }
 
         const endpoints: amf.model.domain.EndPoint[] = webapi.endPoints.sort((a,b) => {
-            if (a.path.value().indexOf(b.path.value()) === 0) {
-                return 1;
-            } else {
+            if (a.path.value() == b.path.value()) {
+                return 0
+            } else if (a.path.value() < b.path.value()) {
                 return -1;
+            } else {
+                return 1;
             }
-        });
+        })
 
         const accEntities: meta.Entity[] = [];
         const accResources: meta.Resource[] = [];
@@ -238,15 +240,11 @@ export class APIContractImporter {
             endpoints.forEach((ep) => {
                 let current = currentGroup[0]
                 const nestedPath = current == null || ep.path.value().indexOf(current.path.value()) == 0;
-                const getOperation = ep.operations.find((op) => op.method.value() == "get") != null
-
-                if ( nestedPath && getOperation) { // nested resource
-                    currentGroup.push(ep)
-                } else if (currentGroup.length > 0) { // nested operation over a nested resource
+                if ( nestedPath ) { // nested resource
                     currentGroup.push(ep)
                 } else { // nested operation over the top level resource
-                    groups.push([ep]);
-                    currentGroup = [];
+                    groups.push(currentGroup);
+                    currentGroup = [ep];
                 }
             });
             if (currentGroup.length > 0) {
