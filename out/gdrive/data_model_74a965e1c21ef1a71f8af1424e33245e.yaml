@@ -1,0 +1,25 @@
+#%DataModel 0.1
+uuid: 74a965e1c21ef1a71f8af1424e33245e
+name: team-drive-list.raml
+entities:
+  Entity30:
+    uuid: 2661e98ba6046f83afb49c6a42403adc
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 4d104a785a6dc70348f2ca83f1b1472c
+        required: false
+        range:
+          type: string
+      nextPageToken:
+        allowMultiple: false
+        uuid: b53af7496bd91efb3d79d1ea8ef3f9bb
+        required: false
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 348ac9364d562bcbb0d8ecdfca1e9701
+        required: false
+        target: http://mulesoft.com/modeling/instances/6add9974ecc45336837384d1d9e7dfb7

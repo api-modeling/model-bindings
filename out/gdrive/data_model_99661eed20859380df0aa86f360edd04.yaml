@@ -1,0 +1,114 @@
+#%DataModel 0.1
+uuid: 99661eed20859380df0aa86f360edd04
+name: team-drive.raml
+entities:
+  capabilities:
+    uuid: 89de069eef2b9fc28aecb3fc2db8518f
+    attributes:
+      canReadRevisions:
+        allowMultiple: false
+        uuid: 7b9af8113b09aa781cb0e04a8823c84b
+        required: true
+        range:
+          type: boolean
+      canShare:
+        allowMultiple: false
+        uuid: edd40f8dfb93668ada9390de5c260f7a
+        required: true
+        range:
+          type: boolean
+      canListChildren:
+        allowMultiple: false
+        uuid: 2fcc689c270e6f1f0e55dac7619e2d32
+        required: true
+        range:
+          type: boolean
+      canComment:
+        allowMultiple: false
+        uuid: 67d7754531523c569887880a06b6bf47
+        required: true
+        range:
+          type: boolean
+      canDeleteTeamDrive:
+        allowMultiple: false
+        uuid: f5986d49a582ba951e1eee90daa95fc1
+        required: true
+        range:
+          type: boolean
+      canRename:
+        allowMultiple: false
+        uuid: 2b56e181d8c68969dfbfc668e82201ad
+        required: true
+        range:
+          type: boolean
+      canRenameTeamDrive:
+        allowMultiple: false
+        uuid: 6aa18fe305f37c9cd87e5ae31ed51cf6
+        required: true
+        range:
+          type: boolean
+      canEdit:
+        allowMultiple: false
+        uuid: c256daaadd2b116d32c8f99d439ee102
+        required: true
+        range:
+          type: boolean
+      canAddChildren:
+        allowMultiple: false
+        uuid: b1ffedd6cedcd6969a3dfe87a839b956
+        required: true
+        range:
+          type: boolean
+      canManageMembers:
+        allowMultiple: false
+        uuid: f03a725d706b5818046f9b09c619f374
+        required: true
+        range:
+          type: boolean
+      canRemoveChildren:
+        allowMultiple: false
+        uuid: 24439f0bde0c27e291bab15fc5289c3d
+        required: true
+        range:
+          type: boolean
+      canCopy:
+        allowMultiple: false
+        uuid: f3527919ca694d6649460d7ca704842a
+        required: true
+        range:
+          type: boolean
+      canDownload:
+        allowMultiple: false
+        uuid: 81f7e36897d91e613fdb1f0e63ac429b
+        required: true
+        range:
+          type: boolean
+    associations: {}
+    description: Capabilities the current user has on this Team Drive.
+  Entity32:
+    uuid: 6add9974ecc45336837384d1d9e7dfb7
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 8ac1b814d3385b955ff4e9ab09ffdbfa
+        required: true
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: 3248e5bf9bf35eb01feab4cdc31b7fca
+        required: true
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: cbc364e1037f06a47daf800a0a004505
+        required: true
+        range:
+          type: string
+    associations:
+      capabilities:
+        allowMultiple: false
+        uuid: 792f1e8b4f6416b3561ebc3baa4f8dbd
+        required: true
+        target: http://mulesoft.com/modeling/instances/89de069eef2b9fc28aecb3fc2db8518f

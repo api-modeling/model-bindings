@@ -1,0 +1,22 @@
+#%DataModel 0.1
+uuid: 9a927f7ce3b895118e9d3912368cc456
+name: thumbnail.raml
+entities:
+  Thumbnail:
+    uuid: 9d34f20f3145c06c803103c2d95711a8
+    attributes:
+      image:
+        allowMultiple: false
+        uuid: 5e80edb08487d330d8b8d776c552e449
+        required: false
+        range:
+          type: string
+      mimeType:
+        allowMultiple: false
+        uuid: 08dea4ce3635d96defc7f163f31b4dec
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: Thumbnail for the file. Only accepted on upload and for files that are not already thumbnailed by Google.
+    displayName: Thumbnail

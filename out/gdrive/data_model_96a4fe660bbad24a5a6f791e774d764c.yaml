@@ -1,0 +1,104 @@
+#%DataModel 0.1
+uuid: 96a4fe660bbad24a5a6f791e774d764c
+name: file-capabilities.raml
+entities:
+  Entity24:
+    uuid: fac02690bcd5fb148c367027f513af9b
+    attributes:
+      canMoveTeamDriveItem:
+        allowMultiple: false
+        uuid: 453687b60dda1da2702816b151e2fed8
+        required: false
+        range:
+          type: boolean
+      canMoveItemIntoTeamDrive:
+        allowMultiple: false
+        uuid: 8581cfa837fc125468c982a7826f8b94
+        required: false
+        range:
+          type: boolean
+      canListChildren:
+        allowMultiple: false
+        uuid: a3b745e4721ad2d6c626fdade19d1213
+        required: false
+        range:
+          type: boolean
+      canReadRevisions:
+        allowMultiple: false
+        uuid: 1c949841394a548987f2f19d77700333
+        required: false
+        range:
+          type: boolean
+      canUntrash:
+        allowMultiple: false
+        uuid: c84d60b72cd6738f9b265d19834a7510
+        required: false
+        range:
+          type: boolean
+      canComment:
+        allowMultiple: false
+        uuid: 94f6cb434bcb161d57da45ca8286ac63
+        required: false
+        range:
+          type: boolean
+      canTrash:
+        allowMultiple: false
+        uuid: 62e55572188e18802f0512d4a76fa4a9
+        required: false
+        range:
+          type: boolean
+      canCopy:
+        allowMultiple: false
+        uuid: 599886f45e58f58f82d04933fae8233e
+        required: false
+        range:
+          type: boolean
+      canEdit:
+        allowMultiple: false
+        uuid: 2da184021c7d12aefba44407bb203de2
+        required: false
+        range:
+          type: boolean
+      canRemoveChildren:
+        allowMultiple: false
+        uuid: 8d70a1f9d41650a2578decc852685274
+        required: false
+        range:
+          type: boolean
+      canRename:
+        allowMultiple: false
+        uuid: 27cbfcbf112384dc0da08dbfe5c823f7
+        required: false
+        range:
+          type: boolean
+      canDelete:
+        allowMultiple: false
+        uuid: 388bab4301242572208a5b24c6df8b0e
+        required: false
+        range:
+          type: boolean
+      canReadTeamDrive:
+        allowMultiple: false
+        uuid: 8574ade7abb45f4aab57b11980afd45a
+        required: false
+        range:
+          type: boolean
+      canShare:
+        allowMultiple: false
+        uuid: 96ca5befe00142d9db350b934b160b58
+        required: false
+        range:
+          type: boolean
+      canDownload:
+        allowMultiple: false
+        uuid: 3fa24415a473941ac55f1d3eeb3d11af
+        required: false
+        range:
+          type: boolean
+      canAddChildren:
+        allowMultiple: false
+        uuid: cd9c8d4458919b1b226d28e6c2268bab
+        required: false
+        range:
+          type: boolean
+    associations: {}

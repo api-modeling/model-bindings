@@ -1,0 +1,27 @@
+#%DataModel 0.1
+uuid: c63541abe754d98fb7c5071c2ab2ccd2
+name: icon.raml
+entities:
+  Entity1:
+    uuid: ec9b5e2fa1aeb1abfa086b46e0a36c7c
+    attributes:
+      category:
+        allowMultiple: false
+        uuid: 2e3e41454b1010cbed8431bbf7df1fef
+        required: true
+        range:
+          type: string
+      size:
+        allowMultiple: false
+        uuid: 1b82df20a26250d415635322eee267c9
+        required: true
+        range:
+          type: integer
+      iconUrl:
+        allowMultiple: false
+        uuid: 6a9a76e49d95fe1a162c92df683522c4
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: App's icon

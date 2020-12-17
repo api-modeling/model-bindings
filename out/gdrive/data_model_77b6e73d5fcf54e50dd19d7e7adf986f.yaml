@@ -1,0 +1,20 @@
+#%DataModel 0.1
+uuid: 77b6e73d5fcf54e50dd19d7e7adf986f
+name: import-format.raml
+entities:
+  Entity12:
+    uuid: 19480e0dad94a0d216f8cf5a2ff8e1d0
+    attributes:
+      source:
+        allowMultiple: false
+        uuid: 9227c7dc1561819a5ffa83d62967d054
+        required: true
+        range:
+          type: string
+      targets:
+        allowMultiple: true
+        uuid: e113eece1b51a3e9ae8132f8f8dcb0fa
+        required: true
+        range:
+          type: string
+    associations: {}

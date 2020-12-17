@@ -386,7 +386,9 @@ export class APIContractImporter {
                     if (inputPayloadSchema.schema.adapts != null) {
                         inputPayloadParam.objectRange = inputPayloadSchema.schema.adapts
                     } else {
-                        acc.push(inputPayloadSchema.schema)
+                        if (acc.find((e) => e.uuid == (<Entity>inputPayloadSchema.schema).uuid) ==  null) {
+                            acc.push(inputPayloadSchema.schema)
+                        }
                         inputPayloadParam.objectRange = inputPayloadSchema.schema
                     }
                 }
@@ -395,7 +397,6 @@ export class APIContractImporter {
                 operation.inputs = (operation.inputs || []).concat([inputPayloadParam])
             }
         }
-
         this.parseOperationOutput(apiOperation, operation, acc, entityMap, bindings)
 
         return operation;
@@ -523,7 +524,8 @@ export class APIContractImporter {
                     // parsed = this.parseAnyShape(<amf.model.domain.AnyShape>domainElement, entities);
                 }
                 if (parsed != null) {
-                    entities.push(this.uniqueName(parsed, entities))
+                    const uniqueNameEntity = this.uniqueName(parsed, entities)
+                    entities.push(uniqueNameEntity)
                     if (topLevel) {
                         // @ts-ignore
                         parsed['top_level'] = true

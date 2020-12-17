@@ -1,0 +1,40 @@
+#%DataModel 0.1
+uuid: 3137f2872e70b5951197f52906af0b45
+name: file-labels.raml
+entities:
+  Labels:
+    uuid: 2fa3be0b339a6490c299824d596425b8
+    attributes:
+      viewed:
+        allowMultiple: false
+        uuid: 86f033c95debca59f1750f4359dd7017
+        required: false
+        range:
+          type: boolean
+      hidden:
+        allowMultiple: false
+        uuid: 6abfbf771526ff1ca67a37d97c5146b7
+        required: false
+        range:
+          type: boolean
+      restricted:
+        allowMultiple: false
+        uuid: a38c853b9e3f63b4bd2bc4c49ace30dd
+        required: false
+        range:
+          type: boolean
+      trashed:
+        allowMultiple: false
+        uuid: 1cc3878a790abc3848578551b58fa6f4
+        required: false
+        range:
+          type: boolean
+      starred:
+        allowMultiple: false
+        uuid: e79af63075a01b47c73a1be21d6d43f5
+        required: false
+        range:
+          type: boolean
+    associations: {}
+    description: A group of labels for the file.
+    displayName: Labels

@@ -1,0 +1,185 @@
+#%DataModel 0.1
+uuid: 322642665a2045b49d113aaf9384869a
+name: app-lib.raml
+entities:
+  App:
+    uuid: 509aafe9216032e54359d975c1f74de2
+    attributes:
+      createInFolderTemplate:
+        allowMultiple: false
+        uuid: c33dfb77287a6ad537002ba4b023082a
+        required: false
+        range:
+          type: string
+      shortDescription:
+        allowMultiple: false
+        uuid: e4cea91fb0c541f723d4ef51413e2c3c
+        required: false
+        range:
+          type: string
+      supportsCreate:
+        allowMultiple: false
+        uuid: 642772fa8d32768b183796a9f6f43d12
+        required: false
+        range:
+          type: boolean
+      kind:
+        allowMultiple: false
+        uuid: 61ca7c0954083b655e9b4f7a8fb8cdcf
+        required: false
+        range:
+          type: string
+      objectType:
+        allowMultiple: false
+        uuid: b21eb1656c32bd4f864660ddada61f10
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: c8f0ab123ee0943e2a8a052eb272d41e
+        required: false
+        range:
+          type: string
+      productId:
+        allowMultiple: false
+        uuid: d98e9e9512458289b23a92e0afeee335
+        required: false
+        range:
+          type: string
+      primaryFileExtensions:
+        allowMultiple: true
+        uuid: a4ac992b2bd0bf8015edca1171298d64
+        required: false
+        range:
+          type: string
+      hasDriveWideScope:
+        allowMultiple: false
+        uuid: 71501baa1fea2c93d53ed431b06208ae
+        required: false
+        range:
+          type: boolean
+      id:
+        allowMultiple: false
+        uuid: 82407911315aaeba2ab42602f7184ce2
+        required: false
+        range:
+          type: string
+      createUrl:
+        allowMultiple: false
+        uuid: b9d75a808af07ac3de15e1595939de33
+        required: false
+        range:
+          type: string
+      installed:
+        allowMultiple: false
+        uuid: 8dfa52b06e30c95f005fd31c09866440
+        required: false
+        range:
+          type: boolean
+      openUrlTemplate:
+        allowMultiple: false
+        uuid: a6dd187ad084cb9bc1259515ba3db91e
+        required: false
+        range:
+          type: string
+      supportsMultiOpen:
+        allowMultiple: false
+        uuid: 28de61ffe461c8bf8d8ed056b6068f0e
+        required: false
+        range:
+          type: boolean
+      secondaryFileExtensions:
+        allowMultiple: true
+        uuid: 8b5eec024ce3c50e2ac671e56652d91c
+        required: false
+        range:
+          type: string
+      productUrl:
+        allowMultiple: false
+        uuid: 0eb3da9980cb9697259dfdc16c7f0409
+        required: false
+        range:
+          type: string
+      supportsOfflineCreate:
+        allowMultiple: false
+        uuid: 47eb730cf5a9d0c811de01e25b30b2cb
+        required: false
+        range:
+          type: boolean
+      supportsImport:
+        allowMultiple: false
+        uuid: 19692b4a02f12c902830d545505a799f
+        required: false
+        range:
+          type: boolean
+      secondaryMimeTypes:
+        allowMultiple: true
+        uuid: 20d2ef348b254b401656f6ad71080398
+        required: false
+        range:
+          type: string
+      authorized:
+        allowMultiple: false
+        uuid: f8d71f8338c039c6b3228a450751de06
+        required: false
+        range:
+          type: boolean
+      useByDefault:
+        allowMultiple: false
+        uuid: 70e19ae55e19804195cabf47cbcb2dc8
+        required: false
+        range:
+          type: boolean
+      primaryMimeTypes:
+        allowMultiple: true
+        uuid: 54c3014916a2b2771b6179aad6c12b4f
+        required: false
+        range:
+          type: string
+      longDescription:
+        allowMultiple: false
+        uuid: 1dfadebb9c220e7b8ff8c57c56bbe04e
+        required: false
+        range:
+          type: string
+    associations:
+      icons:
+        allowMultiple: true
+        uuid: 3a9a2dcc0503d4e9adb7928865036407
+        required: false
+        target: http://mulesoft.com/modeling/instances/88d4686ccd885d865ad40383bc8d1aa1
+  AppList:
+    uuid: 9dbb2a1c6ff3054c9de1bc39dec73c0f
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 92e1d35e799a3e607eb41cb252843cc5
+        required: true
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: 8feb867182dd70ba3cdaac15bcaa69a9
+        required: true
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: 59880357cd57f99bd1b4859ad52040ac
+        required: true
+        range:
+          type: string
+      defaultAppIds:
+        allowMultiple: true
+        uuid: 4b52b94cf3be0a19edde81222d34711e
+        required: true
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 16dea944acf4da0435ecae1789a295d4
+        required: true
+        target: http://mulesoft.com/modeling/instances/509aafe9216032e54359d975c1f74de2
+    description: Resource returned by the API when requesting list of files.

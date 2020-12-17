@@ -1,0 +1,68 @@
+#%DataModel 0.1
+uuid: b936a650220bb5ac637265d2b813bcb1
+name: parent-lib.raml
+entities:
+  Parent:
+    uuid: 31c06a0ae41d9b58d8d737d3bd791631
+    attributes:
+      selfLink:
+        allowMultiple: false
+        uuid: cba049c19c5c9dec6ab9a807312f29a9
+        required: false
+        range:
+          type: string
+      isRoot:
+        allowMultiple: false
+        uuid: 525c80ddf71d5b4880cbfe891425bc67
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: df2a5b236706f84a025d2e99cfbfe77c
+        required: false
+        range:
+          type: string
+      parentLink:
+        allowMultiple: false
+        uuid: 9dd7c7e214a20f57b010b7eb1a50e4e2
+        required: false
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: bea3e90b57a62a2efdca99e4dfcd83a7
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: A reference to a file's parent.
+  ParentList:
+    uuid: 68e6ba2001668aebda44b81f86dead28
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 312a16a450237c3c84be97e974e28e74
+        required: false
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: 1f43b19ea1c367fb48acf23b4d7617ef
+        required: false
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: fc2a54b31cca3c81e271968e398aac7c
+        required: false
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 53f1e6bb8631cf9988a1f806805d29a9
+        required: false
+        target: http://mulesoft.com/modeling/instances/31c06a0ae41d9b58d8d737d3bd791631
+    description: A list of Parents.
+    displayName: ParentList

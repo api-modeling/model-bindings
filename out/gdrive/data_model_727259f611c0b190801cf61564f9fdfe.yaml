@@ -1,0 +1,72 @@
+#%DataModel 0.1
+uuid: 727259f611c0b190801cf61564f9fdfe
+name: child-lib.raml
+entities:
+  Child:
+    uuid: 944e0df2991d8050ea7ddb3a5c0f27c4
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 5b24eb0d063a90dd15d3180b32b5910d
+        required: false
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: 49e4632f896adee62236989869189ab0
+        required: false
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: eeb14f1ed705ce577bd52c87f9fde6ba
+        required: false
+        range:
+          type: string
+      childLink:
+        allowMultiple: false
+        uuid: f78cf553ff26538b14d1dfd9bdda08cd
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: A reference to a folder's child.
+  ChildrenList:
+    uuid: 5451dc30ceb5dc4fa7560dbbf3d56fd4
+    attributes:
+      nextLink:
+        allowMultiple: false
+        uuid: 4f3d47ef186dbf3a54066d00790f8768
+        required: true
+        range:
+          type: string
+      nextPageToken:
+        allowMultiple: false
+        uuid: e917adcf08753d984d452dc4c21874fd
+        required: true
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: 4315ba16bf11c2f7c56713da7bd13024
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 53ee84849b5ec6a8a0182d700452fa82
+        required: false
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: b08f2ec368206f3ea76f23f1cdbf0402
+        required: false
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 99e5dd380321884d446be09450271de9
+        required: false
+        target: http://mulesoft.com/modeling/instances/944e0df2991d8050ea7ddb3a5c0f27c4

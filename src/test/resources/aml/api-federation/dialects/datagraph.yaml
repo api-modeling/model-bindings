@@ -1,0 +1,548 @@
+#%Dialect 1.0
+
+dialect: Source
+version: 0.1
+
+documents:
+  root:
+    encodes: Source
+    declares:
+      sources: Source
+      types: DataGraphTypeUnion
+
+external:
+  af: http://ang.anypoint.com/vocabularies/api-federation#
+  doc: http://a.ml/vocabularies/document#
+
+nodeMappings:
+  DataGraphElement:
+    classTerm: af.DataGraphElement
+    mapping:
+      elementProperties:
+        range: Property
+        allowMultiple: true
+
+  Source:
+    classTerm: af.Source
+    extends: DataGraphElement
+    mapping:
+      sourceId:
+        range: string
+        mandatory: true
+      organizationId:
+        range: string
+        mandatory: true
+      environmentId:
+        range: string
+        mandatory: true
+      groupId:
+        range: string
+        mandatory: true
+      assetId:
+        range: string
+        mandatory: true
+      version:
+        range: string
+        mandatory: true
+      name:
+        range: string
+        mandatory: true
+      securityScheme:
+        range: string
+        mandatory: false
+      endpoint:
+        range: string
+        mandatory: false
+      dataGraph:
+        range: DataGraph
+        mandatory: true
+      customizations:
+        range: Customization
+        allowMultiple: true
+      sourceType:
+        range: string
+
+  SourceRef:
+    classTerm: af.SourceRef
+    extends: DataGraphElement
+    mapping:
+      sourceId:
+        range: string
+
+  DataGraphTypeUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      EntryPoint: EntryPoint
+      Scalar: ScalarResourceNode
+      Enum: EnumType
+      List: ListType
+      Union: UnionType
+      Nil: NilType
+      Any: AnyType
+      Object: ObjectType
+      Wrapper: WrapperType
+    union:
+      - EntryPoint
+      - EnumType
+      - ListType
+      - UnionType
+      - NilType
+      - AnyType
+      - ObjectType
+      - WrapperType
+
+  DataGraph:
+    classTerm: af.DataGraph
+    extends: DataGraphElement
+    mapping:
+      query:
+        range: EntryPoint
+        mandatory: true
+
+  ApiBindingUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      HttpEndpoint: HttpEndpointBinding
+      HttpPayload: HttpPayloadBinding
+      HttpParameter: HttpParameterBinding
+      HttpNestedPayload: HttpNestedPayloadBinding
+      ScalarProperty: HttpScalarPayloadBinding
+    union:
+      - HttpEndpointBinding
+      - HttpPayloadBinding
+      - HttpParameterBinding
+      - HttpNestedPayloadBinding
+      - HttpScalarPayloadBinding
+
+  DataGraphEdgeUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      Network: NetworkEdge
+      Property: PropertyEdge
+    union:
+      - NetworkEdge
+      - PropertyEdge
+
+  SecuritySchemeUnion:
+    typeDiscriminatorName: type
+    typeDiscriminator:
+      NoAuth: NoAuthSecurityScheme
+      HttpAuth: HttpAuthSecurityScheme
+      HttpBasicAuth: HttpBasicAuthSecurityScheme
+    union:
+      - NoAuthSecurityScheme
+      - HttpAuthSecurityScheme
+      - HttpBasicAuthSecurityScheme
+
+  PropertyEdge:
+    classTerm: af.PropertyEdge
+    extends: DataGraphEdge
+    mapping:
+      target:
+        range: DataGraphTypeUnion
+      bindings:
+        range: ApiBindingUnion
+
+  DataGraphEdge:
+    classTerm: af.DataGraphEdge
+    extends: DataGraphElement
+    mapping:
+      name:
+        range: string
+      description:
+        range: string
+      optional:
+        range: boolean
+      target:
+        range: DataGraphTypeUnion
+      parameters:
+        range: PropertyEdge
+        allowMultiple: true
+      bindings:
+        range: ApiBindingUnion
+      regex:
+        range: string
+      defaultValue:
+        range: string
+
+  SecurityScheme:
+    classTerm: af.SecurityScheme
+    extends: DataGraphElement
+
+  NoAuthSecurityScheme:
+    classTerm: af.NoAuthSecurityScheme
+    extends: SecurityScheme
+
+  HttpAuthSecurityScheme:
+    classTerm: af.HttpAuthSecurityScheme
+    extends: SecurityScheme
+    mapping:
+      queryParameters:
+        range: string
+        allowMultiple: true
+      headers:
+        range: string
+        allowMultiple: true
+      cookies:
+        range: string
+        allowMultiple: true
+
+  HttpBasicAuthSecurityScheme:
+    classTerm: af.HttpBasicAuthSecurityScheme
+    extends: HttpAuthSecurityScheme
+
+  NetworkEdge:
+    classTerm: af.NetworkEdge
+    extends: DataGraphEdge
+    mapping:
+      parameters:
+        range: PropertyEdge
+        allowMultiple: true
+  HttpEndpointBinding:
+    classTerm: af.HttpEndpointBinding
+    extends: DataGraphElement
+    mapping:
+      endpoint:
+        range: Endpoint
+      securityScheme:
+        range: SecurityScheme
+      sourceRef:
+        range: SourceRef
+
+  HttpPayloadBinding:
+    classTerm: af.HttpPayloadBinding
+    extends: DataGraphElement
+    mapping:
+      mediaTypes:
+        range: string
+        allowMultiple: true
+
+  HttpParameterBinding:
+    classTerm: af.HttpParameterBinding
+    extends: DataGraphElement
+    mapping:
+      parameter:
+        range: Parameter
+
+  HttpNestedPayloadBinding:
+    classTerm: af.HttpNestedPayloadBinding
+    extends: DataGraphElement
+    mapping:
+      property:
+        range: PropertyShape
+      mediaTypes:
+        range: string
+        allowMultiple: true
+
+  HttpScalarPayloadBinding:
+    classTerm: af.HttpScalarPayloadBinding
+    extends: DataGraphElement
+    mapping:
+      property:
+        range: PropertyShape
+
+  NilBinding:
+    classTerm: af.NilBinding
+    extends: DataGraphElement
+
+  DataEdge:
+    classTerm: af.DataEdge
+    extends: DataGraphEdge
+
+  DataGraphNode:
+    classTerm: af.DataGraphNode
+    extends: DataGraphElement
+
+  EntryPoint:
+    classTerm: af.EntryPoint
+    extends: DataGraphNode
+    mapping:
+      edges:
+        range: DataGraphEdgeUnion
+        allowMultiple: true
+
+  TypeConstructor:
+    classTerm: af.TypeConstructor
+    extends: DataGraphElement
+    mapping:
+      binding:
+        range: HttpEndpointBinding
+        mandatory: true
+      properties:
+        range: string
+        allowMultiple: true
+
+  # Types
+
+  NamedType:
+    classTerm: af.NamedType
+    extends: DataGraphNode
+    mapping:
+      name:
+        range: string
+      description:
+        range: string
+
+  ScalarResourceNode:
+    classTerm: af.ScalarResource
+    extends: DataGraphNode
+    mapping:
+      scalarType:
+        range: ScalarType
+        mandatory: true
+
+  ScalarType:
+    classTerm: af.ScalarType
+    extends: DataGraphElement
+    mapping:
+      range:
+        range: string
+      format:
+        range: string
+
+  EnumValue:
+    classTerm: af.EnumValue
+    extends: DataGraphElement
+    mapping:
+      name:
+        range: string
+        mandatory: true
+      description:
+        range: string
+      value:
+        range: string
+        mandatory: true
+
+  EnumType:
+    classTerm: af.EnumType
+    extends: NamedType
+    mapping:
+      scalarType:
+        range: ScalarType
+      values:
+        range: EnumValue
+        allowMultiple: true
+        mapKey: name
+      constructors:
+        range: TypeConstructor
+        allowMultiple: true
+
+  ListType:
+    classTerm: af.ListType
+    extends: DataGraphNode
+    mapping:
+      memberType:
+        range: DataGraphTypeUnion
+      constructors:
+        range: TypeConstructor
+        allowMultiple: true
+
+  UnionType:
+    classTerm: af.UnionType
+    extends: NamedType
+    mapping:
+      unionTypes:
+        range: DataGraphTypeUnion
+        allowMultiple: true
+      disjointProperties:
+        range: string
+        allowMultiple: true
+      constructors:
+        range: TypeConstructor
+        allowMultiple: true
+
+  NilType:
+    classTerm: af.NilType
+    extends: DataGraphNode
+
+  AnyType:
+    classTerm: af.AnyType
+    extends: DataGraphNode
+
+  ObjectType:
+    classTerm: af.ObjectType
+    extends: NamedType
+    mapping:
+      edges:
+        range: DataEdge
+        allowMultiple: true
+      closed:
+        range: boolean
+      constructors:
+        range: TypeConstructor
+        allowMultiple: true
+
+  WrapperType:
+    classTerm: af.WrapperType
+    extends: NamedType
+    mapping:
+      memberType:
+        range: DataGraphTypeUnion
+        mandatory: true
+      edges:
+        range: DataEdge
+        allowMultiple: true
+      constructors:
+        range: TypeConstructor
+        allowMultiple: true
+
+
+  # WebApi references
+
+  AqElement:
+    classTerm: af.AqElement
+    extends: DataGraphElement
+
+  Endpoint:
+    classTerm: af.Endpoint
+    extends: AqElement
+    mapping:
+      method:
+        range: string
+        mandatory: true
+      path:
+        range: string
+        mandatory: true
+
+  Parameter:
+    classTerm: af.Parameter
+    extends: AqElement
+    mapping:
+      name:
+        range: string
+        mandatory: true
+      binding:
+        range: string
+        mandatory: true
+
+  PropertyShape:
+    classTerm: af.PropertyShape
+    extends: AqElement
+    mapping:
+      name:
+        range: string
+        mandatory: true
+
+
+  # Properties
+
+  Property:
+    classTerm: af.Property
+    extends: DataGraphElement
+
+  ObjectProperty:
+    classTerm: af.ObjectProperty
+    extends: Property
+
+  PropertyEdgeProperty:
+    classTerm: af.PropertyEdgeProperty
+    extends: Property
+
+  PrimaryKey:
+    classTerm: af.PrimaryKey
+    extends: PropertyEdgeProperty
+
+  Reference:
+    classTerm: af.Reference
+    extends: Property
+    mapping:
+      edgeId:
+        range: string
+        mandatory: true
+
+  Hidden:
+    classTerm: af.Hidden
+    extends: Property
+    mapping:
+      implicitly:
+        range: boolean
+        mandatory: true
+
+  DefaultQueryMethod:
+    classTerm: af.DefaultQueryMethod
+    extends: Property
+    mapping:
+      queryMethodId:
+        range: string
+        mandatory: true
+
+  # Customizations
+
+  Customization:
+    classTerm: af.Customization
+    extends: DataGraphElement
+    mapping:
+      elementId:
+        range: string
+        mandatory: true
+
+  PrimaryKeyCustomization:
+    classTerm: af.PrimaryKeyCustomization
+    extends: Customization
+
+  RenameCustomization:
+    classTerm: af.RenameCustomization
+    extends: Customization
+    mapping:
+      renameTo:
+        range: string
+        mandatory: true
+
+  ReferenceCustomization:
+    classTerm: af.ReferenceCustomization
+    extends: Customization
+    mapping:
+      edgeId:
+        range: string
+        mandatory: true
+      fieldName:
+        range: string
+        mandatory: true
+      typeName:
+        range: string
+        mandatory: true
+      typeFieldName:
+        range: string
+        mandatory: true
+
+  HideCustomization:
+    classTerm: af.HideCustomization
+    extends: Customization
+
+  DefaultQueryMethodCustomization:
+    classTerm: af.DefaultQueryMethodCustomization
+    extends: Customization
+
+  # Query Method
+
+  QueryMethod:
+    classTerm: af.QueryMethod
+    extends: DataGraphElement
+    mapping:
+      name:
+        range: string
+      description:
+        range: string
+      parameters:
+        range: PropertyEdge
+        allowMultiple: true
+      resolvers:
+        range: QueryMethodResolver
+        allowMultiple: true
+      optional:
+        range: boolean
+      target:
+        range: DataGraphTypeUnion
+
+  QueryMethodResolver:
+    classTerm: af.QueryMethodResolver
+    extends: DataGraphElement
+    mapping:
+      binding:
+        range: QueryMethodResolver
+      fieldsRef:
+        range: string
+        allowMultiple: true
+      parametersRef:
+        range: string
+        allowMultiple: true

@@ -1,0 +1,166 @@
+#%DataModel 0.1
+uuid: 665828e8de0fb24ea6330e2bfd7ee431
+name: revision-lib.raml
+entities:
+  exportLinks:
+    uuid: bf7b937f7ff63fb4d5494bf7b848e377
+    attributes: {}
+    associations: {}
+    description: |
+      Links for exporting Google Docs to specific formats.
+
+      Keys in the object is a mapping from export format to URL.
+  lastModifyingUser:
+    uuid: a566338ed54b481a11c861a9b34e9da4
+    attributes: {}
+    associations: {}
+    description: The last user to modify this revision.
+    extends: http://mulesoft.com/modeling/instances/1008f4466c74e5de44ac353a1ca231cc
+  Revision:
+    uuid: 97a181d69144c99e102605f296c75f67
+    attributes:
+      downloadUrl:
+        allowMultiple: false
+        uuid: b422e0e63e329cfd3e7182f24cc9923c
+        required: false
+        range:
+          type: string
+      fileSize:
+        allowMultiple: false
+        uuid: c5e77a4b333d5bfbf140eb28e852e1da
+        required: false
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: 0ec26744385d620cc66921462bf1eb03
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 12bf7e11250ad77f7e50ac02aa76f66d
+        required: false
+        range:
+          type: string
+      originalFilename:
+        allowMultiple: false
+        uuid: 6888639be8447e9675f547bb3ae4059a
+        required: false
+        range:
+          type: string
+      lastModifyingUserName:
+        allowMultiple: false
+        uuid: 5e1adb7c76834fb4e6ed2b7f81ef8009
+        required: false
+        range:
+          type: string
+      md5Checksum:
+        allowMultiple: false
+        uuid: 989822a480754ab532f4eefe96a2ab94
+        required: false
+        range:
+          type: string
+      mimeType:
+        allowMultiple: false
+        uuid: b9e87ae5a0d8a916d20f5f39fd5b299d
+        required: false
+        range:
+          type: string
+      modifiedDate:
+        allowMultiple: false
+        uuid: b74cc15073b9acc5ced3229aa0e56c55
+        required: false
+        range:
+          type: dateTime
+      id:
+        allowMultiple: false
+        uuid: ec63b0d28545323af3a373a4ced17c96
+        required: false
+        range:
+          type: string
+      publishedLink:
+        allowMultiple: false
+        uuid: 8da8d1fedf22c20662682c95b1360b89
+        required: false
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: 1ba86ea7e605127a8ab34713d5035d5c
+        required: false
+        range:
+          type: string
+    associations:
+      exportLinks:
+        allowMultiple: false
+        uuid: 0d76e08469b8231924b6113810745c81
+        required: false
+        target: http://mulesoft.com/modeling/instances/bf7b937f7ff63fb4d5494bf7b848e377
+      lastModifyingUser:
+        allowMultiple: false
+        uuid: 37817a8093bf8019ef736048b8bf410a
+        required: true
+        target: http://mulesoft.com/modeling/instances/a566338ed54b481a11c861a9b34e9da4
+    extends: http://mulesoft.com/modeling/instances/32d603601c94361f54ba2e1f17dee872
+  RevisionBase:
+    uuid: 32d603601c94361f54ba2e1f17dee872
+    attributes:
+      pinned:
+        allowMultiple: false
+        uuid: bc735a2dae8fe6801c1a1384cf24ef72
+        required: false
+        range:
+          type: boolean
+      published:
+        allowMultiple: false
+        uuid: 25a6ddf1d3de7fa3988df84dfddbfd0b
+        required: false
+        range:
+          type: boolean
+      publishAuto:
+        allowMultiple: false
+        uuid: 3ae7080e6cd031c5adbf79b05dc601ad
+        required: false
+        range:
+          type: boolean
+      publishedOutsideDomain:
+        allowMultiple: false
+        uuid: bf3d1435b756fcdc17cd28bb45abd53f
+        required: false
+        range:
+          type: boolean
+    associations: {}
+  RevisionList:
+    uuid: c3c28cc30e2bc968bd63c77cb2c19a5a
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 63512dd30836787fe3fa2406f22ecd10
+        required: false
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: da0d6e6be0ae9540645543a09a7f4405
+        required: false
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: dff84eb2a37d6667b56bb70d617f270a
+        required: false
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 58edfa968a534ea40541c9a15334bdf2
+        required: false
+        target: http://mulesoft.com/modeling/instances/97a181d69144c99e102605f296c75f67
+  RevisionInsert:
+    uuid: fe668c59970dae4ead8d78d1e46502a6
+    attributes: {}
+    associations: {}
+    description: An object used to create / update the revision resource.
+    extends: http://mulesoft.com/modeling/instances/32d603601c94361f54ba2e1f17dee872

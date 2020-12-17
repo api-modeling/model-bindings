@@ -1,0 +1,53 @@
+[
+  {
+    "@id": "http://mulesoft.com/modeling/instances/uuid/d696cdd45e6e16aa17f3fa6debf1ee07",
+    "@type": [
+      "http://a.ml/vocabularies/meta#DialectInstance",
+      "http://a.ml/vocabularies/document#Document",
+      "http://a.ml/vocabularies/document#Fragment",
+      "http://a.ml/vocabularies/document#Module",
+      "http://a.ml/vocabularies/document#Unit"
+    ],
+    "http://a.ml/vocabularies/meta#definedBy": [
+      {
+        "@id": "http://anypoint.mulesoft.com/model/modularity/schema/modularDialect.yaml"
+      }
+    ],
+    "http://a.ml/vocabularies/document#encodes": [
+      {
+        "@id": "http://mulesoft.com/modeling/instances/uuid/d696cdd45e6e16aa17f3fa6debf1ee07",
+        "@type": [
+          "http://anypoint.mulesoft.com/model/modularity/schema/modularDialect.yaml#/declarations/Module",
+          "http://a.ml/vocabularies/modularity#Module",
+          "http://a.ml/vocabularies/meta#DialectDomainElement",
+          "http://a.ml/vocabularies/document#DomainElement"
+        ],
+        "http://a.ml/vocabularies/data#uuid": [
+          {
+            "@value": "d696cdd45e6e16aa17f3fa6debf1ee07"
+          }
+        ],
+        "http://a.ml/vocabularies/core#name": [
+          {
+            "@value": "Imported spec datagraph.yaml"
+          }
+        ],
+        "http://a.ml/vocabularies/modularity#dataModels": [
+          {
+            "@id": "http://mulesoft.com/modeling/instances/a2bf47bf63673901afb9b86620b5d0c6"
+          }
+        ]
+      }
+    ],
+    "http://a.ml/vocabularies/document#version": [
+      {
+        "@value": "2.1.0"
+      }
+    ],
+    "http://a.ml/vocabularies/document#root": [
+      {
+        "@value": false
+      }
+    ]
+  }
+]

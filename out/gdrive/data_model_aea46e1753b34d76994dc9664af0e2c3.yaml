@@ -1,0 +1,20 @@
+#%DataModel 0.1
+uuid: aea46e1753b34d76994dc9664af0e2c3
+name: service-quota.raml
+entities:
+  Entity13:
+    uuid: 4e47423e6891e16143090249ab01da36
+    attributes:
+      serviceName:
+        allowMultiple: false
+        uuid: fd429cbed2dc441f0433f6778441d9e9
+        required: true
+        range:
+          type: string
+      bytesUsed:
+        allowMultiple: false
+        uuid: 1cb2ba586728115322dd1faa0a0e323a
+        required: true
+        range:
+          type: string
+    associations: {}

@@ -1,0 +1,151 @@
+#%DataModel 0.1
+uuid: 9c490e4468e00b759ea8a4beadb1899d
+name: about-lib.raml
+entities:
+  user:
+    uuid: a8538b30ede3ec6749a07a237841d1ac
+    attributes: {}
+    associations: {}
+    description: The authenticated user.
+    extends: http://mulesoft.com/modeling/instances/9bcce3295a5ceb50df160dd1aee7504d
+  About:
+    uuid: 53b95d8aaff54263146352cacc7dc1d5
+    attributes:
+      quotaType:
+        allowMultiple: false
+        uuid: 8f2b08a678b87c503b283ec80d0603de
+        required: false
+        range:
+          type: string
+      languageCode:
+        allowMultiple: false
+        uuid: 78897bbd035fb5d60c9f8f84b6f39bed
+        required: false
+        range:
+          type: string
+      largestChangeId:
+        allowMultiple: false
+        uuid: 9470db383ed0f7c6a76802d74ad0237f
+        required: false
+        range:
+          type: string
+      folderColorPalette:
+        allowMultiple: true
+        uuid: 9444ced7ea5362ec80274fc781a38f76
+        required: false
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: ca998399aed871ed14d28224b2c31b36
+        required: false
+        range:
+          type: string
+      isCurrentAppInstalled:
+        allowMultiple: false
+        uuid: 594f1ec2ad9cf342f4927bb1a9cd0e19
+        required: false
+        range:
+          type: boolean
+      permissionId:
+        allowMultiple: false
+        uuid: e1f4853d8faad89d71c03c27e6f10ca7
+        required: false
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: e0ee03e1bb580bc050739b927512263a
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 0784b4f0c6437cc9bab800de4d3667e5
+        required: false
+        range:
+          type: string
+      quotaBytesTotal:
+        allowMultiple: false
+        uuid: 9fb805567dfdaf685020b706d2c95272
+        required: false
+        range:
+          type: string
+      quotaBytesUsed:
+        allowMultiple: false
+        uuid: 51623f51283881b28dcc9d9e9f70b727
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 81126a8e6d3c41b87dd087f90d9d7c44
+        required: false
+        range:
+          type: string
+      domainSharingPolicy:
+        allowMultiple: false
+        uuid: 8d414b163fbd6e6bc78b81f2548618fe
+        required: false
+        range:
+          type: string
+      rootFolderId:
+        allowMultiple: false
+        uuid: 06526249abaf3fe70ad966e26983e4cc
+        required: false
+        range:
+          type: string
+      quotaBytesUsedInTrash:
+        allowMultiple: false
+        uuid: fe66fc9dacdcfb6579e87079b9c73b06
+        required: false
+        range:
+          type: string
+      remainingChangeIds:
+        allowMultiple: false
+        uuid: 52c1747f409ce1024382ee5bcc61c414
+        required: false
+        range:
+          type: string
+      quotaBytesUsedAggregate:
+        allowMultiple: false
+        uuid: 4574311fd91c61d7c58b3de45b7b361f
+        required: false
+        range:
+          type: string
+    associations:
+      quotaBytesByService:
+        allowMultiple: true
+        uuid: da94b17a65de89b5087ddeed64d90385
+        required: false
+        target: http://mulesoft.com/modeling/instances/e98dc6bc09651585901d9a4380d1d770
+      importFormats:
+        allowMultiple: true
+        uuid: 8a8ad7eb3573c8fc6581c3e85e46f3ac
+        required: false
+        target: http://mulesoft.com/modeling/instances/0d4d263548d1bdb6bf1f63d94f34fcec
+      maxUploadSizes:
+        allowMultiple: true
+        uuid: 6a8768bcf35d6ed0057779fb96e9f9a3
+        required: false
+        target: http://mulesoft.com/modeling/instances/4b4fcbd27f244bc934f119f359799a72
+      features:
+        allowMultiple: true
+        uuid: dcc7ee1b76177f0d5b93067199d179e2
+        required: false
+        target: http://mulesoft.com/modeling/instances/d599d9556e8ff8793818f99ef4cc8e6a
+      additionalRoleInfo:
+        allowMultiple: true
+        uuid: ea5d70fbf8f19536e1975a1bf65996e7
+        required: false
+        target: http://mulesoft.com/modeling/instances/30ff410e90683f1177717f31a3b46024
+      exportFormats:
+        allowMultiple: true
+        uuid: 2370b44fd7d48714b7afa0f769db9138
+        required: false
+        target: http://mulesoft.com/modeling/instances/d47cc5f1a9068a0d9b70a1d29e5b1a5b
+      user:
+        allowMultiple: false
+        uuid: 264a8905a9fd2eccb50aeb17c4c707de
+        required: false
+        target: http://mulesoft.com/modeling/instances/a8538b30ede3ec6749a07a237841d1ac

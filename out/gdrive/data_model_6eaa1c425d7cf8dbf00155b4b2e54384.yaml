@@ -1,0 +1,257 @@
+#%DataModel 0.1
+uuid: 6eaa1c425d7cf8dbf00155b4b2e54384
+name: comment-lib.raml
+entities:
+  author:
+    uuid: e29b99f53865d13e2bedd29d8d511955
+    attributes: {}
+    associations: {}
+    description: The user who wrote this comment.
+    extends: http://mulesoft.com/modeling/instances/89603f2772fa6ff8fa4b050c3b73d5c8
+  CommentList:
+    uuid: 3f490b7597d6d4ee4a86461ce8528b9f
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: db76c455b2c9b75c5333ad4c2e8f1b08
+        required: true
+        range:
+          type: string
+      nextPageToken:
+        allowMultiple: false
+        uuid: f75d7affb2284af9c6b656a1b79d9263
+        required: false
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: c277688d5152f1ed079580140195e129
+        required: true
+        range:
+          type: string
+      nextLink:
+        allowMultiple: false
+        uuid: 5b4e1d30b82b332c1f23f02404ad34f0
+        required: false
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: b2beac65ca5061a425f4b8be79cd8979
+        required: false
+        target: http://mulesoft.com/modeling/instances/6eab5e14adaf00f2297c84c351ca3711
+  Comment:
+    uuid: 6eab5e14adaf00f2297c84c351ca3711
+    attributes:
+      htmlContent:
+        allowMultiple: false
+        uuid: 9f1d030f551656cf9b67b8ca1bd4407f
+        required: true
+        range:
+          type: string
+      anchor:
+        allowMultiple: false
+        uuid: e1c9027481959aad078eabec91acc13c
+        required: true
+        range:
+          type: string
+      modifiedDate:
+        allowMultiple: false
+        uuid: 2bd730869b6bc6f34dd465cbc5bb5b11
+        required: true
+        range:
+          type: dateTime
+      createdDate:
+        allowMultiple: false
+        uuid: 80832559da74af8964cd28b1330878e5
+        required: true
+        range:
+          type: dateTime
+      commentId:
+        allowMultiple: false
+        uuid: ec76fc343c69aa80a7aa4fb93c1b485b
+        required: true
+        range:
+          type: string
+      fileId:
+        allowMultiple: false
+        uuid: 3e77483b636cc32776226464f1b85bf9
+        required: true
+        range:
+          type: string
+      status:
+        allowMultiple: false
+        uuid: 0b496054097b210b4c51235c0376fcf1
+        required: true
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 8bcc2f9baf9fa318e924c5372fa771ff
+        required: true
+        range:
+          type: string
+      deleted:
+        allowMultiple: false
+        uuid: 109f96a29e795a3088e8bd2943a82b14
+        required: true
+        range:
+          type: boolean
+      fileTitle:
+        allowMultiple: false
+        uuid: 2388a61403c2d4f2ddc3588b817879e6
+        required: true
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: a032f916ddf03790085d88bb62543739
+        required: false
+        range:
+          type: string
+    associations:
+      author:
+        allowMultiple: false
+        uuid: 49ba2414cdfedc2cd7b43acebba33ac3
+        required: true
+        target: http://mulesoft.com/modeling/instances/3cdf17077f1b7b9fe5e09df86271ac90
+      replies:
+        allowMultiple: true
+        uuid: b870983641f16a0eb3d56d55293c146f
+        required: true
+        target: http://mulesoft.com/modeling/instances/9aa83434d2d3e8e73c9529062010ae01
+    extends: http://mulesoft.com/modeling/instances/9166cde6131c5c73eda295b23685723f
+  author1:
+    uuid: 3cdf17077f1b7b9fe5e09df86271ac90
+    attributes: {}
+    associations: {}
+    description: The user who wrote this comment.
+    extends: http://mulesoft.com/modeling/instances/89603f2772fa6ff8fa4b050c3b73d5c8
+  ReplyWritable:
+    uuid: 5dd827234e844eb021496764d8cc3670
+    attributes:
+      content:
+        allowMultiple: false
+        uuid: 3d07553d6d8e964b11cfaa9667c9bb03
+        required: false
+        range:
+          type: string
+      verb:
+        allowMultiple: false
+        uuid: 6cf84ffc480d7452cc27cdedd3bcc32b
+        required: false
+        range:
+          type: string
+    associations: {}
+  context:
+    uuid: 9d775c5dc6dc2250a6086be995889228
+    attributes:
+      attribute14:
+        allowMultiple: false
+        uuid: b393a1ceaa0a95253d7891da3f3b9adf
+        required: true
+        range:
+          type: string
+      value:
+        allowMultiple: false
+        uuid: d91f22ed13aa10d126544b48b669c0d2
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The context of the file which is being commented on.
+  ReplyList:
+    uuid: 6f38ceb7fc537d584bc74f5b299fea1e
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 38c74fb4b81b41f3a7040fd2bba52d0b
+        required: true
+        range:
+          type: string
+      nextPageToken:
+        allowMultiple: false
+        uuid: b2149bd0ef7de44667c99f073c311eb3
+        required: false
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: f8867bf9b4f11379ff4acadf5e4e55ba
+        required: true
+        range:
+          type: string
+      nextLink:
+        allowMultiple: false
+        uuid: 56bd3c4884e9e06049c2592c1db980a7
+        required: false
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 0ce6a2cb2de226478fd7bbce14247921
+        required: false
+        target: http://mulesoft.com/modeling/instances/9aa83434d2d3e8e73c9529062010ae01
+  CommentWritable:
+    uuid: 9166cde6131c5c73eda295b23685723f
+    attributes:
+      content:
+        allowMultiple: false
+        uuid: c2bef8cd077be52a507a8d8bd6641335
+        required: true
+        range:
+          type: string
+    associations:
+      context:
+        allowMultiple: false
+        uuid: 6911eb1e3538a1de0eb7ed828f46b7e0
+        required: true
+        target: http://mulesoft.com/modeling/instances/9d775c5dc6dc2250a6086be995889228
+  Reply:
+    uuid: 9aa83434d2d3e8e73c9529062010ae01
+    attributes:
+      htmlContent:
+        allowMultiple: false
+        uuid: b0ed7825223842b7979c8a486f81e95a
+        required: true
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 65e25030447627d360df857d8a700a06
+        required: true
+        range:
+          type: string
+      replyId:
+        allowMultiple: false
+        uuid: 611e3a12ce169d1d6570666dd25776b0
+        required: true
+        range:
+          type: string
+      createdDate:
+        allowMultiple: false
+        uuid: 36a5ff048f0db237c943d6e285bca524
+        required: true
+        range:
+          type: dateTime
+      modifiedDate:
+        allowMultiple: false
+        uuid: 489ea3b02c1ae35c3ba6e69f580bcc08
+        required: true
+        range:
+          type: dateTime
+      deleted:
+        allowMultiple: false
+        uuid: bf9cba6e9e05ff0a13229a97b3671ac3
+        required: true
+        range:
+          type: boolean
+    associations:
+      author:
+        allowMultiple: false
+        uuid: 0fd84c0b0574b0e42cb5fdf800f502a5
+        required: true
+        target: http://mulesoft.com/modeling/instances/e29b99f53865d13e2bedd29d8d511955
+    extends: http://mulesoft.com/modeling/instances/5dd827234e844eb021496764d8cc3670
