@@ -47,7 +47,6 @@ describe('APIBindingsPlugin', function() {
             return await i.toJsonLd()
         })
         let finals = await Promise.all(proms)
-
         console.log("here0")
         let attesty = await parsed[4].toJsonLd()
         let mbd = new ModelBindingsDialect()
