@@ -53,10 +53,7 @@ export class ApiParser {
             throw new Error(`Format must be either '${ApiParser.RAML1}', '${ApiParser.OAS2}', '${ApiParser.OAS3}', '${ApiParser.JSON_SCHEMA}' or ${ApiParser.AMF_GRAPH}`);
         }
 
-        if (loader){
-            this.loader = loader
-        }
-        this.parsedUnit = this.parse();
+        this.parsedUnit = loader ? this.parse(loader) : this.parse();
     }
 
 
@@ -68,37 +65,16 @@ export class ApiParser {
         }
     }
 
-    async parse(): Promise<amf.model.document.BaseUnit> {
+    async parse(loader? : amf.resource.ResourceLoader): Promise<amf.model.document.BaseUnit> {
         await this.init();
-        if (this.loader){
-            const fetched = await this.loader.fetch(this.specUrl)
-            const text = fetched.stream.toString()
+        if (loader){
             let env = new amf.client.environment.Environment() //amf.client.DefaultEnvironment.apply();
-            env = env.addClientLoader(this.loader)
-
-            /* Removing for temp fix as this call doesn't work
+            env = env.addClientLoader(loader)
             const baseUnit = await amf.Core
                 .parser(this.format, this.syntax, env)
-                .parseStringAsync(this.specUrl,text)
-            */
-            // Kluge fix for above
-            try {
-                const parserChoices = ApiParser.formatMap[this.format];
-                if (!parserChoices){
-                    throw new Error("Could not find parser choices for "+this.format)
-                }
-                const parserName = parserChoices[this.syntax]
-                if (!parserName){
-                    throw new Error("Could not find parser choices for "+this.format+" with "+this.syntax)
-                }
-                const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
-
-                this.parsed = true;
-                return baseUnit
-            } catch (error) {
-                console.log("parse error: "+error)
-                throw error
-            }
+                .parseFileAsync(this.specUrl)
+            this.parsed = true;
+            return baseUnit
         } else {
             const baseUnit = await amf.Core
             .parser(this.format, this.syntax)
