@@ -33,7 +33,6 @@ export class AResourceLoader extends DocumentResourceLoader {
       return true;
     }
   }
-
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
     it ('should import RAML, convert to/from jsonld, and export RAML', async function() {

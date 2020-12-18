@@ -117,7 +117,6 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
 
             }
 
-
             // bindings wrapper
             bindings.uuid = Md5.hashStr(module.id() + "_bindings").toString()
             // @ts-ignore
