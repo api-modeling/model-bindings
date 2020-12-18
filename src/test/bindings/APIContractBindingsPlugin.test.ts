@@ -44,7 +44,6 @@ describe('APIBindingsPlugin', function() {
         const textData = fs.readFileSync(textUrl).toString();
         const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
         const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
-
         let proms = parsed.map(async (i) => {
             return await i.toJsonLd()
         });

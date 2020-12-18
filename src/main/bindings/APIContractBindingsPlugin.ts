@@ -17,7 +17,6 @@ const SUPPORTED_SYNTAXES = [ApiParser.YAML, ApiParser.JSONLD, ApiParser.JSON]
 
 export class APIContractBindingsPlugin extends BindingsPlugin {
 
-
     async export(configuration: ConfigurationParameter[], graphs: meta.DialectWrapper[]): Promise<Resource[]> {
         const bindings: meta.ModelBindingsDialect[] = [];
         const dataModels: meta.DataModelDialect[] = [];
