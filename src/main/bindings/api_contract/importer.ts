@@ -293,7 +293,7 @@ export class APIContractImporter {
                     operations.push(linkOperation)
 
                 } else  { // nested operations
-                    assert(group.length === 0) // 0 because I have shifted the member
+                    //assert(group.length === 0) // 0 because I have shifted the member
                     linkedEndpoint.operations.forEach((op)=> {
                         const controlOperation = this.parseMutableOperation(newPathParams, op, accEntities, entityMap, bindings);
                         const method = op.method.value();
@@ -468,12 +468,12 @@ export class APIContractImporter {
             } else {
                 if (isBody) {
                     const fakeBody = new meta.Entity(this.genName(schema.name.option || "Body"))
-                    return {allowMultiple: isArray, schema: fakeBody }   
+                    return {allowMultiple: isArray, schema: fakeBody }
                 } else {
                     const fakeProp = new amf.model.domain.PropertyShape().withRange(new amf.model.domain.ScalarShape().withDataType(VOCAB.XSD_STRING)).withId(schema.id + "_fake_prop");
                     const attr = this.parseAttribute(fakeProp);
-                    return {allowMultiple: isArray,schema:  attr.range }   
-                }                
+                    return {allowMultiple: isArray,schema:  attr.range }
+                }
             }
         }
     }

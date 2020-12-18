@@ -20,7 +20,8 @@ describe('APIBindingsPlugin', function() {
     this.timeout(5000);
     it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = "src/test/resources/library.raml";
+        const textUrl = "src/test/resources/example.raml"
+        //"src/test/resources/library.raml";
         const textData = fs.readFileSync(textUrl).toString();
         const parsed = await apiPlugin.import(
             [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
@@ -177,7 +178,7 @@ describe('APIBindingsPlugin', function() {
         const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
 
         config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
-        const generated = await apiPlugin.export(config, parsed);    
+        const generated = await apiPlugin.export(config, parsed);
 /*
         generated.forEach((g) => {
             console.log(g.url)
@@ -186,7 +187,7 @@ describe('APIBindingsPlugin', function() {
             console.log("\n\n")
         })
 */
-        assert(generated.length === 3);        
+        assert(generated.length === 3);
     });
 
 });
