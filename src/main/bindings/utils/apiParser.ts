@@ -27,7 +27,6 @@ export class ApiParser {
         'YamlPayloadParser',
         'AmfGraphParser',
 */
-
         "RAML 1.0": {'application/yaml' : 'Raml10Parser'},
         "OAS 2.0": {'application/json': 'Oas20Parser', 'application/yaml': 'Oas20YamlParser'},
         "OAS 3.0": {'application/json': 'Oas30Parser', 'application/yaml': 'Oas30YamlParser'},
@@ -46,6 +45,7 @@ export class ApiParser {
         this.specUrl = specUrl;
         this.format = format;
         this.syntax = syntax;
+
         if (syntax != ApiParser.YAML && syntax != ApiParser.JSON && syntax != ApiParser.JSONLD) {
             throw new Error(`Syntax must be either ${ApiParser.YAML}, ${ApiParser.JSON}, or ${ApiParser.JSONLD}`)
         }
@@ -58,6 +58,7 @@ export class ApiParser {
         }
         this.parsedUnit = this.parse();
     }
+
 
     protected async init() {
         if (!this.initialized) {
@@ -91,14 +92,13 @@ export class ApiParser {
                     throw new Error("Could not find parser choices for "+this.format+" with "+this.syntax)
                 }
                 const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
+
                 this.parsed = true;
                 return baseUnit
             } catch (error) {
                 console.log("parse error: "+error)
                 throw error
             }
-            //const baseUnit = await new (<any>amf)['Aml10Parser'](env).parseStringAsync(this.specUrl, text)
-
         } else {
             const baseUnit = await amf.Core
             .parser(this.format, this.syntax)
