@@ -111,6 +111,8 @@ export class CIMImporter {
                     entity.uuid = `cim/entity/${dataModel.name}/${entityId.value.split("/").pop()}`.replace(" ", "");
                     // @ts-ignore
                     entity['@id'] = entityId.value
+                    //console.log("Entity uuid:"+entity.uuid)
+                    //console.log("Entity id"+entityId.value)
                     return entity
                 });
                 dataModel.entities = entities;
@@ -149,6 +151,8 @@ export class CIMImporter {
         const source = $rdf.namedNode(entityGroupId);
         const entityIds = store.getObjects(source, VOCAB.CIM_CLASSES, null);
         return (entityGroup.entities||[]).map((entity:Entity) => {
+            // @ts-ignore
+            //console.log("entity name: "+ entity['@id'].toString())
             // @ts-ignore
             const entityId = entity['@id'];
 

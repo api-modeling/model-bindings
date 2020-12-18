@@ -161,11 +161,9 @@ describe('APIBindingsPlugin', function() {
     it('should parse RAML Library specs and generate matching modules', async function () {
 
         const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = "http://goop.com/src/test/resources/apiMulti/api.raml"
-        //"src/test/resources/example.raml"
+        const textUrl = "src/test/resources/example.raml"
         //"src/test/resources/library.raml";
-        //const textData = fs.readFileSync(textUrl).toString();
-        const loader = new AResourceLoader()
+        const textData = fs.readFileSync(textUrl).toString();
         const parsed = await apiPlugin.import(
             [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
             [{ url: "file://"+ textUrl, text: textData}]
@@ -337,6 +335,14 @@ describe('APIBindingsPlugin', function() {
 
         config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
         const generated = await apiPlugin.export(config, parsed);
+/*
+        generated.forEach((g) => {
+            console.log(g.url)
+            console.log("------------------")
+            console.log(g.text)
+            console.log("\n\n")
+        })
+*/
         assert(generated.length === 3);
     });
 
