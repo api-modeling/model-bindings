@@ -37,7 +37,12 @@ describe('APIBindingsPlugin', function() {
     this.timeout(5000);
     it ('should import RAML, convert to/from jsonld, and export RAML', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
+<<<<<<< HEAD:src/test/bindings/APIContractBindingsPlugin.test.ts
         const textUrl = "src/test/resources/api1.raml";
+=======
+        const textUrl = "src/test/resources/example.raml"
+        //"src/test/resources/library.raml";
+>>>>>>> changes to integrate with store - added calls to environment and pass a resource loader from front end:src/test/bindings/APIConttractBindingsPlugin.test.ts
         const textData = fs.readFileSync(textUrl).toString();
         const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
         const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
