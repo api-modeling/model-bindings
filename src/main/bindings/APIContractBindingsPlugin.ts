@@ -11,7 +11,7 @@ import {APIContractExporter} from "./api_contract/exporter";
 import {ApiGenerator} from "./utils/apiGenerator";
 import {ApiModel, Binding, BindingScalarValue, DataModel} from "@api-modeling/api-modeling-metadata";
 
-const  SUPPORTED_FORMATS = [ApiParser.RAML1, ApiParser.OAS3 + ".0", ApiParser.OAS2, ApiParser.AMF_GRAPH, ApiParser.JSON_SCHEMA];
+const SUPPORTED_FORMATS = [ApiParser.RAML1, ApiParser.OAS3 + ".0", ApiParser.OAS2, ApiParser.AMF_GRAPH, ApiParser.JSON_SCHEMA];
 const SUPPORTED_SYNTAXES = [ApiParser.YAML, ApiParser.JSONLD, ApiParser.JSON]
 
 export class APIContractBindingsPlugin extends BindingsPlugin {
@@ -66,7 +66,10 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
         const syntax = configuration[1];
 
         // parsing
-        const parser = new ApiParser(resources[0].url, format.value, syntax.value);
+        const parser = configuration.length > 2 ?
+                            new ApiParser(resources[0].url, format.value, syntax.value, <amf.resource.ResourceLoader>configuration[2].value) :
+                            new ApiParser(resources[0].url, format.value, syntax.value)
+
         try {
 
             const bindings = new meta.BindingsModel()
@@ -102,7 +105,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
             bindings.uuid = Md5.hashStr(module.id() + "_bindings").toString()
             // @ts-ignore
             const allModelsForBindings = dataModels.concat([apiModel]).filter((m) => m != null)
-            bindings.bindings = bindings.bindings.concat(allModelsForBindings.map((dataModel) => {
+            bindings.bindings = bindings.bindings.concat(allModelsForBindings.map((dataModel : any) => {
                 // @ts-ignore
                 const baseUnit = dataModel['parsed'];
                 return this.parseBaseUnitBindings(baseUnit, dataModel)
@@ -146,6 +149,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
 
         const format = configuration.find((p) => p.name == "format");
         const syntax = configuration.find((p) => p.name == "syntax");
+        const loader = configuration.find((p) => p.name == "loader");
 
         if (format == null) {
             throw new Error("A format must be passed as an argument")
@@ -167,7 +171,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
             format.value = ApiParser.OAS3
         }
 
-        return [format, syntax];
+        return loader ? [format, syntax, loader] : [format, syntax];
     }
 
     private parseConfigurationFormat(configuration: ConfigurationParameter[]): string {
