@@ -19,7 +19,7 @@ export class ApiParser {
     private syntax: string;
     private format: string;
 
-    constructor(specUrl: string, format: string, syntax: string) {
+    constructor(specUrl: string, format: string, syntax: string, loader?: amf.resource.ResourceLoader) {
         this.specUrl = specUrl;
         this.format = format;
         this.syntax = syntax;
@@ -31,7 +31,7 @@ export class ApiParser {
             throw new Error(`Format must be either '${ApiParser.RAML1}', '${ApiParser.OAS2}', '${ApiParser.OAS3}', '${ApiParser.JSON_SCHEMA}' or ${ApiParser.AMF_GRAPH}`);
         }
 
-        this.parsedUnit = this.parse();
+        this.parsedUnit = loader ? this.parse(loader) : this.parse();
     }
 
 
@@ -43,12 +43,22 @@ export class ApiParser {
         }
     }
 
-    async parse(): Promise<amf.model.document.BaseUnit> {
+    async parse(loader? : amf.resource.ResourceLoader): Promise<amf.model.document.BaseUnit> {
         await this.init();
-        const baseUnit = await amf.Core
+        if (loader){
+            let env = new amf.client.environment.Environment() //amf.client.DefaultEnvironment.apply();
+            env = env.addClientLoader(loader)
+            const baseUnit = await amf.Core
+                .parser(this.format, this.syntax, env)
+                .parseFileAsync(this.specUrl)
+            this.parsed = true;
+            return baseUnit
+        } else {
+            const baseUnit = await amf.Core
             .parser(this.format, this.syntax)
-            .parseFileAsync(this.specUrl);
-        this.parsed = true;
-        return baseUnit
+            .parseFileAsync(this.specUrl)
+            this.parsed = true;
+            return baseUnit
+        }
     }
 }
