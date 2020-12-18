@@ -59,7 +59,6 @@ export class ApiParser {
         this.parsedUnit = this.parse();
     }
 
-
     protected async init() {
         if (!this.initialized) {
             amf.plugins.document.WebApi.register();
@@ -68,7 +67,7 @@ export class ApiParser {
         }
     }
 
-    async parse(): Promise<amf.model.document.BaseUnit> {
+    async parse(loader? : amf.resource.ResourceLoader): Promise<amf.model.document.BaseUnit> {
         await this.init();
         if (this.loader){
             const fetched = await this.loader.fetch(this.specUrl)

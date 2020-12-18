@@ -164,7 +164,6 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
         if (SUPPORTED_SYNTAXES.find((p) => p === syntax.value) == null) {
             throw new Error(`Syntax ${syntax.value} not supported`)
         }
-
         // small adjustment because we are not using the right version of OAS in the parser (3.0 vs 3.0.0)
         if (format.value === ApiParser.OAS3 + ".0") {
             format.value = ApiParser.OAS3
