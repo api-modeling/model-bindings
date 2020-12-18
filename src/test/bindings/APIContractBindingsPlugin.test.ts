@@ -82,7 +82,8 @@ describe('APIBindingsPlugin', function() {
 
     it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = "src/test/resources/library.raml";
+        const textUrl = "src/test/resources/example.raml"
+        //"src/test/resources/library.raml";
         const textData = fs.readFileSync(textUrl).toString();
         const parsed = await apiPlugin.import(
             [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
@@ -264,26 +265,6 @@ describe('APIBindingsPlugin', function() {
         })
 */
         assert(generated.length === 3);
-    });
-
-    it ('should export API models to OAS API specs', async function() {
-        const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = "src/test/resources/multiserver.yaml";
-        const textData = fs.readFileSync(textUrl).toString();
-        let config = [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.YAML}];
-        const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
-
-        config = [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.YAML}];
-        const generated = await apiPlugin.export(config, parsed);
-        /*
-        generated.forEach((g) => {
-            console.log(g.url)
-            console.log("------------------")
-            console.log(g.text)
-            console.log("\n\n")
-        })
-        */
-        assert(generated.length === 1);
     });
 
 });

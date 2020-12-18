@@ -297,7 +297,7 @@ export class APIContractImporter {
                     operations.push(linkOperation)
 
                 } else  { // nested operations
-                    assert(group.length === 0) // 0 because I have shifted the member
+                    //assert(group.length === 0) // 0 because I have shifted the member
                     linkedEndpoint.operations.forEach((op)=> {
                         const controlOperation = this.parseMutableOperation(newPathParams, op, accEntities, entityMap, bindings);
                         const method = op.method.value();
