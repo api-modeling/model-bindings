@@ -83,6 +83,9 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
         const syntax = configuration[1];
 
         // parsing
+        if (configuration.length > 2){
+            console.log('parsing with '+configuration[2].value)
+        }
         const parser = configuration.length > 2 ?
                             new ApiParser(resources[0].url, format.value, syntax.value, <amf.resource.ResourceLoader>configuration[2].value) :
                             new ApiParser(resources[0].url, format.value, syntax.value)
@@ -167,6 +170,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
         const format = configuration.find((p) => p.name == "format");
         const syntax = configuration.find((p) => p.name == "syntax");
         const loader = configuration.find((p) => p.name == "loader");
+        console.log("loader is "+loader)
         if (format == null) {
             throw new Error("A format must be passed as an argument")
         }

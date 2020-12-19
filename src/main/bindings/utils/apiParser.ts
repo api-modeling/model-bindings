@@ -3,6 +3,7 @@ import * as amf from '@api-modeling/amf-client-js';
 export class ApiParser {
     private specUrl: string;
 
+
     public static  RAML1 = "RAML 1.0";
     public static OAS3 = "OAS 3.0";
     public static OAS2 = "OAS 2.0";
@@ -44,6 +45,7 @@ export class ApiParser {
         this.specUrl = specUrl;
         this.format = format;
         this.syntax = syntax;
+        console.log("in parser constructor with "+loader)
 
         if (syntax != ApiParser.YAML && syntax != ApiParser.JSON && syntax != ApiParser.JSONLD) {
             throw new Error(`Syntax must be either ${ApiParser.YAML}, ${ApiParser.JSON}, or ${ApiParser.JSONLD}`)
