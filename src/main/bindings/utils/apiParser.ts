@@ -44,6 +44,7 @@ export class ApiParser {
         this.specUrl = specUrl;
         this.format = format;
         this.syntax = syntax;
+        console.log("in parser constructor with "+loader)
 
         if (syntax != ApiParser.YAML && syntax != ApiParser.JSON && syntax != ApiParser.JSONLD) {
             throw new Error(`Syntax must be either ${ApiParser.YAML}, ${ApiParser.JSON}, or ${ApiParser.JSONLD}`)
@@ -66,6 +67,7 @@ export class ApiParser {
     async parse(loader? : amf.resource.ResourceLoader): Promise<amf.model.document.BaseUnit> {
         await this.init();
         if (loader){
+            console.log("parsing parse with "+loader)
             let env = new amf.client.environment.Environment() //amf.client.DefaultEnvironment.apply();
             env = env.addClientLoader(loader)
             const baseUnit = await amf.Core
