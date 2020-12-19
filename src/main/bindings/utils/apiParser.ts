@@ -3,7 +3,6 @@ import * as amf from '@api-modeling/amf-client-js';
 export class ApiParser {
     private specUrl: string;
 
-
     public static  RAML1 = "RAML 1.0";
     public static OAS3 = "OAS 3.0";
     public static OAS2 = "OAS 2.0";
@@ -82,7 +81,6 @@ export class ApiParser {
             // Kluge fix for above
             try {
                 const parserChoices = ApiParser.formatMap[this.format];
-<<<<<<< HEAD
                 if (!parserChoices){
                     throw new Error("Could not find parser choices for "+this.format)
                 }
@@ -91,11 +89,6 @@ export class ApiParser {
                     throw new Error("Could not find parser choices for "+this.format+" with "+this.syntax)
                 }
                 const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
-=======
-                const parserName = parserChoices[this.syntax]
-                const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
-
->>>>>>> string matching to find the right AMF parser
                 this.parsed = true;
                 return baseUnit
             } catch (error) {
