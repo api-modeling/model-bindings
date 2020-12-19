@@ -67,12 +67,13 @@ export class ApiParser {
     async parse(loader? : amf.resource.ResourceLoader): Promise<amf.model.document.BaseUnit> {
         await this.init();
         if (loader){
-            console.log("parsing parse with "+loader)
+            const fetched = await loader.fetch(this.specUrl)
+            const text = fetched.stream.toString()
             let env = new amf.client.environment.Environment() //amf.client.DefaultEnvironment.apply();
             env = env.addClientLoader(loader)
             const baseUnit = await amf.Core
                 .parser(this.format, this.syntax, env)
-                .parseFileAsync(this.specUrl)
+                .parseStringAsync(this.specUrl,text)
             this.parsed = true;
             return baseUnit
         } else {
