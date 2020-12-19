@@ -81,6 +81,7 @@ export class ApiParser {
             const baseUnit = await amf.Core
                 .parser(this.format, this.syntax, env)
                 .parseStringAsync(this.specUrl,text)
+<<<<<<< HEAD
             */
             // Kluge fix for above
             try {
@@ -99,6 +100,10 @@ export class ApiParser {
                 console.log("parse error: "+error)
                 throw error
             }
+=======
+            this.parsed = true;
+            return baseUnit
+>>>>>>> copying parser code from metadata-store to retrieve first file
         } else {
             const baseUnit = await amf.Core
             .parser(this.format, this.syntax)
