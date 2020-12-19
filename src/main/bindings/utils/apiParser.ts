@@ -52,14 +52,10 @@ export class ApiParser {
             throw new Error(`Format must be either '${ApiParser.RAML1}', '${ApiParser.OAS2}', '${ApiParser.OAS3}', '${ApiParser.JSON_SCHEMA}' or ${ApiParser.AMF_GRAPH}`);
         }
 
-<<<<<<< HEAD
         if (loader){
             this.loader = loader
         }
         this.parsedUnit = this.parse();
-=======
-        this.parsedUnit = loader ? this.parse(loader) : this.parse();
->>>>>>> changes to integrate with store - added calls to environment and pass a resource loader from front end
     }
 
     protected async init() {
