@@ -63,6 +63,7 @@ export class ApiParser {
         this.specUrl = specUrl;
         this.format = format;
         this.syntax = syntax;
+        console.log("in parser constructor with "+loader)
 
         if (syntax != ApiParser.YAML && syntax != ApiParser.JSON && syntax != ApiParser.JSONLD) {
             throw new Error(`Syntax must be either ${ApiParser.YAML}, ${ApiParser.JSON}, or ${ApiParser.JSONLD}`)
