@@ -82,9 +82,6 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
         const syntax = configuration[1];
 
         // parsing
-        if (configuration.length > 2){
-            console.log('parsing with '+configuration[2].value)
-        }
         const parser = configuration.length > 2 ?
                             new ApiParser(resources[0].url, format.value, syntax.value, <amf.resource.ResourceLoader>configuration[2].value) :
                             new ApiParser(resources[0].url, format.value, syntax.value)
