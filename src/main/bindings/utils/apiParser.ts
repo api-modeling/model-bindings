@@ -70,8 +70,13 @@ export class ApiParser {
 
     async parse(loader? : amf.resource.ResourceLoader): Promise<amf.model.document.BaseUnit> {
         await this.init();
+<<<<<<< HEAD
         if (this.loader){
             const fetched = await this.loader.fetch(this.specUrl)
+=======
+        if (loader){
+            const fetched = await loader.fetch(this.specUrl)
+>>>>>>> copying parser code from metadata-store to retrieve first file
             const text = fetched.stream.toString()
             let env = new amf.client.environment.Environment() //amf.client.DefaultEnvironment.apply();
             env = env.addClientLoader(this.loader)
