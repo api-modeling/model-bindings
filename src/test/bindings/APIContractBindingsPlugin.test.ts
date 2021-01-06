@@ -33,6 +33,21 @@ export class AResourceLoader extends DocumentResourceLoader {
       return true;
     }
   }
+
+export class AResourceLoader extends DocumentResourceLoader {
+    fetch(resource: string): Promise<amf.client.remote.Content> {
+      //const textUrl =  '../../' + resource.substring(7) //model-bindings/src/test/resources/example.raml'
+      const textUrl =  //'src/main/resources/test/' +
+          (resource.startsWith('http://goop.com/') ? resource.substring('http://goop.com/'.length) : resource)
+      const textData = fs.readFileSync(textUrl).toString();
+      const longer = 'file:///Users/mfuchs/Documents/webspace/api-mod-grp/auto-store/metadata-store/'+textUrl
+      const fetched = new amf.client.remote.Content(textData, resource)
+      return Promise.resolve(fetched)
+    }
+    accepts(resource: string): boolean {
+      return true;
+    }
+  }
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
 
@@ -161,12 +176,15 @@ describe('APIBindingsPlugin', function() {
     it('should parse RAML Library specs and generate matching modules', async function () {
 
         const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = "src/test/resources/example.raml"
+        const textUrl = "http://goop.com/src/test/resources/apiMulti/api.raml"
+        //"src/test/resources/example.raml"
         //"src/test/resources/library.raml";
-        const textData = fs.readFileSync(textUrl).toString();
+        //const textData = fs.readFileSync(textUrl).toString();
+        const loader = new AResourceLoader()
         const parsed = await apiPlugin.import(
-            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
-            [{ url: "file://"+ textUrl, text: textData}]
+            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML},{name:"loader", value: loader}],
+            [{ url: textUrl, text: <string><unknown>null}]
+//            [{ url: "file://"+ textUrl, text: textData}]
         );
         assert.equal(parsed.length, 4); // all the models: modules, entities, bindings
 
@@ -180,7 +198,8 @@ describe('APIBindingsPlugin', function() {
 
         assert.equal(allModules, 2)
         assert.equal(dataModels.length, 2)
-        assert.equal(allEntities, 8)
+        assert.equal(allEntities, 3)
+        //assert.equal(allEntities, 8)
         assert.equal(allBindings, dataModels.length)
     });
 
