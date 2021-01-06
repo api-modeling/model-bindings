@@ -80,6 +80,7 @@ export class ApiParser {
                 .parser(this.format, this.syntax, env)
                 .parseStringAsync(this.specUrl,text)
             */
+
             // Kluge fix for above
             try {
                 const parserChoices = ApiParser.formatMap[this.format];
