@@ -19,7 +19,10 @@ import { DocumentResourceLoader } from '@api-modeling/api-modeling-metadata'
 import * as amf from '@api-modeling/amf-client-js';
 //import { client } from '@api-modeling/amf-client-js'
 
+<<<<<<< HEAD:src/test/bindings/APIContractBindingsPlugin.test.ts
 
+=======
+>>>>>>> added a test case for two raml files, trying to get parser to work:src/test/bindings/APIConttractBindingsPlugin.test.ts
 export class AResourceLoader extends DocumentResourceLoader {
     fetch(resource: string): Promise<amf.client.remote.Content> {
       //const textUrl =  '../../' + resource.substring(7) //model-bindings/src/test/resources/example.raml'
@@ -35,11 +38,13 @@ export class AResourceLoader extends DocumentResourceLoader {
     }
   }
 
+
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
     it ('should import RAML, convert to/from jsonld, and export RAML', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = "src/test/resources/example.raml"
+        const textUrl = "http://goop.com/src/test/resources/apiMulti/api.raml"
+        //"src/test/resources/example.raml"
         //"src/test/resources/library.raml";
         const textData = fs.readFileSync(textUrl).toString();
         const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
