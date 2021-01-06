@@ -72,6 +72,7 @@ export class ApiParser {
             const fetched = await this.loader.fetch(this.specUrl)
             const text = fetched.stream.toString()
             let env = new amf.client.environment.Environment() //amf.client.DefaultEnvironment.apply();
+<<<<<<< HEAD
             env = env.addClientLoader(this.loader)
 
             /* Removing for temp fix as this call doesn't work
@@ -97,6 +98,18 @@ export class ApiParser {
                 console.log("parse error: "+error)
                 throw error
             }
+=======
+            env = env.addClientLoader(loader)
+
+            const baseUnit = await amf.Core
+                .parser(this.format, this.syntax, env)
+                .parseStringAsync(this.specUrl,text)
+
+            //const baseUnit = await new (<any>amf)['Aml10Parser'](env).parseStringAsync(this.specUrl, text)
+
+            this.parsed = true;
+            return baseUnit
+>>>>>>> added a test case for two raml files, trying to get parser to work
         } else {
             const baseUnit = await amf.Core
             .parser(this.format, this.syntax)
