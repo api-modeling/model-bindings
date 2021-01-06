@@ -72,9 +72,13 @@ export class ApiParser {
             const text = fetched.stream.toString()
             let env = new amf.client.environment.Environment() //amf.client.DefaultEnvironment.apply();
             env = env.addClientLoader(loader)
+
             const baseUnit = await amf.Core
                 .parser(this.format, this.syntax, env)
                 .parseStringAsync(this.specUrl,text)
+
+            //const baseUnit = await new (<any>amf)['Aml10Parser'](env).parseStringAsync(this.specUrl, text)
+
             this.parsed = true;
             return baseUnit
         } else {
