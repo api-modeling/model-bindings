@@ -95,7 +95,8 @@ export class ApiParser {
             } catch (error) {
                 console.log("parse error: "+error)
                 throw error
-            }        } else {
+            }
+        } else {
             const baseUnit = await amf.Core
             .parser(this.format, this.syntax)
             .parseFileAsync(this.specUrl)
