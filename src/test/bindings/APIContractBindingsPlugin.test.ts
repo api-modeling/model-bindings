@@ -19,6 +19,7 @@ import { DocumentResourceLoader } from '@api-modeling/api-modeling-metadata'
 import * as amf from '@api-modeling/amf-client-js';
 //import { client } from '@api-modeling/amf-client-js'
 
+
 export class AResourceLoader extends DocumentResourceLoader {
     fetch(resource: string): Promise<amf.client.remote.Content> {
       //const textUrl =  '../../' + resource.substring(7) //model-bindings/src/test/resources/example.raml'
