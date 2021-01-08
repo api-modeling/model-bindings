@@ -18,24 +18,6 @@ import exp from "constants";
 import { DocumentResourceLoader } from '@api-modeling/api-modeling-metadata'
 import * as amf from '@api-modeling/amf-client-js';
 //import { client } from '@api-modeling/amf-client-js'
-<<<<<<< HEAD
-=======
-
-export class AResourceLoader extends DocumentResourceLoader {
-    fetch(resource: string): Promise<amf.client.remote.Content> {
-      //const textUrl =  '../../' + resource.substring(7) //model-bindings/src/test/resources/example.raml'
-      const textUrl =  //'src/main/resources/test/' +
-          (resource.startsWith('http://goop.com/') ? resource.substring('http://goop.com/'.length) : resource)
-      const textData = fs.readFileSync(textUrl).toString();
-      const longer = 'file:///Users/mfuchs/Documents/webspace/api-mod-grp/auto-store/metadata-store/'+textUrl
-      const fetched = new amf.client.remote.Content(textData, resource)
-      return Promise.resolve(fetched)
-    }
-    accepts(resource: string): boolean {
-      return true;
-    }
-  }
->>>>>>> added a test case for two raml files, trying to get parser to work
 
 export class AResourceLoader extends DocumentResourceLoader {
     fetch(resource: string): Promise<amf.client.remote.Content> {
@@ -88,22 +70,13 @@ describe('APIBindingsPlugin', function() {
     })
     it('should parse RAML example and then Connector', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
-<<<<<<< HEAD
         const textUrl = //"http://goop.com/src/test/resources/apiMulti/api.raml"
         "file://src/test/resources/example.raml"
-=======
-        const textUrl = "http://goop.com/src/test/resources/apiMulti/api.raml"
-        //"src/test/resources/example.raml"
->>>>>>> added a test case for two raml files, trying to get parser to work
         //"src/test/resources/library.raml";
         //const textData = fs.readFileSync(textUrl).toString();
         const loader = new AResourceLoader()
         const parsed = await apiPlugin.import(
-<<<<<<< HEAD
-            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
-=======
             [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML},{name:"loader", value: loader}],
->>>>>>> added a test case for two raml files, trying to get parser to work
             [{ url: textUrl, text: <string><unknown>null}]
 //            [{ url: "file://"+ textUrl, text: textData}]
         );
@@ -121,7 +94,6 @@ describe('APIBindingsPlugin', function() {
         assert.equal(dataModels.length, 2)
         assert.equal(allEntities, 3)
         //assert.equal(allEntities, 8)
-<<<<<<< HEAD
         assert.equal(allBindings, dataModels.length)
     });
 
@@ -151,8 +123,6 @@ describe('APIBindingsPlugin', function() {
         assert.equal(dataModels.length, 2)
         assert.equal(allEntities, 3)
         //assert.equal(allEntities, 8)
-=======
->>>>>>> added a test case for two raml files, trying to get parser to work
         assert.equal(allBindings, dataModels.length)
     });
 
