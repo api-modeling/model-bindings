@@ -36,6 +36,34 @@ export class AResourceLoader extends DocumentResourceLoader {
 
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
+    it('should parse RAML example and then Connector', async function () {
+        const apiPlugin = new APIContractBindingsPlugin();
+        const textUrl = //"http://goop.com/src/test/resources/apiMulti/api.raml"
+        "file://src/test/resources/example.raml"
+        //"src/test/resources/library.raml";
+        //const textData = fs.readFileSync(textUrl).toString();
+        const loader = new AResourceLoader()
+        const parsed = await apiPlugin.import(
+            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
+            [{ url: textUrl, text: <string><unknown>null}]
+//            [{ url: "file://"+ textUrl, text: textData}]
+        );
+        assert.equal(parsed.length, 4); // all the models: modules, entities, bindings
+
+        const modules = parsed.filter((parsed) => parsed instanceof ModularityDialect)
+        const dataModels = parsed.filter((parsed) => parsed instanceof DataModelDialect)
+        const bindingsModels = parsed.filter((parsed) => parsed instanceof ModelBindingsDialect)
+
+        const allModules = modules.map((module) => (<Module>module.encodesWrapper!).dataModels!.length ).reduce((acc, i) => { return acc + i }, 0)
+        const allEntities = dataModels.map((module) => (<DataModel>module.encodesWrapper!).entities!.length ).reduce((acc, i) => { return acc + i }, 0)
+        const allBindings = bindingsModels.map((module) => (<BindingsModel>module.encodesWrapper!).bindings!.length ).reduce((acc, i) => { return acc + i }, 0)
+
+        assert.equal(allModules, 2)
+        assert.equal(dataModels.length, 2)
+        assert.equal(allEntities, 3)
+        //assert.equal(allEntities, 8)
+        assert.equal(allBindings, dataModels.length)
+    });
 
     it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
