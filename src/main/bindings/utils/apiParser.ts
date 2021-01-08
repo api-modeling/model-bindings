@@ -3,6 +3,7 @@ import * as amf from '@api-modeling/amf-client-js';
 export class ApiParser {
     private specUrl: string;
 
+
     public static  RAML1 = "RAML 1.0";
     public static OAS3 = "OAS 3.0";
     public static OAS2 = "OAS 2.0";
