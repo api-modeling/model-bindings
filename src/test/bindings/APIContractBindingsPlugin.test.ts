@@ -76,7 +76,7 @@ describe('APIBindingsPlugin', function() {
         //const textData = fs.readFileSync(textUrl).toString();
         const loader = new AResourceLoader()
         const parsed = await apiPlugin.import(
-            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
+            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML},{name:"loader", value: loader}],
             [{ url: textUrl, text: <string><unknown>null}]
 //            [{ url: "file://"+ textUrl, text: textData}]
         );
