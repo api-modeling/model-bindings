@@ -84,6 +84,7 @@ export class ApiParser {
             this.initialized = true;
         }
     }
+
     async parse(): Promise<amf.model.document.BaseUnit> {
         await this.init();
         if (this.loader){
