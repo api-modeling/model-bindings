@@ -51,14 +51,21 @@ export class ApiParser {
             let env = new amf.client.environment.Environment() //amf.client.DefaultEnvironment.apply();
             env = env.addClientLoader(loader)
 
+            /* Removing for temp fix as this call doesn't work
             const baseUnit = await amf.Core
                 .parser(this.format, this.syntax, env)
                 .parseStringAsync(this.specUrl,text)
+            */
+            // Kluge fix for above
+            try {
+                const baseUnit = await new (<any>amf)['Raml10Parser'](env).parseStringAsync(this.specUrl, text)
 
-            //const baseUnit = await new (<any>amf)['Aml10Parser'](env).parseStringAsync(this.specUrl, text)
-
-            this.parsed = true;
-            return baseUnit
+                this.parsed = true;
+                return baseUnit
+            } catch (error) {
+                console.log("parse error: "+error)
+                throw error
+            }
         } else {
             const baseUnit = await amf.Core
             .parser(this.format, this.syntax)
