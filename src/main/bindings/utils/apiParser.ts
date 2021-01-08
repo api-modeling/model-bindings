@@ -100,6 +100,7 @@ export class ApiParser {
             */
             // Kluge fix for above
             try {
+<<<<<<< HEAD
                 const parserChoices = ApiParser.formatMap[this.format];
                 if (!parserChoices){
                     throw new Error("Could not find parser choices for "+this.format)
@@ -109,6 +110,10 @@ export class ApiParser {
                     throw new Error("Could not find parser choices for "+this.format+" with "+this.syntax)
                 }
                 const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
+=======
+                const baseUnit = await new (<any>amf)['Raml10Parser'](env).parseStringAsync(this.specUrl, text)
+
+>>>>>>> put in kluge for passing loader to amf - may not be final but need to publish to clean npm path
                 this.parsed = true;
                 return baseUnit
             } catch (error) {
