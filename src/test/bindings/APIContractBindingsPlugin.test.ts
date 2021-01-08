@@ -100,6 +100,7 @@ describe('APIBindingsPlugin', function() {
     });
 */
 
+
     it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "http://goop.com/src/test/resources/apiMulti/api.raml"
