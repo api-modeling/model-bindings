@@ -12,7 +12,6 @@ export class ApiParser {
     public static YAML = "application/yaml";
     public static JSON = "application/json";
     public static JSONLD = "application/ld+json";
-
     private static formatMap : any = {
 /*
         'JsonPayloadParser',
