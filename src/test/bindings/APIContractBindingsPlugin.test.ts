@@ -38,7 +38,6 @@ export class AResourceLoader extends DocumentResourceLoader {
     }
   }
 
-
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
     it ('should import RAML, convert to/from jsonld, and export RAML', async function() {
@@ -103,8 +102,11 @@ describe('APIBindingsPlugin', function() {
         //assert.equal(allEntities, 8)
         assert.equal(allBindings, dataModels.length)
     });
+<<<<<<< HEAD:src/test/bindings/APIContractBindingsPlugin.test.ts
 */
 
+=======
+>>>>>>> put in kluge for passing loader to amf - may not be final but need to publish to clean npm path:src/test/bindings/APIConttractBindingsPlugin.test.ts
 
     it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
