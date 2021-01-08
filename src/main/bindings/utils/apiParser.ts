@@ -18,6 +18,7 @@ export class ApiParser {
     private parsed = false;
     private syntax: string;
     private format: string;
+    private loader?: amf.resource.ResourceLoader
 
     constructor(specUrl: string, format: string, syntax: string, loader?: amf.resource.ResourceLoader) {
         this.specUrl = specUrl;
@@ -31,7 +32,10 @@ export class ApiParser {
             throw new Error(`Format must be either '${ApiParser.RAML1}', '${ApiParser.OAS2}', '${ApiParser.OAS3}', '${ApiParser.JSON_SCHEMA}' or ${ApiParser.AMF_GRAPH}`);
         }
 
-        this.parsedUnit = loader ? this.parse(loader) : this.parse();
+        if (loader){
+            this.loader = loader
+        }
+        this.parsedUnit = this.parse();
     }
 
 
@@ -43,13 +47,13 @@ export class ApiParser {
         }
     }
 
-    async parse(loader? : amf.resource.ResourceLoader): Promise<amf.model.document.BaseUnit> {
+    async parse(): Promise<amf.model.document.BaseUnit> {
         await this.init();
-        if (loader){
-            const fetched = await loader.fetch(this.specUrl)
+        if (this.loader){
+            const fetched = await this.loader.fetch(this.specUrl)
             const text = fetched.stream.toString()
             let env = new amf.client.environment.Environment() //amf.client.DefaultEnvironment.apply();
-            env = env.addClientLoader(loader)
+            env = env.addClientLoader(this.loader)
 
             /* Removing for temp fix as this call doesn't work
             const baseUnit = await amf.Core
