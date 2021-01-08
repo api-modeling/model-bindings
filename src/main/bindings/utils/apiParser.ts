@@ -65,7 +65,7 @@ export class ApiParser {
         }
     }
 
-    async parse(loader? : amf.resource.ResourceLoader): Promise<amf.model.document.BaseUnit> {
+    async parse(): Promise<amf.model.document.BaseUnit> {
         await this.init();
         if (this.loader){
             const fetched = await this.loader.fetch(this.specUrl)
