@@ -32,6 +32,25 @@ export class ApiParser {
         "AMF Graph": {'application/json' : "AmfGraphParser", 'application/ld+json': "AmfGraphParser"}
     }
 
+    private static formatMap : any = {
+/*
+        'JsonPayloadParser',
+        'Oas20Parser',
+        'Oas20YamlParser',
+        'Oas30Parser',
+        'Oas30YamlParser',
+        'Raml10Parser',
+        'RamlParser',
+        'VocabulariesParser',
+        'YamlPayloadParser',
+        'AmfGraphParser',
+*/
+        "RAML 1.0": {'application/yaml' : 'Raml10Parser'},
+        "OAS 2.0": {'application/json': 'Oas20Parser', 'application/yaml': 'Oas20YamlParser'},
+        "OAS 3.0.0": {'application/json': 'Oas30Parser', 'application/yaml': 'Oas30YamlParser'},
+        "AMF Graph": {'application/json' : "AmfGraphParser", 'application/ld+json': "AmfGraphParser"}
+    }
+
     private parsedUnit: Promise<amf.model.document.BaseUnit>;
     private initialized = false;
     private parsed = false;
