@@ -29,10 +29,7 @@ export class ApiParser {
 
         "RAML 1.0": {'application/yaml' : 'Raml10Parser'},
         "OAS 2.0": {'application/json': 'Oas20Parser', 'application/yaml': 'Oas20YamlParser'},
-<<<<<<< HEAD
         "OAS 3.0": {'application/json': 'Oas30Parser', 'application/yaml': 'Oas30YamlParser'},
-=======
->>>>>>> string matching to find the right AMF parser
         "OAS 3.0.0": {'application/json': 'Oas30Parser', 'application/yaml': 'Oas30YamlParser'},
         "AMF Graph": {'application/json' : "AmfGraphParser", 'application/ld+json': "AmfGraphParser"}
     }
