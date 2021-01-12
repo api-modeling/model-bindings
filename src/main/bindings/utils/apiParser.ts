@@ -3,6 +3,7 @@ import * as amf from '@api-modeling/amf-client-js';
 export class ApiParser {
     private specUrl: string;
 
+
     public static  RAML1 = "RAML 1.0";
     public static OAS3 = "OAS 3.0";
     public static OAS2 = "OAS 2.0";
@@ -26,26 +27,6 @@ export class ApiParser {
         'AmfGraphParser',
 */
 
-        "RAML 1.0": {'application/yaml' : 'Raml10Parser'},
-        "OAS 2.0": {'application/json': 'Oas20Parser', 'application/yaml': 'Oas20YamlParser'},
-        "OAS 3.0": {'application/json': 'Oas30Parser', 'application/yaml': 'Oas30YamlParser'},
-        "OAS 3.0.0": {'application/json': 'Oas30Parser', 'application/yaml': 'Oas30YamlParser'},
-        "AMF Graph": {'application/json' : "AmfGraphParser", 'application/ld+json': "AmfGraphParser"}
-    }
-
-    private static formatMap : any = {
-/*
-        'JsonPayloadParser',
-        'Oas20Parser',
-        'Oas20YamlParser',
-        'Oas30Parser',
-        'Oas30YamlParser',
-        'Raml10Parser',
-        'RamlParser',
-        'VocabulariesParser',
-        'YamlPayloadParser',
-        'AmfGraphParser',
-*/
         "RAML 1.0": {'application/yaml' : 'Raml10Parser'},
         "OAS 2.0": {'application/json': 'Oas20Parser', 'application/yaml': 'Oas20YamlParser'},
         "OAS 3.0": {'application/json': 'Oas30Parser', 'application/yaml': 'Oas30YamlParser'},
@@ -100,7 +81,6 @@ export class ApiParser {
             */
             // Kluge fix for above
             try {
-<<<<<<< HEAD
                 const parserChoices = ApiParser.formatMap[this.format];
                 if (!parserChoices){
                     throw new Error("Could not find parser choices for "+this.format)
@@ -110,10 +90,9 @@ export class ApiParser {
                     throw new Error("Could not find parser choices for "+this.format+" with "+this.syntax)
                 }
                 const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
-=======
-                const baseUnit = await new (<any>amf)['Raml10Parser'](env).parseStringAsync(this.specUrl, text)
-
->>>>>>> put in kluge for passing loader to amf - may not be final but need to publish to clean npm path
+                const parserChoices = ApiParser.formatMap[this.format];
+                const parserName = parserChoices[this.syntax]
+                const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
                 this.parsed = true;
                 return baseUnit
             } catch (error) {
