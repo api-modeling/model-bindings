@@ -3,6 +3,7 @@ import * as amf from '@api-modeling/amf-client-js';
 export class ApiParser {
     private specUrl: string;
 
+
     public static  RAML1 = "RAML 1.0";
     public static OAS3 = "OAS 3.0";
     public static OAS2 = "OAS 2.0";
@@ -12,6 +13,25 @@ export class ApiParser {
     public static YAML = "application/yaml";
     public static JSON = "application/json";
     public static JSONLD = "application/ld+json";
+
+    private static formatMap : any = {
+/*
+        'JsonPayloadParser',
+        'Oas20Parser',
+        'Oas20YamlParser',
+        'Oas30Parser',
+        'Oas30YamlParser',
+        'Raml10Parser',
+        'RamlParser',
+        'VocabulariesParser',
+        'YamlPayloadParser',
+        'AmfGraphParser',
+*/
+        "RAML 1.0": {'application/yaml' : 'Raml10Parser'},
+        "OAS 2.0": {'application/json': 'Oas20Parser', 'application/yaml': 'Oas20YamlParser'},
+        "OAS 3.0.0": {'application/json': 'Oas30Parser', 'application/yaml': 'Oas30YamlParser'},
+        "AMF Graph": {'application/json' : "AmfGraphParser", 'application/ld+json': "AmfGraphParser"}
+    }
 
     private parsedUnit: Promise<amf.model.document.BaseUnit>;
     private initialized = false;
@@ -62,7 +82,9 @@ export class ApiParser {
             */
             // Kluge fix for above
             try {
-                const baseUnit = await new (<any>amf)['Raml10Parser'](env).parseStringAsync(this.specUrl, text)
+                const parserChoices = ApiParser.formatMap[this.format];
+                const parserName = parserChoices[this.syntax]
+                const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
 
                 this.parsed = true;
                 return baseUnit
