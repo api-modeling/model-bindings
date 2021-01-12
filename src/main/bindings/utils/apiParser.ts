@@ -81,6 +81,7 @@ export class ApiParser {
             // Kluge fix for above
             try {
                 const parserChoices = ApiParser.formatMap[this.format];
+<<<<<<< HEAD
                 if (!parserChoices){
                     throw new Error("Could not find parser choices for "+this.format)
                 }
@@ -89,6 +90,11 @@ export class ApiParser {
                     throw new Error("Could not find parser choices for "+this.format+" with "+this.syntax)
                 }
                 const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
+=======
+                const parserName = parserChoices[this.syntax]
+                const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
+
+>>>>>>> string matching to find the right AMF parser
                 this.parsed = true;
                 return baseUnit
             } catch (error) {
