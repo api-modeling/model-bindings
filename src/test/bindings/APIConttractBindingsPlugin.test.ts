@@ -238,7 +238,7 @@ describe('APIBindingsPlugin', function() {
 
     it ('should export API models to RAML API specs', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = "src/test/resources/api1.raml";
+        const textUrl = "src/test/resources/api2.raml";
         const textData = fs.readFileSync(textUrl).toString();
         let config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
         const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
