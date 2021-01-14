@@ -358,5 +358,4 @@ describe('APIBindingsPlugin', function() {
         const generated = await apiPlugin.export(config, parsed);
         assert(generated.length === 1);
     });
-
 });
