@@ -36,6 +36,41 @@ export class AResourceLoader extends DocumentResourceLoader {
 
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
+    it ('should import RAML, convert to/from jsonld, and export RAML', async function() {
+        const apiPlugin = new APIContractBindingsPlugin();
+        const textUrl = "src/test/resources/api1.raml";
+        const textData = fs.readFileSync(textUrl).toString();
+        const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
+        const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
+
+        let proms = parsed.map(async (i) => {
+            return await i.toJsonLd()
+        })
+        let finals = await Promise.all(proms)
+
+        console.log("here0")
+        let attesty = await parsed[4].toJsonLd()
+        let mbd = new ModelBindingsDialect()
+        await mbd.fromJsonLd(JSON.parse(finals[0])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[0])
+        console.log("here1")
+        let md = new ModularityDialect()
+        await md.fromJsonLd(JSON.parse(finals[1])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[1])
+        console.log("here2")
+        let dmd0 = new DataModelDialect()
+        await dmd0.fromJsonLd(JSON.parse(finals[2])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[2])
+        console.log("here3")
+        let dmd1 = new DataModelDialect()
+        await dmd1.fromJsonLd(JSON.parse(finals[3])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[3])
+        console.log("here4")
+        let api = new ApiModelDialect()
+        await api.fromJsonLd(JSON.parse(finals[4])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[4])
+        console.log("here done")
+        const g1 = await apiPlugin.export(config,parsed)
+        console.log("g1")
+        const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]);
+        console.log("g2")
+        return true;
+    })
     it('should parse RAML example and then Connector', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = //"http://goop.com/src/test/resources/apiMulti/api.raml"
