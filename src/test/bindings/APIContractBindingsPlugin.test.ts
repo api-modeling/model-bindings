@@ -37,7 +37,6 @@ export class AResourceLoader extends DocumentResourceLoader {
 
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
-
     it ('should import RAML, convert to/from jsonld, and export RAML', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/api1.raml";
@@ -136,7 +135,6 @@ describe('APIBindingsPlugin', function() {
         const textData = fs.readFileSync(textUrl).toString();
         const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
         const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
-
         const generated = await apiPlugin.export(config, parsed);
 
         const parsedLibrary2 = "#%RAML 1.0 Library\n" +
