@@ -68,9 +68,8 @@ describe('APIBindingsPlugin', function() {
         console.log("g1")
         const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]);
         console.log("g2")
-        return true
+        return true;
     })
-
     it('should parse RAML example and then Connector', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = //"http://goop.com/src/test/resources/apiMulti/api.raml"
