@@ -46,7 +46,9 @@ describe('APIBindingsPlugin', function() {
             return await i.toJsonLd()
         })
         let finals = await Promise.all(proms)
+
         console.log("here0")
+        let attesty = await parsed[4].toJsonLd()
         let mbd = new ModelBindingsDialect()
         await mbd.fromJsonLd(JSON.parse(finals[0])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[0])
         console.log("here1")
