@@ -19,10 +19,6 @@ import { DocumentResourceLoader } from '@api-modeling/api-modeling-metadata'
 import * as amf from '@api-modeling/amf-client-js';
 //import { client } from '@api-modeling/amf-client-js'
 
-<<<<<<< HEAD:src/test/bindings/APIContractBindingsPlugin.test.ts
-
-=======
->>>>>>> added a test case for two raml files, trying to get parser to work:src/test/bindings/APIConttractBindingsPlugin.test.ts
 export class AResourceLoader extends DocumentResourceLoader {
     fetch(resource: string): Promise<amf.client.remote.Content> {
       //const textUrl =  '../../' + resource.substring(7) //model-bindings/src/test/resources/example.raml'
@@ -102,11 +98,8 @@ describe('APIBindingsPlugin', function() {
         //assert.equal(allEntities, 8)
         assert.equal(allBindings, dataModels.length)
     });
-<<<<<<< HEAD:src/test/bindings/APIContractBindingsPlugin.test.ts
 */
 
-=======
->>>>>>> put in kluge for passing loader to amf - may not be final but need to publish to clean npm path:src/test/bindings/APIConttractBindingsPlugin.test.ts
 
     it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
@@ -296,7 +289,6 @@ describe('APIBindingsPlugin', function() {
         })
 */
         assert(generated.length === 3);
-<<<<<<< HEAD:src/test/bindings/APIContractBindingsPlugin.test.ts
     });
 
     it ('should export API models to OAS API specs', async function() {
@@ -317,8 +309,6 @@ describe('APIBindingsPlugin', function() {
         })
         */
         assert(generated.length === 1);
-=======
->>>>>>> changes to integrate with store - added calls to environment and pass a resource loader from front end:src/test/bindings/APIConttractBindingsPlugin.test.ts
     });
 
 });
