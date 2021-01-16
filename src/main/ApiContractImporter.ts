@@ -15,7 +15,7 @@ const text = fs.readFileSync(url).toString()
 const outStripe = "out/stripe/";
 const outRaml = "out/orders/"
 const outGDrive = "out/gdrive/"
-const outBase = outGDrive // CHANGE ME
+const outBase = outRaml // CHANGE ME
 
 const stripeConfig = [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.JSON}]
 const stripeFile =  [{url: "file://"+ stripeUrl, text: text}]
@@ -24,8 +24,8 @@ const ramlFile =  [{url: "file://"+ ramlUrl, text: text}]
 const gdriveConfig = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}]
 const gdriveFile =  [{url: "file://"+ gdriveUrl, text: text}]
 
-const config = gdriveConfig; // CHANGE ME
-const file = gdriveFile; // CHANGE ME
+const config = ramlConfig; // CHANGE ME
+const file = ramlFile; // CHANGE ME
 
 apiContractPlugin.import(config,file).then((parsed) => {
     const base = outBase;

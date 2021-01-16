@@ -18,6 +18,7 @@ import exp from "constants";
 
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
+
     it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/library.raml";
@@ -158,13 +159,28 @@ describe('APIBindingsPlugin', function() {
             "Find Resource /shoppingCarts/{id}",
             "Update"
         ]);
-        assert.equal(allApiEntities.length, 1);
+        assert.equal(allApiEntities.length, 7);
         assert.deepEqual(allApiEntities.map((e) => {
-            let attrs = e.attributes!.map((a) => a.name);
-            let assocs = e.associations!.map((a) => a.name);
+            let attrs: string[] = [];
+            let assocs: string[] = [];
+            if (e.attributes) {
+                attrs = e.attributes!.map((a) => a.name);
+            } else {
+                attrs = [e.adapts!.uuid];
+            }
+            if (e.associations) {
+                assocs = e.associations!.map((a) => a.name);
+            }
             return attrs.concat(assocs).sort().join("::");
+
         }), [
-            "message::successful"
+            "7c3a4f55489cd476bdd39a4d7d46d12a",
+            "7c3a4f55489cd476bdd39a4d7d46d12a",
+            "7c3a4f55489cd476bdd39a4d7d46d12a",
+            "fb25932527487e81cb1a72fcbadbcb39",
+            "message::successful",
+            "7c3a4f55489cd476bdd39a4d7d46d12a",
+            "7c3a4f55489cd476bdd39a4d7d46d12a"
         ]);
         assert.equal(allBindings.length, 28);
     });

@@ -150,6 +150,8 @@ export class APIContractImporter {
                 const entity = new meta.Entity(parsed.name);
                 entity.uuid = Md5.hashStr(schema.id + adaptedIdSuffix).toString();
                 entity.adapts = parsed;
+                entity.name = this.genName("AdaptedEntity." + entity.name)
+                accEntities.push(entity)
                 return entity;
             } else {
                 return parsed;
