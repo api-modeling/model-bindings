@@ -472,7 +472,11 @@ export class APIContractExporter extends ExporterBaseUtils {
         if (baseUnit instanceof amf.model.document.Document) {
             const apiModel = apiModelDialect.encodedApiModel();
             const entities = (apiModel?.entities||[]).map((entity) => {
-                return this.exportDataEntity(entity);
+                if (entity.adapts != null) {
+                    return this.generateLink(null, entity.adapts.id(), baseUnit.id)
+                } else {
+                    return this.exportDataEntity(entity);
+                }
             });
             if (entities.length > 0) {
                 baseUnit.withDeclares((baseUnit.declares || []).concat(entities))
