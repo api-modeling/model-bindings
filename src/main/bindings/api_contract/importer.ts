@@ -4,8 +4,6 @@ import * as amf from "@api-modeling/amf-client-js";
 import {Md5} from 'ts-md5/dist/md5';
 import {VOCAB} from "./constants";
 import assert from "assert";
-import base = Mocha.reporters.base;
-import {model} from "@api-modeling/amf-client-js";
 
 interface ParsedShape {
     schema: Entity|Scalar,

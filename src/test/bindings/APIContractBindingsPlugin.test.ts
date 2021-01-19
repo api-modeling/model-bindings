@@ -14,10 +14,71 @@ import {
     ApiModelDialect
 } from "@api-modeling/api-modeling-metadata"
 import {ApiParser} from "../../main/bindings/utils/apiParser";
-import exp from "constants";
 
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
+
+    it ('should import RAML, convert to/from jsonld, and export RAML', async function() {
+        const apiPlugin = new APIContractBindingsPlugin();
+        const textUrl = "src/test/resources/api1.raml";
+        const textData = fs.readFileSync(textUrl).toString();
+        const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
+        const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
+
+        let proms = parsed.map(async (i) => {
+            return await i.toJsonLd()
+        });
+        let finals = await Promise.all(proms);
+
+        let mbd = new ModelBindingsDialect();
+        await mbd.fromJsonLd(JSON.parse(finals[0])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[0]);
+        let md = new ModularityDialect();
+        await md.fromJsonLd(JSON.parse(finals[1])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[1]);
+        let dmd0 = new DataModelDialect();
+        await dmd0.fromJsonLd(JSON.parse(finals[2])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[2]);
+        let dmd1 = new DataModelDialect();
+        await dmd1.fromJsonLd(JSON.parse(finals[3])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[3]);
+        let api = new ApiModelDialect();
+        await api.fromJsonLd(JSON.parse(finals[4])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[4]);
+        const g1 = await apiPlugin.export(config,parsed);
+        const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]);
+        generated.forEach((generatedModel) => {
+            assert(generatedModel.url.endsWith(".raml"));
+        })
+        assert(g1 != null);
+        assert(generated != null);
+    })
+
+    /*
+    it('should parse RAML example and then Connector', async function () {
+        const apiPlugin = new APIContractBindingsPlugin();
+        const textUrl = //"http://goop.com/src/test/resources/apiMulti/api.raml"
+        //"file://src/test/resources/example.raml"
+        //"src/test/resources/library.raml";
+        //const textData = fs.readFileSync(textUrl).toString();
+
+        const parsed = await apiPlugin.import(
+            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
+            [{ url: textUrl, text: <string><unknown>null}]
+//            [{ url: "file://"+ textUrl, text: textData}]
+        );
+        assert.equal(parsed.length, 4); // all the models: modules, entities, bindings
+
+        const modules = parsed.filter((parsed) => parsed instanceof ModularityDialect)
+        const dataModels = parsed.filter((parsed) => parsed instanceof DataModelDialect)
+        const bindingsModels = parsed.filter((parsed) => parsed instanceof ModelBindingsDialect)
+
+        const allModules = modules.map((module) => (<Module>module.encodesWrapper!).dataModels!.length ).reduce((acc, i) => { return acc + i }, 0)
+        const allEntities = dataModels.map((module) => (<DataModel>module.encodesWrapper!).entities!.length ).reduce((acc, i) => { return acc + i }, 0)
+        const allBindings = bindingsModels.map((module) => (<BindingsModel>module.encodesWrapper!).bindings!.length ).reduce((acc, i) => { return acc + i }, 0)
+
+        assert.equal(allModules, 2)
+        assert.equal(dataModels.length, 2)
+        assert.equal(allEntities, 3)
+        //assert.equal(allEntities, 8)
+        assert.equal(allBindings, dataModels.length)
+    });
+*/
 
     it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();

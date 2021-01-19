@@ -472,7 +472,11 @@ export class APIContractExporter extends ExporterBaseUtils {
         if (baseUnit instanceof amf.model.document.Document) {
             const apiModel = apiModelDialect.encodedApiModel();
             const entities = (apiModel?.entities||[]).map((entity) => {
-                return this.exportDataEntity(entity);
+                if (entity.adapts != null) {
+                    return this.generateLink(null, entity.adapts.id(), baseUnit.id)
+                } else {
+                    return this.exportDataEntity(entity);
+                }
             });
             if (entities.length > 0) {
                 baseUnit.withDeclares((baseUnit.declares || []).concat(entities))
@@ -528,7 +532,7 @@ export class APIContractExporter extends ExporterBaseUtils {
     }
 
     private computeLocation(location: string) {
-        if (location.indexOf(".") > -1) {
+        if (location.endsWith(".json") || location.endsWith(".jsonld") || location.endsWith(".raml") || location.endsWith(".yaml")) {
             const parts = location.split(".")
             parts.pop()
             parts.push(this.formatExtension)
