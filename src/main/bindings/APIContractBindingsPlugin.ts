@@ -10,6 +10,7 @@ import {VOCAB} from "./api_contract/constants";
 import {APIContractExporter} from "./api_contract/exporter";
 import {ApiGenerator} from "./utils/apiGenerator";
 import {ApiModel, Binding, BindingScalarValue, DataModel} from "@api-modeling/api-modeling-metadata";
+import {model} from "@api-modeling/amf-client-js";
 
 const  SUPPORTED_FORMATS = [ApiParser.RAML1, ApiParser.OAS3 + ".0", ApiParser.OAS2, ApiParser.AMF_GRAPH, ApiParser.JSON_SCHEMA];
 const SUPPORTED_SYNTAXES = [ApiParser.YAML, ApiParser.JSONLD, ApiParser.JSON]
@@ -37,19 +38,36 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
             }
         });
 
-        const formatExtension = this.parseConfigurationFormat(configuration);
         const tuple = this.parseConfigurationParameters(configuration);
-        const format = tuple[0].value;
-        const syntax = tuple[1].value;
+        const format: string = tuple[0].value;
+        const syntax: string = tuple[1].value;
+        const formatExtension = this.parseConfigurationFormat(format, syntax);
 
         const baseUnits =  new APIContractExporter(modules, dataModels, apiModels, bindings, formatExtension).export();
         const maybeResources = baseUnits.map(async (baseUnit) => {
-            const generator = new ApiGenerator(baseUnit, format, syntax);
-            const text = await generator.generate();
-            return {
-                url: baseUnit.location,
-                text: text
-            };
+            if (baseUnit instanceof amf.model.document.Document) {
+                const generator = new ApiGenerator(baseUnit, format, syntax);
+                const text = await generator.generate();
+                return {
+                    url: baseUnit.location,
+                    text: text
+                };
+            } else if (baseUnit instanceof amf.model.document.Module && format.indexOf("OAS") < -1) {
+                const generator = new ApiGenerator(baseUnit, ApiParser.JSON_SCHEMA, syntax);
+                const text = await generator.generate();
+                return {
+                    url: baseUnit.location,
+                    text: text
+                };
+            } else {
+                const generator = new ApiGenerator(baseUnit, ApiParser.RAML1, syntax);
+                const text = await generator.generate();
+                return {
+                    url: baseUnit.location,
+                    text: text
+                };
+            }
+
         });
         return Promise.all(maybeResources);
     }
@@ -170,11 +188,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
         return [format, syntax];
     }
 
-    private parseConfigurationFormat(configuration: ConfigurationParameter[]): string {
-        const tuple = this.parseConfigurationParameters(configuration);
-        const format = tuple[0].value;
-        const syntax = tuple[1].value;
-
+    private parseConfigurationFormat(format: string, syntax: string): string {
         if (format == ApiParser.RAML1) {
             return "raml";
         } else if (syntax == ApiParser.YAML) {

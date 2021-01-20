@@ -68,15 +68,17 @@ export class APIContractImporter {
             const entities = this.parseShapes(baseUnit);
             const dataModel = new meta.DataModel(moduleUri);
             dataModel.uuid = Md5.hashStr(baseUnit.id).toString();
-            dataModel.entities = entities;
-            dataModel.name = name;
-            dataModel.description = baseUnit.usage.option;
-            // @ts-ignore
-            dataModel['parsed'] = baseUnit;
-            parsed.push(dataModel);
-            baseUnit.references().map((ref) => {
-                this.parseBaseUnitDataModel(moduleUri, ref, parsed);
-            })
+            if (entities.length > 0) {
+                dataModel.entities = entities;
+                dataModel.name = name;
+                dataModel.description = baseUnit.usage.option;
+                // @ts-ignore
+                dataModel['parsed'] = baseUnit;
+                parsed.push(dataModel);
+                baseUnit.references().map((ref) => {
+                    this.parseBaseUnitDataModel(moduleUri, ref, parsed);
+                });
+            }
         }
         return parsed;
     }
@@ -188,6 +190,8 @@ export class APIContractImporter {
                         resource = new meta.Resource();
                     }
                 }
+            } else {
+                resource = new meta.Resource();
             }
         }
 

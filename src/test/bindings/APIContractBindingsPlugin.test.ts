@@ -266,4 +266,24 @@ describe('APIBindingsPlugin', function() {
         assert(generated.length === 3);        
     });
 
+    it ('should export API models to OAS API specs', async function() {
+        const apiPlugin = new APIContractBindingsPlugin();
+        const textUrl = "src/test/resources/multiserver.yaml";
+        const textData = fs.readFileSync(textUrl).toString();
+        let config = [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.YAML}];
+        const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
+
+        config = [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.YAML}];
+        const generated = await apiPlugin.export(config, parsed);
+        /*
+        generated.forEach((g) => {
+            console.log(g.url)
+            console.log("------------------")
+            console.log(g.text)
+            console.log("\n\n")
+        })
+        */
+        assert(generated.length === 1);
+    });
+
 });
