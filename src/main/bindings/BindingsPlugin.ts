@@ -25,12 +25,12 @@ export abstract class BindingsPlugin  {
      * @param configuration
      * @param resources
      */
-    abstract async import(configuration: ConfigurationParameter[], resources: Resource[]): Promise<meta.DialectWrapper[]>
+    abstract import(configuration: ConfigurationParameter[], resources: Resource[]): Promise<meta.DialectWrapper[]>
 
     /**
      * Transforms sets of native model graphs into external resources
      * @param configuration
      * @param graphs
      */
-    abstract async export(configuration: ConfigurationParameter[], graphs: meta.DialectWrapper[]): Promise<Resource[]>
+    abstract export(configuration: ConfigurationParameter[], graphs: meta.DialectWrapper[]): Promise<Resource[]>
 }
