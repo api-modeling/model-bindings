@@ -4,8 +4,6 @@ import * as amf from "@api-modeling/amf-client-js";
 import {Md5} from 'ts-md5/dist/md5';
 import {VOCAB} from "./constants";
 import assert from "assert";
-import base = Mocha.reporters.base;
-import {model} from "@api-modeling/amf-client-js";
 
 interface ParsedShape {
     schema: Entity|Scalar,
@@ -70,15 +68,17 @@ export class APIContractImporter {
             const entities = this.parseShapes(baseUnit);
             const dataModel = new meta.DataModel(moduleUri);
             dataModel.uuid = Md5.hashStr(baseUnit.id).toString();
-            dataModel.entities = entities;
-            dataModel.name = name;
-            dataModel.description = baseUnit.usage.option;
-            // @ts-ignore
-            dataModel['parsed'] = baseUnit;
-            parsed.push(dataModel);
-            baseUnit.references().map((ref) => {
-                this.parseBaseUnitDataModel(moduleUri, ref, parsed);
-            })
+            if (entities.length > 0) {
+                dataModel.entities = entities;
+                dataModel.name = name;
+                dataModel.description = baseUnit.usage.option;
+                // @ts-ignore
+                dataModel['parsed'] = baseUnit;
+                parsed.push(dataModel);
+                baseUnit.references().map((ref) => {
+                    this.parseBaseUnitDataModel(moduleUri, ref, parsed);
+                });
+            }
         }
         return parsed;
     }
@@ -190,6 +190,8 @@ export class APIContractImporter {
                         resource = new meta.Resource();
                     }
                 }
+            } else {
+                resource = new meta.Resource();
             }
         }
 
@@ -295,7 +297,7 @@ export class APIContractImporter {
                     operations.push(linkOperation)
 
                 } else  { // nested operations
-                    //assert(group.length === 0) // 0 because I have shifted the member
+                    assert(group.length === 0) // 0 because I have shifted the member
                     linkedEndpoint.operations.forEach((op)=> {
                         const controlOperation = this.parseMutableOperation(newPathParams, op, accEntities, entityMap, bindings);
                         const method = op.method.value();

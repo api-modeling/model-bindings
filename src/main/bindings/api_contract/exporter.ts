@@ -532,7 +532,7 @@ export class APIContractExporter extends ExporterBaseUtils {
     }
 
     private computeLocation(location: string) {
-        if (location.indexOf(".") > -1) {
+        if (location.endsWith(".json") || location.endsWith(".jsonld") || location.endsWith(".raml") || location.endsWith(".yaml")) {
             const parts = location.split(".")
             parts.pop()
             parts.push(this.formatExtension)
