@@ -1,7 +1,7 @@
 import { describe } from 'mocha'
 import { assert } from 'chai';
-import {APIContractBindingsPlugin} from "../../main/bindings/APIContractBindingsPlugin";
 import * as fs from 'fs';
+import {APIContractBindingsPlugin} from "../../main/bindings/APIContractBindingsPlugin";
 import {
     Operation,
     Module,
