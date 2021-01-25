@@ -132,13 +132,7 @@ describe('APIBindingsPlugin', function() {
     it('should parse RAML example and then Connector', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = //"http://goop.com/src/test/resources/apiMulti/api.raml"
-<<<<<<< HEAD
         "file://src/test/resources/example.raml"
-        //"src/test/resources/library.raml";
-=======
-        //"file://src/test/resources/example.raml"
-        "file://src/test/resources/library.raml";
->>>>>>> minor fixes from rebasing, fixed a typo
         //const textData = fs.readFileSync(textUrl).toString();
         const loader = new AResourceLoader()
         const parsed = await apiPlugin.import(
@@ -167,7 +161,6 @@ describe('APIBindingsPlugin', function() {
 
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "http://goop.com/src/test/resources/apiMulti/api.raml"
-        //"src/test/resources/example.raml"
         //"src/test/resources/library.raml";
         //const textData = fs.readFileSync(textUrl).toString();
         const loader = new AResourceLoader()
