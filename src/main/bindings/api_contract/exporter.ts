@@ -518,7 +518,7 @@ export class APIContractExporter extends ExporterBaseUtils {
         } else {
             const binding = this.findBinding(dataModelDialect.encodedDataModel()!.id(), VOCAB.API_CONTRACT_DOCUMENT_TYPE_BINDING)!
             const params: meta.BindingValue[] = (binding.configuration || []);
-            const bindingValues = this.findParam(params, VOCAB.API_CONTRACT_DOCUMENT_TARGET_ENTITY_PARAMETER)
+            const bindingValues = this.findParam(params, VOCAB.API_CONTRACT_DOCUMENT_TYPE_BINDING_PARAMETER/*.API_CONTRACT_DOCUMENT_TARGET_ENTITY_PARAMETER*/)
             if (bindingValues.length === 1) {
                 const entity: meta.Entity = dataModelDialect.encodedDataModel()!.entities!.find((e) => e.name == (<meta.BindingScalarValue>bindingValues[0]).lexicalValue)!;
                 const encodedShape = shapes.find((s) => {
