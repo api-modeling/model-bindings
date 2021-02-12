@@ -178,12 +178,10 @@ export class APIContractImporter {
             if (payload != null) {
                 let effectiveShape = payload.schema
                 if (effectiveShape instanceof amf.model.domain.ArrayShape) {
-                    // effectiveShape = (<amf.model.domain.ArrayShape>effectiveShape).items;
                     resource = new meta.CollectionResource();
                 } else {
                     const entity = this.adaptOrCreate(effectiveShape, endpoint.id + "get", accEntities, entityMap)
                     if (entity) {
-                        // resource.isCollection = true @todo: generate collection here
                         resource = new meta.Resource();
                         resource.schema = entity
                     } else {

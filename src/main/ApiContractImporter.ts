@@ -36,11 +36,9 @@ apiContractPlugin.import(config,file).then((parsed) => {
             fs.mkdirSync(locationDir, {recursive: true});
         }
         dialectInstance.toYaml().then((data) => {
-            console.log("WRITING " + location)
             fs.writeFileSync(location + ".yaml", data);
         });
         dialectInstance.toJsonLd().then((data) => {
-            console.log("WRITING " + location)
             fs.writeFileSync(location + ".jsonld", data);
         });
     });
