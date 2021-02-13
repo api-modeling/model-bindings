@@ -1,0 +1,60 @@
+#%RAML 1.0 DataType
+
+properties:
+  Disclaimer:
+    displayName: Disclaimer    
+    type: string    
+    required: false
+  Community_regulations:
+    displayName: Community_regulations
+    type: object
+    properties:
+      Gathering_Restriction_Code:
+        displayName: Gathering_restriction_code        
+        type: string        
+        required: false
+      School_Closure_Code:
+        displayName: School_closure_code        
+        type: string        
+        required: false
+      Non_Essential_Business_Closure_Code:
+        displayName: Non_essential_business_closure_code        
+        type: string
+        required: false
+      Social_Distancing_Requirement_Code:
+        displayName: Social_distancing_requirement_code
+        type: string       
+        required: false
+      Face_Covering_Policy_Code:
+        displayName: Face_covering_policy_code        
+        type: string        
+        required: false
+      Bar_Restrictions_Code:
+        displayName: Bar_restrictions_code        
+        type: string        
+        required: false
+      Reopening_Plan_Code:
+        displayName: Reopening_plan_code        
+        type: string        
+        required: false
+      Stay_at_Home_Requirement_Code:
+        displayName: Stay_at_home_requirement_code        
+        type: string        
+        required: false
+      Domestic_Travel_Restrictions_Code:
+        displayName: Domestic_travel_restrictions_code
+        type: string
+        required: false
+      Restaurant_Restrictions_Code:
+        displayName: Restaurant_restrictions_code        
+        type: string       
+        required: false
+    required: false
+  Source:
+    displayName: Source
+    
+    type: string
+    
+    required: false
+
+example: !include ../examples/kffResponse.json

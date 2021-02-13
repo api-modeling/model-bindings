@@ -1,0 +1,38 @@
+#%RAML 1.0 SecurityScheme
+type: x-github
+describedBy: 
+  headers: 
+    Authorization:
+      example: github 12mb4hjk3nb2kk4nn6bn67nn
+      description: |
+        For GitHub authorisation it should be `github [github oauth token]`.
+      type: string
+      required: true
+  responses:
+    401:
+      description: |
+        The user is not authenticated. Used token may expored or has been revoked.
+        Authorize the user and try again.
+      body: 
+        application/json:
+          type: !include ../types/error.raml
+    419:
+      description: |
+        This custom status code used by this endpoint is returned when the user is 
+        created but did not accepted terms and conditions and / or privacy policy.
+        
+        Any operation related to the request has been cancelled and will not going to 
+        be processed until the user accept TaC and privacy policy.
+      body: 
+        application/json:
+          type: !include ../types/error.raml
+description: |
+  The application must obtain authorization token from the authorization server.
+  Server will get identity of the user from Github.
+
+  Application must use `88b132fc027ca09f9187` client id.
+  OAuth2 redirect URI is `https://modules.advancedrestclient.com/oauth/oauth-popup.html`
+
+  To exchange authorization code to authorization token use /auth/token endponit.
+  
+

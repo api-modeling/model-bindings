@@ -1,0 +1,17 @@
+#%RAML 1.0 DataType
+
+properties:
+  countryName:
+    displayName: Country Name
+    description: Country Name
+    type: string
+    required: true
+  countryCode: !include countryCode.raml
+  historicData:
+    type: array
+    minItems: 0
+    items: !include covidMetrics.raml
+            
+              
+example: !include ../examples/countryEUCDC-200-response.json  
+ 

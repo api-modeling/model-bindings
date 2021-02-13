@@ -1,0 +1,32 @@
+#%RAML 1.0 Library
+
+types: 
+  DailyResult:
+    type: object
+    properties:
+      kind: 
+        type: string
+        required: false
+      result: 
+        type: integer
+        description: Number of recorded users or sessions for given day.
+        example: 0
+        required: true
+  DailyUsers:
+    description: An object representing response for daily users.
+    type: DailyResult
+    example: !include ../examples/daily-users.json
+    properties: 
+      kind:
+        description: This is always ArcAnalytics#DailyUsers.
+        default: ArcAnalytics#DailyUsers
+        enum: [ArcAnalytics#DailyUsers]
+  DailySessions:
+    description: An object representing response for daily sessions.
+    type: DailyResult
+    example: !include ../examples/daily-sessions.json
+    properties: 
+      kind:
+        description: This is always ArcAnalytics#DailySessions.
+        default: ArcAnalytics#DailySessions
+        enum: [ArcAnalytics#DailySessions]

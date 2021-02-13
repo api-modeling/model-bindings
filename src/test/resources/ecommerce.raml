@@ -1,0 +1,115 @@
+#%RAML 1.0
+
+uses:
+  dataModel: ecommerce_canonical.raml
+
+title: ecommerce API
+version: 1.0.0
+
+baseUri: /v1
+
+types:
+  CustomerReference:
+    properties:
+      id: string
+      email: string
+      name: string
+  ShoppingSessionReference:
+    properties:
+      id: string
+      amount_total: number
+  LineItemCollection:
+    properties:
+      url: string
+      has_more: boolean
+      data: dataModel.LineItem[]
+  LineItemReference:
+    properties:
+      id: string
+      price: number
+      amount: integer
+
+/customers:
+  post:
+    body:
+      application/json: dataModel.Customer
+    responses:
+      201:
+        body:
+          application/json: CustomerReference
+  get:
+    queryParameters:
+      limit:
+        type: integer
+      offset:
+        type: integer
+    responses:
+      200:
+        body:
+          application/json: CustomerReference[]
+  /{id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: dataModel.Customer
+    put:
+      body:
+        application/json: dataModel.Customer
+      responses:
+        201:
+          body:
+            application/json: dataModel.Customer
+
+/checkout/sessions:
+  post:
+    queryParameters:
+      mode: string
+      payment_method_type: string
+    body:
+      application/json: dataModel.ShoppingSession
+  get:
+    queryParameters:
+      limit: string
+      offset: string
+      payment_method_type: string
+      mode: string
+      status: string
+    responses:
+      200:
+        body:
+          application/json: ShoppingSessionReference[]
+  delete:
+    responses:
+      200:
+        body:
+          application/json: ShoppingSessionReference
+
+  /{id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json: dataModel.ShoppingSession
+    /line_items:
+      get:
+        responses:
+          200:
+            body:
+              application/json: LineItemCollection
+      put:
+        body:
+          application/json: dataModel.LineItem
+        responses:
+          200:
+            body:
+              application/json: LineItemReference
+      /{id}:
+        delete:
+          responses:
+            200:
+              body:
+                application/json: LineItemReference
+
+
+

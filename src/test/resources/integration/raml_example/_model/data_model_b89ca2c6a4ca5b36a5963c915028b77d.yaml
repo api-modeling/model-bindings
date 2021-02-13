@@ -1,0 +1,47 @@
+#%DataModel 0.1
+uuid: b89ca2c6a4ca5b36a5963c915028b77d
+name: product.raml
+entities:
+  A product resource:
+    uuid: a74ec7704168414b535ce2436b191e64
+    attributes:
+      id:
+        allowMultiple: false
+        uuid: 249efab0aeda139cc4e4508709aadcaa
+        required: true
+        range:
+          type: string
+      quantity:
+        allowMultiple: false
+        uuid: fb47613a0d418ed86c3e5290c31b0b48
+        required: true
+        range:
+          type: float
+      available:
+        allowMultiple: false
+        uuid: f3615121a83199928a6175bf6ed837b2
+        required: true
+        range:
+          type: boolean
+      unit:
+        allowMultiple: false
+        uuid: 764abea895071b8bc1502f99772637c5
+        required: true
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 8dd4e285cfd0cf65dfa927fd8417e492
+        required: true
+        range:
+          type: string
+      upc:
+        allowMultiple: false
+        uuid: 4430bd3165ddf80d11ae931d0690293a
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: A single product representing an item in the store.
+    displayName: A product resource
+    extends: http://mulesoft.com/modeling/instances/4a18f441ccb84be60e36735d1fcce169

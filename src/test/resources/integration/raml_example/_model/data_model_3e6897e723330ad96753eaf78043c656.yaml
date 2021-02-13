@@ -1,0 +1,25 @@
+#%DataModel 0.1
+uuid: 3e6897e723330ad96753eaf78043c656
+name: image.raml
+entities:
+  Entity7:
+    uuid: 814446fda3f4cd75e707bef0cdd03371
+    attributes:
+      url:
+        allowMultiple: false
+        uuid: b8a488c682cfa95e5876840fdb769254
+        required: true
+        range:
+          type: string
+      thumb:
+        allowMultiple: false
+        uuid: 5de75a67223306566922ba5f53695d65
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: |
+      An image object representing an image object strored in the file store.
+      The image can be only included in the response. It has no effect if the Image appear in the
+      request. Endpoint handles image creation on it's own and clients can't process images
+      except of sending image data.

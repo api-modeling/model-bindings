@@ -1,0 +1,42 @@
+#%RAML 1.0 DocumentationItem
+title: Authorization
+content: |
+  To create, update or delete a resource the request has to be authorized.
+
+  The server operates on GitHub repositories and therefore it requires GitHub authorization.
+
+  To authorize the user use the following OAuth 2.0 properties:
+
+  **client id**
+  ```
+  88b132fc027ca09f9187
+  ```
+
+  **redirect URI**
+  ```
+  https://modules.advancedrestclient.com/oauth/oauth-popup.html
+  ```
+
+  If different client ID is used the application won't be able to check user credentials and 
+  the request fails returning `401`.
+
+  ## Authenticating web apps
+
+  GitHub does not offers `implicit` grant type. To authorize the user start OAuth flow as normal
+  by requesting authorization code.
+  When the code is ready, use `/auth/token` endpoint to exchange the code for authorization token.
+  The request only accepts code in the request body. All other required OAuth 2 parameters like
+  redirect URI or client secret are added by the server. This ensures that right credentials were used to authorize the user so it can be used later with the application server.
+
+  ## Issuing authenticated request
+
+  Each call that has to be authenticated has to contain `authorization` header with `github` prefix and then authorization token. Do not put `bearer` in front of the token. This is handled by the server.
+
+  Example:
+
+  ```
+  POST /modules HTTP/1.1
+  host: api.advancedrestclient.com:443
+  content-type: application/json
+  authorization: github [TOKEN]
+  ```

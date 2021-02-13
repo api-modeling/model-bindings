@@ -1,0 +1,56 @@
+#%RAML 1.0 Library
+
+types: 
+  DailyItemResult:
+    description: |
+      This object is returned in weekly and monthly analytics data.
+      It is a representation of number of users or sessions for each day for the given time period.
+    type: object
+    properties: 
+      day:
+        type: date-only
+        description: A date for the value.
+        example: 2017-01-01
+        required: true
+      value:
+        type: integer
+        description: Number of session or users for given day
+        example: 0
+        required: true
+  AnalyticsRangeResult:
+    type: object
+    required: true
+    properties: 
+      kind: 
+        type: string
+        required: true
+      day:
+        type: date-only
+        description: | 
+          The first day (Monday) for given time period. It may be different than the `day` query
+          parameter if the `day` is not the Monday.
+      result:
+        type: integer
+        description: Number of recorded users or sessions for given time period.
+        example: 0
+        required: true
+      items:
+        type: DailyItemResult[]
+  PeriodicalSessions:
+    type: AnalyticsRangeResult
+    description: An object representing periodical (weekly or mothly) sessions data.
+    example: !include ../examples/weekly-sessions.json
+    properties: 
+      kind:
+        description: This is always ArcAnalytics#WeeklySessions for weekly statistics and ArcAnalytics#MonthlySessions for monthly statistics.
+        example: ArcAnalytics#WeeklySessions
+        enum: [ArcAnalytics#WeeklySessions, ArcAnalytics#MonthlySessions]
+  PeriodicalUsers:
+    type: AnalyticsRangeResult
+    description: An object representing periodical (weekly or mothly) users data.
+    example: !include ../examples/weekly-users.json
+    properties: 
+      kind:
+        description: This is always ArcAnalytics#WeeklyUsers for weekly statistics or ArcAnalytics#MonthlyUsers for monthly statistics.
+        example: ArcAnalytics#WeeklyUsers
+        enum: [ArcAnalytics#WeeklyUsers, ArcAnalytics#MonthlyUsers]

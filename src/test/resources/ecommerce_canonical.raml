@@ -1,0 +1,56 @@
+#%RAML 1.0 Library
+
+types:
+
+  Address:
+    properties:
+      city: string
+      country: string
+      line1: string
+      line2: string
+      postal_code: string
+      state: string
+
+  Customer:
+    properties:
+      id?: string
+      object: string
+      address: Address
+      balance: number
+      created: string
+      currency: string
+      description: string
+      name: string
+      phone: string
+      email: string
+
+  TaxRate:
+    properties:
+      id?: string
+      object: string
+      active: boolean
+      country: string
+      percentage: number
+
+  LineItem:
+    properties:
+      id?: string
+      object: string
+      price: number
+      amount: integer
+      description: string
+      name: string
+      taxRate: TaxRate
+
+  ShoppingSession:
+    properties:
+      id?: string
+      object: string
+      amount_total: number
+      currency: string
+      customer_id: string
+      line_items: LineItem[]
+      billing_address: Address
+      cancel_url: string
+      payment_method_type: string
+      status: string

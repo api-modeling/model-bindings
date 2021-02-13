@@ -1,0 +1,92 @@
+#%DataModel 0.1
+uuid: 9eb98fb811f6a3b46aaed9639e52fa0f
+name: retail_store.raml
+entities:
+  StoreInfo:
+    uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 7e3ae43cb15d3192cd03e8988a956195
+        required: true
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: e465bcb3e81cbf133afeca7c6874cfa7
+        required: false
+        range:
+          type: string
+      storeId:
+        allowMultiple: false
+        uuid: 5a3a4eec1b47ea1bec13996ab97db453
+        required: false
+        range:
+          type: string
+      notes:
+        allowMultiple: false
+        uuid: 70b51b2a340cf4c6d31c63e32b40cc63
+        required: false
+        range:
+          type: string
+      openingHours:
+        allowMultiple: false
+        uuid: dc54b048a14fccadc2e3d7469d81a53e
+        required: true
+        range:
+          type: string
+      distanceUnit:
+        allowMultiple: false
+        uuid: 69b1abd9dd879c74bd24950b6f2a75ab
+        required: false
+        range:
+          type: string
+      distance:
+        allowMultiple: false
+        uuid: 7815d7b6f80ae5cbf7e73e839e14b21e
+        required: false
+        range:
+          type: float
+    associations: {}
+    description: Information about store
+  ContactInfo:
+    uuid: eca7cd35619a17170feedcfe818e79e9
+    attributes:
+      email:
+        allowMultiple: false
+        uuid: d7192a6fc68df80accc75c4616e62b6e
+        required: true
+        range:
+          type: string
+      phone:
+        allowMultiple: false
+        uuid: 3638c0239860b97cd0d95943ac7c2bbd
+        required: true
+        range:
+          type: string
+    associations: {}
+  Address:
+    uuid: 39e290fe2f61c472a67791fb8e9556f9
+    attributes: {}
+    associations: {}
+    description: Store address
+    extends: http://mulesoft.com/modeling/instances/cd5c8379be30bde0083cc6b885f13964
+  Geo:
+    uuid: 47b45bc69e91e16710d646d0f2f1d158
+    attributes:
+      latitude:
+        allowMultiple: false
+        uuid: 547784f921bd415d68e961cb3bcf35e3
+        required: true
+        range:
+          type: float
+      longitude:
+        allowMultiple: false
+        uuid: 5640ead639dba2926d6047c29e2a1f3d
+        required: true
+        range:
+          type: float
+    associations: {}
+    description: Geographic coordinates of store
+description: |
+  provides information about stores

@@ -7,13 +7,13 @@ import {ApiParser} from "./bindings/utils/apiParser";
 const apiContractPlugin = new APIContractBindingsPlugin();
 
 const stripeUrl = "src/test/resources/stripe.json"
-const ramlUrl = "src/test/resources/api1.raml"
+const ramlUrl = "src/test/resources/ecommerce.raml"
 const gdriveUrl = "src/test/resources/google-drive-api/google-drive-api.raml"
-const url = gdriveUrl; // CHANGE ME
+const url = ramlUrl; // CHANGE ME
 const text = fs.readFileSync(url).toString()
 
 const outStripe = "out/stripe/";
-const outRaml = "out/orders/"
+const outRaml = "out/ecommerce/"
 const outGDrive = "out/gdrive/"
 const outBase = outRaml // CHANGE ME
 
