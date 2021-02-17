@@ -58,7 +58,6 @@ export class AMLBindingsPlugin extends BindingsPlugin {
             return Promise.resolve(allWrappers);
 
         } catch (e) {
-            console.log("ERROR:" + e.message)
             throw e;
         }
     }

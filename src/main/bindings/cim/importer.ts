@@ -156,8 +156,8 @@ export class CIMImporter {
             entity.description = description.value;
 
             let properties = store.getObjects(entityId, VOCAB.SH_PROPERTY, null);
-            let parentProperties = findPath(store, entityId, [VOCAB.SH_AND, VOCAB.RDF_FIRST, VOCAB.SH_PROPERTY]) || [];
-            let extendedProperties = findPath(store, entityId, [VOCAB.SH_AND, VOCAB.RDF_REST, VOCAB.RDF_FIRST, VOCAB.SH_PROPERTY]) || [];
+            let parentProperties : any = findPath(store, entityId, [VOCAB.SH_AND, VOCAB.RDF_FIRST, VOCAB.SH_PROPERTY]) || [];
+            let extendedProperties : any = findPath(store, entityId, [VOCAB.SH_AND, VOCAB.RDF_REST, VOCAB.RDF_FIRST, VOCAB.SH_PROPERTY]) || [];
 
             const attributes: Attribute[] = [];
             const associations: Association[] = [];
