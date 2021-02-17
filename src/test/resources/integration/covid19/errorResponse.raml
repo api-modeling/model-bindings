@@ -1,0 +1,53 @@
+#%RAML 1.0 Trait
+usage: Standard error response structure
+
+responses:
+      204:
+        description:
+          The request succeeded, but there is no response.
+          
+      400:
+        description:
+          The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+        body:
+          application/json:
+            type: !include datatypes/errorResponse.raml
+     
+      404:
+        description:
+          The server cannot find the requested resource.
+        body:
+          application/json:
+            type: !include datatypes/errorResponse.raml
+      405:
+        description:
+          A request was made of a resource using a request method not supported by that resource; for example, using GET on a form which requires data to be presented via POST, or using PUT on a read-only resource.
+        body:
+          application/json: 
+            type: !include datatypes/errorResponse.raml
+      406:
+        description:
+          The target resource does not have a current representation that would be acceptable to the user agent.
+        body:
+          application/json:
+            type: !include datatypes/errorResponse.raml
+      415:
+        description:
+          The accept header specified an unsupported media type.
+        body:
+          application/json: 
+            type: !include datatypes/errorResponse.raml
+      500:
+        description:
+          An internal processing error occurred while processing the API request.
+        body:
+          application/json:
+            type: !include datatypes/errorResponse.raml
+
+      501:
+        description:
+          The method has not been implemented.
+        body:
+          application/json:
+            type: !include datatypes/errorResponse.raml
+     

@@ -1,0 +1,528 @@
+#%RAML 1.0
+title: ARC Analytics API
+version: v3
+baseUri: https://advancedrestclient-1155.appspot.com/{version}
+description: |
+  Advanced REST client API.
+
+  It is consisten of Analytics API, Letsencrypt support API and ARC modules API.
+
+  ## Analytics API 
+
+  Analytics API is a supplement for Google Analytics used in the app. It collected very limited data: daily suers and sessions, weekly users and sessions and finally monthly users and sessions.
+
+  Any information stored in the analyics API can't be reversed back to any particular instance of the application whether the user is authenticated or not. See documentation of `How data are  stored` for more information.
+
+  ## Modules API
+
+  ARC modules API is a registry of ARC modules that can be installed in the application.
+  API keeps tracking of versions of published modules and informs application about new version of the module.
+  It also allows search through available modules so the user can install module directly from the application.
+
+  Modules are consistent of themes and arc extensions. Extensions are either web components or node modules.
+
+mediaType: application/json
+protocols:
+  - HTTPS
+documentation:
+  - !include docs/authorization.raml
+  - !include docs/how-data-are-stored.raml
+uses:
+  AnalyticsTypes: libraries/analytics-types.raml
+  ModulesTypes:  libraries/modules-types.raml
+resourceTypes:
+  AnalyserTask: !include resourceTypes/analyser-task.raml
+  QueryRequest: !include resourceTypes/query-request.raml
+types:
+  # Module: !include types/module.raml
+  # ResponseModule: !include types/module-response.raml
+  # ModuleInfo: !include types/module-info.raml
+  ErrorResponse: !include types/error.raml
+  # Version: !include types/version.raml
+  # PersonListResponse: !include types/person-list-response.raml
+  # PersonResponse: !include types/person-response.raml
+traits: 
+  paginated: !include traits/paginated.raml
+  AnalyticsData: !include traits/analytics-data.raml
+securitySchemes: 
+  GitHub: !include security-schemes/github.raml
+/auth:
+  /token:
+    post:
+      description: |
+        Exchanges authorization code to authorization token for GitHub.
+        This uses application default settings that are registered in GitHub oauth server.
+
+        Read more in the authorization documentation.
+      body: 
+        application/x-www-form-urlencoded:
+          type: object
+          properties: 
+            code: 
+              type: string
+              description: A code returned by the authorization server in the code request.
+      responses: 
+        200:
+          body: 
+            type: object
+            properties: 
+              authToken:
+                type: string
+                description: Auth token value returned by authorization server
+        401:
+          description: |
+            Tis response is returned when any probm ocrred when exhanginh code for token 
+          body: 
+            application/json:
+              type: ErrorResponse
+/modules:
+  displayName: Modules list
+  get:
+    displayName: List
+    is:  [paginated: {resourceType : ModulesTypes.ModuleResponse}]
+    description: |-
+      Lists or searches modules.
+
+      This method accepts the `q` parameter, which is a search query combining one or more search terms. For more information see the "Search for modules" documentation guide.
+    responses:
+      400:
+        description: Only when query parameters are invalid.
+        body:
+          application/json:
+            type: ErrorResponse
+    headers:
+      x-arc-version:
+        example: 13.0.0
+        description: |
+          ARC version. 
+          If set then the list of packages will only contain results that can be installed in this verion.
+        type: string
+        required: false
+    queryParameters:
+      q:
+        required: false
+        example: name contains "My module"
+        description: A query for filtering the modules results. See the "Search for modules" documentation guide for the supported syntax.
+        type: string
+      type:
+        required: false
+        type: string
+        description: Type of the module. It can be either `extension` or `theme`.
+        default: extension
+        enum: [extension, theme]
+      orderBy:
+        required: false
+        type: string
+        description: |
+          A sort property. By default it is module creation `time` in descending order.
+          Other properties are `stars` and `downloads` as a number of downloads of the module.
+
+          With the property you may specify direction as either `desc` or `asc`. If not specified, `desc` is assumed.
+        example: rating%20asc
+  post:
+    displayName: Create
+    securedBy: [GitHub]
+    description: |-
+      Creates a new module.
+      This call requires authentication. See `Authorised requests` guide page for more details.
+    responses:
+      200:
+        body:
+          application/json:
+            description: Created module.
+            type: ModulesTypes.ModuleResponse
+    body:
+      application/json:
+        description: Creates a new module.
+        type: ModulesTypes.Module
+  /{moduleId}:
+    displayName: A module
+    description: |
+      An endpoint to get information abour a module or to manage it.
+      Only a user that created the module can manage it (update or delete).
+
+      Updating module usually changes it's description or version.
+
+      This endpoint returns information about latest released version of the module
+      (with highest version number).
+
+      To manage specific version use `/{moduleId}/{versionNumber}` endponit.
+    uriParameters:
+      moduleId:
+        example: 12345-as123-as123-ew123
+        description: ID of the module.
+        type: string
+    get:
+      displayName: Module info
+      description: |
+        Returns information about latest version of a Module.
+      responses:
+        200:
+          body:
+            application/json:
+              type: ModulesTypes.ModuleResponse
+    put:
+      securedBy: [GitHub]
+      description: Updates description of Module
+      displayName: Update Module
+      responses:
+        201: 
+          description: The entity was updated. It does not return any data.
+          headers: 
+            Location:
+              type: string
+              description: Location of newly created resource. It's a URL to the module page.
+      body: 
+        application/json:
+          type: ModulesTypes.Module
+    delete:
+      securedBy: [GitHub]
+      displayName: Delete Module
+      responses:
+        202: 
+          description: |
+            The request has been accepted and the module is scheduled to be removed
+            from the registry. 
+            Each delete request is queued in the backend and eventually executed.
+            Timing depends on current server load.
+    /stars:
+      description: |
+        An endpoint to list people that starred the module.
+      get: 
+        displayName: List
+        description: |
+          Lists people that starred the module.
+        is:  [paginated: {resourceType : ModulesTypes.PersonListResponse}]
+    /star:
+      post:
+        securedBy: [GitHub]
+        description: |
+          Adds a star to this module by logged in user.
+        body: 
+          application/json:
+            description: |
+              The body is nor required for this request.
+        responses: 
+          204:
+            description: The sta has been added. No further action is required.
+      delete:
+        securedBy: [GitHub]
+        description: |
+          Removes a star to this module by logged in user.
+        responses: 
+          204:
+            description: The sta has been added. No further action is required.
+      get:
+        securedBy: [GitHub]
+        description: |
+          Checks if logged in user starred the module
+/users:
+  /{userId}:
+    uriParameters: 
+      userId: 
+        type: string
+        description: |
+          User id which is a `ref` property from user response object.
+    get:
+      description: Lists information about the user.
+      responses: 
+        200:
+          body: 
+            type: ModulesTypes.PersonResponse
+        404:
+          description: Returned when the user is not created
+          body: 
+            type: ErrorResponse
+        419:
+          description: |
+            This custom status code used by this endpoint is returned when the user is 
+            created but did not accepted terms and conditions and / or privacy policy.
+            
+            Any operation related to the request has been cancelled and will not going to 
+            be processed until the user accept TaC and privacy policy.
+          body: 
+            type: ErrorResponse
+/updates:
+  description: |
+    An endpint where ARC app can check for modules udates.
+  post:
+    description: |
+      ARC's endpoint to check if there's an updated for any of the modules installed
+      in current version of the application.
+    headers: 
+      x-arc-version:
+        example: 13.0.0
+        description: |
+          ARC version. 
+          If set then the list of packages will only contain results that can be installed in this verion.
+        type: string
+    body: 
+      application/json:
+        type: object
+        properties: 
+          version: 
+            type: string
+            description: ARC version that issued the request
+          modules:
+            type: array
+            items: ModulesTypes.ModuleInfo
+    responses:
+      200:
+        body:
+          application/json:
+            description: Created module.
+            type: object
+            properties: 
+              upgrades:
+                type: array
+                items: ModulesTypes.ModuleResponse
+
+/analytics:
+  description: |
+    An endpoint that is used to handle analytics data, from recording to querying for data.
+  displayName: Analytics
+  get:
+    responses:
+      301:
+        description: |
+          This endpoint always redirects to description page about what the
+          analytics API does.
+  /record:
+    displayName: Record session
+    post:
+      description: |
+        Records a user session in the Analytics service.
+
+        Users and session data are kept separatly in the datastore. Each user can have only one
+        record during the day (from midnight to midnight, taking timezone into account).
+
+        Each user must have at least one session during the day. New session is created only if
+        last user activity time (last valid request to this endpoint) has been over 30 minutes ago.
+        Otherwise last activity time will be recorded and therefore session is expanded to another
+        30 minutes.
+
+        Body for this method must be `multipar/form-data` with anonymized application ID
+        (this should happen on client side) and user's timezone. The API do not accept client's
+        time because it's not reliable (clients can have different time set up and there's no way
+        to handle it). Therefore the API will use current server time adjusted to user's time zone.
+
+        If new session is created then the the method will return `204` status code. If existing
+        session has been expanded then the method return `205` status code.
+        In both cases there's no response body.
+      body:
+        multipart/form-data:
+          description: |
+            The request body can be easily created in JavaScript using FormData:
+
+            ```
+            let data = new FormData();
+            data.append('aid', aid); // anonymousId
+            data.append('tz', d.getTimezoneOffset()); //timezone
+            ```
+            and then passed to XHR or Fetch function as a parameter:
+            ```
+            fetch(url, {
+              method: 'POST',
+              body: data
+            });
+            ```
+          properties:
+            aid:
+              type: string
+              example: pM0kJK2DCidhPc2F6vjWH56/PRAfi5Lim5jwGMQ+56x/58DbDbRPvbIYSTQMKvuw
+              description: |
+                Anonymized application ID. **Clients should take care about anonymization process
+                so the endpoint will never know nothing about the real app.**
+                Anonymized App ID should be used only to call this particular endpoint and never
+                used as any parameter to any other endpoint. This should assure that particular
+                instance of the app can never be find using anonymous App Id.
+                Real application ID is stored on client side and can be used to store user data on
+                application server.
+              required: true
+            tz:
+              type: integer
+              example: -8
+              description: |
+                A timezone offset to GMT. Example value is an offset to PST (Pacific
+                Standard Time) which is minus 8 hours comparing to GMT.
+              minimum: -12
+              maximum: 12
+      responses:
+        204:
+          description: |
+            New session has been set. `204` status code do not return any data.
+        205:
+          description: |
+            Existing session has been expanded for next 30 minutes. This endpoint do not return
+            data.
+        400:
+          description: There is an issue with your parameters
+          body:
+            application/json:
+              type: ErrorResponse
+  /query:
+    displayName: Query analytics
+    description: |
+      The Query endpoint is responsible for getting data out from the datastore.
+
+      The data are agregated every day, week (on monday) and month (every first day of month).
+      This endpoints returns data from aggregated tables and never operated on raw data.
+
+      Depending on endpoint it can return only number of users/sessions for given day or number
+      of users or session for a week or month with daily sessions or users. See methods
+      documentation for more details.
+    /daily:
+      displayName: Daily
+      description: Endpoint to query for daily statistics.
+      /users:
+        displayName: Users
+        type: QueryRequest
+        description: Query for users in particular day
+        get:
+          is: [AnalyticsData:{responseType: AnalyticsTypes.DailyUsers}]
+          description: |
+            This method returns number of users recorded in given day.
+            Date ranges are not allowed here. See "How data are stored" guide for more information.
+
+            Occasionally `404` status code can be returned if aggregated data for last day hasn't
+            been generated yet. Time of data aggregation is regulated by the server's cron
+            and can vary. It depends on server load and number of tasks in queue. If `404` status
+            code is returned try in an hour or so to check if data were aggregated already.
+      /sessions:
+        displayName: Sessions
+        type: QueryRequest
+        description: Query for sessions in particular day
+        get:
+          is: [AnalyticsData:{responseType: AnalyticsTypes.DailySessions}]
+          description: |
+            This method returns number of sessions recorded in given day.
+            Date ranges are not allowed here. See "How data are stored" guide for more information.
+
+            Occasionally `404` status code can be returned if aggregated data for last day hasn't
+            been generated yet. Time of data aggregation is regulated by the server's cron
+            and can vary. It depends on server load and number of tasks in queue. If `404` status
+            code is returned try in an hour or so to check if data were aggregated already.
+    /{scope}:
+      description: Endpoint to query for periodical statistics.
+      uriParameters:
+        scope:
+          type: string
+          enum: [weekly, monthly]
+          example: weekly
+          required: true
+          description: |
+            A time period for the statistics. Only `weekly` and `monthly` values are allowed.
+      /users:
+        displayName: Users
+        type: QueryRequest
+        description: |
+          Query for number of users in particular week.
+        get:
+          is: [AnalyticsData:{responseType: AnalyticsTypes.PeriodicalUsers}]
+          description: |
+            This method returns number of users recorded for given week beginning on Monday.
+            Date ranges are not allowed here. See "How data are stored" guide for more information.
+
+            The `day` parameter should be the Monday for given week. If it's not a monday it will
+            be set to a Monday before the `day`.
+
+            This method returns aggregated number of users for the given week starting from Monday
+            to the following Sunday and number of users for each day.
+
+            Occasionally `404` status code can be returned if aggregated data for last day hasn't
+            been generated yet. Time of data aggregation is regulated by the server's cron
+            and can vary. It depends on server load and number of tasks in queue. If `404` status
+            code is returned try in an hour or so to check if data were aggregated already.
+      /sessions:
+        displayName: Sessions
+        type: QueryRequest
+        description: Query for sessions in particular day
+        get:
+          is: [AnalyticsData:{responseType: AnalyticsTypes.PeriodicalSessions}]
+          description: |
+            This method returns number of sessions recorded in given week beginning on Monday.
+            Date ranges are not allowed here. See "How data are stored" guide for more information.
+
+            The `day` parameter should be the Monday for given week. If it's not a monday it will
+            be set to a Monday before the `day`.
+
+            This method returns aggregated number of users for the given week starting from Monday
+            to the following Sunday and number of users for each day.
+
+            Occasionally `404` status code can be returned if aggregated data for last day hasn't
+            been generated yet. Time of data aggregation is regulated by the server's cron
+            and can vary. It depends on server load and number of tasks in queue. If `404` status
+            code is returned try in an hour or so to check if data were aggregated already.
+/tasks:
+  displayName: Tasks
+  description: |
+    Server that handles cron calls.
+
+    This endpoint is meant to be called by cron. It is mapping calls to the `/analyzer/` endpoint.
+  /{scope}/{type}:
+    uriParameters:
+      type:
+        type: string
+        enum: [users, sessions]
+        description: |
+          Type of the data to compute. Can be either `users` to compute number of users for given scope and `sessions` to compute number of sessions.
+      scope:
+        type: string
+        enum: [daily, weekly, monthly]
+        description: |
+          The time scope of computation to perform. It can be either `daily`, `weekly` or `monthly`.
+
+          Except for the daily type, actual start date may be different than the one provided in the `day` query parameter.
+          For weekly computations the server will always set monday going backward if the day is not Monday.
+          Similar for monthly computations it will be always set to the first day of month.
+    get:
+      headers:
+        X-Appengine-Cron:
+          type: boolean
+          required: true
+          default: true
+          description: Every cron job is called with this header and the endpoint test against it's precence.
+      description: Handles the cron job and execute service that is responsible for data computation.
+      responses:
+        204:
+          description: The task was executed correctly and data has been computed. Any other status  code means an error.
+/analyzer:
+  description: |
+    The analyser endpoint is to be run as a task.
+
+    Because tasks computes a lot of data and performs operation on potentially hundred of thousands
+    of records this will most possibly reach request time limit (30 secodns) and return with `500`
+    status code.
+
+    Tasks are executed in special environment and are allowed to work for up to 10 minutes.
+  /{scope}/{type}:
+    uriParameters:
+      type:
+        type: string
+        enum: [users, sessions]
+        description: |
+          Type of the data to compute. Can be either `users` to compute number of users for given scope and `sessions` to compute number of sessions.
+      scope:
+        type: string
+        enum: [daily, weekly, monthly]
+        description: |
+          The time scope of computation to perform. It can be either `daily`, `weekly` or `monthly`.
+
+          Except for the daily type, actual start date may be different than the one provided in the `day` query parameter. For weekly computations the server will always set monday going backward if the day is not Monday.
+          Similar for monthly computations it will be always set to the first day of month.
+    type: AnalyserTask
+    get:
+      description: Computes the data for given scope and type.
+/.well-known/acme-challenge/{challenge}:
+  description: An endpoint to make a request from the LetsEncrypt service to confirm the domain ownership.
+  uriParameters:
+    challenge:
+      description: A challenge code
+      type: string
+      required: true
+  get:
+    description: Challenge the code.
+    responses:
+      200:
+        body:
+          text/html: string

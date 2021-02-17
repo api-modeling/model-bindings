@@ -1,0 +1,140 @@
+#%RAML 1.0 DataType
+
+properties:
+  date: 
+    displayName: Report Date
+    description: Date of reporting of the metrics
+    type: date-only
+    required: false
+  reportedCt:
+    displayName: Covid-19 Reported Count
+    description: Number of people that have been reported with COVID-19
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+  deathCt:
+    displayName: Covid-19 Death Count
+    description: Number of people that have been reported dead from COVID-19 
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+  recoveredCt:
+    displayName: Covid-19 Recovered Count
+    description: Number of people that have recovered from COVID-19 
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+  activeCaseCt:
+    displayName: Covid-19 Active Cases Count
+    description: Number of COVID-19 active cases
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peoplePositiveCasesCt:
+    displayName: Covid-19 People Positive Cases Count
+    description: Number of COVID-19 positive cases
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peoplePositiveNewCasesCt:
+    displayName: Covid-19 Positive New Cases Count
+    description: Number of COVID-19 Positive New cases
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peopleNegativeCasesCt:
+    displayName: Covid-19 Negative Cases Count
+    description: Number of COVID-19 negative cases
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peopleNegativeNewCt:
+    displayName: Covid-19 Negative New  Cases Count
+    description: Number of COVID-19 Negative New Cases
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peoplePendingCasesCt:
+    displayName: Covid-19 Pending Cases Count
+    description: Number of COVID-19 pending cases
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peopleDeathNewCt:
+    displayName: Covid-19 New Death Count
+    description: Number of COVID-19 New Deaths
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peopleHospCurrentlyCt:
+    displayName: Covid-19 People Hospitalized Currently Count
+    description: Number of COVID-19 affected people currently hospitalized
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+  
+  peopleHospNewCt:
+    displayName: Covid-19 New Hospitalization Count
+    description: Number of COVID-19 affected people newly hospitalized
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peopleHospCumlCt:
+    displayName: Covid-19 People Hospitalized Cumulative Count
+    description: Number of COVID-19 affected people cumulatively hospitalized
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peopleInIntnsvCareCurrCt:
+    displayName: Covid-19 People Currently in Intensive Care
+    description: Number of COVID-19 affected people currently in Intensive Care
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peopleInIntnsvCareCumlCt:
+    displayName: Covid-19 People Cumulative in Intensive Care
+    description: Number of COVID-19 affected people cumulatively in Intensive Care
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peopleIntubatedCurrentlyCt:
+    displayName: Covid-19 People Currently Intubated
+    description: Number of COVID-19 affected people currently Intubated
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false
+
+  peopleIntubatedCumulativeCt:
+    displayName: Covid-19 People Cumulatively Intubated
+    description: Number of COVID-19 affected people cumulatively Intubated
+    type: number
+    multipleOf: 1
+    minimum: 0
+    required: false

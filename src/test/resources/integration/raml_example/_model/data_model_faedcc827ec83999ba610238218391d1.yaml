@@ -1,0 +1,16 @@
+#%DataModel 0.1
+uuid: faedcc827ec83999ba610238218391d1
+name: resource.raml
+entities:
+  Entity6:
+    uuid: 4a18f441ccb84be60e36735d1fcce169
+    attributes:
+      etag:
+        allowMultiple: false
+        uuid: cfc0fd0b41efd04402950a9ba8246864
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: |
+      Common properties for all resources returned by the API.

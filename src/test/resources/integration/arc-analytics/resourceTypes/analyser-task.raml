@@ -1,0 +1,24 @@
+#%RAML 1.0 ResourceType
+
+get:
+  queryParameters:
+    date:
+      type: date-only
+      description: |
+        The start day for which to perform the computation.
+
+        For weekly computation it must be first day of the week. If it's not the first day of
+        the week before the date will be set as a date.
+
+        Similar to weekly computation, in case of monthly analyser task, it will be set to first day of month before the `date`  if the `date` is not first day of month.
+
+        If created date randge is in future or it's current day the method will result with `400` status code.
+  responses:
+    204:
+      description: Computation finished with success.
+    205:
+      description: The task is rendundant because there is a comutation result already in the datastore.
+    400:
+      description: |
+        Parameters error. Check if all required parameters are required and date range is not
+        in the future.

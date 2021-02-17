@@ -1,0 +1,819 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "shared-customers-dapi",
+    "description": "REST Domain API is to fetch the customers based on source system systems",
+    "contact": {
+      "name": "erpsprinters",
+      "email": "erpsprinters@wfscorp.com"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/customers": {
+      "get": {
+        "tags": [
+          "customers"
+        ],
+        "summary": "Get Customer info by Source System  , id, Number, Name, Status",
+        "operationId": "getcustomers",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "enum": [
+              "EIP",
+              "OTS",
+              "Fusion",
+              "BRP_ERP"
+            ],
+            "default": "EIP",
+            "description": "retrieve customers data based on Source System  for source spoke selected",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "retrieve customers data based on customer Id ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerNumber",
+            "in": "query",
+            "description": "retrieve customers site data based on customer Number ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerName",
+            "in": "query",
+            "description": "retrieve customers data based on customer Name ",
+            "required": false, 
+            "type": "array",
+            "items": {
+            "type": "string"
+            },
+            "minItems": 0
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "enum": [
+              "A",
+              "I"
+            ],
+            "description": "retrieve customers data based on customer status ",
+            "required": false,
+            "type": "string",
+            "default": "A"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "retrieve customers data based on limit ",
+            "required": false,
+            "type": "number",
+            "default": 15
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "retrieve customers data based on offset",
+            "required": false,
+            "type": "number",
+            "default": 0
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved info",
+            "schema": {
+              "$ref": "#/definitions/customersDTO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "501": {
+            "description": "To be Implemented"
+          }
+        },
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/customers/{customerNumber}": {
+      "get": {
+        "tags": [
+          "customers based on customerNumber"
+        ],
+        "summary": "Get Customer info based on customer id and have query parameters of source ,status",
+        "operationId": "getcustomers_custNumber",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "enum": [
+              "EIP",
+              "OTS",
+              "Fusion",
+              "BRP_ERP"
+            ],
+            "default": "EIP",
+            "description": "retrieve customers data based on Source System ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "enum": [
+              "A",
+              "I"
+            ],
+            "description": "retrieve customers data based on customer status ",
+            "required": false,
+            "type": "string",
+            "default": "A"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved info",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/customersDTO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "501": {
+            "description": "To be Implemented"
+          }
+        },
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/customers/seek/{customerNumber}": {
+      "get": {
+        "tags": [
+          "customers based on customerNumber"
+        ],
+        "summary": "Get Customer info by Source System  , id, Number, Name, Status",
+        "operationId": "getcustomers_typeaheadsearch",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "enum": [
+              "EIP",
+              "OTS",
+              "Fusion",
+              "BRP_ERP"
+            ],
+            "default": "EIP",
+            "description": "retrieve customers data based on Source System ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "enum": [
+              "A",
+              "I"
+            ],
+            "description": "retrieve customers data based on customer status ",
+            "required": false,
+            "type": "string",
+            "default": "A"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved info",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/customersDTO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "501": {
+            "description": "To be Implemented"
+          }
+        },
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/references": {
+      "get": {
+        "tags": [
+          "references"
+        ],
+        "summary": "Get Customers reference info by Source System ,customer Number, customer Name, tax id",
+        "operationId": "getcustreferences",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "enum": [
+              "EIP",
+              "OTS",
+              "Fusion",
+              "BRP_ERP"
+            ],
+            "default": "EIP",
+            "description": "retrieve customers data based on Source System ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "retrieve customers data based on customer Id ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerNumber",
+            "in": "query",
+            "description": "retrieve customers data based on customer Number ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerName",
+            "in": "query",
+            "description": "retrieve customers data based on customer Name ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "taxId",
+            "in": "query",
+            "description": "retrieve customers data based on customer tax id ",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved info",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/customerReferencesDTO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "501": {
+            "description": "To be Implemented"
+          }
+        },
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/addresses": {
+      "get": {
+        "tags": [
+          "addresses"
+        ],
+        "summary": "Get Customers addresses info by Source System ,id,customer Number, customer Name, addressName,state,country",
+        "operationId": "getcustaddresses",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "enum": [
+              "EIP",
+              "OTS",
+              "Fusion",
+              "BRP_ERP"
+            ],
+            "default": "EIP",
+            "description": "retrieve customers data based on Source System ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "retrieve customers data based on customer Id ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerNumber",
+            "in": "query",
+            "description": "retrieve customers data based on customer Number ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerName",
+            "in": "query",
+            "description": "retrieve customers data based on customer Name ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "addressName",
+            "in": "query",
+            "description": "retrieve customers data based on customer addressName ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "retrieve customers data based on customer state ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "description": "retrieve customers data based on customer country ",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved info",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "#/definitions/customerAddressesDTO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "501": {
+            "description": "To be Implemented"
+          }
+        },
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/sites": {
+      "get": {
+        "tags": [
+          "sites"
+        ],
+        "summary": "Get Customers sites info by Source System ,customer Number, customer Name, site Name, site Number, segment, site Owner ",
+        "operationId": "getcustsites",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "enum": [
+              "EIP",
+              "OTS",
+              "Fusion",
+              "BRP_ERP"
+            ],
+            "default": "EIP",
+            "description": "retrieve customers site data based on Source System ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "retrieve customers site data based on customer Id ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "customerNumber",
+            "in": "query",
+            "description": "retrieve customers site data based on customer Number ",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0
+          },
+          {
+            "name": "customerName",
+            "in": "query",
+            "description": "retrieve customers site data based on customer Name ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "siteName",
+            "in": "query",
+            "description": "retrieve customer sites data based on customer site name ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "siteNumber",
+            "in": "query",
+            "description": "retrieve customer sites data based on customer site number ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "segment",
+            "in": "query",
+            "enum": [
+              "aviation",
+              "corporate",
+              "land",
+              "pafco",
+              "marine",
+              "ukland"
+            ],
+            "description": "retrieve customer sites data based on customer site segment ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "siteOwner",
+            "in": "query",
+            "description": "retrieve customer sites data based on customer site owner ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "retrieve customers data based on limit ",
+            "required": false,
+            "type": "number",
+            "default": 15
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "retrieve customers data based on offset",
+            "required": false,
+            "type": "number",
+            "default": 0
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved info",
+            "schema": {
+              "$ref": "#/definitions/customerSitesDTO"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "501": {
+            "description": "To be Implemented"
+          }
+        },
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "customersDTO": {
+      "type": "object",
+      "title": "customersDTO",
+      "additionalProperties": true,
+      "properties": {
+        "sourceSystem": {
+          "type": "string",
+          "example": "EIP"
+        },
+        "customerType": {
+          "type": "string",
+          "example": "External"
+        },
+        "hubCustomerNumber": {
+          "type": "string",
+          "example": "50438"
+        },
+        "hubCustomerName": {
+          "type": "string",
+          "example": "AEROSILZA SA DE CV"
+        },
+        "organizationProfileId": {
+          "type": "string",
+          "example": "449452"
+        },
+        "customerId": {
+          "type": "string",
+          "example": "100035"
+        },
+        "customerNumber": {
+          "type": "string",
+          "example": "100015"
+        },
+        "customerName": {
+          "type": "string",
+          "example": "AEROSILZA SA DE CV"
+        },
+        "status": {
+          "type": "string",
+          "example": "A"
+        },
+        "sanctionsFlag": {
+          "type": "string",
+          "example": "N"
+        },
+        "customerReference": {
+          "type": "string",
+          "example": "16403"
+        },
+        "creationDate": {
+          "type": "string",
+          "example": "2020-02-18T18:32:05"
+        },
+        "lastUpdateDate": {
+          "type": "string",
+          "example": "2020-02-18T18:32:05"
+        }
+      }
+    },
+    "customerReferencesDTO": {
+      "type": "object",
+      "title": "customerreferencesDTO",
+      "additionalProperties": true,
+      "properties": {
+        "sourceSystem": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "customerNumber": {
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "customerReference": {
+          "type": "string"
+        },
+        "taxId": {
+          "type": "string"
+        },
+        "dnbId": {
+          "type": "string"
+        },
+        "dnbParentNumber": {
+          "type": "string"
+        },
+        "dnbDomesticUltimateNumber": {
+          "type": "string"
+        },
+        "dnbGlobalUltimateNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "customerAddressesDTO": {
+      "type": "object",
+      "title": "customeraddressesDTO",
+      "additionalProperties": true,
+      "properties": {
+        "sourceSystem": {
+          "type": "string",
+          "example": "EIP"
+        },
+        "customerId": {
+          "type": "string",
+          "example": "149392"
+        },
+        "customerNumber": {
+          "type": "string",
+          "example": "131743"
+        },
+        "customerName": {
+          "type": "string",
+          "example": "EVEREST FUEL MANAGEMENT, LLC-C/O IBERIABANK CORP"
+        },
+        "Status": {
+          "type": "string",
+          "example": "A"
+        },
+        "customerReference": {
+          "type": "string",
+          "example": ""
+        },
+        "addresse": {
+          "type": "string",
+          "example": "AVCARD"
+        },
+        "addressName": {
+          "type": "string",
+          "example": "AVCARD"
+        },
+        "streetAddress": {
+          "type": "string",
+          "example": "3 BATTERYMARCH PARK"
+        },
+        "city": {
+          "type": "string",
+          "example": "QUINCY"
+        },
+        "state": {
+          "type": "string",
+          "example": "MA"
+        },
+        "country": {
+          "type": "string",
+          "example": "US"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "02169"
+        }
+      }
+    },
+    "customerSitesDTO": {
+      "type": "object",
+      "title": "customerSitesDTO",
+      "additionalProperties": true,
+      "properties": {
+        "sourceSystem": {
+          "type": "string",
+          "example": "EIP"
+        },
+        "customerId": {
+          "type": "string",
+          "example": "129895"
+        },
+        "customerNumber": {
+          "type": "string",
+          "example": "120527"
+        },
+        "customerName": {
+          "type": "string",
+          "example": "EVEREST FUEL MANAGEMENT LLC, C/O PACIFIC COAST JET LLC"
+        },
+        "customerStatus": {
+          "type": "string",
+          "example": "A"
+        },
+        "customerReference": {
+          "type": "string",
+          "example": ""
+        },
+        "taxPayerId": {
+          "type": "string",
+          "example": ""
+        },
+        "ultimateDunsNumber": {
+          "type": "string",
+          "example": ""
+        },
+        "parentDunsNumber": {
+          "type": "string",
+          "example": ""
+        },
+        "address1": {
+          "type": "string",
+          "example": "3 BATTERYMARCH PARK"
+        },
+        "address2": {
+          "type": "string",
+          "example": "3RD FLOOR"
+        },
+        "address3": {
+          "type": "string",
+          "example": "."
+        },
+        "city": {
+          "type": "string",
+          "example": "QUINCY"
+        },
+        "state": {
+          "type": "string",
+          "example": "MA"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "02169"
+        },
+        "county": {
+          "type": "string",
+          "example": "NORFOLK"
+        },
+        "siteName": {
+          "type": "string",
+          "example": "AVCARD"
+        },
+        "siteNumber": {
+          "type": "string",
+          "example": "255496"
+        },
+        "billToSite": {
+          "type": "string",
+          "example": "BILL_TO"
+        },
+        "accountSiteId": {
+          "type": "string",
+          "example": "56296"
+        },
+        "shipToSite": {
+          "type": "string",
+          "example": "SHIP_TO"
+        },
+        "shipSiteName": {
+          "type": "string",
+          "example": "AVCARD"
+        },
+        "siteStatus": {
+          "type": "string",
+          "example": "A"
+        },
+        "sanctionsFlag": {
+          "type": "string",
+          "example": "N"
+        },
+        "operatingUnit": {
+          "type": "string",
+          "example": "Aviation"
+        },
+        "salesPerson": {
+          "type": "string",
+          "example": "Garrett, Scott"
+        },
+        "siteCreationDate": {
+          "type": "string",
+          "example": "2017-03-24T19:46:18"
+        },
+        "siteUpdateDate": {
+          "type": "string",
+          "example": "2017-03-24T19:46:18"
+        }
+      }
+    }
+  },
+  "basePath": "/mocking/api/v1/links/b1f11971-4b88-4b68-88d4-a106a757d2bd/"
+}

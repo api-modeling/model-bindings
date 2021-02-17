@@ -1,0 +1,22 @@
+#%RAML 1.0 DataType
+description: Represent an error object that describes the problem
+displayName: Error
+type: object
+properties:
+  error:
+    required: true
+    example: true
+    description: Always `true`. Indicates that the request was errored.
+    default: true
+    type: boolean
+  message:
+    required: true
+    example: Parameter `paramName` has invalid value.
+    description: Human readable message.
+    type: string
+  code:
+    type: string
+    description: Unique code for this error type.
+    examples:
+      auth_error: authorization_error
+      query_error: search_error

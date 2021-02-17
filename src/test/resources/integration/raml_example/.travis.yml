@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- stable
+before_script:
+- npm install
+script: bash ./deploy.sh
+env:
+  global:
+  - COMMIT_AUTHOR_EMAIL: jarrodek@gmail.com
+before_install:
+- openssl aes-256-cbc -K $encrypted_3f458b2212d4_key -iv $encrypted_3f458b2212d4_iv
+  -in gh-travis_rsa.enc -out gh-travis_rsa -d

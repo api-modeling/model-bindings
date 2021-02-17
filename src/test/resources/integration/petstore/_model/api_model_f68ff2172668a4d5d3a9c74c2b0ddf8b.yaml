@@ -1,0 +1,111 @@
+#%ApiModel 0.1
+uuid: f68ff2172668a4d5d3a9c74c2b0ddf8b
+name: petstore.json
+entities:
+  AdaptedEntity.Pet.json4:
+    uuid: ed6c65d06594d8f92477fc308d755d05
+    adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
+  AdaptedEntity.Pet.json13:
+    uuid: 395d627c4cacc51c1cfb320f30d12afe
+    adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
+  AdaptedEntity.Pet.json9:
+    uuid: b6b47a082a574e68066cb05e2ec161c3
+    adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
+  AdaptedEntity.NewPet.json2:
+    uuid: d28a17e1f3a6d24b5e379917409f7c1c
+    adapts: http://mulesoft.com/modeling/instances/17ac0e7ea0a26592c9f66529cd574d3f
+  AdaptedEntity.Error.json7:
+    uuid: 5e1ad85de127871b63260a9d6fe2c662
+    adapts: http://mulesoft.com/modeling/instances/987b8017e2f1d245756d894f2e8409bb
+  AdaptedEntity.Pet.json5:
+    uuid: 1e48be7e336c4a421b360e7e4522bb8e
+    adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
+entryPoint:
+  uuid: eee4e1f6d0cc80cb64f85928190d03cb
+  name: Swagger Petstore
+  description: A sample API that uses a petstore as an example to demonstrate features in the swagger-2.0 specification
+  operations:
+    -
+      uuid: ea84b1753b4ae9e325c58d72c07e65b1
+      name: Find Resource /pets
+      transition:
+        uuid: 3b71b93488ed05989ff5139e18dea4ba
+        target: http://mulesoft.com/modeling/instances/23dd968d-2bce-4fd7-9d00-d96c7c030de3
+      inputs:
+        -
+          scalarRange:
+            type: string
+          allowMultiple: true
+          uuid: 68ae41c07bd3be09bb2c3ec348c7d607
+          name: tags
+          required: false
+          description: tags to filter by
+        -
+          scalarRange:
+            type: integer
+          allowMultiple: false
+          uuid: 94ed8617fe2bfd5ea6b3c9e71de91b5b
+          name: limit
+          required: false
+          description: maximum number of results to return
+      output:
+        allowMultiple: true
+        uuid: 8fd595267520c4b60801fdc3036f05ce
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/395d627c4cacc51c1cfb320f30d12afe
+      isMutation: false
+      type: custom
+resources:
+  -
+    uuid: 23dd968d-2bce-4fd7-9d00-d96c7c030de3
+    name: Resource /pets
+    operations:
+      -
+        uuid: d545c9e67a8cb7626936cdd4364d5e31
+        name: Create
+        inputs:
+          -
+            allowMultiple: false
+            uuid: c504b5e48a764f4aff23e8b809b6cee4
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/17ac0e7ea0a26592c9f66529cd574d3f
+        output:
+          allowMultiple: false
+          uuid: c7ce4be2c0d92500017b475c33cdc354
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/ed6c65d06594d8f92477fc308d755d05
+        isMutation: true
+        type: custom
+      -
+        uuid: a00ab24e59af66811749efd7755c7ec7
+        name: Find Resource /pets/{id}
+        inputs: []
+        output:
+          allowMultiple: false
+          uuid: d83e910446482c5a86d91b1a921d8abb
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/b6b47a082a574e68066cb05e2ec161c3
+        isMutation: false
+        type: custom
+    type: collection
+    member: http://mulesoft.com/modeling/instances/49c186b0-5e21-42bc-8fe2-a425f5e29bea
+  -
+    uuid: 49c186b0-5e21-42bc-8fe2-a425f5e29bea
+    name: Resource /pets/{id}
+    schema:
+      uuid: 1e48be7e336c4a421b360e7e4522bb8e
+      name: AdaptedEntity.Pet.json5
+      adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
+    operations:
+      -
+        uuid: 10db76d8c9e67c4581219de5944acd62
+        name: Delete
+        inputs: []
+        output:
+          allowMultiple: false
+          uuid: 17f0e8fbe247f017491941571a8b64a9
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/5e1ad85de127871b63260a9d6fe2c662
+        isMutation: true
+        type: custom
+    type: individual

@@ -1,0 +1,268 @@
+#%RAML 1.0
+title: ARC Analytics API
+version: v2
+baseUri: https://advancedrestclient-1155.appspot.com/
+
+uses:
+  DailyResutls: resourceTypes/daily-results.raml
+  PeriodicalResults: resourceTypes/periodical-results.raml
+types:
+  ErrorResponse: !include resourceTypes/error-response.raml
+resourceTypes:
+  AnalyserTask: !include resourceTypes/analyser-task.raml
+  QueryRequest: !include resourceTypes/query-request.raml
+
+documentation:
+  - !include documentation/how-data-are-stored.raml
+
+traits:
+  AnalyticsData: !include traits/analytics-data.raml
+
+/analytics:
+  description: An endpoint that is used to handle analytics data, from recording to queryin for them.
+  displayName: Analytics
+  get:
+    responses:
+      301:
+        description: |
+          This endpoint always redirects to description page about what the
+          analytics API does.
+  /record:
+    displayName: Records a session
+    post:
+      description: |
+        Records a user session in the Analytics service.
+
+        Users and session data are kept separatly in the datastore. Each user can have only one
+        record during the day (from midnight to midnight, taking timezone into account).
+
+        Each user must have at least one session during the day. New session is created only if
+        last user activity time (last valid request to this endpoint) has been over 30 minutes ago.
+        Otherwise last activity time will be recorded and therefore session is expanded to another
+        30 minutes.
+
+        Body for this method must be `multipar/form-data` with anonymized application ID
+        (this should happen on client side) and user's timezone. The API do not accept client's
+        time because it's not reliable (clients can have different time set up and there's no way
+        to handle it). Therefore the API will use current server time adjusted to user's time zone.
+
+        If new session is created then the the method will return `204` status code. If existing
+        session has been expanded then the method return `205` status code.
+        In both cases there's no response body.
+      body:
+        multipart/form-data:
+          description: |
+            The request body can be easily created in JavaScript using FormData:
+
+            ```
+            let data = new FormData();
+            data.append('aid', aid); // anonymousId
+            data.append('tz', d.getTimezoneOffset()); //timezone
+            ```
+            and then passed to XHR or Fetch function as a parameter:
+            ```
+            fetch(url, {
+              method: 'POST',
+              body: data
+            });
+            ```
+          properties:
+            aid:
+              type: string
+              example: pM0kJK2DCidhPc2F6vjWH56/PRAfi5Lim5jwGMQ+56x/58DbDbRPvbIYSTQMKvuw
+              description: |
+                Anonymized application ID. **Clients should take care about anonymization process
+                so the endpoint will never know nothing about the real app.**
+                Anonymized App ID should be used only to call this particular endpoint and never
+                used as any parameter to any other endpoint. This should assure that particular
+                instance of the app can never be find using anonymous App Id.
+                Real application ID is stored on client side and can be used to store user data on
+                application server.
+              required: true
+            tz:
+              type: integer
+              example: -8
+              description: |
+                A timezone offset to GMT. Example value is an offset to PST (Pacific
+                Standard Time) which is minus 8 hours comparing to GMT.
+              minimum: -12
+              maximum: 12
+      responses:
+        204:
+          description: |
+            New session has been set. `204` status code do not return any data.
+        205:
+          description: |
+            Existing session has been expanded for next 30 minutes. This endpoint do not return
+            data.
+        400:
+          description: There is an issue with your parameters
+          body:
+            application/json:
+              type: ErrorResponse
+  /query:
+    displayName: Query analytics
+    description: |
+      The Query endpoint is responsible for getting data out from the datastore.
+
+      The data are agregated every day, week (on monday) and month (every first day of month).
+      This endpoints returns data from aggregated tables and never operated on raw data.
+
+      Depending on endpoint it can return only number of users/sessions for given day or number
+      of users or session for a week or month with daily sessions or users. See methods
+      documentation for more details.
+    /daily:
+      displayName: Daily
+      description: Endpoint to query for daily statistics.
+      /users:
+        displayName: Users
+        type: QueryRequest
+        description: Query for users in particular day
+        get:
+          is: [AnalyticsData:{responseType: DailyResutls.DailyUsers}]
+          description: |
+            This method returns number of users recorded in given day.
+            Date ranges are not allowed here. See "How data are stored" guide for more information.
+
+            Occasionally `404` status code can be returned if aggregated data for last day hasn't
+            been generated yet. Time of data aggregation is regulated by the server's cron
+            and can vary. It depends on server load and number of tasks in queue. If `404` status
+            code is returned try in an hour or so to check if data were aggregated already.
+      /sessions:
+        displayName: Sessions
+        type: QueryRequest
+        description: Query for sessions in particular day
+        get:
+          is: [AnalyticsData:{responseType: DailyResutls.DailySessions}]
+          description: |
+            This method returns number of sessions recorded in given day.
+            Date ranges are not allowed here. See "How data are stored" guide for more information.
+
+            Occasionally `404` status code can be returned if aggregated data for last day hasn't
+            been generated yet. Time of data aggregation is regulated by the server's cron
+            and can vary. It depends on server load and number of tasks in queue. If `404` status
+            code is returned try in an hour or so to check if data were aggregated already.
+    /{scope}:
+      description: Endpoint to query for periodical statistics.
+      uriParameters:
+        scope:
+          type: string
+          enum: [weekly, monthly]
+          example: weekly
+          required: true
+          description: |
+            A time period for the statistics. Only `weekly` and `monthly` values are allowed.
+      /users:
+        displayName: Users
+        type: QueryRequest
+        description: |
+          Query for number of users in particular week.
+        get:
+          is: [AnalyticsData:{responseType: PeriodicalResults.PeriodicalUsers}]
+          description: |
+            This method returns number of users recorded for given week beginning on Monday.
+            Date ranges are not allowed here. See "How data are stored" guide for more information.
+
+            The `day` parameter should be the Monday for given week. If it's not a monday it will
+            be set to a Monday before the `day`.
+
+            This method returns aggregated number of users for the given week starting from Monday
+            to the following Sunday and number of users for each day.
+
+            Occasionally `404` status code can be returned if aggregated data for last day hasn't
+            been generated yet. Time of data aggregation is regulated by the server's cron
+            and can vary. It depends on server load and number of tasks in queue. If `404` status
+            code is returned try in an hour or so to check if data were aggregated already.
+      /sessions:
+        displayName: Sessions
+        type: QueryRequest
+        description: Query for sessions in particular day
+        get:
+          is: [AnalyticsData:{responseType: PeriodicalResults.PeriodicalSessions}]
+          description: |
+            This method returns number of sessions recorded in given week beginning on Monday.
+            Date ranges are not allowed here. See "How data are stored" guide for more information.
+
+            The `day` parameter should be the Monday for given week. If it's not a monday it will
+            be set to a Monday before the `day`.
+
+            This method returns aggregated number of users for the given week starting from Monday
+            to the following Sunday and number of users for each day.
+
+            Occasionally `404` status code can be returned if aggregated data for last day hasn't
+            been generated yet. Time of data aggregation is regulated by the server's cron
+            and can vary. It depends on server load and number of tasks in queue. If `404` status
+            code is returned try in an hour or so to check if data were aggregated already.
+/tasks:
+  displayName: Tasks
+  description: |
+    Server that handles cron calls.
+
+    This endpoint is meant to be called by cron. It is mapping calls to the `/analyzer/` endpoint.
+  /{scope}/{type}:
+    uriParameters:
+      type:
+        type: string
+        enum: [users, sessions]
+        description: |
+          Type of the data to compute. Can be either `users` to compute number of users for given scope and `sessions` to compute number of sessions.
+      scope:
+        type: string
+        enum: [daily, weekly, monthly]
+        description: |
+          The time scope of computation to perform. It can be either `daily`, `weekly` or `monthly`.
+
+          Except for the daily type, actual start date may be different than the one provided in the `day` query parameter.
+          For weekly computations the server will always set monday going backward if the day is not Monday.
+          Similar for monthly computations it will be always set to the first day of month.
+    get:
+      headers:
+        X-Appengine-Cron:
+          type: boolean
+          required: true
+          default: true
+          description: Every cron job is called with this header and the endpoint test against it's precence.
+      description: Handles the cron job and execute service that is responsible for data computation.
+      responses:
+        204:
+          description: The task was executed correctly and data has been computed. Any other status  code means an error.
+/analyzer:
+  description: |
+    The analyser endpoint is to be run as a task.
+
+    Because tasks computes a lot of data and performs operation on potentially hundred of thousands
+    of records this will most possibly reach request time limit (30 secodns) and return with `500`
+    status code.
+
+    Tasks are executed in special environment and are allowed to work for up to 10 minutes.
+  /{scope}/{type}:
+    uriParameters:
+      type:
+        type: string
+        enum: [users, sessions]
+        description: |
+          Type of the data to compute. Can be either `users` to compute number of users for given scope and `sessions` to compute number of sessions.
+      scope:
+        type: string
+        enum: [daily, weekly, monthly]
+        description: |
+          The time scope of computation to perform. It can be either `daily`, `weekly` or `monthly`.
+
+          Except for the daily type, actual start date may be different than the one provided in the `day` query parameter. For weekly computations the server will always set monday going backward if the day is not Monday.
+          Similar for monthly computations it will be always set to the first day of month.
+    type: AnalyserTask
+    get:
+      description: Computes the data for given scope and type.
+/.well-known//acme-challenge/{challenge}:
+  description: An endpoint to make a request from the LetsEncrypt service to confirm the domain ownership.
+  uriParameters:
+    challenge:
+      description: A challenge code
+      type: string
+      required: true
+  get:
+    description: Challenge the code.
+    responses:
+      200:
+        body:
+          text/html: string

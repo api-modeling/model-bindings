@@ -59,6 +59,7 @@ describe('APIBindingsPlugin', function() {
         await api.fromJsonLd(JSON.parse(finals[4])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[4]);
         const g1 = await apiPlugin.export(config,parsed);
         const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]);
+        console.log(generated)
         generated.forEach((generatedModel) => {
             assert(generatedModel.url.endsWith(".raml"));
         })

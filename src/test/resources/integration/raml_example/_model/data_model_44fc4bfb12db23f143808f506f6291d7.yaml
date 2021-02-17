@@ -1,0 +1,21 @@
+#%DataModel 0.1
+uuid: 44fc4bfb12db23f143808f506f6291d7
+name: api.raml
+entities:
+  ErrorResource:
+    uuid: 2d9a7df3f0e390af349a53b07c491c19
+    attributes:
+      error:
+        allowMultiple: false
+        uuid: 3e311560a866b62891be733420d8e9ca
+        required: true
+        range:
+          type: boolean
+      message:
+        allowMultiple: false
+        uuid: c95e81ff01663ebee5d39fd110cd02ae
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: A response that is errored

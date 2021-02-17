@@ -1,0 +1,32 @@
+#%RAML 1.0 ResourceType
+
+get:
+  responses: 
+    400:
+      description: |
+        The `400` response status code indicates that there's an error in query parameters.
+        
+        Check response's `message` for more information.
+        
+        Possible coditions to result with this status code:
+        - Date parameters have invalid patter. Check documentation for method to learn about correct date formats
+        - Selected date or date rande is in future or include today (which is prohibited)
+        - Missing required query parameter.
+      body: 
+        application/json:
+          type: !include error-response.raml
+    404:
+      description: |
+        The `404` status code is only possible if aggregated data for given period of time is 
+        not yet ready. Every other parameters checks were successful (required parameters 
+        exists and dates are in past) but aggregated stats are not yet available.
+        
+        This can be caused by server overload and task to perform an aggregation hasn't been 
+        executed yet. In this case wait an hour or so and chak again if daya are available.
+        
+        Other cause of the `404` error code is when the data aggregation task resulted with 
+        error code more than task repeat number times. In this case the task can only be added 
+        manually by the administrator.
+      body: 
+        application/json:
+          type: !include error-response.raml

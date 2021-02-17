@@ -1,0 +1,19 @@
+#%RAML 1.0 Trait
+
+queryParameters:
+  date:
+    type: date-only
+    description: |
+      A day for which you requesting the data. It must be valid "YYYY-MM-dd" pattern or
+      otherwise this query return 400 error code.
+      Only dates in past are allowed. Current and future dates will result in 400 error
+      code.
+    example: 2017-01-01
+    required: true
+responses:
+  200:
+    description: |
+      The `200` status code means that the computation result is available for the given day.
+    body:
+      application/json:
+        type: <<responseType>>

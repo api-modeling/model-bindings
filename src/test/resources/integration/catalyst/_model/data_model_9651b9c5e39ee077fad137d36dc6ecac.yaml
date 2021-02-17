@@ -1,0 +1,585 @@
+#%DataModel 0.1
+uuid: 9651b9c5e39ee077fad137d36dc6ecac
+name: retail_common.raml
+entities:
+  CollectionResponseMetadata:
+    uuid: 9de435d4f6781df456db362d85dad69e
+    attributes:
+      totalItems:
+        allowMultiple: false
+        uuid: 942364727c70e7bea1a52fe98f4e4422
+        required: false
+        range:
+          type: integer
+      offset:
+        allowMultiple: false
+        uuid: c8bec59a617602b3feb29e0d0434ad47
+        required: false
+        range:
+          type: integer
+      limit:
+        allowMultiple: false
+        uuid: ae4e6e87858ec4792067d7695878472d
+        required: false
+        range:
+          type: integer
+      sortBy:
+        allowMultiple: false
+        uuid: a88ddccc2e4dcd0ac8c67cf01a8a6412
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: |
+      collection of response messages
+    extends: http://mulesoft.com/modeling/instances/178f5f386b29e96bc528ca35b1488b2d
+  AddressUnit:
+    uuid: 94e750a25772d9f154d6a5a90596a8c7
+    attributes: {}
+    associations: {}
+    description: |
+      address unit
+    extends: http://mulesoft.com/modeling/instances/0008facf-1cbb-40cf-b8e7-bf293bd50375
+  SalesUnit:
+    uuid: 1a85d9adafde92055f825247511f8ecc
+    attributes:
+      code:
+        allowMultiple: false
+        uuid: 0dc1c78cc7231c66ed402830a8ebd1ff
+        required: true
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 3d878898a70eb09b40254a107e1438ae
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: |
+      sales unit
+  first?:
+    uuid: 8e3c2e5ee71870d08b77f7ecf02d1550
+    attributes: {}
+    associations: {}
+    description: |
+      a link to the first document in the series
+    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
+  prev?:
+    uuid: 0f8ee53baf8488fbb88492c56302c12a
+    attributes: {}
+    associations: {}
+    description: |
+      a link to the previous document in the series
+    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
+  Entity3:
+    uuid: 0008facf-1cbb-40cf-b8e7-bf293bd50375
+    disjoint:
+      -
+        uuid: 9f82ce26da35960444010dd33d56732d
+      -
+        uuid: 1f60f54054bb3c085bca3bc4a3a56ac9
+  PostalAddress:
+    uuid: cd5c8379be30bde0083cc6b885f13964
+    attributes:
+      identifier:
+        allowMultiple: false
+        uuid: bcb67e005d9a31944a4951705d662edc
+        required: false
+        range:
+          type: string
+      attribute4:
+        allowMultiple: false
+        uuid: 18c6dbc51a724b0e6375f86bd22627c1
+        required: false
+        range:
+          type: string
+      addressUnit:
+        allowMultiple: false
+        uuid: 5f1ca6882cd59c52e5917536f0f08734
+        required: false
+        range:
+          type: string
+    associations:
+      state:
+        allowMultiple: false
+        uuid: dd34c10e5bac50d2dd4ec45282f151f6
+        required: false
+        target: http://mulesoft.com/modeling/instances/c957cd980014aae1eafc09ca384b752f
+      recipient:
+        allowMultiple: false
+        uuid: ef77141db0b1646a2d7d4dcbde8853bb
+        required: false
+        target: http://mulesoft.com/modeling/instances/fa3bf7e582ae1c50653257516eeb8d4f
+      city:
+        allowMultiple: false
+        uuid: 30c70057d1c3a9bb012c68ae0b9215a0
+        required: false
+        target: http://mulesoft.com/modeling/instances/f81dab1c22950e393bfbd35cacc54ef5
+      mailStopCode:
+        allowMultiple: false
+        uuid: e813f84dc40b172d3e26c6966984368c
+        required: false
+        target: http://mulesoft.com/modeling/instances/1886a33d42ad35d155deb5d42dba8c31
+      secondaryAddress:
+        allowMultiple: false
+        uuid: 09a0f3002f5e9a5ed878829b83acbb6f
+        required: false
+        target: http://mulesoft.com/modeling/instances/a0d57b5111dca15ec13a12f5e835a028
+      attention:
+        allowMultiple: false
+        uuid: ee0a8869a6c83cb3edd61b313c30f81e
+        required: false
+        target: http://mulesoft.com/modeling/instances/57c0bf6861f8ffdb0912e275e6504b95
+      country:
+        allowMultiple: false
+        uuid: e7d6472f5213278b5958f5cbe2a27654
+        required: false
+        target: http://mulesoft.com/modeling/instances/c2bf6329ad9bda5a884a12076d063327
+      postalCode:
+        allowMultiple: false
+        uuid: ef222ddf729a2d55f20fa1c3b220e10c
+        required: false
+        target: http://mulesoft.com/modeling/instances/49ef323bd1251336f0365f2e2fac3230
+      address:
+        allowMultiple: false
+        uuid: 0f1b0c926ab5c4dc44ba1db40569acdf
+        required: false
+        target: http://mulesoft.com/modeling/instances/05937d82a00356e9e9d7527776dfb86c
+    description: |
+      postal address of internal organization
+  state?:
+    uuid: a1b3c737-ab20-459e-b9fe-dbf55f373401
+  Measure:
+    uuid: fd243c454dfd0dd278e365bd5ae13609
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 2b881a29f1eeb0aaa9cde8078eef2a42
+        required: true
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: c0b6d1b036961ca8c89075d93c4a1928
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: |
+      a physical property that can be quantified with a numeric value
+  Price:
+    uuid: 2e18c54bd56f941a117b448734dbb55e
+    attributes: {}
+    associations:
+      salesUnit:
+        allowMultiple: false
+        uuid: 607bb4f0b64f063ee8868b3ca092cf35
+        required: true
+        target: http://mulesoft.com/modeling/instances/1a85d9adafde92055f825247511f8ecc
+      amount:
+        allowMultiple: false
+        uuid: 19526d7331b3dd10aca5a0c54119cabe
+        required: true
+        target: http://mulesoft.com/modeling/instances/d88def29e1d0a0c1664da4114262a80c
+    description: |
+      a price
+  country?:
+    uuid: ec318434-067c-435d-ad82-275d0028200a
+  HypermediaCollectionResponse:
+    uuid: ba4c2a1530809bddec6c0ceff612949e
+    attributes: {}
+    associations:
+      _meta:
+        allowMultiple: false
+        uuid: fecaae6d133cf3a50f23ebd62a975940
+        required: true
+        target: http://mulesoft.com/modeling/instances/178f5f386b29e96bc528ca35b1488b2d
+      _links:
+        allowMultiple: false
+        uuid: b495220581b573edc6b6d779bf4c5609
+        required: true
+        target: http://mulesoft.com/modeling/instances/349c4495d7d9fcfca199d2c32c008fa6
+    description: |
+      hypermedia collection response
+    extends: http://mulesoft.com/modeling/instances/edfe907fb1f0ae27e602dc506e18085c
+  _meta:
+    uuid: 53c171d88cd573204b067ed38a9b949b
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/178f5f386b29e96bc528ca35b1488b2d
+  DefaultResponse:
+    uuid: edfe907fb1f0ae27e602dc506e18085c
+    attributes: {}
+    associations:
+      _meta:
+        allowMultiple: false
+        uuid: 9e30136f237b37e25424d7dc0d20f44e
+        required: true
+        target: http://mulesoft.com/modeling/instances/53c171d88cd573204b067ed38a9b949b
+    description: |
+      default response
+  recipient?:
+    uuid: 81cbd660-eebe-42a4-b9d3-18948efb3826
+  DiscreteQuantity:
+    uuid: 8b27b452339555d59581687bd4602818
+    attributes:
+      amount:
+        allowMultiple: false
+        uuid: 4d280c706637c272b3180be3a878ecf4
+        required: true
+        range:
+          type: integer
+    associations: {}
+    description: |
+      discrete quantity
+    extends: http://mulesoft.com/modeling/instances/446de2c9c53976f5b87f9fa90372e8fa
+  ResponseMetadata:
+    uuid: 178f5f386b29e96bc528ca35b1488b2d
+    attributes: {}
+    associations:
+      messages:
+        allowMultiple: true
+        uuid: 3ed54b3330974e654dbe0b325c3fa947
+        required: false
+        target: http://mulesoft.com/modeling/instances/eacfb69f213e4c87bb8306bab6a8c05f
+    description: |
+      a response metadata
+  Lifetime:
+    uuid: 9a6216b63a1070ec4c333f55eef8d5d8
+    attributes:
+      validFrom:
+        allowMultiple: false
+        uuid: 8d337ea86aeabb5e9d5547b3590384bb
+        required: false
+        range:
+          type: dateTime
+      validUntil:
+        allowMultiple: false
+        uuid: b8700e2d75f2198b8a44d14886019c11
+        required: false
+        range:
+          type: dateTime
+    associations: {}
+    description: |
+      an object that has a finite lifespan. the object is considered
+      to be valid at a point in time if:
+      ```
+      validFrom <= pointInTime < validUntil
+      ```
+  AddressUnitWithOptionalUnitNumber:
+    uuid: 1f60f54054bb3c085bca3bc4a3a56ac9
+    attributes:
+      unitType:
+        allowMultiple: false
+        uuid: 2c44e000421203c9671735541142f1b3
+        required: true
+        range:
+          type: string
+      unitNumber:
+        allowMultiple: false
+        uuid: a8cba711576c305eac4e69cb40da35e1
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: |
+      the unit address with optional unit number
+  mailStopCode?:
+    uuid: f29c7200-b4c5-4e2e-96b8-1b0dd2c7e2fd
+  Message:
+    uuid: eacfb69f213e4c87bb8306bab6a8c05f
+    attributes:
+      severity:
+        allowMultiple: false
+        uuid: a5234948c0b1fb1c1f906cc2142df08c
+        required: true
+        range:
+          type: string
+      code:
+        allowMultiple: false
+        uuid: 87e9c2421e940f5a9675f850f1b3afc8
+        required: true
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: 6586adba620588d98ab39f7d5e96fefb
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: |
+      a message object
+  ErrorResponse:
+    uuid: d1404b0f369e0fc143c564eaef8121cb
+    attributes: {}
+    associations: {}
+    description: |
+      error response
+    extends: http://mulesoft.com/modeling/instances/edfe907fb1f0ae27e602dc506e18085c
+  CollectionResponse:
+    uuid: 289aca1869b19df11da079d6b92c1798
+    attributes: {}
+    associations:
+      _meta:
+        allowMultiple: false
+        uuid: 8ab3b7e04a0366e0c2f7b83bfecbe501
+        required: true
+        target: http://mulesoft.com/modeling/instances/9de435d4f6781df456db362d85dad69e
+    description: |
+      collection of response messages
+    extends: http://mulesoft.com/modeling/instances/edfe907fb1f0ae27e602dc506e18085c
+  Link:
+    uuid: 07edf644bc574623744fe6847d178811
+    attributes:
+      href:
+        allowMultiple: false
+        uuid: 41f3cbc559af88292d669cd251352d89
+        required: true
+        range:
+          type: string
+      title:
+        allowMultiple: false
+        uuid: 0e12ff253e5f9ee61fb2f6481e1d62fa
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: |
+      a hypermedia link
+  CollectionPagingLinks:
+    uuid: 349c4495d7d9fcfca199d2c32c008fa6
+    attributes: {}
+    associations:
+      prev:
+        allowMultiple: false
+        uuid: f8159ede8960f96c2a0758024a6ca118
+        required: false
+        target: http://mulesoft.com/modeling/instances/0f8ee53baf8488fbb88492c56302c12a
+      last:
+        allowMultiple: false
+        uuid: 94e74dd5e255e88a11e7a15c2a3dae95
+        required: false
+        target: http://mulesoft.com/modeling/instances/9da12ed16b5173519db400c15ec15086
+      next:
+        allowMultiple: false
+        uuid: af47894ec71f816320b314d34863e379
+        required: false
+        target: http://mulesoft.com/modeling/instances/6f266b755698b5131206d84f089d9b44
+      self:
+        allowMultiple: false
+        uuid: 49255e63e9fbd73ab805a09d83bc8ff5
+        required: false
+        target: http://mulesoft.com/modeling/instances/d80a14cfe4f94a9205e02f2eddb800ee
+      first:
+        allowMultiple: false
+        uuid: d94dbdb139c27a56b9f9b8bf009586ec
+        required: false
+        target: http://mulesoft.com/modeling/instances/8e3c2e5ee71870d08b77f7ecf02d1550
+    description: |
+      collection of paging links
+    extends: http://mulesoft.com/modeling/instances/6ef8b259557116875c70ef34186ae6aa
+  secondaryAddress?:
+    uuid: 6a9fea9e-56e4-4163-9c3c-e8a03d167d54
+  attention?:
+    uuid: a67bba88-7605-415c-a5d4-23844ffc6467
+  postalCode?:
+    uuid: c050ec00-a1bc-4743-a3dc-6a87f5622f2d
+  MeasurementSystem:
+    uuid: 002248ab00405f911e4e21c33f1ad454
+    attributes:
+      code:
+        allowMultiple: false
+        uuid: b3668e5239391f8c5edd7f1572d9f402
+        required: true
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 7a2616e1412abdf25768da46fc13f26b
+        required: true
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: 6a4c7cf6bb80157284d0cfc3c4c524d8
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: |
+      a standard that codifies a set of UnitOfMeasure, typically defined by a governmental
+      or international agency.
+  self?:
+    uuid: d80a14cfe4f94a9205e02f2eddb800ee
+    attributes: {}
+    associations: {}
+    description: |
+      conveys an identifier for the link's context.
+    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
+  Quantity:
+    uuid: 446de2c9c53976f5b87f9fa90372e8fa
+    attributes:
+      quantityType:
+        allowMultiple: false
+        uuid: 47d5d7f50fee4068a271e13719583e5e
+        required: true
+        range:
+          type: string
+      amount:
+        allowMultiple: false
+        uuid: 8a38b10c0dc08b2504ccef301fcc05f4
+        required: true
+        range:
+          type: float
+      unit:
+        allowMultiple: false
+        uuid: 300c6125a14c765cec92121802519ca6
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: |
+      a quantity
+  next?:
+    uuid: 6f266b755698b5131206d84f089d9b44
+    attributes: {}
+    associations: {}
+    description: |
+      a link to the next document in the series
+    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
+  ContinuousQuantity:
+    uuid: 54f1d8e3fe7a4f19496a306c467ee6c0
+    attributes:
+      amount:
+        allowMultiple: false
+        uuid: 0967f96b3fb760a27960ceea489d3c6e
+        required: true
+        range:
+          type: float
+    associations: {}
+    description: |
+      continuous quantity
+    extends: http://mulesoft.com/modeling/instances/446de2c9c53976f5b87f9fa90372e8fa
+  locationId:
+    uuid: 473d4676-21ed-4666-a463-43c8478e3502
+  HypermediaResponseMetadata:
+    uuid: 2ebf0d233074a0bdc7685437cd3f6bad
+    attributes: {}
+    associations:
+      messages:
+        allowMultiple: true
+        uuid: e316ef62b321078e4a7f78812172d319
+        required: true
+        target: http://mulesoft.com/modeling/instances/eacfb69f213e4c87bb8306bab6a8c05f
+    description: |
+      hypermedia response metadata
+    extends: http://mulesoft.com/modeling/instances/178f5f386b29e96bc528ca35b1488b2d
+  last?:
+    uuid: 9da12ed16b5173519db400c15ec15086
+    attributes: {}
+    associations: {}
+    description: |
+      a link to the last document in the series
+    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
+  Location:
+    uuid: 0711f2126fe94ec59c202665d4d44c91
+    attributes:
+      locationType:
+        allowMultiple: false
+        uuid: e5779d224144961b4fab566ce9060b46
+        required: true
+        range:
+          type: string
+      deliveryMethod:
+        allowMultiple: false
+        uuid: 75441a4f04142a9d0f19f8a24ae2c711
+        required: true
+        range:
+          type: string
+    associations:
+      locationId:
+        allowMultiple: false
+        uuid: 5e977747d1caac90564d7d265c620650
+        required: true
+        target: http://mulesoft.com/modeling/instances/46f0671b35c355377c66a1e58f4d47bc
+    description: |
+      location
+  HypermediaMessage:
+    uuid: e97496f4c57e68dbda58a3bf9c8c1c17
+    attributes: {}
+    associations:
+      href:
+        allowMultiple: false
+        uuid: eceeb7304bf1158935a2f0dfa09e403e
+        required: false
+        target: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
+    description: |
+      a hypermedia message
+    extends: http://mulesoft.com/modeling/instances/eacfb69f213e4c87bb8306bab6a8c05f
+  MonetaryValue:
+    uuid: d88def29e1d0a0c1664da4114262a80c
+    attributes:
+      name:
+        allowMultiple: false
+        uuid: 21aa601576daf9caa55ea03a96d2c452
+        required: true
+        range:
+          type: string
+      currency:
+        allowMultiple: false
+        uuid: 3372445985cd235195e1c50947040c62
+        required: true
+        range:
+          type: string
+      currencyValue:
+        allowMultiple: false
+        uuid: d0459ffb02e751ddd93fdc3681b4c019
+        required: true
+        range:
+          type: float
+    associations: {}
+    description: |
+      represents an amount in a given currency
+  AddressUnitWithRequiredUnitNumber:
+    uuid: 9f82ce26da35960444010dd33d56732d
+    attributes:
+      unitType:
+        allowMultiple: false
+        uuid: 79f52ad8c01efd446430646da499d5c0
+        required: true
+        range:
+          type: string
+      unitNumber:
+        allowMultiple: false
+        uuid: 770a134fe428bc482ea4e46b34377d58
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: |
+      the unit address with required unit number
+  address?:
+    uuid: 4cfe5db8-3cbf-4414-b9d8-58c447ccd4d9
+  city?:
+    uuid: 3d7ae223-d708-4074-958d-0fb871f5bcce
+  //:
+    uuid: 5e83f6170d8834648c669960b04124a7
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
+  Links:
+    uuid: 6ef8b259557116875c70ef34186ae6aa
+    attributes: {}
+    associations:
+      //:
+        allowMultiple: false
+        uuid: 6918a7c2a1f941d01806281903478e5e
+        required: false
+        target: http://mulesoft.com/modeling/instances/5e83f6170d8834648c669960b04124a7
+    description: |
+      collection of hypermedia links
+description: |
+  provides a set of reusable data types that commonly
+  occur in type definitions

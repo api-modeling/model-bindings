@@ -1,0 +1,31 @@
+#%RAML 1.0 DataType
+
+properties:
+  zipCd:
+    displayName: ZIP Code
+    description: ZIP code
+    type: string
+    required: false
+  counties:
+    type: array
+    items:
+      properties:
+        countyName:
+          displayName: County
+          description: Name of the current County
+          type: string
+          required: false
+        geo:
+          displayName: Geograpic Information
+          description: Geographic Information in Decimal Degrees (WGS1984)
+          type: !include geo-type.raml
+          required: false
+        historicData:
+          type: array
+          minItems: 0
+          items: !include covidMetrics.raml
+            
+              
+example: !include ../examples/zipNYT-200-response.json  
+ 
+  

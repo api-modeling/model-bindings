@@ -1,0 +1,139 @@
+#%RAML 1.0
+baseUri: https://localcoviddata.com
+title: COVID-19 Data Tracking API
+version: v3
+description: This API will be used to retrieve COVID-19 information based on the zip-code or state-code or country-code.
+
+traits:
+  standard-error-response: !include errorResponse.raml
+
+types:
+  nytResponse: !include datatypes/zipNYT-response-datatype.raml
+  eucdcResponse: !include datatypes/countryECDC-response-datatype.raml
+  ctrackResponse: !include datatypes/stateCTRACK-response-datatype.raml
+  zipResponse: !include datatypes/zip-200-response.raml
+  kffResponse: !include datatypes/kffResponse.raml
+  oxfordResponse: !include datatypes/oxfordResponse.raml
+          
+/covid19/v1:
+  
+  /high-level-policy:
+    displayName: Policy Data
+    description: Get Policy Data from University of Oxford or Kaiser Family Foundation
+    get:
+      is: [standard-error-response]
+      displayName: GET Policy Data
+      queryParameters:
+        country:
+          displayName: Country
+          description: ISO 3-letter code for country
+          example: ISL
+          type: !include datatypes/countryAlpha3Cd.raml
+        state:
+          displayName: US State
+          description: Provide 2 letter US State code
+          example: CA
+          type: !include datatypes/usStates.raml
+          required: false
+      responses:
+        200:
+          body:
+            application/json:
+              type: kffResponse | oxfordResponse
+
+
+  /locations:
+    description: Use this resource to interact with Locations data. The user can retrieve data from the last 24 hours. 
+    displayName: Locations
+    get:
+      is: [standard-error-response] 
+      displayName: Get from New York Times by Zip
+      queryParameters:
+        zipCode:
+          displayName: ZIP Code
+          description: Use ZIP Code as query parameter
+          type: string
+      responses:
+        200:
+          body:
+            application/json:
+              type: zipResponse
+  
+  /cases:
+    displayName: COVID-19 Cases
+    description: This endpoint allows users to retrieve COVID-19 data from a specific data source. Data sources include NYT, ECDC, CTP. See the home page for more details. The user can retrieve upto 7 days of data from the current date. 
+    /newYorkTimes:
+      displayName: Cases from New York Times
+      description: Get Data from New York Times
+      get:
+        is: [standard-error-response]
+        displayName: GET Cases from New York Times
+        queryParameters:
+          zipCode:
+            displayName: ZIP Code
+            description: Use ZIP Code as query parameter
+            type: string
+          daysInPast:
+            displayName: Past Days
+            description: How many days of data to fetch?
+            type: integer
+            minimum: 1
+            maximum: 7
+            default: 1
+        responses:
+          200:
+            body:
+              application/json:
+                type: nytResponse
+    /covidTracking:
+      displayName: Cases from CovidTracking
+      description: Get Data from CovidTracking
+      get:
+        is: [standard-error-response]
+        displayName: GET Cases from CovidTracking
+        queryParameters:
+          state:
+            displayName: US State
+            description: Provide 2 letter US State code
+            example: CA
+            type: !include datatypes/usStates.raml
+          daysInPast:
+            displayName: Past Days
+            description: How many days of data to fetch?
+            type: integer
+            minimum: 1
+            maximum: 7
+            default: 1
+        responses:
+          200:
+            body:
+              application/json:
+                type: ctrackResponse
+    /eucdc:
+      displayName: Cases from EUCDC
+      description: Get Data from EUCDC
+      get:
+        is: [standard-error-response]
+        displayName: GET Cases from EUCDC
+        queryParameters:
+          country:
+            displayName: Country
+            description: ISO 2-letter code for country
+            example: ES
+            type: !include datatypes/countryCode.raml
+          daysInPast:
+            displayName: Past Days
+            description: How many days of data to fetch?
+            type: integer
+            minimum: 1
+            maximum: 7
+            default: 1
+        responses:
+          200:
+            body:
+              application/json:
+                type: eucdcResponse
+
+    
+                
+                  

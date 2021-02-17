@@ -1,0 +1,16 @@
+#%RAML 1.0 DataType
+
+type: object
+example: !include ../examples/error-response.json
+properties: 
+  code:
+    type: integer
+    required: true
+    description: A code associated with the error response. It is the same as status code.
+    example: 400
+  message:
+    type: string
+    required: true
+    description: |
+      A message describing an error. This information can be presented to user.
+    example: The `aid` (anonymousId) parameter is required.
