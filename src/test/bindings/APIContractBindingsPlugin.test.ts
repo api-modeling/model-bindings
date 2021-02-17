@@ -19,7 +19,6 @@ import { DocumentResourceLoader } from '@api-modeling/api-modeling-metadata'
 import * as amf from '@api-modeling/amf-client-js';
 //import { client } from '@api-modeling/amf-client-js'
 
-
 export class AResourceLoader extends DocumentResourceLoader {
     fetch(resource: string): Promise<amf.client.remote.Content> {
       //const textUrl =  '../../' + resource.substring(7) //model-bindings/src/test/resources/example.raml'
@@ -34,8 +33,6 @@ export class AResourceLoader extends DocumentResourceLoader {
       return true;
     }
   }
-
-
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
     it ('should import RAML, convert to/from jsonld, and export RAML', async function() {
@@ -47,60 +44,37 @@ describe('APIBindingsPlugin', function() {
 
         let proms = parsed.map(async (i) => {
             return await i.toJsonLd()
-        })
-        let finals = await Promise.all(proms)
+        });
+        let finals = await Promise.all(proms);
 
-        let mbd = new ModelBindingsDialect()
-        await mbd.fromJsonLd(JSON.parse(finals[0])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[0])
-        let md = new ModularityDialect()
-        await md.fromJsonLd(JSON.parse(finals[1])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[1])
-        let dmd0 = new DataModelDialect()
-        await dmd0.fromJsonLd(JSON.parse(finals[2])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[2])
-        let dmd1 = new DataModelDialect()
-        await dmd1.fromJsonLd(JSON.parse(finals[3])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[3])
-        let api = new ApiModelDialect()
-        await api.fromJsonLd(JSON.parse(finals[4])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[4])
-        const g1 = await apiPlugin.export(config,parsed)
+        let mbd = new ModelBindingsDialect();
+        await mbd.fromJsonLd(JSON.parse(finals[0])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[0]);
+        let md = new ModularityDialect();
+        await md.fromJsonLd(JSON.parse(finals[1])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[1]);
+        let dmd0 = new DataModelDialect();
+        await dmd0.fromJsonLd(JSON.parse(finals[2])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[2]);
+        let dmd1 = new DataModelDialect();
+        await dmd1.fromJsonLd(JSON.parse(finals[3])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[3]);
+        let api = new ApiModelDialect();
+        await api.fromJsonLd(JSON.parse(finals[4])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[4]);
+        const g1 = await apiPlugin.export(config,parsed);
         const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]);
-        return true;
+        generated.forEach((generatedModel) => {
+            assert(generatedModel.url.endsWith(".raml"));
+        })
+        assert(g1 != null);
+        assert(generated != null);
     })
-    /*
-    it('should parse RAML example and then Connector', async function () {
+
+    it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = //"http://goop.com/src/test/resources/apiMulti/api.raml"
-        "file://src/test/resources/example.raml"
-        //"src/test/resources/library.raml";
+        //"file://src/test/resources/example.raml"
+        "src/test/resources/library.raml";
         //const textData = fs.readFileSync(textUrl).toString();
         const loader = new AResourceLoader()
         const parsed = await apiPlugin.import(
-            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
-            [{ url: textUrl, text: <string><unknown>null}]
-//            [{ url: "file://"+ textUrl, text: textData}]
-        );
-        assert.equal(parsed.length, 4); // all the models: modules, entities, bindings
-
-        const modules = parsed.filter((parsed) => parsed instanceof ModularityDialect)
-        const dataModels = parsed.filter((parsed) => parsed instanceof DataModelDialect)
-        const bindingsModels = parsed.filter((parsed) => parsed instanceof ModelBindingsDialect)
-
-        const allModules = modules.map((module) => (<Module>module.encodesWrapper!).dataModels!.length ).reduce((acc, i) => { return acc + i }, 0)
-        const allEntities = dataModels.map((module) => (<DataModel>module.encodesWrapper!).entities!.length ).reduce((acc, i) => { return acc + i }, 0)
-        const allBindings = bindingsModels.map((module) => (<BindingsModel>module.encodesWrapper!).bindings!.length ).reduce((acc, i) => { return acc + i }, 0)
-
-        assert.equal(allModules, 2)
-        assert.equal(dataModels.length, 2)
-        assert.equal(allEntities, 3)
-        //assert.equal(allEntities, 8)
-        assert.equal(allBindings, dataModels.length)
-    });
-    it('should parse RAML example and then Connector', async function () {
-        const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = //"http://goop.com/src/test/resources/apiMulti/api.raml"
-        "file://src/test/resources/example.raml"
-        //const textData = fs.readFileSync(textUrl).toString();
-        const loader = new AResourceLoader()
-        const parsed = await apiPlugin.import(
-            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
+            [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML},{name:"loader", value: loader}],
             [{ url: textUrl, text: <string><unknown>null}]
 //            [{ url: "file://"+ textUrl, text: textData}]
         );
@@ -301,15 +275,19 @@ describe('APIBindingsPlugin', function() {
 
         config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
         const generated = await apiPlugin.export(config, parsed);
-        /*
-        generated.forEach((g) => {
-            console.log(g.url)
-            console.log("------------------")
-            console.log(g.text)
-            console.log("\n\n")
-        })
-        */
         assert(generated.length === 3);
+    });
+
+    it ('should export API models to OAS API specs', async function() {
+        const apiPlugin = new APIContractBindingsPlugin();
+        const textUrl = "src/test/resources/multiserver.yaml";
+        const textData = fs.readFileSync(textUrl).toString();
+        let config = [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.YAML}];
+        const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
+
+        config = [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.YAML}];
+        const generated = await apiPlugin.export(config, parsed);
+        assert(generated.length === 1);
     });
 
     it ('should export API models to OAS API specs', async function() {
