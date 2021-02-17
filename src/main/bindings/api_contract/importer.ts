@@ -103,18 +103,22 @@ export class APIContractImporter {
             entrypoint.description = webapi.description.value();
         }
 
-        const endpoints: amf.model.domain.EndPoint[] = webapi.endPoints.sort((a,b) => {
-            if (a.path.value() == b.path.value()) {
-                return 0
-            } else if (a.path.value() < b.path.value()) {
-                return -1;
-            } else {
-                return 1;
-            }
-        })
+        const endpoints: amf.model.domain.EndPoint[] = webapi.endPoints
+            .filter((ep) => this.isResource(ep))
+            .sort((a,b) => {
+                if (a.path.value() == b.path.value()) {
+                    return 0
+                } else if (a.path.value() < b.path.value()) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            });
 
         const accEntities: meta.Entity[] = [];
         const accResources: meta.Resource[] = [];
+
+        //this.printResourceTree(endpoints)
 
         this.parseResourceLinks(entrypoint, "", [], endpoints, accEntities, accResources, entityMap, bindings)
 
@@ -132,6 +136,23 @@ export class APIContractImporter {
         return apiModel;
 
     }
+
+    // Auxiliary method to print resource tree
+    private printResourceTree(endpoints: amf.model.domain.EndPoint[], level: number = 0) {
+        if (endpoints.length > 0) {
+            const groups = this.foldEndPoints(endpoints);
+            groups.forEach((resources) => {
+                const parent = resources.shift()!;
+                let acc = ""
+                for (let i=0; i<level; i++) {
+                    acc = acc + " ";
+                }
+                console.log(acc + parent.path.value());
+                this.printResourceTree(resources, level + 2);
+            })
+        }
+    }
+
 
     private adaptOrCreate(schema: amf.model.domain.Shape, adaptedIdSuffix: string, accEntities: meta.Entity[],entityMap: {[id: string]: string}): meta.Entity|null {
         const schemaId = Md5.hashStr(schema.id).toString();
@@ -171,34 +192,29 @@ export class APIContractImporter {
             }
         }
 
-        let resource: meta.Resource|undefined;
+        let resource = new meta.Resource();
 
         if (getOperation != null && resp != null) {
             const payload = resp.payloads.find((pl) => pl.schema != null)
             if (payload != null) {
                 let effectiveShape = payload.schema
                 if (effectiveShape instanceof amf.model.domain.ArrayShape) {
+                    // effectiveShape = (<amf.model.domain.ArrayShape>effectiveShape).items;
                     resource = new meta.CollectionResource();
                 } else {
                     const entity = this.adaptOrCreate(effectiveShape, endpoint.id + "get", accEntities, entityMap)
                     if (entity) {
+                        // resource.isCollection = true @todo: generate collection here
                         resource = new meta.Resource();
                         resource.schema = entity
-                    } else {
-                        resource = new meta.Resource();
                     }
                 }
-            } else {
-                resource = new meta.Resource();
             }
         }
 
-        if (resource) {
-            accResources.push(resource);
-            resource.operations = [];
-        } else {
-            throw new Error(`Cannot generate resource for endpoint ${endpoint.id}`)
-        }
+        accResources.push(resource);
+        resource.operations = [];
+
 
         const otherOperations = endpoint.operations.filter((op) => op.method.value() !== "get");
         if (otherOperations.length > 0) {
@@ -235,24 +251,31 @@ export class APIContractImporter {
         return resource
     }
 
+    // Builds the next level of resources in the tree of paths provided by the API spec
+    protected foldEndPoints(endpoints: amf.model.domain.EndPoint[]) {
+        const groups: amf.model.domain.EndPoint[][] = [];
+        let currentGroup: amf.model.domain.EndPoint[] = [];
+        endpoints.forEach((ep) => {
+            let current = currentGroup[0]
+            const nestedPath = current == null || ep.path.value().indexOf(current.path.value() + "/") == 0;
+            if ( nestedPath ) { // nested resource
+                currentGroup.push(ep)
+            } else { // nested operation over the top level resource
+                groups.push(currentGroup);
+                currentGroup = [ep];
+            }
+        });
+        if (currentGroup.length > 0) {
+            groups.push(currentGroup)
+        }
+
+        return groups
+    }
+
+
     protected parseResourceLinks(resource: meta.Resource, path: string, pathParams: string[], endpoints: amf.model.domain.EndPoint[], accEntities: meta.Entity[], accResources: meta.Resource[], entityMap: {[id: string]: string}, bindings: Binding[]): meta.Resource {
         if (endpoints.length > 0) {
-            const groups: amf.model.domain.EndPoint[][] = [];
-            let currentGroup: amf.model.domain.EndPoint[] = [];
-            endpoints.forEach((ep) => {
-                let current = currentGroup[0]
-                const nestedPath = current == null || ep.path.value().indexOf(current.path.value()) == 0;
-                if ( nestedPath ) { // nested resource
-                    currentGroup.push(ep)
-                } else { // nested operation over the top level resource
-                    groups.push(currentGroup);
-                    currentGroup = [ep];
-                }
-            });
-            if (currentGroup.length > 0) {
-                groups.push(currentGroup)
-            }
-
+            const groups = this.foldEndPoints(endpoints);
             const operations: meta.Operation[] = [];
 
             groups.map((group) => {
@@ -294,8 +317,7 @@ export class APIContractImporter {
 
                     operations.push(linkOperation)
 
-                } else  { // nested operations
-                    //assert(group.length === 0) // 0 because I have shifted the member
+                } else  { // nested operation
                     linkedEndpoint.operations.forEach((op)=> {
                         const controlOperation = this.parseMutableOperation(newPathParams, op, accEntities, entityMap, bindings);
                         const method = op.method.value();
@@ -321,6 +343,10 @@ export class APIContractImporter {
 
                         operations.push(controlOperation)
                     }) ;
+
+                    if (group.length > 0) {
+                        this.parseResourceLinks(resource, path,  pathParams, group, accEntities, accResources, entityMap, bindings)
+                    }
                 }
             });
 
@@ -920,5 +946,52 @@ export class APIContractImporter {
         ];
 
         return binding;
+    }
+
+    private isResource(endpoint: amf.model.domain.EndPoint) {
+        if (this.isRedirection(endpoint)) {
+            return false;
+        } else if (this.isImplicitResource(endpoint)) {
+            this.generateDefaultResource(endpoint);
+            return true;
+        } else {
+            return true;
+        }
+    }
+
+    // Fill default GET and/or Any schema response
+    private generateDefaultResource(endpoint: amf.model.domain.EndPoint) {
+        let get = endpoint.operations[0];
+        if (get == null) {
+            get = endpoint.withOperation("get");
+        }
+
+        const resp = get.withResponse("default");
+        resp.withStatusCode("200").withPayload().withObjectSchema("DefaultPayload");
+    }
+
+    // Check if this is a resource without operations or empty GET request
+    private isImplicitResource(endpoint: amf.model.domain.EndPoint) {
+        let isGet = endpoint.operations.length == 1 && endpoint.operations[0].method.value() == "get";
+        let is2xx = false;
+        if (isGet) {
+            const resp2xx = endpoint.operations[0].responses.find((r) => r.statusCode.value().startsWith("2"));
+            if (resp2xx) {
+                is2xx = true;
+            }
+        }
+        let noOps = endpoint.operations.length == 0;
+        return !is2xx || noOps
+    }
+
+    // Resource that just returns a redirection from a single GET request
+    private isRedirection(endpoint: amf.model.domain.EndPoint) {
+        let isGet = endpoint.operations.length == 1 && endpoint.operations[0].method.value() == "get";
+        if (isGet) {
+            let has3xx = endpoint.operations[0].responses.filter((r) => r.statusCode.value().startsWith("3"))
+            return has3xx.length === endpoint.operations[0].responses.length
+        } else {
+            return false;
+        }
     }
 }

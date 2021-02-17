@@ -94,7 +94,6 @@ describe('APIBindingsPlugin', function() {
         //assert.equal(allEntities, 8)
         assert.equal(allBindings, dataModels.length)
     });
-    */
 
     it('should parse RAML Library specs and generate matching modules', async function () {
 
