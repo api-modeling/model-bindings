@@ -50,28 +50,21 @@ describe('APIBindingsPlugin', function() {
         })
         let finals = await Promise.all(proms)
 
-        console.log("here0")
         let mbd = new ModelBindingsDialect()
         await mbd.fromJsonLd(JSON.parse(finals[0])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[0])
-        console.log("here1")
         let md = new ModularityDialect()
         await md.fromJsonLd(JSON.parse(finals[1])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[1])
-        console.log("here2")
         let dmd0 = new DataModelDialect()
         await dmd0.fromJsonLd(JSON.parse(finals[2])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[2])
-        console.log("here3")
         let dmd1 = new DataModelDialect()
         await dmd1.fromJsonLd(JSON.parse(finals[3])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[3])
-        console.log("here4")
         let api = new ApiModelDialect()
         await api.fromJsonLd(JSON.parse(finals[4])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[4])
-        console.log("here done")
         const g1 = await apiPlugin.export(config,parsed)
-        console.log("g1")
         const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]);
-        console.log("g2")
         return true;
     })
+    /*
     it('should parse RAML example and then Connector', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = //"http://goop.com/src/test/resources/apiMulti/api.raml"
@@ -127,6 +120,7 @@ describe('APIBindingsPlugin', function() {
         //assert.equal(allEntities, 8)
         assert.equal(allBindings, dataModels.length)
     });
+    */
 
     it('should parse RAML Library specs and generate matching modules', async function () {
 
