@@ -118,7 +118,7 @@ export class APIContractImporter {
         const accEntities: meta.Entity[] = [];
         const accResources: meta.Resource[] = [];
 
-        //this.printResourceTree(endpoints)
+        // this.printResourceTree(endpoints)
 
         this.parseResourceLinks(entrypoint, "", [], endpoints, accEntities, accResources, entityMap, bindings)
 

@@ -8,30 +8,22 @@ export class ApiParser {
     public static OAS3 = "OAS 3.0";
     public static OAS2 = "OAS 2.0";
     public static AMF_GRAPH = "AMF Graph"
+    public static ASYNC2 = "ASYNC 2.0"
     public static JSON_SCHEMA = "JSON Schema";
 
     public static YAML = "application/yaml";
     public static JSON = "application/json";
     public static JSONLD = "application/ld+json";
     private static formatMap : any = {
-/*
-        'JsonPayloadParser',
-        'Oas20Parser',
-        'Oas20YamlParser',
-        'Oas30Parser',
-        'Oas30YamlParser',
-        'Raml10Parser',
-        'RamlParser',
-        'VocabulariesParser',
-        'YamlPayloadParser',
-        'AmfGraphParser',
-*/
 
-        "RAML 1.0": {'application/yaml' : 'Raml10Parser'},
-        "OAS 2.0": {'application/json': 'Oas20Parser', 'application/yaml': 'Oas20YamlParser'},
-        "OAS 3.0": {'application/json': 'Oas30Parser', 'application/yaml': 'Oas30YamlParser'},
-        "OAS 3.0.0": {'application/json': 'Oas30Parser', 'application/yaml': 'Oas30YamlParser'},
-        "AMF Graph": {'application/json' : "AmfGraphParser", 'application/ld+json': "AmfGraphParser"}
+        "RAML 1.0": {'application/yaml' : amf.Raml10Parser},
+        "OAS 2.0": {'application/json': amf.Oas20Parser, 'application/yaml': amf.Oas20YamlParser},
+        "OAS 3.0": {'application/json': amf.Oas30Parser, 'application/yaml': amf.Oas30YamlParser},
+        "OAS 3.0.0": {'application/json': amf.Oas30Parser, 'application/yaml': amf.Oas30YamlParser},
+        // @ts-ignore
+        "ASYNC 2.0": {'application/json': amf.Asyn20Parser, 'application/yaml': amf.Async20YamlParser},
+        // @ts-ignore
+        "AMF Graph": {'application/json' : amf.AmfGraphParser, 'application/ld+json': amf.AmfGraphParser}
     }
 
     private parsedUnit: Promise<amf.model.document.BaseUnit>;
@@ -69,29 +61,16 @@ export class ApiParser {
     async parse(): Promise<amf.model.document.BaseUnit> {
         await this.init();
         if (this.loader){
-            const fetched = await this.loader.fetch(this.specUrl)
-            const text = fetched.stream.toString()
-            let env = new amf.client.environment.Environment() //amf.client.DefaultEnvironment.apply();
-            env = env.addClientLoader(this.loader)
+            const fetched = await this.loader.fetch(this.specUrl);
+            const text = fetched.stream.toString();
+            let env = new amf.client.environment.Environment();
+            env = env.addClientLoader(this.loader);
 
-            /* Removing for temp fix as this call doesn't work
-            const baseUnit = await amf.Core
-                .parser(this.format, this.syntax, env)
-                .parseStringAsync(this.specUrl,text)
-            */
-            // Kluge fix for above
+            const parser = this.findParser(this.format);
             try {
-                const parserChoices = ApiParser.formatMap[this.format];
-                if (!parserChoices){
-                    throw new Error("Could not find parser choices for "+this.format)
-                }
-                const parserName = parserChoices[this.syntax]
-                if (!parserName){
-                    throw new Error("Could not find parser choices for "+this.format+" with "+this.syntax)
-                }
-                const baseUnit = await new (<any>amf)[parserName/*'Raml10Parser'*/](env).parseStringAsync(this.specUrl, text)
+                const baseUnit = await new parser(env).parseStringAsync(this.specUrl, text);
                 this.parsed = true;
-                return baseUnit
+                return baseUnit;
             } catch (error) {
                 console.log("parse error: "+error)
                 throw error
@@ -101,7 +80,20 @@ export class ApiParser {
             .parser(this.format, this.syntax)
             .parseFileAsync(this.specUrl)
             this.parsed = true;
-            return baseUnit
+            return baseUnit;
         }
+    }
+
+    private findParser(format: string): any {
+        const parserChoices = ApiParser.formatMap[format];
+        if (!parserChoices){
+            throw new Error("Could not find parser choices for "+this.format);
+        }
+        const parser = parserChoices[this.syntax];
+        if (!parser){
+            throw new Error("Could not find parser choices for "+this.format+" with "+this.syntax);
+        }
+
+        return parser;
     }
 }
