@@ -59,7 +59,6 @@ describe('APIBindingsPlugin', function() {
         await api.fromJsonLd(JSON.parse(finals[4])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[4]);
         const g1 = await apiPlugin.export(config,parsed);
         const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]);
-        console.log(generated)
         generated.forEach((generatedModel) => {
             assert(generatedModel.url.endsWith(".raml"));
         })
@@ -264,6 +263,19 @@ describe('APIBindingsPlugin', function() {
             "7c3a4f55489cd476bdd39a4d7d46d12a"
         ]);
         assert.equal(allBindings.length, 28);
+    });
+
+    it('should parse Async API specs and generate matching modules', async function () {
+        const apiPlugin = new APIContractBindingsPlugin();
+        const textUrl = "src/test/resources/async2.yaml";
+        const textData = fs.readFileSync(textUrl).toString();
+        const config = [{name: "format", value: ApiParser.ASYNC2}, {name: "syntax", value: ApiParser.YAML}];
+        const parsed = await apiPlugin.import(
+            config,
+            [{ url: "file://"+ textUrl, text: textData}]
+        );
+        const text = await parsed[2].toYaml()
+        assert.equal(parsed.length, 3);
     });
 
     it ('should export API models to RAML API specs', async function() {

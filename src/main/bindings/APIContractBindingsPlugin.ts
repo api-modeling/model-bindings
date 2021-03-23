@@ -9,10 +9,9 @@ import {Md5} from "ts-md5";
 import {VOCAB} from "./api_contract/constants";
 import {APIContractExporter} from "./api_contract/exporter";
 import {ApiGenerator} from "./utils/apiGenerator";
-import {ApiModel, Binding, BindingScalarValue, DataModel} from "@api-modeling/api-modeling-metadata";
-import {model} from "@api-modeling/amf-client-js";
+import {ApiModel, DataModel} from "@api-modeling/api-modeling-metadata";
 
-const SUPPORTED_FORMATS = [ApiParser.RAML1, ApiParser.OAS3 + ".0", ApiParser.OAS2, ApiParser.AMF_GRAPH, ApiParser.JSON_SCHEMA];
+const SUPPORTED_FORMATS = [ApiParser.RAML1, ApiParser.OAS3 + ".0", ApiParser.OAS2, ApiParser.AMF_GRAPH, ApiParser.JSON_SCHEMA, ApiParser.ASYNC2, "Async 2.0"];
 const SUPPORTED_SYNTAXES = [ApiParser.YAML, ApiParser.JSONLD, ApiParser.JSON]
 
 export class APIContractBindingsPlugin extends BindingsPlugin {
@@ -74,7 +73,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
         this.resetAutoGen();
 
         if (resources.length !== 1) {
-            throw new Error("The APIContract plugin must receive only the root RAML/OAS/JSONSchema file from the model to be imported");
+            throw new Error("The APIContract plugin must receive only the root RAML/OAS/AsyncAPI/JSONSchema file from the model to be imported");
         }
 
         configuration = this.parseConfigurationParameters(configuration)
