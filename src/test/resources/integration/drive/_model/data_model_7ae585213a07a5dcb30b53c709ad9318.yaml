@@ -1,0 +1,21 @@
+#%DataModel 0.1
+uuid: 7ae585213a07a5dcb30b53c709ad9318
+name: channels-stop.raml
+entities:
+  Entity1:
+    uuid: 01320943b56785be539d346d2e462836
+    attributes:
+      id:
+        allowMultiple: false
+        uuid: 8f9070614fdb7c64d0a9456a30805056
+        required: true
+        range:
+          type: string
+      resourceId:
+        allowMultiple: false
+        uuid: 53c66f346e7d7c0f52446f544f7225c6
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The request body for Channels/stop

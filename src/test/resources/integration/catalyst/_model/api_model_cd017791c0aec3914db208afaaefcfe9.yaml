@@ -2,21 +2,41 @@
 uuid: cd017791c0aec3914db208afaaefcfe9
 name: retail_locations_system_api.raml
 entities:
-  Entity17:
-    uuid: 3699a256bcb69db517391993ff3edef4
-    attributes: {}
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
   Entity21:
     uuid: 4318869cf8f7347e638784f7c15cf4be
     attributes: {}
     associations: {}
     extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
+  Entity11:
+    uuid: 60d9fcb1e4e0de33a2119a028d196ec8
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/a83cba5affe762dbe0f932361b04d579
   Entity5:
     uuid: d4861699ec10147bfb85c5a3d01e2a45
     attributes: {}
     associations: {}
     extends: http://mulesoft.com/modeling/instances/b26f7cc61dc0825f1e1aa8a7f27db318
+  Entity12:
+    uuid: bb5e46eeba396c058b42377291fa72f1
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/299b29a05b90f585228d16706428bfb7
+  Entity16:
+    uuid: 761db6be76f60cd44375a0a0adf5b551
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
+  Entity17:
+    uuid: 3699a256bcb69db517391993ff3edef4
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
+  Entity19:
+    uuid: 0acc780795076987c0cb5fac463c3fff
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
   Entity14:
     uuid: ace1db9f973b1e43101006fbef16cb41
     attributes: {}
@@ -27,26 +47,6 @@ entities:
     attributes: {}
     associations: {}
     extends: http://mulesoft.com/modeling/instances/92fdd416a12c1de0bd133a46d3565689
-  Entity11:
-    uuid: 60d9fcb1e4e0de33a2119a028d196ec8
-    attributes: {}
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/a83cba5affe762dbe0f932361b04d579
-  Entity19:
-    uuid: 0acc780795076987c0cb5fac463c3fff
-    attributes: {}
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
-  Entity16:
-    uuid: 761db6be76f60cd44375a0a0adf5b551
-    attributes: {}
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
-  Entity12:
-    uuid: bb5e46eeba396c058b42377291fa72f1
-    attributes: {}
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/299b29a05b90f585228d16706428bfb7
 entryPoint:
   uuid: 4d51d1763e868f2493113f22adbeccca
   name: Retail Locations System API
@@ -56,7 +56,7 @@ entryPoint:
       name: Find Resource /productLocator
       transition:
         uuid: 8d8011490053910b69b9b2d8ee5222ab
-        target: http://mulesoft.com/modeling/instances/48361ad8-6643-481a-92d1-5005b3402eed
+        target: http://mulesoft.com/modeling/instances/8985acdf-715d-4ad4-a53d-d043e44136e4
       inputs:
         -
           scalarRange:
@@ -94,7 +94,7 @@ entryPoint:
       name: Find Resource /stores
       transition:
         uuid: d2d218e324d680b537dd178a8d4f3581
-        target: http://mulesoft.com/modeling/instances/1d62e0cb-e9d9-47ea-b3ea-6a22089c1ebc
+        target: http://mulesoft.com/modeling/instances/46839a51-ae8a-42cf-84d8-3f7b983ad9e5
       inputs:
         -
           scalarRange:
@@ -114,7 +114,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: 48361ad8-6643-481a-92d1-5005b3402eed
+    uuid: 8985acdf-715d-4ad4-a53d-d043e44136e4
     name: Resource /productLocator
     schema:
       uuid: d4861699ec10147bfb85c5a3d01e2a45
@@ -125,7 +125,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 1d62e0cb-e9d9-47ea-b3ea-6a22089c1ebc
+    uuid: 46839a51-ae8a-42cf-84d8-3f7b983ad9e5
     name: Resource /stores
     schema:
       uuid: bb5e46eeba396c058b42377291fa72f1
@@ -155,7 +155,7 @@ resources:
         name: Find Resource /stores/{storeId}
         transition:
           uuid: 9f1c391ef932b53b71e5ad91789c58cd
-          target: http://mulesoft.com/modeling/instances/24616e8f-30b2-4638-9565-65720eb3eed9
+          target: http://mulesoft.com/modeling/instances/7c5cc0a8-bf9d-41b4-82f5-21b798bf9b1b
         inputs:
           -
             scalarRange:
@@ -173,7 +173,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 24616e8f-30b2-4638-9565-65720eb3eed9
+    uuid: 7c5cc0a8-bf9d-41b4-82f5-21b798bf9b1b
     name: Resource /stores/{storeId}
     schema:
       uuid: 3699a256bcb69db517391993ff3edef4

@@ -1,0 +1,56 @@
+#%DataModel 0.1
+uuid: 24678ab00bb0b607f947dd39f946a018
+name: user.raml
+entities:
+  User:
+    uuid: 78d8afcbcbd9068e02e8abb628ee0018
+    attributes:
+      emailAddress:
+        allowMultiple: false
+        uuid: 2c4ab956aca162084de0457ea7a73b04
+        required: false
+        range:
+          type: string
+      permissionId:
+        allowMultiple: false
+        uuid: 1c24be51d38a01a7ab1ce908751de3fd
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 4d8753caecbcdccf73a50abd8fcfe1de
+        required: true
+        range:
+          type: string
+      displayName:
+        allowMultiple: false
+        uuid: d520e2e3e66bc734200b1edd1720f45a
+        required: false
+        range:
+          type: string
+      isAuthenticatedUser:
+        allowMultiple: false
+        uuid: 97596876fcadce49653b47d71e9ba909
+        required: false
+        range:
+          type: boolean
+    associations:
+      picture:
+        allowMultiple: false
+        uuid: 0e419671df4892869f6da7a90076feef
+        required: false
+        target: http://mulesoft.com/modeling/instances/f364799855356e19bc162d30c79242eb
+    description: A representation of a user in Google Drive.
+    displayName: User
+  picture:
+    uuid: f364799855356e19bc162d30c79242eb
+    attributes:
+      url:
+        allowMultiple: false
+        uuid: fec8ca7da9d173b5ec96fcbc99292dae
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: The user's profile picture.

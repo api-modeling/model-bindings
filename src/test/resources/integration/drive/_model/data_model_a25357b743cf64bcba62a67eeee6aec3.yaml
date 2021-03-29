@@ -1,0 +1,50 @@
+#%DataModel 0.1
+uuid: a25357b743cf64bcba62a67eeee6aec3
+name: owners.raml
+entities:
+  Owners:
+    uuid: bef5a6b1b481f0c3110510b3a4e492ae
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: ef3e3272acc04a345d6a3b16bbc9a00b
+        required: false
+        range:
+          type: string
+      isAuthenticatedUser:
+        allowMultiple: false
+        uuid: d5e22cbb79bae2f65248186760f7ac0e
+        required: false
+        range:
+          type: boolean
+      emailAddress:
+        allowMultiple: false
+        uuid: 5940cbc93138c48ec7c49d39c75bb9a1
+        required: false
+        range:
+          type: string
+      permissionId:
+        allowMultiple: false
+        uuid: 7f31dcfa71593c07db84c251dfec057b
+        required: false
+        range:
+          type: string
+      displayName:
+        allowMultiple: false
+        uuid: 455faef12013eacb00aaf95a90689bba
+        required: false
+        range:
+          type: string
+    associations:
+      picture:
+        allowMultiple: false
+        uuid: 41313286244942e9f60708b8d8125efe
+        required: false
+        target: http://mulesoft.com/modeling/instances/172336d0fee4d9f81d06c93271072117
+    description: The owner(s) of a file.
+    displayName: Owners
+  picture:
+    uuid: 172336d0fee4d9f81d06c93271072117
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/522b14c7b6965d2a9c771db49a6f4474

@@ -1,0 +1,19 @@
+#%DataModel 0.1
+uuid: 4af9614d251402a97f665f483c09b738
+name: additional-role-info.raml
+entities:
+  Entity30:
+    uuid: 3583af393ee547a25406ae782cc201bf
+    attributes:
+      attribute31:
+        allowMultiple: false
+        uuid: 4d4d02afe5f572c45720c954e055a344
+        required: false
+        range:
+          type: string
+    associations:
+      roleSets:
+        allowMultiple: true
+        uuid: 06dd6c45fc4fc708df3ddbab79411379
+        required: false
+        target: http://mulesoft.com/modeling/instances/25540a084ceef5b67ffcefd2fb565476

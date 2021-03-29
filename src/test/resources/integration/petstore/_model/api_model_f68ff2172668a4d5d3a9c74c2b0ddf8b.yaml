@@ -2,24 +2,21 @@
 uuid: f68ff2172668a4d5d3a9c74c2b0ddf8b
 name: petstore.json
 entities:
-  AdaptedEntity.Pet.json4:
-    uuid: ed6c65d06594d8f92477fc308d755d05
+  AdaptedEntity.Pet.json16:
+    uuid: a25d463e42e98995b6908919c3eb76ec
     adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
-  AdaptedEntity.Pet.json13:
-    uuid: 395d627c4cacc51c1cfb320f30d12afe
+  AdaptedEntity.Pet.json7:
+    uuid: cd67e0d00bb57c9ebb5c2b3abf3ac318
     adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
-  AdaptedEntity.Pet.json9:
-    uuid: b6b47a082a574e68066cb05e2ec161c3
-    adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
-  AdaptedEntity.NewPet.json2:
-    uuid: d28a17e1f3a6d24b5e379917409f7c1c
-    adapts: http://mulesoft.com/modeling/instances/17ac0e7ea0a26592c9f66529cd574d3f
-  AdaptedEntity.Error.json7:
-    uuid: 5e1ad85de127871b63260a9d6fe2c662
-    adapts: http://mulesoft.com/modeling/instances/987b8017e2f1d245756d894f2e8409bb
-  AdaptedEntity.Pet.json5:
+  AdaptedEntity.Pet.json8:
     uuid: 1e48be7e336c4a421b360e7e4522bb8e
     adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
+  AdaptedEntity.Pet.json12:
+    uuid: 85e69557343a4801c0d0fa62a28d44f4
+    adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
+  AdaptedEntity.Error.json10:
+    uuid: 5c0dd29da3d7ee4e080231cc65d8b7e9
+    adapts: http://mulesoft.com/modeling/instances/987b8017e2f1d245756d894f2e8409bb
 entryPoint:
   uuid: eee4e1f6d0cc80cb64f85928190d03cb
   name: Swagger Petstore
@@ -30,7 +27,7 @@ entryPoint:
       name: Find Resource /pets
       transition:
         uuid: 3b71b93488ed05989ff5139e18dea4ba
-        target: http://mulesoft.com/modeling/instances/23dd968d-2bce-4fd7-9d00-d96c7c030de3
+        target: http://mulesoft.com/modeling/instances/35b7350e-6690-4e6b-a11f-f7744388cec0
       inputs:
         -
           scalarRange:
@@ -52,12 +49,12 @@ entryPoint:
         allowMultiple: true
         uuid: 8fd595267520c4b60801fdc3036f05ce
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/395d627c4cacc51c1cfb320f30d12afe
+        objectRange: http://mulesoft.com/modeling/instances/a25d463e42e98995b6908919c3eb76ec
       isMutation: false
       type: custom
 resources:
   -
-    uuid: 23dd968d-2bce-4fd7-9d00-d96c7c030de3
+    uuid: 35b7350e-6690-4e6b-a11f-f7744388cec0
     name: Resource /pets
     operations:
       -
@@ -73,7 +70,7 @@ resources:
           allowMultiple: false
           uuid: c7ce4be2c0d92500017b475c33cdc354
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/ed6c65d06594d8f92477fc308d755d05
+          objectRange: http://mulesoft.com/modeling/instances/cd67e0d00bb57c9ebb5c2b3abf3ac318
         isMutation: true
         type: custom
       -
@@ -84,17 +81,17 @@ resources:
           allowMultiple: false
           uuid: d83e910446482c5a86d91b1a921d8abb
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/b6b47a082a574e68066cb05e2ec161c3
+          objectRange: http://mulesoft.com/modeling/instances/85e69557343a4801c0d0fa62a28d44f4
         isMutation: false
         type: custom
     type: collection
-    member: http://mulesoft.com/modeling/instances/49c186b0-5e21-42bc-8fe2-a425f5e29bea
+    member: http://mulesoft.com/modeling/instances/4b96740f-bd79-4f1e-a8bb-3c698abc5167
   -
-    uuid: 49c186b0-5e21-42bc-8fe2-a425f5e29bea
+    uuid: 4b96740f-bd79-4f1e-a8bb-3c698abc5167
     name: Resource /pets/{id}
     schema:
       uuid: 1e48be7e336c4a421b360e7e4522bb8e
-      name: AdaptedEntity.Pet.json5
+      name: AdaptedEntity.Pet.json8
       adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
     operations:
       -
@@ -105,7 +102,7 @@ resources:
           allowMultiple: false
           uuid: 17f0e8fbe247f017491941571a8b64a9
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/5e1ad85de127871b63260a9d6fe2c662
+          objectRange: http://mulesoft.com/modeling/instances/5c0dd29da3d7ee4e080231cc65d8b7e9
         isMutation: true
         type: custom
     type: individual

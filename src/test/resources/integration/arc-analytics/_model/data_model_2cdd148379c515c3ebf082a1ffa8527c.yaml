@@ -1,0 +1,74 @@
+#%DataModel 0.1
+uuid: 2cdd148379c515c3ebf082a1ffa8527c
+name: periodical-results.raml
+entities:
+  DailyItemResult:
+    uuid: 69af6a4effb1111640f1cb432b9f1689
+    attributes:
+      day:
+        allowMultiple: false
+        uuid: 535963cd11362a3c29dda414d81f0646
+        required: true
+        range:
+          type: date
+      value:
+        allowMultiple: false
+        uuid: a369909c1ef7cb90d4fb5cac24a796c9
+        required: true
+        range:
+          type: integer
+    associations: {}
+    description: |
+      This object is returned in weekly and monthly analytics data.
+      It is a representation of number of users or sessions for each day for the given time period.
+  AnalyticsRangeResult:
+    uuid: 4a5b877b16baf0433452fd27ad1445c7
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: a61ab53635758f4e424bf9eeea6696dc
+        required: true
+        range:
+          type: string
+      day:
+        allowMultiple: false
+        uuid: cbbd84c3023dd7fa8c30d45be0b61db8
+        required: true
+        range:
+          type: date
+      result:
+        allowMultiple: false
+        uuid: b9b35bae896e3ca6cc603a5fb24cd453
+        required: true
+        range:
+          type: integer
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 9864dd4fb9d79f874670852deeeb3d77
+        required: true
+        target: http://mulesoft.com/modeling/instances/69af6a4effb1111640f1cb432b9f1689
+  PeriodicalSessions:
+    uuid: a70a72cd410be929f3243368a50ec225
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 7ed3656ed46a7ba726dc88aaa84af528
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: An object representing periodical (weekly or mothly) sessions data.
+    extends: http://mulesoft.com/modeling/instances/4a5b877b16baf0433452fd27ad1445c7
+  PeriodicalUsers:
+    uuid: 7e5dcfcf88f22d473071b217e800267d
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 2d2a88ab30551187942f0bc23f51e5f0
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: An object representing periodical (weekly or mothly) users data.
+    extends: http://mulesoft.com/modeling/instances/4a5b877b16baf0433452fd27ad1445c7

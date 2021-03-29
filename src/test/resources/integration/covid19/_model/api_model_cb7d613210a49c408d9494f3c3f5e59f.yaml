@@ -2,42 +2,42 @@
 uuid: cb7d613210a49c408d9494f3c3f5e59f
 name: covid-data-tracking-api.raml
 entities:
-  Entity1:
-    uuid: ad024fa0d3955c544beb9242cd991de2
+  Entity30:
+    uuid: 67ea23565400b47330410a6e5877f971
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/f7877e73344458f0151e485c8ede8ced
-  Entity15:
-    uuid: 49822909-f49a-438b-b6f2-ee91bcba52aa
+    extends: http://mulesoft.com/modeling/instances/85293d92c27368dcbee53c27bdd3b81d
+  Entity26:
+    uuid: f678fe9ac2ebbda71276e9d3a476de5a
     disjoint:
       -
         uuid: dbb6999c490b5b40e90e6e089f050628
       -
         uuid: 9f2b44af73121eabf30e9fdd4ba42a74
-  Entity9:
-    uuid: 93755df34d570002932d8164e7e1fb51
-    attributes: {}
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/cf58fa5518117ad3d070783af1c2b5dc
   DefaultPayload:
     uuid: dc452b978847c29804ffa40c6f551ed5
     attributes: {}
     associations: {}
-  DefaultPayload1:
+  Entity12:
+    uuid: ad024fa0d3955c544beb9242cd991de2
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/f7877e73344458f0151e485c8ede8ced
+  DefaultPayload:
     uuid: c15341e085145de768f0b52498019113
     attributes: {}
     associations: {}
-  Entity14:
+  Entity25:
     uuid: 0fd9ac1969a97a1f263dcac0552b24f1
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/49822909-f49a-438b-b6f2-ee91bcba52aa
-  Entity19:
-    uuid: 67ea23565400b47330410a6e5877f971
+    extends: http://mulesoft.com/modeling/instances/f678fe9ac2ebbda71276e9d3a476de5a
+  Entity20:
+    uuid: 93755df34d570002932d8164e7e1fb51
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/85293d92c27368dcbee53c27bdd3b81d
-  Entity5:
+    extends: http://mulesoft.com/modeling/instances/cf58fa5518117ad3d070783af1c2b5dc
+  Entity16:
     uuid: 365fec9e0a739d2ad133e2b86f4faedf
     attributes: {}
     associations: {}
@@ -52,7 +52,7 @@ entryPoint:
       name: Find Resource /covid19/v1
       transition:
         uuid: 353c7f0272ddf1b4548e7315267b0b36
-        target: http://mulesoft.com/modeling/instances/59d3e94c-1d40-4557-8749-59a1ed2317a0
+        target: http://mulesoft.com/modeling/instances/2e2d312d-12a1-4a7e-9a91-f0287e5cda95
       inputs: []
       output:
         allowMultiple: false
@@ -63,19 +63,19 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: bb592f76-5846-4333-9ad4-e2601ddf44d2
-    name: Resource /covid19/v1/cases/eucdc
+    uuid: 2acd2931-75bc-4a47-b786-466dbb5ab5ee
+    name: Resource /covid19/v1/locations
     schema:
-      uuid: 365fec9e0a739d2ad133e2b86f4faedf
-      name: Entity5
+      uuid: 67ea23565400b47330410a6e5877f971
+      name: Entity30
       attributes: {}
       associations: {}
-      extends: http://mulesoft.com/modeling/instances/cc72d3069b4bb1a2ca6c7e83c060f3bd
-    description: Get Data from EUCDC
+      extends: http://mulesoft.com/modeling/instances/85293d92c27368dcbee53c27bdd3b81d
+    description: Use this resource to interact with Locations data. The user can retrieve data from the last 24 hours.
     operations: []
     type: individual
   -
-    uuid: 59d3e94c-1d40-4557-8749-59a1ed2317a0
+    uuid: 2e2d312d-12a1-4a7e-9a91-f0287e5cda95
     name: Resource /covid19/v1
     schema:
       uuid: dc452b978847c29804ffa40c6f551ed5
@@ -88,7 +88,7 @@ resources:
         name: Find Resource /covid19/v1/cases
         transition:
           uuid: 441e439a99db8c04670fdf6737aa9961
-          target: http://mulesoft.com/modeling/instances/8fce4333-59ab-4789-a05e-92e2ff3bf246
+          target: http://mulesoft.com/modeling/instances/45683c7f-4ef7-4fad-9aee-f922576a839f
         inputs: []
         output:
           allowMultiple: false
@@ -102,7 +102,7 @@ resources:
         name: Find Resource /covid19/v1/high-level-policy
         transition:
           uuid: 7cd5f4baa78123d3d7e4d01555a6aab2
-          target: http://mulesoft.com/modeling/instances/8a9e0cd8-5199-468b-b35e-27d61dc3741e
+          target: http://mulesoft.com/modeling/instances/502ebf01-96d1-42c8-9259-02cf750f2eb1
         inputs:
           -
             scalarRange:
@@ -132,7 +132,7 @@ resources:
         name: Find Resource /covid19/v1/locations
         transition:
           uuid: 52ca6913c376d3cc2c290e7e24a69921
-          target: http://mulesoft.com/modeling/instances/c6192ea6-1995-4a11-877c-bd9180d43d13
+          target: http://mulesoft.com/modeling/instances/2acd2931-75bc-4a47-b786-466dbb5ab5ee
         inputs:
           -
             scalarRange:
@@ -151,11 +151,11 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 04242027-08b4-4f7f-965e-576569d6fd57
+    uuid: b790b039-0d87-4a77-a784-991b3cdfe2b5
     name: Resource /covid19/v1/cases/covidTracking
     schema:
       uuid: ad024fa0d3955c544beb9242cd991de2
-      name: Entity1
+      name: Entity12
       attributes: {}
       associations: {}
       extends: http://mulesoft.com/modeling/instances/f7877e73344458f0151e485c8ede8ced
@@ -163,23 +163,47 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 8a9e0cd8-5199-468b-b35e-27d61dc3741e
+    uuid: 7e97453a-26b5-495d-b601-440898e29a3b
+    name: Resource /covid19/v1/cases/newYorkTimes
+    schema:
+      uuid: 93755df34d570002932d8164e7e1fb51
+      name: Entity20
+      attributes: {}
+      associations: {}
+      extends: http://mulesoft.com/modeling/instances/cf58fa5518117ad3d070783af1c2b5dc
+    description: Get Data from New York Times
+    operations: []
+    type: individual
+  -
+    uuid: 502ebf01-96d1-42c8-9259-02cf750f2eb1
     name: Resource /covid19/v1/high-level-policy
     schema:
       uuid: 0fd9ac1969a97a1f263dcac0552b24f1
-      name: Entity14
+      name: Entity25
       attributes: {}
       associations: {}
-      extends: http://mulesoft.com/modeling/instances/49822909-f49a-438b-b6f2-ee91bcba52aa
+      extends: http://mulesoft.com/modeling/instances/f678fe9ac2ebbda71276e9d3a476de5a
     description: Get Policy Data from University of Oxford or Kaiser Family Foundation
     operations: []
     type: individual
   -
-    uuid: 8fce4333-59ab-4789-a05e-92e2ff3bf246
+    uuid: 62114c3d-dad1-46c7-92bd-3a0306b444fd
+    name: Resource /covid19/v1/cases/eucdc
+    schema:
+      uuid: 365fec9e0a739d2ad133e2b86f4faedf
+      name: Entity16
+      attributes: {}
+      associations: {}
+      extends: http://mulesoft.com/modeling/instances/cc72d3069b4bb1a2ca6c7e83c060f3bd
+    description: Get Data from EUCDC
+    operations: []
+    type: individual
+  -
+    uuid: 45683c7f-4ef7-4fad-9aee-f922576a839f
     name: Resource /covid19/v1/cases
     schema:
       uuid: c15341e085145de768f0b52498019113
-      name: DefaultPayload1
+      name: DefaultPayload
       attributes: {}
       associations: {}
     description: This endpoint allows users to retrieve COVID-19 data from a specific data source. Data sources include NYT, ECDC, CTP. See the home page for more details. The user can retrieve upto 7 days of data from the current date.
@@ -189,7 +213,7 @@ resources:
         name: Find Resource /covid19/v1/cases/covidTracking
         transition:
           uuid: 059ad319b5693091ed10c3510aa1027c
-          target: http://mulesoft.com/modeling/instances/04242027-08b4-4f7f-965e-576569d6fd57
+          target: http://mulesoft.com/modeling/instances/b790b039-0d87-4a77-a784-991b3cdfe2b5
         inputs:
           -
             scalarRange:
@@ -219,7 +243,7 @@ resources:
         name: Find Resource /covid19/v1/cases/eucdc
         transition:
           uuid: 9dfecaafb6b6eb613ea139cfe23bf5a6
-          target: http://mulesoft.com/modeling/instances/bb592f76-5846-4333-9ad4-e2601ddf44d2
+          target: http://mulesoft.com/modeling/instances/62114c3d-dad1-46c7-92bd-3a0306b444fd
         inputs:
           -
             scalarRange:
@@ -249,7 +273,7 @@ resources:
         name: Find Resource /covid19/v1/cases/newYorkTimes
         transition:
           uuid: 0b061f4bad7a7fa8b01abc865a80b719
-          target: http://mulesoft.com/modeling/instances/23c65df6-fc7c-4cbc-b3d5-acd4e4c1e16d
+          target: http://mulesoft.com/modeling/instances/7e97453a-26b5-495d-b601-440898e29a3b
         inputs:
           -
             scalarRange:
@@ -274,28 +298,4 @@ resources:
           objectRange: http://mulesoft.com/modeling/instances/93755df34d570002932d8164e7e1fb51
         isMutation: false
         type: custom
-    type: individual
-  -
-    uuid: 23c65df6-fc7c-4cbc-b3d5-acd4e4c1e16d
-    name: Resource /covid19/v1/cases/newYorkTimes
-    schema:
-      uuid: 93755df34d570002932d8164e7e1fb51
-      name: Entity9
-      attributes: {}
-      associations: {}
-      extends: http://mulesoft.com/modeling/instances/cf58fa5518117ad3d070783af1c2b5dc
-    description: Get Data from New York Times
-    operations: []
-    type: individual
-  -
-    uuid: c6192ea6-1995-4a11-877c-bd9180d43d13
-    name: Resource /covid19/v1/locations
-    schema:
-      uuid: 67ea23565400b47330410a6e5877f971
-      name: Entity19
-      attributes: {}
-      associations: {}
-      extends: http://mulesoft.com/modeling/instances/85293d92c27368dcbee53c27bdd3b81d
-    description: Use this resource to interact with Locations data. The user can retrieve data from the last 24 hours.
-    operations: []
     type: individual

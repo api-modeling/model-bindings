@@ -1,0 +1,25 @@
+#%DataModel 0.1
+uuid: 23076dd6c742c730c3fd4856a5196d96
+name: stateCTRACK-response-datatype.raml
+entities:
+  Entity1:
+    uuid: 5cfc9ebabb14435c4be08b4a9fc2112e
+    attributes:
+      stateName:
+        allowMultiple: false
+        uuid: 7cba66455ca6b92d561e5b83c5bf7f79
+        required: true
+        range:
+          type: string
+      stateCode:
+        allowMultiple: false
+        uuid: b7bec13eadb3cb9ec9c0bd918fc15f41
+        required: true
+        range:
+          type: string
+    associations:
+      historicData:
+        allowMultiple: true
+        uuid: ecd157a5af3cd521e2f2746ae505c03f
+        required: true
+        target: http://mulesoft.com/modeling/instances/982ef230fe0d09bb103aef1542e9e0a0

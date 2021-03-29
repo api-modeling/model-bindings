@@ -68,15 +68,11 @@ describe('APIBindingsPlugin', function() {
 
     it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = //"http://goop.com/src/test/resources/apiMulti/api.raml"
-        //"file://src/test/resources/example.raml"
-        "src/test/resources/library.raml";
-        //const textData = fs.readFileSync(textUrl).toString();
+        const textUrl = "src/test/resources/library.raml";
         const loader = new AResourceLoader()
         const parsed = await apiPlugin.import(
             [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML},{name:"loader", value: loader}],
             [{ url: textUrl, text: <string><unknown>null}]
-//            [{ url: "file://"+ textUrl, text: textData}]
         );
         assert.equal(parsed.length, 4); // all the models: modules, entities, bindings
 
@@ -90,12 +86,11 @@ describe('APIBindingsPlugin', function() {
 
         assert.equal(allModules, 2)
         assert.equal(dataModels.length, 2)
-        assert.equal(allEntities, 3)
-        //assert.equal(allEntities, 8)
+        assert.equal(allEntities, 8)
         assert.equal(allBindings, dataModels.length)
     });
 
-    it('should parse RAML Library specs and generate matching modules', async function () {
+    it('should parse RAML API specs and generate matching modules', async function () {
 
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "http://goop.com/src/test/resources/apiMulti/api.raml"
@@ -107,6 +102,7 @@ describe('APIBindingsPlugin', function() {
             [{ url: textUrl, text: <string><unknown>null}]
 //            [{ url: "file://"+ textUrl, text: textData}]
         );
+
         assert.equal(parsed.length, 4); // all the models: modules, entities, bindings
 
         const modules = parsed.filter((parsed) => parsed instanceof ModularityDialect)
@@ -119,9 +115,8 @@ describe('APIBindingsPlugin', function() {
 
         assert.equal(allModules, 2)
         assert.equal(dataModels.length, 2)
-        assert.equal(allEntities, 3)
-        //assert.equal(allEntities, 8)
-        assert.equal(allBindings, dataModels.length)
+        assert.equal(allEntities, 2)
+        //assert.equal(allBindings, dataModels.length)
     });
 
     it ('should export API models to RAML Library specs', async function() {
@@ -184,7 +179,7 @@ describe('APIBindingsPlugin', function() {
         });
     });
 
-    it('should parse RAML API specs and generate matching modules', async function () {
+    it('should parse RAML API specs and generate matching modules 2', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/api1.raml";
         const textData = fs.readFileSync(textUrl).toString();
@@ -239,7 +234,7 @@ describe('APIBindingsPlugin', function() {
             "Find Resource /shoppingCarts/{id}",
             "Update"
         ]);
-        assert.equal(allApiEntities.length, 7);
+        assert.equal(allApiEntities.length, 4);
         assert.deepEqual(allApiEntities.map((e) => {
             let attrs: string[] = [];
             let assocs: string[] = [];
@@ -255,9 +250,6 @@ describe('APIBindingsPlugin', function() {
 
         }), [
             "7c3a4f55489cd476bdd39a4d7d46d12a",
-            "7c3a4f55489cd476bdd39a4d7d46d12a",
-            "7c3a4f55489cd476bdd39a4d7d46d12a",
-            "fb25932527487e81cb1a72fcbadbcb39",
             "message::successful",
             "7c3a4f55489cd476bdd39a4d7d46d12a",
             "7c3a4f55489cd476bdd39a4d7d46d12a"
@@ -285,9 +277,21 @@ describe('APIBindingsPlugin', function() {
         let config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
         const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
 
+        /*
+        parsed.forEach(async (dm) => {
+            const txt = await dm.toYaml()
+            console.log(txt)
+        });
+         */
         config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
         const generated = await apiPlugin.export(config, parsed);
-        assert(generated.length === 3);
+        /*
+        generated.forEach(async (dm) => {
+            const txt = await dm.text
+            console.log(txt)
+        });
+        */
+        assert.equal(generated.length, 2);
     });
 
     it ('should export API models to OAS API specs', async function() {

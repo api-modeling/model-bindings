@@ -1,0 +1,177 @@
+#%DataModel 0.1
+uuid: 593684c070b64fab1d3aa1935ab00b84
+name: permission-lib.raml
+entities:
+  Permission:
+    uuid: a028c750187bb11111c85d1b7343aa88
+    attributes:
+      photoLink:
+        allowMultiple: false
+        uuid: e32e87ffe739e1f5b470edc4d7dc5ec5
+        required: false
+        range:
+          type: string
+      attribute22:
+        allowMultiple: false
+        uuid: da003675b206c5a3f0db788c311a8ae0
+        required: false
+        range:
+          type: string
+      value:
+        allowMultiple: false
+        uuid: 9ce1e7fbd74ff8dbdc312715e8035bd1
+        required: false
+        range:
+          type: string
+      withLink:
+        allowMultiple: false
+        uuid: 99fd143034ff696b4472554303855460
+        required: false
+        range:
+          type: boolean
+      etag:
+        allowMultiple: false
+        uuid: 6a183e27eee69592515795f35f89ae90
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 5f1e5e3ec6d930b56eaba1de5696cbb5
+        required: false
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: f81b0cbee30eb1211ae19b9ed12a787c
+        required: false
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: c87742001e2b0754dd4b58ea0f052e5c
+        required: false
+        range:
+          type: string
+      emailAddress:
+        allowMultiple: false
+        uuid: 8f00a0847114c6a16ec99d132b70b72f
+        required: false
+        range:
+          type: string
+      role:
+        allowMultiple: false
+        uuid: b23cc139c1b289ffc709310a4bc19bf9
+        required: false
+        range:
+          type: string
+      additionalRoles:
+        allowMultiple: true
+        uuid: b57f5a2a0e49bff98731eba0fb2f811d
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 7e0c193d4be11e4601e3ac04882e1cb5
+        required: false
+        range:
+          type: string
+      authKey:
+        allowMultiple: false
+        uuid: 4b651a3902263b7a04d353b74085a22b
+        required: false
+        range:
+          type: string
+      domain:
+        allowMultiple: false
+        uuid: 67b441cf73334b7f9e415463ba50441c
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: A permission for a file.
+  PermissionInsert:
+    uuid: e08fd3891f1cc244994d58ca7c05257d
+    attributes:
+      additionalRoles:
+        allowMultiple: true
+        uuid: 0115e4c0840be5bbb7ebad13ba83088a
+        required: false
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: 765607067d9a0ac8714996589bde6ae0
+        required: false
+        range:
+          type: string
+      attribute23:
+        allowMultiple: false
+        uuid: b779dd30bb76cfc31ae3880e19a78c25
+        required: false
+        range:
+          type: string
+      role:
+        allowMultiple: false
+        uuid: 6786f937ebbdf4175095aa0b49eb630a
+        required: false
+        range:
+          type: string
+      value:
+        allowMultiple: false
+        uuid: b7170abb473414b4f73ae8373917af64
+        required: false
+        range:
+          type: string
+      withLink:
+        allowMultiple: false
+        uuid: fb7fa6bdd7c31c0d5b16f6794cc262ef
+        required: false
+        range:
+          type: boolean
+    associations: {}
+    description: Create a permission for a file.
+  PermissionList:
+    uuid: f09c9082b23c84eb71a103457eb95f99
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 2755dd9e3188a70f3bf06d33495606f8
+        required: false
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: ed58b39a815c65b883224602cc88291b
+        required: false
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: 87e51454cea6c58f870110239d0ea746
+        required: false
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 3668ab5e2f2b2c1e96f8aaba9b2c4f1f
+        required: false
+        target: http://mulesoft.com/modeling/instances/a028c750187bb11111c85d1b7343aa88
+  PermissionId:
+    uuid: 7486d59c26cb2c1a193c09f613cf84a9
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: c64894d8dcc35cbc00238f65c0eeb4ba
+        required: true
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: c905f89728c38095e38845450397f88d
+        required: true
+        range:
+          type: string
+    associations: {}

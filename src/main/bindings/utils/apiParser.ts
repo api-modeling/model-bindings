@@ -79,8 +79,8 @@ export class ApiParser {
             }
         } else {
             const baseUnit = await amf.Core
-            .parser(this.format, this.syntax)
-            .parseFileAsync(this.specUrl)
+                .parser(this.format, this.syntax)
+                .parseFileAsync(this.specUrl)
             this.parsed = true;
             return baseUnit;
         }

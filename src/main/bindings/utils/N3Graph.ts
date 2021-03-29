@@ -1,6 +1,5 @@
 import * as n3 from "n3";
 import {JsonLdParser} from "jsonld-streaming-parser";
-import {Store} from "n3";
 
 export const $rdf = n3.DataFactory;
 // @ts-ignore

@@ -10,11 +10,15 @@ import {VOCAB} from "./api_contract/constants";
 import {APIContractExporter} from "./api_contract/exporter";
 import {ApiGenerator} from "./utils/apiGenerator";
 import {ApiModel, DataModel} from "@api-modeling/api-modeling-metadata";
+import {ShapeTransformer} from "./api_contract/importer/ShapeTransformer";
+import {IDGenerator} from "./api_contract/importer/IDGenerator";
+import {EndpointTransformer} from "./api_contract/importer/EndpointTransformer";
 
 const SUPPORTED_FORMATS = [ApiParser.RAML1, ApiParser.OAS3 + ".0", ApiParser.OAS2, ApiParser.AMF_GRAPH, ApiParser.JSON_SCHEMA, ApiParser.ASYNC2, "Async 2.0"];
 const SUPPORTED_SYNTAXES = [ApiParser.YAML, ApiParser.JSONLD, ApiParser.JSON]
 
 export class APIContractBindingsPlugin extends BindingsPlugin {
+
     async export(configuration: ConfigurationParameter[], graphs: meta.DialectWrapper[]): Promise<Resource[]> {
         const bindings: meta.ModelBindingsDialect[] = [];
         const dataModels: meta.DataModelDialect[] = [];
@@ -70,7 +74,11 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
     }
 
     async import(configuration: ConfigurationParameter[], resources: Resource[]): Promise<meta.DialectWrapper[]> {
-        this.resetAutoGen();
+        const idGenerator = new IDGenerator(); // generator of unique IDs during the import, shared among transformers
+        const bindings = new meta.BindingsModel()
+        bindings.bindings = [];
+        const bindingsWrappers: meta.DialectWrapper[] = []
+
 
         if (resources.length !== 1) {
             throw new Error("The APIContract plugin must receive only the root RAML/OAS/AsyncAPI/JSONSchema file from the model to be imported");
@@ -86,33 +94,32 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
                             new ApiParser(resources[0].url, format.value, syntax.value)
 
         try {
-
-            const bindings = new meta.BindingsModel()
-            bindings.bindings = []; // acc
-            const bindingsWrappers: meta.DialectWrapper[] = []
             let dataModels: DataModel[];
             let apiModel: ApiModel;
             let baseUnit = await parser.parse();
             const name = baseUnit.id.split("/").pop();
             const module = new meta.Module("Imported spec " + name);
             module.uuid = Md5.hashStr(baseUnit.id + "_module").toString();
-            dataModels = this.parseBaseUnitDataModel(module.id(), baseUnit)
+            dataModels = new ShapeTransformer(module.id(), baseUnit, idGenerator).transformBaseUnitDataModel()
             module.dataModels = dataModels.map((dm) => dm.id());
 
             let apiWrapper: meta.ApiModelDialect[] = []
 
             if (baseUnit instanceof amf.model.document.Document) {
-                const entityMap = this.collectEntities(dataModels)
-                apiModel = this.parseBaseUnitApiModel(module.id(), baseUnit, entityMap, bindings.bindings)
+                const entityMap = this.collectEntities(dataModels);
+                const endpointTransformer = new EndpointTransformer(module.id(), baseUnit, idGenerator, entityMap);
+                apiModel = endpointTransformer.transformBaseUnitApiModel();
                 // @ts-ignore
                 apiModel['parsed'] = baseUnit;
+
+                bindings.bindings= bindings.bindings!.concat(endpointTransformer.getBindings());
+
                 module.dataModels.push(apiModel.id())
                 const apiModelDialect: meta.ApiModelDialect = new meta.ApiModelDialect();
                 apiModelDialect.id = apiModel.id();
                 apiModelDialect.location = "api_model_" + apiModel.uuid // @todo check the extension
                 await apiModelDialect.encode(apiModel)
                 apiWrapper.push(apiModelDialect);
-
             }
 
             // bindings wrapper
