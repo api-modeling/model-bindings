@@ -1,0 +1,20 @@
+#%DataModel 0.1
+uuid: 80d07241d845ec4f0a2153ee2b284bc1
+name: role-set.raml
+entities:
+  Entity32:
+    uuid: 25540a084ceef5b67ffcefd2fb565476
+    attributes:
+      primaryRole:
+        allowMultiple: false
+        uuid: a1fba68facc597d96af734c7745b3f6c
+        required: false
+        range:
+          type: string
+      additionalRoles:
+        allowMultiple: true
+        uuid: d967f40092eccc6b4135536d76370515
+        required: false
+        range:
+          type: string
+    associations: {}

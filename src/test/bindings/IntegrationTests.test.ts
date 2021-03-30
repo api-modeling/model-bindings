@@ -67,7 +67,7 @@ Object.keys(tests).forEach((path) => {
     const fullPath = path + "/" + test.mainFile;
 
     describe(`Integration test ${path}`, function() {
-        this.timeout(5000);
+        this.timeout(50000);
 
         it ("Should import correctly the API", async() => {
             const apiPlugin = new APIContractBindingsPlugin();

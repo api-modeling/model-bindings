@@ -2,16 +2,10 @@
 uuid: cca2aa80288df2131ee641b95befea3d
 name: api.raml
 entities:
-  Entity30:
-    uuid: 3c9adcabaa22ad1f73de9ac7b2d862fd
+  DefaultPayload:
+    uuid: fe479fcb78cd9f7d17a401d00138dd34
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/196115a773ac5f9890f8598ed1707fdd
-  Entity33:
-    uuid: 62444adf74f29158aca4faf5cb7ab223
-    attributes: {}
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/196115a773ac5f9890f8598ed1707fdd
   Entity18:
     uuid: 6db719232fae2b121f6e8a3575f61088
     attributes:
@@ -23,8 +17,35 @@ entities:
           type: string
     associations: {}
     extends: http://mulesoft.com/modeling/instances/8a079d12cd32463c41fa59f72e81f0e1
-  DefaultPayload3:
-    uuid: e0993662948fd206cb5d184a8a5643fd
+  Entity22:
+    uuid: 1917556102c559f83f66f6ecf60dda09
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/8a079d12cd32463c41fa59f72e81f0e1
+  Entity30:
+    uuid: 3c9adcabaa22ad1f73de9ac7b2d862fd
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/196115a773ac5f9890f8598ed1707fdd
+  DefaultPayload:
+    uuid: c1133118cce2acad0bb466cf0f245810
+    attributes: {}
+    associations: {}
+  AdaptedEntity.ExampleType.Manager25:
+    uuid: 3f5d664a00d2cf36e4b1b309657f7e95
+    adapts: http://mulesoft.com/modeling/instances/c0412ffd0c158dddb7052718b2f54985
+  Entity40:
+    uuid: aeafeb060bb5124b74f23d8bfd82103b
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/dc65e85adbe8d6605a07ab0b9ea05495
+  Entity38:
+    uuid: 42947a23fdba91afb02e48f0e50aa10f
+    attributes: {}
+    associations: {}
+    extends: http://mulesoft.com/modeling/instances/dc65e85adbe8d6605a07ab0b9ea05495
+  DefaultPayload:
+    uuid: f020a7613ee84cb4b4a1e23399e021cb
     attributes: {}
     associations: {}
   Entity20:
@@ -38,23 +59,8 @@ entities:
           type: string
     associations: {}
     extends: http://mulesoft.com/modeling/instances/8a079d12cd32463c41fa59f72e81f0e1
-  Entity40:
-    uuid: aeafeb060bb5124b74f23d8bfd82103b
-    attributes: {}
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/dc65e85adbe8d6605a07ab0b9ea05495
-  DefaultPayload4:
-    uuid: 739e8868c8a6a674f907e2bb51705646
-    attributes: {}
-    associations: {}
-  AdaptedEntity.resourceTypes/message-type.raml17:
-    uuid: ac66973f016852d1ff6e076d001416ed
-    adapts: http://mulesoft.com/modeling/instances/76dd19be75c744b82e35dee19ccd96df
-  AdaptedEntity.ExampleType.Manager25:
-    uuid: 3f5d664a00d2cf36e4b1b309657f7e95
-    adapts: http://mulesoft.com/modeling/instances/c0412ffd0c158dddb7052718b2f54985
-  DefaultPayload1:
-    uuid: f020a7613ee84cb4b4a1e23399e021cb
+  DefaultPayload:
+    uuid: e0993662948fd206cb5d184a8a5643fd
     attributes: {}
     associations: {}
   Entity9:
@@ -79,23 +85,13 @@ entities:
         range:
           type: boolean
     associations: {}
-  AdaptedEntity.resourceTypes/message-sent-type.raml12:
-    uuid: b4fb6ae284f868fb8d3a0a87c793b368
-    adapts: http://mulesoft.com/modeling/instances/e16ae3e4efdc9f8da10d20aff4d61dae
   DefaultPayload:
-    uuid: c1133118cce2acad0bb466cf0f245810
+    uuid: 739e8868c8a6a674f907e2bb51705646
     attributes: {}
     associations: {}
-  Entity38:
-    uuid: 42947a23fdba91afb02e48f0e50aa10f
-    attributes: {}
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/dc65e85adbe8d6605a07ab0b9ea05495
-  Entity22:
-    uuid: 1917556102c559f83f66f6ecf60dda09
-    attributes: {}
-    associations: {}
-    extends: http://mulesoft.com/modeling/instances/8a079d12cd32463c41fa59f72e81f0e1
+  AdaptedEntity.resourceTypes/message-type.raml17:
+    uuid: ac66973f016852d1ff6e076d001416ed
+    adapts: http://mulesoft.com/modeling/instances/76dd19be75c744b82e35dee19ccd96df
   Entity31:
     uuid: b5141da7d39a9157b8ca4d371e9d2aca
     attributes: {}
@@ -106,10 +102,11 @@ entities:
     attributes: {}
     associations: {}
     extends: http://mulesoft.com/modeling/instances/dc65e85adbe8d6605a07ab0b9ea05495
-  DefaultPayload2:
-    uuid: fe479fcb78cd9f7d17a401d00138dd34
+  Entity33:
+    uuid: 62444adf74f29158aca4faf5cb7ab223
     attributes: {}
     associations: {}
+    extends: http://mulesoft.com/modeling/instances/196115a773ac5f9890f8598ed1707fdd
 entryPoint:
   uuid: 8ca0662b49477b5370751fed8993dcfe
   name: My super cool, example API
@@ -119,7 +116,7 @@ entryPoint:
       name: Find Resource /messages
       transition:
         uuid: b8123ab315f797a54b9f3f638528294a
-        target: http://mulesoft.com/modeling/instances/928b278d-62b3-4c17-909c-6c778d5291fe
+        target: http://mulesoft.com/modeling/instances/6a5ba577-f8d7-4fd7-87ee-b161b862e967
       inputs:
         -
           scalarRange:
@@ -149,7 +146,7 @@ entryPoint:
       name: Find Resource /orgs
       transition:
         uuid: 9965d705911ae6a95e89af84d59b4c5e
-        target: http://mulesoft.com/modeling/instances/286c95f3-d6c9-4781-93db-da1ce584c31c
+        target: http://mulesoft.com/modeling/instances/ee53b006-6d76-4697-9e66-9627ade36cc7
       inputs: []
       output:
         allowMultiple: false
@@ -163,7 +160,7 @@ entryPoint:
       name: Find Resource /people
       transition:
         uuid: b152af2ee1a31876801b53593a7076b5
-        target: http://mulesoft.com/modeling/instances/d9d80f4c-1446-47ec-854d-0c49dc4e9d56
+        target: http://mulesoft.com/modeling/instances/bfb679ca-fcee-41b1-ad26-d79a9e1bf3d0
       inputs: []
       output:
         allowMultiple: false
@@ -177,7 +174,7 @@ entryPoint:
       name: Find Resource /products
       transition:
         uuid: f867629390a686a75e4668230c050541
-        target: http://mulesoft.com/modeling/instances/64665883-3d8f-495a-acb0-62a727f4680c
+        target: http://mulesoft.com/modeling/instances/cc2e7577-1379-45b4-8fb5-aa24878168a5
       inputs: []
       output:
         allowMultiple: false
@@ -188,45 +185,11 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: f8eb04b6-0cd4-486e-bd9a-1a1991355ba8
-    name: Resource /orgs/{orgId}/managers
-    operations: []
-    type: collection
-  -
-    uuid: ee24bdfa-0b30-4bb4-87b8-2ade63d5b269
-    name: Resource /people/{personId}
-    schema:
-      uuid: b5141da7d39a9157b8ca4d371e9d2aca
-      name: Entity31
-      attributes: {}
-      associations: {}
-      extends: http://mulesoft.com/modeling/instances/196115a773ac5f9890f8598ed1707fdd
-    description: The endpoint to access information about the person
-    operations:
-      -
-        uuid: 792211102fc991bb756149fbb251b62a
-        name: Delete
-        inputs: []
-        isMutation: true
-        type: custom
-      -
-        uuid: 14c201ee3713a695710a3c8db9b056d2
-        name: Update
-        inputs:
-          -
-            allowMultiple: false
-            uuid: 93e345ca1018155f78c1bc8c33d55658
-            required: false
-            objectRange: http://mulesoft.com/modeling/instances/62444adf74f29158aca4faf5cb7ab223
-        isMutation: true
-        type: custom
-    type: individual
-  -
-    uuid: d9d80f4c-1446-47ec-854d-0c49dc4e9d56
+    uuid: bfb679ca-fcee-41b1-ad26-d79a9e1bf3d0
     name: Resource /people
     schema:
       uuid: e0993662948fd206cb5d184a8a5643fd
-      name: DefaultPayload3
+      name: DefaultPayload
       attributes: {}
       associations: {}
     description: The people API used to access data about the people.
@@ -247,7 +210,7 @@ resources:
         name: Find Resource /people/{personId}
         transition:
           uuid: 0d704bb4fa90f939cfbd24f3c4cdde02
-          target: http://mulesoft.com/modeling/instances/ee24bdfa-0b30-4bb4-87b8-2ade63d5b269
+          target: http://mulesoft.com/modeling/instances/2cc1dd63-82fe-46db-8f3e-de0efdafe458
         inputs:
           -
             scalarRange:
@@ -266,107 +229,11 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 2f48987b-1176-4433-98fd-4c9bd63d6384
-    name: Resource /products/{productId}
-    schema:
-      uuid: 6dc0db043e1a9f202b8df0164b3d1591
-      name: Entity41
-      attributes: {}
-      associations: {}
-      extends: http://mulesoft.com/modeling/instances/dc65e85adbe8d6605a07ab0b9ea05495
-    operations: []
-    type: individual
-  -
-    uuid: 286c95f3-d6c9-4781-93db-da1ce584c31c
-    name: Resource /orgs
-    schema:
-      uuid: fe479fcb78cd9f7d17a401d00138dd34
-      name: DefaultPayload2
-      attributes: {}
-      associations: {}
-    operations:
-      -
-        uuid: b6201dd357302192d33c4077bf66ae4a
-        name: Find Resource /orgs/{orgId}
-        transition:
-          uuid: 180e989d5ccf26228c6f304853fea6c4
-          target: http://mulesoft.com/modeling/instances/8d8acfa2-5587-4708-a627-d43a328af5d6
-        inputs:
-          -
-            scalarRange:
-              type: string
-            allowMultiple: false
-            uuid: 02e0b8d25d6bd9e77f2ecf9b9300877e
-            name: orgId
-            required: true
-        output:
-          allowMultiple: false
-          uuid: 3a92cc79ee5a0ed189890517a186335b
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/6db719232fae2b121f6e8a3575f61088
-        isMutation: false
-        type: custom
-    type: individual
-  -
-    uuid: 8d8acfa2-5587-4708-a627-d43a328af5d6
-    name: Resource /orgs/{orgId}
-    schema:
-      uuid: 6db719232fae2b121f6e8a3575f61088
-      name: Entity18
-      attributes:
-        id:
-          allowMultiple: false
-          uuid: 3a058b1d68e168351cc663333f90cbd3
-          required: true
-          range:
-            type: string
-      associations: {}
-      extends: http://mulesoft.com/modeling/instances/8a079d12cd32463c41fa59f72e81f0e1
-    operations:
-      -
-        uuid: ce6a839ad57eefa1e5b7857250c0136e
-        name: Update
-        inputs:
-          -
-            allowMultiple: false
-            uuid: 61b2353e2830cb9909df4a7308e13450
-            required: false
-            objectRange: http://mulesoft.com/modeling/instances/a8db4b8ac389c7d8aefc0a01a2994bbd
-        output:
-          allowMultiple: false
-          uuid: 602924f7ea10f541b33d4a63d6c89674
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/1917556102c559f83f66f6ecf60dda09
-        isMutation: true
-        type: custom
-      -
-        uuid: dd3cb150464b57adb414fc76e95e5620
-        name: Find Resource /orgs/{orgId}/managers
-        transition:
-          uuid: 998866108d190f0c701063923e625bec
-          target: http://mulesoft.com/modeling/instances/f8eb04b6-0cd4-486e-bd9a-1a1991355ba8
-        inputs:
-          -
-            scalarRange:
-              type: string
-            allowMultiple: false
-            uuid: b8baabef0ad8e72c0135275182ef11be
-            name: orgId
-            required: true
-        output:
-          allowMultiple: true
-          uuid: e952645894bb0d59313a032104995701
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/3f5d664a00d2cf36e4b1b309657f7e95
-        isMutation: false
-        type: custom
-    type: individual
-  -
-    uuid: 64665883-3d8f-495a-acb0-62a727f4680c
+    uuid: cc2e7577-1379-45b4-8fb5-aa24878168a5
     name: Resource /products
     schema:
       uuid: 739e8868c8a6a674f907e2bb51705646
-      name: DefaultPayload4
+      name: DefaultPayload
       attributes: {}
       associations: {}
     description: The API is to be used to access data about the products.
@@ -392,7 +259,7 @@ resources:
         name: Find Resource /products/{productId}
         transition:
           uuid: 00baa69f2b2ddf12fb3c418cba1ad38d
-          target: http://mulesoft.com/modeling/instances/2f48987b-1176-4433-98fd-4c9bd63d6384
+          target: http://mulesoft.com/modeling/instances/57adbe11-8a8a-4954-a370-69f5c1bf5646
         inputs:
           -
             scalarRange:
@@ -410,7 +277,49 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 928b278d-62b3-4c17-909c-6c778d5291fe
+    uuid: 57adbe11-8a8a-4954-a370-69f5c1bf5646
+    name: Resource /products/{productId}
+    schema:
+      uuid: 6dc0db043e1a9f202b8df0164b3d1591
+      name: Entity41
+      attributes: {}
+      associations: {}
+      extends: http://mulesoft.com/modeling/instances/dc65e85adbe8d6605a07ab0b9ea05495
+    operations: []
+    type: individual
+  -
+    uuid: ee53b006-6d76-4697-9e66-9627ade36cc7
+    name: Resource /orgs
+    schema:
+      uuid: fe479fcb78cd9f7d17a401d00138dd34
+      name: DefaultPayload
+      attributes: {}
+      associations: {}
+    operations:
+      -
+        uuid: b6201dd357302192d33c4077bf66ae4a
+        name: Find Resource /orgs/{orgId}
+        transition:
+          uuid: 180e989d5ccf26228c6f304853fea6c4
+          target: http://mulesoft.com/modeling/instances/1b4a0f47-1f2b-40f4-b90d-e992107b7b18
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 02e0b8d25d6bd9e77f2ecf9b9300877e
+            name: orgId
+            required: true
+        output:
+          allowMultiple: false
+          uuid: 3a92cc79ee5a0ed189890517a186335b
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/6db719232fae2b121f6e8a3575f61088
+        isMutation: false
+        type: custom
+    type: individual
+  -
+    uuid: 6a5ba577-f8d7-4fd7-87ee-b161b862e967
     name: Resource /messages
     operations:
       -
@@ -446,3 +355,91 @@ resources:
         isMutation: true
         type: custom
     type: collection
+  -
+    uuid: 1b4a0f47-1f2b-40f4-b90d-e992107b7b18
+    name: Resource /orgs/{orgId}
+    schema:
+      uuid: 6db719232fae2b121f6e8a3575f61088
+      name: Entity18
+      attributes:
+        id:
+          allowMultiple: false
+          uuid: 3a058b1d68e168351cc663333f90cbd3
+          required: true
+          range:
+            type: string
+      associations: {}
+      extends: http://mulesoft.com/modeling/instances/8a079d12cd32463c41fa59f72e81f0e1
+    operations:
+      -
+        uuid: ce6a839ad57eefa1e5b7857250c0136e
+        name: Update
+        inputs:
+          -
+            allowMultiple: false
+            uuid: 61b2353e2830cb9909df4a7308e13450
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/a8db4b8ac389c7d8aefc0a01a2994bbd
+        output:
+          allowMultiple: false
+          uuid: 602924f7ea10f541b33d4a63d6c89674
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/1917556102c559f83f66f6ecf60dda09
+        isMutation: true
+        type: custom
+      -
+        uuid: dd3cb150464b57adb414fc76e95e5620
+        name: Find Resource /orgs/{orgId}/managers
+        transition:
+          uuid: 998866108d190f0c701063923e625bec
+          target: http://mulesoft.com/modeling/instances/d7301c57-bae1-4a56-9a39-3f31d3b3d58a
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: b8baabef0ad8e72c0135275182ef11be
+            name: orgId
+            required: true
+        output:
+          allowMultiple: true
+          uuid: e952645894bb0d59313a032104995701
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/3f5d664a00d2cf36e4b1b309657f7e95
+        isMutation: false
+        type: custom
+    type: individual
+  -
+    uuid: d7301c57-bae1-4a56-9a39-3f31d3b3d58a
+    name: Resource /orgs/{orgId}/managers
+    operations: []
+    type: collection
+  -
+    uuid: 2cc1dd63-82fe-46db-8f3e-de0efdafe458
+    name: Resource /people/{personId}
+    schema:
+      uuid: b5141da7d39a9157b8ca4d371e9d2aca
+      name: Entity31
+      attributes: {}
+      associations: {}
+      extends: http://mulesoft.com/modeling/instances/196115a773ac5f9890f8598ed1707fdd
+    description: The endpoint to access information about the person
+    operations:
+      -
+        uuid: 792211102fc991bb756149fbb251b62a
+        name: Delete
+        inputs: []
+        isMutation: true
+        type: custom
+      -
+        uuid: 14c201ee3713a695710a3c8db9b056d2
+        name: Update
+        inputs:
+          -
+            allowMultiple: false
+            uuid: 93e345ca1018155f78c1bc8c33d55658
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/62444adf74f29158aca4faf5cb7ab223
+        isMutation: true
+        type: custom
+    type: individual

@@ -1,0 +1,44 @@
+#%DataModel 0.1
+uuid: 17ec309e8899a99db184ef24d0bc0066
+name: daily-results.raml
+entities:
+  DailyResult:
+    uuid: d8a192e986efd864b63934596012f0bd
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 91bfee78c909a05b3b0ba10b1dbdb15d
+        required: false
+        range:
+          type: string
+      result:
+        allowMultiple: false
+        uuid: 71545f0b34f22eb49aa0f8a5d60906f9
+        required: true
+        range:
+          type: integer
+    associations: {}
+  DailyUsers:
+    uuid: 1a54d287a01c31bdc30845918cbe5731
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: c7aaf21c0f8bc8b10d141238335ab265
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: An object representing response for daily users.
+    extends: http://mulesoft.com/modeling/instances/d8a192e986efd864b63934596012f0bd
+  DailySessions:
+    uuid: 1c5c9e93ec1d75b44faf494ff7161b97
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 271f9a11d1510b5d06329825e7251f88
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: An object representing response for daily sessions.
+    extends: http://mulesoft.com/modeling/instances/d8a192e986efd864b63934596012f0bd

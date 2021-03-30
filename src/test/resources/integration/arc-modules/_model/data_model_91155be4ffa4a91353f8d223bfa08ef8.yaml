@@ -1,0 +1,114 @@
+#%DataModel 0.1
+uuid: 91155be4ffa4a91353f8d223bfa08ef8
+name: analytics-types.raml
+entities:
+  DailyUsers:
+    uuid: 4d5e47e1aa4a65a84d0f8a30049d59bc
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: e647ba58ba395540a13bddd13d0f40e9
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: An object representing response for daily users.
+    extends: http://mulesoft.com/modeling/instances/5e2073b449acdcdd18379afad75e2a6e
+  AnalyticsRangeResult:
+    uuid: 78f667b6e5f2e99a6aa9f90981294d82
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 7bbe285e9348fd8b75a7919cc4540458
+        required: true
+        range:
+          type: string
+      day:
+        allowMultiple: false
+        uuid: 2e4514ff6643cea05755a001e78b33a9
+        required: true
+        range:
+          type: date
+      result:
+        allowMultiple: false
+        uuid: 3a06a949e0b6d770146434df5dd8537c
+        required: true
+        range:
+          type: integer
+    associations:
+      items:
+        allowMultiple: true
+        uuid: c9d246b9e0aeab85bbbf71f528faf9dc
+        required: true
+        target: http://mulesoft.com/modeling/instances/96f41bb9232c72d60de92c086c6e8640
+  DailyItemResult:
+    uuid: 96f41bb9232c72d60de92c086c6e8640
+    attributes:
+      day:
+        allowMultiple: false
+        uuid: 9a118ebbd60a1f400f0f79e26b69cf3e
+        required: true
+        range:
+          type: date
+      value:
+        allowMultiple: false
+        uuid: 94ac733de8f2104406324337d35e7a99
+        required: true
+        range:
+          type: integer
+    associations: {}
+    description: |
+      This object is returned in weekly and monthly analytics data.
+      It is a representation of number of users or sessions for each day for the given time period.
+  DailySessions:
+    uuid: c58016717939594746e49e788a290141
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 6f4ba87eadd2fb02c5469f477f17de8f
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: An object representing response for daily sessions.
+    extends: http://mulesoft.com/modeling/instances/5e2073b449acdcdd18379afad75e2a6e
+  PeriodicalSessions:
+    uuid: eab99c232239f289680240214a028af4
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 4950c46f1aee33e44713d4ad239c2dc3
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: An object representing periodical (weekly or mothly) sessions data.
+    extends: http://mulesoft.com/modeling/instances/78f667b6e5f2e99a6aa9f90981294d82
+  DailyResult:
+    uuid: 5e2073b449acdcdd18379afad75e2a6e
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 0dc87b4c66e6f7a4a0e6fb4f77c4c77f
+        required: false
+        range:
+          type: string
+      result:
+        allowMultiple: false
+        uuid: 9b12db45ef4123e42cde8c3b72c5acbe
+        required: true
+        range:
+          type: integer
+    associations: {}
+  PeriodicalUsers:
+    uuid: e50f8706c3163e51b107b49078456ecc
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 249e89a67e7a1932870b4cdb58bfb532
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: An object representing periodical (weekly or mothly) users data.
+    extends: http://mulesoft.com/modeling/instances/78f667b6e5f2e99a6aa9f90981294d82

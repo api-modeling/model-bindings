@@ -1,0 +1,73 @@
+#%DataModel 0.1
+uuid: 727384b6ec7fabcf5a4643e0968135d1
+name: properties-lib.raml
+entities:
+  Property:
+    uuid: ec2800e8ae2b46aa04df125120f60b17
+    attributes:
+      selfLink:
+        allowMultiple: false
+        uuid: 47436bf839a8fee41138af9e4644708c
+        required: true
+        range:
+          type: string
+      value:
+        allowMultiple: false
+        uuid: 3646d48d1471eb1eaae07114dd3f2c2f
+        required: true
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 0a956d375e81b545ad74906cf5fef5ef
+        required: true
+        range:
+          type: string
+      key:
+        allowMultiple: false
+        uuid: 86fdd26ee5f2119213ae86f50fd129e2
+        required: true
+        range:
+          type: string
+      visibility:
+        allowMultiple: false
+        uuid: a9a97804a4a56733c50c0ed888a088e5
+        required: true
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: 1760bdaba2a0ac6a7593146c9a4fede4
+        required: true
+        range:
+          type: string
+    associations: {}
+  PropertyList:
+    uuid: ee57f58767f5a1a94a581e25ae225750
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: e154f55cc699aecd767d7d22c949aaaa
+        required: true
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: b23f40050925993ceb407994b3f61473
+        required: true
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: 9ad0f914269dacc4ffe6de670bd67e2d
+        required: true
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: ee424a11683d88ea36aefc274c2a83dc
+        required: true
+        target: http://mulesoft.com/modeling/instances/ec2800e8ae2b46aa04df125120f60b17
+description: |
+  This library contains types definitions related to a Propery resource in Drive API.

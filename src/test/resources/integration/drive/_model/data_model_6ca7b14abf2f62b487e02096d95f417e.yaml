@@ -1,0 +1,40 @@
+#%DataModel 0.1
+uuid: 6ca7b14abf2f62b487e02096d95f417e
+name: resource.raml
+entities:
+  Resource:
+    uuid: 8511cff1cb7dfaf5c26984887e3b756d
+    attributes:
+      isRoot:
+        allowMultiple: false
+        uuid: 7caf7e3b38bf4c685fbf1ab3e196e8d2
+        required: false
+        range:
+          type: boolean
+      selfLink:
+        allowMultiple: false
+        uuid: 21aea5c106dc1775a606a3bb9c96bf4b
+        required: false
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: 0c55bcb63e843211fab385cbe018b3d1
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 9e7ff600d955ae879cdc382f0cf8bb3c
+        required: false
+        range:
+          type: string
+      parentLink:
+        allowMultiple: false
+        uuid: f314b03978b26f3f1423425e0a481b8a
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: A reference to a file's parent.
+    displayName: Resource
