@@ -11,21 +11,9 @@ entities:
         required: true
         range:
           type: string
-      value:
-        allowMultiple: false
-        uuid: 3646d48d1471eb1eaae07114dd3f2c2f
-        required: true
-        range:
-          type: string
       kind:
         allowMultiple: false
         uuid: 0a956d375e81b545ad74906cf5fef5ef
-        required: true
-        range:
-          type: string
-      key:
-        allowMultiple: false
-        uuid: 86fdd26ee5f2119213ae86f50fd129e2
         required: true
         range:
           type: string
@@ -35,9 +23,21 @@ entities:
         required: true
         range:
           type: string
+      value:
+        allowMultiple: false
+        uuid: 3646d48d1471eb1eaae07114dd3f2c2f
+        required: true
+        range:
+          type: string
       etag:
         allowMultiple: false
         uuid: 1760bdaba2a0ac6a7593146c9a4fede4
+        required: true
+        range:
+          type: string
+      key:
+        allowMultiple: false
+        uuid: 86fdd26ee5f2119213ae86f50fd129e2
         required: true
         range:
           type: string

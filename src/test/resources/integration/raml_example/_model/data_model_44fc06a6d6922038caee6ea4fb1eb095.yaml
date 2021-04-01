@@ -41,6 +41,28 @@ entities:
           type: string
     associations: {}
     extends: http://mulesoft.com/modeling/instances/79203ecfbb7a0d82adfef2f267653ec0
+  Org:
+    uuid: 8a079d12cd32463c41fa59f72e81f0e1
+    attributes: {}
+    associations:
+      onCall:
+        allowMultiple: false
+        uuid: d24a062d64dc544a0bcc905e4816df78
+        required: true
+        target: http://mulesoft.com/modeling/instances/a033384477e1b81a14f29a4660173bb5
+      Head:
+        allowMultiple: false
+        uuid: 638a362d67f023df71dbf842f029be45
+        required: true
+        target: http://mulesoft.com/modeling/instances/c0412ffd0c158dddb7052718b2f54985
+    description: Represents an organization unit.
+  Alertable:
+    uuid: a033384477e1b81a14f29a4660173bb5
+    disjoint:
+      -
+        uuid: c0412ffd0c158dddb7052718b2f54985
+      -
+        uuid: cc6660040352f0e0dfcfb750a087df1f
   Admin:
     uuid: 79203ecfbb7a0d82adfef2f267653ec0
     attributes:
@@ -58,28 +80,6 @@ entities:
           type: string
     associations: {}
     extends: http://mulesoft.com/modeling/instances/384b41a8c1b8e87f0515174c6aa57e9a
-  Alertable:
-    uuid: a033384477e1b81a14f29a4660173bb5
-    disjoint:
-      -
-        uuid: c0412ffd0c158dddb7052718b2f54985
-      -
-        uuid: cc6660040352f0e0dfcfb750a087df1f
-  Org:
-    uuid: 8a079d12cd32463c41fa59f72e81f0e1
-    attributes: {}
-    associations:
-      onCall:
-        allowMultiple: false
-        uuid: d24a062d64dc544a0bcc905e4816df78
-        required: true
-        target: http://mulesoft.com/modeling/instances/a033384477e1b81a14f29a4660173bb5
-      Head:
-        allowMultiple: false
-        uuid: 638a362d67f023df71dbf842f029be45
-        required: true
-        target: http://mulesoft.com/modeling/instances/c0412ffd0c158dddb7052718b2f54985
-    description: Represents an organization unit.
   Manager:
     uuid: c0412ffd0c158dddb7052718b2f54985
     attributes:

@@ -26,16 +26,23 @@ export class APIModelTransformer extends DataModelTransformer {
     public transformResources() {
         if (this.baseUnit instanceof amf.model.document.Document) {
             const apiModel = this.apiModelDialect.encodedApiModel();
-            const entities = (apiModel?.entities||[]).map((entity) => {
-                if (entity.adapts != null) {
-                    return this.context.generateLink(null, entity.adapts.id(), this.baseUnit.id)
-                } else {
-                    return new DataEntityTransformer(entity, this.context).transform();
-                }
-            });
+
+            const entities = (apiModel?.entities||[])
+                .filter(entity => entity.adapts == null) // @todo deal with adapts here if at some point we can edit the model
+                .map((entity) => {
+                    //if (entity.adapts != null) {
+                    //    return this.context.generateLink(null, entity.adapts.id(), this.baseUnit.id)
+                    //} else {
+                        return new DataEntityTransformer(entity, this.context).transform();
+                    //}
+                });
+
             if (entities.length > 0) {
-                this.baseUnit.withDeclares((this.baseUnit.declares || []).concat(entities))
+                const newEntities = (this.baseUnit.declares || []).concat(entities);
+                newEntities.forEach(entity => this.context.registerAPIShapeDeclaration(entity));
+                this.baseUnit.withDeclares(this.uniqueNames(newEntities));
             }
+
             const webApi = new amf.model.domain.WebApi();
             this.baseUnit.withEncodes(webApi);
             if (apiModel?.name) {
@@ -64,6 +71,36 @@ export class APIModelTransformer extends DataModelTransformer {
         }
     }
 
+    private uniqueNames(shapes: amf.model.domain.DomainElement[]) {
+        const names: {[name: string]: boolean} = {}
+        shapes.forEach((shape) => {
+            //@ts-ignore
+            const name = shape.name.value();
+            /*
+            if (name === "") {
+                let tmp = `Schema_${shape.id.substr(shape.id.length - 5)}`
+                //@ts-ignore
+                shape.withName(tmp);
+            }
+             */
+            if (names[name] == null) {
+                names[name] = true;
+            } else {
+                //let c = 1;
+                let tmp = `${name}_${shape.id.substr(shape.id.length - 5)}`
+                while(names[tmp] === true) {
+                    //c++;
+                    tmp = `${name}_${shape.id.substr(shape.id.length - 5)}`
+                }
+                //@ts-ignore
+                shape.withName(tmp);
+                names[tmp] = true;
+            }
+        })
+        return shapes;
+    }
+
+
     /**
      * Transforms the graph of resources into a flat list of endpoints
      * It stops when all nodes in the resource graph has been processed.
@@ -81,7 +118,7 @@ export class APIModelTransformer extends DataModelTransformer {
             if (existingEndpoint != null) { // merge endpoints
                 // update operations
                 const oldOperations = existingEndpoint.operations || [];
-                endpoint.withOperations(oldOperations.concat(endpoint.operations));
+                existingEndpoint.withOperations(oldOperations.concat(endpoint.operations));
 
             } else {
                 const webApiAcc = webApi.endPoints || [];

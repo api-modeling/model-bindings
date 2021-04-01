@@ -5,18 +5,6 @@ entities:
   A product resource:
     uuid: a74ec7704168414b535ce2436b191e64
     attributes:
-      upc:
-        allowMultiple: false
-        uuid: 4430bd3165ddf80d11ae931d0690293a
-        required: true
-        range:
-          type: string
-      name:
-        allowMultiple: false
-        uuid: 8dd4e285cfd0cf65dfa927fd8417e492
-        required: true
-        range:
-          type: string
       quantity:
         allowMultiple: false
         uuid: fb47613a0d418ed86c3e5290c31b0b48
@@ -29,9 +17,9 @@ entities:
         required: true
         range:
           type: string
-      unit:
+      name:
         allowMultiple: false
-        uuid: 764abea895071b8bc1502f99772637c5
+        uuid: 8dd4e285cfd0cf65dfa927fd8417e492
         required: true
         range:
           type: string
@@ -41,6 +29,18 @@ entities:
         required: true
         range:
           type: boolean
+      upc:
+        allowMultiple: false
+        uuid: 4430bd3165ddf80d11ae931d0690293a
+        required: true
+        range:
+          type: string
+      unit:
+        allowMultiple: false
+        uuid: 764abea895071b8bc1502f99772637c5
+        required: true
+        range:
+          type: string
     associations: {}
     description: A single product representing an item in the store.
     displayName: A product resource

@@ -51,16 +51,33 @@ export class ResourceTransformer extends ExporterBaseUtils {
         return this.endpointModelingOpAcc[endpoint.path.value()] || [];
     }
 
+    private transformEntity(entity: meta.Entity): amf.model.domain.Shape {
+        if (entity.adapts != null) {
+            return this.context.generateLink(null, entity.adapts.id(), this.traversal.baseUnit.id)
+        } else {
+            const declared = this.context.apiShapeDeclarations[entity.id()]
+            if (declared) {
+                return this.context.generateLink(null, declared.id, this.traversal.baseUnit.id);
+            } else {
+                if (this.context.indexedEntity(entity.id())) {
+                    return this.context.generateLink(null, entity.id(), this.traversal.baseUnit.id)
+                } else {
+                    return new DataEntityTransformer(entity, this.context).transform();
+                }
+            }
+        }
+    }
+
     private transformOperation(op: meta.Operation) {
         let operation = new amf.model.domain.Operation();
         operation.withId(op.id());
         this.generateElementName(op.name, op.description, operation)
         // @todo: create annotations/extensions here for the standard operations
         // const customDomainProperties: amf.model.domain.CustomDomainProperty[] = [];
-        const methodName = this.generateOperationMethod(op, operation);
+        this.generateOperationMethod(op, operation);
         const pathParams = this.generateOperationRequest(op, operation);
         this.generateOperationResponse(op, operation);
-        let path = this.generateOperationPath(methodName, op, pathParams);
+        let path = this.generateOperationPath(operation.method.value(), op, pathParams);
         this.registerOperation(path, op, operation, pathParams)
     }
 
@@ -76,7 +93,7 @@ export class ResourceTransformer extends ExporterBaseUtils {
         this.endpointModelingOpAcc[path] = opsEndpoint;
     }
 
-    private generateOperationPath(methodName: string, op: meta.Operation, pathParams: amf.model.domain.Parameter[]) {
+    private generateOperationPath(method: string, op: meta.Operation, pathParams: amf.model.domain.Parameter[]) {
         // We need to do this to avoid having duplicated HTTP methods in the same endpoint
         //----------------------------------------------------------------------------------
         // try to generate a unique path / method combination for the operation
@@ -95,16 +112,18 @@ export class ResourceTransformer extends ExporterBaseUtils {
             }
         });
 
-        let key = path
+        let originalPath = path;
+        let key = path + "::" + method;
         let mCounter = 0;
         // We do this to avoid duplicated operations in the same path
         while (this.opDisambg[key]) {
             mCounter++;
-            key = `${path}${mCounter}`;
+            path = `${originalPath}${mCounter}`
+            key = `${path}::${method}`;
         }
         this.opDisambg[key] = true;
 
-        return key;
+        return path;
     }
 
     /**
@@ -155,7 +174,6 @@ export class ResourceTransformer extends ExporterBaseUtils {
         });
         operation.withMethod(method.toLowerCase());
         operation.withName(methodName);
-        return methodName;
     }
 
     private generateOperationRequest(op: meta.Operation, operation: amf.model.domain.Operation) {
@@ -202,7 +220,7 @@ export class ResourceTransformer extends ExporterBaseUtils {
                     param.withSchema(shape);
                 }
                 if (input.objectRange) { // this can only be a link in params
-                    let shapeLink: amf.model.domain.AnyShape = this.context.generateLink(null, input.objectRange.id(), this.traversal.baseUnit.id)
+                    let shapeLink = this.transformEntity(input.objectRange)
                     if (input.allowMultiple) {
                         const arrayShape = new amf.model.domain.ArrayShape();
                         arrayShape.withId(shapeLink.id + "_array");
@@ -283,12 +301,7 @@ export class ResourceTransformer extends ExporterBaseUtils {
                 payload.withSchema(shape)
             }
             if (op.output.objectRange) { // this can only be a link in params
-                let shape: amf.model.domain.DomainElement;
-                if (op.output.objectRange.adapts != null) {
-                    shape = this.context.generateLink(null, op.output!.objectRange.adapts.id(), this.traversal.baseUnit.id)
-                } else {
-                    shape = new DataEntityTransformer(op.output.objectRange, this.context).transform();
-                }
+                let shape = this.transformEntity(op.output.objectRange)
                 if (shape instanceof amf.model.domain.AnyShape) {
                     if (op.output.allowMultiple) {
                         let arrayShape = new amf.model.domain.ArrayShape()
@@ -310,16 +323,11 @@ export class ResourceTransformer extends ExporterBaseUtils {
             payload.withMediaType(mediaType);
 
             let shape;
-            if (op.output != null && op.output!.objectRange != null && op.output!.objectRange.adapts != null) {
-                shape = this.context.generateLink(null, op.output!.objectRange.adapts.id(), this.traversal.baseUnit.id);
-            } else if (op.output && op.output!.objectRange != null) {
-                shape = this.context.generateLink(null, op.output!.objectRange.id(), this.traversal.baseUnit.id);
-            } else if (this.resource.schema && this.resource.schema.adapts) {
-                shape = this.context.generateLink(null, this.resource.schema.adapts.id(), this.traversal.baseUnit.id);
-            } else if (this.resource.schema != null) {
-                shape = new DataEntityTransformer(this.resource.schema, this.context).transform();
+            if (op.output && op.output!.objectRange) {
+                shape = this.transformEntity(op.output!.objectRange);
+            } else if (this.resource.schema) {
+                shape = this.transformEntity(this.resource.schema);
             }
-
             if (shape instanceof amf.model.domain.AnyShape) {
                 payload.withSchema(shape)
             } else {

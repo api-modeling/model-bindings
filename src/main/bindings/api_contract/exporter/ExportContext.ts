@@ -17,9 +17,14 @@ export class ExportContext {
     public readonly references: { [source: string]: amf.model.document.BaseUnit[]} = {};
     public readonly entityToBaseUnitIndex: { [entityId: string]: string } = {};
     public readonly dataModels: meta.DataModelDialect[] = [];
+    public readonly apiShapeDeclarations: { [id: string]: amf.model.domain.Shape} = {}
 
     public toAlias(name: string) {
         return name.toLowerCase().replace(" ", "_").replace(".", "_");
+    }
+
+    public registerAPIShapeDeclaration(shape: amf.model.domain.DomainElement) {
+        this.apiShapeDeclarations[shape.id] = <amf.model.domain.Shape>shape;
     }
 
     /**
@@ -34,6 +39,10 @@ export class ExportContext {
             this.entityToBaseUnitIndex[entity.id()] = baseUnit.id;
             this.entitiesIndex[entity.id()] = entity;
         });
+    }
+
+    public indexedEntity(id: string): boolean {
+        return this.entitiesIndex[id] != null;
     }
 
     public findEntityById(id: string): meta.Entity {

@@ -5,6 +5,12 @@ entities:
   Labels:
     uuid: 06a54a6a35b067a8b3932687ca121a4c
     attributes:
+      restricted:
+        allowMultiple: false
+        uuid: 3f4351078fe7cff86d6523d1d6ed55b4
+        required: false
+        range:
+          type: boolean
       viewed:
         allowMultiple: false
         uuid: 9cca740e30a111f692258af2828cf52d
@@ -17,21 +23,15 @@ entities:
         required: false
         range:
           type: boolean
-      trashed:
-        allowMultiple: false
-        uuid: 91a4e651cc73cf6f2ed0b60b390c452b
-        required: false
-        range:
-          type: boolean
       hidden:
         allowMultiple: false
         uuid: 445f565382c5edff494517a5f56e3ccf
         required: false
         range:
           type: boolean
-      restricted:
+      trashed:
         allowMultiple: false
-        uuid: 3f4351078fe7cff86d6523d1d6ed55b4
+        uuid: 91a4e651cc73cf6f2ed0b60b390c452b
         required: false
         range:
           type: boolean

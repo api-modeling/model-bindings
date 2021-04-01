@@ -17,12 +17,6 @@ entities:
         required: false
         range:
           type: boolean
-      emailAddress:
-        allowMultiple: false
-        uuid: 5940cbc93138c48ec7c49d39c75bb9a1
-        required: false
-        range:
-          type: string
       permissionId:
         allowMultiple: false
         uuid: 7f31dcfa71593c07db84c251dfec057b
@@ -32,6 +26,12 @@ entities:
       displayName:
         allowMultiple: false
         uuid: 455faef12013eacb00aaf95a90689bba
+        required: false
+        range:
+          type: string
+      emailAddress:
+        allowMultiple: false
+        uuid: 5940cbc93138c48ec7c49d39c75bb9a1
         required: false
         range:
           type: string

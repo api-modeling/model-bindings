@@ -57,8 +57,11 @@ describe('APIBindingsPlugin', function() {
         await dmd1.fromJsonLd(JSON.parse(finals[3])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[3]);
         let api = new ApiModelDialect();
         await api.fromJsonLd(JSON.parse(finals[4])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[4]);
-        const g1 = await apiPlugin.export(config,parsed);
-        const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]);
+        const g1 = await apiPlugin.export(config,parsed)
+        const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]).catch((e) => {
+            console.log(e.stack)
+        });
+        //@ts-ignore
         generated.forEach((generatedModel) => {
             assert(generatedModel.url.endsWith(".raml"));
         })
@@ -282,15 +285,18 @@ describe('APIBindingsPlugin', function() {
             const txt = await dm.toYaml()
             console.log(txt)
         });
-         */
+        */
+
         config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
         const generated = await apiPlugin.export(config, parsed);
+
         /*
         generated.forEach(async (dm) => {
             const txt = await dm.text
             console.log(txt)
         });
         */
+
         assert.equal(generated.length, 2);
     });
 
