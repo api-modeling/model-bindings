@@ -51,14 +51,18 @@ entities:
     uuid: d40f585e5975329955b0cc3fc584d8b3
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: ff50c2dda838f70c798e6d30e85948b2
     description: The updated state of the file. Present if the file has not been deleted.
-    extends: http://mulesoft.com/modeling/instances/ff50c2dda838f70c798e6d30e85948b2
   teamDrive:
     uuid: 4f5df9e88583d16bdeb93e105aad96d4
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 36b037c8f534dfdc48326ef4aae3e612
     description: The updated state of the Team Drive. Present if the type is teamDrive, the user is still a member of the Team Drive, and the Team Drive has not been deleted.
-    extends: http://mulesoft.com/modeling/instances/36b037c8f534dfdc48326ef4aae3e612
   WatchResponse:
     uuid: 80c85ca3399af98a558f7043fade9fca
     attributes:

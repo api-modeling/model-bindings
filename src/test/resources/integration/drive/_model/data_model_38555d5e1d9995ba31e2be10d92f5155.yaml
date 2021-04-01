@@ -29,8 +29,10 @@ entities:
     uuid: 0a489e031bed709af9f58d00f1813fec
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 0f18885ab6640698ee913bd9c339b6b5
     description: If the file has been explicitly trashed, the user who trashed it. Only populated for Team Drive files.
-    extends: http://mulesoft.com/modeling/instances/0f18885ab6640698ee913bd9c339b6b5
   indexableText:
     uuid: 760e51906516774b81934acca35eddb3
     attributes:
@@ -46,8 +48,10 @@ entities:
     uuid: 1262fa246baa0a1af562ea141a7981f3
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: a028c750187bb11111c85d1b7343aa88
     description: The permissions for the authenticated user on this file.
-    extends: http://mulesoft.com/modeling/instances/a028c750187bb11111c85d1b7343aa88
   DriveFile:
     uuid: ff50c2dda838f70c798e6d30e85948b2
     attributes:
@@ -424,13 +428,17 @@ entities:
     uuid: ce9389ff806040a2a4061712ca7fc788
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: fcaeef4028647a5f5af444b5f033d458
     description: Capabilities the current user has on the file. Each capability corresponds to a fine-grained action that a user may take.
-    extends: http://mulesoft.com/modeling/instances/fcaeef4028647a5f5af444b5f033d458
   labels:
     uuid: a30bb61c33f54da648f169758f6113a9
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/90bfebeb07cc412beb7d9dcfe46fbe38
+    extends:
+      -
+        uuid: 90bfebeb07cc412beb7d9dcfe46fbe38
   exportLinks:
     uuid: f0d8b3c9fcd3e852da4600caa7f97b35
     attributes: {}
@@ -442,9 +450,11 @@ entities:
     uuid: 0ffafabe41040f6bad9697db1883c02f
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 0f18885ab6640698ee913bd9c339b6b5
     description: User that shared the item with the current user, if available.
     displayName: SharingUser
-    extends: http://mulesoft.com/modeling/instances/0f18885ab6640698ee913bd9c339b6b5
   lastModifyingUser:
     uuid: 83f852b4dfaec26a8091eca49ea8db91
     attributes:
@@ -500,7 +510,9 @@ entities:
     uuid: dfe16a608b07662ba0df74a75833cbf3
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/90bfebeb07cc412beb7d9dcfe46fbe38
+    extends:
+      -
+        uuid: 90bfebeb07cc412beb7d9dcfe46fbe38
   openWithLinks:
     uuid: 6176e9b415eb2726b3c40f8675129ecb
     attributes: {}
@@ -610,12 +622,16 @@ entities:
     uuid: ef324810402e73cd397f5b6c09e9b9e4
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/cea83ec639511f6d884558e466249b46
+    extends:
+      -
+        uuid: cea83ec639511f6d884558e466249b46
   picture:
     uuid: e7a6cacb43519255899cbd2724f3bf74
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/7cc5802ee908c771f5b434a3922f462b
+    extends:
+      -
+        uuid: 7cc5802ee908c771f5b434a3922f462b
   imageMediaMetadata:
     uuid: b0a9d3d8e72c1ea505badc7af3fd1dcb
     attributes:

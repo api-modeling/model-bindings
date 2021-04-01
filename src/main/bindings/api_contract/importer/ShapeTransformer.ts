@@ -146,12 +146,8 @@ export class ShapeTransformer {
             const extensions = nodeShape.inherits.map((baseShape) => {
                 return this.transformShape(baseShape);
             }).filter((uuid) => uuid != null);
-            if (extensions.length > 1) {
-                // @todo
-                throw new Error("More than one base shape not supported in entity dialect yet")
-            }
-            if (extensions.length === 1) {
-                entity.extends = extensions[0]!
+            if (extensions.length > 0) {
+                entity.extends = <meta.Entity[]>extensions
             }
         }
 

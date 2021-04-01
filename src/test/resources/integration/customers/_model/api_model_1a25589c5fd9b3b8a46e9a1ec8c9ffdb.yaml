@@ -48,7 +48,7 @@ entryPoint:
       name: Find Resource /addresses
       transition:
         uuid: 0b9ddb0e7e90a5259c581045850d1b77
-        target: http://mulesoft.com/modeling/instances/77b15135-cc4d-410d-99eb-71d07c93766e
+        target: http://mulesoft.com/modeling/instances/abd284ca-dff7-4cbd-be11-daa2221730f8
       inputs:
         -
           scalarRange:
@@ -118,7 +118,7 @@ entryPoint:
       name: Find Resource /customers
       transition:
         uuid: 1fa13e64c02f886e1cf46fe2be31ddce
-        target: http://mulesoft.com/modeling/instances/5dadfc94-c455-4827-a47b-fd489faa4eab
+        target: http://mulesoft.com/modeling/instances/2e3ee3c5-7818-4dab-a8ba-ea17d1854cf8
       inputs:
         -
           scalarRange:
@@ -188,7 +188,7 @@ entryPoint:
       name: Find Resource /references
       transition:
         uuid: b79496f71e97be1666593e004831d768
-        target: http://mulesoft.com/modeling/instances/ba48ddac-eec0-46ff-b156-7d2ff34eba2a
+        target: http://mulesoft.com/modeling/instances/42c45cbb-5ef7-454b-af41-cb7b0c1806da
       inputs:
         -
           scalarRange:
@@ -242,7 +242,7 @@ entryPoint:
       name: Find Resource /sites
       transition:
         uuid: b44633f9973ed8357f86173b7cc57c3b
-        target: http://mulesoft.com/modeling/instances/bc75ca8d-6152-4cd9-843a-821976b7aef1
+        target: http://mulesoft.com/modeling/instances/62877afa-319d-4ced-9e2f-4fc34342a48e
       inputs:
         -
           scalarRange:
@@ -333,7 +333,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: 5dadfc94-c455-4827-a47b-fd489faa4eab
+    uuid: 2e3ee3c5-7818-4dab-a8ba-ea17d1854cf8
     name: Resource /customers
     schema:
       uuid: 739c16a057805e836c18dad52178b053
@@ -345,7 +345,7 @@ resources:
         name: Find Resource /customers/seek/{customerNumber}
         transition:
           uuid: fafa8d1d03c66a69607bc67cdaa72238
-          target: http://mulesoft.com/modeling/instances/94044154-665d-438c-8e7d-990c1d026a8c
+          target: http://mulesoft.com/modeling/instances/615bd98c-7d35-4600-8357-68a4bf8587cc
         inputs:
           -
             scalarRange:
@@ -375,7 +375,7 @@ resources:
         name: Find Resource /customers/{customerNumber}
         transition:
           uuid: ea5ad80a354a627590479b2330ae3144
-          target: http://mulesoft.com/modeling/instances/6ade1cab-71bb-4c98-9ff0-6a9702d30596
+          target: http://mulesoft.com/modeling/instances/cfc1b070-b600-409d-95d3-1034edbc847b
         inputs:
           -
             scalarRange:
@@ -402,7 +402,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 94044154-665d-438c-8e7d-990c1d026a8c
+    uuid: 615bd98c-7d35-4600-8357-68a4bf8587cc
     name: Resource /customers/seek/{customerNumber}
     schema:
       uuid: 905d66dd908ce7b2bd5810d3012d9647
@@ -411,7 +411,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: bc75ca8d-6152-4cd9-843a-821976b7aef1
+    uuid: 62877afa-319d-4ced-9e2f-4fc34342a48e
     name: Resource /sites
     schema:
       uuid: 409573a699ea1a04124ebd618d5a3261
@@ -420,7 +420,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 77b15135-cc4d-410d-99eb-71d07c93766e
+    uuid: abd284ca-dff7-4cbd-be11-daa2221730f8
     name: Resource /addresses
     schema:
       uuid: 42aa5bb2288b25e8b361c4574d97f8b0
@@ -429,7 +429,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 6ade1cab-71bb-4c98-9ff0-6a9702d30596
+    uuid: cfc1b070-b600-409d-95d3-1034edbc847b
     name: Resource /customers/{customerNumber}
     schema:
       uuid: 19f58410e272f5d0e5fc6783f8578bb7
@@ -438,7 +438,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: ba48ddac-eec0-46ff-b156-7d2ff34eba2a
+    uuid: 42c45cbb-5ef7-454b-af41-cb7b0c1806da
     name: Resource /references
     schema:
       uuid: 42211cfcbd0fff7683fe218da57c60a3

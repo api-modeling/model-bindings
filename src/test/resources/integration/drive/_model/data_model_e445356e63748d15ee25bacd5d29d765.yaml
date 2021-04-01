@@ -115,7 +115,9 @@ entities:
         uuid: b249be939958bffb45b2b8d7e8b95e09
         required: true
         target: http://mulesoft.com/modeling/instances/019b787bcdc1f9b79859a3fdc5418935
-    extends: http://mulesoft.com/modeling/instances/782ef24e56e9d42dd5a2e82a62d733cf
+    extends:
+      -
+        uuid: 782ef24e56e9d42dd5a2e82a62d733cf
   ReplyWritable:
     uuid: e3f852697ccf4d41a3a47f70a692b113
     attributes:
@@ -136,8 +138,10 @@ entities:
     uuid: 4c207b4d7fad6e634d9de8cdf4d227cf
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 3267e144ce89a531a1a6ab072fd3e26d
     description: The user who wrote this comment.
-    extends: http://mulesoft.com/modeling/instances/3267e144ce89a531a1a6ab072fd3e26d
   ReplyList:
     uuid: 70f8bb850c05d164c3cc556af8ef93bb
     attributes:
@@ -175,8 +179,10 @@ entities:
     uuid: 8f20f0b88aebd46ffa8d1f00337c1bb4
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 3267e144ce89a531a1a6ab072fd3e26d
     description: The user who wrote this comment.
-    extends: http://mulesoft.com/modeling/instances/3267e144ce89a531a1a6ab072fd3e26d
   Reply:
     uuid: 019b787bcdc1f9b79859a3fdc5418935
     attributes:
@@ -222,7 +228,9 @@ entities:
         uuid: 50f7698b8273ca3222c479a5fa2dee27
         required: true
         target: http://mulesoft.com/modeling/instances/8f20f0b88aebd46ffa8d1f00337c1bb4
-    extends: http://mulesoft.com/modeling/instances/e3f852697ccf4d41a3a47f70a692b113
+    extends:
+      -
+        uuid: e3f852697ccf4d41a3a47f70a692b113
   context:
     uuid: 82768708cae3efde8df15a0c1b7d2473
     attributes:

@@ -50,6 +50,7 @@ const tests: {[path:string]: TestDescriptor} = {
         format: ApiParser.RAML1,
         syntax: ApiParser.YAML
     },
+
     "src/test/resources/integration/petstore": {
         mainFile: "petstore.json",
         format: ApiParser.OAS2,

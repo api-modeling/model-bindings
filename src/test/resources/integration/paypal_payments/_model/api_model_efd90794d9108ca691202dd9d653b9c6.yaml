@@ -1,0 +1,273 @@
+#%ApiModel 0.1
+uuid: efd90794d9108ca691202dd9d653b9c6
+name: payments_v2_api-spec.raml
+entities:
+  Entity22:
+    uuid: f07b10a97524039036c150cafab0e763
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 0dc88e055aeb6746e09f05146d8770e1
+  Entity17:
+    uuid: 4889dc87cc8b2afca36a79173acd9da0
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 9a655dbd9896c53fb42e2e3e7527f160
+  DefaultPayload:
+    uuid: 51966a8d00a36931d39f348835897cef
+    attributes: {}
+    associations: {}
+  Entity5:
+    uuid: 7eac1740f4765390cec2ec02c6f614b3
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 3d337397d7ce9f1c477b39de78ca92a6
+  Entity7:
+    uuid: 4cd7494cf73a159d482e93e399a69acb
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 9a655dbd9896c53fb42e2e3e7527f160
+  Entity12:
+    uuid: 0130697731fed8e6c2df4677c7ac7c3e
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 6034e92e08e4ca64c98866e70d14fe87
+  Entity10:
+    uuid: c674b5140b79fa0a809b065024cd32aa
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 545a07b625ae1da594f6a978f21248c1
+  Entity2:
+    uuid: fca837098d91f29b6870acebde071108
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 6034e92e08e4ca64c98866e70d14fe87
+  Entity25:
+    uuid: fb1e31b91eb80174b22731b02092e8b1
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 0dc88e055aeb6746e09f05146d8770e1
+  Entity20:
+    uuid: 6db48a0ef339b13eb8794ce69d0c7601
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: dbbfc6c69f5bc486cd5967a673d6de3d
+entryPoint:
+  uuid: 44633b8be592f11a11c635fcc6b7cdda
+  name: PayPal Payments v2
+  description: Call the Payments API to authorize payments, capture authorized payments, refund payments that have already been captured, and show payment information. Use the Payments API in conjunction with the <a href="/docs/limited-release/orders/api/">Orders API</a>.
+  operations:
+    -
+      uuid: 0c7e72f302b940b16cea93b8b9347612
+      name: Find Resource /authorizations/{authorization_id}
+      transition:
+        uuid: 1a1b67e9e852ea6e1dae30faca81d51d
+        target: http://mulesoft.com/modeling/instances/39ddd597-8e25-4422-8a72-1141be1dcf63
+      inputs:
+        -
+          scalarRange:
+            type: string
+          allowMultiple: false
+          uuid: e000887a73c4c5c37c6259d77e3fbae9
+          name: authorization_id
+          required: true
+          description: The ID of the authorized payment for which to show details.
+      output:
+        allowMultiple: false
+        uuid: a3c2f272fb1dd6c98468214082405cb7
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/fca837098d91f29b6870acebde071108
+      isMutation: false
+      type: custom
+    -
+      uuid: 23d5ea28b9d0bfe354c9e7c9b29db779
+      name: Find Resource /captures/{capture_id}
+      transition:
+        uuid: 2f1695ea7150331c4ce7ec57ef034ce3
+        target: http://mulesoft.com/modeling/instances/2883720b-7818-40d2-be17-4614ec12ccac
+      inputs:
+        -
+          scalarRange:
+            type: string
+          allowMultiple: false
+          uuid: 45a73750b94156b287be399530a96dbe
+          name: capture_id
+          required: true
+          description: The PayPal-generated ID for the captured payment for which to show details.
+      output:
+        allowMultiple: false
+        uuid: 58a843e13394b1a2d353211144dc0b8f
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/4889dc87cc8b2afca36a79173acd9da0
+      isMutation: false
+      type: custom
+    -
+      uuid: 3797099ec8a38dfb5f5c38b1c4abec66
+      name: Find Resource /refunds/{refund_id}
+      transition:
+        uuid: f8659fee44c17130957c434d20196f45
+        target: http://mulesoft.com/modeling/instances/13e2b29b-b411-443e-b1f9-59c915fe216c
+      inputs:
+        -
+          scalarRange:
+            type: string
+          allowMultiple: false
+          uuid: 442e3d26b53149d49cd948d7e432bfc0
+          name: refund_id
+          required: true
+          description: The PayPal-generated ID for the refund for which to show details.
+      output:
+        allowMultiple: false
+        uuid: db34bb2d7cf4d328ea68a84977cd689f
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/fb1e31b91eb80174b22731b02092e8b1
+      isMutation: false
+      type: custom
+resources:
+  -
+    uuid: 39ddd597-8e25-4422-8a72-1141be1dcf63
+    name: Resource /authorizations/{authorization_id}
+    schema:
+      uuid: fca837098d91f29b6870acebde071108
+      name: Entity2
+      attributes: {}
+      associations: {}
+      extends:
+        -
+          uuid: 6034e92e08e4ca64c98866e70d14fe87
+    operations:
+      -
+        uuid: 2cf1f35da2920cecafd060667139a26c
+        name: Create capture
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 5e86282c53140c167d3bec4c164aaec6
+            name: authorization_id
+            required: true
+            description: The ID of the authorized payment for which to show details.
+          -
+            allowMultiple: false
+            uuid: 7f0690439bd0b816b43ce683ed47ed69
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/7eac1740f4765390cec2ec02c6f614b3
+        output:
+          allowMultiple: false
+          uuid: dd7f40f3e567b520f718ee99ca56d6a2
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/4cd7494cf73a159d482e93e399a69acb
+        isMutation: true
+        type: custom
+      -
+        uuid: c1f6e19b677d347c202191ea8a80daf5
+        name: Create reauthorize
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: ea1342696f0cbc565c4e7458e8897bfc
+            name: authorization_id
+            required: true
+            description: The ID of the authorized payment for which to show details.
+          -
+            allowMultiple: false
+            uuid: c3852156a63ecdd04be3992dd28cfecc
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/c674b5140b79fa0a809b065024cd32aa
+        output:
+          allowMultiple: false
+          uuid: 74834b8aed67843ac920453f26ed589d
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/0130697731fed8e6c2df4677c7ac7c3e
+        isMutation: true
+        type: custom
+      -
+        uuid: 0fedeb01b4e2a7bfd074cbd1a7a8c594
+        name: Create void
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: a63242d101b219a93883644b9b75a2f7
+            name: authorization_id
+            required: true
+            description: The ID of the authorized payment for which to show details.
+        output:
+          allowMultiple: false
+          uuid: a616c17b9ac132100ba56b812c0f677c
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/51966a8d00a36931d39f348835897cef
+        isMutation: true
+        type: custom
+    type: individual
+  -
+    uuid: 2883720b-7818-40d2-be17-4614ec12ccac
+    name: Resource /captures/{capture_id}
+    schema:
+      uuid: 4889dc87cc8b2afca36a79173acd9da0
+      name: Entity17
+      attributes: {}
+      associations: {}
+      extends:
+        -
+          uuid: 9a655dbd9896c53fb42e2e3e7527f160
+    operations:
+      -
+        uuid: 700244fd10577301e25438e3154dbf06
+        name: Create refund
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 62aef6921c5e3d2948da8d846dbb512d
+            name: capture_id
+            required: true
+            description: The PayPal-generated ID for the captured payment for which to show details.
+          -
+            allowMultiple: false
+            uuid: 80fec43a3c83278afa86f08fb0233998
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/6db48a0ef339b13eb8794ce69d0c7601
+        output:
+          allowMultiple: false
+          uuid: bf2774a393d18ea1ddac228be1673937
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/f07b10a97524039036c150cafab0e763
+        isMutation: true
+        type: custom
+    type: individual
+  -
+    uuid: 13e2b29b-b411-443e-b1f9-59c915fe216c
+    name: Resource /refunds/{refund_id}
+    schema:
+      uuid: fb1e31b91eb80174b22731b02092e8b1
+      name: Entity25
+      attributes: {}
+      associations: {}
+      extends:
+        -
+          uuid: 0dc88e055aeb6746e09f05146d8770e1
+    operations: []
+    type: individual

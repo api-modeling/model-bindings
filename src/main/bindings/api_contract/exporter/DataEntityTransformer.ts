@@ -52,8 +52,10 @@ export class DataEntityTransformer extends ExporterBaseUtils{
         nodeShape.withProperties(scalarPropertyShapes.concat(objectPropertyShapes));
 
         if (entity.extends != null) {
-            const baseLink = this.context.generateLink(entity.id(), entity.extends!.id(), null);
-            nodeShape.withInherits([baseLink]);
+            const baseLinks = entity.extends.map((e) => this.context.generateLink(entity.id(), e.id(), null)).filter((l) => l != null);
+            if (baseLinks.length > 0) {
+                nodeShape.withInherits(baseLinks);
+            }
         }
 
         return nodeShape;
@@ -124,9 +126,11 @@ export class DataEntityTransformer extends ExporterBaseUtils{
             anyShape.withDescription(entity.description);
         }
 
-        if (entity.extends != null) {
-            const baseLink = this.context.generateLink(entity.id(), entity.extends!.id(), null);
-            anyShape.withInherits([baseLink]);
+        if (entity.extends != null && entity.extends.length > 0) {
+            const baseLinks = entity.extends.map((e) => this.context.generateLink(entity.id(), e.id(), null)).filter((l) => l != null);
+            if (baseLinks.length > 0) {
+                anyShape.withInherits(baseLinks);
+            }
         }
 
         return anyShape;

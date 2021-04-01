@@ -88,13 +88,17 @@ entities:
         uuid: 889be4241356d4ed511fa429abb49b29
         required: true
         target: http://mulesoft.com/modeling/instances/b46a1f864eabd435c697fe17a1ffe2ac
-    extends: http://mulesoft.com/modeling/instances/6716b144ba3b8154974e4ee649f22506
+    extends:
+      -
+        uuid: 6716b144ba3b8154974e4ee649f22506
   RevisionInsert:
     uuid: a1d76c00d232917c98e13d6d673b8c9f
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 6716b144ba3b8154974e4ee649f22506
     description: An object used to create / update the revision resource.
-    extends: http://mulesoft.com/modeling/instances/6716b144ba3b8154974e4ee649f22506
   RevisionBase:
     uuid: 6716b144ba3b8154974e4ee649f22506
     attributes:
@@ -162,5 +166,7 @@ entities:
     uuid: b46a1f864eabd435c697fe17a1ffe2ac
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 1c13612f940640fbfb407e35e1520b36
     description: The last user to modify this revision.
-    extends: http://mulesoft.com/modeling/instances/1c13612f940640fbfb407e35e1520b36

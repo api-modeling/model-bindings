@@ -6,47 +6,65 @@ entities:
     uuid: bb5e46eeba396c058b42377291fa72f1
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/299b29a05b90f585228d16706428bfb7
+    extends:
+      -
+        uuid: 299b29a05b90f585228d16706428bfb7
   Entity5:
     uuid: d4861699ec10147bfb85c5a3d01e2a45
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/b26f7cc61dc0825f1e1aa8a7f27db318
+    extends:
+      -
+        uuid: b26f7cc61dc0825f1e1aa8a7f27db318
   Entity17:
     uuid: 3699a256bcb69db517391993ff3edef4
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
+    extends:
+      -
+        uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
   Entity9:
     uuid: 8b08a0fba44bc3cbd575763d929a6c6f
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/92fdd416a12c1de0bd133a46d3565689
+    extends:
+      -
+        uuid: 92fdd416a12c1de0bd133a46d3565689
   Entity21:
     uuid: 4318869cf8f7347e638784f7c15cf4be
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
+    extends:
+      -
+        uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
   Entity19:
     uuid: 0acc780795076987c0cb5fac463c3fff
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
+    extends:
+      -
+        uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
   Entity14:
     uuid: ace1db9f973b1e43101006fbef16cb41
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
+    extends:
+      -
+        uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
   Entity11:
     uuid: 60d9fcb1e4e0de33a2119a028d196ec8
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/a83cba5affe762dbe0f932361b04d579
+    extends:
+      -
+        uuid: a83cba5affe762dbe0f932361b04d579
   Entity16:
     uuid: 761db6be76f60cd44375a0a0adf5b551
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
+    extends:
+      -
+        uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
 entryPoint:
   uuid: 4d51d1763e868f2493113f22adbeccca
   name: Retail Locations System API
@@ -56,7 +74,7 @@ entryPoint:
       name: Find Resource /productLocator
       transition:
         uuid: 8d8011490053910b69b9b2d8ee5222ab
-        target: http://mulesoft.com/modeling/instances/bc0cce70-eded-4cbb-9d8b-86fa2cba1738
+        target: http://mulesoft.com/modeling/instances/df0eca5c-f102-446f-8c81-524552494b75
       inputs:
         -
           scalarRange:
@@ -94,7 +112,7 @@ entryPoint:
       name: Find Resource /stores
       transition:
         uuid: d2d218e324d680b537dd178a8d4f3581
-        target: http://mulesoft.com/modeling/instances/98724fef-60a2-41cb-b8e9-0776348ff0a6
+        target: http://mulesoft.com/modeling/instances/46101029-393a-4c9b-b7c7-c0c658d318b1
       inputs:
         -
           scalarRange:
@@ -114,25 +132,29 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: bc0cce70-eded-4cbb-9d8b-86fa2cba1738
+    uuid: df0eca5c-f102-446f-8c81-524552494b75
     name: Resource /productLocator
     schema:
       uuid: d4861699ec10147bfb85c5a3d01e2a45
       name: Entity5
       attributes: {}
       associations: {}
-      extends: http://mulesoft.com/modeling/instances/b26f7cc61dc0825f1e1aa8a7f27db318
+      extends:
+        -
+          uuid: b26f7cc61dc0825f1e1aa8a7f27db318
     operations: []
     type: individual
   -
-    uuid: 98724fef-60a2-41cb-b8e9-0776348ff0a6
+    uuid: 46101029-393a-4c9b-b7c7-c0c658d318b1
     name: Resource /stores
     schema:
       uuid: bb5e46eeba396c058b42377291fa72f1
       name: Entity12
       attributes: {}
       associations: {}
-      extends: http://mulesoft.com/modeling/instances/299b29a05b90f585228d16706428bfb7
+      extends:
+        -
+          uuid: 299b29a05b90f585228d16706428bfb7
     operations:
       -
         uuid: 34097d74ffb3be354241c4168bc04a2e
@@ -155,7 +177,7 @@ resources:
         name: Find Resource /stores/{storeId}
         transition:
           uuid: 9f1c391ef932b53b71e5ad91789c58cd
-          target: http://mulesoft.com/modeling/instances/c34831d3-13c2-4849-bf2c-0fa42c266b21
+          target: http://mulesoft.com/modeling/instances/c9b913ac-a5e2-4cd2-8699-19d16358ba64
         inputs:
           -
             scalarRange:
@@ -173,14 +195,16 @@ resources:
         type: custom
     type: individual
   -
-    uuid: c34831d3-13c2-4849-bf2c-0fa42c266b21
+    uuid: c9b913ac-a5e2-4cd2-8699-19d16358ba64
     name: Resource /stores/{storeId}
     schema:
       uuid: 3699a256bcb69db517391993ff3edef4
       name: Entity17
       attributes: {}
       associations: {}
-      extends: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
+      extends:
+        -
+          uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
     operations:
       -
         uuid: 5944a0f12f4727e72fcbe872f211a703

@@ -58,8 +58,10 @@ entities:
         range:
           type: string
     associations: {}
+    extends:
+      -
+        uuid: 4a5b877b16baf0433452fd27ad1445c7
     description: An object representing periodical (weekly or mothly) sessions data.
-    extends: http://mulesoft.com/modeling/instances/4a5b877b16baf0433452fd27ad1445c7
   PeriodicalUsers:
     uuid: 7e5dcfcf88f22d473071b217e800267d
     attributes:
@@ -70,5 +72,7 @@ entities:
         range:
           type: string
     associations: {}
+    extends:
+      -
+        uuid: 4a5b877b16baf0433452fd27ad1445c7
     description: An object representing periodical (weekly or mothly) users data.
-    extends: http://mulesoft.com/modeling/instances/4a5b877b16baf0433452fd27ad1445c7

@@ -2,9 +2,27 @@
 uuid: de473bb7362625ed509703d5ab46d4bf
 name: message-sent-type.raml
 entities:
-  Entity5:
+  Entity1:
     uuid: e16ae3e4efdc9f8da10d20aff4d61dae
     attributes:
+      timestamp:
+        allowMultiple: false
+        uuid: 9d21b5ca08e748e84bb3e419a6bf9bf4
+        required: true
+        range:
+          type: integer
+      email:
+        allowMultiple: false
+        uuid: 9491a33c4278901c178fc181049ae1b9
+        required: true
+        range:
+          type: string
+      message:
+        allowMultiple: false
+        uuid: 3630146a2a78733de45091e6c2266e15
+        required: true
+        range:
+          type: string
       important:
         allowMultiple: false
         uuid: 11184144df97867b3087f6cca399269a
@@ -15,24 +33,6 @@ entities:
         allowMultiple: true
         uuid: 633756555204113ccf0b1c91a7a62f68
         required: false
-        range:
-          type: string
-      timestamp:
-        allowMultiple: false
-        uuid: 9d21b5ca08e748e84bb3e419a6bf9bf4
-        required: true
-        range:
-          type: integer
-      message:
-        allowMultiple: false
-        uuid: 3630146a2a78733de45091e6c2266e15
-        required: true
-        range:
-          type: string
-      email:
-        allowMultiple: false
-        uuid: 9491a33c4278901c178fc181049ae1b9
-        required: true
         range:
           type: string
     associations: {}

@@ -64,8 +64,8 @@ export class ExportContext {
      * @param entity
      */
     public effectiveEntity(entity: meta.Entity): meta.Entity {
-        if (entity.extends != null) {
-            return this.findEntityById(entity.extends.id());
+        if (entity.extends != null && entity.extends.length > 0) {
+            return this.findEntityById(entity.extends[0].id());
         } else if (entity.adapts != null) {
             return this.findEntityById(entity.adapts.id());
         } else {

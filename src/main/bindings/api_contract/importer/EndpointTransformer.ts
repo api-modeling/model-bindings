@@ -314,7 +314,7 @@ export class EndpointTransformer extends ShapeTransformer {
     private transformParamShape(schema: amf.model.domain.Shape, isBody: boolean): TransformedShape {
         const isArray = (schema instanceof amf.model.domain.ArrayShape);
 
-        if (isArray) {
+        if (isArray && (<amf.model.domain.ArrayShape>schema).items != null) {
             schema = (<amf.model.domain.ArrayShape>schema).items
         }
         if ($amfModel.isScalarShape(schema)) {

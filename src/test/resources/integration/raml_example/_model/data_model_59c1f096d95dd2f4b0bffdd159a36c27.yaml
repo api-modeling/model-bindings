@@ -5,33 +5,9 @@ entities:
   A person resource:
     uuid: b7a4094d2097ca0b7990dbb03c3c9d89
     attributes:
-      language:
-        allowMultiple: false
-        uuid: e93834d4853411021d6f4b7dc07a1fad
-        required: true
-        range:
-          type: string
-      name:
-        allowMultiple: false
-        uuid: d06a5682344a86ceda30b30977c1d951
-        required: true
-        range:
-          type: string
-      birthday:
-        allowMultiple: false
-        uuid: a632d4233741fee5e812fbfd3a923305
-        required: true
-        range:
-          type: string
       tagline:
         allowMultiple: false
         uuid: a7bda05225b7237e8627d5f31beffc88
-        required: true
-        range:
-          type: string
-      url:
-        allowMultiple: false
-        uuid: 1abe0adbfc4ba56c251fb6cfec022a38
         required: true
         range:
           type: string
@@ -41,10 +17,34 @@ entities:
         required: true
         range:
           type: string
+      url:
+        allowMultiple: false
+        uuid: 1abe0adbfc4ba56c251fb6cfec022a38
+        required: true
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: d06a5682344a86ceda30b30977c1d951
+        required: true
+        range:
+          type: string
+      language:
+        allowMultiple: false
+        uuid: e93834d4853411021d6f4b7dc07a1fad
+        required: true
+        range:
+          type: string
       gender:
         allowMultiple: false
         uuid: db652a268b236d740896b4401673b46b
         required: false
+        range:
+          type: string
+      birthday:
+        allowMultiple: false
+        uuid: a632d4233741fee5e812fbfd3a923305
+        required: true
         range:
           type: string
     associations:
@@ -53,8 +53,10 @@ entities:
         uuid: e07eed7e4b679abcce5a619fc2d2f2bb
         required: true
         target: http://mulesoft.com/modeling/instances/814446fda3f4cd75e707bef0cdd03371
+    extends:
+      -
+        uuid: 4a18f441ccb84be60e36735d1fcce169
     description: |
       An object representing a person in the API.
       This object will be used in all methods returning a Person or list of people.
     displayName: A person resource
-    extends: http://mulesoft.com/modeling/instances/4a18f441ccb84be60e36735d1fcce169

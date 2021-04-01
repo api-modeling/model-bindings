@@ -5,6 +5,18 @@ entities:
   A product resource:
     uuid: a74ec7704168414b535ce2436b191e64
     attributes:
+      available:
+        allowMultiple: false
+        uuid: f3615121a83199928a6175bf6ed837b2
+        required: true
+        range:
+          type: boolean
+      name:
+        allowMultiple: false
+        uuid: 8dd4e285cfd0cf65dfa927fd8417e492
+        required: true
+        range:
+          type: string
       quantity:
         allowMultiple: false
         uuid: fb47613a0d418ed86c3e5290c31b0b48
@@ -17,18 +29,6 @@ entities:
         required: true
         range:
           type: string
-      name:
-        allowMultiple: false
-        uuid: 8dd4e285cfd0cf65dfa927fd8417e492
-        required: true
-        range:
-          type: string
-      available:
-        allowMultiple: false
-        uuid: f3615121a83199928a6175bf6ed837b2
-        required: true
-        range:
-          type: boolean
       upc:
         allowMultiple: false
         uuid: 4430bd3165ddf80d11ae931d0690293a
@@ -42,6 +42,8 @@ entities:
         range:
           type: string
     associations: {}
+    extends:
+      -
+        uuid: 4a18f441ccb84be60e36735d1fcce169
     description: A single product representing an item in the store.
     displayName: A product resource
-    extends: http://mulesoft.com/modeling/instances/4a18f441ccb84be60e36735d1fcce169

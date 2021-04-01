@@ -189,9 +189,9 @@ export class CIMExporter {
 
         const properties = attributes.concat(associations);
 
-        if (entity.extends != null) {
+        if (entity.extends != null && entity.extends.length >0) {
             const superShape = {
-                "@id": this.toId(entity.extends?.name)
+                "@id": this.toId(entity.extends[0].name)
             }
             // @ts-ignore
             json['and'] = [

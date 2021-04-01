@@ -28,8 +28,10 @@ entities:
         range:
           type: string
     associations: {}
+    extends:
+      -
+        uuid: d8a192e986efd864b63934596012f0bd
     description: An object representing response for daily users.
-    extends: http://mulesoft.com/modeling/instances/d8a192e986efd864b63934596012f0bd
   DailySessions:
     uuid: 1c5c9e93ec1d75b44faf494ff7161b97
     attributes:
@@ -40,5 +42,7 @@ entities:
         range:
           type: string
     associations: {}
+    extends:
+      -
+        uuid: d8a192e986efd864b63934596012f0bd
     description: An object representing response for daily sessions.
-    extends: http://mulesoft.com/modeling/instances/d8a192e986efd864b63934596012f0bd

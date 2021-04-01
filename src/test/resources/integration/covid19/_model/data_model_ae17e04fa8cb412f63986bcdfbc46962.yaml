@@ -26,9 +26,11 @@ entities:
     uuid: ef9bc6452725142b641af686d6816f43
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 571b85d0cb6245c3228a3ed7eeebf195
     description: Geographic Information in Decimal Degrees (WGS1984)
     displayName: Geograpic Information
-    extends: http://mulesoft.com/modeling/instances/571b85d0cb6245c3228a3ed7eeebf195
   items:
     uuid: 0837378f901ba645440c416351bfe4bf
     attributes:

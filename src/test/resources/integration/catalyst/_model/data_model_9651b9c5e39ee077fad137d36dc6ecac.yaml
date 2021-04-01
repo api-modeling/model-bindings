@@ -26,9 +26,11 @@ entities:
     uuid: 9da12ed16b5173519db400c15ec15086
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 07edf644bc574623744fe6847d178811
     description: |
       a link to the last document in the series
-    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
   "":
     uuid: cf94eb011c5737437e546a75a1ca8215
   SalesUnit:
@@ -214,9 +216,11 @@ entities:
         range:
           type: string
     associations: {}
+    extends:
+      -
+        uuid: 178f5f386b29e96bc528ca35b1488b2d
     description: |
       collection of response messages
-    extends: http://mulesoft.com/modeling/instances/178f5f386b29e96bc528ca35b1488b2d
   CollectionResponse:
     uuid: 289aca1869b19df11da079d6b92c1798
     attributes: {}
@@ -226,16 +230,20 @@ entities:
         uuid: 8ab3b7e04a0366e0c2f7b83bfecbe501
         required: true
         target: http://mulesoft.com/modeling/instances/9de435d4f6781df456db362d85dad69e
+    extends:
+      -
+        uuid: edfe907fb1f0ae27e602dc506e18085c
     description: |
       collection of response messages
-    extends: http://mulesoft.com/modeling/instances/edfe907fb1f0ae27e602dc506e18085c
   next?:
     uuid: 6f266b755698b5131206d84f089d9b44
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 07edf644bc574623744fe6847d178811
     description: |
       a link to the next document in the series
-    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
   address?:
     uuid: 05937d82a00356e9e9d7527776dfb86c
   HypermediaMessage:
@@ -247,9 +255,11 @@ entities:
         uuid: eceeb7304bf1158935a2f0dfa09e403e
         required: false
         target: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
+    extends:
+      -
+        uuid: eacfb69f213e4c87bb8306bab6a8c05f
     description: |
       a hypermedia message
-    extends: http://mulesoft.com/modeling/instances/eacfb69f213e4c87bb8306bab6a8c05f
   Location:
     uuid: 0711f2126fe94ec59c202665d4d44c91
     attributes:
@@ -302,7 +312,9 @@ entities:
     uuid: 53c171d88cd573204b067ed38a9b949b
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/178f5f386b29e96bc528ca35b1488b2d
+    extends:
+      -
+        uuid: 178f5f386b29e96bc528ca35b1488b2d
   postalCode?:
     uuid: 49ef323bd1251336f0365f2e2fac3230
   Links:
@@ -384,16 +396,20 @@ entities:
         range:
           type: integer
     associations: {}
+    extends:
+      -
+        uuid: 446de2c9c53976f5b87f9fa90372e8fa
     description: |
       discrete quantity
-    extends: http://mulesoft.com/modeling/instances/446de2c9c53976f5b87f9fa90372e8fa
   prev?:
     uuid: 0f8ee53baf8488fbb88492c56302c12a
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 07edf644bc574623744fe6847d178811
     description: |
       a link to the previous document in the series
-    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
   recipient?:
     uuid: fa3bf7e582ae1c50653257516eeb8d4f
   country?:
@@ -408,9 +424,11 @@ entities:
         range:
           type: float
     associations: {}
+    extends:
+      -
+        uuid: 446de2c9c53976f5b87f9fa90372e8fa
     description: |
       continuous quantity
-    extends: http://mulesoft.com/modeling/instances/446de2c9c53976f5b87f9fa90372e8fa
   HypermediaResponseMetadata:
     uuid: 2ebf0d233074a0bdc7685437cd3f6bad
     attributes: {}
@@ -420,9 +438,11 @@ entities:
         uuid: e316ef62b321078e4a7f78812172d319
         required: true
         target: http://mulesoft.com/modeling/instances/eacfb69f213e4c87bb8306bab6a8c05f
+    extends:
+      -
+        uuid: 178f5f386b29e96bc528ca35b1488b2d
     description: |
       hypermedia response metadata
-    extends: http://mulesoft.com/modeling/instances/178f5f386b29e96bc528ca35b1488b2d
   mailStopCode?:
     uuid: 1886a33d42ad35d155deb5d42dba8c31
   HypermediaCollectionResponse:
@@ -439,32 +459,40 @@ entities:
         uuid: b495220581b573edc6b6d779bf4c5609
         required: true
         target: http://mulesoft.com/modeling/instances/349c4495d7d9fcfca199d2c32c008fa6
+    extends:
+      -
+        uuid: edfe907fb1f0ae27e602dc506e18085c
     description: |
       hypermedia collection response
-    extends: http://mulesoft.com/modeling/instances/edfe907fb1f0ae27e602dc506e18085c
   AddressUnit:
     uuid: 94e750a25772d9f154d6a5a90596a8c7
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 772fb238b6a143dcf4bd70e0d76a09af
     description: |
       address unit
-    extends: http://mulesoft.com/modeling/instances/772fb238b6a143dcf4bd70e0d76a09af
   state?:
     uuid: c957cd980014aae1eafc09ca384b752f
   ErrorResponse:
     uuid: d1404b0f369e0fc143c564eaef8121cb
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: edfe907fb1f0ae27e602dc506e18085c
     description: |
       error response
-    extends: http://mulesoft.com/modeling/instances/edfe907fb1f0ae27e602dc506e18085c
   first?:
     uuid: 8e3c2e5ee71870d08b77f7ecf02d1550
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 07edf644bc574623744fe6847d178811
     description: |
       a link to the first document in the series
-    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
   AddressUnitWithRequiredUnitNumber:
     uuid: 9f82ce26da35960444010dd33d56732d
     attributes:
@@ -487,7 +515,9 @@ entities:
     uuid: 5e83f6170d8834648c669960b04124a7
     attributes: {}
     associations: {}
-    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
+    extends:
+      -
+        uuid: 07edf644bc574623744fe6847d178811
   CollectionPagingLinks:
     uuid: 349c4495d7d9fcfca199d2c32c008fa6
     attributes: {}
@@ -517,16 +547,20 @@ entities:
         uuid: 94e74dd5e255e88a11e7a15c2a3dae95
         required: false
         target: http://mulesoft.com/modeling/instances/9da12ed16b5173519db400c15ec15086
+    extends:
+      -
+        uuid: 6ef8b259557116875c70ef34186ae6aa
     description: |
       collection of paging links
-    extends: http://mulesoft.com/modeling/instances/6ef8b259557116875c70ef34186ae6aa
   self?:
     uuid: d80a14cfe4f94a9205e02f2eddb800ee
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: 07edf644bc574623744fe6847d178811
     description: |
       conveys an identifier for the link's context.
-    extends: http://mulesoft.com/modeling/instances/07edf644bc574623744fe6847d178811
   ResponseMetadata:
     uuid: 178f5f386b29e96bc528ca35b1488b2d
     attributes: {}

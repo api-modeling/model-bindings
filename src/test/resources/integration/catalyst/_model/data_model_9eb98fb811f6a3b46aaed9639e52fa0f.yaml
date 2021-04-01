@@ -69,8 +69,10 @@ entities:
     uuid: 39e290fe2f61c472a67791fb8e9556f9
     attributes: {}
     associations: {}
+    extends:
+      -
+        uuid: cd5c8379be30bde0083cc6b885f13964
     description: Store address
-    extends: http://mulesoft.com/modeling/instances/cd5c8379be30bde0083cc6b885f13964
   Geo:
     uuid: 47b45bc69e91e16710d646d0f2f1d158
     attributes:

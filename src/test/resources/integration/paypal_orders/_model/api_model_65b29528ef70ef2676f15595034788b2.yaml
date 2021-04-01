@@ -1,0 +1,261 @@
+#%ApiModel 0.1
+uuid: 65b29528ef70ef2676f15595034788b2
+name: orders_v2_api-spec.raml
+entities:
+  Entity14:
+    uuid: 25a817e49268938b32fa97d18e2fb444
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: b6774b8fc5274cea165f0d9c69431f71
+  Entity27:
+    uuid: 0e815863d1895cac818d2af970b274c9
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: b6774b8fc5274cea165f0d9c69431f71
+  Entity8:
+    uuid: 8ff67f2e3ea8a1fd1cb3f578403ba143
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: b6774b8fc5274cea165f0d9c69431f71
+  Entity25:
+    uuid: ac1610a3be2cc64beedb2221f39c9a07
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 5078bc855e909b7f9ac28a7b05f4bb46
+  Entity22:
+    uuid: e6be87a1a254c213ac00fe83a045edf8
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: b6774b8fc5274cea165f0d9c69431f71
+  Entity19:
+    uuid: 71af2225ad31414d640d53b721f6f04d
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: b6774b8fc5274cea165f0d9c69431f71
+  Entity17:
+    uuid: b2abfc53187933e1eba50be40edb6618
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 5078bc855e909b7f9ac28a7b05f4bb46
+  Entity7:
+    uuid: 448432a2915fe6ff78d2fb02ccb1cf00
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: b6774b8fc5274cea165f0d9c69431f71
+  Entity30:
+    uuid: ed9bbd9f6b39d43055151a1205e7469c
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: b6774b8fc5274cea165f0d9c69431f71
+  Entity5:
+    uuid: 9175a96cdae9d6d4ecc72ed9457f833d
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 7264c3388b1c6b2ad2a6d66986bfc59a
+  "":
+    uuid: 3ed1493ebe740087ed09daaff8a0bb7c
+  Entity12:
+    uuid: 8563a025570e6dbd50ee28033b931ee5
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 315d7aa629d4308e6f96397808415b02
+entryPoint:
+  uuid: dad584e86f3c5aba7e08bed76be12494
+  name: PayPal Orders v2
+  description: Use the Orders API to create, update, show details for, authorize and capture payments for, save, and void orders.
+  operations:
+    -
+      uuid: 39eee8c3c807f5397eb6cdb14466696e
+      name: Find Resource /orders/{order_id}
+      transition:
+        uuid: 6954657ca2925e50a81107df19f52163
+        target: http://mulesoft.com/modeling/instances/dc6097fa-a5e6-4947-946e-1d49d56b3894
+      inputs:
+        -
+          scalarRange:
+            type: string
+          allowMultiple: false
+          uuid: 3bd0d93b18fd9a1547895a223e7fd7f9
+          name: order_id
+          required: true
+          description: The ID of the order to update.
+      output:
+        allowMultiple: false
+        uuid: fcb91875d37d341baebfd3a4b29195bf
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/8ff67f2e3ea8a1fd1cb3f578403ba143
+      isMutation: false
+      type: custom
+    -
+      uuid: d1909426cfe64f4126c354442ffa2126
+      name: Create orders
+      inputs:
+        -
+          allowMultiple: false
+          uuid: 794156e02d4e23c3d0a005b9b908e30f
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/9175a96cdae9d6d4ecc72ed9457f833d
+      output:
+        allowMultiple: false
+        uuid: e6a409acbef607e2c4d39f6cf24c9d4c
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/448432a2915fe6ff78d2fb02ccb1cf00
+      isMutation: true
+      type: custom
+resources:
+  -
+    uuid: dc6097fa-a5e6-4947-946e-1d49d56b3894
+    name: Resource /orders/{order_id}
+    schema:
+      uuid: 8ff67f2e3ea8a1fd1cb3f578403ba143
+      name: Entity8
+      attributes: {}
+      associations: {}
+      extends:
+        -
+          uuid: b6774b8fc5274cea165f0d9c69431f71
+    operations:
+      -
+        uuid: 75c0d9b82cbd8154c6a3732a4312fb3f
+        name: Create capture
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 6768556231aa8ec512f305bbc06470b5
+            name: order_id
+            required: true
+            description: The ID of the order to update.
+          -
+            allowMultiple: false
+            uuid: c43a0ece378e60898fe99a6aabf7d145
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/b2abfc53187933e1eba50be40edb6618
+        output:
+          allowMultiple: false
+          uuid: d3b56c542e1d93a345f0e7751587bd4d
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/71af2225ad31414d640d53b721f6f04d
+        isMutation: true
+        type: custom
+      -
+        uuid: a75770e0adbfbf833bba28d2e903ba99
+        name: Patch
+        inputs:
+          -
+            allowMultiple: true
+            uuid: 80bcc9c031b325f054d8635221565e32
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/3ed1493ebe740087ed09daaff8a0bb7c
+        isMutation: true
+        type: custom
+      -
+        uuid: 96280918567d8c91dd3c4ecc3a362ec5
+        name: Create void
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: b662c1a1e4560beaa1cf6feefa2d83d4
+            name: order_id
+            required: true
+            description: The ID of the order to update.
+        output:
+          allowMultiple: false
+          uuid: 59a1ea604521eaff4b46f59e4c90869f
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/ed9bbd9f6b39d43055151a1205e7469c
+        isMutation: true
+        type: custom
+      -
+        uuid: edf3eef409b5f53b5bc78f9d03c6388f
+        name: Create validate-payment-method
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 40b393a53a3eb225e1008584fd6dd98d
+            name: order_id
+            required: true
+            description: The ID of the order to update.
+          -
+            allowMultiple: false
+            uuid: 84b917f84d7f099e3ddf835d4ac125f3
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/ac1610a3be2cc64beedb2221f39c9a07
+        output:
+          allowMultiple: false
+          uuid: a10717bf7721d0275206065e9212ff0b
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/0e815863d1895cac818d2af970b274c9
+        isMutation: true
+        type: custom
+      -
+        uuid: 6c463beccb75fdb9610bd20185e4a40f
+        name: Create save
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 5e3a8c875136567260700975eb864331
+            name: order_id
+            required: true
+            description: The ID of the order to update.
+        output:
+          allowMultiple: false
+          uuid: 0259ac4f965d94ed3052f1b5d8f04dca
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/e6be87a1a254c213ac00fe83a045edf8
+        isMutation: true
+        type: custom
+      -
+        uuid: 87e2316a18f6bf397d9e967938c41ebf
+        name: Create authorize
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 44ad218e07fb832a3a615d2a784d6dbb
+            name: order_id
+            required: true
+            description: The ID of the order to update.
+          -
+            allowMultiple: false
+            uuid: 98f97160bea00a6775e2252b91d5f3a2
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/8563a025570e6dbd50ee28033b931ee5
+        output:
+          allowMultiple: false
+          uuid: 39a441e2412a305cfdce58d87aafe78d
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/25a817e49268938b32fa97d18e2fb444
+        isMutation: true
+        type: custom
+    type: individual
