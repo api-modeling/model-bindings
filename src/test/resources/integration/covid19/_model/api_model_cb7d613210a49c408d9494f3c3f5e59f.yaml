@@ -62,7 +62,7 @@ entryPoint:
       name: Find Resource /covid19/v1
       transition:
         uuid: 353c7f0272ddf1b4548e7315267b0b36
-        target: http://mulesoft.com/modeling/instances/0ef852fc-f1cb-4ef7-9674-13441c1a569d
+        target: http://mulesoft.com/modeling/instances/1879a7e7-f198-4264-8761-60d470abbe2f
       inputs: []
       output:
         allowMultiple: false
@@ -73,7 +73,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: 5e820e79-4bd8-431a-8f99-fa34cc4db2f8
+    uuid: 8efbb6c0-c374-467c-9558-7a057c5f0c5c
     name: Resource /covid19/v1/cases/covidTracking
     schema:
       uuid: ad024fa0d3955c544beb9242cd991de2
@@ -87,7 +87,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 2d936182-6678-4024-8ef1-26aea3727003
+    uuid: a1a276d8-1938-4b03-9657-52260b84021c
     name: Resource /covid19/v1/cases/eucdc
     schema:
       uuid: 365fec9e0a739d2ad133e2b86f4faedf
@@ -101,7 +101,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 13183798-53ca-4ee9-8def-3eb647671d16
+    uuid: 6e6f5eb1-1301-4288-9ae2-ca1ffe60e2ce
     name: Resource /covid19/v1/locations
     schema:
       uuid: 67ea23565400b47330410a6e5877f971
@@ -115,7 +115,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 8f235060-4621-4f86-ab59-0951cd82f7d1
+    uuid: 1d4ae00e-29cc-4de0-9b93-1895d9d752ab
     name: Resource /covid19/v1/cases/newYorkTimes
     schema:
       uuid: 93755df34d570002932d8164e7e1fb51
@@ -129,7 +129,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 50591f16-5f1b-47c8-b66a-053604493c65
+    uuid: ad423028-45e1-4d0d-a041-6e20a704f949
     name: Resource /covid19/v1/high-level-policy
     schema:
       uuid: 0fd9ac1969a97a1f263dcac0552b24f1
@@ -143,7 +143,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 0ef852fc-f1cb-4ef7-9674-13441c1a569d
+    uuid: 1879a7e7-f198-4264-8761-60d470abbe2f
     name: Resource /covid19/v1
     schema:
       uuid: dc452b978847c29804ffa40c6f551ed5
@@ -156,7 +156,7 @@ resources:
         name: Find Resource /covid19/v1/cases
         transition:
           uuid: 441e439a99db8c04670fdf6737aa9961
-          target: http://mulesoft.com/modeling/instances/8b4a5378-5bff-4610-9030-0f0f73ec4463
+          target: http://mulesoft.com/modeling/instances/37e26028-647f-497c-9d4f-6052e1a22165
         inputs: []
         output:
           allowMultiple: false
@@ -170,7 +170,7 @@ resources:
         name: Find Resource /covid19/v1/high-level-policy
         transition:
           uuid: 7cd5f4baa78123d3d7e4d01555a6aab2
-          target: http://mulesoft.com/modeling/instances/50591f16-5f1b-47c8-b66a-053604493c65
+          target: http://mulesoft.com/modeling/instances/ad423028-45e1-4d0d-a041-6e20a704f949
         inputs:
           -
             scalarRange:
@@ -200,7 +200,7 @@ resources:
         name: Find Resource /covid19/v1/locations
         transition:
           uuid: 52ca6913c376d3cc2c290e7e24a69921
-          target: http://mulesoft.com/modeling/instances/13183798-53ca-4ee9-8def-3eb647671d16
+          target: http://mulesoft.com/modeling/instances/6e6f5eb1-1301-4288-9ae2-ca1ffe60e2ce
         inputs:
           -
             scalarRange:
@@ -219,7 +219,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 8b4a5378-5bff-4610-9030-0f0f73ec4463
+    uuid: 37e26028-647f-497c-9d4f-6052e1a22165
     name: Resource /covid19/v1/cases
     schema:
       uuid: c15341e085145de768f0b52498019113
@@ -233,7 +233,7 @@ resources:
         name: Find Resource /covid19/v1/cases/covidTracking
         transition:
           uuid: 059ad319b5693091ed10c3510aa1027c
-          target: http://mulesoft.com/modeling/instances/5e820e79-4bd8-431a-8f99-fa34cc4db2f8
+          target: http://mulesoft.com/modeling/instances/8efbb6c0-c374-467c-9558-7a057c5f0c5c
         inputs:
           -
             scalarRange:
@@ -263,7 +263,7 @@ resources:
         name: Find Resource /covid19/v1/cases/eucdc
         transition:
           uuid: 9dfecaafb6b6eb613ea139cfe23bf5a6
-          target: http://mulesoft.com/modeling/instances/2d936182-6678-4024-8ef1-26aea3727003
+          target: http://mulesoft.com/modeling/instances/a1a276d8-1938-4b03-9657-52260b84021c
         inputs:
           -
             scalarRange:
@@ -293,7 +293,7 @@ resources:
         name: Find Resource /covid19/v1/cases/newYorkTimes
         transition:
           uuid: 0b061f4bad7a7fa8b01abc865a80b719
-          target: http://mulesoft.com/modeling/instances/8f235060-4621-4f86-ab59-0951cd82f7d1
+          target: http://mulesoft.com/modeling/instances/1d4ae00e-29cc-4de0-9b93-1895d9d752ab
         inputs:
           -
             scalarRange:

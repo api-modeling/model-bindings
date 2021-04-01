@@ -27,7 +27,7 @@ entryPoint:
       name: Find Resource /pets
       transition:
         uuid: 3b71b93488ed05989ff5139e18dea4ba
-        target: http://mulesoft.com/modeling/instances/e335ffd0-758c-43fc-bd6e-30ec39a763a3
+        target: http://mulesoft.com/modeling/instances/dc8bfc0b-be9d-4647-a484-89c66a5678f9
       inputs:
         -
           scalarRange:
@@ -54,7 +54,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: e335ffd0-758c-43fc-bd6e-30ec39a763a3
+    uuid: dc8bfc0b-be9d-4647-a484-89c66a5678f9
     name: Resource /pets
     operations:
       -
@@ -85,9 +85,9 @@ resources:
         isMutation: false
         type: custom
     type: collection
-    member: http://mulesoft.com/modeling/instances/4c8123fb-495d-42d2-954c-e6a9981ae729
+    member: http://mulesoft.com/modeling/instances/2ffa9468-e02f-49cd-89e0-62a31e71197f
   -
-    uuid: 4c8123fb-495d-42d2-954c-e6a9981ae729
+    uuid: 2ffa9468-e02f-49cd-89e0-62a31e71197f
     name: Resource /pets/{id}
     schema:
       uuid: 1e48be7e336c4a421b360e7e4522bb8e

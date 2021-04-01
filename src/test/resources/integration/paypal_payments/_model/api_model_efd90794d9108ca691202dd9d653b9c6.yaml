@@ -79,7 +79,7 @@ entryPoint:
       name: Find Resource /authorizations/{authorization_id}
       transition:
         uuid: 1a1b67e9e852ea6e1dae30faca81d51d
-        target: http://mulesoft.com/modeling/instances/39ddd597-8e25-4422-8a72-1141be1dcf63
+        target: http://mulesoft.com/modeling/instances/3bae724e-6787-46bf-bb6c-a0f5866cfeba
       inputs:
         -
           scalarRange:
@@ -101,7 +101,7 @@ entryPoint:
       name: Find Resource /captures/{capture_id}
       transition:
         uuid: 2f1695ea7150331c4ce7ec57ef034ce3
-        target: http://mulesoft.com/modeling/instances/2883720b-7818-40d2-be17-4614ec12ccac
+        target: http://mulesoft.com/modeling/instances/3dbc8a47-4832-4264-b458-3900f995ebd5
       inputs:
         -
           scalarRange:
@@ -123,7 +123,7 @@ entryPoint:
       name: Find Resource /refunds/{refund_id}
       transition:
         uuid: f8659fee44c17130957c434d20196f45
-        target: http://mulesoft.com/modeling/instances/13e2b29b-b411-443e-b1f9-59c915fe216c
+        target: http://mulesoft.com/modeling/instances/d20b8e1e-4ca3-4f48-a07b-07f2b6d93810
       inputs:
         -
           scalarRange:
@@ -142,7 +142,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: 39ddd597-8e25-4422-8a72-1141be1dcf63
+    uuid: 3bae724e-6787-46bf-bb6c-a0f5866cfeba
     name: Resource /authorizations/{authorization_id}
     schema:
       uuid: fca837098d91f29b6870acebde071108
@@ -222,7 +222,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 2883720b-7818-40d2-be17-4614ec12ccac
+    uuid: 3dbc8a47-4832-4264-b458-3900f995ebd5
     name: Resource /captures/{capture_id}
     schema:
       uuid: 4889dc87cc8b2afca36a79173acd9da0
@@ -259,7 +259,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 13e2b29b-b411-443e-b1f9-59c915fe216c
+    uuid: d20b8e1e-4ca3-4f48-a07b-07f2b6d93810
     name: Resource /refunds/{refund_id}
     schema:
       uuid: fb1e31b91eb80174b22731b02092e8b1

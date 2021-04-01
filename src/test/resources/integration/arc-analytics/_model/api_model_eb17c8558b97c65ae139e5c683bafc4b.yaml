@@ -68,7 +68,7 @@ entryPoint:
       name: Find Resource /analytics/query
       transition:
         uuid: c6d607dcd8c94e83cb94d9a9fa652f6c
-        target: http://mulesoft.com/modeling/instances/2fdede48-a44a-42ed-b753-357ad963f464
+        target: http://mulesoft.com/modeling/instances/b76f2731-2b73-42b3-a115-244604c678c5
       inputs: []
       output:
         allowMultiple: false
@@ -82,7 +82,7 @@ entryPoint:
       name: Find Resource /tasks
       transition:
         uuid: ed5f49efc3d35e1d9405b05e7a7c10f1
-        target: http://mulesoft.com/modeling/instances/8a063b0b-5871-415a-b26e-3f6481de4934
+        target: http://mulesoft.com/modeling/instances/9f1a7e47-350f-47e7-84d5-7abf0d7d05f4
       inputs: []
       output:
         allowMultiple: false
@@ -96,7 +96,7 @@ entryPoint:
       name: Find Resource /.well-known//acme-challenge/{challenge}
       transition:
         uuid: d2e3db4d756f985a73c7617bd0770271
-        target: http://mulesoft.com/modeling/instances/f1aabbfa-4c2f-447c-a7d2-05292460957d
+        target: http://mulesoft.com/modeling/instances/0223f7b0-f6cb-43a6-8681-4e763a963c19
       inputs:
         -
           scalarRange:
@@ -119,7 +119,7 @@ entryPoint:
       name: Find Resource /analyzer
       transition:
         uuid: e39842d2683fe5b517f7c281b45ba6b0
-        target: http://mulesoft.com/modeling/instances/08d162d1-a06e-46ed-bcb8-6e01164df2dc
+        target: http://mulesoft.com/modeling/instances/154f2353-9924-469d-b406-3becdc5186dc
       inputs: []
       output:
         allowMultiple: false
@@ -146,7 +146,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: 08d162d1-a06e-46ed-bcb8-6e01164df2dc
+    uuid: 154f2353-9924-469d-b406-3becdc5186dc
     name: Resource /analyzer
     schema:
       uuid: 42c462efbea9d95772e830f7ba934a09
@@ -164,7 +164,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 8a063b0b-5871-415a-b26e-3f6481de4934
+    uuid: 9f1a7e47-350f-47e7-84d5-7abf0d7d05f4
     name: Resource /tasks
     schema:
       uuid: beec502cfdad15c6adcf6f7ed799f1ad
@@ -181,7 +181,7 @@ resources:
         name: Find Resource /tasks/{scope}/{type}
         transition:
           uuid: 1bb90ca95ff3c8d856c758f7b2033c3f
-          target: http://mulesoft.com/modeling/instances/5216c478-9e32-4a7b-b956-313cdd7f97bc
+          target: http://mulesoft.com/modeling/instances/98b98ce4-600d-43a5-ba20-5e948f0a94c5
         inputs:
           -
             scalarRange:
@@ -209,12 +209,12 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 5216c478-9e32-4a7b-b956-313cdd7f97bc
+    uuid: 98b98ce4-600d-43a5-ba20-5e948f0a94c5
     name: Resource /tasks/{scope}/{type}
     operations: []
     type: individual
   -
-    uuid: b1212367-9861-4b0e-8f34-ce518ca714b2
+    uuid: 53be730d-1d05-4ecd-99c8-3df813194e48
     name: Resource /analytics/query/{scope}
     schema:
       uuid: b046627de2875ee9a097d1b929b3a7d5
@@ -225,7 +225,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 2fdede48-a44a-42ed-b753-357ad963f464
+    uuid: b76f2731-2b73-42b3-a115-244604c678c5
     name: Resource /analytics/query
     schema:
       uuid: d436e41d7f15c8fbbd1f48409f03297c
@@ -247,7 +247,7 @@ resources:
         name: Find Resource /analytics/query/daily
         transition:
           uuid: c9135f127c8f1c73f139ae58f9d6ffcb
-          target: http://mulesoft.com/modeling/instances/689931ce-7865-4f3e-89f6-389af6a11564
+          target: http://mulesoft.com/modeling/instances/b4087fac-a6f2-4a09-989b-310bf478a17a
         inputs: []
         output:
           allowMultiple: false
@@ -261,7 +261,7 @@ resources:
         name: Find Resource /analytics/query/{scope}
         transition:
           uuid: a9b04bc4796fa4614547412e282e1281
-          target: http://mulesoft.com/modeling/instances/b1212367-9861-4b0e-8f34-ce518ca714b2
+          target: http://mulesoft.com/modeling/instances/53be730d-1d05-4ecd-99c8-3df813194e48
         inputs:
           -
             scalarRange:
@@ -281,7 +281,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: f1aabbfa-4c2f-447c-a7d2-05292460957d
+    uuid: 0223f7b0-f6cb-43a6-8681-4e763a963c19
     name: Resource /.well-known//acme-challenge/{challenge}
     schema:
       uuid: 8d138f7a5b62e40fd255f51eb7a2cd3f
@@ -290,7 +290,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 689931ce-7865-4f3e-89f6-389af6a11564
+    uuid: b4087fac-a6f2-4a09-989b-310bf478a17a
     name: Resource /analytics/query/daily
     schema:
       uuid: b60051d33db88311d98438c718681b9a

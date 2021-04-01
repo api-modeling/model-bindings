@@ -134,7 +134,7 @@ entryPoint:
       name: Find Resource /messages
       transition:
         uuid: b8123ab315f797a54b9f3f638528294a
-        target: http://mulesoft.com/modeling/instances/ad7ee6f7-2149-4d7c-b5c2-135647dcc83c
+        target: http://mulesoft.com/modeling/instances/412f967b-9b30-451f-9d11-ecfa6466cfd5
       inputs:
         -
           scalarRange:
@@ -164,7 +164,7 @@ entryPoint:
       name: Find Resource /orgs
       transition:
         uuid: 9965d705911ae6a95e89af84d59b4c5e
-        target: http://mulesoft.com/modeling/instances/838619fd-3e77-45a2-a103-5e20ad7f492b
+        target: http://mulesoft.com/modeling/instances/f5914633-f359-407e-b15d-58405e5daa03
       inputs: []
       output:
         allowMultiple: false
@@ -178,7 +178,7 @@ entryPoint:
       name: Find Resource /people
       transition:
         uuid: b152af2ee1a31876801b53593a7076b5
-        target: http://mulesoft.com/modeling/instances/40ad6998-8653-4cc2-b5f0-05a6ed2f6984
+        target: http://mulesoft.com/modeling/instances/f6b083a3-fb3b-4d2b-8d39-cabea29f6c4b
       inputs: []
       output:
         allowMultiple: false
@@ -192,7 +192,7 @@ entryPoint:
       name: Find Resource /products
       transition:
         uuid: f867629390a686a75e4668230c050541
-        target: http://mulesoft.com/modeling/instances/f5f1acec-96c3-4af6-a216-3aaaeff052b6
+        target: http://mulesoft.com/modeling/instances/c312270a-0c45-40d3-b85a-e2ee77b33ba1
       inputs: []
       output:
         allowMultiple: false
@@ -203,7 +203,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: f5f1acec-96c3-4af6-a216-3aaaeff052b6
+    uuid: c312270a-0c45-40d3-b85a-e2ee77b33ba1
     name: Resource /products
     schema:
       uuid: 739e8868c8a6a674f907e2bb51705646
@@ -233,7 +233,7 @@ resources:
         name: Find Resource /products/{productId}
         transition:
           uuid: 00baa69f2b2ddf12fb3c418cba1ad38d
-          target: http://mulesoft.com/modeling/instances/a6ecd2cd-7f06-4b8c-a84e-454b429f71aa
+          target: http://mulesoft.com/modeling/instances/6da1ef65-ae87-4a96-ae2a-fc2d2dfe7e8b
         inputs:
           -
             scalarRange:
@@ -251,7 +251,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 49926eb8-4da9-4b6d-a934-0d8d339cdbcc
+    uuid: 4620266c-87eb-4f0e-b56c-5791aa817d7a
     name: Resource /people/{personId}
     schema:
       uuid: b5141da7d39a9157b8ca4d371e9d2aca
@@ -282,7 +282,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: a6ecd2cd-7f06-4b8c-a84e-454b429f71aa
+    uuid: 6da1ef65-ae87-4a96-ae2a-fc2d2dfe7e8b
     name: Resource /products/{productId}
     schema:
       uuid: 6dc0db043e1a9f202b8df0164b3d1591
@@ -295,7 +295,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: 838619fd-3e77-45a2-a103-5e20ad7f492b
+    uuid: f5914633-f359-407e-b15d-58405e5daa03
     name: Resource /orgs
     schema:
       uuid: fe479fcb78cd9f7d17a401d00138dd34
@@ -308,7 +308,7 @@ resources:
         name: Find Resource /orgs/{orgId}
         transition:
           uuid: 180e989d5ccf26228c6f304853fea6c4
-          target: http://mulesoft.com/modeling/instances/e93e8ad4-beab-4648-978c-40c5f4a5ea93
+          target: http://mulesoft.com/modeling/instances/7001dff5-b508-489a-8742-237fd0ec059d
         inputs:
           -
             scalarRange:
@@ -326,7 +326,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: ad7ee6f7-2149-4d7c-b5c2-135647dcc83c
+    uuid: 412f967b-9b30-451f-9d11-ecfa6466cfd5
     name: Resource /messages
     operations:
       -
@@ -363,7 +363,7 @@ resources:
         type: custom
     type: collection
   -
-    uuid: e93e8ad4-beab-4648-978c-40c5f4a5ea93
+    uuid: 7001dff5-b508-489a-8742-237fd0ec059d
     name: Resource /orgs/{orgId}
     schema:
       uuid: 6db719232fae2b121f6e8a3575f61088
@@ -401,7 +401,7 @@ resources:
         name: Find Resource /orgs/{orgId}/managers
         transition:
           uuid: 998866108d190f0c701063923e625bec
-          target: http://mulesoft.com/modeling/instances/aef7bb6b-9980-4eae-ae80-1cc03a04f1a1
+          target: http://mulesoft.com/modeling/instances/3a924389-c1c9-4c55-9880-f5dd608fa99d
         inputs:
           -
             scalarRange:
@@ -419,7 +419,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 40ad6998-8653-4cc2-b5f0-05a6ed2f6984
+    uuid: f6b083a3-fb3b-4d2b-8d39-cabea29f6c4b
     name: Resource /people
     schema:
       uuid: e0993662948fd206cb5d184a8a5643fd
@@ -444,7 +444,7 @@ resources:
         name: Find Resource /people/{personId}
         transition:
           uuid: 0d704bb4fa90f939cfbd24f3c4cdde02
-          target: http://mulesoft.com/modeling/instances/49926eb8-4da9-4b6d-a934-0d8d339cdbcc
+          target: http://mulesoft.com/modeling/instances/4620266c-87eb-4f0e-b56c-5791aa817d7a
         inputs:
           -
             scalarRange:
@@ -463,7 +463,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: aef7bb6b-9980-4eae-ae80-1cc03a04f1a1
+    uuid: 3a924389-c1c9-4c55-9880-f5dd608fa99d
     name: Resource /orgs/{orgId}/managers
     operations: []
     type: collection
