@@ -2,25 +2,54 @@
 uuid: 44fc06a6d6922038caee6ea4fb1eb095
 name: example-types.raml
 entities:
-  Admin:
-    uuid: 79203ecfbb7a0d82adfef2f267653ec0
+  Alertable:
+    uuid: a033384477e1b81a14f29a4660173bb5
+    disjoint:
+      -
+        uuid: c0412ffd0c158dddb7052718b2f54985
+      -
+        uuid: cc6660040352f0e0dfcfb750a087df1f
+  Person:
+    uuid: 384b41a8c1b8e87f0515174c6aa57e9a
     attributes:
-      kind:
+      firstname:
         allowMultiple: false
-        uuid: 05be7d731cae87e94222ebdeb581a2f8
+        uuid: 084f9326f606ef14c134378d4fc67f79
         required: true
         range:
           type: string
-      clearanceLevel:
+      lastname:
         allowMultiple: false
-        uuid: cfdb78490a0fb697ca2c355facc77234
+        uuid: 8768c5a41786cff97ff9dc27aa244768
+        required: true
+        range:
+          type: string
+      title:
+        allowMultiple: false
+        uuid: afab5aa0c6947b767816076741aa393a
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 4ea6e62d621202874bf62adcf20f109b
+        required: true
+        range:
+          type: string
+    associations: {}
+  AlertableAdmin:
+    uuid: cc6660040352f0e0dfcfb750a087df1f
+    attributes:
+      phone:
+        allowMultiple: false
+        uuid: 078c0a2271734975c6c8217a836b9591
         required: true
         range:
           type: string
     associations: {}
     extends:
       -
-        uuid: 384b41a8c1b8e87f0515174c6aa57e9a
+        uuid: 79203ecfbb7a0d82adfef2f267653ec0
   Org:
     uuid: 8a079d12cd32463c41fa59f72e81f0e1
     attributes: {}
@@ -60,51 +89,22 @@ entities:
     extends:
       -
         uuid: 384b41a8c1b8e87f0515174c6aa57e9a
-  AlertableAdmin:
-    uuid: cc6660040352f0e0dfcfb750a087df1f
+  Admin:
+    uuid: 79203ecfbb7a0d82adfef2f267653ec0
     attributes:
-      phone:
+      kind:
         allowMultiple: false
-        uuid: 078c0a2271734975c6c8217a836b9591
+        uuid: 05be7d731cae87e94222ebdeb581a2f8
+        required: true
+        range:
+          type: string
+      clearanceLevel:
+        allowMultiple: false
+        uuid: cfdb78490a0fb697ca2c355facc77234
         required: true
         range:
           type: string
     associations: {}
     extends:
       -
-        uuid: 79203ecfbb7a0d82adfef2f267653ec0
-  Alertable:
-    uuid: a033384477e1b81a14f29a4660173bb5
-    disjoint:
-      -
-        uuid: c0412ffd0c158dddb7052718b2f54985
-      -
-        uuid: cc6660040352f0e0dfcfb750a087df1f
-  Person:
-    uuid: 384b41a8c1b8e87f0515174c6aa57e9a
-    attributes:
-      firstname:
-        allowMultiple: false
-        uuid: 084f9326f606ef14c134378d4fc67f79
-        required: true
-        range:
-          type: string
-      lastname:
-        allowMultiple: false
-        uuid: 8768c5a41786cff97ff9dc27aa244768
-        required: true
-        range:
-          type: string
-      title:
-        allowMultiple: false
-        uuid: afab5aa0c6947b767816076741aa393a
-        required: false
-        range:
-          type: string
-      kind:
-        allowMultiple: false
-        uuid: 4ea6e62d621202874bf62adcf20f109b
-        required: true
-        range:
-          type: string
-    associations: {}
+        uuid: 384b41a8c1b8e87f0515174c6aa57e9a

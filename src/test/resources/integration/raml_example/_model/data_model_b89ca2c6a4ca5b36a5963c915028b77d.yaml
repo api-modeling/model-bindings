@@ -5,12 +5,18 @@ entities:
   A product resource:
     uuid: a74ec7704168414b535ce2436b191e64
     attributes:
-      available:
+      unit:
         allowMultiple: false
-        uuid: f3615121a83199928a6175bf6ed837b2
+        uuid: 764abea895071b8bc1502f99772637c5
         required: true
         range:
-          type: boolean
+          type: string
+      id:
+        allowMultiple: false
+        uuid: 249efab0aeda139cc4e4508709aadcaa
+        required: true
+        range:
+          type: string
       name:
         allowMultiple: false
         uuid: 8dd4e285cfd0cf65dfa927fd8417e492
@@ -23,24 +29,18 @@ entities:
         required: true
         range:
           type: float
-      id:
-        allowMultiple: false
-        uuid: 249efab0aeda139cc4e4508709aadcaa
-        required: true
-        range:
-          type: string
       upc:
         allowMultiple: false
         uuid: 4430bd3165ddf80d11ae931d0690293a
         required: true
         range:
           type: string
-      unit:
+      available:
         allowMultiple: false
-        uuid: 764abea895071b8bc1502f99772637c5
+        uuid: f3615121a83199928a6175bf6ed837b2
         required: true
         range:
-          type: string
+          type: boolean
     associations: {}
     extends:
       -

@@ -2,8 +2,8 @@
 uuid: eb17c8558b97c65ae139e5c683bafc4b
 name: api.raml
 entities:
-  DefaultPayload:
-    uuid: b60051d33db88311d98438c718681b9a
+  DefaultPayload eecc24faf5d4a6b6747a4191bf1f97b2:
+    uuid: f482fdf10d5d3a1fd236894cb4c2f0b7
     attributes: {}
     associations: {}
   Entity10:
@@ -37,66 +37,60 @@ entities:
         body: data
       });
       ```
-  DefaultPayload:
-    uuid: d436e41d7f15c8fbbd1f48409f03297c
+  DefaultPayload 5f1238d04f393c71744a4966629a09f1:
+    uuid: 0edf999d80b09fa09cc2637e37a53c33
     attributes: {}
     associations: {}
   "":
     uuid: 8d138f7a5b62e40fd255f51eb7a2cd3f
-  DefaultPayload:
-    uuid: b046627de2875ee9a097d1b929b3a7d5
+  DefaultPayload ae245954f12742778423aaf52786d14d:
+    uuid: 7ec3f371744b30269442b8af20df7a18
     attributes: {}
     associations: {}
-  DefaultPayload:
-    uuid: 0db18e38872dc9b9465dcbd5a3d61e5d
+  DefaultPayload ab9532891c0aea6cdad10750edce3249:
+    uuid: d5784e7f8ccd03561459282de2ce8c52
     attributes: {}
     associations: {}
-  DefaultPayload:
-    uuid: beec502cfdad15c6adcf6f7ed799f1ad
-    attributes: {}
-    associations: {}
-  DefaultPayload:
-    uuid: 42c462efbea9d95772e830f7ba934a09
+  DefaultPayload e91a6f576d145b6f8fc770a13134523f:
+    uuid: b8c907243dc86e4ade948b3018ff7e1d
     attributes: {}
     associations: {}
 entryPoint:
   uuid: a803a3314f4b5e9ab3d28206b7b175bc
   name: ARC Analytics API
+  events: []
   operations:
     -
-      uuid: fcf9b60196712299a96eedc2ad7a11ec
-      name: Find Resource /analytics/query
+      uuid: 69cf27fc3b96590634c36291035a1594
+      name: Find Resource /analyzer
       transition:
-        uuid: c6d607dcd8c94e83cb94d9a9fa652f6c
-        target: http://mulesoft.com/modeling/instances/b76f2731-2b73-42b3-a115-244604c678c5
+        uuid: e39842d2683fe5b517f7c281b45ba6b0
+        target: http://mulesoft.com/modeling/instances/aebd69a3-99da-4efc-b6ee-f97cb37cc898
       inputs: []
       output:
         allowMultiple: false
-        uuid: cb8584341a97cc627cf6671974b36ca0
+        uuid: 579e492f93d353ffa617fc3192ba1460
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/d436e41d7f15c8fbbd1f48409f03297c
+        objectRange: http://mulesoft.com/modeling/instances/d5784e7f8ccd03561459282de2ce8c52
       isMutation: false
       type: custom
     -
-      uuid: e77705acc35ca90c1f0b29e3d44e73ab
-      name: Find Resource /tasks
-      transition:
-        uuid: ed5f49efc3d35e1d9405b05e7a7c10f1
-        target: http://mulesoft.com/modeling/instances/9f1a7e47-350f-47e7-84d5-7abf0d7d05f4
-      inputs: []
-      output:
-        allowMultiple: false
-        uuid: 94b0e8f6f49ebc3c096f8f4a3e3c05d4
-        required: false
-        objectRange: http://mulesoft.com/modeling/instances/beec502cfdad15c6adcf6f7ed799f1ad
-      isMutation: false
+      uuid: 48af65af661dcb066f9c9e3396743ac7
+      name: Create analytics/record
+      inputs:
+        -
+          allowMultiple: false
+          uuid: 252d4628d0ed6b612516898252d05b0f
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/029296559eb4a55a38795e860a834b2e
+      isMutation: true
       type: custom
     -
       uuid: 5d5f3ccf0b6acc9d0d769b40fc8ffe70
       name: Find Resource /.well-known//acme-challenge/{challenge}
       transition:
         uuid: d2e3db4d756f985a73c7617bd0770271
-        target: http://mulesoft.com/modeling/instances/0223f7b0-f6cb-43a6-8681-4e763a963c19
+        target: http://mulesoft.com/modeling/instances/a7edd76d-9a2f-44e9-97f1-c63ddf49f115
       inputs:
         -
           scalarRange:
@@ -115,73 +109,139 @@ entryPoint:
       isMutation: false
       type: custom
     -
-      uuid: 69cf27fc3b96590634c36291035a1594
-      name: Find Resource /analyzer
+      uuid: fcf9b60196712299a96eedc2ad7a11ec
+      name: Find Resource /analytics/query
       transition:
-        uuid: e39842d2683fe5b517f7c281b45ba6b0
-        target: http://mulesoft.com/modeling/instances/154f2353-9924-469d-b406-3becdc5186dc
+        uuid: c6d607dcd8c94e83cb94d9a9fa652f6c
+        target: http://mulesoft.com/modeling/instances/650cdbd7-9963-4b37-be3d-0aaf5a4c50ee
       inputs: []
       output:
         allowMultiple: false
-        uuid: 579e492f93d353ffa617fc3192ba1460
+        uuid: cb8584341a97cc627cf6671974b36ca0
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/42c462efbea9d95772e830f7ba934a09
+        objectRange: http://mulesoft.com/modeling/instances/0edf999d80b09fa09cc2637e37a53c33
       isMutation: false
       type: custom
     -
-      uuid: 48af65af661dcb066f9c9e3396743ac7
-      name: Create analytics/record
-      inputs:
-        -
-          allowMultiple: false
-          uuid: 252d4628d0ed6b612516898252d05b0f
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/029296559eb4a55a38795e860a834b2e
+      uuid: e77705acc35ca90c1f0b29e3d44e73ab
+      name: Find Resource /tasks
+      transition:
+        uuid: ed5f49efc3d35e1d9405b05e7a7c10f1
+        target: http://mulesoft.com/modeling/instances/77720676-3dde-44a5-be86-877a43d3186f
+      inputs: []
       output:
         allowMultiple: false
-        uuid: 4b6722d0619680974f1758f4d52e306d
+        uuid: 94b0e8f6f49ebc3c096f8f4a3e3c05d4
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/0db18e38872dc9b9465dcbd5a3d61e5d
-      isMutation: true
+        objectRange: http://mulesoft.com/modeling/instances/b8c907243dc86e4ade948b3018ff7e1d
+      isMutation: false
       type: custom
 resources:
   -
-    uuid: 154f2353-9924-469d-b406-3becdc5186dc
-    name: Resource /analyzer
+    uuid: 8162448b-cb7b-4c2e-8eb8-3aa61cf83bf7
+    name: Resource /analytics/query/{scope}
     schema:
-      uuid: 42c462efbea9d95772e830f7ba934a09
-      name: DefaultPayload
+      uuid: 7ec3f371744b30269442b8af20df7a18
+      name: DefaultPayload ae245954f12742778423aaf52786d14d
       attributes: {}
       associations: {}
-    description: |
-      The analyser endpoint is to be run as a task.
-
-      Because tasks computes a lot of data and performs operation on potentially hundred of thousands
-      of records this will most possibly reach request time limit (30 secodns) and return with `500`
-      status code.
-
-      Tasks are executed in special environment and are allowed to work for up to 10 minutes.
+    description: Endpoint to query for periodical statistics.
+    events: []
     operations: []
     type: individual
   -
-    uuid: 9f1a7e47-350f-47e7-84d5-7abf0d7d05f4
+    uuid: a7edd76d-9a2f-44e9-97f1-c63ddf49f115
+    name: Resource /.well-known//acme-challenge/{challenge}
+    schema:
+      uuid: 8d138f7a5b62e40fd255f51eb7a2cd3f
+      name: ""
+    description: An endpoint to make a request from the LetsEncrypt service to confirm the domain ownership.
+    events: []
+    operations: []
+    type: individual
+  -
+    uuid: 9e594c72-5cf3-4f1d-9471-200c8ec57015
+    name: Resource /tasks/{scope}/{type}
+    events: []
+    operations: []
+    type: individual
+  -
+    uuid: 650cdbd7-9963-4b37-be3d-0aaf5a4c50ee
+    name: Resource /analytics/query
+    schema:
+      uuid: 0edf999d80b09fa09cc2637e37a53c33
+      name: DefaultPayload 5f1238d04f393c71744a4966629a09f1
+      attributes: {}
+      associations: {}
+    description: |
+      The Query endpoint is responsible for getting data out from the datastore.
+
+      The data are agregated every day, week (on monday) and month (every first day of month).
+      This endpoints returns data from aggregated tables and never operated on raw data.
+
+      Depending on endpoint it can return only number of users/sessions for given day or number
+      of users or session for a week or month with daily sessions or users. See methods
+      documentation for more details.
+    events: []
+    operations:
+      -
+        uuid: 0abcd5af70018e5e96be161f9bae465b
+        name: Find Resource /analytics/query/daily
+        transition:
+          uuid: c9135f127c8f1c73f139ae58f9d6ffcb
+          target: http://mulesoft.com/modeling/instances/1ee986e2-15e0-4c98-8b32-63adf1397f15
+        inputs: []
+        output:
+          allowMultiple: false
+          uuid: 169fd783bf9f90523782b9091ebc9038
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/f482fdf10d5d3a1fd236894cb4c2f0b7
+        isMutation: false
+        type: custom
+      -
+        uuid: 92e14176de456e9bf08895e52caa1c34
+        name: Find Resource /analytics/query/{scope}
+        transition:
+          uuid: a9b04bc4796fa4614547412e282e1281
+          target: http://mulesoft.com/modeling/instances/8162448b-cb7b-4c2e-8eb8-3aa61cf83bf7
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 58326ab496813514dbc09f43064ea5e9
+            name: scope
+            required: true
+            description: |
+              A time period for the statistics. Only `weekly` and `monthly` values are allowed.
+        output:
+          allowMultiple: false
+          uuid: e349110c430cbc0d5b883f3f94031fd5
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/7ec3f371744b30269442b8af20df7a18
+        isMutation: false
+        type: custom
+    type: individual
+  -
+    uuid: 77720676-3dde-44a5-be86-877a43d3186f
     name: Resource /tasks
     schema:
-      uuid: beec502cfdad15c6adcf6f7ed799f1ad
-      name: DefaultPayload
+      uuid: b8c907243dc86e4ade948b3018ff7e1d
+      name: DefaultPayload e91a6f576d145b6f8fc770a13134523f
       attributes: {}
       associations: {}
     description: |
       Server that handles cron calls.
 
       This endpoint is meant to be called by cron. It is mapping calls to the `/analyzer/` endpoint.
+    events: []
     operations:
       -
         uuid: 10f9e9570ff6238e8bab0805e6bee930
         name: Find Resource /tasks/{scope}/{type}
         transition:
           uuid: 1bb90ca95ff3c8d856c758f7b2033c3f
-          target: http://mulesoft.com/modeling/instances/98b98ce4-600d-43a5-ba20-5e948f0a94c5
+          target: http://mulesoft.com/modeling/instances/9e594c72-5cf3-4f1d-9471-200c8ec57015
         inputs:
           -
             scalarRange:
@@ -209,94 +269,33 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 98b98ce4-600d-43a5-ba20-5e948f0a94c5
-    name: Resource /tasks/{scope}/{type}
-    operations: []
-    type: individual
-  -
-    uuid: 53be730d-1d05-4ecd-99c8-3df813194e48
-    name: Resource /analytics/query/{scope}
+    uuid: aebd69a3-99da-4efc-b6ee-f97cb37cc898
+    name: Resource /analyzer
     schema:
-      uuid: b046627de2875ee9a097d1b929b3a7d5
-      name: DefaultPayload
-      attributes: {}
-      associations: {}
-    description: Endpoint to query for periodical statistics.
-    operations: []
-    type: individual
-  -
-    uuid: b76f2731-2b73-42b3-a115-244604c678c5
-    name: Resource /analytics/query
-    schema:
-      uuid: d436e41d7f15c8fbbd1f48409f03297c
-      name: DefaultPayload
+      uuid: d5784e7f8ccd03561459282de2ce8c52
+      name: DefaultPayload ab9532891c0aea6cdad10750edce3249
       attributes: {}
       associations: {}
     description: |
-      The Query endpoint is responsible for getting data out from the datastore.
+      The analyser endpoint is to be run as a task.
 
-      The data are agregated every day, week (on monday) and month (every first day of month).
-      This endpoints returns data from aggregated tables and never operated on raw data.
+      Because tasks computes a lot of data and performs operation on potentially hundred of thousands
+      of records this will most possibly reach request time limit (30 secodns) and return with `500`
+      status code.
 
-      Depending on endpoint it can return only number of users/sessions for given day or number
-      of users or session for a week or month with daily sessions or users. See methods
-      documentation for more details.
-    operations:
-      -
-        uuid: 0abcd5af70018e5e96be161f9bae465b
-        name: Find Resource /analytics/query/daily
-        transition:
-          uuid: c9135f127c8f1c73f139ae58f9d6ffcb
-          target: http://mulesoft.com/modeling/instances/b4087fac-a6f2-4a09-989b-310bf478a17a
-        inputs: []
-        output:
-          allowMultiple: false
-          uuid: 169fd783bf9f90523782b9091ebc9038
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/b60051d33db88311d98438c718681b9a
-        isMutation: false
-        type: custom
-      -
-        uuid: 92e14176de456e9bf08895e52caa1c34
-        name: Find Resource /analytics/query/{scope}
-        transition:
-          uuid: a9b04bc4796fa4614547412e282e1281
-          target: http://mulesoft.com/modeling/instances/53be730d-1d05-4ecd-99c8-3df813194e48
-        inputs:
-          -
-            scalarRange:
-              type: string
-            allowMultiple: false
-            uuid: 58326ab496813514dbc09f43064ea5e9
-            name: scope
-            required: true
-            description: |
-              A time period for the statistics. Only `weekly` and `monthly` values are allowed.
-        output:
-          allowMultiple: false
-          uuid: e349110c430cbc0d5b883f3f94031fd5
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/b046627de2875ee9a097d1b929b3a7d5
-        isMutation: false
-        type: custom
-    type: individual
-  -
-    uuid: 0223f7b0-f6cb-43a6-8681-4e763a963c19
-    name: Resource /.well-known//acme-challenge/{challenge}
-    schema:
-      uuid: 8d138f7a5b62e40fd255f51eb7a2cd3f
-      name: ""
-    description: An endpoint to make a request from the LetsEncrypt service to confirm the domain ownership.
+      Tasks are executed in special environment and are allowed to work for up to 10 minutes.
+    events: []
     operations: []
     type: individual
   -
-    uuid: b4087fac-a6f2-4a09-989b-310bf478a17a
+    uuid: 1ee986e2-15e0-4c98-8b32-63adf1397f15
     name: Resource /analytics/query/daily
     schema:
-      uuid: b60051d33db88311d98438c718681b9a
-      name: DefaultPayload
+      uuid: f482fdf10d5d3a1fd236894cb4c2f0b7
+      name: DefaultPayload eecc24faf5d4a6b6747a4191bf1f97b2
       attributes: {}
       associations: {}
     description: Endpoint to query for daily statistics.
+    events: []
     operations: []
     type: individual

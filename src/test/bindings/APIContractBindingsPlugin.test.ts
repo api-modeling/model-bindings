@@ -294,7 +294,7 @@ describe('APIBindingsPlugin', function() {
             "7c3a4f55489cd476bdd39a4d7d46d12a",
             "7c3a4f55489cd476bdd39a4d7d46d12a"
         ]);
-        assert.equal(allBindings.length, 28);
+        assert.equal(allBindings.length, 27);
     });
 
     it('should parse Async API specs and generate matching modules', async function () {
@@ -306,8 +306,9 @@ describe('APIBindingsPlugin', function() {
             config,
             [{ url: "file://"+ textUrl, text: textData}]
         );
-        const text = await parsed[2].toYaml()
-        assert.equal(parsed.length, 3);
+        //const text = await parsed[3].toYaml()
+        //console.log(text)
+        assert.equal(parsed.length, 4);
     });
 
     it ('should export API models to RAML API specs', async function() {

@@ -3,7 +3,55 @@ info:
   title: Correlation ID Example
   version: '1.0.0'
 
+components:
+  schemas:
+    Cat:
+      type: object
+      properties:
+        name:
+          type: string
+        age:
+          type: number
+
+    Tree:
+      type: object
+      properties:
+        height:
+          type: number
+        species:
+          type: string
+
 channels:
+  smartylighting/streetlights/1/0/otherEvent/{channelId}:
+    description: some other channel, only publish
+    publish:
+      operationId: some unique Id
+      summary: a nice summary
+      message:
+        payload:
+          anyOf:
+            - $ref: "#/components/schemas/Cat"
+            - $ref: "#/components/schemas/Tree"
+
+  smartylighting/streetlights/1/0/otherEvent/{channelId}/ohter/{other_id}:
+    description: some other channel, publish and subscribe
+    publish:
+      operationId: some unique Id 2
+      summary: a nice summary 2
+      message:
+        payload:
+          anyOf:
+            - $ref: "#/components/schemas/Cat"
+            - $ref: "#/components/schemas/Tree"
+    subscribe:
+      operationId: some unique Id 3
+      summary: a nice summary 3
+      message:
+        payload:
+          anyOf:
+            - $ref: "#/components/schemas/Cat"
+            - $ref: "#/components/schemas/Tree"
+
   smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured:
     description: some channel
     publish:

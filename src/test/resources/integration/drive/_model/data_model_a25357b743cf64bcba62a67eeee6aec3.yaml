@@ -11,15 +11,9 @@ entities:
         required: false
         range:
           type: string
-      isAuthenticatedUser:
+      emailAddress:
         allowMultiple: false
-        uuid: d5e22cbb79bae2f65248186760f7ac0e
-        required: false
-        range:
-          type: boolean
-      permissionId:
-        allowMultiple: false
-        uuid: 7f31dcfa71593c07db84c251dfec057b
+        uuid: 5940cbc93138c48ec7c49d39c75bb9a1
         required: false
         range:
           type: string
@@ -29,12 +23,18 @@ entities:
         required: false
         range:
           type: string
-      emailAddress:
+      permissionId:
         allowMultiple: false
-        uuid: 5940cbc93138c48ec7c49d39c75bb9a1
+        uuid: 7f31dcfa71593c07db84c251dfec057b
         required: false
         range:
           type: string
+      isAuthenticatedUser:
+        allowMultiple: false
+        uuid: d5e22cbb79bae2f65248186760f7ac0e
+        required: false
+        range:
+          type: boolean
     associations:
       picture:
         allowMultiple: false

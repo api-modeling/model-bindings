@@ -2,7 +2,7 @@
 uuid: 9f4366e043b8a1f37f39ba06d291f9dc
 name: oxfordResponse.raml
 entities:
-  Entity3:
+  Entity4:
     uuid: 99f0604f6c31ae197c9948a8db8d4fe7
     attributes:
       Disclaimer:
@@ -26,63 +26,27 @@ entities:
   The Community_regulations schema:
     uuid: a5950bc467fa15629c8a2bca337ef22b
     attributes:
+      Fiscal_International_Policy_Code:
+        allowMultiple: false
+        uuid: 7eb1b887b2efbf7df1dc1b370085f1ed
+        required: false
+        range:
+          type: string
+      Public_Transport_Closure_Code:
+        allowMultiple: false
+        uuid: 2ecd23fef2f05980bd0b6cf21835a6af
+        required: false
+        range:
+          type: string
+      Debt_Contract_Relief_Notes:
+        allowMultiple: false
+        uuid: a6f86938e674d5dd503f035d6726e7a7
+        required: false
+        range:
+          type: string
       Public_Information_Campaigns_Code:
         allowMultiple: false
         uuid: 78ed0a8ef974de384045b7dd1d0b01e4
-        required: false
-        range:
-          type: string
-      Bar_Restrictions_Code:
-        allowMultiple: false
-        uuid: a04a7678a6646862e3156b759c500f03
-        required: false
-        range:
-          type: string
-      School_Closure_Notes:
-        allowMultiple: false
-        uuid: 897a6592c4b55a4513bcd4f93b4d68b9
-        required: false
-        range:
-          type: string
-      Debt_Contract_Relief_Code:
-        allowMultiple: false
-        uuid: 3c89d058d2d1c1aa46871a28501dbbae
-        required: false
-        range:
-          type: string
-      Investment_In_Vaccines_Code:
-        allowMultiple: false
-        uuid: 1c7a3ede8486aef52ebcb955d9c1bc63
-        required: false
-        range:
-          type: string
-      Report_Date:
-        allowMultiple: false
-        uuid: b44fd815dce0296633ad02a0b53ee0ed
-        required: false
-        range:
-          type: string
-      Containment_And_Health_Policy_Index_Code:
-        allowMultiple: false
-        uuid: bc182f705945d4cb30b6c560fc19f9b6
-        required: false
-        range:
-          type: string
-      Social_Distancing_Requirement_Code:
-        allowMultiple: false
-        uuid: a8c994a28fd1039a1742b9fad49f25ba
-        required: false
-        range:
-          type: string
-      Other_Policy_Code:
-        allowMultiple: false
-        uuid: 2e4a5f633c2ba87095f36f5116eced6e
-        required: false
-        range:
-          type: string
-      Contact_Tracing_Policy_Notes_Txt:
-        allowMultiple: false
-        uuid: c0254ed08ca86b9d93ddb9d4cd37e972
         required: false
         range:
           type: string
@@ -92,51 +56,21 @@ entities:
         required: false
         range:
           type: string
+      Social_Distancing_Requirement_Code:
+        allowMultiple: false
+        uuid: a8c994a28fd1039a1742b9fad49f25ba
+        required: false
+        range:
+          type: string
+      Stay_at_Home_Requirement_Code:
+        allowMultiple: false
+        uuid: f1a9abb0225033c9603dfc063203aca3
+        required: false
+        range:
+          type: string
       Fiscal_Measures_Code:
         allowMultiple: false
         uuid: c7938a9c317542bbfd3024f0048fd900
-        required: false
-        range:
-          type: string
-      Emergency_Investment_In_Healthcare_Code:
-        allowMultiple: false
-        uuid: c90b3cb93bebf2f65015df07f1d008d9
-        required: false
-        range:
-          type: string
-      Fiscal_International_Policy_Notes:
-        allowMultiple: false
-        uuid: d910a00d148ed1d16d4410bc5f038679
-        required: false
-        range:
-          type: string
-      International_Travel_Restrictions_Code:
-        allowMultiple: false
-        uuid: 258be5dbaefc7354e176612d55b7c639
-        required: false
-        range:
-          type: string
-      Restaurant_Restrictions_Code:
-        allowMultiple: false
-        uuid: 02e9d5d7cdcebf3993713d1e57f5014e
-        required: false
-        range:
-          type: string
-      Non_Essential_Business_Closure_Notes:
-        allowMultiple: false
-        uuid: d39b85523ad5280d1fd337c44a538fde
-        required: false
-        range:
-          type: string
-      Public_Information_Campaign_Notes:
-        allowMultiple: false
-        uuid: 4be4524349d01e55525186125522a26e
-        required: false
-        range:
-          type: string
-      Gathering_Restriction_Notes_:
-        allowMultiple: false
-        uuid: e4c3d2f3f5e5d09390a7d687021030d6
         required: false
         range:
           type: string
@@ -146,39 +80,69 @@ entities:
         required: false
         range:
           type: string
+      School_Closure_Code:
+        allowMultiple: false
+        uuid: e6d41cc6066f66e38897ca9a6c581849
+        required: false
+        range:
+          type: string
+      Debt_Contract_Relief_Code:
+        allowMultiple: false
+        uuid: 3c89d058d2d1c1aa46871a28501dbbae
+        required: false
+        range:
+          type: string
       Fiscal_Measures_Notes:
         allowMultiple: false
         uuid: 7eb16d6b7e5bbd4a0f01826ddc3edaf2
         required: false
         range:
           type: string
-      Country_Alpha_3_Code:
+      Bar_Restrictions_Code:
         allowMultiple: false
-        uuid: 7da30572c3af158302e541ddfe25a46f
+        uuid: a04a7678a6646862e3156b759c500f03
         required: false
         range:
           type: string
-      Testing_Policy_Notes:
+      Domestic_Travel_Restrictions_Code:
         allowMultiple: false
-        uuid: f2fc7c48b9a9c1618603f62e9adb4dd6
+        uuid: 7c5a18c28dcfb4f81b3c94180955662d
         required: false
         range:
           type: string
-      Government_Response_Index_Code:
+      Contact_Tracing_Policy_Code:
         allowMultiple: false
-        uuid: e3ccf2f7d8dbaed2765fabc071ad28ba
+        uuid: 7af106336a1f5c550830a13aba935986
         required: false
         range:
           type: string
-      Policy_Stringency_Index_Code:
+      Testing_Policy_Code:
         allowMultiple: false
-        uuid: 16c47babf874f1ffc7274d9cb2a95ac1
+        uuid: 2fe83b294d58e4943a082bd8780f1e22
         required: false
         range:
           type: string
-      Stay_at_Home_Requirement_Code:
+      Gathering_Restriction_Notes_:
         allowMultiple: false
-        uuid: f1a9abb0225033c9603dfc063203aca3
+        uuid: e4c3d2f3f5e5d09390a7d687021030d6
+        required: false
+        range:
+          type: string
+      Gathering_Restriction_Code:
+        allowMultiple: false
+        uuid: 6385decd2bd8371eb021e1c76237fb14
+        required: false
+        range:
+          type: string
+      Reopening_Plan_Code:
+        allowMultiple: false
+        uuid: a443e8f8b1c67f31aa54bfb7079a1f10
+        required: false
+        range:
+          type: string
+      Public_Event_Cancellation_Code:
+        allowMultiple: false
+        uuid: 3bdb41412403e08bf1b145a444002748
         required: false
         range:
           type: string
@@ -194,105 +158,9 @@ entities:
         required: false
         range:
           type: string
-      Income_Support_Code:
-        allowMultiple: false
-        uuid: b0758c645178bbed2eef8d1021cc65f3
-        required: false
-        range:
-          type: string
-      Debt_Contract_Relief_Notes:
-        allowMultiple: false
-        uuid: a6f86938e674d5dd503f035d6726e7a7
-        required: false
-        range:
-          type: string
-      Public_Transport_Closure_Code:
-        allowMultiple: false
-        uuid: 2ecd23fef2f05980bd0b6cf21835a6af
-        required: false
-        range:
-          type: string
-      Domestic_Travel_Restrictions_Notes:
-        allowMultiple: false
-        uuid: 2f9c619a89351b92e5f0ba2f643645db
-        required: false
-        range:
-          type: string
-      Domestic_Travel_Restrictions_Code:
-        allowMultiple: false
-        uuid: 7c5a18c28dcfb4f81b3c94180955662d
-        required: false
-        range:
-          type: string
-      Non_Essential_Business_Closure_Code:
-        allowMultiple: false
-        uuid: fc1137cd8f8c4d88da0de97568bddb88
-        required: false
-        range:
-          type: string
-      Testing_Policy_Code:
-        allowMultiple: false
-        uuid: 2fe83b294d58e4943a082bd8780f1e22
-        required: false
-        range:
-          type: string
-      Contact_Tracing_Policy_Code:
-        allowMultiple: false
-        uuid: 7af106336a1f5c550830a13aba935986
-        required: false
-        range:
-          type: string
-      Reopening_Plan_Code:
-        allowMultiple: false
-        uuid: a443e8f8b1c67f31aa54bfb7079a1f10
-        required: false
-        range:
-          type: string
-      Emergency_InvestmentIn_Healthcare_Notes:
-        allowMultiple: false
-        uuid: 25b9ebb1fd3456188be95ceaabae61ce
-        required: false
-        range:
-          type: string
-      Investment_In_Vaccines_Notes:
-        allowMultiple: false
-        uuid: 0e00c7114a785e5f57e9c3cf1c68173a
-        required: false
-        range:
-          type: string
-      School_Closure_Code:
-        allowMultiple: false
-        uuid: e6d41cc6066f66e38897ca9a6c581849
-        required: false
-        range:
-          type: string
-      Public_Event_Cancellation_Code:
-        allowMultiple: false
-        uuid: 3bdb41412403e08bf1b145a444002748
-        required: false
-        range:
-          type: string
       Stay_at_Home_Requirement_Notes:
         allowMultiple: false
         uuid: 58fcd2025843ff263660070d935f65db
-        required: false
-        range:
-          type: string
-      Other_Policy_Notes:
-        allowMultiple: false
-        uuid: 0b997f094763dcc65bad93646cda205c
-        required: false
-        range:
-          type: string
-      Gathering_Restriction_Code:
-        allowMultiple: false
-        uuid: 6385decd2bd8371eb021e1c76237fb14
-        required: false
-        range:
-          type: string
-      Public_Transport_Closure_Notes:
-        allowMultiple: false
-        uuid: c686203129ec92d79eba4fa819a4c9e0
         required: false
         range:
           type: string
@@ -302,15 +170,147 @@ entities:
         required: false
         range:
           type: string
+      Non_Essential_Business_Closure_Code:
+        allowMultiple: false
+        uuid: fc1137cd8f8c4d88da0de97568bddb88
+        required: false
+        range:
+          type: string
+      Containment_And_Health_Policy_Index_Code:
+        allowMultiple: false
+        uuid: bc182f705945d4cb30b6c560fc19f9b6
+        required: false
+        range:
+          type: string
+      Emergency_InvestmentIn_Healthcare_Notes:
+        allowMultiple: false
+        uuid: 25b9ebb1fd3456188be95ceaabae61ce
+        required: false
+        range:
+          type: string
+      Restaurant_Restrictions_Code:
+        allowMultiple: false
+        uuid: 02e9d5d7cdcebf3993713d1e57f5014e
+        required: false
+        range:
+          type: string
+      Report_Date:
+        allowMultiple: false
+        uuid: b44fd815dce0296633ad02a0b53ee0ed
+        required: false
+        range:
+          type: string
+      Emergency_Investment_In_Healthcare_Code:
+        allowMultiple: false
+        uuid: c90b3cb93bebf2f65015df07f1d008d9
+        required: false
+        range:
+          type: string
+      Testing_Policy_Notes:
+        allowMultiple: false
+        uuid: f2fc7c48b9a9c1618603f62e9adb4dd6
+        required: false
+        range:
+          type: string
+      Fiscal_International_Policy_Notes:
+        allowMultiple: false
+        uuid: d910a00d148ed1d16d4410bc5f038679
+        required: false
+        range:
+          type: string
+      Contact_Tracing_Policy_Notes_Txt:
+        allowMultiple: false
+        uuid: c0254ed08ca86b9d93ddb9d4cd37e972
+        required: false
+        range:
+          type: string
+      International_Travel_Restrictions_Code:
+        allowMultiple: false
+        uuid: 258be5dbaefc7354e176612d55b7c639
+        required: false
+        range:
+          type: string
+      Non_Essential_Business_Closure_Notes:
+        allowMultiple: false
+        uuid: d39b85523ad5280d1fd337c44a538fde
+        required: false
+        range:
+          type: string
+      Investment_In_Vaccines_Notes:
+        allowMultiple: false
+        uuid: 0e00c7114a785e5f57e9c3cf1c68173a
+        required: false
+        range:
+          type: string
+      Policy_Stringency_Index_Code:
+        allowMultiple: false
+        uuid: 16c47babf874f1ffc7274d9cb2a95ac1
+        required: false
+        range:
+          type: string
+      Income_Support_Code:
+        allowMultiple: false
+        uuid: b0758c645178bbed2eef8d1021cc65f3
+        required: false
+        range:
+          type: string
+      Public_Information_Campaign_Notes:
+        allowMultiple: false
+        uuid: 4be4524349d01e55525186125522a26e
+        required: false
+        range:
+          type: string
+      Investment_In_Vaccines_Code:
+        allowMultiple: false
+        uuid: 1c7a3ede8486aef52ebcb955d9c1bc63
+        required: false
+        range:
+          type: string
       Country_Short_Name:
         allowMultiple: false
         uuid: 0b36a2369e029cf598ed80b8973b1356
         required: false
         range:
           type: string
-      Fiscal_International_Policy_Code:
+      School_Closure_Notes:
         allowMultiple: false
-        uuid: 7eb1b887b2efbf7df1dc1b370085f1ed
+        uuid: 897a6592c4b55a4513bcd4f93b4d68b9
+        required: false
+        range:
+          type: string
+      Government_Response_Index_Code:
+        allowMultiple: false
+        uuid: e3ccf2f7d8dbaed2765fabc071ad28ba
+        required: false
+        range:
+          type: string
+      Other_Policy_Code:
+        allowMultiple: false
+        uuid: 2e4a5f633c2ba87095f36f5116eced6e
+        required: false
+        range:
+          type: string
+      Other_Policy_Notes:
+        allowMultiple: false
+        uuid: 0b997f094763dcc65bad93646cda205c
+        required: false
+        range:
+          type: string
+      Country_Alpha_3_Code:
+        allowMultiple: false
+        uuid: 7da30572c3af158302e541ddfe25a46f
+        required: false
+        range:
+          type: string
+      Public_Transport_Closure_Notes:
+        allowMultiple: false
+        uuid: c686203129ec92d79eba4fa819a4c9e0
+        required: false
+        range:
+          type: string
+      Domestic_Travel_Restrictions_Notes:
+        allowMultiple: false
+        uuid: 2f9c619a89351b92e5f0ba2f643645db
         required: false
         range:
           type: string

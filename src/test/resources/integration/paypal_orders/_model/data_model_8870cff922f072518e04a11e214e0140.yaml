@@ -2,929 +2,6 @@
 uuid: 8870cff922f072518e04a11e214e0140
 name: orders_v2_api-spec.raml
 entities:
-  unit_amount:
-    uuid: 903ab7c640df96eb307fb8fe48f622cc
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The item price or rate per unit. If you specify <code>unit_amount</code>, <code>purchase_units[].amount.breakdown.item_total</code> is required. Must equal <code>unit_amount * quantity</code> for all items.
-  address_details:
-    uuid: ab32450504e8b5d27782369039a72d3a
-    attributes:
-      sub_building:
-        allowMultiple: false
-        uuid: 4c018247b29e0a76bc4a8bd2bbcf5467
-        required: true
-        range:
-          type: string
-      street_number:
-        allowMultiple: false
-        uuid: 3db1d95cc559cea7bc147670817f3ad2
-        required: true
-        range:
-          type: string
-      building_name:
-        allowMultiple: false
-        uuid: 23ba13e4672b232f859889e69f3ffb14
-        required: true
-        range:
-          type: string
-      street_type:
-        allowMultiple: false
-        uuid: 1358b7f05d4cb2ebc047d410a340025c
-        required: true
-        range:
-          type: string
-      street_name:
-        allowMultiple: false
-        uuid: 22f895db789e1a309fe37c2feb7e4ba5
-        required: true
-        range:
-          type: string
-      delivery_service:
-        allowMultiple: false
-        uuid: 2b76e43432f29785582060d00170142f
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The non-portable additional address details that are sometimes needed for compliance, risk, or other scenarios where fine-grain address information might be needed. Not portable with common third party and opensource. Redundant with core fields. For example, `address_portable.address_line_1` is usually a combination of `address_details.street_number` and `street_name` and `street_type`.
-  payee:
-    uuid: 4870ee66ff842855ec2d96f4619d3a26
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: d08527acfc59ab070f7f7487272fa8b0
-    description: The recipient of the fee for this transaction. If you omit this value, the default is the API caller.
-  authorize_request-json:
-    uuid: 315d7aa629d4308e6f96397808415b02
-    attributes:
-      reference_id:
-        allowMultiple: false
-        uuid: 855010d044ed52e354b10771b5cfce33
-        required: true
-        range:
-          type: string
-    associations:
-      amount:
-        allowMultiple: false
-        uuid: 7df45f41be8bb04784ab0aaa301d4129
-        required: true
-        target: http://mulesoft.com/modeling/instances/495482ea07d602bad9e11e771c9cb165
-    extends:
-      -
-        uuid: 5078bc855e909b7f9ac28a7b05f4bb46
-    description: Authorize an order.
-  MerchantsCommonComponentsSpecification-v1-schema-card-json:
-    uuid: b31d3f994ced47e15e046817dc0d50a6
-    attributes:
-      security_code:
-        allowMultiple: false
-        uuid: ca65002bd15e00f64125c44679398a19
-        required: false
-        range:
-          type: string
-      last_digits:
-        allowMultiple: false
-        uuid: 00379eced6ee216d644798dbcf3e4f32
-        required: false
-        range:
-          type: string
-      id:
-        allowMultiple: false
-        uuid: 275b15759fc0a03f028ff72a6007b7bd
-        required: false
-        range:
-          type: string
-      number:
-        allowMultiple: false
-        uuid: 96f5d837f0edf3e8f0f4a5a2f8f2bc74
-        required: true
-        range:
-          type: string
-      name:
-        allowMultiple: false
-        uuid: 61785c2b93a09f659757b466f4df02e9
-        required: false
-        range:
-          type: string
-    associations:
-      billing_address:
-        allowMultiple: false
-        uuid: c7beb36724d3b96d2907c149c4ccc6e4
-        required: false
-        target: http://mulesoft.com/modeling/instances/0f39906175b3a43558e57d0254dbd862
-    description: The payment card to use to fund a payment. Can be a credit or debit card.
-  net_amount:
-    uuid: a0e355b37d3b44987ea448e44b3cc2e3
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The net amount that the payee receives for this captured payment in their PayPal account. The net amount is computed as <code>gross_amount</code> minus the <code>paypal_fee</code> minus the <code>platform_fees</code>.
-  converted_amount:
-    uuid: e46d01813a3dbde5e4e0b7b8149a3cfa
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The converted payable amount.
-  MCCS-v1-schema-CC-v3-json-openapi-2-error_details-json:
-    uuid: 38fd6599611cb4f70c71f648e4166234
-    attributes:
-      issue:
-        allowMultiple: false
-        uuid: 88eab1979e40aaf1b3941c8810795b2c
-        required: true
-        range:
-          type: string
-      location:
-        allowMultiple: false
-        uuid: a88f69654eb8effa4fd6d9d7264faf8f
-        required: false
-        range:
-          type: string
-      field:
-        allowMultiple: false
-        uuid: 4689d9505bf2fe5bc0a779886cc9cdcb
-        required: false
-        range:
-          type: string
-      description:
-        allowMultiple: false
-        uuid: e8ea94927ace085cde51f04348e79608
-        required: false
-        range:
-          type: string
-      value:
-        allowMultiple: false
-        uuid: 73b93a4ac6dae675b25240a6de27dc18
-        required: false
-        range:
-          type: string
-    associations: {}
-    description: The error details. Required for client-side `4XX` errors.
-  MerchantsCommonComponentsSpecification-v1-schema-payee-json:
-    uuid: 6aab07c40a3a1d42cad87daaf6127fb4
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: d08527acfc59ab070f7f7487272fa8b0
-    description: The merchant who receives the funds and fulfills the order. The merchant is also known as the payee.
-  "":
-    uuid: e640cae44699dd1f6a671ecca7cd11f2
-  gross_amount:
-    uuid: 8097e30ab7d03ff8f189d7108115976b
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The amount that the payee refunded to the payer.
-  receivable_amount:
-    uuid: b9b380338075083b8543ff9ac51f4436
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The net amount that is credited to the payee's PayPal account. Returned only when the currency of the captured payment is different from the currency of the PayPal account where the payee wants to credit the funds. The amount is computed as <code>net_amount</code> times <code>exchange_rate</code>.
-  definitions:
-    uuid: 441cdca4db741bda484dcd8116838d3e
-    attributes: {}
-    associations: {}
-  exchange_rate:
-    uuid: 06dec99d019101766433020d109389ff
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 4900dd2512c84a12291ba2166440735d
-    description: The exchange rate that determines the amount that was debited from the merchant's PayPal account.
-  patternProperties:
-    uuid: 8edb837a9b9c0fa4179593fed051cbe8
-    attributes: {}
-    associations: {}
-    description: The pattern properties.
-  MCCS-v1-schema-CC-v3-json-openapi-2-phone-json:
-    uuid: 98be9ead60b3b24799abb40b551c7a2e
-    attributes:
-      country_code:
-        allowMultiple: false
-        uuid: 8eb147e6f557f3e422eaff2f755b6e70
-        required: true
-        range:
-          type: string
-      national_number:
-        allowMultiple: false
-        uuid: cbcc3dabc0f3555e4f08b3d173254f2a
-        required: true
-        range:
-          type: string
-      extension_number:
-        allowMultiple: false
-        uuid: 6590bd13ddc61dd751287ba273a4fcd6
-        required: false
-        range:
-          type: string
-    associations: {}
-    description: The phone number, in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en).
-  tax_total:
-    uuid: e522c9863e9faa39be17c1cd512e1eb0
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The total tax for all items. Required if the request includes `purchase_units.items.tax`. Must equal the sum of `(items[].tax * items[].quantity)` for all items.
-  payment_instruction:
-    uuid: daf1601859fea991c2aab15a3fbf5d5f
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 814a6f8fe8d8762db47fa9e8d8e1368e
-  gross_amount:
-    uuid: 2670506d9939ab5027d20e453c0410a9
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The amount for this captured payment.
-  order-json:
-    uuid: b6774b8fc5274cea165f0d9c69431f71
-    attributes:
-      id:
-        allowMultiple: false
-        uuid: 92cad8f9520b96a5dc98acf722ef60be
-        required: true
-        range:
-          type: string
-    associations: {}
-    extends:
-      -
-        uuid: c4f1578b7e87f2fdf4274acdf162cbb9
-    description: The order details.
-  payer:
-    uuid: 16c4a457c30b573081d05e77ca228b8f
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: f42daa617d6474000f825964a9e16421
-  MerchantsCommonComponentsSpecification-v1-schema-payee_displayable-json:
-    uuid: d45a9c07a99fc054e68f60e833c25e49
-    attributes:
-      business_email:
-        allowMultiple: false
-        uuid: 5922431c57f4e5434c086b62cae12dbe
-        required: true
-        range:
-          type: string
-      brand_name:
-        allowMultiple: false
-        uuid: be1b117e398b3c288da082872829f949
-        required: true
-        range:
-          type: string
-    associations:
-      business_phone:
-        allowMultiple: false
-        uuid: f5c5ff13cfb6897d137965d39ae17bee
-        required: true
-        target: http://mulesoft.com/modeling/instances/75c4eb8b9b529add41b9ec78dec681e4
-    description: The merchant information. The merchant is also known as the payee. Appears to the customer in checkout, transactions, email receipts, and transaction history.
-  amount:
-    uuid: 02b7fec2c55576e0a0270cd87ab62919
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The amount that the payee refunded to the payer.
-  MerchantsCommonComponentsSpecification-v1-schema-payment_source-json:
-    uuid: 64ff0be1e4834ff9888726edcae936f8
-    attributes: {}
-    associations: {}
-    description: The payment source definition.
-  order_action_request-json:
-    uuid: 5078bc855e909b7f9ac28a7b05f4bb46
-    attributes: {}
-    associations: {}
-    description: Completes an action for an order.
-  amount:
-    uuid: dd4e560c9fb1f38bc67dd93dc30104bc
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 70c2d1e1d3a2fab67d4409b2e5c44e76
-  address:
-    uuid: 47743bc667fe589868dcf6c1049c386a
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 7f829d339efe53a139c832c7c37f9af3
-    description: The address of the person to whom to ship the items Supports only the `address_line_1`, `address_line_2`, `admin_area_1`, `admin_area_2`, `postal_code`, and `country_code` properties.
-  items:
-    uuid: 947f12ffd96aad251b70fc277cba27f7
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: aeb39576d874d39635a453746ebaeee6
-  payee:
-    uuid: 9c606fed1e4122e1794f93159820c23b
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 6aab07c40a3a1d42cad87daaf6127fb4
-    description: The merchant who receives payment for this transaction.
-  paypal_fee:
-    uuid: 60ad08ad19912d8e6d5909321ef2e285
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The applicable fee for this captured payment.
-  MerchantsCommonComponentsSpecification-v1-schema-amount_breakdown-json:
-    uuid: b51f30c0ce84f95a131313753c024083
-    attributes: {}
-    associations:
-      handling:
-        allowMultiple: false
-        uuid: cb796a22a6942142835cc93083259826
-        required: true
-        target: http://mulesoft.com/modeling/instances/8d004fed9e28a02cb657a0bf2fb8ee7f
-      tax_total:
-        allowMultiple: false
-        uuid: 0d9c02e5821e4fd0b912908913764340
-        required: true
-        target: http://mulesoft.com/modeling/instances/e522c9863e9faa39be17c1cd512e1eb0
-      shipping:
-        allowMultiple: false
-        uuid: 25c36302dde4e64691f05323714e27d5
-        required: true
-        target: http://mulesoft.com/modeling/instances/e5a1af27c074c6e76a5fd29980149da3
-      shipping_discount:
-        allowMultiple: false
-        uuid: accafd5b7aaaddba9935afeb681e53e0
-        required: true
-        target: http://mulesoft.com/modeling/instances/64277d3f3511dc1f957fdd5ade66a9d3
-      item_total:
-        allowMultiple: false
-        uuid: 5b8004c8eeb53b54d545c4d00ffaefe1
-        required: true
-        target: http://mulesoft.com/modeling/instances/c8e1d173043f8ff2ab4c1ad8dacec5ba
-      insurance:
-        allowMultiple: false
-        uuid: 73431994a2c8966e84f287bae9fa480f
-        required: true
-        target: http://mulesoft.com/modeling/instances/1adbca133ffec41a6eeeea20eb534153
-    description: The breakdown of the amount. Breakdown provides details such as total item amount, total tax amount, shipping, handling, insurance, and discounts, if any.
-  paypal_fee:
-    uuid: 48a8b2d32788f4d3fd00b20e82659988
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The PayPal fee that was refunded to the payer. This fee might not match the PayPal fee that the payee paid when the payment was captured.
-  amount:
-    uuid: e99da9476fab605834f4d5d99263f36a
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The amount for this authorized payment.
-  purchase_unit_request-json:
-    uuid: 36ae71147b85659d8ae7da37fd34476a
-    attributes:
-      description:
-        allowMultiple: false
-        uuid: 160e849607a098e6dc0b569b6596f5cf
-        required: false
-        range:
-          type: string
-      reference_id:
-        allowMultiple: false
-        uuid: e973f2b13353ab54d7b3e069a5d69797
-        required: false
-        range:
-          type: string
-      soft_descriptor:
-        allowMultiple: false
-        uuid: 9f85aeff436c1794585e63ae0c0ae6f9
-        required: false
-        range:
-          type: string
-      custom_id:
-        allowMultiple: false
-        uuid: acda92260fb7e9d91f2172231c72274e
-        required: false
-        range:
-          type: string
-      invoice_id:
-        allowMultiple: false
-        uuid: 20ed016ec9b4922c58b7a0707e755820
-        required: false
-        range:
-          type: string
-    associations:
-      amount:
-        allowMultiple: false
-        uuid: 90226b53f9d834cecd64d01278d997e2
-        required: true
-        target: http://mulesoft.com/modeling/instances/dd4e560c9fb1f38bc67dd93dc30104bc
-      payee:
-        allowMultiple: false
-        uuid: 7d7b32a874c5a6f415c2dc5ec3af68dc
-        required: false
-        target: http://mulesoft.com/modeling/instances/9c606fed1e4122e1794f93159820c23b
-      items:
-        allowMultiple: true
-        uuid: 08d0da0119bcad988f9adf5ff53ae288
-        required: false
-        target: http://mulesoft.com/modeling/instances/4cd351368ab33018016d93312edb2664
-      shipping:
-        allowMultiple: false
-        uuid: d687690465fba9e7bbf61fb985d6ba25
-        required: false
-        target: http://mulesoft.com/modeling/instances/85f06e4cb0dfe60fe98ab5e4b7b3ba1f
-      payment_instruction:
-        allowMultiple: false
-        uuid: 91f330b36db7868a28cb3d12633c5f52
-        required: false
-        target: http://mulesoft.com/modeling/instances/daf1601859fea991c2aab15a3fbf5d5f
-    description: The purchase unit request. Includes required information for the payment contract.
-  MerchantsCommonComponentsSpecification-v1-schema-shipping_detail-json:
-    uuid: a9b519c325169250dce722ef9eaba074
-    attributes: {}
-    associations:
-      name:
-        allowMultiple: false
-        uuid: c9e1fb1455ce8432a96db968c0bc0228
-        required: true
-        target: http://mulesoft.com/modeling/instances/09a68616f7a5ab4c107a5004b2123264
-      address:
-        allowMultiple: false
-        uuid: f2e51d5af7b3a644102f5c873a66c939
-        required: true
-        target: http://mulesoft.com/modeling/instances/47743bc667fe589868dcf6c1049c386a
-    description: The shipping details.
-  MerchantsCommonComponentsSpecification-v1-schema-payment_instruction-json:
-    uuid: 814a6f8fe8d8762db47fa9e8d8e1368e
-    attributes: {}
-    associations: {}
-    description: Any additional payment instructions for PayPal for Partner customers. Enables features for partners and marketplaces, such as delayed disbursement and collection of a platform fee. Applies during order creation for captured payments or during capture of authorized payments.
-  payment_collection-json:
-    uuid: 4b82826ae479e160eac6632bb2f31969
-    attributes: {}
-    associations: {}
-    description: The collection of payments, or transactions, for a purchase unit in an order. For example, authorized payments, captured payments, and refunds.
-  MerchantsCommonComponentsSpecification-v1-schema-tax_info-json:
-    uuid: 9cccaae5ae0f6fbbb1756c11fd126b59
-    attributes:
-      tax_id:
-        allowMultiple: false
-        uuid: b943814089f5f637a92d655b94044a25
-        required: true
-        range:
-          type: string
-      tax_id_type:
-        allowMultiple: false
-        uuid: 07f814fc9098bc2fe8c10f9b0ea47794
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The tax ID of the customer. The customer is also known as the payer. Both `tax_id` and `tax_id_type` are required.
-  handling:
-    uuid: 8d004fed9e28a02cb657a0bf2fb8ee7f
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The handling fee for all items within a given `purchase_unit`.
-  additionalItems:
-    uuid: 587b8854952fb79eaeb5f2a9d9e687f3
-    attributes: {}
-    associations: {}
-    description: Any additional items.
-  seller_protection:
-    uuid: b2b60e0046faa59ad8bd0d329347ecdb
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 24961261afeffee45ae7cccad31c5346
-  amount:
-    uuid: a277dbfd44a753b4b12b35c887c01955
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The fee for this transaction.
-  items:
-    uuid: f9f96639b66601dbec454b8134249a90
-    attributes: {}
-    associations: {}
-    description: A sub-schema against which the data must validate.
-  amount:
-    uuid: 495482ea07d602bad9e11e771c9cb165
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The amount to authorize.
-  MerchantsCommonComponentsSpecification-v1-schema-shipping_options_request-json:
-    uuid: a681c346d44ec658a9359ef1989570d2
-    attributes:
-      id:
-        allowMultiple: false
-        uuid: 93c7f56de39b5f7f85d321121496445d
-        required: true
-        range:
-          type: string
-      label:
-        allowMultiple: false
-        uuid: 608e1741137b9a77a532338e38183d26
-        required: true
-        range:
-          type: string
-      attribute1:
-        allowMultiple: false
-        uuid: 41538f33ee34cd9b6872d7f32b40b734
-        required: false
-        range:
-          type: string
-    associations:
-      amount:
-        allowMultiple: false
-        uuid: 106db19bc3ec0a74ecff6a9f3f3d270a
-        required: true
-        target: http://mulesoft.com/modeling/instances/f63c420246bd54561375ab571c520174
-    description: Includes options presented by the payee/merchant to the payer to ship or pick up their item(s). Also includes the shipping options elected by the payer.
-  items:
-    uuid: 6e528f62e3737831a596ec9ae8a06255
-    attributes: {}
-    associations: {}
-    description: A sub-schema against which the data must validate.
-  seller_payable_breakdown:
-    uuid: 392f2f8acbb3a518db530514473578fa
-    attributes: {}
-    associations:
-      platform_fees:
-        allowMultiple: true
-        uuid: 621c15ba7dfba450b13629c4af252480
-        required: true
-        target: http://mulesoft.com/modeling/instances/947f12ffd96aad251b70fc277cba27f7
-      net_amount:
-        allowMultiple: false
-        uuid: 799d2ff7651a6be9f0e16d6f71372243
-        required: true
-        target: http://mulesoft.com/modeling/instances/23c9252b260056d5ae3b895f40718e3b
-      paypal_fee:
-        allowMultiple: false
-        uuid: 9876d81db3f31791bd576d2e0e88e517
-        required: true
-        target: http://mulesoft.com/modeling/instances/48a8b2d32788f4d3fd00b20e82659988
-      gross_amount:
-        allowMultiple: false
-        uuid: 9557e6135071ee3429c221792860daca
-        required: true
-        target: http://mulesoft.com/modeling/instances/8097e30ab7d03ff8f189d7108115976b
-      total_refunded_amount:
-        allowMultiple: false
-        uuid: 983ec4b80d6b1304d94e79427c6e17b6
-        required: true
-        target: http://mulesoft.com/modeling/instances/fc69489172d8a1878229657443b17dfd
-    description: The breakdown of the refund.
-  shipping_discount:
-    uuid: 64277d3f3511dc1f957fdd5ade66a9d3
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The shipping discount for all items within a given `purchase_unit`.
-  seller_receivable_breakdown:
-    uuid: 6de3407355aad10eb809d07bc2ed554c
-    attributes: {}
-    associations:
-      platform_fees:
-        allowMultiple: true
-        uuid: bb8843fb57595f9a47a60bb27834a076
-        required: true
-        target: http://mulesoft.com/modeling/instances/f614f3f72a754efa94f4bfcfbb0f9ace
-      gross_amount:
-        allowMultiple: false
-        uuid: d5b30661a66d58a2ff2a40456d820e2a
-        required: true
-        target: http://mulesoft.com/modeling/instances/2670506d9939ab5027d20e453c0410a9
-      receivable_amount:
-        allowMultiple: false
-        uuid: b9a7cc61010d0d546a4c8a0b3409ab95
-        required: true
-        target: http://mulesoft.com/modeling/instances/b9b380338075083b8543ff9ac51f4436
-      paypal_fee:
-        allowMultiple: false
-        uuid: 4a8a4900ba162d47ad04db323b4e56cc
-        required: true
-        target: http://mulesoft.com/modeling/instances/60ad08ad19912d8e6d5909321ef2e285
-      net_amount:
-        allowMultiple: false
-        uuid: 6d6a25bb8f9a66e66b3044bea687251f
-        required: true
-        target: http://mulesoft.com/modeling/instances/a0e355b37d3b44987ea448e44b3cc2e3
-    description: The detailed breakdown of the captured payment.
-  MerchantsCommonComponentsSpecification-v1-schema-refund_status-json:
-    uuid: cb155b7b23bd64992fdf19c3ee2822d0
-    attributes:
-      status:
-        allowMultiple: false
-        uuid: 22615cedb3c586a67218787cb8db9dd6
-        required: true
-        range:
-          type: string
-    associations:
-      status_details:
-        allowMultiple: false
-        uuid: 2136328871a33aff6f7ba42b995747fa
-        required: true
-        target: http://mulesoft.com/modeling/instances/06ab6adda27a9716d0d05f59f5ead294
-    description: The refund status.
-  MCCS-v1-schema-CC-v3-json-openapi-2-link_schema-json:
-    uuid: b08cf4158b19cf4797ade3aa4aa6aa92
-    attributes:
-      fragmentResolution:
-        allowMultiple: false
-        uuid: f95e8bb7157bd39c37f40f1016d689a4
-        required: true
-        range:
-          type: string
-      pathStart:
-        allowMultiple: false
-        uuid: 764ce856b9351a442f8dc9bc1c799a5a
-        required: true
-        range:
-          type: string
-    associations:
-      patternProperties:
-        allowMultiple: false
-        uuid: 930a07190e14268b8cda25cc8ae62b19
-        required: true
-        target: http://mulesoft.com/modeling/instances/8edb837a9b9c0fa4179593fed051cbe8
-      oneOf:
-        allowMultiple: true
-        uuid: 698ad17aa72c3e1629277251dc1255a8
-        required: true
-        target: http://mulesoft.com/modeling/instances/005b8150d09d0f5d9615626ad08a1dcb
-      not:
-        allowMultiple: false
-        uuid: 894e1f794e11061a56d3145c4f8661f5
-        required: true
-        target: http://mulesoft.com/modeling/instances/8009793f9fc775ead32901726c11856c
-      properties:
-        allowMultiple: false
-        uuid: 2831bb84e133455f44a594ae7fe48d64
-        required: true
-        target: http://mulesoft.com/modeling/instances/e89f72f30215fd2a5f224ca08ea22bbd
-      media:
-        allowMultiple: false
-        uuid: 1e9366c35e66b13af8457ad5880e8a59
-        required: true
-        target: http://mulesoft.com/modeling/instances/f82d2adc8a5fb183f8ba7f1ce13756af
-      links:
-        allowMultiple: true
-        uuid: f015305d5cb3bd0f1c76bd22dfb4d460
-        required: true
-        target: http://mulesoft.com/modeling/instances/80b9a71262f1e5aca7f4bf64addc8f10
-      items:
-        allowMultiple: false
-        uuid: dcc48b9a102f75dbe2e3feafc8ec2d38
-        required: true
-        target: http://mulesoft.com/modeling/instances/e5840d104ea26a41ffc75582d304884b
-      dependencies:
-        allowMultiple: false
-        uuid: 7b2cc54727687b7635cd37bbfff5c32f
-        required: true
-        target: http://mulesoft.com/modeling/instances/fef8334988617707cf6a70be575fb5fb
-      allOf:
-        allowMultiple: true
-        uuid: 90d6df3f25ea8d260772b6a4298d3e89
-        required: true
-        target: http://mulesoft.com/modeling/instances/f9f96639b66601dbec454b8134249a90
-      definitions:
-        allowMultiple: false
-        uuid: 5af059dd592225dfa19c6f955105bc69
-        required: true
-        target: http://mulesoft.com/modeling/instances/441cdca4db741bda484dcd8116838d3e
-      additionalItems:
-        allowMultiple: false
-        uuid: 9762ed4c08ba977d4a77795b0af3eca3
-        required: true
-        target: http://mulesoft.com/modeling/instances/587b8854952fb79eaeb5f2a9d9e687f3
-      anyOf:
-        allowMultiple: true
-        uuid: b7afbab71acf325896dad8ee45073682
-        required: true
-        target: http://mulesoft.com/modeling/instances/6e528f62e3737831a596ec9ae8a06255
-    description: The request data or link target.
-  MerchantsCommonComponentsSpecification-v1-schema-refund-json:
-    uuid: b31858231f202073e3ef5a3e4738f4af
-    attributes:
-      id:
-        allowMultiple: false
-        uuid: b2d560236f1e9797a4bc31ff7e6298e8
-        required: true
-        range:
-          type: string
-      invoice_id:
-        allowMultiple: false
-        uuid: 7d91a0031588bf34fc9827925c129df9
-        required: true
-        range:
-          type: string
-      note_to_payer:
-        allowMultiple: false
-        uuid: 7f2a056a83c5674cf012e352ef76a83a
-        required: true
-        range:
-          type: string
-    associations:
-      amount:
-        allowMultiple: false
-        uuid: 7110ef83c3fa13ce4b55eea66ac60ad8
-        required: true
-        target: http://mulesoft.com/modeling/instances/02b7fec2c55576e0a0270cd87ab62919
-      seller_payable_breakdown:
-        allowMultiple: false
-        uuid: 3cad976cda9b3d09598cd612b70022bb
-        required: true
-        target: http://mulesoft.com/modeling/instances/392f2f8acbb3a518db530514473578fa
-      links:
-        allowMultiple: true
-        uuid: 2553a70693fbd25aeb6b01ef6a032ac1
-        required: true
-        target: http://mulesoft.com/modeling/instances/528d38caf65ce8852299aefaa992d286
-    extends:
-      -
-        uuid: cb155b7b23bd64992fdf19c3ee2822d0
-      -
-        uuid: c4f1578b7e87f2fdf4274acdf162cbb9
-    description: The refund information.
-  MerchantsCommonComponentsSpecification-v1-schema-seller_protection-json:
-    uuid: 24961261afeffee45ae7cccad31c5346
-    attributes:
-      status:
-        allowMultiple: false
-        uuid: 28bf2147d45f2aadd7021f5933cd2b32
-        required: true
-        range:
-          type: string
-      dispute_categories:
-        allowMultiple: true
-        uuid: 0f1236e81fe9d2fd585768301c4eba9e
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The level of protection offered as defined by [PayPal Seller Protection for Merchants](https://www.paypal.com/us/webapps/mpp/security/seller-protection).
-  shipping:
-    uuid: e5a1af27c074c6e76a5fd29980149da3
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The shipping fee for all items within a given `purchase_unit`.
-  MCCS-v1-schema-CC-v3-json-openapi-2-patch-json:
-    uuid: 716b29aac573d6b1c14669a52313bf58
-    attributes:
-      op:
-        allowMultiple: false
-        uuid: 6f06e2ebd36174afc4068766bf678d28
-        required: true
-        range:
-          type: string
-      path:
-        allowMultiple: false
-        uuid: 21ec36386cd2a87dd69dd9fb478e5210
-        required: false
-        range:
-          type: string
-      from:
-        allowMultiple: false
-        uuid: 3b9ca53e6428d7a16d4ad005d9e5081b
-        required: false
-        range:
-          type: string
-    associations:
-      value:
-        allowMultiple: false
-        uuid: 8bc841bd4bfc0bf418742d875355c79c
-        required: false
-        target: http://mulesoft.com/modeling/instances/1878e9b1578870c1df1bab6bd8b19c37
-    description: The JSON patch object to apply partial updates to resources.
-  media:
-    uuid: f82d2adc8a5fb183f8ba7f1ce13756af
-    attributes:
-      attribute2:
-        allowMultiple: false
-        uuid: efcff065c108c1d4dfdadc9b4c9f62b4
-        required: true
-        range:
-          type: string
-      binaryEncoding:
-        allowMultiple: false
-        uuid: 5eee2237c6ff052287fcbdd34f7e1134
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The media type and context-encoding scheme.
-  value:
-    uuid: 1878e9b1578870c1df1bab6bd8b19c37
-    attributes: {}
-    associations: {}
-    description: The value to apply. The `remove` operation does not require a value.
-  MerchantsCommonComponentsSpecification-v1-schema-payer-json:
-    uuid: f42daa617d6474000f825964a9e16421
-    attributes: {}
-    associations: {}
-    description: The customer who approves and pays for the order. The customer is also known as the payer.
-  shipping:
-    uuid: 85f06e4cb0dfe60fe98ab5e4b7b3ba1f
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: a9b519c325169250dce722ef9eaba074
-    description: The name and address of the person to whom the item(s) need to be shipped.
-  insurance:
-    uuid: 1adbca133ffec41a6eeeea20eb534153
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The insurance fee for all items within a given `purchase_unit`.
-  MCCS-v1-schema-CC-v3-json-openapi-2-link_description-json:
-    uuid: 36675c8577c7d0cdfe230da82f04b6bf
-    attributes:
-      href:
-        allowMultiple: false
-        uuid: d0b411bc2559d485ba3215978aff9471
-        required: true
-        range:
-          type: string
-      title:
-        allowMultiple: false
-        uuid: 404cfd8aab64115fcf718becb7c9f0e1
-        required: false
-        range:
-          type: string
-      encType:
-        allowMultiple: false
-        uuid: aa6a75eb423a1eef5b15ade430ebd4a9
-        required: false
-        range:
-          type: string
-      rel:
-        allowMultiple: false
-        uuid: 9003026aa9943a8cda4c69df89eb8318
-        required: true
-        range:
-          type: string
-      mediaType:
-        allowMultiple: false
-        uuid: 40634820867d3101bdfa88caf002f50b
-        required: false
-        range:
-          type: string
-      method:
-        allowMultiple: false
-        uuid: ad99d9401ea712bae1f5713682ca49e7
-        required: false
-        range:
-          type: string
-    associations: {}
-    description: The request-related [HATEOAS link](/docs/api/overview/#hateoas-links) information.
   MerchantsCommonComponentsSpecification-v1-schema-capture-json:
     uuid: 0ee8831524d4e70f6a52d7e965da8cbe
     attributes:
@@ -979,6 +56,87 @@ entities:
       -
         uuid: c4f1578b7e87f2fdf4274acdf162cbb9
     description: A captured payment.
+  purchase_unit-json:
+    uuid: 46a6ca0aaaea26578f61239d02afc7e4
+    attributes:
+      soft_descriptor:
+        allowMultiple: false
+        uuid: 7728647b0141bcb4dd949668e83671a8
+        required: true
+        range:
+          type: string
+      reference_id:
+        allowMultiple: false
+        uuid: 2ec096e73ec8049c1c9281944b147cc6
+        required: true
+        range:
+          type: string
+      invoice_id:
+        allowMultiple: false
+        uuid: aba731519434c27bbeb0490955bf49ee
+        required: true
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: bd1569a2889c4f9cf0cafd5b8852bde2
+        required: true
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: 72eaac0fc9a388d08321f36c7e8cd6be
+        required: true
+        range:
+          type: string
+      custom_id:
+        allowMultiple: false
+        uuid: dc776ca2a96aab11fe28e09f15abe323
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The purchase unit details. Used to capture required information for the payment contract.
+  MerchantsCommonComponentsSpecification-v1-schema-amount_with_breakdown-json:
+    uuid: 70c2d1e1d3a2fab67d4409b2e5c44e76
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The total order amount with an optional breakdown that provides details, such as the total item amount, total tax amount, shipping, handling, insurance, and discounts, if any.<br/>If you specify `amount.breakdown`, the amount equals `item_total` plus `tax_total` plus `shipping` plus `handling` plus `insurance` minus `shipping_discount`.<br/>The amount must be a positive number. For listed of supported currencies and decimal precision, see the PayPal REST APIs <a href="/docs/integration/direct/rest/currency-codes/">Currency Codes</a>.
+  MCCS-v1-schema-CC-v3-json-openapi-2-money-json:
+    uuid: c593b4745bead74b76f0f916294d3ee2
+    attributes:
+      value:
+        allowMultiple: false
+        uuid: 6041dde4d2606be83d313fe5ab06f056
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The currency and amount for a financial transaction, such as a balance or payment due.
+  net_amount:
+    uuid: a0e355b37d3b44987ea448e44b3cc2e3
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The net amount that the payee receives for this captured payment in their PayPal account. The net amount is computed as <code>gross_amount</code> minus the <code>paypal_fee</code> minus the <code>platform_fees</code>.
+  name:
+    uuid: 09a68616f7a5ab4c107a5004b2123264
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 51a8e60cff1af16dedb5d3b2f60a2a6d
+    description: The name of the person to whom to ship the items. Supports only the `full_name` property.
+  items:
+    uuid: e5840d104ea26a41ffc75582d304884b
+    attributes: {}
+    associations: {}
+    description: An item.
   MerchantsCommonComponentsSpecification-v1-schema-capture_status-json:
     uuid: 677dbfdc574bbb3d851ba742e51c8fd3
     attributes:
@@ -995,142 +153,144 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/73e599fa937ba46fe74b6d98ad0c3dd0
     description: The status of a captured payment.
-  status_details:
-    uuid: 73e599fa937ba46fe74b6d98ad0c3dd0
-    attributes:
-      reason:
-        allowMultiple: false
-        uuid: 109f954c2ed913e882b507114bb51dce
-        required: true
-        range:
-          type: string
+  MerchantsCommonComponentsSpecification-v1-schema-payee-json:
+    uuid: 6aab07c40a3a1d42cad87daaf6127fb4
+    attributes: {}
     associations: {}
-    description: The details of the captured payment status.
-  payable_amount:
-    uuid: e64be83154d7abd44b743347deb7c3e6
+    extends:
+      -
+        uuid: d08527acfc59ab070f7f7487272fa8b0
+    description: The merchant who receives the funds and fulfills the order. The merchant is also known as the payee.
+  tax_total:
+    uuid: e522c9863e9faa39be17c1cd512e1eb0
     attributes: {}
     associations: {}
     extends:
       -
         uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The net amount debited from the merchant's PayPal account.
-  application_context-json:
-    uuid: bc1cffb52384fbb3b428505c7a32487e
-    attributes:
-      shipping_preference:
-        allowMultiple: false
-        uuid: 18b772effb914a0d30bbe6f209c9666a
-        required: true
-        range:
-          type: string
-      cancel_url:
-        allowMultiple: false
-        uuid: eee694a6adf09f05faa0f6a2c4412211
-        required: true
-        range:
-          type: string
-      return_url:
-        allowMultiple: false
-        uuid: 2aa2c7343a7bdfbb396e6b1eed9baf65
-        required: true
-        range:
-          type: string
-      user_action:
-        allowMultiple: false
-        uuid: 853293dae145c1fb46b0e6782ea977d2
-        required: true
-        range:
-          type: string
-      brand_name:
-        allowMultiple: false
-        uuid: eff005350e930255f5c3bc94eb0696d4
-        required: true
-        range:
-          type: string
-      landing_page:
-        allowMultiple: false
-        uuid: f00cc31e32d6aa1e5f94491e3b20f829
-        required: true
-        range:
-          type: string
-      payment_token:
-        allowMultiple: false
-        uuid: 11b48d9f44fea69833f5ff94b21aa9d2
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: Customizes the payer experience during the approval process for the payment with PayPal.<blockquote><strong>Note:</strong> Partners and Marketplaces might have <code>brand_name</code> and <code>shipping_preference</code> configured during partner account setup that will override the request values.</blockquote>
-  not:
-    uuid: 8009793f9fc775ead32901726c11856c
+    description: The total tax for all items. Required if the request includes `purchase_units.items.tax`. Must equal the sum of `(items[].tax * items[].quantity)` for all items.
+  MerchantsCommonComponentsSpecification-v1-schema-activity_timestamps-json:
+    uuid: c4f1578b7e87f2fdf4274acdf162cbb9
     attributes: {}
     associations: {}
+    description: The date and time stamps that are common to authorized payment, captured payment, and refund transactions.
   items:
-    uuid: e5840d104ea26a41ffc75582d304884b
+    uuid: 3259f9f3c8e276e02b0b11ba4db66f5b
     attributes: {}
     associations: {}
-    description: An item.
-  MerchantsCommonComponentsSpecification-v1-schema-exchange_rate-json:
-    uuid: 4900dd2512c84a12291ba2166440735d
+    extends:
+      -
+        uuid: 36675c8577c7d0cdfe230da82f04b6bf
+  MerchantsCommonComponentsSpecification-v1-schema-seller_protection-json:
+    uuid: 24961261afeffee45ae7cccad31c5346
     attributes:
-      source_currency:
+      status:
         allowMultiple: false
-        uuid: 612103190729f63514ad05a4902c7a64
+        uuid: 28bf2147d45f2aadd7021f5933cd2b32
         required: true
         range:
           type: string
-      target_currency:
-        allowMultiple: false
-        uuid: ba0ab98ff10bb34f5758a0c7690651ad
-        required: true
-        range:
-          type: string
-      value:
-        allowMultiple: false
-        uuid: 724a97b9fcf5c328abd4d84aa0688154
+      dispute_categories:
+        allowMultiple: true
+        uuid: 0f1236e81fe9d2fd585768301c4eba9e
         required: true
         range:
           type: string
     associations: {}
-    description: The exchange rate that determines the amount to convert from one currency to another currency.
-  tax:
-    uuid: 5fe66f17cbce04874dba05ad5e867606
+    description: The level of protection offered as defined by [PayPal Seller Protection for Merchants](https://www.paypal.com/us/webapps/mpp/security/seller-protection).
+  MCCS-v1-schema-CC-v3-json-openapi-2-link_schema-json:
+    uuid: b08cf4158b19cf4797ade3aa4aa6aa92
+    attributes:
+      fragmentResolution:
+        allowMultiple: false
+        uuid: f95e8bb7157bd39c37f40f1016d689a4
+        required: true
+        range:
+          type: string
+      pathStart:
+        allowMultiple: false
+        uuid: 764ce856b9351a442f8dc9bc1c799a5a
+        required: true
+        range:
+          type: string
+    associations:
+      definitions:
+        allowMultiple: false
+        uuid: 5af059dd592225dfa19c6f955105bc69
+        required: true
+        target: http://mulesoft.com/modeling/instances/441cdca4db741bda484dcd8116838d3e
+      items:
+        allowMultiple: false
+        uuid: dcc48b9a102f75dbe2e3feafc8ec2d38
+        required: true
+        target: http://mulesoft.com/modeling/instances/e5840d104ea26a41ffc75582d304884b
+      links:
+        allowMultiple: true
+        uuid: f015305d5cb3bd0f1c76bd22dfb4d460
+        required: true
+        target: http://mulesoft.com/modeling/instances/80b9a71262f1e5aca7f4bf64addc8f10
+      dependencies:
+        allowMultiple: false
+        uuid: 7b2cc54727687b7635cd37bbfff5c32f
+        required: true
+        target: http://mulesoft.com/modeling/instances/fef8334988617707cf6a70be575fb5fb
+      oneOf:
+        allowMultiple: true
+        uuid: 698ad17aa72c3e1629277251dc1255a8
+        required: true
+        target: http://mulesoft.com/modeling/instances/005b8150d09d0f5d9615626ad08a1dcb
+      patternProperties:
+        allowMultiple: false
+        uuid: 930a07190e14268b8cda25cc8ae62b19
+        required: true
+        target: http://mulesoft.com/modeling/instances/8edb837a9b9c0fa4179593fed051cbe8
+      media:
+        allowMultiple: false
+        uuid: 1e9366c35e66b13af8457ad5880e8a59
+        required: true
+        target: http://mulesoft.com/modeling/instances/f82d2adc8a5fb183f8ba7f1ce13756af
+      additionalItems:
+        allowMultiple: false
+        uuid: 9762ed4c08ba977d4a77795b0af3eca3
+        required: true
+        target: http://mulesoft.com/modeling/instances/587b8854952fb79eaeb5f2a9d9e687f3
+      properties:
+        allowMultiple: false
+        uuid: 2831bb84e133455f44a594ae7fe48d64
+        required: true
+        target: http://mulesoft.com/modeling/instances/e89f72f30215fd2a5f224ca08ea22bbd
+      allOf:
+        allowMultiple: true
+        uuid: 90d6df3f25ea8d260772b6a4298d3e89
+        required: true
+        target: http://mulesoft.com/modeling/instances/f9f96639b66601dbec454b8134249a90
+      anyOf:
+        allowMultiple: true
+        uuid: b7afbab71acf325896dad8ee45073682
+        required: true
+        target: http://mulesoft.com/modeling/instances/6e528f62e3737831a596ec9ae8a06255
+      not:
+        allowMultiple: false
+        uuid: 894e1f794e11061a56d3145c4f8661f5
+        required: true
+        target: http://mulesoft.com/modeling/instances/8009793f9fc775ead32901726c11856c
+    description: The request data or link target.
+  shipping_discount:
+    uuid: 64277d3f3511dc1f957fdd5ade66a9d3
     attributes: {}
     associations: {}
     extends:
       -
         uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The item tax for each unit. If <code>tax</code> is specified, <code>purchase_units[].amount.breakdown.tax_total</code> is required. Must equal <code>tax * quantity</code> for all items.
-  status_details:
-    uuid: 06ab6adda27a9716d0d05f59f5ead294
-    attributes:
-      reason:
-        allowMultiple: false
-        uuid: fe45b4343c5b43080b7fbddac4f216c7
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The details of the refund status.
-  MCCS-v1-schema-CC-v3-json-openapi-2-money-json:
-    uuid: c593b4745bead74b76f0f916294d3ee2
-    attributes:
-      value:
-        allowMultiple: false
-        uuid: 6041dde4d2606be83d313fe5ab06f056
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The currency and amount for a financial transaction, such as a balance or payment due.
-  total_refunded_amount:
-    uuid: fc69489172d8a1878229657443b17dfd
+    description: The shipping discount for all items within a given `purchase_unit`.
+  receivable_amount:
+    uuid: b9b380338075083b8543ff9ac51f4436
     attributes: {}
     associations: {}
     extends:
       -
         uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The total amount refunded from the original capture to date. For example, if a payer makes a $100 purchase and was refunded $20 a week ago and was refunded $30 in this refund, the `gross_amount` is $30 for this refund and the `total_refunded_amount` is $50.
+    description: The net amount that is credited to the payee's PayPal account. Returned only when the currency of the captured payment is different from the currency of the PayPal account where the payee wants to credit the funds. The amount is computed as <code>net_amount</code> times <code>exchange_rate</code>.
   item_total:
     uuid: c8e1d173043f8ff2ab4c1ad8dacec5ba
     attributes: {}
@@ -1139,29 +299,188 @@ entities:
       -
         uuid: c593b4745bead74b76f0f916294d3ee2
     description: The subtotal for all items. Required if the request includes `purchase_units[].items[].unit_amount`. Must equal the sum of `(items[].unit_amount * items[].quantity)` for all items.
-  MerchantsCommonComponentsSpecification-v1-schema-payee_base-json:
-    uuid: d08527acfc59ab070f7f7487272fa8b0
+  unit_amount:
+    uuid: 903ab7c640df96eb307fb8fe48f622cc
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The item price or rate per unit. If you specify <code>unit_amount</code>, <code>purchase_units[].amount.breakdown.item_total</code> is required. Must equal <code>unit_amount * quantity</code> for all items.
+  address_details:
+    uuid: ab32450504e8b5d27782369039a72d3a
     attributes:
-      email_address:
+      delivery_service:
         allowMultiple: false
-        uuid: 53ff01274b6fca9e31a34ac0f23199d1
+        uuid: 2b76e43432f29785582060d00170142f
         required: true
         range:
           type: string
-      merchant_id:
+      building_name:
         allowMultiple: false
-        uuid: b2c2c54dd333b6fe474d716efca93b0c
+        uuid: 23ba13e4672b232f859889e69f3ffb14
         required: true
         range:
           type: string
-      client_id:
+      sub_building:
         allowMultiple: false
-        uuid: cb75dedfee0592ceb1ba2ee577e7557e
+        uuid: 4c018247b29e0a76bc4a8bd2bbcf5467
+        required: true
+        range:
+          type: string
+      street_number:
+        allowMultiple: false
+        uuid: 3db1d95cc559cea7bc147670817f3ad2
+        required: true
+        range:
+          type: string
+      street_name:
+        allowMultiple: false
+        uuid: 22f895db789e1a309fe37c2feb7e4ba5
+        required: true
+        range:
+          type: string
+      street_type:
+        allowMultiple: false
+        uuid: 1358b7f05d4cb2ebc047d410a340025c
         required: true
         range:
           type: string
     associations: {}
-    description: The details for the merchant who receives the funds and fulfills the order. The merchant is also known as the payee.
+    description: The non-portable additional address details that are sometimes needed for compliance, risk, or other scenarios where fine-grain address information might be needed. Not portable with common third party and opensource. Redundant with core fields. For example, `address_portable.address_line_1` is usually a combination of `address_details.street_number` and `street_name` and `street_type`.
+  tax:
+    uuid: 5fe66f17cbce04874dba05ad5e867606
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The item tax for each unit. If <code>tax</code> is specified, <code>purchase_units[].amount.breakdown.tax_total</code> is required. Must equal <code>tax * quantity</code> for all items.
+  items:
+    uuid: 005b8150d09d0f5d9615626ad08a1dcb
+    attributes: {}
+    associations: {}
+    description: A sub-schema against which the data must validate.
+  MerchantsCommonComponentsSpecification-v1-schema-item-json:
+    uuid: 08303124fecbfcc31af66a63fd3003f2
+    attributes:
+      quantity:
+        allowMultiple: false
+        uuid: 781fb380d365e922431693ce4e3b4783
+        required: true
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: 7a2ff2c46658666fa8acaf915de164ff
+        required: false
+        range:
+          type: string
+      sku:
+        allowMultiple: false
+        uuid: 88eff2a8cc072524251a4f2a998275a8
+        required: false
+        range:
+          type: string
+      category:
+        allowMultiple: false
+        uuid: 464f329a50bf7524485774e721dcee78
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 35174e7aae2ac29e68bf0ef0017663df
+        required: true
+        range:
+          type: string
+    associations:
+      unit_amount:
+        allowMultiple: false
+        uuid: a20b92b73bb4ef9ac78d2c991e991e73
+        required: true
+        target: http://mulesoft.com/modeling/instances/903ab7c640df96eb307fb8fe48f622cc
+      tax:
+        allowMultiple: false
+        uuid: e475947d4dcf871f8520acb02add82d5
+        required: false
+        target: http://mulesoft.com/modeling/instances/5fe66f17cbce04874dba05ad5e867606
+    description: The details for the items to be purchased.
+  MerchantsCommonComponentsSpecification-v1-schema-card-json:
+    uuid: b31d3f994ced47e15e046817dc0d50a6
+    attributes:
+      number:
+        allowMultiple: false
+        uuid: 96f5d837f0edf3e8f0f4a5a2f8f2bc74
+        required: true
+        range:
+          type: string
+      last_digits:
+        allowMultiple: false
+        uuid: 00379eced6ee216d644798dbcf3e4f32
+        required: false
+        range:
+          type: string
+      security_code:
+        allowMultiple: false
+        uuid: ca65002bd15e00f64125c44679398a19
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 61785c2b93a09f659757b466f4df02e9
+        required: false
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: 275b15759fc0a03f028ff72a6007b7bd
+        required: false
+        range:
+          type: string
+    associations:
+      billing_address:
+        allowMultiple: false
+        uuid: c7beb36724d3b96d2907c149c4ccc6e4
+        required: false
+        target: http://mulesoft.com/modeling/instances/0f39906175b3a43558e57d0254dbd862
+    description: The payment card to use to fund a payment. Can be a credit or debit card.
+  MerchantsCommonComponentsSpecification-v1-schema-phone_with_type-json:
+    uuid: 1c62c7081fbe31600b40cbf0eec4d901
+    attributes: {}
+    associations: {}
+    description: The phone information.
+  gross_amount:
+    uuid: 2670506d9939ab5027d20e453c0410a9
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The amount for this captured payment.
+  additionalItems:
+    uuid: 587b8854952fb79eaeb5f2a9d9e687f3
+    attributes: {}
+    associations: {}
+    description: Any additional items.
+  MerchantsCommonComponentsSpecification-v1-schema-tax_info-json:
+    uuid: 9cccaae5ae0f6fbbb1756c11fd126b59
+    attributes:
+      tax_id:
+        allowMultiple: false
+        uuid: b943814089f5f637a92d655b94044a25
+        required: true
+        range:
+          type: string
+      tax_id_type:
+        allowMultiple: false
+        uuid: 07f814fc9098bc2fe8c10f9b0ea47794
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The tax ID of the customer. The customer is also known as the payer. Both `tax_id` and `tax_id_type` are required.
   MerchantsCommonComponentsSpecification-v1-schema-net_amount_breakdown_item-json:
     uuid: 012f043e79b7ceae8bea7f393823bd08
     attributes: {}
@@ -1182,12 +501,382 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/06dec99d019101766433020d109389ff
     description: The net amount. Returned when the currency of the refund is different from the currency of the PayPal account where the merchant holds their funds.
+  amount:
+    uuid: 02b7fec2c55576e0a0270cd87ab62919
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The amount that the payee refunded to the payer.
+  purchase_unit_request-json:
+    uuid: 36ae71147b85659d8ae7da37fd34476a
+    attributes:
+      custom_id:
+        allowMultiple: false
+        uuid: acda92260fb7e9d91f2172231c72274e
+        required: false
+        range:
+          type: string
+      reference_id:
+        allowMultiple: false
+        uuid: e973f2b13353ab54d7b3e069a5d69797
+        required: false
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: 160e849607a098e6dc0b569b6596f5cf
+        required: false
+        range:
+          type: string
+      soft_descriptor:
+        allowMultiple: false
+        uuid: 9f85aeff436c1794585e63ae0c0ae6f9
+        required: false
+        range:
+          type: string
+      invoice_id:
+        allowMultiple: false
+        uuid: 20ed016ec9b4922c58b7a0707e755820
+        required: false
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 08d0da0119bcad988f9adf5ff53ae288
+        required: false
+        target: http://mulesoft.com/modeling/instances/4cd351368ab33018016d93312edb2664
+      amount:
+        allowMultiple: false
+        uuid: 90226b53f9d834cecd64d01278d997e2
+        required: true
+        target: http://mulesoft.com/modeling/instances/dd4e560c9fb1f38bc67dd93dc30104bc
+      shipping:
+        allowMultiple: false
+        uuid: d687690465fba9e7bbf61fb985d6ba25
+        required: false
+        target: http://mulesoft.com/modeling/instances/85f06e4cb0dfe60fe98ab5e4b7b3ba1f
+      payee:
+        allowMultiple: false
+        uuid: 7d7b32a874c5a6f415c2dc5ec3af68dc
+        required: false
+        target: http://mulesoft.com/modeling/instances/9c606fed1e4122e1794f93159820c23b
+      payment_instruction:
+        allowMultiple: false
+        uuid: 91f330b36db7868a28cb3d12633c5f52
+        required: false
+        target: http://mulesoft.com/modeling/instances/daf1601859fea991c2aab15a3fbf5d5f
+    description: The purchase unit request. Includes required information for the payment contract.
+  payable_amount:
+    uuid: e64be83154d7abd44b743347deb7c3e6
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The net amount debited from the merchant's PayPal account.
+  MerchantsCommonComponentsSpecification-v1-schema-shipping_options_request-json:
+    uuid: a681c346d44ec658a9359ef1989570d2
+    attributes:
+      id:
+        allowMultiple: false
+        uuid: 93c7f56de39b5f7f85d321121496445d
+        required: true
+        range:
+          type: string
+      label:
+        allowMultiple: false
+        uuid: 608e1741137b9a77a532338e38183d26
+        required: true
+        range:
+          type: string
+      attribute1:
+        allowMultiple: false
+        uuid: 41538f33ee34cd9b6872d7f32b40b734
+        required: false
+        range:
+          type: string
+    associations:
+      amount:
+        allowMultiple: false
+        uuid: 106db19bc3ec0a74ecff6a9f3f3d270a
+        required: true
+        target: http://mulesoft.com/modeling/instances/f63c420246bd54561375ab571c520174
+    description: Includes options presented by the payee/merchant to the payer to ship or pick up their item(s). Also includes the shipping options elected by the payer.
+  address:
+    uuid: 47743bc667fe589868dcf6c1049c386a
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 7f829d339efe53a139c832c7c37f9af3
+    description: The address of the person to whom to ship the items Supports only the `address_line_1`, `address_line_2`, `admin_area_1`, `admin_area_2`, `postal_code`, and `country_code` properties.
+  MerchantsCommonComponentsSpecification-v1-schema-shipping_detail-json:
+    uuid: a9b519c325169250dce722ef9eaba074
+    attributes: {}
+    associations:
+      name:
+        allowMultiple: false
+        uuid: c9e1fb1455ce8432a96db968c0bc0228
+        required: true
+        target: http://mulesoft.com/modeling/instances/09a68616f7a5ab4c107a5004b2123264
+      address:
+        allowMultiple: false
+        uuid: f2e51d5af7b3a644102f5c873a66c939
+        required: true
+        target: http://mulesoft.com/modeling/instances/47743bc667fe589868dcf6c1049c386a
+    description: The shipping details.
+  net_amount:
+    uuid: 23c9252b260056d5ae3b895f40718e3b
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The net amount that the payee's account is debited, if the payee holds funds in the currency for this refund. The net amount is calculated as <code>gross_amount</code> minus <code>paypal_fee</code> minus <code>platform_fees</code>.
+  dependencies:
+    uuid: fef8334988617707cf6a70be575fb5fb
+    attributes: {}
+    associations: {}
+  items:
+    uuid: 528d38caf65ce8852299aefaa992d286
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 36675c8577c7d0cdfe230da82f04b6bf
+  total_refunded_amount:
+    uuid: fc69489172d8a1878229657443b17dfd
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The total amount refunded from the original capture to date. For example, if a payer makes a $100 purchase and was refunded $20 a week ago and was refunded $30 in this refund, the `gross_amount` is $30 for this refund and the `total_refunded_amount` is $50.
+  amount:
+    uuid: 495482ea07d602bad9e11e771c9cb165
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The amount to authorize.
+  amount:
+    uuid: dd4e560c9fb1f38bc67dd93dc30104bc
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 70c2d1e1d3a2fab67d4409b2e5c44e76
+  amount:
+    uuid: a277dbfd44a753b4b12b35c887c01955
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The fee for this transaction.
+  order_request-json:
+    uuid: 7264c3388b1c6b2ad2a6d66986bfc59a
+    attributes:
+      intent:
+        allowMultiple: false
+        uuid: 2f9692f9e76468a74d4b633b0b8f5795
+        required: true
+        range:
+          type: string
+    associations:
+      payer:
+        allowMultiple: false
+        uuid: a350eeb0cc67492ac3efb1eba3a3087a
+        required: false
+        target: http://mulesoft.com/modeling/instances/16c4a457c30b573081d05e77ca228b8f
+    description: The order request details.
+  MCCS-v1-schema-CC-v3-json-openapi-2-patch-json:
+    uuid: 716b29aac573d6b1c14669a52313bf58
+    attributes:
+      op:
+        allowMultiple: false
+        uuid: 6f06e2ebd36174afc4068766bf678d28
+        required: true
+        range:
+          type: string
+      path:
+        allowMultiple: false
+        uuid: 21ec36386cd2a87dd69dd9fb478e5210
+        required: false
+        range:
+          type: string
+      from:
+        allowMultiple: false
+        uuid: 3b9ca53e6428d7a16d4ad005d9e5081b
+        required: false
+        range:
+          type: string
+    associations:
+      value:
+        allowMultiple: false
+        uuid: 8bc841bd4bfc0bf418742d875355c79c
+        required: false
+        target: http://mulesoft.com/modeling/instances/1878e9b1578870c1df1bab6bd8b19c37
+    description: The JSON patch object to apply partial updates to resources.
+  MCCS-v1-schema-CC-v3-json-openapi-2-name-json:
+    uuid: 51a8e60cff1af16dedb5d3b2f60a2a6d
+    attributes:
+      full_name:
+        allowMultiple: false
+        uuid: 1d59283630a98c4096faf95ad5a527c7
+        required: true
+        range:
+          type: string
+      alternate_full_name:
+        allowMultiple: false
+        uuid: 2823e85b470d96e61f311567a7c2ddcb
+        required: true
+        range:
+          type: string
+      surname:
+        allowMultiple: false
+        uuid: 9ec381118fa388e032391a92ff5d72d4
+        required: true
+        range:
+          type: string
+      middle_name:
+        allowMultiple: false
+        uuid: 1d7af9f136c2ae94f07446d9661eee24
+        required: true
+        range:
+          type: string
+      given_name:
+        allowMultiple: false
+        uuid: 21b7551befe8f1a29f615d0692eded19
+        required: true
+        range:
+          type: string
+      prefix:
+        allowMultiple: false
+        uuid: 61ea5a781cf6e676cfc26f65233b1161
+        required: true
+        range:
+          type: string
+      suffix:
+        allowMultiple: false
+        uuid: 9dd9ea108dedd5fa612d3af0067c5435
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The name of the party.
+  definitions:
+    uuid: 441cdca4db741bda484dcd8116838d3e
+    attributes: {}
+    associations: {}
+  paypal_fee:
+    uuid: 60ad08ad19912d8e6d5909321ef2e285
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The applicable fee for this captured payment.
+  application_context-json:
+    uuid: bc1cffb52384fbb3b428505c7a32487e
+    attributes:
+      landing_page:
+        allowMultiple: false
+        uuid: f00cc31e32d6aa1e5f94491e3b20f829
+        required: true
+        range:
+          type: string
+      cancel_url:
+        allowMultiple: false
+        uuid: eee694a6adf09f05faa0f6a2c4412211
+        required: true
+        range:
+          type: string
+      shipping_preference:
+        allowMultiple: false
+        uuid: 18b772effb914a0d30bbe6f209c9666a
+        required: true
+        range:
+          type: string
+      return_url:
+        allowMultiple: false
+        uuid: 2aa2c7343a7bdfbb396e6b1eed9baf65
+        required: true
+        range:
+          type: string
+      brand_name:
+        allowMultiple: false
+        uuid: eff005350e930255f5c3bc94eb0696d4
+        required: true
+        range:
+          type: string
+      payment_token:
+        allowMultiple: false
+        uuid: 11b48d9f44fea69833f5ff94b21aa9d2
+        required: true
+        range:
+          type: string
+      user_action:
+        allowMultiple: false
+        uuid: 853293dae145c1fb46b0e6782ea977d2
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: Customizes the payer experience during the approval process for the payment with PayPal.<blockquote><strong>Note:</strong> Partners and Marketplaces might have <code>brand_name</code> and <code>shipping_preference</code> configured during partner account setup that will override the request values.</blockquote>
+  MerchantsCommonComponentsSpecification-v1-schema-refund-json:
+    uuid: b31858231f202073e3ef5a3e4738f4af
+    attributes:
+      id:
+        allowMultiple: false
+        uuid: b2d560236f1e9797a4bc31ff7e6298e8
+        required: true
+        range:
+          type: string
+      invoice_id:
+        allowMultiple: false
+        uuid: 7d91a0031588bf34fc9827925c129df9
+        required: true
+        range:
+          type: string
+      note_to_payer:
+        allowMultiple: false
+        uuid: 7f2a056a83c5674cf012e352ef76a83a
+        required: true
+        range:
+          type: string
+    associations:
+      amount:
+        allowMultiple: false
+        uuid: 7110ef83c3fa13ce4b55eea66ac60ad8
+        required: true
+        target: http://mulesoft.com/modeling/instances/02b7fec2c55576e0a0270cd87ab62919
+      seller_payable_breakdown:
+        allowMultiple: false
+        uuid: 3cad976cda9b3d09598cd612b70022bb
+        required: true
+        target: http://mulesoft.com/modeling/instances/392f2f8acbb3a518db530514473578fa
+      links:
+        allowMultiple: true
+        uuid: 2553a70693fbd25aeb6b01ef6a032ac1
+        required: true
+        target: http://mulesoft.com/modeling/instances/528d38caf65ce8852299aefaa992d286
+    extends:
+      -
+        uuid: cb155b7b23bd64992fdf19c3ee2822d0
+      -
+        uuid: c4f1578b7e87f2fdf4274acdf162cbb9
+    description: The refund information.
   MCCS-v1-schema-CC-v3-json-openapi-2-address_portable-json:
     uuid: 7f829d339efe53a139c832c7c37f9af3
     attributes:
-      address_line_2:
+      address_line_1:
         allowMultiple: false
-        uuid: 21482fa84a1057a2d170b32f0e31b077
+        uuid: 3e2b1d5937580c5c84d34c126842b74c
         required: false
         range:
           type: string
@@ -1197,27 +886,15 @@ entities:
         required: false
         range:
           type: string
+      address_line_2:
+        allowMultiple: false
+        uuid: 21482fa84a1057a2d170b32f0e31b077
+        required: false
+        range:
+          type: string
       address_line_3:
         allowMultiple: false
         uuid: f9573d5a3a154d2ed3698809b0aaf722
-        required: false
-        range:
-          type: string
-      address_line_1:
-        allowMultiple: false
-        uuid: 3e2b1d5937580c5c84d34c126842b74c
-        required: false
-        range:
-          type: string
-      admin_area_2:
-        allowMultiple: false
-        uuid: a5a96a9ad3deb42a0193cbf5d738e72e
-        required: false
-        range:
-          type: string
-      admin_area_1:
-        allowMultiple: false
-        uuid: e4f928f3d37a961305764f1914fa6f8a
         required: false
         range:
           type: string
@@ -1227,9 +904,21 @@ entities:
         required: false
         range:
           type: string
+      admin_area_1:
+        allowMultiple: false
+        uuid: e4f928f3d37a961305764f1914fa6f8a
+        required: false
+        range:
+          type: string
       postal_code:
         allowMultiple: false
         uuid: 58bb92ddb4d8f1bfb6313ddc41682df1
+        required: false
+        range:
+          type: string
+      admin_area_2:
+        allowMultiple: false
+        uuid: a5a96a9ad3deb42a0193cbf5d738e72e
         required: false
         range:
           type: string
@@ -1240,27 +929,46 @@ entities:
         required: false
         target: http://mulesoft.com/modeling/instances/ab32450504e8b5d27782369039a72d3a
     description: "The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute)."
+  MerchantsCommonComponentsSpecification-v1-schema-amount_breakdown-json:
+    uuid: b51f30c0ce84f95a131313753c024083
+    attributes: {}
+    associations:
+      item_total:
+        allowMultiple: false
+        uuid: 5b8004c8eeb53b54d545c4d00ffaefe1
+        required: true
+        target: http://mulesoft.com/modeling/instances/c8e1d173043f8ff2ab4c1ad8dacec5ba
+      shipping:
+        allowMultiple: false
+        uuid: 25c36302dde4e64691f05323714e27d5
+        required: true
+        target: http://mulesoft.com/modeling/instances/e5a1af27c074c6e76a5fd29980149da3
+      insurance:
+        allowMultiple: false
+        uuid: 73431994a2c8966e84f287bae9fa480f
+        required: true
+        target: http://mulesoft.com/modeling/instances/1adbca133ffec41a6eeeea20eb534153
+      shipping_discount:
+        allowMultiple: false
+        uuid: accafd5b7aaaddba9935afeb681e53e0
+        required: true
+        target: http://mulesoft.com/modeling/instances/64277d3f3511dc1f957fdd5ade66a9d3
+      handling:
+        allowMultiple: false
+        uuid: cb796a22a6942142835cc93083259826
+        required: true
+        target: http://mulesoft.com/modeling/instances/8d004fed9e28a02cb657a0bf2fb8ee7f
+      tax_total:
+        allowMultiple: false
+        uuid: 0d9c02e5821e4fd0b912908913764340
+        required: true
+        target: http://mulesoft.com/modeling/instances/e522c9863e9faa39be17c1cd512e1eb0
+    description: The breakdown of the amount. Breakdown provides details such as total item amount, total tax amount, shipping, handling, insurance, and discounts, if any.
   items:
-    uuid: 005b8150d09d0f5d9615626ad08a1dcb
+    uuid: 6e528f62e3737831a596ec9ae8a06255
     attributes: {}
     associations: {}
     description: A sub-schema against which the data must validate.
-  items:
-    uuid: 4cd351368ab33018016d93312edb2664
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 08303124fecbfcc31af66a63fd3003f2
-    description: An item.
-  amount:
-    uuid: 618b2f09c336994308c79d7b4d527039
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The amount for this captured payment.
   MerchantsCommonComponentsSpecification-v1-schema-payment_method-json:
     uuid: 8ff98dee4307e5f947d69aad3b344449
     attributes:
@@ -1278,72 +986,401 @@ entities:
           type: string
     associations: {}
     description: The customer and merchant payment preferences.
-  name:
-    uuid: 09a68616f7a5ab4c107a5004b2123264
+  MerchantsCommonComponentsSpecification-v1-schema-payer-json:
+    uuid: f42daa617d6474000f825964a9e16421
+    attributes: {}
+    associations: {}
+    description: The customer who approves and pays for the order. The customer is also known as the payer.
+  gross_amount:
+    uuid: 8097e30ab7d03ff8f189d7108115976b
     attributes: {}
     associations: {}
     extends:
       -
-        uuid: 51a8e60cff1af16dedb5d3b2f60a2a6d
-    description: The name of the person to whom to ship the items. Supports only the `full_name` property.
-  purchase_unit-json:
-    uuid: 46a6ca0aaaea26578f61239d02afc7e4
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The amount that the payee refunded to the payer.
+  handling:
+    uuid: 8d004fed9e28a02cb657a0bf2fb8ee7f
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The handling fee for all items within a given `purchase_unit`.
+  items:
+    uuid: 4cd351368ab33018016d93312edb2664
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 08303124fecbfcc31af66a63fd3003f2
+    description: An item.
+  exchange_rate:
+    uuid: 06dec99d019101766433020d109389ff
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 4900dd2512c84a12291ba2166440735d
+    description: The exchange rate that determines the amount that was debited from the merchant's PayPal account.
+  seller_payable_breakdown:
+    uuid: 392f2f8acbb3a518db530514473578fa
+    attributes: {}
+    associations:
+      platform_fees:
+        allowMultiple: true
+        uuid: 621c15ba7dfba450b13629c4af252480
+        required: true
+        target: http://mulesoft.com/modeling/instances/947f12ffd96aad251b70fc277cba27f7
+      total_refunded_amount:
+        allowMultiple: false
+        uuid: 983ec4b80d6b1304d94e79427c6e17b6
+        required: true
+        target: http://mulesoft.com/modeling/instances/fc69489172d8a1878229657443b17dfd
+      gross_amount:
+        allowMultiple: false
+        uuid: 9557e6135071ee3429c221792860daca
+        required: true
+        target: http://mulesoft.com/modeling/instances/8097e30ab7d03ff8f189d7108115976b
+      paypal_fee:
+        allowMultiple: false
+        uuid: 9876d81db3f31791bd576d2e0e88e517
+        required: true
+        target: http://mulesoft.com/modeling/instances/48a8b2d32788f4d3fd00b20e82659988
+      net_amount:
+        allowMultiple: false
+        uuid: 799d2ff7651a6be9f0e16d6f71372243
+        required: true
+        target: http://mulesoft.com/modeling/instances/23c9252b260056d5ae3b895f40718e3b
+    description: The breakdown of the refund.
+  MerchantsCommonComponentsSpecification-v1-schema-refund_status-json:
+    uuid: cb155b7b23bd64992fdf19c3ee2822d0
     attributes:
-      custom_id:
+      status:
         allowMultiple: false
-        uuid: dc776ca2a96aab11fe28e09f15abe323
+        uuid: 22615cedb3c586a67218787cb8db9dd6
         required: true
         range:
           type: string
-      reference_id:
+    associations:
+      status_details:
         allowMultiple: false
-        uuid: 2ec096e73ec8049c1c9281944b147cc6
+        uuid: 2136328871a33aff6f7ba42b995747fa
+        required: true
+        target: http://mulesoft.com/modeling/instances/06ab6adda27a9716d0d05f59f5ead294
+    description: The refund status.
+  billing_address:
+    uuid: 0f39906175b3a43558e57d0254dbd862
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 7f829d339efe53a139c832c7c37f9af3
+    description: The billing address for this card. Supports only the `address_line_1`, `address_line_2`, `admin_area_1`, `admin_area_2`, `postal_code`, and `country_code` properties.
+  MerchantsCommonComponentsSpecification-v1-schema-payment_source-json:
+    uuid: 64ff0be1e4834ff9888726edcae936f8
+    attributes: {}
+    associations: {}
+    description: The payment source definition.
+  insurance:
+    uuid: 1adbca133ffec41a6eeeea20eb534153
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The insurance fee for all items within a given `purchase_unit`.
+  MCCS-v1-schema-CC-v3-json-openapi-2-link_description-json:
+    uuid: 36675c8577c7d0cdfe230da82f04b6bf
+    attributes:
+      mediaType:
+        allowMultiple: false
+        uuid: 40634820867d3101bdfa88caf002f50b
+        required: false
+        range:
+          type: string
+      method:
+        allowMultiple: false
+        uuid: ad99d9401ea712bae1f5713682ca49e7
+        required: false
+        range:
+          type: string
+      href:
+        allowMultiple: false
+        uuid: d0b411bc2559d485ba3215978aff9471
         required: true
         range:
           type: string
+      title:
+        allowMultiple: false
+        uuid: 404cfd8aab64115fcf718becb7c9f0e1
+        required: false
+        range:
+          type: string
+      rel:
+        allowMultiple: false
+        uuid: 9003026aa9943a8cda4c69df89eb8318
+        required: true
+        range:
+          type: string
+      encType:
+        allowMultiple: false
+        uuid: aa6a75eb423a1eef5b15ade430ebd4a9
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: The request-related [HATEOAS link](/docs/api/overview/#hateoas-links) information.
+  amount:
+    uuid: e99da9476fab605834f4d5d99263f36a
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The amount for this authorized payment.
+  items:
+    uuid: 80b9a71262f1e5aca7f4bf64addc8f10
+    attributes: {}
+    associations: {}
+    description: A link.
+  patternProperties:
+    uuid: 8edb837a9b9c0fa4179593fed051cbe8
+    attributes: {}
+    associations: {}
+    description: The pattern properties.
+  status_details:
+    uuid: 73e599fa937ba46fe74b6d98ad0c3dd0
+    attributes:
+      reason:
+        allowMultiple: false
+        uuid: 109f954c2ed913e882b507114bb51dce
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The details of the captured payment status.
+  properties:
+    uuid: e89f72f30215fd2a5f224ca08ea22bbd
+    attributes: {}
+    associations: {}
+  business_phone:
+    uuid: 75c4eb8b9b529add41b9ec78dec681e4
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 98be9ead60b3b24799abb40b551c7a2e
+    description: The phone number of the merchant. Appears to the customer in checkout, payment transactions, email receipts, and transaction history.
+  shipping:
+    uuid: e5a1af27c074c6e76a5fd29980149da3
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The shipping fee for all items within a given `purchase_unit`.
+  items:
+    uuid: f614f3f72a754efa94f4bfcfbb0f9ace
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: aeb39576d874d39635a453746ebaeee6
+  payee:
+    uuid: 9c606fed1e4122e1794f93159820c23b
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 6aab07c40a3a1d42cad87daaf6127fb4
+    description: The merchant who receives payment for this transaction.
+  seller_protection:
+    uuid: b2b60e0046faa59ad8bd0d329347ecdb
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 24961261afeffee45ae7cccad31c5346
+  MerchantsCommonComponentsSpecification-v1-schema-authorization_status-json:
+    uuid: 64aec346f9301b28ee5096824bfac4fa
+    attributes:
+      status:
+        allowMultiple: false
+        uuid: 7c14eef87ced72f9bb7da38cacb9db89
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The status fields for an authorized payment.
+  status_details:
+    uuid: 06ab6adda27a9716d0d05f59f5ead294
+    attributes:
+      reason:
+        allowMultiple: false
+        uuid: fe45b4343c5b43080b7fbddac4f216c7
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The details of the refund status.
+  media:
+    uuid: f82d2adc8a5fb183f8ba7f1ce13756af
+    attributes:
+      attribute2:
+        allowMultiple: false
+        uuid: efcff065c108c1d4dfdadc9b4c9f62b4
+        required: true
+        range:
+          type: string
+      binaryEncoding:
+        allowMultiple: false
+        uuid: 5eee2237c6ff052287fcbdd34f7e1134
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The media type and context-encoding scheme.
+  order-json:
+    uuid: b6774b8fc5274cea165f0d9c69431f71
+    attributes:
       id:
         allowMultiple: false
-        uuid: 72eaac0fc9a388d08321f36c7e8cd6be
+        uuid: 92cad8f9520b96a5dc98acf722ef60be
         required: true
         range:
           type: string
-      description:
+    associations: {}
+    extends:
+      -
+        uuid: c4f1578b7e87f2fdf4274acdf162cbb9
+    description: The order details.
+  payment_collection-json:
+    uuid: 4b82826ae479e160eac6632bb2f31969
+    attributes: {}
+    associations: {}
+    description: The collection of payments, or transactions, for a purchase unit in an order. For example, authorized payments, captured payments, and refunds.
+  payee:
+    uuid: 4870ee66ff842855ec2d96f4619d3a26
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: d08527acfc59ab070f7f7487272fa8b0
+    description: The recipient of the fee for this transaction. If you omit this value, the default is the API caller.
+  MerchantsCommonComponentsSpecification-v1-schema-authorization-json:
+    uuid: 57d39000f6ab6c4c54fd2ee66986487e
+    attributes:
+      id:
         allowMultiple: false
-        uuid: bd1569a2889c4f9cf0cafd5b8852bde2
-        required: true
-        range:
-          type: string
-      soft_descriptor:
-        allowMultiple: false
-        uuid: 7728647b0141bcb4dd949668e83671a8
+        uuid: 11f7a1dc44970cb85190456837baa612
         required: true
         range:
           type: string
       invoice_id:
         allowMultiple: false
-        uuid: aba731519434c27bbeb0490955bf49ee
+        uuid: 7ae91bb871ec55b2e4e937ba041ea0e3
         required: true
         range:
           type: string
-    associations: {}
-    description: The purchase unit details. Used to capture required information for the payment contract.
-  MerchantsCommonComponentsSpecification-v1-schema-phone_with_type-json:
-    uuid: 1c62c7081fbe31600b40cbf0eec4d901
+      expiration_time:
+        allowMultiple: false
+        uuid: 56f4b79e01e4d643b95014f1d42bfa3b
+        required: true
+        range:
+          type: string
+    associations:
+      amount:
+        allowMultiple: false
+        uuid: 084972c4ae07ceff00c539a00149f8e2
+        required: true
+        target: http://mulesoft.com/modeling/instances/e99da9476fab605834f4d5d99263f36a
+    extends:
+      -
+        uuid: 64aec346f9301b28ee5096824bfac4fa
+      -
+        uuid: c4f1578b7e87f2fdf4274acdf162cbb9
+    description: The authorized payment transaction.
+  MerchantsCommonComponentsSpecification-v1-schema-platform_fee-json:
+    uuid: aeb39576d874d39635a453746ebaeee6
     attributes: {}
-    associations: {}
-    description: The phone information.
-  MerchantsCommonComponentsSpecification-v1-schema-activity_timestamps-json:
-    uuid: c4f1578b7e87f2fdf4274acdf162cbb9
-    attributes: {}
-    associations: {}
-    description: The date and time stamps that are common to authorized payment, captured payment, and refund transactions.
-  items:
-    uuid: c0419d685817f7c682ff34c9caebb7e9
+    associations:
+      amount:
+        allowMultiple: false
+        uuid: bbbd8a506a2ec071b301ae4fdb578c90
+        required: true
+        target: http://mulesoft.com/modeling/instances/a277dbfd44a753b4b12b35c887c01955
+      payee:
+        allowMultiple: false
+        uuid: d7bb6c364c3f282264d1122928fc63dd
+        required: false
+        target: http://mulesoft.com/modeling/instances/4870ee66ff842855ec2d96f4619d3a26
+    description: The platform or partner fee, commission, or brokerage fee that is associated with the transaction. Not a separate or isolated transaction leg from the external perspective. The platform fee is limited in scope and is always associated with the original payment for the purchase unit.
+  amount:
+    uuid: f63c420246bd54561375ab571c520174
     attributes: {}
     associations: {}
     extends:
       -
-        uuid: 36675c8577c7d0cdfe230da82f04b6bf
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The shipping cost associated with the option chosen.
+  items:
+    uuid: f9f96639b66601dbec454b8134249a90
+    attributes: {}
+    associations: {}
+    description: A sub-schema against which the data must validate.
+  payment_instruction:
+    uuid: daf1601859fea991c2aab15a3fbf5d5f
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 814a6f8fe8d8762db47fa9e8d8e1368e
+  MerchantsCommonComponentsSpecification-v1-schema-payment_instruction-json:
+    uuid: 814a6f8fe8d8762db47fa9e8d8e1368e
+    attributes: {}
+    associations: {}
+    description: Any additional payment instructions for PayPal for Partner customers. Enables features for partners and marketplaces, such as delayed disbursement and collection of a platform fee. Applies during order creation for captured payments or during capture of authorized payments.
+  value:
+    uuid: 1878e9b1578870c1df1bab6bd8b19c37
+    attributes: {}
+    associations: {}
+    description: The value to apply. The `remove` operation does not require a value.
+  MCCS-v1-schema-CC-v3-json-openapi-2-error_details-json:
+    uuid: 38fd6599611cb4f70c71f648e4166234
+    attributes:
+      description:
+        allowMultiple: false
+        uuid: e8ea94927ace085cde51f04348e79608
+        required: false
+        range:
+          type: string
+      location:
+        allowMultiple: false
+        uuid: a88f69654eb8effa4fd6d9d7264faf8f
+        required: false
+        range:
+          type: string
+      field:
+        allowMultiple: false
+        uuid: 4689d9505bf2fe5bc0a779886cc9cdcb
+        required: false
+        range:
+          type: string
+      issue:
+        allowMultiple: false
+        uuid: 88eab1979e40aaf1b3941c8810795b2c
+        required: true
+        range:
+          type: string
+      value:
+        allowMultiple: false
+        uuid: 73b93a4ac6dae675b25240a6de27dc18
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: The error details. Required for client-side `4XX` errors.
   MCCS-v1-schema-CC-v3-json-openapi-2-error-json:
     uuid: 86f70948d9b5a37ebe20d7ade6df2ca7
     attributes:
@@ -1378,89 +1415,198 @@ entities:
         required: false
         target: http://mulesoft.com/modeling/instances/3259f9f3c8e276e02b0b11ba4db66f5b
     description: The error details.
-  MerchantsCommonComponentsSpecification-v1-schema-authorization-json:
-    uuid: 57d39000f6ab6c4c54fd2ee66986487e
+  MCCS-v1-schema-CC-v3-json-openapi-2-phone-json:
+    uuid: 98be9ead60b3b24799abb40b551c7a2e
     attributes:
-      id:
+      country_code:
         allowMultiple: false
-        uuid: 11f7a1dc44970cb85190456837baa612
+        uuid: 8eb147e6f557f3e422eaff2f755b6e70
         required: true
         range:
           type: string
-      invoice_id:
+      national_number:
         allowMultiple: false
-        uuid: 7ae91bb871ec55b2e4e937ba041ea0e3
+        uuid: cbcc3dabc0f3555e4f08b3d173254f2a
         required: true
         range:
           type: string
-      expiration_time:
+      extension_number:
         allowMultiple: false
-        uuid: 56f4b79e01e4d643b95014f1d42bfa3b
+        uuid: 6590bd13ddc61dd751287ba273a4fcd6
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: The phone number, in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en).
+  "":
+    uuid: e640cae44699dd1f6a671ecca7cd11f2
+  MerchantsCommonComponentsSpecification-v1-schema-exchange_rate-json:
+    uuid: 4900dd2512c84a12291ba2166440735d
+    attributes:
+      source_currency:
+        allowMultiple: false
+        uuid: 612103190729f63514ad05a4902c7a64
+        required: true
+        range:
+          type: string
+      target_currency:
+        allowMultiple: false
+        uuid: ba0ab98ff10bb34f5758a0c7690651ad
+        required: true
+        range:
+          type: string
+      value:
+        allowMultiple: false
+        uuid: 724a97b9fcf5c328abd4d84aa0688154
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The exchange rate that determines the amount to convert from one currency to another currency.
+  payer:
+    uuid: 16c4a457c30b573081d05e77ca228b8f
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: f42daa617d6474000f825964a9e16421
+  MerchantsCommonComponentsSpecification-v1-schema-payee_displayable-json:
+    uuid: d45a9c07a99fc054e68f60e833c25e49
+    attributes:
+      business_email:
+        allowMultiple: false
+        uuid: 5922431c57f4e5434c086b62cae12dbe
+        required: true
+        range:
+          type: string
+      brand_name:
+        allowMultiple: false
+        uuid: be1b117e398b3c288da082872829f949
         required: true
         range:
           type: string
     associations:
-      amount:
+      business_phone:
         allowMultiple: false
-        uuid: 084972c4ae07ceff00c539a00149f8e2
+        uuid: f5c5ff13cfb6897d137965d39ae17bee
         required: true
-        target: http://mulesoft.com/modeling/instances/e99da9476fab605834f4d5d99263f36a
-    extends:
-      -
-        uuid: 64aec346f9301b28ee5096824bfac4fa
-      -
-        uuid: c4f1578b7e87f2fdf4274acdf162cbb9
-    description: The authorized payment transaction.
+        target: http://mulesoft.com/modeling/instances/75c4eb8b9b529add41b9ec78dec681e4
+    description: The merchant information. The merchant is also known as the payee. Appears to the customer in checkout, transactions, email receipts, and transaction history.
   items:
-    uuid: 80b9a71262f1e5aca7f4bf64addc8f10
-    attributes: {}
-    associations: {}
-    description: A link.
-  items:
-    uuid: f614f3f72a754efa94f4bfcfbb0f9ace
+    uuid: 947f12ffd96aad251b70fc277cba27f7
     attributes: {}
     associations: {}
     extends:
       -
         uuid: aeb39576d874d39635a453746ebaeee6
-  billing_address:
-    uuid: 0f39906175b3a43558e57d0254dbd862
+  converted_amount:
+    uuid: e46d01813a3dbde5e4e0b7b8149a3cfa
     attributes: {}
     associations: {}
     extends:
       -
-        uuid: 7f829d339efe53a139c832c7c37f9af3
-    description: The billing address for this card. Supports only the `address_line_1`, `address_line_2`, `admin_area_1`, `admin_area_2`, `postal_code`, and `country_code` properties.
-  dependencies:
-    uuid: fef8334988617707cf6a70be575fb5fb
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The converted payable amount.
+  seller_receivable_breakdown:
+    uuid: 6de3407355aad10eb809d07bc2ed554c
+    attributes: {}
+    associations:
+      receivable_amount:
+        allowMultiple: false
+        uuid: b9a7cc61010d0d546a4c8a0b3409ab95
+        required: true
+        target: http://mulesoft.com/modeling/instances/b9b380338075083b8543ff9ac51f4436
+      platform_fees:
+        allowMultiple: true
+        uuid: bb8843fb57595f9a47a60bb27834a076
+        required: true
+        target: http://mulesoft.com/modeling/instances/f614f3f72a754efa94f4bfcfbb0f9ace
+      paypal_fee:
+        allowMultiple: false
+        uuid: 4a8a4900ba162d47ad04db323b4e56cc
+        required: true
+        target: http://mulesoft.com/modeling/instances/60ad08ad19912d8e6d5909321ef2e285
+      net_amount:
+        allowMultiple: false
+        uuid: 6d6a25bb8f9a66e66b3044bea687251f
+        required: true
+        target: http://mulesoft.com/modeling/instances/a0e355b37d3b44987ea448e44b3cc2e3
+      gross_amount:
+        allowMultiple: false
+        uuid: d5b30661a66d58a2ff2a40456d820e2a
+        required: true
+        target: http://mulesoft.com/modeling/instances/2670506d9939ab5027d20e453c0410a9
+    description: The detailed breakdown of the captured payment.
+  items:
+    uuid: c0419d685817f7c682ff34c9caebb7e9
     attributes: {}
     associations: {}
-  MerchantsCommonComponentsSpecification-v1-schema-authorization_status-json:
-    uuid: 64aec346f9301b28ee5096824bfac4fa
+    extends:
+      -
+        uuid: 36675c8577c7d0cdfe230da82f04b6bf
+  paypal_fee:
+    uuid: 48a8b2d32788f4d3fd00b20e82659988
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The PayPal fee that was refunded to the payer. This fee might not match the PayPal fee that the payee paid when the payment was captured.
+  amount:
+    uuid: 618b2f09c336994308c79d7b4d527039
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: c593b4745bead74b76f0f916294d3ee2
+    description: The amount for this captured payment.
+  MerchantsCommonComponentsSpecification-v1-schema-payee_base-json:
+    uuid: d08527acfc59ab070f7f7487272fa8b0
     attributes:
-      status:
+      email_address:
         allowMultiple: false
-        uuid: 7c14eef87ced72f9bb7da38cacb9db89
+        uuid: 53ff01274b6fca9e31a34ac0f23199d1
+        required: true
+        range:
+          type: string
+      merchant_id:
+        allowMultiple: false
+        uuid: b2c2c54dd333b6fe474d716efca93b0c
+        required: true
+        range:
+          type: string
+      client_id:
+        allowMultiple: false
+        uuid: cb75dedfee0592ceb1ba2ee577e7557e
         required: true
         range:
           type: string
     associations: {}
-    description: The status fields for an authorized payment.
-  MerchantsCommonComponentsSpecification-v1-schema-platform_fee-json:
-    uuid: aeb39576d874d39635a453746ebaeee6
-    attributes: {}
+    description: The details for the merchant who receives the funds and fulfills the order. The merchant is also known as the payee.
+  authorize_request-json:
+    uuid: 315d7aa629d4308e6f96397808415b02
+    attributes:
+      reference_id:
+        allowMultiple: false
+        uuid: 855010d044ed52e354b10771b5cfce33
+        required: true
+        range:
+          type: string
     associations:
       amount:
         allowMultiple: false
-        uuid: bbbd8a506a2ec071b301ae4fdb578c90
+        uuid: 7df45f41be8bb04784ab0aaa301d4129
         required: true
-        target: http://mulesoft.com/modeling/instances/a277dbfd44a753b4b12b35c887c01955
-      payee:
-        allowMultiple: false
-        uuid: d7bb6c364c3f282264d1122928fc63dd
-        required: false
-        target: http://mulesoft.com/modeling/instances/4870ee66ff842855ec2d96f4619d3a26
-    description: The platform or partner fee, commission, or brokerage fee that is associated with the transaction. Not a separate or isolated transaction leg from the external perspective. The platform fee is limited in scope and is always associated with the original payment for the purchase unit.
+        target: http://mulesoft.com/modeling/instances/495482ea07d602bad9e11e771c9cb165
+    extends:
+      -
+        uuid: 5078bc855e909b7f9ac28a7b05f4bb46
+    description: Authorize an order.
+  order_action_request-json:
+    uuid: 5078bc855e909b7f9ac28a7b05f4bb46
+    attributes: {}
+    associations: {}
+    description: Completes an action for an order.
   MerchantsCommonComponentsSpecification-v1-schema-token-json:
     uuid: 0cb567dd04fe8d39ea1dc99a4ba9fd02
     attributes:
@@ -1478,161 +1624,15 @@ entities:
           type: string
     associations: {}
     description: The tokenized payment source to fund a payment.
-  business_phone:
-    uuid: 75c4eb8b9b529add41b9ec78dec681e4
+  shipping:
+    uuid: 85f06e4cb0dfe60fe98ab5e4b7b3ba1f
     attributes: {}
     associations: {}
     extends:
       -
-        uuid: 98be9ead60b3b24799abb40b551c7a2e
-    description: The phone number of the merchant. Appears to the customer in checkout, payment transactions, email receipts, and transaction history.
-  order_request-json:
-    uuid: 7264c3388b1c6b2ad2a6d66986bfc59a
-    attributes:
-      intent:
-        allowMultiple: false
-        uuid: 2f9692f9e76468a74d4b633b0b8f5795
-        required: true
-        range:
-          type: string
-    associations:
-      payer:
-        allowMultiple: false
-        uuid: a350eeb0cc67492ac3efb1eba3a3087a
-        required: false
-        target: http://mulesoft.com/modeling/instances/16c4a457c30b573081d05e77ca228b8f
-    description: The order request details.
-  MerchantsCommonComponentsSpecification-v1-schema-amount_with_breakdown-json:
-    uuid: 70c2d1e1d3a2fab67d4409b2e5c44e76
+        uuid: a9b519c325169250dce722ef9eaba074
+    description: The name and address of the person to whom the item(s) need to be shipped.
+  not:
+    uuid: 8009793f9fc775ead32901726c11856c
     attributes: {}
     associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The total order amount with an optional breakdown that provides details, such as the total item amount, total tax amount, shipping, handling, insurance, and discounts, if any.<br/>If you specify `amount.breakdown`, the amount equals `item_total` plus `tax_total` plus `shipping` plus `handling` plus `insurance` minus `shipping_discount`.<br/>The amount must be a positive number. For listed of supported currencies and decimal precision, see the PayPal REST APIs <a href="/docs/integration/direct/rest/currency-codes/">Currency Codes</a>.
-  MerchantsCommonComponentsSpecification-v1-schema-item-json:
-    uuid: 08303124fecbfcc31af66a63fd3003f2
-    attributes:
-      category:
-        allowMultiple: false
-        uuid: 464f329a50bf7524485774e721dcee78
-        required: false
-        range:
-          type: string
-      sku:
-        allowMultiple: false
-        uuid: 88eff2a8cc072524251a4f2a998275a8
-        required: false
-        range:
-          type: string
-      description:
-        allowMultiple: false
-        uuid: 7a2ff2c46658666fa8acaf915de164ff
-        required: false
-        range:
-          type: string
-      quantity:
-        allowMultiple: false
-        uuid: 781fb380d365e922431693ce4e3b4783
-        required: true
-        range:
-          type: string
-      name:
-        allowMultiple: false
-        uuid: 35174e7aae2ac29e68bf0ef0017663df
-        required: true
-        range:
-          type: string
-    associations:
-      unit_amount:
-        allowMultiple: false
-        uuid: a20b92b73bb4ef9ac78d2c991e991e73
-        required: true
-        target: http://mulesoft.com/modeling/instances/903ab7c640df96eb307fb8fe48f622cc
-      tax:
-        allowMultiple: false
-        uuid: e475947d4dcf871f8520acb02add82d5
-        required: false
-        target: http://mulesoft.com/modeling/instances/5fe66f17cbce04874dba05ad5e867606
-    description: The details for the items to be purchased.
-  MCCS-v1-schema-CC-v3-json-openapi-2-name-json:
-    uuid: 51a8e60cff1af16dedb5d3b2f60a2a6d
-    attributes:
-      prefix:
-        allowMultiple: false
-        uuid: 61ea5a781cf6e676cfc26f65233b1161
-        required: true
-        range:
-          type: string
-      surname:
-        allowMultiple: false
-        uuid: 9ec381118fa388e032391a92ff5d72d4
-        required: true
-        range:
-          type: string
-      suffix:
-        allowMultiple: false
-        uuid: 9dd9ea108dedd5fa612d3af0067c5435
-        required: true
-        range:
-          type: string
-      middle_name:
-        allowMultiple: false
-        uuid: 1d7af9f136c2ae94f07446d9661eee24
-        required: true
-        range:
-          type: string
-      given_name:
-        allowMultiple: false
-        uuid: 21b7551befe8f1a29f615d0692eded19
-        required: true
-        range:
-          type: string
-      full_name:
-        allowMultiple: false
-        uuid: 1d59283630a98c4096faf95ad5a527c7
-        required: true
-        range:
-          type: string
-      alternate_full_name:
-        allowMultiple: false
-        uuid: 2823e85b470d96e61f311567a7c2ddcb
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The name of the party.
-  net_amount:
-    uuid: 23c9252b260056d5ae3b895f40718e3b
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The net amount that the payee's account is debited, if the payee holds funds in the currency for this refund. The net amount is calculated as <code>gross_amount</code> minus <code>paypal_fee</code> minus <code>platform_fees</code>.
-  amount:
-    uuid: f63c420246bd54561375ab571c520174
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: c593b4745bead74b76f0f916294d3ee2
-    description: The shipping cost associated with the option chosen.
-  properties:
-    uuid: e89f72f30215fd2a5f224ca08ea22bbd
-    attributes: {}
-    associations: {}
-  items:
-    uuid: 3259f9f3c8e276e02b0b11ba4db66f5b
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 36675c8577c7d0cdfe230da82f04b6bf
-  items:
-    uuid: 528d38caf65ce8852299aefaa992d286
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 36675c8577c7d0cdfe230da82f04b6bf

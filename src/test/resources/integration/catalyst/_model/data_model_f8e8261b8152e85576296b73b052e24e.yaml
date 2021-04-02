@@ -2,34 +2,108 @@
 uuid: f8e8261b8152e85576296b73b052e24e
 name: retail_locations_system_api.raml
 entities:
-  StoreSearchResponse:
-    uuid: 299b29a05b90f585228d16706428bfb7
-    attributes: {}
-    associations:
-      searchCriteria:
+  MessageResponse:
+    uuid: a83cba5affe762dbe0f932361b04d579
+    attributes:
+      message:
         allowMultiple: false
-        uuid: 0e7720431a25f9011d55af09fb0bd439
+        uuid: d396faf63355753849d21077c542ba8b
         required: true
-        target: http://mulesoft.com/modeling/instances/986f5a9282b1954b65dc97ebb795c433
-      results:
-        allowMultiple: true
-        uuid: 3eac46c6ea18d8e1f24b06d8fc3e71c2
-        required: true
-        target: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
-  ItemAvailabilityResponse:
-    uuid: b26f7cc61dc0825f1e1aa8a7f27db318
-    attributes: {}
-    associations:
-      searchCriteria:
+        range:
+          type: string
+    associations: {}
+  SearchCriteria:
+    uuid: 986f5a9282b1954b65dc97ebb795c433
+    attributes:
+      quantity:
         allowMultiple: false
-        uuid: 359dbca406981ce4ad8165468bf17595
+        uuid: d3dce046feee797e8d49e024f4aa0c79
+        required: false
+        range:
+          type: integer
+      variantId:
+        allowMultiple: false
+        uuid: 0c2fc377ad634102f3da04ae927b6f10
+        required: false
+        range:
+          type: string
+      longitude:
+        allowMultiple: false
+        uuid: 1a77453c33fe04911b6e1fb7d0a1c2a2
         required: true
-        target: http://mulesoft.com/modeling/instances/986f5a9282b1954b65dc97ebb795c433
-      results:
-        allowMultiple: true
-        uuid: d45f291f1982a167bac10a126c520d81
+        range:
+          type: float
+      latitude:
+        allowMultiple: false
+        uuid: 8c771e3584dc8f0e3063d872c521e301
         required: true
-        target: http://mulesoft.com/modeling/instances/d3a7a880942a382f1bac3e43653617af
+        range:
+          type: float
+      useMetric:
+        allowMultiple: false
+        uuid: f21e3c938049f8335b56493c22dc2a7a
+        required: true
+        range:
+          type: boolean
+      maxResults:
+        allowMultiple: false
+        uuid: 82638c888b7aa3ad19226a9fb675f85f
+        required: false
+        range:
+          type: integer
+      productId:
+        allowMultiple: false
+        uuid: 0be8a7aa1d2dd07bdf98a01919032855
+        required: false
+        range:
+          type: string
+      radius:
+        allowMultiple: false
+        uuid: 2862282ace52774eb1620f79b57b9853
+        required: true
+        range:
+          type: integer
+    associations: {}
+  Reservation:
+    uuid: 92fdd416a12c1de0bd133a46d3565689
+    attributes:
+      customerId:
+        allowMultiple: false
+        uuid: 3819c8b2c31b21404256b419561e6bf5
+        required: true
+        range:
+          type: string
+      variantId:
+        allowMultiple: false
+        uuid: 3990f5eb8a05e6af5f68cd29ebe3d820
+        required: true
+        range:
+          type: string
+      productId:
+        allowMultiple: false
+        uuid: 5f5c4572d4518c1dd7b3de8c508f999b
+        required: true
+        range:
+          type: string
+      deliveryMethod:
+        allowMultiple: false
+        uuid: 6b4ea8ddfa10c689647fc4adffed27dc
+        required: false
+        range:
+          type: string
+      quantity:
+        allowMultiple: false
+        uuid: 5d151b05d9597ebcc65b1562928810fc
+        required: true
+        range:
+          type: integer
+      storeId:
+        allowMultiple: false
+        uuid: 737a96808b7fd523d14e2b5381950fe2
+        required: true
+        range:
+          type: string
+    associations: {}
   StoreAvailabilityData:
     uuid: d3a7a880942a382f1bac3e43653617af
     attributes:
@@ -51,105 +125,31 @@ entities:
         uuid: fd019a276d49e5f9c707396cf991a504
         required: true
         target: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
-  MessageResponse:
-    uuid: a83cba5affe762dbe0f932361b04d579
-    attributes:
-      message:
+  ItemAvailabilityResponse:
+    uuid: b26f7cc61dc0825f1e1aa8a7f27db318
+    attributes: {}
+    associations:
+      searchCriteria:
         allowMultiple: false
-        uuid: d396faf63355753849d21077c542ba8b
+        uuid: 359dbca406981ce4ad8165468bf17595
         required: true
-        range:
-          type: string
-    associations: {}
-  SearchCriteria:
-    uuid: 986f5a9282b1954b65dc97ebb795c433
-    attributes:
-      longitude:
-        allowMultiple: false
-        uuid: 1a77453c33fe04911b6e1fb7d0a1c2a2
+        target: http://mulesoft.com/modeling/instances/986f5a9282b1954b65dc97ebb795c433
+      results:
+        allowMultiple: true
+        uuid: d45f291f1982a167bac10a126c520d81
         required: true
-        range:
-          type: float
-      radius:
+        target: http://mulesoft.com/modeling/instances/d3a7a880942a382f1bac3e43653617af
+  StoreSearchResponse:
+    uuid: 299b29a05b90f585228d16706428bfb7
+    attributes: {}
+    associations:
+      searchCriteria:
         allowMultiple: false
-        uuid: 2862282ace52774eb1620f79b57b9853
+        uuid: 0e7720431a25f9011d55af09fb0bd439
         required: true
-        range:
-          type: integer
-      quantity:
-        allowMultiple: false
-        uuid: d3dce046feee797e8d49e024f4aa0c79
-        required: false
-        range:
-          type: integer
-      useMetric:
-        allowMultiple: false
-        uuid: f21e3c938049f8335b56493c22dc2a7a
+        target: http://mulesoft.com/modeling/instances/986f5a9282b1954b65dc97ebb795c433
+      results:
+        allowMultiple: true
+        uuid: 3eac46c6ea18d8e1f24b06d8fc3e71c2
         required: true
-        range:
-          type: boolean
-      variantId:
-        allowMultiple: false
-        uuid: 0c2fc377ad634102f3da04ae927b6f10
-        required: false
-        range:
-          type: string
-      productId:
-        allowMultiple: false
-        uuid: 0be8a7aa1d2dd07bdf98a01919032855
-        required: false
-        range:
-          type: string
-      maxResults:
-        allowMultiple: false
-        uuid: 82638c888b7aa3ad19226a9fb675f85f
-        required: false
-        range:
-          type: integer
-      latitude:
-        allowMultiple: false
-        uuid: 8c771e3584dc8f0e3063d872c521e301
-        required: true
-        range:
-          type: float
-    associations: {}
-  Reservation:
-    uuid: 92fdd416a12c1de0bd133a46d3565689
-    attributes:
-      customerId:
-        allowMultiple: false
-        uuid: 3819c8b2c31b21404256b419561e6bf5
-        required: true
-        range:
-          type: string
-      deliveryMethod:
-        allowMultiple: false
-        uuid: 6b4ea8ddfa10c689647fc4adffed27dc
-        required: false
-        range:
-          type: string
-      storeId:
-        allowMultiple: false
-        uuid: 737a96808b7fd523d14e2b5381950fe2
-        required: true
-        range:
-          type: string
-      productId:
-        allowMultiple: false
-        uuid: 5f5c4572d4518c1dd7b3de8c508f999b
-        required: true
-        range:
-          type: string
-      variantId:
-        allowMultiple: false
-        uuid: 3990f5eb8a05e6af5f68cd29ebe3d820
-        required: true
-        range:
-          type: string
-      quantity:
-        allowMultiple: false
-        uuid: 5d151b05d9597ebcc65b1562928810fc
-        required: true
-        range:
-          type: integer
-    associations: {}
+        target: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c

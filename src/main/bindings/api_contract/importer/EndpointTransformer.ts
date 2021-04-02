@@ -55,19 +55,34 @@ export class EndpointTransformer extends ShapeTransformer {
         if (endpoints.length > 0) {
             const operations: meta.Operation[] = [];
 
-            this.foldEndPoints(endpoints).forEach((group) => {
+            const groups = this.foldEndPoints(endpoints)
+            groups.forEach((group) => {
 
                 const linkedEndpoint = group.shift()!;
                 const getOperation = $amfModel.findOperationByMethod("get", linkedEndpoint);
                 const newPathParams: amf.model.domain.Parameter[] = linkedEndpoint.parameters.filter((p: amf.model.domain.Parameter) => {
                     return !pathParams.includes(p.name.value())
                 });
+                const varRegex = /\{[\w-\ ]+\}/g
+                const matches = linkedEndpoint.path.value().match(varRegex) || [];
+                matches.forEach((match) => {
+                    const variable = match.replace("{", "").replace("}","");
+                    const inParams = (linkedEndpoint.parameters.find((param: amf.model.domain.Parameter) => param.name.value() === variable) != null)
+                    const inNewParams = (newPathParams.find((param: amf.model.domain.Parameter) => param.name.value() == variable) != null)
+                    if (!inParams && !inNewParams) {
+                        const newPathParam = new amf.model.domain.Parameter();
+                        newPathParam.withName(variable).withRequired(true).withScalarSchema(variable).withDataType(VOCAB.XSD_STRING);
+                        newPathParam.withId(linkedEndpoint.id + "_uriParam_" + variable)
+                        newPathParams.push(newPathParam);
+                    }
+                });
 
 
                 // linked resource
                 if (getOperation != null) {
-                    const nestedResource = this.transformResource(linkedEndpoint, path, pathParams, group)
-                    const linkOperation = this.transformGetOperation(newPathParams, getOperation, (resource instanceof meta.CollectionResource))
+                    const isAsyncChannel = $amfModel.isAsyncChannel(linkedEndpoint)
+                    const nestedResource = this.transformEndpoint(linkedEndpoint, path, pathParams.concat(newPathParams.map((p) => p.name.value())), group)
+                    const linkOperation = this.transformGetOperation(newPathParams, getOperation, isAsyncChannel)
                     linkOperation.name = `Find ${nestedResource.name}`
 
                     // setup the output parameter to the schema of the linked resource
@@ -94,7 +109,10 @@ export class EndpointTransformer extends ShapeTransformer {
                     operations.push(linkOperation)
 
                 } else  { // nested operation
-                    linkedEndpoint.operations.forEach((op)=> {
+                    const asyncOperations = $amfModel.findAsyncOperations(linkedEndpoint);
+                    const mutableOperations = $amfModel.findMutableOperations(linkedEndpoint);
+                    this.transformAsyncOperations(asyncOperations, resource, path);
+                    mutableOperations.forEach((op)=> {
                         const controlOperation = this.transformMutableOperation(newPathParams, op);
                         const method = op.method.value();
                         let action = "Invoke"
@@ -106,6 +124,8 @@ export class EndpointTransformer extends ShapeTransformer {
                             action = "Delete"
                         } else if (method === "patch") {
                             action = 'Patch'
+                        } else {
+                            action = method
                         }
 
                         let pathFragment = linkedEndpoint.path.value().replace(path, "")
@@ -133,62 +153,156 @@ export class EndpointTransformer extends ShapeTransformer {
         return resource;
     }
 
-    private transformResource(endpoint: amf.model.domain.EndPoint, parent: string, pathParams: string[], group: amf.model.domain.EndPoint[]): meta.Resource {
-
-        let resource = new meta.Resource();
-
-        const getOperation = $amfModel.findOperationByMethod("get", endpoint);
-        const resp = $amfModel.findResponsesByStatus(["200", "2"],getOperation);
-        let effectiveShape = $amfModel.findResponseSchema(resp);
-
-        if (effectiveShape instanceof amf.model.domain.ArrayShape) {
-            resource = new meta.CollectionResource(); // @todo: deal with collection here
-        } else if (effectiveShape) {
-            const entity = this.adaptOrCreate(effectiveShape, endpoint.id + "get")
-            if (entity) {
-                resource.schema = entity
-            }
-        }
-        this.resources.push(resource)
-
-        resource.operations = [];
-        const otherOperations = endpoint.operations.filter((op) => op.method.value() !== "get");
-        if (otherOperations.length > 0) {
-            otherOperations.forEach((op) => {
-                const controlOperation = this.transformMutableOperation([], op);
-                const method = op.method.value();
-                let action = "Invoke"
-                if (method == "post") {
-                    action = 'Create'
-                } else if (method === "put") {
-                    action = 'Update'
-                } else if (method === "delete") {
-                    action = "Delete"
-                } else if (method === "patch") {
-                    action = 'Patch'
-                } else {
-                    action = op.method.value()
-                }
-                controlOperation.name = action
-
-                this.bindings.addOperationBindings(endpoint, op, controlOperation)
-
-                resource!.operations!.push(controlOperation)
-            });
-        }
-
+    private transformEndpoint(endpoint: amf.model.domain.EndPoint, parent: string, pathParams: string[], group: amf.model.domain.EndPoint[]): meta.Resource {
+        let resource = this.buildResourceForSchema(endpoint);
+        this.buildResourceOperations(endpoint, resource);
         this.transformResourceLinks(resource, endpoint.path.value(), pathParams, group)
+        return resource
+    }
 
+    private buildResourceOperations(endpoint: amf.model.domain.EndPoint, resource: meta.Resource) {
+        const asyncOperations = $amfModel.findAsyncOperations(endpoint);
+        const mutableOperations = $amfModel.findMutableOperations(endpoint);
+        this.transformAsyncOperations(asyncOperations, resource, endpoint.path.value());
+        mutableOperations.forEach((op) => {
+            const controlOperation = this.transformMutableOperation([], op);
+            const method = op.method.value();
+            let action = "Invoke"
+            if (method == "post") {
+                action = 'Create'
+            } else if (method === "put") {
+                action = 'Update'
+            } else if (method === "delete") {
+                action = "Delete"
+            } else if (method === "patch") {
+                action = 'Patch'
+            } else {
+                action = `${action} ${op.method.value()}`;
+            }
+            controlOperation.name = action
+
+            this.bindings.addOperationBindings(endpoint, op, controlOperation)
+
+            resource!.operations!.push(controlOperation)
+        });
+    }
+
+    /**
+     * Sets the schema for the resource also transforms it into a Collection if the schema is an array.
+     * If the resource is raw Async channel, then just generate a wrapping resource.
+     * @param endpoint
+     * @private
+     */
+    private buildResourceForSchema(endpoint: amf.model.domain.EndPoint) {
+        let resource = new meta.Resource();
+        resource.operations = [];
         resource.name = `Resource ${endpoint.path}`
         if (endpoint.description.option) {
             resource.description = endpoint.description.value()
         }
-        return resource
+        if (!$amfModel.isAsyncChannel(endpoint)) {
+            const getOperation = $amfModel.findOperationByMethod("get", endpoint);
+            const resp = $amfModel.findResponsesByStatus(["200", "2"],getOperation);
+            let effectiveShape = $amfModel.findResponseSchema(resp);
+
+            if (effectiveShape instanceof amf.model.domain.ArrayShape) {
+                let collection = new meta.CollectionResource(); // @todo: deal with collection here
+                collection.name = resource.name;
+                collection.operations = resource.operations;
+                collection.description = resource.description;
+                resource = collection;
+            } else if (effectiveShape) {
+                const entity = this.adaptOrCreate(effectiveShape, endpoint.id + "get")
+                if (entity) {
+                    resource.schema = entity
+                }
+            }
+        }
+        this.resources.push(resource);
+        return resource;
     }
 
+    private transformAsyncOperations(asyncOperations: amf.model.domain.Operation[], resource: meta.Resource, path: string) {
+        resource.events = resource.events || [];
+        const publish = asyncOperations.filter((op) => op.method.value() == "publish");
+        const subscribe = asyncOperations.filter((op) => op.method.value() == "subscribe");
 
+        // accumulator to discover events
+        const eventMap: {[id: string]: {publish: meta.OperationParameter, subscribe: meta.OperationParameter}} = {};
+        const events: {[id:string]: meta.Entity} = {};
+        const scalarEvents: {[id: string]: meta.OperationParameter} = {};
 
-    private transformGetOperation(newPathParams: amf.model.domain.Parameter[], apiOperation: amf.model.domain.Operation, isCollection: boolean): meta.Operation {
+        publish.concat(subscribe).forEach((op) => {
+            const operationType = op.method.value();
+            const schema = $amfModel.findAsyncOperationSchema(op);
+            if (schema) {
+                const params = this.shapeToParameterSet(op.id, schema)
+                params.forEach((param) => {
+                    const eventId = param.uuid
+                    if (param.objectRange) {
+                        const eventOps = eventMap[eventId]   || {};
+                        eventMap[eventId] = eventOps;
+
+                        //@ts-ignore
+                        if (eventOps[operationType]) {
+                            //@ts-ignore
+                            eventOps[operationType].allowMultiple = eventOps[operationType].allowMultiple || param.allowMultiple;
+                        } else {
+                            //@ts-ignore
+                            eventOps[operationType] = param;
+                        }
+                        events[eventId] = param.objectRange
+                    } else {
+                        const eventOps = eventMap[eventId]   || {};
+                        eventMap[eventId] = eventOps;
+
+                        //@ts-ignore
+                        if (eventOps[operationType]) {
+                            //@ts-ignore
+                            eventOps[operationType].allowMultiple = eventOps[operationType].allowMultiple || param.allowMultiple;
+                        } else {
+                            //@ts-ignore
+                            eventOps[operationType] = param;
+                        }
+                        scalarEvents[eventId] = param; // again param is a wrapper for the scalar here
+                    }
+                });
+            }
+        });
+
+        Object.keys(events).concat(Object.keys(scalarEvents)).forEach((eventId) => {
+            const shape = (events[eventId] || scalarEvents[eventId])!;
+            const publish = eventMap[eventId]?.publish;
+            const subscribe = eventMap[eventId]?.subscribe;
+
+            const event = new meta.CustomEvent()
+            event.uuid = Md5.hashStr(eventId + "_event").toString();
+
+            if (shape.name && shape.name != "schema") {
+                event.name = shape.name;
+                if (shape.displayName) {
+                    event.displayName = shape.displayName;
+                }
+            } else {
+                event.name = "Event" + event.uuid.substr(shape.id.length - 5);
+                event.displayName = "Event " + event.uuid.substr(shape.id.length - 5);
+            }
+
+            if (publish != null) {
+                publish.uuid = Md5.hashStr(path + publish?.uuid +"_publish_event").toString();
+                event.publish = publish;
+            }
+
+            if (subscribe != null) {
+                subscribe.uuid = Md5.hashStr(path + publish?.uuid +"_subscribe_event").toString();
+                event.subscribe = subscribe
+            }
+
+            resource.events!.push(event);events
+        });
+    }
+
+    private transformGetOperation(newPathParams: amf.model.domain.Parameter[], apiOperation: amf.model.domain.Operation, isAsyncChannel: boolean): meta.Operation {
         const operation = new meta.CustomOperation();
         operation.uuid = Md5.hashStr(apiOperation.id).toString();
         operation.isMutation = false;
@@ -203,7 +317,9 @@ export class EndpointTransformer extends ShapeTransformer {
             return parsedParam
         });
 
-        this.transformOperationOutput(apiOperation, operation);
+        if (!isAsyncChannel) {
+            this.transformOperationOutput(apiOperation, operation);
+        }
 
         return operation;
     }
@@ -360,7 +476,7 @@ export class EndpointTransformer extends ShapeTransformer {
                 }
             });
 
-        // this.printResourceTree(endpoints)
+        //this.printResourceTree(endpoints)
 
         sortedEndpoints.forEach((ep) => {
             let current = currentGroup[0]

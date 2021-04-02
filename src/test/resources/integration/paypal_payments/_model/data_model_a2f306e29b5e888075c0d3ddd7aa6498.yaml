@@ -2,38 +2,32 @@
 uuid: a2f306e29b5e888075c0d3ddd7aa6498
 name: payments_v2_api-spec.raml
 entities:
-  exchange_rate:
-    uuid: 9771f5537a369dc0fb0a9be7bb88a933
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: ae883a928df3a67aafe9246cc0a31088
-    description: The exchange rate that determines the amount that was debited from the merchant's PayPal account.
-  MCCS-v1-schema-net_amount_breakdown_item_json:
-    uuid: 84d0be547e7a90090060cedc2a899b9c
+  MCCS-v1-schema-capture_status_json:
+    uuid: be6e3e69371c45ae646a849ee1343f66
+    attributes:
+      status:
+        allowMultiple: false
+        uuid: 7553bb5649d4d37a8c51468dbd31e1c0
+        required: true
+        range:
+          type: string
+    associations:
+      status_details:
+        allowMultiple: false
+        uuid: aec36e1d8cc58c13824e6076581a3904
+        required: true
+        target: http://mulesoft.com/modeling/instances/7fde27c44f4bc3fd203c266e52f456a2
+    description: The status of a captured payment.
+  MCCS-v1-schema-platform_fee_json:
+    uuid: d5bf336ee1e339c938685e1273ac4987
     attributes: {}
     associations:
-      payable_amount:
+      amount:
         allowMultiple: false
-        uuid: a2f4eeb0f94be86debba998a9de840f7
+        uuid: 1e417c56d35009dcd9943775aa0e8795
         required: true
-        target: http://mulesoft.com/modeling/instances/e9de02e6ff0f47c492fc92a4fc255649
-      converted_amount:
-        allowMultiple: false
-        uuid: dcac8211d9f761dce2046810cbb83767
-        required: true
-        target: http://mulesoft.com/modeling/instances/9fc33371ff2b0c1f52a0d8b68b25e19a
-      exchange_rate:
-        allowMultiple: false
-        uuid: ca5b9f86e28b8f7440ada985884d1c3d
-        required: true
-        target: http://mulesoft.com/modeling/instances/9771f5537a369dc0fb0a9be7bb88a933
-    description: The net amount. Returned when the currency of the refund is different from the currency of the PayPal account where the merchant holds their funds.
-  not:
-    uuid: c8120dc223d250ee660b5e28f244b819
-    attributes: {}
-    associations: {}
+        target: http://mulesoft.com/modeling/instances/1dbad7e35562524e94cb21057bcbe589
+    description: The platform or partner fee, commission, or brokerage fee that is associated with the transaction. Not a separate or isolated transaction leg from the external perspective. The platform fee is limited in scope and is always associated with the original payment for the purchase unit.
   MCCS-v1-schema-authorization_json:
     uuid: 6034e92e08e4ca64c98866e70d14fe87
     attributes:
@@ -56,47 +50,249 @@ entities:
       -
         uuid: 72dfaa13821caff41b0a3c5f869ae5c4
     description: The authorized payment transaction.
-  status_details:
-    uuid: 7fde27c44f4bc3fd203c266e52f456a2
+  MCCS-v1-schema-refund_status_json:
+    uuid: 6b544c99ebf618b89e513be6a9b2d0f9
     attributes:
-      reason:
+      status:
         allowMultiple: false
-        uuid: 7452ea8e3e335cf859cde12350c9b989
+        uuid: 4fbeab640ae6521175357df4dacd4636
         required: true
         range:
           type: string
+    associations:
+      status_details:
+        allowMultiple: false
+        uuid: a34ad8344d393634b4e9d66b1b888cc6
+        required: true
+        target: http://mulesoft.com/modeling/instances/bbf98cbe986405497b0c048a166a2bfe
+    description: The refund status.
+  MCCS-v1-scc-v3-s-j-oa-2_0-error_details_json:
+    uuid: c7b5f2273e9ee65afd7be6ca5ed05a77
+    attributes:
+      issue:
+        allowMultiple: false
+        uuid: 0412468e5b10b0ada9c9541c0b0113f7
+        required: true
+        range:
+          type: string
+      description:
+        allowMultiple: false
+        uuid: d1fbfa6b32e7a5205ec7003e1053a8f1
+        required: false
+        range:
+          type: string
+      location:
+        allowMultiple: false
+        uuid: dd227646f4395914acda0b579f0362c7
+        required: false
+        range:
+          type: string
+      field:
+        allowMultiple: false
+        uuid: b4212a2872437907d8422e7ddc019248
+        required: false
+        range:
+          type: string
+      value:
+        allowMultiple: false
+        uuid: 468db85d86dd87c44d8f7d31c3220b71
+        required: false
+        range:
+          type: string
     associations: {}
-    description: The details of the captured payment status.
-  items:
-    uuid: 0bdd7ef5a6bcdd1c4adc0c6bb08e279a
-    attributes: {}
-    associations: {}
-    description: An item.
-  gross_amount:
-    uuid: c05bb247cfa1a3e5c4c7d286c0df6dae
+    description: The error details. Required for client-side `4XX` errors.
+  MCCS-v1-scc-v3-s-j-oa-2_0-link_schema_json:
+    uuid: 9c032f37c457b5897dd122080ba69b18
+    attributes:
+      fragmentResolution:
+        allowMultiple: false
+        uuid: 2415e508b56cb867d38aa133659e5604
+        required: true
+        range:
+          type: string
+      pathStart:
+        allowMultiple: false
+        uuid: 2ac2120a28818b5b8fa58fc4c40a1fb6
+        required: true
+        range:
+          type: string
+    associations:
+      media:
+        allowMultiple: false
+        uuid: 8a524498ed9cc20bd228dc7fba15126f
+        required: true
+        target: http://mulesoft.com/modeling/instances/370bddcce0f9277ada2002765cb4cca3
+      patternProperties:
+        allowMultiple: false
+        uuid: fba30b369a2e7ba41a7e0ddf78efdf21
+        required: true
+        target: http://mulesoft.com/modeling/instances/b823237d26f8be5a1625c931f8cc030c
+      oneOf:
+        allowMultiple: true
+        uuid: 4fc43b9db9ba353b60f8d0860901bf76
+        required: true
+        target: http://mulesoft.com/modeling/instances/a229903818a63aa0a82c695d9f18f269
+      items:
+        allowMultiple: false
+        uuid: c72cb3b90677a7073c7825600adba4ef
+        required: true
+        target: http://mulesoft.com/modeling/instances/0bdd7ef5a6bcdd1c4adc0c6bb08e279a
+      dependencies:
+        allowMultiple: false
+        uuid: 2f006d6123d3f382c32b775b6b194d6d
+        required: true
+        target: http://mulesoft.com/modeling/instances/882febcf51b30d7d4b32d9e946e9a416
+      definitions:
+        allowMultiple: false
+        uuid: 59789482e17b09b87216e9e37f664fe0
+        required: true
+        target: http://mulesoft.com/modeling/instances/4a07d1c9af877052c00f9463cef9aa2c
+      properties:
+        allowMultiple: false
+        uuid: 767231647bcc3fb92129a88c232bbef1
+        required: true
+        target: http://mulesoft.com/modeling/instances/84ac13c1781f49fa88aa50f46589a5ef
+      not:
+        allowMultiple: false
+        uuid: 4e276dc22aeee585e21dd29116ffdd44
+        required: true
+        target: http://mulesoft.com/modeling/instances/c8120dc223d250ee660b5e28f244b819
+      links:
+        allowMultiple: true
+        uuid: 4602dc166aae79d81ca04c2967f8644e
+        required: true
+        target: http://mulesoft.com/modeling/instances/d0bf159a90412858e5ff03faf5e89609
+      allOf:
+        allowMultiple: true
+        uuid: 77c837244906f7cdf0796696c1808698
+        required: true
+        target: http://mulesoft.com/modeling/instances/7658b8df905d60251f8eb64b605cd719
+      anyOf:
+        allowMultiple: true
+        uuid: 9caa6f41b3a25c128be18529b4989ec5
+        required: true
+        target: http://mulesoft.com/modeling/instances/4620955c4f28883a9d211883b5f1a7f5
+      additionalItems:
+        allowMultiple: false
+        uuid: e2656d112fbd4c78d4212e931e9feb9d
+        required: true
+        target: http://mulesoft.com/modeling/instances/6be758aeb54beefc98d798acae42c0a8
+    description: The request data or link target.
+  amount:
+    uuid: 2704fd0feea6df3483ef614aae18be01
     attributes: {}
     associations: {}
     extends:
       -
         uuid: a1171ef936368154bb7ea0f231299485
-    description: The amount that the payee refunded to the payer.
-  MCCS-v1-schema-seller_protection_json:
-    uuid: 40a8b4b0de998b208bc9f6de6c3d1a6d
+    description: The amount for this captured payment.
+  definitions:
+    uuid: 4a07d1c9af877052c00f9463cef9aa2c
+    attributes: {}
+    associations: {}
+  MCCS-v1-schema-authorization_status_json:
+    uuid: 8cd9b93be509c34527c4082bd6a48eec
     attributes:
       status:
         allowMultiple: false
-        uuid: bdd1488e5d36c6fc4ee72d7c968cc609
-        required: true
-        range:
-          type: string
-      dispute_categories:
-        allowMultiple: true
-        uuid: d7d754aa0093f789d7f095df08123e5b
+        uuid: b91ffbbb1f7b599ff76b586638c0d24b
         required: true
         range:
           type: string
     associations: {}
-    description: The level of protection offered as defined by [PayPal Seller Protection for Merchants](https://www.paypal.com/us/webapps/mpp/security/seller-protection).
+    description: The status fields for an authorized payment.
+  gross_amount:
+    uuid: 7c4f1aa9a82344d45a8957ebbd05bfce
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: a1171ef936368154bb7ea0f231299485
+    description: The amount for this captured payment.
+  items:
+    uuid: 2f136c61856415406d30460367910634
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: d5bf336ee1e339c938685e1273ac4987
+  status_details:
+    uuid: bbf98cbe986405497b0c048a166a2bfe
+    attributes:
+      reason:
+        allowMultiple: false
+        uuid: 004604008371dfa9d345f4643e6d4d1b
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The details of the refund status.
+  MCCS-v1-schema-refund_json:
+    uuid: 0dc88e055aeb6746e09f05146d8770e1
+    attributes:
+      id:
+        allowMultiple: false
+        uuid: fd5d88eaaaca7def66f8a9b03b9fbdac
+        required: true
+        range:
+          type: string
+      invoice_id:
+        allowMultiple: false
+        uuid: 82148776257b5cc2b4c482cab4fbd076
+        required: true
+        range:
+          type: string
+      note_to_payer:
+        allowMultiple: false
+        uuid: 12dcee56cfd4e3b4f34c19f72ed9e1eb
+        required: true
+        range:
+          type: string
+    associations:
+      amount:
+        allowMultiple: false
+        uuid: be512979c05553430aaa657ec4273696
+        required: true
+        target: http://mulesoft.com/modeling/instances/d763c955c2b8d0e0a3f3413a49b788d4
+      seller_payable_breakdown:
+        allowMultiple: false
+        uuid: e2c3b22faaf03d7153189a8d33d1cb47
+        required: true
+        target: http://mulesoft.com/modeling/instances/9ebbdd3e2de86278d3bffc7a4b73c49b
+      links:
+        allowMultiple: true
+        uuid: fdd60771368040de56bcf822a03b0819
+        required: true
+        target: http://mulesoft.com/modeling/instances/8c57d6e9462ab8be299340c03c9865ce
+    extends:
+      -
+        uuid: 6b544c99ebf618b89e513be6a9b2d0f9
+      -
+        uuid: 72dfaa13821caff41b0a3c5f869ae5c4
+    description: The refund information.
+  dependencies:
+    uuid: 882febcf51b30d7d4b32d9e946e9a416
+    attributes: {}
+    associations: {}
+  items:
+    uuid: dbc1cb29bb6bbfa9717ee81d8c76f3a9
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: b24cb7ab53c8069d0987b56942b0461e
+  seller_protection:
+    uuid: 4037f0cf31924f8cb500e3812de4e7a7
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 40a8b4b0de998b208bc9f6de6c3d1a6d
+  items:
+    uuid: 0bdd7ef5a6bcdd1c4adc0c6bb08e279a
+    attributes: {}
+    associations: {}
+    description: An item.
   MCCS-v1-scc-v3-s-j-oa-2_0-error_json:
     uuid: df7b16f7d28d59e67a55509dd86f37cf
     attributes:
@@ -131,13 +327,214 @@ entities:
         required: false
         target: http://mulesoft.com/modeling/instances/dbc1cb29bb6bbfa9717ee81d8c76f3a9
     description: The error details.
-  "":
-    uuid: 22a0dc8029f9329d0e5b57804cb72224
-  items:
-    uuid: d0bf159a90412858e5ff03faf5e89609
+  capture_request_json:
+    uuid: 3d337397d7ce9f1c477b39de78ca92a6
+    attributes:
+      invoice_id:
+        allowMultiple: false
+        uuid: 30124e0d2cc13df72d874a6b94062dcf
+        required: true
+        range:
+          type: string
+      final_capture:
+        allowMultiple: false
+        uuid: f4581f19115e9beba9121b38776c4fc9
+        required: true
+        range:
+          type: boolean
+    associations:
+      amount:
+        allowMultiple: false
+        uuid: 6645ae57c5a2c37270955517f608f192
+        required: true
+        target: http://mulesoft.com/modeling/instances/30db550f1354ac8da6daa1138af3274c
+    description: Captures either a portion or the full authorized amount of an authorized payment.
+  seller_receivable_breakdown:
+    uuid: 7305ac7e9eac2ac40f1f7c8d98be71f5
+    attributes: {}
+    associations:
+      receivable_amount:
+        allowMultiple: false
+        uuid: 58755fd2f6aaf8fcccf130e24e5a1222
+        required: true
+        target: http://mulesoft.com/modeling/instances/a9ae643cf8196a65cd8f5c87b120a25d
+      platform_fees:
+        allowMultiple: true
+        uuid: 176e814a9f80714203968893772478e9
+        required: true
+        target: http://mulesoft.com/modeling/instances/2f136c61856415406d30460367910634
+      paypal_fee:
+        allowMultiple: false
+        uuid: e2fa7209e4c1e4183722dae2608b380e
+        required: true
+        target: http://mulesoft.com/modeling/instances/7b520e05ea2eed7ffb9c38a2b910a6b8
+      net_amount:
+        allowMultiple: false
+        uuid: e47526e1cd18dc5e275b5cd304972135
+        required: true
+        target: http://mulesoft.com/modeling/instances/b14200f5ab62c6647d4a96aaa1ad1c77
+      gross_amount:
+        allowMultiple: false
+        uuid: bf179caf3bb660fbd92dbda4c0806180
+        required: true
+        target: http://mulesoft.com/modeling/instances/7c4f1aa9a82344d45a8957ebbd05bfce
+    description: The detailed breakdown of the captured payment.
+  exchange_rate:
+    uuid: 9771f5537a369dc0fb0a9be7bb88a933
     attributes: {}
     associations: {}
-    description: A link.
+    extends:
+      -
+        uuid: ae883a928df3a67aafe9246cc0a31088
+    description: The exchange rate that determines the amount that was debited from the merchant's PayPal account.
+  amount:
+    uuid: d763c955c2b8d0e0a3f3413a49b788d4
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: a1171ef936368154bb7ea0f231299485
+    description: The amount that the payee refunded to the payer.
+  MCCS-v1-schema-payment_instruction_json:
+    uuid: a353634a0fed6ce659eb1a2079f6f7e1
+    attributes: {}
+    associations: {}
+    description: Any additional payment instructions for PayPal for Partner customers. Enables features for partners and marketplaces, such as delayed disbursement and collection of a platform fee. Applies during order creation for captured payments or during capture of authorized payments.
+  amount:
+    uuid: 30db550f1354ac8da6daa1138af3274c
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: a1171ef936368154bb7ea0f231299485
+    description: The amount to capture. To capture a portion of the full authorized amount, specify an amount. If amount is not specified, the full authorized amount is captured. The amount must be a positive number and in the same currency as the authorization against which the payment is being captured.
+  not:
+    uuid: c8120dc223d250ee660b5e28f244b819
+    attributes: {}
+    associations: {}
+  reauthorize_request_json:
+    uuid: 545a07b625ae1da594f6a978f21248c1
+    attributes: {}
+    associations:
+      amount:
+        allowMultiple: false
+        uuid: 7061f8475cac25b98c99e58afb10ac91
+        required: true
+        target: http://mulesoft.com/modeling/instances/e90e375f7e4e663916694aadc15584ab
+    description: Reauthorizes an authorized PayPal account payment, by ID. To ensure that funds are still available, reauthorize a payment after its initial three-day honor period expires. You can reauthorize a payment only once from days four to 29.<br/><br/>If 30 days have transpired since the date of the original authorization, you must create an authorized payment instead of reauthorizing the original authorized payment.<br/><br/>A reauthorized payment itself has a new honor period of three days.<br/><br/>You can reauthorize an authorized payment once for up to 115% of the original authorized amount, not to exceed an increase of $75 USD.<br/><br/>Supports only the `amount` request parameter.<blockquote><strong>Note:</strong> This request is currently not supported for Partner usecases.</blockquote>
+  net_amount:
+    uuid: 8a8e386aee6a4afbe25cf472bb012943
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: a1171ef936368154bb7ea0f231299485
+    description: The net amount that the payee's account is debited, if the payee holds funds in the currency for this refund. The net amount is calculated as <code>gross_amount</code> minus <code>paypal_fee</code> minus <code>platform_fees</code>.
+  items:
+    uuid: 78ba381981b1b7c2c7fe6384dabdd44f
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: d5bf336ee1e339c938685e1273ac4987
+  net_amount:
+    uuid: b14200f5ab62c6647d4a96aaa1ad1c77
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: a1171ef936368154bb7ea0f231299485
+    description: The net amount that the payee receives for this captured payment in their PayPal account. The net amount is computed as <code>gross_amount</code> minus the <code>paypal_fee</code> minus the <code>platform_fees</code>.
+  properties:
+    uuid: 84ac13c1781f49fa88aa50f46589a5ef
+    attributes: {}
+    associations: {}
+  MCCS-v1-scc-v3-s-j-oa-2_0-money_json:
+    uuid: a1171ef936368154bb7ea0f231299485
+    attributes:
+      value:
+        allowMultiple: false
+        uuid: 4a84e41c2c529aa2b6d85646470ab740
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The currency and amount for a financial transaction, such as a balance or payment due.
+  amount:
+    uuid: 1dbad7e35562524e94cb21057bcbe589
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: a1171ef936368154bb7ea0f231299485
+    description: The fee for this transaction.
+  MCCS-v1-schema-activity_timestamps_json:
+    uuid: 72dfaa13821caff41b0a3c5f869ae5c4
+    attributes:
+      create_time:
+        allowMultiple: false
+        uuid: 1226439c2cbb1038060c905673a613e5
+        required: true
+        range:
+          type: string
+      update_time:
+        allowMultiple: false
+        uuid: 3d74409b9d792bed05b716936434c9b6
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The date and time stamps that are common to authorized payment, captured payment, and refund transactions.
+  status_details:
+    uuid: 7fde27c44f4bc3fd203c266e52f456a2
+    attributes:
+      reason:
+        allowMultiple: false
+        uuid: 7452ea8e3e335cf859cde12350c9b989
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The details of the captured payment status.
+  items:
+    uuid: 9d6070d0f66cc9700fbfb7545a9e058c
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: b24cb7ab53c8069d0987b56942b0461e
+  "":
+    uuid: 22a0dc8029f9329d0e5b57804cb72224
+  refund_request_json:
+    uuid: dbbfc6c69f5bc486cd5967a673d6de3d
+    attributes:
+      invoice_id:
+        allowMultiple: false
+        uuid: 8e26fca681c0c405306f15336bb1d8ba
+        required: true
+        range:
+          type: string
+      note_to_payer:
+        allowMultiple: false
+        uuid: bb9c2bfd8508976aa4871654c8135fdb
+        required: true
+        range:
+          type: string
+    associations:
+      amount:
+        allowMultiple: false
+        uuid: dcee80dcf71a3d236a2e28468e5fd5f9
+        required: true
+        target: http://mulesoft.com/modeling/instances/008f246872a3352c8554ba6a2d1f3594
+    description: Refunds a captured payment, by ID. For a full refund, include an empty request body. For a partial refund, include an <code>amount</code> object in the request body.
+  amount:
+    uuid: 008f246872a3352c8554ba6a2d1f3594
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: a1171ef936368154bb7ea0f231299485
+    description: The amount to refund. To refund a portion of the captured amount, specify an amount. If amount is not specified, an amount equal to <code>captured amount - previous refunds</code> is refunded. The amount must be a positive number and in the same currency as the one in which the payment was captured.
   patternProperties:
     uuid: b823237d26f8be5a1625c931f8cc030c
     attributes: {}
@@ -148,21 +545,11 @@ entities:
     attributes: {}
     associations: {}
     description: Any additional items.
-  payable_amount:
-    uuid: e9de02e6ff0f47c492fc92a4fc255649
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: a1171ef936368154bb7ea0f231299485
-    description: The net amount debited from the merchant's PayPal account.
   items:
-    uuid: 2f136c61856415406d30460367910634
+    uuid: 4620955c4f28883a9d211883b5f1a7f5
     attributes: {}
     associations: {}
-    extends:
-      -
-        uuid: d5bf336ee1e339c938685e1273ac4987
+    description: A sub-schema against which the data must validate.
   paypal_fee:
     uuid: 7b520e05ea2eed7ffb9c38a2b910a6b8
     attributes: {}
@@ -171,22 +558,23 @@ entities:
       -
         uuid: a1171ef936368154bb7ea0f231299485
     description: The applicable fee for this captured payment.
-  MCCS-v1-schema-capture_status_json:
-    uuid: be6e3e69371c45ae646a849ee1343f66
+  media:
+    uuid: 370bddcce0f9277ada2002765cb4cca3
     attributes:
-      status:
+      attribute1:
         allowMultiple: false
-        uuid: 7553bb5649d4d37a8c51468dbd31e1c0
+        uuid: 5aed04b0c255b4e7bab766edb64d859a
         required: true
         range:
           type: string
-    associations:
-      status_details:
+      binaryEncoding:
         allowMultiple: false
-        uuid: aec36e1d8cc58c13824e6076581a3904
+        uuid: 6b377fe00182cd68b04e87f7c7aec96b
         required: true
-        target: http://mulesoft.com/modeling/instances/7fde27c44f4bc3fd203c266e52f456a2
-    description: The status of a captured payment.
+        range:
+          type: string
+    associations: {}
+    description: The media type and context-encoding scheme.
   items:
     uuid: 8c57d6e9462ab8be299340c03c9865ce
     attributes: {}
@@ -194,30 +582,19 @@ entities:
     extends:
       -
         uuid: b24cb7ab53c8069d0987b56942b0461e
-  amount:
-    uuid: d763c955c2b8d0e0a3f3413a49b788d4
+  paypal_fee:
+    uuid: b77069237a40b99646a14b30d7644917
     attributes: {}
     associations: {}
     extends:
       -
         uuid: a1171ef936368154bb7ea0f231299485
-    description: The amount that the payee refunded to the payer.
-  amount:
-    uuid: 2704fd0feea6df3483ef614aae18be01
+    description: The PayPal fee that was refunded to the payer. This fee might not match the PayPal fee that the payee paid when the payment was captured.
+  items:
+    uuid: 7658b8df905d60251f8eb64b605cd719
     attributes: {}
     associations: {}
-    extends:
-      -
-        uuid: a1171ef936368154bb7ea0f231299485
-    description: The amount for this captured payment.
-  amount:
-    uuid: e90e375f7e4e663916694aadc15584ab
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: a1171ef936368154bb7ea0f231299485
-    description: The amount to reauthorize for an authorized payment.
+    description: A sub-schema against which the data must validate.
   MCCS-v1-schema-exchange_rate_json:
     uuid: ae883a928df3a67aafe9246cc0a31088
     attributes:
@@ -241,229 +618,122 @@ entities:
           type: string
     associations: {}
     description: The exchange rate that determines the amount to convert from one currency to another currency.
-  items:
-    uuid: dbc1cb29bb6bbfa9717ee81d8c76f3a9
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: b24cb7ab53c8069d0987b56942b0461e
-  refund_request_json:
-    uuid: dbbfc6c69f5bc486cd5967a673d6de3d
-    attributes:
-      invoice_id:
-        allowMultiple: false
-        uuid: 8e26fca681c0c405306f15336bb1d8ba
-        required: true
-        range:
-          type: string
-      note_to_payer:
-        allowMultiple: false
-        uuid: bb9c2bfd8508976aa4871654c8135fdb
-        required: true
-        range:
-          type: string
-    associations:
-      amount:
-        allowMultiple: false
-        uuid: dcee80dcf71a3d236a2e28468e5fd5f9
-        required: true
-        target: http://mulesoft.com/modeling/instances/008f246872a3352c8554ba6a2d1f3594
-    description: Refunds a captured payment, by ID. For a full refund, include an empty request body. For a partial refund, include an <code>amount</code> object in the request body.
-  net_amount:
-    uuid: b14200f5ab62c6647d4a96aaa1ad1c77
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: a1171ef936368154bb7ea0f231299485
-    description: The net amount that the payee receives for this captured payment in their PayPal account. The net amount is computed as <code>gross_amount</code> minus the <code>paypal_fee</code> minus the <code>platform_fees</code>.
-  MCCS-v1-scc-v3-s-j-oa-2_0-money_json:
-    uuid: a1171ef936368154bb7ea0f231299485
-    attributes:
-      value:
-        allowMultiple: false
-        uuid: 4a84e41c2c529aa2b6d85646470ab740
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The currency and amount for a financial transaction, such as a balance or payment due.
-  properties:
-    uuid: 84ac13c1781f49fa88aa50f46589a5ef
-    attributes: {}
-    associations: {}
-  items:
-    uuid: 9d6070d0f66cc9700fbfb7545a9e058c
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: b24cb7ab53c8069d0987b56942b0461e
-  items:
-    uuid: a229903818a63aa0a82c695d9f18f269
-    attributes: {}
-    associations: {}
-    description: A sub-schema against which the data must validate.
-  capture_request_json:
-    uuid: 3d337397d7ce9f1c477b39de78ca92a6
-    attributes:
-      invoice_id:
-        allowMultiple: false
-        uuid: 30124e0d2cc13df72d874a6b94062dcf
-        required: true
-        range:
-          type: string
-      final_capture:
-        allowMultiple: false
-        uuid: f4581f19115e9beba9121b38776c4fc9
-        required: true
-        range:
-          type: boolean
-    associations:
-      amount:
-        allowMultiple: false
-        uuid: 6645ae57c5a2c37270955517f608f192
-        required: true
-        target: http://mulesoft.com/modeling/instances/30db550f1354ac8da6daa1138af3274c
-    description: Captures either a portion or the full authorized amount of an authorized payment.
-  total_refunded_amount:
-    uuid: 3aff89a3edee162a77b39bdddac7c9ac
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: a1171ef936368154bb7ea0f231299485
-    description: The total amount refunded from the original capture to date. For example, if a payer makes a $100 purchase and was refunded $20 a week ago and was refunded $30 in this refund, the `gross_amount` is $30 for this refund and the `total_refunded_amount` is $50.
-  gross_amount:
-    uuid: 7c4f1aa9a82344d45a8957ebbd05bfce
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: a1171ef936368154bb7ea0f231299485
-    description: The amount for this captured payment.
-  MCCS-v1-schema-platform_fee_json:
-    uuid: d5bf336ee1e339c938685e1273ac4987
-    attributes: {}
-    associations:
-      amount:
-        allowMultiple: false
-        uuid: 1e417c56d35009dcd9943775aa0e8795
-        required: true
-        target: http://mulesoft.com/modeling/instances/1dbad7e35562524e94cb21057bcbe589
-    description: The platform or partner fee, commission, or brokerage fee that is associated with the transaction. Not a separate or isolated transaction leg from the external perspective. The platform fee is limited in scope and is always associated with the original payment for the purchase unit.
-  media:
-    uuid: 370bddcce0f9277ada2002765cb4cca3
-    attributes:
-      attribute1:
-        allowMultiple: false
-        uuid: 5aed04b0c255b4e7bab766edb64d859a
-        required: true
-        range:
-          type: string
-      binaryEncoding:
-        allowMultiple: false
-        uuid: 6b377fe00182cd68b04e87f7c7aec96b
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The media type and context-encoding scheme.
-  reauthorize_request_json:
-    uuid: 545a07b625ae1da594f6a978f21248c1
-    attributes: {}
-    associations:
-      amount:
-        allowMultiple: false
-        uuid: 7061f8475cac25b98c99e58afb10ac91
-        required: true
-        target: http://mulesoft.com/modeling/instances/e90e375f7e4e663916694aadc15584ab
-    description: Reauthorizes an authorized PayPal account payment, by ID. To ensure that funds are still available, reauthorize a payment after its initial three-day honor period expires. You can reauthorize a payment only once from days four to 29.<br/><br/>If 30 days have transpired since the date of the original authorization, you must create an authorized payment instead of reauthorizing the original authorized payment.<br/><br/>A reauthorized payment itself has a new honor period of three days.<br/><br/>You can reauthorize an authorized payment once for up to 115% of the original authorized amount, not to exceed an increase of $75 USD.<br/><br/>Supports only the `amount` request parameter.<blockquote><strong>Note:</strong> This request is currently not supported for Partner usecases.</blockquote>
-  net_amount:
-    uuid: 8a8e386aee6a4afbe25cf472bb012943
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: a1171ef936368154bb7ea0f231299485
-    description: The net amount that the payee's account is debited, if the payee holds funds in the currency for this refund. The net amount is calculated as <code>gross_amount</code> minus <code>paypal_fee</code> minus <code>platform_fees</code>.
-  converted_amount:
-    uuid: 9fc33371ff2b0c1f52a0d8b68b25e19a
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: a1171ef936368154bb7ea0f231299485
-    description: The converted payable amount.
-  seller_protection:
-    uuid: 4037f0cf31924f8cb500e3812de4e7a7
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 40a8b4b0de998b208bc9f6de6c3d1a6d
-  items:
-    uuid: 78ba381981b1b7c2c7fe6384dabdd44f
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: d5bf336ee1e339c938685e1273ac4987
-  items:
-    uuid: 7658b8df905d60251f8eb64b605cd719
-    attributes: {}
-    associations: {}
-    description: A sub-schema against which the data must validate.
-  seller_receivable_breakdown:
-    uuid: 7305ac7e9eac2ac40f1f7c8d98be71f5
+  seller_payable_breakdown:
+    uuid: 9ebbdd3e2de86278d3bffc7a4b73c49b
     attributes: {}
     associations:
       paypal_fee:
         allowMultiple: false
-        uuid: e2fa7209e4c1e4183722dae2608b380e
+        uuid: c5ec2f488d454e7a52cff99b8059577b
         required: true
-        target: http://mulesoft.com/modeling/instances/7b520e05ea2eed7ffb9c38a2b910a6b8
+        target: http://mulesoft.com/modeling/instances/b77069237a40b99646a14b30d7644917
       platform_fees:
         allowMultiple: true
-        uuid: 176e814a9f80714203968893772478e9
+        uuid: 706dde9556aa14472da49bfb0aed9c10
         required: true
-        target: http://mulesoft.com/modeling/instances/2f136c61856415406d30460367910634
-      gross_amount:
+        target: http://mulesoft.com/modeling/instances/78ba381981b1b7c2c7fe6384dabdd44f
+      total_refunded_amount:
         allowMultiple: false
-        uuid: bf179caf3bb660fbd92dbda4c0806180
+        uuid: 8b99961f30cb003922929fc24b7f61b3
         required: true
-        target: http://mulesoft.com/modeling/instances/7c4f1aa9a82344d45a8957ebbd05bfce
-      receivable_amount:
-        allowMultiple: false
-        uuid: 58755fd2f6aaf8fcccf130e24e5a1222
-        required: true
-        target: http://mulesoft.com/modeling/instances/a9ae643cf8196a65cd8f5c87b120a25d
+        target: http://mulesoft.com/modeling/instances/3aff89a3edee162a77b39bdddac7c9ac
       net_amount:
         allowMultiple: false
-        uuid: e47526e1cd18dc5e275b5cd304972135
+        uuid: 87c2b39b9a8b513386fe4addfa55ca23
         required: true
-        target: http://mulesoft.com/modeling/instances/b14200f5ab62c6647d4a96aaa1ad1c77
-    description: The detailed breakdown of the captured payment.
-  status_details:
-    uuid: bbf98cbe986405497b0c048a166a2bfe
-    attributes:
-      reason:
+        target: http://mulesoft.com/modeling/instances/8a8e386aee6a4afbe25cf472bb012943
+      gross_amount:
         allowMultiple: false
-        uuid: 004604008371dfa9d345f4643e6d4d1b
+        uuid: f2698597a4c211f78fa65b0117d06669
+        required: true
+        target: http://mulesoft.com/modeling/instances/c05bb247cfa1a3e5c4c7d286c0df6dae
+    description: The breakdown of the refund.
+  MCCS-v1-schema-net_amount_breakdown_item_json:
+    uuid: 84d0be547e7a90090060cedc2a899b9c
+    attributes: {}
+    associations:
+      payable_amount:
+        allowMultiple: false
+        uuid: a2f4eeb0f94be86debba998a9de840f7
+        required: true
+        target: http://mulesoft.com/modeling/instances/e9de02e6ff0f47c492fc92a4fc255649
+      converted_amount:
+        allowMultiple: false
+        uuid: dcac8211d9f761dce2046810cbb83767
+        required: true
+        target: http://mulesoft.com/modeling/instances/9fc33371ff2b0c1f52a0d8b68b25e19a
+      exchange_rate:
+        allowMultiple: false
+        uuid: ca5b9f86e28b8f7440ada985884d1c3d
+        required: true
+        target: http://mulesoft.com/modeling/instances/9771f5537a369dc0fb0a9be7bb88a933
+    description: The net amount. Returned when the currency of the refund is different from the currency of the PayPal account where the merchant holds their funds.
+  MCCS-v1-schema-seller_protection_json:
+    uuid: 40a8b4b0de998b208bc9f6de6c3d1a6d
+    attributes:
+      status:
+        allowMultiple: false
+        uuid: bdd1488e5d36c6fc4ee72d7c968cc609
+        required: true
+        range:
+          type: string
+      dispute_categories:
+        allowMultiple: true
+        uuid: d7d754aa0093f789d7f095df08123e5b
         required: true
         range:
           type: string
     associations: {}
-    description: The details of the refund status.
-  paypal_fee:
-    uuid: b77069237a40b99646a14b30d7644917
+    description: The level of protection offered as defined by [PayPal Seller Protection for Merchants](https://www.paypal.com/us/webapps/mpp/security/seller-protection).
+  MCCS-v1-scc-v3-s-j-oa-2_0-link_description_json:
+    uuid: b24cb7ab53c8069d0987b56942b0461e
+    attributes:
+      title:
+        allowMultiple: false
+        uuid: 65875d5a0992c43e37a6815e0949c303
+        required: false
+        range:
+          type: string
+      href:
+        allowMultiple: false
+        uuid: 21cbc92f7732b1af19766749316ae3af
+        required: true
+        range:
+          type: string
+      method:
+        allowMultiple: false
+        uuid: d82e51321dc12f6fd61e0a9dc1eb0f85
+        required: false
+        range:
+          type: string
+      encType:
+        allowMultiple: false
+        uuid: d741983e2121236cab13c938b77a3e7c
+        required: false
+        range:
+          type: string
+      mediaType:
+        allowMultiple: false
+        uuid: 86e15f1f8c7cf41d152e54973dabada0
+        required: false
+        range:
+          type: string
+      rel:
+        allowMultiple: false
+        uuid: c18a7578a65268068ced9a97404f2bfa
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: The request-related [HATEOAS link](/docs/api/overview/#hateoas-links) information.
+  gross_amount:
+    uuid: c05bb247cfa1a3e5c4c7d286c0df6dae
     attributes: {}
     associations: {}
     extends:
       -
         uuid: a1171ef936368154bb7ea0f231299485
-    description: The PayPal fee that was refunded to the payer. This fee might not match the PayPal fee that the payee paid when the payment was captured.
+    description: The amount that the payee refunded to the payer.
   MCCS-v1-schema-capture_json:
     uuid: 9a655dbd9896c53fb42e2e3e7527f160
     attributes:
@@ -518,27 +788,22 @@ entities:
       -
         uuid: 72dfaa13821caff41b0a3c5f869ae5c4
     description: A captured payment.
-  amount:
-    uuid: 008f246872a3352c8554ba6a2d1f3594
+  payable_amount:
+    uuid: e9de02e6ff0f47c492fc92a4fc255649
     attributes: {}
     associations: {}
     extends:
       -
         uuid: a1171ef936368154bb7ea0f231299485
-    description: The amount to refund. To refund a portion of the captured amount, specify an amount. If amount is not specified, an amount equal to <code>captured amount - previous refunds</code> is refunded. The amount must be a positive number and in the same currency as the one in which the payment was captured.
-  items:
-    uuid: 4620955c4f28883a9d211883b5f1a7f5
-    attributes: {}
-    associations: {}
-    description: A sub-schema against which the data must validate.
-  receivable_amount:
-    uuid: a9ae643cf8196a65cd8f5c87b120a25d
+    description: The net amount debited from the merchant's PayPal account.
+  converted_amount:
+    uuid: 9fc33371ff2b0c1f52a0d8b68b25e19a
     attributes: {}
     associations: {}
     extends:
       -
         uuid: a1171ef936368154bb7ea0f231299485
-    description: The net amount that is credited to the payee's PayPal account. Returned only when the currency of the captured payment is different from the currency of the PayPal account where the payee wants to credit the funds. The amount is computed as <code>net_amount</code> times <code>exchange_rate</code>.
+    description: The converted payable amount.
   MCCS-v1-schema-payee_base_json:
     uuid: db5d4ec169bcc2c45c8b69c3423482e0
     attributes:
@@ -550,302 +815,37 @@ entities:
           type: string
     associations: {}
     description: The details for the merchant who receives the funds and fulfills the order. The merchant is also known as the payee.
+  items:
+    uuid: a229903818a63aa0a82c695d9f18f269
+    attributes: {}
+    associations: {}
+    description: A sub-schema against which the data must validate.
   amount:
-    uuid: 1dbad7e35562524e94cb21057bcbe589
+    uuid: e90e375f7e4e663916694aadc15584ab
     attributes: {}
     associations: {}
     extends:
       -
         uuid: a1171ef936368154bb7ea0f231299485
-    description: The fee for this transaction.
-  MCCS-v1-schema-authorization_status_json:
-    uuid: 8cd9b93be509c34527c4082bd6a48eec
-    attributes:
-      status:
-        allowMultiple: false
-        uuid: b91ffbbb1f7b599ff76b586638c0d24b
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The status fields for an authorized payment.
-  MCCS-v1-scc-v3-s-j-oa-2_0-error_details_json:
-    uuid: c7b5f2273e9ee65afd7be6ca5ed05a77
-    attributes:
-      value:
-        allowMultiple: false
-        uuid: 468db85d86dd87c44d8f7d31c3220b71
-        required: false
-        range:
-          type: string
-      description:
-        allowMultiple: false
-        uuid: d1fbfa6b32e7a5205ec7003e1053a8f1
-        required: false
-        range:
-          type: string
-      location:
-        allowMultiple: false
-        uuid: dd227646f4395914acda0b579f0362c7
-        required: false
-        range:
-          type: string
-      field:
-        allowMultiple: false
-        uuid: b4212a2872437907d8422e7ddc019248
-        required: false
-        range:
-          type: string
-      issue:
-        allowMultiple: false
-        uuid: 0412468e5b10b0ada9c9541c0b0113f7
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The error details. Required for client-side `4XX` errors.
-  amount:
-    uuid: 30db550f1354ac8da6daa1138af3274c
+    description: The amount to reauthorize for an authorized payment.
+  total_refunded_amount:
+    uuid: 3aff89a3edee162a77b39bdddac7c9ac
     attributes: {}
     associations: {}
     extends:
       -
         uuid: a1171ef936368154bb7ea0f231299485
-    description: The amount to capture. To capture a portion of the full authorized amount, specify an amount. If amount is not specified, the full authorized amount is captured. The amount must be a positive number and in the same currency as the authorization against which the payment is being captured.
-  seller_payable_breakdown:
-    uuid: 9ebbdd3e2de86278d3bffc7a4b73c49b
+    description: The total amount refunded from the original capture to date. For example, if a payer makes a $100 purchase and was refunded $20 a week ago and was refunded $30 in this refund, the `gross_amount` is $30 for this refund and the `total_refunded_amount` is $50.
+  receivable_amount:
+    uuid: a9ae643cf8196a65cd8f5c87b120a25d
     attributes: {}
-    associations:
-      total_refunded_amount:
-        allowMultiple: false
-        uuid: 8b99961f30cb003922929fc24b7f61b3
-        required: true
-        target: http://mulesoft.com/modeling/instances/3aff89a3edee162a77b39bdddac7c9ac
-      gross_amount:
-        allowMultiple: false
-        uuid: f2698597a4c211f78fa65b0117d06669
-        required: true
-        target: http://mulesoft.com/modeling/instances/c05bb247cfa1a3e5c4c7d286c0df6dae
-      paypal_fee:
-        allowMultiple: false
-        uuid: c5ec2f488d454e7a52cff99b8059577b
-        required: true
-        target: http://mulesoft.com/modeling/instances/b77069237a40b99646a14b30d7644917
-      platform_fees:
-        allowMultiple: true
-        uuid: 706dde9556aa14472da49bfb0aed9c10
-        required: true
-        target: http://mulesoft.com/modeling/instances/78ba381981b1b7c2c7fe6384dabdd44f
-      net_amount:
-        allowMultiple: false
-        uuid: 87c2b39b9a8b513386fe4addfa55ca23
-        required: true
-        target: http://mulesoft.com/modeling/instances/8a8e386aee6a4afbe25cf472bb012943
-    description: The breakdown of the refund.
-  MCCS-v1-scc-v3-s-j-oa-2_0-link_schema_json:
-    uuid: 9c032f37c457b5897dd122080ba69b18
-    attributes:
-      fragmentResolution:
-        allowMultiple: false
-        uuid: 2415e508b56cb867d38aa133659e5604
-        required: true
-        range:
-          type: string
-      pathStart:
-        allowMultiple: false
-        uuid: 2ac2120a28818b5b8fa58fc4c40a1fb6
-        required: true
-        range:
-          type: string
-    associations:
-      properties:
-        allowMultiple: false
-        uuid: 767231647bcc3fb92129a88c232bbef1
-        required: true
-        target: http://mulesoft.com/modeling/instances/84ac13c1781f49fa88aa50f46589a5ef
-      media:
-        allowMultiple: false
-        uuid: 8a524498ed9cc20bd228dc7fba15126f
-        required: true
-        target: http://mulesoft.com/modeling/instances/370bddcce0f9277ada2002765cb4cca3
-      anyOf:
-        allowMultiple: true
-        uuid: 9caa6f41b3a25c128be18529b4989ec5
-        required: true
-        target: http://mulesoft.com/modeling/instances/4620955c4f28883a9d211883b5f1a7f5
-      links:
-        allowMultiple: true
-        uuid: 4602dc166aae79d81ca04c2967f8644e
-        required: true
-        target: http://mulesoft.com/modeling/instances/d0bf159a90412858e5ff03faf5e89609
-      oneOf:
-        allowMultiple: true
-        uuid: 4fc43b9db9ba353b60f8d0860901bf76
-        required: true
-        target: http://mulesoft.com/modeling/instances/a229903818a63aa0a82c695d9f18f269
-      dependencies:
-        allowMultiple: false
-        uuid: 2f006d6123d3f382c32b775b6b194d6d
-        required: true
-        target: http://mulesoft.com/modeling/instances/882febcf51b30d7d4b32d9e946e9a416
-      additionalItems:
-        allowMultiple: false
-        uuid: e2656d112fbd4c78d4212e931e9feb9d
-        required: true
-        target: http://mulesoft.com/modeling/instances/6be758aeb54beefc98d798acae42c0a8
-      items:
-        allowMultiple: false
-        uuid: c72cb3b90677a7073c7825600adba4ef
-        required: true
-        target: http://mulesoft.com/modeling/instances/0bdd7ef5a6bcdd1c4adc0c6bb08e279a
-      patternProperties:
-        allowMultiple: false
-        uuid: fba30b369a2e7ba41a7e0ddf78efdf21
-        required: true
-        target: http://mulesoft.com/modeling/instances/b823237d26f8be5a1625c931f8cc030c
-      allOf:
-        allowMultiple: true
-        uuid: 77c837244906f7cdf0796696c1808698
-        required: true
-        target: http://mulesoft.com/modeling/instances/7658b8df905d60251f8eb64b605cd719
-      not:
-        allowMultiple: false
-        uuid: 4e276dc22aeee585e21dd29116ffdd44
-        required: true
-        target: http://mulesoft.com/modeling/instances/c8120dc223d250ee660b5e28f244b819
-      definitions:
-        allowMultiple: false
-        uuid: 59789482e17b09b87216e9e37f664fe0
-        required: true
-        target: http://mulesoft.com/modeling/instances/4a07d1c9af877052c00f9463cef9aa2c
-    description: The request data or link target.
-  MCCS-v1-schema-refund_json:
-    uuid: 0dc88e055aeb6746e09f05146d8770e1
-    attributes:
-      id:
-        allowMultiple: false
-        uuid: fd5d88eaaaca7def66f8a9b03b9fbdac
-        required: true
-        range:
-          type: string
-      invoice_id:
-        allowMultiple: false
-        uuid: 82148776257b5cc2b4c482cab4fbd076
-        required: true
-        range:
-          type: string
-      note_to_payer:
-        allowMultiple: false
-        uuid: 12dcee56cfd4e3b4f34c19f72ed9e1eb
-        required: true
-        range:
-          type: string
-    associations:
-      amount:
-        allowMultiple: false
-        uuid: be512979c05553430aaa657ec4273696
-        required: true
-        target: http://mulesoft.com/modeling/instances/d763c955c2b8d0e0a3f3413a49b788d4
-      seller_payable_breakdown:
-        allowMultiple: false
-        uuid: e2c3b22faaf03d7153189a8d33d1cb47
-        required: true
-        target: http://mulesoft.com/modeling/instances/9ebbdd3e2de86278d3bffc7a4b73c49b
-      links:
-        allowMultiple: true
-        uuid: fdd60771368040de56bcf822a03b0819
-        required: true
-        target: http://mulesoft.com/modeling/instances/8c57d6e9462ab8be299340c03c9865ce
+    associations: {}
     extends:
       -
-        uuid: 6b544c99ebf618b89e513be6a9b2d0f9
-      -
-        uuid: 72dfaa13821caff41b0a3c5f869ae5c4
-    description: The refund information.
-  MCCS-v1-scc-v3-s-j-oa-2_0-link_description_json:
-    uuid: b24cb7ab53c8069d0987b56942b0461e
-    attributes:
-      href:
-        allowMultiple: false
-        uuid: 21cbc92f7732b1af19766749316ae3af
-        required: true
-        range:
-          type: string
-      rel:
-        allowMultiple: false
-        uuid: c18a7578a65268068ced9a97404f2bfa
-        required: true
-        range:
-          type: string
-      title:
-        allowMultiple: false
-        uuid: 65875d5a0992c43e37a6815e0949c303
-        required: false
-        range:
-          type: string
-      mediaType:
-        allowMultiple: false
-        uuid: 86e15f1f8c7cf41d152e54973dabada0
-        required: false
-        range:
-          type: string
-      encType:
-        allowMultiple: false
-        uuid: d741983e2121236cab13c938b77a3e7c
-        required: false
-        range:
-          type: string
-      method:
-        allowMultiple: false
-        uuid: d82e51321dc12f6fd61e0a9dc1eb0f85
-        required: false
-        range:
-          type: string
-    associations: {}
-    description: The request-related [HATEOAS link](/docs/api/overview/#hateoas-links) information.
-  MCCS-v1-schema-activity_timestamps_json:
-    uuid: 72dfaa13821caff41b0a3c5f869ae5c4
-    attributes:
-      create_time:
-        allowMultiple: false
-        uuid: 1226439c2cbb1038060c905673a613e5
-        required: true
-        range:
-          type: string
-      update_time:
-        allowMultiple: false
-        uuid: 3d74409b9d792bed05b716936434c9b6
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: The date and time stamps that are common to authorized payment, captured payment, and refund transactions.
-  MCCS-v1-schema-payment_instruction_json:
-    uuid: a353634a0fed6ce659eb1a2079f6f7e1
+        uuid: a1171ef936368154bb7ea0f231299485
+    description: The net amount that is credited to the payee's PayPal account. Returned only when the currency of the captured payment is different from the currency of the PayPal account where the payee wants to credit the funds. The amount is computed as <code>net_amount</code> times <code>exchange_rate</code>.
+  items:
+    uuid: d0bf159a90412858e5ff03faf5e89609
     attributes: {}
     associations: {}
-    description: Any additional payment instructions for PayPal for Partner customers. Enables features for partners and marketplaces, such as delayed disbursement and collection of a platform fee. Applies during order creation for captured payments or during capture of authorized payments.
-  definitions:
-    uuid: 4a07d1c9af877052c00f9463cef9aa2c
-    attributes: {}
-    associations: {}
-  dependencies:
-    uuid: 882febcf51b30d7d4b32d9e946e9a416
-    attributes: {}
-    associations: {}
-  MCCS-v1-schema-refund_status_json:
-    uuid: 6b544c99ebf618b89e513be6a9b2d0f9
-    attributes:
-      status:
-        allowMultiple: false
-        uuid: 4fbeab640ae6521175357df4dacd4636
-        required: true
-        range:
-          type: string
-    associations:
-      status_details:
-        allowMultiple: false
-        uuid: a34ad8344d393634b4e9d66b1b888cc6
-        required: true
-        target: http://mulesoft.com/modeling/instances/bbf98cbe986405497b0c048a166a2bfe
-    description: The refund status.
+    description: A link.

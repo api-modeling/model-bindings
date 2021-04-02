@@ -2,13 +2,6 @@
 uuid: cd017791c0aec3914db208afaaefcfe9
 name: retail_locations_system_api.raml
 entities:
-  Entity12:
-    uuid: bb5e46eeba396c058b42377291fa72f1
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 299b29a05b90f585228d16706428bfb7
   Entity5:
     uuid: d4861699ec10147bfb85c5a3d01e2a45
     attributes: {}
@@ -16,13 +9,13 @@ entities:
     extends:
       -
         uuid: b26f7cc61dc0825f1e1aa8a7f27db318
-  Entity17:
-    uuid: 3699a256bcb69db517391993ff3edef4
+  Entity11:
+    uuid: 60d9fcb1e4e0de33a2119a028d196ec8
     attributes: {}
     associations: {}
     extends:
       -
-        uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
+        uuid: a83cba5affe762dbe0f932361b04d579
   Entity9:
     uuid: 8b08a0fba44bc3cbd575763d929a6c6f
     attributes: {}
@@ -30,8 +23,22 @@ entities:
     extends:
       -
         uuid: 92fdd416a12c1de0bd133a46d3565689
+  Entity12:
+    uuid: bb5e46eeba396c058b42377291fa72f1
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 299b29a05b90f585228d16706428bfb7
   Entity21:
     uuid: 4318869cf8f7347e638784f7c15cf4be
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
+  Entity16:
+    uuid: 761db6be76f60cd44375a0a0adf5b551
     attributes: {}
     associations: {}
     extends:
@@ -51,15 +58,8 @@ entities:
     extends:
       -
         uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
-  Entity11:
-    uuid: 60d9fcb1e4e0de33a2119a028d196ec8
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: a83cba5affe762dbe0f932361b04d579
-  Entity16:
-    uuid: 761db6be76f60cd44375a0a0adf5b551
+  Entity17:
+    uuid: 3699a256bcb69db517391993ff3edef4
     attributes: {}
     associations: {}
     extends:
@@ -68,13 +68,14 @@ entities:
 entryPoint:
   uuid: 4d51d1763e868f2493113f22adbeccca
   name: Retail Locations System API
+  events: []
   operations:
     -
       uuid: eece968fa683edc6e5809b9be3ae49f2
       name: Find Resource /productLocator
       transition:
         uuid: 8d8011490053910b69b9b2d8ee5222ab
-        target: http://mulesoft.com/modeling/instances/b516c3e4-492d-4ba6-be76-6eff657a1f30
+        target: http://mulesoft.com/modeling/instances/56e857ee-ceff-4453-af8c-65fbe7dc7bd2
       inputs:
         -
           scalarRange:
@@ -112,7 +113,7 @@ entryPoint:
       name: Find Resource /stores
       transition:
         uuid: d2d218e324d680b537dd178a8d4f3581
-        target: http://mulesoft.com/modeling/instances/b8cd89b7-aa84-4e34-8f32-45c0a68e418f
+        target: http://mulesoft.com/modeling/instances/c5b3b136-2acd-4901-88c9-e3988cb0dedc
       inputs:
         -
           scalarRange:
@@ -132,7 +133,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: b516c3e4-492d-4ba6-be76-6eff657a1f30
+    uuid: 56e857ee-ceff-4453-af8c-65fbe7dc7bd2
     name: Resource /productLocator
     schema:
       uuid: d4861699ec10147bfb85c5a3d01e2a45
@@ -142,10 +143,11 @@ resources:
       extends:
         -
           uuid: b26f7cc61dc0825f1e1aa8a7f27db318
+    events: []
     operations: []
     type: individual
   -
-    uuid: b8cd89b7-aa84-4e34-8f32-45c0a68e418f
+    uuid: c5b3b136-2acd-4901-88c9-e3988cb0dedc
     name: Resource /stores
     schema:
       uuid: bb5e46eeba396c058b42377291fa72f1
@@ -155,6 +157,7 @@ resources:
       extends:
         -
           uuid: 299b29a05b90f585228d16706428bfb7
+    events: []
     operations:
       -
         uuid: 34097d74ffb3be354241c4168bc04a2e
@@ -177,7 +180,7 @@ resources:
         name: Find Resource /stores/{storeId}
         transition:
           uuid: 9f1c391ef932b53b71e5ad91789c58cd
-          target: http://mulesoft.com/modeling/instances/6738a84b-8465-408e-b4c0-a5c017f29caf
+          target: http://mulesoft.com/modeling/instances/3ee9963c-a7fd-464a-aede-d070bf6e2b47
         inputs:
           -
             scalarRange:
@@ -195,7 +198,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 6738a84b-8465-408e-b4c0-a5c017f29caf
+    uuid: 3ee9963c-a7fd-464a-aede-d070bf6e2b47
     name: Resource /stores/{storeId}
     schema:
       uuid: 3699a256bcb69db517391993ff3edef4
@@ -205,6 +208,7 @@ resources:
       extends:
         -
           uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
+    events: []
     operations:
       -
         uuid: 5944a0f12f4727e72fcbe872f211a703

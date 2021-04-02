@@ -210,7 +210,20 @@ export class ShapeTransformer {
         if (shape.isLink) {
             shape = <amf.model.domain.Shape>shape.linkTarget
         }
-        let scalarShape = <amf.model.domain.ScalarShape>shape;
+        const scalarRange = this.transformScalar(<amf.model.domain.ScalarShape>shape);
+        // now we can create the attribute wrapper
+        const name = this.idGenerator.getShapeName(property, "attribute")
+        const attribute = new meta.Attribute(name, scalarRange)
+        attribute.uuid = Md5.hashStr(property.id).toString();
+        attribute.description = property.description.option;
+        attribute.required = (property.minCount.option || 0) !== 0;
+        attribute.allowMultiple = property.range instanceof amf.model.domain.ArrayShape;
+
+        // @todo parse additional attributes for a property shape and add bindings
+        return attribute;
+    }
+
+    protected transformScalar(scalarShape: amf.model.domain.ScalarShape): meta.Scalar {
 
         // let's compute the range
         let scalarRange: meta.Scalar;
@@ -240,16 +253,7 @@ export class ShapeTransformer {
             throw new Error(`Unsupported scalar value ${scalarShape.dataType.value()}`) // @todo missing null, link, uri
         }
 
-        // now we can create the attribute wrapper
-        const name = this.idGenerator.getShapeName(property, "attribute")
-        const attribute = new meta.Attribute(name, scalarRange)
-        attribute.uuid = Md5.hashStr(property.id).toString();
-        attribute.description = property.description.option;
-        attribute.required = (property.minCount.option || 0) !== 0;
-        attribute.allowMultiple = property.range instanceof amf.model.domain.ArrayShape;
-
-        // @todo parse additional attributes for a property shape and add bindings
-        return attribute;
+        return scalarRange
     }
 
     private transformObjectPropertyShape(property: amf.model.domain.PropertyShape): meta.Association {
@@ -380,4 +384,64 @@ export class ShapeTransformer {
         }
     }
 
+    /**
+     * Recursively expand a shape into set of shapes mapped to parameters.
+     * Expansion treats unions/and/or/xor shapes as an OR
+     * @param parentId
+     * @param shape
+     * @protected
+     */
+    protected shapeToParameterSet(parentId: string, shape: amf.model.domain.Shape): meta.OperationParameter[] {
+        if ($amfModel.isUnionLike(shape)) {
+            const members = $amfModel.effectiveUnionLikeMembers(shape);
+            let acc: meta.OperationParameter[] = [];
+            members.forEach((e) => {
+                acc = acc.concat(this.shapeToParameterSet(parentId, e));
+            });
+            return acc;
+        } else if (shape instanceof amf.model.domain.ArrayShape && shape.items) {
+            return this.shapeToParameterSet(parentId, shape.items).map((param) => {
+                param.allowMultiple = true;
+                return param;
+            })
+        } else if ($amfModel.isObjectShape(shape)) {
+            const param = new meta.OperationParameter();
+            const entity = this.transformShape(shape);
+            if (entity) {
+                param.uuid = entity?.uuid;
+                if (entity.name) {
+                    param.name = entity.name;
+                } else {
+                    param.name = "EventPayload"
+                }
+                param.objectRange = entity
+                return [param];
+            }
+        } else if($amfModel.isScalarShape(shape)){
+            const param = new meta.OperationParameter();
+            if (shape.name.value()) {
+                param.name = shape.name.value()
+            } else {
+                param.name = "EventPayload"
+            }
+            const entity = this.transformScalar(<amf.model.domain.ScalarShape>shape);
+            if (entity) {
+                param.uuid = shape.id
+                param.scalarRange = entity
+                return [param];
+            }
+        } else {
+            const param = new meta.OperationParameter();
+            const entity = this.transformAnyShape(Md5.hashStr(shape.id + parentId + "param/shape").toString(), <amf.model.domain.AnyShape>shape)
+            param.uuid = entity.uuid
+            if (shape.name) {
+                param.name = shape.name.value();
+            } else {
+                param.name = "EventPayload"
+            }
+            param.objectRange = entity
+            return [param];
+        }
+        return [];
+    }
 }

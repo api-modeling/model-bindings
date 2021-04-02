@@ -1,4 +1,5 @@
 import * as amf from "@api-modeling/amf-client-js";
+import {Md5} from "ts-md5/dist/md5";
 
 /**
  * Helper utilities to query and extract information from the AMF API model
@@ -115,13 +116,42 @@ export class AMFModelQueries {
 
     // Fill default GET and/or Any schema response
     private static generateDefaultResource(endpoint: amf.model.domain.EndPoint) {
-        let get = endpoint.operations[0];
+        let get = endpoint.operations.find((op) => op.method.value() === "get");
         if (get == null) {
             get = endpoint.withOperation("get");
         }
 
         const resp = get.withResponse("default");
-        resp.withStatusCode("200").withPayload().withObjectSchema("DefaultPayload");
+        resp.withStatusCode("200").withPayload().withObjectSchema(`DefaultPayload ${Md5.hashStr(endpoint.id).toString().substring(-5, endpoint.id.length)}`);
+    }
+
+    public static isDefaultOperation(operation: amf.model.domain.Operation) {
+        const defaultResponse = operation.responses.length == 1 &&
+            operation.responses[0].name.value() == "default" &&
+            operation.responses[0].payloads != null &&
+            operation.responses[0].payloads.length == 1 &&
+            operation.responses[0].statusCode.value() == "200"
+        if (defaultResponse) {
+            const payload = operation.responses[0].payloads[0];
+            const defaultPayload = payload.schema.name.value().startsWith("DefaultPayload ") &&
+                payload.schema instanceof amf.model.domain.NodeShape;
+            return defaultPayload && defaultResponse;
+        }
+        return false;
+    }
+
+    public static isAsyncChannel(endpoint: amf.model.domain.EndPoint) {
+        let operations = endpoint.operations;
+        if (operations.length > 3 || operations.length < 2) { // default operation + pub/sub
+            return false;
+        }
+        for (let i=0; i<operations.length; i++) {
+            let operation = operations[i];
+            if (!this.isDefaultOperation(operation) && !this.isAsyncOperation(operation)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     // Check if this is a resource without operations or empty GET request
@@ -134,8 +164,8 @@ export class AMFModelQueries {
                 is2xx = true;
             }
         }
-        let noOps = endpoint.operations.length == 0;
-        return !is2xx || noOps
+        let noOps = endpoint.operations.filter((op) => op.method.value() != "publish" && op.method.value() != "subscribe").length == 0;
+        return (isGet && !is2xx) || noOps
     }
 
     // Resource that just returns a redirection from a single GET request
@@ -174,5 +204,62 @@ export class AMFModelQueries {
                 return payload.schema;
             }
         }
+    }
+
+    public static findAsyncOperationSchema(op: amf.model.domain.Operation): amf.model.domain.Shape|null {
+        const response = (op.responses||[])[0];
+        if (response) {
+            const payload = (response.payloads||[])[0];
+            if (payload) {
+                return payload.schema || null;
+            }
+        }
+        const request = (op.requests||[])[0]
+        if (request) {
+            const payload = (request.payloads||[])[0];
+            if (payload) {
+                return payload.schema || null;
+            }
+        }
+        return null;
+    }
+
+    static isAsyncOperation(operation: amf.model.domain.Operation) {
+        return operation.method.value() == "publish" || operation.method.value() == "subscribe"
+    }
+    static findAsyncOperations(linkedEndpoint: amf.model.domain.EndPoint) {
+        return linkedEndpoint.operations.filter((op) => this.isAsyncOperation(op))
+    }
+
+    static findMutableOperations(linkedEndpoint: amf.model.domain.EndPoint) {
+        return linkedEndpoint.operations.filter((op) => op.method.value() != "publish" && op.method.value() != "subscribe" && op.method.value() != "get")
+    }
+
+    static isUnionLike(shape: amf.model.domain.Shape): boolean {
+        if (shape instanceof amf.model.domain.UnionShape) {
+            return true;
+        } else {
+            return (shape.and && shape.and!.length >0) ||
+                (shape.or && shape.or!.length >0) ||
+                (shape.xone && shape.xone!.length >0)
+        }
+    }
+
+    static  effectiveUnionLikeMembers(shape: amf.model.domain.Shape): amf.model.domain.Shape[] {
+        let members: amf.model.domain.Shape[] = []
+        if (shape instanceof amf.model.domain.UnionShape) {
+            members = shape.anyOf
+        } else {
+            members = (shape.and||[]).concat(shape.or||[]).concat(shape.xone||[])
+        }
+        let computed: amf.model.domain.Shape[] = [];
+        members.filter((e) => !(e instanceof  amf.model.domain.NilShape)).forEach((member) => {
+            if (this.isUnionLike(member)) {
+                computed = computed.concat(this.effectiveUnionLikeMembers(member))
+            } else {
+                computed.push(member)
+            }
+        });
+        return members;
     }
 }

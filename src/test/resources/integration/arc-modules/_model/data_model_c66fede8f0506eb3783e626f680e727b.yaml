@@ -2,6 +2,58 @@
 uuid: c66fede8f0506eb3783e626f680e727b
 name: modules-types.raml
 entities:
+  Version:
+    uuid: 39ce943bb96a2642f752511749a1ee86
+    attributes:
+      arc:
+        allowMultiple: false
+        uuid: 8540a4456c1f377b73a8b312daca1d69
+        required: true
+        range:
+          type: string
+      module:
+        allowMultiple: false
+        uuid: 5e6cf70b0f4db70a3d2ebe2f4132fde7
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: |
+      Information about module version
+    displayName: Version
+  Response Module:
+    uuid: 1753b39455778dd496626816c6440969
+    attributes:
+      id:
+        allowMultiple: false
+        uuid: fb4e7a9f1365bcf08ac079acb8152082
+        required: true
+        range:
+          type: string
+      created:
+        allowMultiple: false
+        uuid: b30176b2bc3e901e69832ee9385b5732
+        required: true
+        range:
+          type: dateTime
+      downloads:
+        allowMultiple: false
+        uuid: 79260450e546fb4a668d61cba3555ebd
+        required: true
+        range:
+          type: float
+      stars:
+        allowMultiple: false
+        uuid: 828cab5e71006edc2ec9b06238e14b55
+        required: false
+        range:
+          type: float
+    associations: {}
+    extends:
+      -
+        uuid: 2a9f14faa5168a15bd019ece23e27539
+    description: A module that is put into a response object
+    displayName: Response Module
   Person response object:
     uuid: 330ec9a9e864dbaee0f09d7b31608d37
     attributes:
@@ -42,44 +94,6 @@ entities:
       Because of security and privacy protection this object contains as little as possible 
       information about a person.
     displayName: Person response object
-  Version:
-    uuid: 39ce943bb96a2642f752511749a1ee86
-    attributes:
-      arc:
-        allowMultiple: false
-        uuid: 8540a4456c1f377b73a8b312daca1d69
-        required: true
-        range:
-          type: string
-      module:
-        allowMultiple: false
-        uuid: 5e6cf70b0f4db70a3d2ebe2f4132fde7
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: |
-      Information about module version
-    displayName: Version
-  ModuleInfo:
-    uuid: f75cda6206b987b93dfe6ac1e475ad70
-    attributes:
-      version:
-        allowMultiple: false
-        uuid: df1c1ced7a3f2ae68f8efdece038b6cf
-        required: true
-        range:
-          type: string
-      id:
-        allowMultiple: false
-        uuid: a5c4596f9fe040cf71b036b92ecb99ee
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: |
-      This type is used in communication between ARC application and the server to informa the app
-      about a module installed in the application.
   Module:
     uuid: 2a9f14faa5168a15bd019ece23e27539
     attributes:
@@ -87,6 +101,12 @@ entities:
         allowMultiple: false
         uuid: 576f706139837d404696603552ec2bcb
         required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: a90b471211601e7eea5690ceea8dc6ab
+        required: true
         range:
           type: string
       attribute1:
@@ -113,12 +133,6 @@ entities:
         required: false
         range:
           type: boolean
-      name:
-        allowMultiple: false
-        uuid: a90b471211601e7eea5690ceea8dc6ab
-        required: true
-        range:
-          type: string
     associations:
       version:
         allowMultiple: false
@@ -127,6 +141,25 @@ entities:
         target: http://mulesoft.com/modeling/instances/39ce943bb96a2642f752511749a1ee86
     description: Module is a base class for both ARC extensions or themes.
     displayName: Module
+  ModuleInfo:
+    uuid: f75cda6206b987b93dfe6ac1e475ad70
+    attributes:
+      version:
+        allowMultiple: false
+        uuid: df1c1ced7a3f2ae68f8efdece038b6cf
+        required: true
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: a5c4596f9fe040cf71b036b92ecb99ee
+        required: true
+        range:
+          type: string
+    associations: {}
+    description: |
+      This type is used in communication between ARC application and the server to informa the app
+      about a module installed in the application.
   Person list response object:
     uuid: 30e109e09b465065431d3c22c8a17dd5
     attributes:
@@ -154,39 +187,6 @@ entities:
       Because of security and privacy protection this object contains as little as possible 
       information about a person.
     displayName: Person list response object
-  Response Module:
-    uuid: 1753b39455778dd496626816c6440969
-    attributes:
-      id:
-        allowMultiple: false
-        uuid: fb4e7a9f1365bcf08ac079acb8152082
-        required: true
-        range:
-          type: string
-      created:
-        allowMultiple: false
-        uuid: b30176b2bc3e901e69832ee9385b5732
-        required: true
-        range:
-          type: dateTime
-      downloads:
-        allowMultiple: false
-        uuid: 79260450e546fb4a668d61cba3555ebd
-        required: true
-        range:
-          type: float
-      stars:
-        allowMultiple: false
-        uuid: 828cab5e71006edc2ec9b06238e14b55
-        required: false
-        range:
-          type: float
-    associations: {}
-    extends:
-      -
-        uuid: 2a9f14faa5168a15bd019ece23e27539
-    description: A module that is put into a response object
-    displayName: Response Module
   Person:
     uuid: 6b5434bee80cd46d0a18206d262cdabe
     attributes:

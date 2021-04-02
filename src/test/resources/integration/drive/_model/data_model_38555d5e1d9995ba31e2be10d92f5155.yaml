@@ -2,6 +2,720 @@
 uuid: 38555d5e1d9995ba31e2be10d92f5155
 name: file-lib.raml
 entities:
+  openWithLinks:
+    uuid: 6176e9b415eb2726b3c40f8675129ecb
+    attributes: {}
+    associations: {}
+    description: |
+      A map of the id of each of the user's apps to a link to open this file with that app.
+      Only populated when the drive.apps.readonly scope is used.
+  labels:
+    uuid: a30bb61c33f54da648f169758f6113a9
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 90bfebeb07cc412beb7d9dcfe46fbe38
+  labels:
+    uuid: dfe16a608b07662ba0df74a75833cbf3
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 90bfebeb07cc412beb7d9dcfe46fbe38
+  lastModifyingUser:
+    uuid: 83f852b4dfaec26a8091eca49ea8db91
+    attributes:
+      isAuthenticatedUser:
+        allowMultiple: false
+        uuid: 7c0c6cd130c5770c240ab66f1e8bca0c
+        required: true
+        range:
+          type: boolean
+      permissionId:
+        allowMultiple: false
+        uuid: 1e258a9fe023ba13069c769c59b09769
+        required: true
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: f3bb511a2b5f6b5e7e5a3c7c8b1c88f9
+        required: true
+        range:
+          type: string
+      emailAddress:
+        allowMultiple: false
+        uuid: cc0bd980606e254c9a770fbda42a66aa
+        required: true
+        range:
+          type: string
+      displayName:
+        allowMultiple: false
+        uuid: 916e60f6494b60fa8d2459e1fb76bbfb
+        required: true
+        range:
+          type: string
+    associations:
+      picture:
+        allowMultiple: false
+        uuid: d7c0dd5c694963ae8f351f551de3de54
+        required: true
+        target: http://mulesoft.com/modeling/instances/e7a6cacb43519255899cbd2724f3bf74
+    description: The last user to modify this file
+  SharingUser:
+    uuid: 0ffafabe41040f6bad9697db1883c02f
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 0f18885ab6640698ee913bd9c339b6b5
+    description: User that shared the item with the current user, if available.
+    displayName: SharingUser
+  capabilities:
+    uuid: ce9389ff806040a2a4061712ca7fc788
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: fcaeef4028647a5f5af444b5f033d458
+    description: Capabilities the current user has on the file. Each capability corresponds to a fine-grained action that a user may take.
+  imageMediaMetadata:
+    uuid: b0a9d3d8e72c1ea505badc7af3fd1dcb
+    attributes:
+      exposureBias:
+        allowMultiple: false
+        uuid: 426c0fe0fc5e08092d24778609fdc87d
+        required: false
+        range:
+          type: float
+      colorSpace:
+        allowMultiple: false
+        uuid: 2e1973e5e97d228f1c8ca606e87fff03
+        required: false
+        range:
+          type: string
+      isoSpeed:
+        allowMultiple: false
+        uuid: ccee5c42e6fed447ea196a52d893ee25
+        required: false
+        range:
+          type: integer
+      aperture:
+        allowMultiple: false
+        uuid: b66b618adfffd92a7523093e277b7527
+        required: false
+        range:
+          type: float
+      exposureTime:
+        allowMultiple: false
+        uuid: 9eae0bd3370faef41fbaaa8876401ecc
+        required: false
+        range:
+          type: float
+      height:
+        allowMultiple: false
+        uuid: 86ba12b1fd16eba93da1c0d3170ba321
+        required: false
+        range:
+          type: integer
+      cameraModel:
+        allowMultiple: false
+        uuid: c6e68ba1ca7f62b655b30e56b40dc8b1
+        required: false
+        range:
+          type: string
+      focalLength:
+        allowMultiple: false
+        uuid: ceae0bb32a88d3a47e3f624d4980fed8
+        required: false
+        range:
+          type: float
+      flashUsed:
+        allowMultiple: false
+        uuid: 333fe3317a26b3e537baac06bd88fa48
+        required: false
+        range:
+          type: boolean
+      width:
+        allowMultiple: false
+        uuid: 7c1bb31dee3658bca2a6f82e16826044
+        required: false
+        range:
+          type: integer
+      maxApertureValue:
+        allowMultiple: false
+        uuid: b353ca5276b5111a70808e2ef4272feb
+        required: false
+        range:
+          type: float
+      exposureMode:
+        allowMultiple: false
+        uuid: 0d2d1f90058fea40278a96b4881fda44
+        required: false
+        range:
+          type: string
+      cameraMake:
+        allowMultiple: false
+        uuid: e90036eb3e3b652f84167cbdf72e1c10
+        required: false
+        range:
+          type: string
+      lens:
+        allowMultiple: false
+        uuid: 6b699ee6cd015060705b3107c0532a0c
+        required: false
+        range:
+          type: string
+      sensor:
+        allowMultiple: false
+        uuid: 6d19d1e74cb87b89eb57a8b01750f7a6
+        required: false
+        range:
+          type: string
+      rotation:
+        allowMultiple: false
+        uuid: 406cb07a9b11a2cb209cc8e9015b3351
+        required: false
+        range:
+          type: integer
+      subjectDistance:
+        allowMultiple: false
+        uuid: 42ab8c33fef49b1c87a2ddbe7445a4d4
+        required: false
+        range:
+          type: integer
+      whiteBalance:
+        allowMultiple: false
+        uuid: 5eda5b97b63c0e6d6bcde49ba37794d3
+        required: false
+        range:
+          type: string
+      date:
+        allowMultiple: false
+        uuid: d25bd90aa1dff44c41ecee201ce63ba8
+        required: false
+        range:
+          type: dateTime
+      meteringMode:
+        allowMultiple: false
+        uuid: c28ddb7f782f6a2ffc191172fb02b6ee
+        required: false
+        range:
+          type: string
+    associations:
+      location:
+        allowMultiple: false
+        uuid: 253345bdeba45742131b60b1bb17ea03
+        required: false
+        target: http://mulesoft.com/modeling/instances/ac05150e875a452b9abd2a52f25ea760
+    description: Metadata about image media. This will only be present for image types, and its contents will depend on what can be parsed from the image content.
+  picture:
+    uuid: e7a6cacb43519255899cbd2724f3bf74
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 7cc5802ee908c771f5b434a3922f462b
+  File:
+    uuid: 319c63b36e73b5c19fb49c6a7b8ae8d8
+    attributes:
+      lastViewedByMeDate:
+        allowMultiple: false
+        uuid: 8d38a2e23c03a1896f6d940826bdda62
+        required: false
+        range:
+          type: dateTime
+      writersCanShare:
+        allowMultiple: false
+        uuid: 313ca84158b4d9b3f64cdc89429f2e7c
+        required: false
+        range:
+          type: boolean
+      id:
+        allowMultiple: false
+        uuid: 6f409dd7c1fd6c94f6cecf9a23640b7f
+        required: true
+        range:
+          type: string
+      modifiedDate:
+        allowMultiple: false
+        uuid: f6fb56b99b7d0348977fed963fe0f972
+        required: true
+        range:
+          type: dateTime
+      description:
+        allowMultiple: false
+        uuid: 0c316fd9e205305cfcc13a99daa5acef
+        required: true
+        range:
+          type: string
+      originalFilename:
+        allowMultiple: false
+        uuid: 67f628266a0bda530d812aa6a476f04f
+        required: false
+        range:
+          type: string
+      markedViewedByMeDate:
+        allowMultiple: false
+        uuid: e029454705bce0e8d216322a36eb170f
+        required: false
+        range:
+          type: dateTime
+      title:
+        allowMultiple: false
+        uuid: b3665232a8bf1f8a5f6a879429a57d95
+        required: true
+        range:
+          type: string
+      mimeType:
+        allowMultiple: false
+        uuid: 0166af05e081983c639dfa4949b3cb54
+        required: true
+        range:
+          type: string
+    associations:
+      labels:
+        allowMultiple: false
+        uuid: 8d23f0b49b4c5bc23cd700c8552fc1ab
+        required: true
+        target: http://mulesoft.com/modeling/instances/dfe16a608b07662ba0df74a75833cbf3
+      parents:
+        allowMultiple: true
+        uuid: 7e324ae9ef4d19af384939ed8d7c14eb
+        required: false
+        target: http://mulesoft.com/modeling/instances/e81d9cc6f2433de7f9bf73b9cf2cc4cf
+      indexableText:
+        allowMultiple: false
+        uuid: a962e7f835e8de23b295fdd71b23783e
+        required: false
+        target: http://mulesoft.com/modeling/instances/760e51906516774b81934acca35eddb3
+    description: A type to be used when a new file to be created.
+    displayName: File
+  FileList:
+    uuid: 87fca8d2e7e1f1dfff14e66614d09865
+    attributes:
+      nextPageToken:
+        allowMultiple: false
+        uuid: 555beb752504c213ca8a8680dec8e8cf
+        required: true
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: 2eca05f03ed3400afd93afaeb7a0923a
+        required: true
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: ccdcbfd7fe5e953183afc5ba0ba79c2f
+        required: true
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: c967f81e188cbf396ea2776aac6cd6cd
+        required: true
+        range:
+          type: string
+      nextLink:
+        allowMultiple: false
+        uuid: 2673c9346c7ab8e560cb5e080dc8c917
+        required: true
+        range:
+          type: string
+    associations:
+      items:
+        allowMultiple: true
+        uuid: 19f469541ec08121d73dc96e557af266
+        required: true
+        target: http://mulesoft.com/modeling/instances/ff50c2dda838f70c798e6d30e85948b2
+    description: A response body for the files list
+    displayName: FileList
+  indexableText:
+    uuid: 760e51906516774b81934acca35eddb3
+    attributes:
+      text:
+        allowMultiple: false
+        uuid: b550bfbcd97625809acce3f557b3599f
+        required: false
+        range:
+          type: string
+    associations: {}
+    description: Indexable text attributes for the file. This property can only be written, and is not returned by files.get. For more information, see Custom thumbnails and indexable text.
+  DriveFile:
+    uuid: ff50c2dda838f70c798e6d30e85948b2
+    attributes:
+      iconLink:
+        allowMultiple: false
+        uuid: af950e009296796a16b3267d7643caa6
+        required: false
+        range:
+          type: string
+      ownedByMe:
+        allowMultiple: false
+        uuid: 25431b15f096c45ac0c66456bedc83b3
+        required: false
+        range:
+          type: boolean
+      markedViewedByMeDate:
+        allowMultiple: false
+        uuid: 482a8d545680e17e629481812cf31f9e
+        required: false
+        range:
+          type: dateTime
+      selfLink:
+        allowMultiple: false
+        uuid: 492bde9c7d338a972a7d14625e393078
+        required: false
+        range:
+          type: string
+      md5Checksum:
+        allowMultiple: false
+        uuid: 985c9fc0c93944337b8c5e1ccbb5c218
+        required: false
+        range:
+          type: string
+      lastViewedByMeDate:
+        allowMultiple: false
+        uuid: 98be0a3ec5a197b3103e197ef1ccc0ab
+        required: false
+        range:
+          type: dateTime
+      originalFilename:
+        allowMultiple: false
+        uuid: 70c616c30a34706b077d3f351c76b8e3
+        required: false
+        range:
+          type: string
+      fileExtension:
+        allowMultiple: false
+        uuid: a2c4948a621dde9e301a392b10ff1c28
+        required: false
+        range:
+          type: string
+      headRevisionId:
+        allowMultiple: false
+        uuid: 741636924ff98b8aae88ea49854a8832
+        required: false
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: b1cedce132c3880fb6e95de8b0a05ef0
+        required: false
+        range:
+          type: string
+      trashedDate:
+        allowMultiple: false
+        uuid: f6bc4689d7c18d27fd4f00fd54bfe45a
+        required: false
+        range:
+          type: dateTime
+      title:
+        allowMultiple: false
+        uuid: d7cb44d7f212907ae1267889a625b3c1
+        required: false
+        range:
+          type: string
+      editable:
+        allowMultiple: false
+        uuid: 519d9781fcdf2161c3b5393b28f42ae7
+        required: true
+        range:
+          type: boolean
+      mimeType:
+        allowMultiple: false
+        uuid: e11924b2d211c640dd10148cfc0bfec5
+        required: false
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: af87a40bd0602f849ad67e9f8395df6d
+        required: false
+        range:
+          type: string
+      teamDriveId:
+        allowMultiple: false
+        uuid: 01a5fb1e87b47475904ef4cf1aa29600
+        required: false
+        range:
+          type: string
+      folderColorRgb:
+        allowMultiple: false
+        uuid: 6d9f8527641914b41f2324c54a1398fa
+        required: false
+        range:
+          type: string
+      lastModifyingUserName:
+        allowMultiple: false
+        uuid: 500415acd415af5f627b6fc75ceeb9ea
+        required: false
+        range:
+          type: string
+      quotaBytesUsed:
+        allowMultiple: false
+        uuid: d9f034b146c0001e5ddfacc3e94a3ba2
+        required: false
+        range:
+          type: string
+      writersCanShare:
+        allowMultiple: false
+        uuid: 752e6fddf93d88145a569313a2cb5b79
+        required: true
+        range:
+          type: boolean
+      hasAugmentedPermissions:
+        allowMultiple: false
+        uuid: bfac7deba739a8b0249bc5fd8cf44b1b
+        required: false
+        range:
+          type: boolean
+      canComment:
+        allowMultiple: false
+        uuid: 3e4e135be85539c787c12e60008127df
+        required: false
+        range:
+          type: boolean
+      embedLink:
+        allowMultiple: false
+        uuid: 556460dce3f0b25d1945d9be75fb4460
+        required: false
+        range:
+          type: string
+      downloadUrl:
+        allowMultiple: false
+        uuid: f2c9e3128bc828df7434241410900cef
+        required: false
+        range:
+          type: string
+      webContentLink:
+        allowMultiple: false
+        uuid: 9f095872bba22813954b3f09e8ef7683
+        required: false
+        range:
+          type: string
+      shareable:
+        allowMultiple: false
+        uuid: 8e1bd44a000f8b6d37266aa6b0c4b865
+        required: false
+        range:
+          type: boolean
+      thumbnailLink:
+        allowMultiple: false
+        uuid: b50279e909963618f168f4d48d57af5f
+        required: false
+        range:
+          type: string
+      isAppAuthorized:
+        allowMultiple: false
+        uuid: e862cb1c75da0cd29cba89f67063f4e6
+        required: false
+        range:
+          type: boolean
+      modifiedDate:
+        allowMultiple: false
+        uuid: a4daaa82a8ded02c8b9146c7733337f3
+        required: false
+        range:
+          type: dateTime
+      alternateLink:
+        allowMultiple: false
+        uuid: 4dda72f3cc5ea368c939140606099fe0
+        required: false
+        range:
+          type: string
+      canReadRevisions:
+        allowMultiple: false
+        uuid: 5cd1e544e137bccead8f99c33d5322e0
+        required: false
+        range:
+          type: boolean
+      ownerNames:
+        allowMultiple: true
+        uuid: f08d429dc525d0c95d2e64754eed59b5
+        required: false
+        range:
+          type: string
+      webViewLink:
+        allowMultiple: false
+        uuid: 574b811c4055d7b75cd6ce4c5a91a2c5
+        required: false
+        range:
+          type: string
+      fileSize:
+        allowMultiple: false
+        uuid: 81f20a81b4d5a8e8733f6b635b93060a
+        required: false
+        range:
+          type: integer
+      description:
+        allowMultiple: false
+        uuid: 9626d72c1294345130c020899432d91e
+        required: false
+        range:
+          type: string
+      spaces:
+        allowMultiple: true
+        uuid: a1cbf310211ed53a3de7a940f20ebc83
+        required: false
+        range:
+          type: string
+      createdDate:
+        allowMultiple: false
+        uuid: b71b937384ab9ad871c842374217bdd1
+        required: false
+        range:
+          type: dateTime
+      thumbnailVersion:
+        allowMultiple: false
+        uuid: 1e5d26e9872055b9d267af784bbe47fa
+        required: false
+        range:
+          type: string
+      defaultOpenWithLink:
+        allowMultiple: false
+        uuid: 6d22a4ba6c0c20f996f176057bd30187
+        required: false
+        range:
+          type: string
+      version:
+        allowMultiple: false
+        uuid: a5b446fe69104c004ed11c80ad3a1f3f
+        required: false
+        range:
+          type: string
+      modifiedByMeDate:
+        allowMultiple: false
+        uuid: e3cfca76e2440eba565aafbd0eff624a
+        required: false
+        range:
+          type: dateTime
+      shared:
+        allowMultiple: false
+        uuid: c6527433f9fb2dabfe0e86a522bba9b6
+        required: true
+        range:
+          type: boolean
+      kind:
+        allowMultiple: false
+        uuid: 1fef8005a7fc374dc16737387a22d53e
+        required: true
+        range:
+          type: string
+      appDataContents:
+        allowMultiple: false
+        uuid: 0e7e43650157b9086ac2483da7fd4dd5
+        required: true
+        range:
+          type: boolean
+      explicitlyTrashed:
+        allowMultiple: false
+        uuid: 5aade6fad6f45e67692ee504882fd649
+        required: true
+        range:
+          type: boolean
+      copyable:
+        allowMultiple: false
+        uuid: 60676ad9691c175fa081e0ece07bc647
+        required: true
+        range:
+          type: boolean
+      sharedWithMeDate:
+        allowMultiple: false
+        uuid: a1603ee59eb38c819bb8e52b4604c7b4
+        required: false
+        range:
+          type: dateTime
+      hasThumbnail:
+        allowMultiple: false
+        uuid: 9dc6ecb07f35a97d9b267c35d70ff430
+        required: false
+        range:
+          type: boolean
+    associations:
+      sharingUser:
+        allowMultiple: false
+        uuid: bc3dd2a515d24b6e156efac21a1f4245
+        required: false
+        target: http://mulesoft.com/modeling/instances/0ffafabe41040f6bad9697db1883c02f
+      labels:
+        allowMultiple: false
+        uuid: 392d7963e1c626c99667a8369fdaa454
+        required: false
+        target: http://mulesoft.com/modeling/instances/a30bb61c33f54da648f169758f6113a9
+      permissions:
+        allowMultiple: true
+        uuid: f3ecfdc259657c8af2a28fbfbe89f4e9
+        required: false
+        target: http://mulesoft.com/modeling/instances/a028c750187bb11111c85d1b7343aa88
+      capabilities:
+        allowMultiple: false
+        uuid: 6ce7a5cb0d07f44908626976ae961e77
+        required: false
+        target: http://mulesoft.com/modeling/instances/ce9389ff806040a2a4061712ca7fc788
+      thumbnail:
+        allowMultiple: false
+        uuid: 3d7d921d9d5e77967cafe46c73cb8efd
+        required: false
+        target: http://mulesoft.com/modeling/instances/ef324810402e73cd397f5b6c09e9b9e4
+      parents:
+        allowMultiple: true
+        uuid: 8d8b9402bc89f0c7b5b2aea75968742d
+        required: true
+        target: http://mulesoft.com/modeling/instances/e81d9cc6f2433de7f9bf73b9cf2cc4cf
+      videoMediaMetadata:
+        allowMultiple: false
+        uuid: c73d93ddca897bfaa44d412e3a168ea4
+        required: false
+        target: http://mulesoft.com/modeling/instances/b8ed79b521898303140dac6949c3f316
+      owners:
+        allowMultiple: true
+        uuid: db2f5107933a0230c26d957b3e72bea7
+        required: false
+        target: http://mulesoft.com/modeling/instances/8591fbca6889c8d0bef24b594cc4b227
+      userPermission:
+        allowMultiple: false
+        uuid: 202662941f98734c84a040119e49a547
+        required: false
+        target: http://mulesoft.com/modeling/instances/1262fa246baa0a1af562ea141a7981f3
+      trashingUser:
+        allowMultiple: false
+        uuid: a92b4c5ccad01db0e0d79c9d654168ba
+        required: false
+        target: http://mulesoft.com/modeling/instances/0a489e031bed709af9f58d00f1813fec
+      imageMediaMetadata:
+        allowMultiple: false
+        uuid: 2f4d69274fc5cc38472ba17528c93347
+        required: false
+        target: http://mulesoft.com/modeling/instances/b0a9d3d8e72c1ea505badc7af3fd1dcb
+      lastModifyingUser:
+        allowMultiple: false
+        uuid: 6767d5ddb9bdd367362ad42d98378dd9
+        required: false
+        target: http://mulesoft.com/modeling/instances/83f852b4dfaec26a8091eca49ea8db91
+      properties:
+        allowMultiple: true
+        uuid: 620c390d60a65b5327e4a1aa8efb5d7c
+        required: false
+        target: http://mulesoft.com/modeling/instances/4ab66363bbc4553075d7c06ee0c81fe9
+      openWithLinks:
+        allowMultiple: false
+        uuid: 9bd2799b1af9db05c75f9cef344fe91d
+        required: false
+        target: http://mulesoft.com/modeling/instances/6176e9b415eb2726b3c40f8675129ecb
+      exportLinks:
+        allowMultiple: false
+        uuid: 6dfee7be9ba3f4bdf4acd69770e0673b
+        required: false
+        target: http://mulesoft.com/modeling/instances/f0d8b3c9fcd3e852da4600caa7f97b35
+      indexableText:
+        allowMultiple: false
+        uuid: c9d62a13559b3f6e5b81c824c32dcf7b
+        required: false
+        target: http://mulesoft.com/modeling/instances/46b98b263b2bcbae3d5af9ec02fd67a0
   location:
     uuid: ac05150e875a452b9abd2a52f25ea760
     attributes:
@@ -33,13 +747,27 @@ entities:
       -
         uuid: 0f18885ab6640698ee913bd9c339b6b5
     description: If the file has been explicitly trashed, the user who trashed it. Only populated for Team Drive files.
+  thumbnail:
+    uuid: ef324810402e73cd397f5b6c09e9b9e4
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: cea83ec639511f6d884558e466249b46
+  exportLinks:
+    uuid: f0d8b3c9fcd3e852da4600caa7f97b35
+    attributes: {}
+    associations: {}
+    description: |
+      Links for exporting Google Docs to specific formats.
+      The key in the object is a mapping from export format to URL
   indexableText:
-    uuid: 760e51906516774b81934acca35eddb3
+    uuid: 46b98b263b2bcbae3d5af9ec02fd67a0
     attributes:
       text:
         allowMultiple: false
-        uuid: b550bfbcd97625809acce3f557b3599f
-        required: false
+        uuid: d88ccf5f06b21d01475c0d331676117b
+        required: true
         range:
           type: string
     associations: {}
@@ -52,474 +780,6 @@ entities:
       -
         uuid: a028c750187bb11111c85d1b7343aa88
     description: The permissions for the authenticated user on this file.
-  DriveFile:
-    uuid: ff50c2dda838f70c798e6d30e85948b2
-    attributes:
-      sharedWithMeDate:
-        allowMultiple: false
-        uuid: a1603ee59eb38c819bb8e52b4604c7b4
-        required: false
-        range:
-          type: dateTime
-      md5Checksum:
-        allowMultiple: false
-        uuid: 985c9fc0c93944337b8c5e1ccbb5c218
-        required: false
-        range:
-          type: string
-      downloadUrl:
-        allowMultiple: false
-        uuid: f2c9e3128bc828df7434241410900cef
-        required: false
-        range:
-          type: string
-      canComment:
-        allowMultiple: false
-        uuid: 3e4e135be85539c787c12e60008127df
-        required: false
-        range:
-          type: boolean
-      shareable:
-        allowMultiple: false
-        uuid: 8e1bd44a000f8b6d37266aa6b0c4b865
-        required: false
-        range:
-          type: boolean
-      writersCanShare:
-        allowMultiple: false
-        uuid: 752e6fddf93d88145a569313a2cb5b79
-        required: true
-        range:
-          type: boolean
-      fileSize:
-        allowMultiple: false
-        uuid: 81f20a81b4d5a8e8733f6b635b93060a
-        required: false
-        range:
-          type: integer
-      webContentLink:
-        allowMultiple: false
-        uuid: 9f095872bba22813954b3f09e8ef7683
-        required: false
-        range:
-          type: string
-      webViewLink:
-        allowMultiple: false
-        uuid: 574b811c4055d7b75cd6ce4c5a91a2c5
-        required: false
-        range:
-          type: string
-      alternateLink:
-        allowMultiple: false
-        uuid: 4dda72f3cc5ea368c939140606099fe0
-        required: false
-        range:
-          type: string
-      description:
-        allowMultiple: false
-        uuid: 9626d72c1294345130c020899432d91e
-        required: false
-        range:
-          type: string
-      id:
-        allowMultiple: false
-        uuid: b1cedce132c3880fb6e95de8b0a05ef0
-        required: false
-        range:
-          type: string
-      originalFilename:
-        allowMultiple: false
-        uuid: 70c616c30a34706b077d3f351c76b8e3
-        required: false
-        range:
-          type: string
-      hasThumbnail:
-        allowMultiple: false
-        uuid: 9dc6ecb07f35a97d9b267c35d70ff430
-        required: false
-        range:
-          type: boolean
-      fileExtension:
-        allowMultiple: false
-        uuid: a2c4948a621dde9e301a392b10ff1c28
-        required: false
-        range:
-          type: string
-      thumbnailLink:
-        allowMultiple: false
-        uuid: b50279e909963618f168f4d48d57af5f
-        required: false
-        range:
-          type: string
-      defaultOpenWithLink:
-        allowMultiple: false
-        uuid: 6d22a4ba6c0c20f996f176057bd30187
-        required: false
-        range:
-          type: string
-      embedLink:
-        allowMultiple: false
-        uuid: 556460dce3f0b25d1945d9be75fb4460
-        required: false
-        range:
-          type: string
-      quotaBytesUsed:
-        allowMultiple: false
-        uuid: d9f034b146c0001e5ddfacc3e94a3ba2
-        required: false
-        range:
-          type: string
-      spaces:
-        allowMultiple: true
-        uuid: a1cbf310211ed53a3de7a940f20ebc83
-        required: false
-        range:
-          type: string
-      iconLink:
-        allowMultiple: false
-        uuid: af950e009296796a16b3267d7643caa6
-        required: false
-        range:
-          type: string
-      isAppAuthorized:
-        allowMultiple: false
-        uuid: e862cb1c75da0cd29cba89f67063f4e6
-        required: false
-        range:
-          type: boolean
-      appDataContents:
-        allowMultiple: false
-        uuid: 0e7e43650157b9086ac2483da7fd4dd5
-        required: true
-        range:
-          type: boolean
-      explicitlyTrashed:
-        allowMultiple: false
-        uuid: 5aade6fad6f45e67692ee504882fd649
-        required: true
-        range:
-          type: boolean
-      hasAugmentedPermissions:
-        allowMultiple: false
-        uuid: bfac7deba739a8b0249bc5fd8cf44b1b
-        required: false
-        range:
-          type: boolean
-      modifiedDate:
-        allowMultiple: false
-        uuid: a4daaa82a8ded02c8b9146c7733337f3
-        required: false
-        range:
-          type: dateTime
-      ownedByMe:
-        allowMultiple: false
-        uuid: 25431b15f096c45ac0c66456bedc83b3
-        required: false
-        range:
-          type: boolean
-      lastModifyingUserName:
-        allowMultiple: false
-        uuid: 500415acd415af5f627b6fc75ceeb9ea
-        required: false
-        range:
-          type: string
-      lastViewedByMeDate:
-        allowMultiple: false
-        uuid: 98be0a3ec5a197b3103e197ef1ccc0ab
-        required: false
-        range:
-          type: dateTime
-      trashedDate:
-        allowMultiple: false
-        uuid: f6bc4689d7c18d27fd4f00fd54bfe45a
-        required: false
-        range:
-          type: dateTime
-      headRevisionId:
-        allowMultiple: false
-        uuid: 741636924ff98b8aae88ea49854a8832
-        required: false
-        range:
-          type: string
-      canReadRevisions:
-        allowMultiple: false
-        uuid: 5cd1e544e137bccead8f99c33d5322e0
-        required: false
-        range:
-          type: boolean
-      mimeType:
-        allowMultiple: false
-        uuid: e11924b2d211c640dd10148cfc0bfec5
-        required: false
-        range:
-          type: string
-      teamDriveId:
-        allowMultiple: false
-        uuid: 01a5fb1e87b47475904ef4cf1aa29600
-        required: false
-        range:
-          type: string
-      markedViewedByMeDate:
-        allowMultiple: false
-        uuid: 482a8d545680e17e629481812cf31f9e
-        required: false
-        range:
-          type: dateTime
-      createdDate:
-        allowMultiple: false
-        uuid: b71b937384ab9ad871c842374217bdd1
-        required: false
-        range:
-          type: dateTime
-      version:
-        allowMultiple: false
-        uuid: a5b446fe69104c004ed11c80ad3a1f3f
-        required: false
-        range:
-          type: string
-      editable:
-        allowMultiple: false
-        uuid: 519d9781fcdf2161c3b5393b28f42ae7
-        required: true
-        range:
-          type: boolean
-      selfLink:
-        allowMultiple: false
-        uuid: 492bde9c7d338a972a7d14625e393078
-        required: false
-        range:
-          type: string
-      modifiedByMeDate:
-        allowMultiple: false
-        uuid: e3cfca76e2440eba565aafbd0eff624a
-        required: false
-        range:
-          type: dateTime
-      shared:
-        allowMultiple: false
-        uuid: c6527433f9fb2dabfe0e86a522bba9b6
-        required: true
-        range:
-          type: boolean
-      folderColorRgb:
-        allowMultiple: false
-        uuid: 6d9f8527641914b41f2324c54a1398fa
-        required: false
-        range:
-          type: string
-      title:
-        allowMultiple: false
-        uuid: d7cb44d7f212907ae1267889a625b3c1
-        required: false
-        range:
-          type: string
-      thumbnailVersion:
-        allowMultiple: false
-        uuid: 1e5d26e9872055b9d267af784bbe47fa
-        required: false
-        range:
-          type: string
-      copyable:
-        allowMultiple: false
-        uuid: 60676ad9691c175fa081e0ece07bc647
-        required: true
-        range:
-          type: boolean
-      ownerNames:
-        allowMultiple: true
-        uuid: f08d429dc525d0c95d2e64754eed59b5
-        required: false
-        range:
-          type: string
-      etag:
-        allowMultiple: false
-        uuid: af87a40bd0602f849ad67e9f8395df6d
-        required: false
-        range:
-          type: string
-      kind:
-        allowMultiple: false
-        uuid: 1fef8005a7fc374dc16737387a22d53e
-        required: true
-        range:
-          type: string
-    associations:
-      exportLinks:
-        allowMultiple: false
-        uuid: 6dfee7be9ba3f4bdf4acd69770e0673b
-        required: false
-        target: http://mulesoft.com/modeling/instances/f0d8b3c9fcd3e852da4600caa7f97b35
-      labels:
-        allowMultiple: false
-        uuid: 392d7963e1c626c99667a8369fdaa454
-        required: false
-        target: http://mulesoft.com/modeling/instances/a30bb61c33f54da648f169758f6113a9
-      userPermission:
-        allowMultiple: false
-        uuid: 202662941f98734c84a040119e49a547
-        required: false
-        target: http://mulesoft.com/modeling/instances/1262fa246baa0a1af562ea141a7981f3
-      trashingUser:
-        allowMultiple: false
-        uuid: a92b4c5ccad01db0e0d79c9d654168ba
-        required: false
-        target: http://mulesoft.com/modeling/instances/0a489e031bed709af9f58d00f1813fec
-      openWithLinks:
-        allowMultiple: false
-        uuid: 9bd2799b1af9db05c75f9cef344fe91d
-        required: false
-        target: http://mulesoft.com/modeling/instances/6176e9b415eb2726b3c40f8675129ecb
-      thumbnail:
-        allowMultiple: false
-        uuid: 3d7d921d9d5e77967cafe46c73cb8efd
-        required: false
-        target: http://mulesoft.com/modeling/instances/ef324810402e73cd397f5b6c09e9b9e4
-      imageMediaMetadata:
-        allowMultiple: false
-        uuid: 2f4d69274fc5cc38472ba17528c93347
-        required: false
-        target: http://mulesoft.com/modeling/instances/b0a9d3d8e72c1ea505badc7af3fd1dcb
-      permissions:
-        allowMultiple: true
-        uuid: f3ecfdc259657c8af2a28fbfbe89f4e9
-        required: false
-        target: http://mulesoft.com/modeling/instances/a028c750187bb11111c85d1b7343aa88
-      parents:
-        allowMultiple: true
-        uuid: 8d8b9402bc89f0c7b5b2aea75968742d
-        required: true
-        target: http://mulesoft.com/modeling/instances/e81d9cc6f2433de7f9bf73b9cf2cc4cf
-      lastModifyingUser:
-        allowMultiple: false
-        uuid: 6767d5ddb9bdd367362ad42d98378dd9
-        required: false
-        target: http://mulesoft.com/modeling/instances/83f852b4dfaec26a8091eca49ea8db91
-      indexableText:
-        allowMultiple: false
-        uuid: c9d62a13559b3f6e5b81c824c32dcf7b
-        required: false
-        target: http://mulesoft.com/modeling/instances/46b98b263b2bcbae3d5af9ec02fd67a0
-      capabilities:
-        allowMultiple: false
-        uuid: 6ce7a5cb0d07f44908626976ae961e77
-        required: false
-        target: http://mulesoft.com/modeling/instances/ce9389ff806040a2a4061712ca7fc788
-      videoMediaMetadata:
-        allowMultiple: false
-        uuid: c73d93ddca897bfaa44d412e3a168ea4
-        required: false
-        target: http://mulesoft.com/modeling/instances/b8ed79b521898303140dac6949c3f316
-      owners:
-        allowMultiple: true
-        uuid: db2f5107933a0230c26d957b3e72bea7
-        required: false
-        target: http://mulesoft.com/modeling/instances/8591fbca6889c8d0bef24b594cc4b227
-      sharingUser:
-        allowMultiple: false
-        uuid: bc3dd2a515d24b6e156efac21a1f4245
-        required: false
-        target: http://mulesoft.com/modeling/instances/0ffafabe41040f6bad9697db1883c02f
-      properties:
-        allowMultiple: true
-        uuid: 620c390d60a65b5327e4a1aa8efb5d7c
-        required: false
-        target: http://mulesoft.com/modeling/instances/4ab66363bbc4553075d7c06ee0c81fe9
-  capabilities:
-    uuid: ce9389ff806040a2a4061712ca7fc788
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: fcaeef4028647a5f5af444b5f033d458
-    description: Capabilities the current user has on the file. Each capability corresponds to a fine-grained action that a user may take.
-  labels:
-    uuid: a30bb61c33f54da648f169758f6113a9
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 90bfebeb07cc412beb7d9dcfe46fbe38
-  exportLinks:
-    uuid: f0d8b3c9fcd3e852da4600caa7f97b35
-    attributes: {}
-    associations: {}
-    description: |
-      Links for exporting Google Docs to specific formats.
-      The key in the object is a mapping from export format to URL
-  SharingUser:
-    uuid: 0ffafabe41040f6bad9697db1883c02f
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 0f18885ab6640698ee913bd9c339b6b5
-    description: User that shared the item with the current user, if available.
-    displayName: SharingUser
-  lastModifyingUser:
-    uuid: 83f852b4dfaec26a8091eca49ea8db91
-    attributes:
-      permissionId:
-        allowMultiple: false
-        uuid: 1e258a9fe023ba13069c769c59b09769
-        required: true
-        range:
-          type: string
-      emailAddress:
-        allowMultiple: false
-        uuid: cc0bd980606e254c9a770fbda42a66aa
-        required: true
-        range:
-          type: string
-      kind:
-        allowMultiple: false
-        uuid: f3bb511a2b5f6b5e7e5a3c7c8b1c88f9
-        required: true
-        range:
-          type: string
-      displayName:
-        allowMultiple: false
-        uuid: 916e60f6494b60fa8d2459e1fb76bbfb
-        required: true
-        range:
-          type: string
-      isAuthenticatedUser:
-        allowMultiple: false
-        uuid: 7c0c6cd130c5770c240ab66f1e8bca0c
-        required: true
-        range:
-          type: boolean
-    associations:
-      picture:
-        allowMultiple: false
-        uuid: d7c0dd5c694963ae8f351f551de3de54
-        required: true
-        target: http://mulesoft.com/modeling/instances/e7a6cacb43519255899cbd2724f3bf74
-    description: The last user to modify this file
-  indexableText:
-    uuid: 46b98b263b2bcbae3d5af9ec02fd67a0
-    attributes:
-      text:
-        allowMultiple: false
-        uuid: d88ccf5f06b21d01475c0d331676117b
-        required: true
-        range:
-          type: string
-    associations: {}
-    description: Indexable text attributes for the file. This property can only be written, and is not returned by files.get. For more information, see Custom thumbnails and indexable text.
-  labels:
-    uuid: dfe16a608b07662ba0df74a75833cbf3
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 90bfebeb07cc412beb7d9dcfe46fbe38
-  openWithLinks:
-    uuid: 6176e9b415eb2726b3c40f8675129ecb
-    attributes: {}
-    associations: {}
-    description: |
-      A map of the id of each of the user's apps to a link to open this file with that app.
-      Only populated when the drive.apps.readonly scope is used.
   videoMediaMetadata:
     uuid: b8ed79b521898303140dac6949c3f316
     attributes:
@@ -543,263 +803,3 @@ entities:
           type: float
     associations: {}
     description: Metadata about video media. This will only be present for video types.
-  File:
-    uuid: 319c63b36e73b5c19fb49c6a7b8ae8d8
-    attributes:
-      id:
-        allowMultiple: false
-        uuid: 6f409dd7c1fd6c94f6cecf9a23640b7f
-        required: true
-        range:
-          type: string
-      modifiedDate:
-        allowMultiple: false
-        uuid: f6fb56b99b7d0348977fed963fe0f972
-        required: true
-        range:
-          type: dateTime
-      writersCanShare:
-        allowMultiple: false
-        uuid: 313ca84158b4d9b3f64cdc89429f2e7c
-        required: false
-        range:
-          type: boolean
-      lastViewedByMeDate:
-        allowMultiple: false
-        uuid: 8d38a2e23c03a1896f6d940826bdda62
-        required: false
-        range:
-          type: dateTime
-      title:
-        allowMultiple: false
-        uuid: b3665232a8bf1f8a5f6a879429a57d95
-        required: true
-        range:
-          type: string
-      mimeType:
-        allowMultiple: false
-        uuid: 0166af05e081983c639dfa4949b3cb54
-        required: true
-        range:
-          type: string
-      originalFilename:
-        allowMultiple: false
-        uuid: 67f628266a0bda530d812aa6a476f04f
-        required: false
-        range:
-          type: string
-      markedViewedByMeDate:
-        allowMultiple: false
-        uuid: e029454705bce0e8d216322a36eb170f
-        required: false
-        range:
-          type: dateTime
-      description:
-        allowMultiple: false
-        uuid: 0c316fd9e205305cfcc13a99daa5acef
-        required: true
-        range:
-          type: string
-    associations:
-      labels:
-        allowMultiple: false
-        uuid: 8d23f0b49b4c5bc23cd700c8552fc1ab
-        required: true
-        target: http://mulesoft.com/modeling/instances/dfe16a608b07662ba0df74a75833cbf3
-      parents:
-        allowMultiple: true
-        uuid: 7e324ae9ef4d19af384939ed8d7c14eb
-        required: false
-        target: http://mulesoft.com/modeling/instances/e81d9cc6f2433de7f9bf73b9cf2cc4cf
-      indexableText:
-        allowMultiple: false
-        uuid: a962e7f835e8de23b295fdd71b23783e
-        required: false
-        target: http://mulesoft.com/modeling/instances/760e51906516774b81934acca35eddb3
-    description: A type to be used when a new file to be created.
-    displayName: File
-  thumbnail:
-    uuid: ef324810402e73cd397f5b6c09e9b9e4
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: cea83ec639511f6d884558e466249b46
-  picture:
-    uuid: e7a6cacb43519255899cbd2724f3bf74
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 7cc5802ee908c771f5b434a3922f462b
-  imageMediaMetadata:
-    uuid: b0a9d3d8e72c1ea505badc7af3fd1dcb
-    attributes:
-      exposureTime:
-        allowMultiple: false
-        uuid: 9eae0bd3370faef41fbaaa8876401ecc
-        required: false
-        range:
-          type: float
-      isoSpeed:
-        allowMultiple: false
-        uuid: ccee5c42e6fed447ea196a52d893ee25
-        required: false
-        range:
-          type: integer
-      width:
-        allowMultiple: false
-        uuid: 7c1bb31dee3658bca2a6f82e16826044
-        required: false
-        range:
-          type: integer
-      maxApertureValue:
-        allowMultiple: false
-        uuid: b353ca5276b5111a70808e2ef4272feb
-        required: false
-        range:
-          type: float
-      sensor:
-        allowMultiple: false
-        uuid: 6d19d1e74cb87b89eb57a8b01750f7a6
-        required: false
-        range:
-          type: string
-      date:
-        allowMultiple: false
-        uuid: d25bd90aa1dff44c41ecee201ce63ba8
-        required: false
-        range:
-          type: dateTime
-      whiteBalance:
-        allowMultiple: false
-        uuid: 5eda5b97b63c0e6d6bcde49ba37794d3
-        required: false
-        range:
-          type: string
-      height:
-        allowMultiple: false
-        uuid: 86ba12b1fd16eba93da1c0d3170ba321
-        required: false
-        range:
-          type: integer
-      rotation:
-        allowMultiple: false
-        uuid: 406cb07a9b11a2cb209cc8e9015b3351
-        required: false
-        range:
-          type: integer
-      exposureBias:
-        allowMultiple: false
-        uuid: 426c0fe0fc5e08092d24778609fdc87d
-        required: false
-        range:
-          type: float
-      exposureMode:
-        allowMultiple: false
-        uuid: 0d2d1f90058fea40278a96b4881fda44
-        required: false
-        range:
-          type: string
-      focalLength:
-        allowMultiple: false
-        uuid: ceae0bb32a88d3a47e3f624d4980fed8
-        required: false
-        range:
-          type: float
-      aperture:
-        allowMultiple: false
-        uuid: b66b618adfffd92a7523093e277b7527
-        required: false
-        range:
-          type: float
-      cameraModel:
-        allowMultiple: false
-        uuid: c6e68ba1ca7f62b655b30e56b40dc8b1
-        required: false
-        range:
-          type: string
-      cameraMake:
-        allowMultiple: false
-        uuid: e90036eb3e3b652f84167cbdf72e1c10
-        required: false
-        range:
-          type: string
-      meteringMode:
-        allowMultiple: false
-        uuid: c28ddb7f782f6a2ffc191172fb02b6ee
-        required: false
-        range:
-          type: string
-      lens:
-        allowMultiple: false
-        uuid: 6b699ee6cd015060705b3107c0532a0c
-        required: false
-        range:
-          type: string
-      colorSpace:
-        allowMultiple: false
-        uuid: 2e1973e5e97d228f1c8ca606e87fff03
-        required: false
-        range:
-          type: string
-      flashUsed:
-        allowMultiple: false
-        uuid: 333fe3317a26b3e537baac06bd88fa48
-        required: false
-        range:
-          type: boolean
-      subjectDistance:
-        allowMultiple: false
-        uuid: 42ab8c33fef49b1c87a2ddbe7445a4d4
-        required: false
-        range:
-          type: integer
-    associations:
-      location:
-        allowMultiple: false
-        uuid: 253345bdeba45742131b60b1bb17ea03
-        required: false
-        target: http://mulesoft.com/modeling/instances/ac05150e875a452b9abd2a52f25ea760
-    description: Metadata about image media. This will only be present for image types, and its contents will depend on what can be parsed from the image content.
-  FileList:
-    uuid: 87fca8d2e7e1f1dfff14e66614d09865
-    attributes:
-      selfLink:
-        allowMultiple: false
-        uuid: 2eca05f03ed3400afd93afaeb7a0923a
-        required: true
-        range:
-          type: string
-      nextPageToken:
-        allowMultiple: false
-        uuid: 555beb752504c213ca8a8680dec8e8cf
-        required: true
-        range:
-          type: string
-      kind:
-        allowMultiple: false
-        uuid: c967f81e188cbf396ea2776aac6cd6cd
-        required: true
-        range:
-          type: string
-      nextLink:
-        allowMultiple: false
-        uuid: 2673c9346c7ab8e560cb5e080dc8c917
-        required: true
-        range:
-          type: string
-      etag:
-        allowMultiple: false
-        uuid: ccdcbfd7fe5e953183afc5ba0ba79c2f
-        required: true
-        range:
-          type: string
-    associations:
-      items:
-        allowMultiple: true
-        uuid: 19f469541ec08121d73dc96e557af266
-        required: true
-        target: http://mulesoft.com/modeling/instances/ff50c2dda838f70c798e6d30e85948b2
-    description: A response body for the files list
-    displayName: FileList

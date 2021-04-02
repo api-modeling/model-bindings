@@ -4,100 +4,100 @@ uuid: 8397a0a2f69a100fa18d4c6c0249fe1e
 declaration: http://mulesoft.com/modeling/instances/bindings/api_contract
 bindings:
   -
-    source: http://mulesoft.com/modeling/instances/b2b9720720e7b5f53944a521b71e59d5
-    uuid: apiContract/bindings/DocumentTypeBinding/b2b9720720e7b5f53944a521b71e59d5
-    configuration:
-      -
-        uuid: 71c02ca4-1d31-4ae6-a09a-e59e4accaa01param
-        lexicalValue: JSON Schema / RAML Fragment
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
-        type: Scalar
-      -
-        uuid: apiContract/bindings/DocumentTypeBinding/b2b9720720e7b5f53944a521b71e59d5target_type_param
-        lexicalValue: Entity9
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/1ee05454c75faecc166cd06fc64732e0
-    uuid: api_contract_operation_method_binding/1ee05454c75faecc166cd06fc64732e0
-    configuration:
-      -
-        uuid: api_contract_operation_method_binding/param/1ee05454c75faecc166cd06fc64732e0
-        lexicalValue: GET
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
-  -
-    source: http://mulesoft.com/modeling/instances/7cbfe1d266c62b25d8707d1172ef3982
-    uuid: api_contract_operation_media_type_parameter_binding/7cbfe1d266c62b25d8707d1172ef3982
-    configuration:
-      -
-        uuid: api_contract_operation_media_type_parameter_binding/value/7cbfe1d266c62b25d8707d1172ef3982
-        lexicalValue: application/json
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding
-  -
     source: http://mulesoft.com/modeling/instances/a82aae953f47abd39878bae449b0db35
-    uuid: api_contract_operation_method_binding/a82aae953f47abd39878bae449b0db35
+    uuid: api_contract_operation_status_code_parameter_binding/a82aae953f47abd39878bae449b0db35
     configuration:
       -
-        uuid: api_contract_operation_method_binding/param/a82aae953f47abd39878bae449b0db35
-        lexicalValue: GET
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
+        uuid: api_contract_operation_status_code_parameter_binding/value/a82aae953f47abd39878bae449b0db35
+        lexicalValue: "200"
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-status-code-binding
         type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseStatusCodeBinding
   -
-    source: http://mulesoft.com/modeling/instances/6d9ebb3ad9118b58ac1315f9f509e43f
-    uuid: api_contract_operation_parameter_binding/6d9ebb3ad9118b58ac1315f9f509e43f
+    source: http://mulesoft.com/modeling/instances/a4973afb28fdefb4aad59a6d70afb561
+    uuid: api_contract_operation_parameter_binding/a4973afb28fdefb4aad59a6d70afb561
     configuration:
       -
-        uuid: api_contract_operation_method_binding/param/6d9ebb3ad9118b58ac1315f9f509e43f
+        uuid: api_contract_operation_method_binding/param/a4973afb28fdefb4aad59a6d70afb561
         lexicalValue: query
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
   -
-    source: http://mulesoft.com/modeling/instances/8612241ac7ba80cc47a3f46bb953a141
-    uuid: api_contract_operation_media_type_parameter_binding/8612241ac7ba80cc47a3f46bb953a141
+    source: http://mulesoft.com/modeling/instances/6dea653e79a9fb95e385728872eab66b
+    uuid: apiContract/bindings/DocumentTypeBinding/6dea653e79a9fb95e385728872eab66b
     configuration:
       -
-        uuid: api_contract_operation_media_type_parameter_binding/value/8612241ac7ba80cc47a3f46bb953a141
-        lexicalValue: application/json
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/8a4c25c217d63c0413473c749a1294b5
-    uuid: apiContract/bindings/DocumentTypeBinding/8a4c25c217d63c0413473c749a1294b5
-    configuration:
-      -
-        uuid: b9addc57-2be3-4798-be85-bb4e99400776param
+        uuid: f62e6692-d75e-40c6-93f2-23c504e94adbparam
         lexicalValue: JSON Schema / RAML Fragment
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
         type: Scalar
       -
-        uuid: apiContract/bindings/DocumentTypeBinding/8a4c25c217d63c0413473c749a1294b5target_type_param
-        lexicalValue: Entity6
+        uuid: apiContract/bindings/DocumentTypeBinding/6dea653e79a9fb95e385728872eab66btarget_type_param
+        lexicalValue: Entity10
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
   -
-    source: http://mulesoft.com/modeling/instances/9f4366e043b8a1f37f39ba06d291f9dc
-    uuid: apiContract/bindings/DocumentTypeBinding/9f4366e043b8a1f37f39ba06d291f9dc
+    source: http://mulesoft.com/modeling/instances/c4c4035d5fd723fc2dc5281245728265
+    uuid: api_contract_operation_parameter_binding/c4c4035d5fd723fc2dc5281245728265
     configuration:
       -
-        uuid: 19ee0f5f-5459-4cc8-9980-921f3331ee57param
+        uuid: api_contract_operation_method_binding/param/c4c4035d5fd723fc2dc5281245728265
+        lexicalValue: query
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
+  -
+    source: http://mulesoft.com/modeling/instances/f8d6a2a1c5ce210c05f974b90aab7340
+    uuid: apiContract/bindings/DocumentTypeBinding/f8d6a2a1c5ce210c05f974b90aab7340
+    configuration:
+      -
+        uuid: 92df892b-3bac-49d6-94f2-d9da92f39a08param
         lexicalValue: JSON Schema / RAML Fragment
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
         type: Scalar
       -
-        uuid: apiContract/bindings/DocumentTypeBinding/9f4366e043b8a1f37f39ba06d291f9dctarget_type_param
+        uuid: apiContract/bindings/DocumentTypeBinding/f8d6a2a1c5ce210c05f974b90aab7340target_type_param
         lexicalValue: Entity3
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/492fcab2a5d3349ef5769b249318e82f
+    uuid: api_contract_operation_path_binding/492fcab2a5d3349ef5769b249318e82f
+    configuration:
+      -
+        uuid: api_contract_operation_path_binding/param/492fcab2a5d3349ef5769b249318e82f
+        lexicalValue: /covid19/v1/cases
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
+  -
+    source: http://mulesoft.com/modeling/instances/98e94b73939720f78a22acad0a361291
+    uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291
+    configuration:
+      -
+        uuid: 75aebd23-f3f6-4ef3-a65c-4c25596f95e6param
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+      -
+        uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291target_type_param
+        lexicalValue: Entity11
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/7cbfe1d266c62b25d8707d1172ef3982
+    uuid: api_contract_operation_status_code_parameter_binding/7cbfe1d266c62b25d8707d1172ef3982
+    configuration:
+      -
+        uuid: api_contract_operation_status_code_parameter_binding/value/7cbfe1d266c62b25d8707d1172ef3982
+        lexicalValue: "200"
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-status-code-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseStatusCodeBinding
   -
     source: http://mulesoft.com/modeling/instances/492fcab2a5d3349ef5769b249318e82f
     uuid: api_contract_operation_status_code_parameter_binding/492fcab2a5d3349ef5769b249318e82f
@@ -109,65 +109,30 @@ bindings:
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseStatusCodeBinding
   -
-    source: http://mulesoft.com/modeling/instances/bf6bd89cdde103491008cdd0b1dcac02
-    uuid: api_contract_operation_method_binding/bf6bd89cdde103491008cdd0b1dcac02
+    source: http://mulesoft.com/modeling/instances/23076dd6c742c730c3fd4856a5196d96
+    uuid: apiContract/bindings/DocumentTypeBinding/23076dd6c742c730c3fd4856a5196d96
     configuration:
       -
-        uuid: api_contract_operation_method_binding/param/bf6bd89cdde103491008cdd0b1dcac02
-        lexicalValue: GET
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
-  -
-    source: http://mulesoft.com/modeling/instances/8a4c25c217d63c0413473c749a1294b5
-    uuid: apiContract/bindings/DocumentTypeBinding/8a4c25c217d63c0413473c749a1294b5
-    configuration:
-      -
-        uuid: 962a0e5a-18df-431b-b26f-1a92e91bf762param
+        uuid: bfb2cbad-9029-4df2-bb30-8d7ec08f0d63param
         lexicalValue: JSON Schema / RAML Fragment
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
         type: Scalar
       -
-        uuid: apiContract/bindings/DocumentTypeBinding/8a4c25c217d63c0413473c749a1294b5target_type_param
-        lexicalValue: Entity11
+        uuid: apiContract/bindings/DocumentTypeBinding/23076dd6c742c730c3fd4856a5196d96target_type_param
+        lexicalValue: Entity5
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
   -
-    source: http://mulesoft.com/modeling/instances/8612241ac7ba80cc47a3f46bb953a141
-    uuid: api_contract_operation_method_binding/8612241ac7ba80cc47a3f46bb953a141
+    source: http://mulesoft.com/modeling/instances/7cbfe1d266c62b25d8707d1172ef3982
+    uuid: api_contract_operation_media_type_parameter_binding/7cbfe1d266c62b25d8707d1172ef3982
     configuration:
       -
-        uuid: api_contract_operation_method_binding/param/8612241ac7ba80cc47a3f46bb953a141
-        lexicalValue: GET
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
+        uuid: api_contract_operation_media_type_parameter_binding/value/7cbfe1d266c62b25d8707d1172ef3982
+        lexicalValue: application/json
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding
         type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
-  -
-    source: http://mulesoft.com/modeling/instances/98e94b73939720f78a22acad0a361291
-    uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291
-    configuration:
-      -
-        uuid: cd4a7e59-08af-4d75-8305-4f2a69477961param
-        lexicalValue: JSON Schema / RAML Fragment
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
-        type: Scalar
-      -
-        uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291target_type_param
-        lexicalValue: Entity2
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/2edd23d9e36dcefa9edb30958fa4eb35
-    uuid: api_contract_operation_path_binding/2edd23d9e36dcefa9edb30958fa4eb35
-    configuration:
-      -
-        uuid: api_contract_operation_path_binding/param/2edd23d9e36dcefa9edb30958fa4eb35
-        lexicalValue: /covid19/v1
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding
   -
     source: http://mulesoft.com/modeling/instances/bf6bd89cdde103491008cdd0b1dcac02
     uuid: api_contract_operation_status_code_parameter_binding/bf6bd89cdde103491008cdd0b1dcac02
@@ -179,46 +144,101 @@ bindings:
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseStatusCodeBinding
   -
-    source: http://mulesoft.com/modeling/instances/a82aae953f47abd39878bae449b0db35
-    uuid: api_contract_operation_media_type_parameter_binding/a82aae953f47abd39878bae449b0db35
+    source: http://mulesoft.com/modeling/instances/8a4c25c217d63c0413473c749a1294b5
+    uuid: apiContract/bindings/DocumentTypeBinding/8a4c25c217d63c0413473c749a1294b5
     configuration:
       -
-        uuid: api_contract_operation_media_type_parameter_binding/value/a82aae953f47abd39878bae449b0db35
-        lexicalValue: application/json
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/afe8b3382551e7f013edffc224168505
-    uuid: api_contract_operation_parameter_binding/afe8b3382551e7f013edffc224168505
-    configuration:
-      -
-        uuid: api_contract_operation_method_binding/param/afe8b3382551e7f013edffc224168505
-        lexicalValue: query
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
-  -
-    source: http://mulesoft.com/modeling/instances/f8d6a2a1c5ce210c05f974b90aab7340
-    uuid: apiContract/bindings/DocumentTypeBinding/f8d6a2a1c5ce210c05f974b90aab7340
-    configuration:
-      -
-        uuid: 2a51646a-13b2-4bf3-b12f-bf5e0416f156param
+        uuid: 2edf4ff4-c907-444f-b8ae-9f63962ec3daparam
         lexicalValue: JSON Schema / RAML Fragment
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
         type: Scalar
       -
-        uuid: apiContract/bindings/DocumentTypeBinding/f8d6a2a1c5ce210c05f974b90aab7340target_type_param
+        uuid: apiContract/bindings/DocumentTypeBinding/8a4c25c217d63c0413473c749a1294b5target_type_param
+        lexicalValue: Entity2
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/9f4366e043b8a1f37f39ba06d291f9dc
+    uuid: apiContract/bindings/DocumentTypeBinding/9f4366e043b8a1f37f39ba06d291f9dc
+    configuration:
+      -
+        uuid: 67a78390-de05-4e35-b194-8d5848620192param
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+      -
+        uuid: apiContract/bindings/DocumentTypeBinding/9f4366e043b8a1f37f39ba06d291f9dctarget_type_param
         lexicalValue: Entity4
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
   -
-    source: http://mulesoft.com/modeling/instances/492fcab2a5d3349ef5769b249318e82f
-    uuid: api_contract_operation_method_binding/492fcab2a5d3349ef5769b249318e82f
+    source: http://mulesoft.com/modeling/instances/bf6bd89cdde103491008cdd0b1dcac02
+    uuid: api_contract_operation_path_binding/bf6bd89cdde103491008cdd0b1dcac02
     configuration:
       -
-        uuid: api_contract_operation_method_binding/param/492fcab2a5d3349ef5769b249318e82f
+        uuid: api_contract_operation_path_binding/param/bf6bd89cdde103491008cdd0b1dcac02
+        lexicalValue: /covid19/v1/cases/covidTracking
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
+  -
+    source: http://mulesoft.com/modeling/instances/98e94b73939720f78a22acad0a361291
+    uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291
+    configuration:
+      -
+        uuid: 5de310b9-b2e2-422b-a305-508d671f380eparam
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+      -
+        uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291target_type_param
+        lexicalValue: Entity8
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/621ae5e777c61a97d4ba42365f35e38b
+    uuid: apiContract/bindings/DocumentTypeBinding/621ae5e777c61a97d4ba42365f35e38b
+    configuration:
+      -
+        uuid: 3fe3c956-2acb-425e-b5d5-cb6bd2a5f7eeparam
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/8abbf08678b9ef0f3e250d21a7d71884
+    uuid: apiContract/bindings/DocumentTypeBinding/8abbf08678b9ef0f3e250d21a7d71884
+    configuration:
+      -
+        uuid: 363c678c-6465-4a9a-818d-7ee81bad2b70param
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+      -
+        uuid: apiContract/bindings/DocumentTypeBinding/8abbf08678b9ef0f3e250d21a7d71884target_type_param
+        lexicalValue: errorMessage
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/cb7d613210a49c408d9494f3c3f5e59f
+    uuid: api_contract_operation_server_url_parameter_binding/cb7d613210a49c408d9494f3c3f5e59f
+    configuration:
+      -
+        uuid: api_contract_operation_server_url_parameter_binding/value/cb7d613210a49c408d9494f3c3f5e59f
+        lexicalValue: https://localcoviddata.com
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-base-url-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/ServerBaseUrlBinding
+  -
+    source: http://mulesoft.com/modeling/instances/7cbfe1d266c62b25d8707d1172ef3982
+    uuid: api_contract_operation_method_binding/7cbfe1d266c62b25d8707d1172ef3982
+    configuration:
+      -
+        uuid: api_contract_operation_method_binding/param/7cbfe1d266c62b25d8707d1172ef3982
         lexicalValue: GET
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
         type: Scalar
@@ -234,51 +254,181 @@ bindings:
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseStatusCodeBinding
   -
-    source: http://mulesoft.com/modeling/instances/b9a1fb72af5aef247db3743cf54b5396
-    uuid: apiContract/bindings/DocumentTypeBinding/b9a1fb72af5aef247db3743cf54b5396
+    source: http://mulesoft.com/modeling/instances/8612241ac7ba80cc47a3f46bb953a141
+    uuid: api_contract_operation_method_binding/8612241ac7ba80cc47a3f46bb953a141
     configuration:
       -
-        uuid: 31154493-ac0a-48b2-9a64-09cff4119c07param
-        lexicalValue: JSON Schema / RAML Fragment
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        uuid: api_contract_operation_method_binding/param/8612241ac7ba80cc47a3f46bb953a141
+        lexicalValue: GET
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
         type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
   -
-    source: http://mulesoft.com/modeling/instances/a4973afb28fdefb4aad59a6d70afb561
-    uuid: api_contract_operation_parameter_binding/a4973afb28fdefb4aad59a6d70afb561
+    source: http://mulesoft.com/modeling/instances/1f49a8e809ee098a3d8c89dd97dfb19a
+    uuid: api_contract_operation_parameter_binding/1f49a8e809ee098a3d8c89dd97dfb19a
     configuration:
       -
-        uuid: api_contract_operation_method_binding/param/a4973afb28fdefb4aad59a6d70afb561
+        uuid: api_contract_operation_method_binding/param/1f49a8e809ee098a3d8c89dd97dfb19a
         lexicalValue: query
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
   -
-    source: http://mulesoft.com/modeling/instances/492fcab2a5d3349ef5769b249318e82f
-    uuid: api_contract_operation_path_binding/492fcab2a5d3349ef5769b249318e82f
+    source: http://mulesoft.com/modeling/instances/b9a1fb72af5aef247db3743cf54b5396
+    uuid: apiContract/bindings/DocumentTypeBinding/b9a1fb72af5aef247db3743cf54b5396
     configuration:
       -
-        uuid: api_contract_operation_path_binding/param/492fcab2a5d3349ef5769b249318e82f
-        lexicalValue: /covid19/v1/cases
+        uuid: ecbcbcaf-ee7e-4115-b64d-827ae4896901param
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/a82aae953f47abd39878bae449b0db35
+    uuid: api_contract_operation_method_binding/a82aae953f47abd39878bae449b0db35
+    configuration:
+      -
+        uuid: api_contract_operation_method_binding/param/a82aae953f47abd39878bae449b0db35
+        lexicalValue: GET
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
+  -
+    source: http://mulesoft.com/modeling/instances/1ee05454c75faecc166cd06fc64732e0
+    uuid: api_contract_operation_path_binding/1ee05454c75faecc166cd06fc64732e0
+    configuration:
+      -
+        uuid: api_contract_operation_path_binding/param/1ee05454c75faecc166cd06fc64732e0
+        lexicalValue: /covid19/v1/cases/eucdc
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
   -
-    source: http://mulesoft.com/modeling/instances/cb7d613210a49c408d9494f3c3f5e59f
-    uuid: api_contract_operation_server_url_parameter_binding/cb7d613210a49c408d9494f3c3f5e59f
-    configuration:
-      -
-        uuid: api_contract_operation_server_url_parameter_binding/value/cb7d613210a49c408d9494f3c3f5e59f
-        lexicalValue: https://localcoviddata.com
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-base-url-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/ServerBaseUrlBinding
-  -
     source: http://mulesoft.com/modeling/instances/7cbfe1d266c62b25d8707d1172ef3982
-    uuid: api_contract_operation_status_code_parameter_binding/7cbfe1d266c62b25d8707d1172ef3982
+    uuid: api_contract_operation_path_binding/7cbfe1d266c62b25d8707d1172ef3982
     configuration:
       -
-        uuid: api_contract_operation_status_code_parameter_binding/value/7cbfe1d266c62b25d8707d1172ef3982
+        uuid: api_contract_operation_path_binding/param/7cbfe1d266c62b25d8707d1172ef3982
+        lexicalValue: /covid19/v1/high-level-policy
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
+  -
+    source: http://mulesoft.com/modeling/instances/8a4c25c217d63c0413473c749a1294b5
+    uuid: apiContract/bindings/DocumentTypeBinding/8a4c25c217d63c0413473c749a1294b5
+    configuration:
+      -
+        uuid: 6f9d701d-690a-4ff6-b41f-4c057ec0b61dparam
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+      -
+        uuid: apiContract/bindings/DocumentTypeBinding/8a4c25c217d63c0413473c749a1294b5target_type_param
+        lexicalValue: Entity9
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/8612241ac7ba80cc47a3f46bb953a141
+    uuid: api_contract_operation_status_code_parameter_binding/8612241ac7ba80cc47a3f46bb953a141
+    configuration:
+      -
+        uuid: api_contract_operation_status_code_parameter_binding/value/8612241ac7ba80cc47a3f46bb953a141
+        lexicalValue: "200"
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-status-code-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseStatusCodeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/65f52bb6b15900ecc5998bc3c5d96805
+    uuid: apiContract/bindings/DocumentTypeBinding/65f52bb6b15900ecc5998bc3c5d96805
+    configuration:
+      -
+        uuid: a725a410-c7bb-4d6e-817c-72fddb81c9a0param
+        lexicalValue: JSON Schema / RAML Library
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/492fcab2a5d3349ef5769b249318e82f
+    uuid: api_contract_operation_method_binding/492fcab2a5d3349ef5769b249318e82f
+    configuration:
+      -
+        uuid: api_contract_operation_method_binding/param/492fcab2a5d3349ef5769b249318e82f
+        lexicalValue: GET
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
+  -
+    source: http://mulesoft.com/modeling/instances/24ff13e25d88ef182c5dfd892b8ee802
+    uuid: apiContract/bindings/DocumentTypeBinding/24ff13e25d88ef182c5dfd892b8ee802
+    configuration:
+      -
+        uuid: 9a020863-e991-4adf-8a19-5b4ef3890b73param
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/06ede795d951f04fe7d38ac3d61dca95
+    uuid: api_contract_operation_parameter_binding/06ede795d951f04fe7d38ac3d61dca95
+    configuration:
+      -
+        uuid: api_contract_operation_method_binding/param/06ede795d951f04fe7d38ac3d61dca95
+        lexicalValue: query
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
+  -
+    source: http://mulesoft.com/modeling/instances/621ae5e777c61a97d4ba42365f35e38b
+    uuid: apiContract/bindings/DocumentTypeBinding/621ae5e777c61a97d4ba42365f35e38b
+    configuration:
+      -
+        uuid: 6ccb7dbd-841f-43b3-9823-b7296a92ecfeparam
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/1ee05454c75faecc166cd06fc64732e0
+    uuid: api_contract_operation_media_type_parameter_binding/1ee05454c75faecc166cd06fc64732e0
+    configuration:
+      -
+        uuid: api_contract_operation_media_type_parameter_binding/value/1ee05454c75faecc166cd06fc64732e0
+        lexicalValue: application/json
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/6d9ebb3ad9118b58ac1315f9f509e43f
+    uuid: api_contract_operation_parameter_binding/6d9ebb3ad9118b58ac1315f9f509e43f
+    configuration:
+      -
+        uuid: api_contract_operation_method_binding/param/6d9ebb3ad9118b58ac1315f9f509e43f
+        lexicalValue: query
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
+  -
+    source: http://mulesoft.com/modeling/instances/98e94b73939720f78a22acad0a361291
+    uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291
+    configuration:
+      -
+        uuid: 5b3e2535-4bcb-4512-89c8-dc0a650cb8d1param
+        lexicalValue: JSON Schema / RAML Fragment
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        type: Scalar
+      -
+        uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291target_type_param
+        lexicalValue: Entity6
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/2edd23d9e36dcefa9edb30958fa4eb35
+    uuid: api_contract_operation_status_code_parameter_binding/2edd23d9e36dcefa9edb30958fa4eb35
+    configuration:
+      -
+        uuid: api_contract_operation_status_code_parameter_binding/value/2edd23d9e36dcefa9edb30958fa4eb35
         lexicalValue: "200"
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-status-code-binding
         type: Scalar
@@ -288,24 +438,99 @@ bindings:
     uuid: apiContract/bindings/DocumentTypeBinding/b9a1fb72af5aef247db3743cf54b5396
     configuration:
       -
-        uuid: 2e9f5e1a-6bf4-43d7-97ff-9593188c611fparam
+        uuid: 31d95959-db6f-476a-86da-3982aeda16afparam
         lexicalValue: JSON Schema / RAML Fragment
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
   -
-    source: http://mulesoft.com/modeling/instances/6dea653e79a9fb95e385728872eab66b
-    uuid: apiContract/bindings/DocumentTypeBinding/6dea653e79a9fb95e385728872eab66b
+    source: http://mulesoft.com/modeling/instances/5139f79fc1f833dfbce7c967899339ce
+    uuid: api_contract_operation_parameter_binding/5139f79fc1f833dfbce7c967899339ce
     configuration:
       -
-        uuid: 26150de3-f311-4366-97e0-5edd71e2c4b6param
-        lexicalValue: JSON Schema / RAML Fragment
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        uuid: api_contract_operation_method_binding/param/5139f79fc1f833dfbce7c967899339ce
+        lexicalValue: query
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
         type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
+  -
+    source: http://mulesoft.com/modeling/instances/bf6bd89cdde103491008cdd0b1dcac02
+    uuid: api_contract_operation_media_type_parameter_binding/bf6bd89cdde103491008cdd0b1dcac02
+    configuration:
       -
-        uuid: apiContract/bindings/DocumentTypeBinding/6dea653e79a9fb95e385728872eab66btarget_type_param
-        lexicalValue: Entity1
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
+        uuid: api_contract_operation_media_type_parameter_binding/value/bf6bd89cdde103491008cdd0b1dcac02
+        lexicalValue: application/json
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/a82aae953f47abd39878bae449b0db35
+    uuid: api_contract_operation_media_type_parameter_binding/a82aae953f47abd39878bae449b0db35
+    configuration:
+      -
+        uuid: api_contract_operation_media_type_parameter_binding/value/a82aae953f47abd39878bae449b0db35
+        lexicalValue: application/json
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/1ee05454c75faecc166cd06fc64732e0
+    uuid: api_contract_operation_method_binding/1ee05454c75faecc166cd06fc64732e0
+    configuration:
+      -
+        uuid: api_contract_operation_method_binding/param/1ee05454c75faecc166cd06fc64732e0
+        lexicalValue: GET
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
+  -
+    source: http://mulesoft.com/modeling/instances/bf6bd89cdde103491008cdd0b1dcac02
+    uuid: api_contract_operation_method_binding/bf6bd89cdde103491008cdd0b1dcac02
+    configuration:
+      -
+        uuid: api_contract_operation_method_binding/param/bf6bd89cdde103491008cdd0b1dcac02
+        lexicalValue: GET
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
+  -
+    source: http://mulesoft.com/modeling/instances/a82aae953f47abd39878bae449b0db35
+    uuid: api_contract_operation_path_binding/a82aae953f47abd39878bae449b0db35
+    configuration:
+      -
+        uuid: api_contract_operation_path_binding/param/a82aae953f47abd39878bae449b0db35
+        lexicalValue: /covid19/v1/cases/newYorkTimes
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
+  -
+    source: http://mulesoft.com/modeling/instances/8612241ac7ba80cc47a3f46bb953a141
+    uuid: api_contract_operation_media_type_parameter_binding/8612241ac7ba80cc47a3f46bb953a141
+    configuration:
+      -
+        uuid: api_contract_operation_media_type_parameter_binding/value/8612241ac7ba80cc47a3f46bb953a141
+        lexicalValue: application/json
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding
+  -
+    source: http://mulesoft.com/modeling/instances/2edd23d9e36dcefa9edb30958fa4eb35
+    uuid: api_contract_operation_method_binding/2edd23d9e36dcefa9edb30958fa4eb35
+    configuration:
+      -
+        uuid: api_contract_operation_method_binding/param/2edd23d9e36dcefa9edb30958fa4eb35
+        lexicalValue: GET
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
+  -
+    source: http://mulesoft.com/modeling/instances/cb7d613210a49c408d9494f3c3f5e59f
+    uuid: apiContract/bindings/DocumentTypeBinding/cb7d613210a49c408d9494f3c3f5e59f
+    configuration:
+      -
+        uuid: 707a3ac7-ec25-4eae-bc7d-33731084118cparam
+        lexicalValue: Open API Spec / RAML API Spec
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
   -
@@ -313,13 +538,13 @@ bindings:
     uuid: apiContract/bindings/DocumentTypeBinding/ae17e04fa8cb412f63986bcdfbc46962
     configuration:
       -
-        uuid: b2a8b204-d938-4bd1-ac84-37fe90e9e926param
+        uuid: b9550582-e4e7-4793-ab04-62d3feba7b30param
         lexicalValue: JSON Schema / RAML Fragment
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
         type: Scalar
       -
         uuid: apiContract/bindings/DocumentTypeBinding/ae17e04fa8cb412f63986bcdfbc46962target_type_param
-        lexicalValue: Entity5
+        lexicalValue: Entity1
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
@@ -334,80 +559,15 @@ bindings:
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
   -
-    source: http://mulesoft.com/modeling/instances/621ae5e777c61a97d4ba42365f35e38b
-    uuid: apiContract/bindings/DocumentTypeBinding/621ae5e777c61a97d4ba42365f35e38b
+    source: http://mulesoft.com/modeling/instances/afe8b3382551e7f013edffc224168505
+    uuid: api_contract_operation_parameter_binding/afe8b3382551e7f013edffc224168505
     configuration:
       -
-        uuid: 61e76cea-7a2b-4758-8cc9-c777ad0db27dparam
-        lexicalValue: JSON Schema / RAML Fragment
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
+        uuid: api_contract_operation_method_binding/param/afe8b3382551e7f013edffc224168505
+        lexicalValue: query
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
         type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/cb7d613210a49c408d9494f3c3f5e59f
-    uuid: apiContract/bindings/DocumentTypeBinding/cb7d613210a49c408d9494f3c3f5e59f
-    configuration:
-      -
-        uuid: 53ba0886-be70-4b35-b519-2b9e3dd48e61param
-        lexicalValue: Open API Spec / RAML API Spec
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/621ae5e777c61a97d4ba42365f35e38b
-    uuid: apiContract/bindings/DocumentTypeBinding/621ae5e777c61a97d4ba42365f35e38b
-    configuration:
-      -
-        uuid: 9fd1659f-524d-42c4-8d21-8d13fb6e4d81param
-        lexicalValue: JSON Schema / RAML Fragment
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/65f52bb6b15900ecc5998bc3c5d96805
-    uuid: apiContract/bindings/DocumentTypeBinding/65f52bb6b15900ecc5998bc3c5d96805
-    configuration:
-      -
-        uuid: e633bb39-0f65-4b19-849f-91cdb3fd6adcparam
-        lexicalValue: JSON Schema / RAML Library
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/8612241ac7ba80cc47a3f46bb953a141
-    uuid: api_contract_operation_status_code_parameter_binding/8612241ac7ba80cc47a3f46bb953a141
-    configuration:
-      -
-        uuid: api_contract_operation_status_code_parameter_binding/value/8612241ac7ba80cc47a3f46bb953a141
-        lexicalValue: "200"
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-status-code-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseStatusCodeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/98e94b73939720f78a22acad0a361291
-    uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291
-    configuration:
-      -
-        uuid: e9af0444-e85d-4721-bd99-6d4e124aedf8param
-        lexicalValue: JSON Schema / RAML Fragment
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
-        type: Scalar
-      -
-        uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291target_type_param
-        lexicalValue: Entity8
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/a82aae953f47abd39878bae449b0db35
-    uuid: api_contract_operation_path_binding/a82aae953f47abd39878bae449b0db35
-    configuration:
-      -
-        uuid: api_contract_operation_path_binding/param/a82aae953f47abd39878bae449b0db35
-        lexicalValue: /covid19/v1/cases/newYorkTimes
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
   -
     source: http://mulesoft.com/modeling/instances/c15c31d17906c7726d2f4c1365dfe604
     uuid: api_contract_operation_parameter_binding/c15c31d17906c7726d2f4c1365dfe604
@@ -419,6 +579,16 @@ bindings:
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
   -
+    source: http://mulesoft.com/modeling/instances/2edd23d9e36dcefa9edb30958fa4eb35
+    uuid: api_contract_operation_path_binding/2edd23d9e36dcefa9edb30958fa4eb35
+    configuration:
+      -
+        uuid: api_contract_operation_path_binding/param/2edd23d9e36dcefa9edb30958fa4eb35
+        lexicalValue: /covid19/v1
+        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
+        type: Scalar
+    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
+  -
     source: http://mulesoft.com/modeling/instances/aa3fe93907de8d4dadc76c19a7a0ac41
     uuid: api_contract_operation_parameter_binding/aa3fe93907de8d4dadc76c19a7a0ac41
     configuration:
@@ -429,187 +599,17 @@ bindings:
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
   -
-    source: http://mulesoft.com/modeling/instances/2edd23d9e36dcefa9edb30958fa4eb35
-    uuid: api_contract_operation_status_code_parameter_binding/2edd23d9e36dcefa9edb30958fa4eb35
+    source: http://mulesoft.com/modeling/instances/b2b9720720e7b5f53944a521b71e59d5
+    uuid: apiContract/bindings/DocumentTypeBinding/b2b9720720e7b5f53944a521b71e59d5
     configuration:
       -
-        uuid: api_contract_operation_status_code_parameter_binding/value/2edd23d9e36dcefa9edb30958fa4eb35
-        lexicalValue: "200"
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-status-code-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseStatusCodeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/5139f79fc1f833dfbce7c967899339ce
-    uuid: api_contract_operation_parameter_binding/5139f79fc1f833dfbce7c967899339ce
-    configuration:
-      -
-        uuid: api_contract_operation_method_binding/param/5139f79fc1f833dfbce7c967899339ce
-        lexicalValue: query
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
-  -
-    source: http://mulesoft.com/modeling/instances/1f49a8e809ee098a3d8c89dd97dfb19a
-    uuid: api_contract_operation_parameter_binding/1f49a8e809ee098a3d8c89dd97dfb19a
-    configuration:
-      -
-        uuid: api_contract_operation_method_binding/param/1f49a8e809ee098a3d8c89dd97dfb19a
-        lexicalValue: query
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
-  -
-    source: http://mulesoft.com/modeling/instances/bf6bd89cdde103491008cdd0b1dcac02
-    uuid: api_contract_operation_path_binding/bf6bd89cdde103491008cdd0b1dcac02
-    configuration:
-      -
-        uuid: api_contract_operation_path_binding/param/bf6bd89cdde103491008cdd0b1dcac02
-        lexicalValue: /covid19/v1/cases/covidTracking
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
-  -
-    source: http://mulesoft.com/modeling/instances/1ee05454c75faecc166cd06fc64732e0
-    uuid: api_contract_operation_media_type_parameter_binding/1ee05454c75faecc166cd06fc64732e0
-    configuration:
-      -
-        uuid: api_contract_operation_media_type_parameter_binding/value/1ee05454c75faecc166cd06fc64732e0
-        lexicalValue: application/json
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/a82aae953f47abd39878bae449b0db35
-    uuid: api_contract_operation_status_code_parameter_binding/a82aae953f47abd39878bae449b0db35
-    configuration:
-      -
-        uuid: api_contract_operation_status_code_parameter_binding/value/a82aae953f47abd39878bae449b0db35
-        lexicalValue: "200"
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-status-code-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseStatusCodeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/c4c4035d5fd723fc2dc5281245728265
-    uuid: api_contract_operation_parameter_binding/c4c4035d5fd723fc2dc5281245728265
-    configuration:
-      -
-        uuid: api_contract_operation_method_binding/param/c4c4035d5fd723fc2dc5281245728265
-        lexicalValue: query
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
-  -
-    source: http://mulesoft.com/modeling/instances/98e94b73939720f78a22acad0a361291
-    uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291
-    configuration:
-      -
-        uuid: 5538e1f1-e404-4782-b3c9-39ccdf36688cparam
+        uuid: a6170c24-935a-4074-a024-ead5ff07c854param
         lexicalValue: JSON Schema / RAML Fragment
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
         type: Scalar
       -
-        uuid: apiContract/bindings/DocumentTypeBinding/98e94b73939720f78a22acad0a361291target_type_param
-        lexicalValue: Entity10
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/24ff13e25d88ef182c5dfd892b8ee802
-    uuid: apiContract/bindings/DocumentTypeBinding/24ff13e25d88ef182c5dfd892b8ee802
-    configuration:
-      -
-        uuid: aacd4640-0c74-4180-ad85-ca1ca377cdb1param
-        lexicalValue: JSON Schema / RAML Fragment
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/1ee05454c75faecc166cd06fc64732e0
-    uuid: api_contract_operation_path_binding/1ee05454c75faecc166cd06fc64732e0
-    configuration:
-      -
-        uuid: api_contract_operation_path_binding/param/1ee05454c75faecc166cd06fc64732e0
-        lexicalValue: /covid19/v1/cases/eucdc
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
-  -
-    source: http://mulesoft.com/modeling/instances/bf6bd89cdde103491008cdd0b1dcac02
-    uuid: api_contract_operation_media_type_parameter_binding/bf6bd89cdde103491008cdd0b1dcac02
-    configuration:
-      -
-        uuid: api_contract_operation_media_type_parameter_binding/value/bf6bd89cdde103491008cdd0b1dcac02
-        lexicalValue: application/json
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-response-http-media-type-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPResponseMediaTypeCodeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/7cbfe1d266c62b25d8707d1172ef3982
-    uuid: api_contract_operation_path_binding/7cbfe1d266c62b25d8707d1172ef3982
-    configuration:
-      -
-        uuid: api_contract_operation_path_binding/param/7cbfe1d266c62b25d8707d1172ef3982
-        lexicalValue: /covid19/v1/high-level-policy
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-path-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPPathBinding
-  -
-    source: http://mulesoft.com/modeling/instances/2edd23d9e36dcefa9edb30958fa4eb35
-    uuid: api_contract_operation_method_binding/2edd23d9e36dcefa9edb30958fa4eb35
-    configuration:
-      -
-        uuid: api_contract_operation_method_binding/param/2edd23d9e36dcefa9edb30958fa4eb35
-        lexicalValue: GET
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
-  -
-    source: http://mulesoft.com/modeling/instances/06ede795d951f04fe7d38ac3d61dca95
-    uuid: api_contract_operation_parameter_binding/06ede795d951f04fe7d38ac3d61dca95
-    configuration:
-      -
-        uuid: api_contract_operation_method_binding/param/06ede795d951f04fe7d38ac3d61dca95
-        lexicalValue: query
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-parameter-http-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPParameterBinding
-  -
-    source: http://mulesoft.com/modeling/instances/23076dd6c742c730c3fd4856a5196d96
-    uuid: apiContract/bindings/DocumentTypeBinding/23076dd6c742c730c3fd4856a5196d96
-    configuration:
-      -
-        uuid: f517c1ad-d81b-4040-bebd-bff292124c11param
-        lexicalValue: JSON Schema / RAML Fragment
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
-        type: Scalar
-      -
-        uuid: apiContract/bindings/DocumentTypeBinding/23076dd6c742c730c3fd4856a5196d96target_type_param
+        uuid: apiContract/bindings/DocumentTypeBinding/b2b9720720e7b5f53944a521b71e59d5target_type_param
         lexicalValue: Entity7
         parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
         type: Scalar
     declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/8abbf08678b9ef0f3e250d21a7d71884
-    uuid: apiContract/bindings/DocumentTypeBinding/8abbf08678b9ef0f3e250d21a7d71884
-    configuration:
-      -
-        uuid: f4bdf41b-e93b-4adb-b53a-ca2da3be2cfbparam
-        lexicalValue: JSON Schema / RAML Fragment
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-type-param
-        type: Scalar
-      -
-        uuid: apiContract/bindings/DocumentTypeBinding/8abbf08678b9ef0f3e250d21a7d71884target_type_param
-        lexicalValue: errorMessage
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-document-target-entity
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/DocumentTypeBinding
-  -
-    source: http://mulesoft.com/modeling/instances/7cbfe1d266c62b25d8707d1172ef3982
-    uuid: api_contract_operation_method_binding/7cbfe1d266c62b25d8707d1172ef3982
-    configuration:
-      -
-        uuid: api_contract_operation_method_binding/param/7cbfe1d266c62b25d8707d1172ef3982
-        lexicalValue: GET
-        parameter: http://mulesoft.com/modeling/instances/uuid/api-contract-bindings-operation-http-method-binding
-        type: Scalar
-    declaration: http://mulesoft.com/modeling/instances/bindings/apiContract/OperationHTTPMethodBinding
