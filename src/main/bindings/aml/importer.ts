@@ -124,7 +124,7 @@ export class AMLImporter {
                 throw new Error("More than one base shape not supported in entity dialect yet")
             }
             if (extensions.length === 1) {
-                entity.extends = extensions[0]!
+                entity.extends = [extensions[0]!]
             }
         }
 
