@@ -1,0 +1,41 @@
+#%RAML 1.0 Library
+types:
+  StoreInfo:
+    description: Information about store
+    properties:
+      storeId:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      notes:
+        type: string
+      openingHours:
+        type: string
+      distance:
+        type: number
+        format: float
+      distanceUnit:
+        type: string
+  ContactInfo:
+    properties:
+      email:
+        type: string
+      phone:
+        type: string
+  Address:
+    description: Store address
+    type: retail_common_raml.PostalAddress
+    properties: {}
+  Geo:
+    description: Geographic coordinates of store
+    properties:
+      latitude:
+        type: number
+        format: float
+      longitude:
+        type: number
+        format: float
+uses:
+  retail_common_raml: data_model_9651b9c5e39ee077fad137d36dc6ecac.raml

@@ -122,7 +122,7 @@ export class AMFModelQueries {
         }
 
         const resp = get.withResponse("default");
-        resp.withStatusCode("200").withPayload().withObjectSchema(`DefaultPayload ${Md5.hashStr(endpoint.id).toString().substring(-5, endpoint.id.length)}`);
+        resp.withStatusCode("200").withPayload().withObjectSchema(`DefaultPayload_${Md5.hashStr(endpoint.id).toString().substring(-5, endpoint.id.length)}`);
     }
 
     public static isDefaultOperation(operation: amf.model.domain.Operation) {
@@ -133,7 +133,7 @@ export class AMFModelQueries {
             operation.responses[0].statusCode.value() == "200"
         if (defaultResponse) {
             const payload = operation.responses[0].payloads[0];
-            const defaultPayload = payload.schema.name.value().startsWith("DefaultPayload ") &&
+            const defaultPayload = payload.schema.name.value().startsWith("DefaultPayload_") &&
                 payload.schema instanceof amf.model.domain.NodeShape;
             return defaultPayload && defaultResponse;
         }

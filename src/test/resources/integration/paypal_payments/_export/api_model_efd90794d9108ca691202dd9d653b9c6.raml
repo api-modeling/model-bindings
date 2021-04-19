@@ -1,0 +1,92 @@
+#%RAML 1.0
+types:
+  Entity17:
+    type: payments_v2_api-spec_raml.MCCS-v1-schema-refund_json
+    properties: {}
+  Entity6:
+    type: payments_v2_api-spec_raml.MCCS-v1-schema-capture_json
+    properties: {}
+  Entity10:
+    type: payments_v2_api-spec_raml.MCCS-v1-schema-authorization_json
+    properties: {}
+  Entity13:
+    type: payments_v2_api-spec_raml.MCCS-v1-schema-capture_json
+    properties: {}
+  Entity20:
+    type: payments_v2_api-spec_raml.MCCS-v1-schema-refund_json
+    properties: {}
+  Entity2:
+    type: payments_v2_api-spec_raml.MCCS-v1-schema-authorization_json
+    properties: {}
+  Entity4:
+    type: payments_v2_api-spec_raml.capture_request_json
+    properties: {}
+  Entity8:
+    type: payments_v2_api-spec_raml.reauthorize_request_json
+    properties: {}
+  Entity15:
+    type: payments_v2_api-spec_raml.refund_request_json
+    properties: {}
+uses:
+  payments_v2_api-spec_raml: data_model_a2f306e29b5e888075c0d3ddd7aa6498.raml
+title: payments_v2_api-spec.raml
+/authorizations/{authorization_id}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: Entity2
+  uriParameters:
+    authorization_id:
+      description: The ID of the authorized payment for which to show details.
+      type: string
+/captures/{capture_id}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: Entity13
+  uriParameters:
+    capture_id:
+      description: The PayPal-generated ID for the captured payment for which to show details.
+      type: string
+/refunds/{refund_id}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: Entity20
+  uriParameters:
+    refund_id:
+      description: The PayPal-generated ID for the refund for which to show details.
+      type: string
+/authorizations/{authorization_id}/capture:
+  post:
+    displayName: Custom
+    body: Entity4
+    responses:
+      "201":
+        body:
+          application/json: Entity6
+/authorizations/{authorization_id}/reauthorize:
+  post:
+    displayName: Custom
+    body: Entity8
+    responses:
+      "201":
+        body:
+          application/json: Entity10
+/authorizations/{authorization_id}/void:
+  post:
+    displayName: Custom
+/captures/{capture_id}/refund:
+  post:
+    displayName: Custom
+    body: Entity15
+    responses:
+      "201":
+        body:
+          application/json: Entity17

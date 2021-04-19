@@ -1,0 +1,88 @@
+#%RAML 1.0
+types:
+  Entity14:
+    type: retail_store_raml.StoreInfo
+    properties: {}
+  Entity17:
+    type: retail_store_raml.StoreInfo
+    properties: {}
+  Entity3:
+    type: retail_locations_system_api_raml.ItemAvailabilityResponse
+    properties: {}
+  Entity10:
+    type: retail_locations_system_api_raml.StoreSearchResponse
+    properties: {}
+  Entity7:
+    type: retail_locations_system_api_raml.Reservation
+    properties: {}
+  Entity19:
+    type: retail_store_raml.StoreInfo
+    properties: {}
+  Entity12:
+    type: retail_store_raml.StoreInfo
+    properties: {}
+  Entity15:
+    type: retail_store_raml.StoreInfo
+    properties: {}
+  Entity9:
+    type: retail_locations_system_api_raml.MessageResponse
+    properties: {}
+uses:
+  retail_locations_system_api_raml: data_model_f8e8261b8152e85576296b73b052e24e.raml
+  retail_store_raml: data_model_9eb98fb811f6a3b46aaed9639e52fa0f.raml
+title: retail_locations_system_api.raml
+/productLocator:
+  get:
+    displayName: Custom
+    queryParameters:
+      zipcode?:
+        description: Narrow down the search to include only stores in particular zipcode.
+        type: string
+    responses:
+      "200":
+        body:
+          application/json: Entity3
+/reservation:
+  post:
+    displayName: Custom
+    body: Entity7
+    responses:
+      "201":
+        body:
+          application/json: Entity9
+/stores:
+  post:
+    displayName: Custom
+    body: Entity12
+    responses:
+      "201":
+        body:
+          application/json: Entity14
+  get:
+    displayName: Custom
+    queryParameters:
+      zip?:
+        description: |
+          Zip code identifying area for store search. You must choose either zip, city or coordinates search, not all at once.
+        type: string
+    responses:
+      "200":
+        body:
+          application/json: Entity10
+/stores/{storeId}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: Entity15
+  put:
+    displayName: Custom
+    body: Entity17
+    responses:
+      "200":
+        body:
+          application/json: Entity19
+  uriParameters:
+    storeId:
+      type: string

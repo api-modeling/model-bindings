@@ -1,0 +1,289 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "shared-customers-dapi.json",
+    "version": "1.0"
+  },
+  "paths": {
+    "/addresses": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "source",
+            "description": "retrieve customers data based on Source System ",
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "description": "retrieve customers data based on customer state ",
+            "type": "string"
+          },
+          {
+            "name": "customerName",
+            "description": "retrieve customers data based on customer Name ",
+            "type": "string"
+          },
+          {
+            "name": "addressName",
+            "description": "retrieve customers data based on customer addressName ",
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "description": "retrieve customers data based on customer country ",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "description": "retrieve customers data based on customer Id ",
+            "type": "string"
+          },
+          {
+            "name": "customerNumber",
+            "description": "retrieve customers data based on customer Number ",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "shared-customers-dapi_json.customeraddressesDTO"
+            }
+          }
+        }
+      }
+    },
+    "/customers/seek/{customerNumber}": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "customerNumber",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "description": "retrieve customers data based on Source System ",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "retrieve customers data based on customer status ",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "shared-customers-dapi_json.customersDTO"
+            }
+          }
+        }
+      }
+    },
+    "/customers/{customerNumber}": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "customerNumber",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "description": "retrieve customers data based on Source System ",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "description": "retrieve customers data based on customer status ",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "shared-customers-dapi_json.customersDTO"
+            }
+          }
+        }
+      }
+    },
+    "/customers": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "source",
+            "description": "retrieve customers data based on Source System  for source spoke selected",
+            "type": "string"
+          },
+          {
+            "name": "customerName",
+            "description": "retrieve customers data based on customer Name ",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "description": "retrieve customers data based on customer Id ",
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "retrieve customers data based on offset",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "description": "retrieve customers data based on customer status ",
+            "type": "string"
+          },
+          {
+            "name": "customerNumber",
+            "description": "retrieve customers site data based on customer Number ",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "description": "retrieve customers data based on limit ",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "shared-customers-dapi_json.customersDTO"
+            }
+          }
+        }
+      }
+    },
+    "/references": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "source",
+            "description": "retrieve customers data based on Source System ",
+            "type": "string"
+          },
+          {
+            "name": "customerName",
+            "description": "retrieve customers data based on customer Name ",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "description": "retrieve customers data based on customer Id ",
+            "type": "string"
+          },
+          {
+            "name": "customerNumber",
+            "description": "retrieve customers data based on customer Number ",
+            "type": "string"
+          },
+          {
+            "name": "taxId",
+            "description": "retrieve customers data based on customer tax id ",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "shared-customers-dapi_json.customerreferencesDTO"
+            }
+          }
+        }
+      }
+    },
+    "/sites": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "source",
+            "description": "retrieve customers site data based on Source System ",
+            "type": "string"
+          },
+          {
+            "name": "customerName",
+            "description": "retrieve customers site data based on customer Name ",
+            "type": "string"
+          },
+          {
+            "name": "siteNumber",
+            "description": "retrieve customer sites data based on customer site number ",
+            "type": "string"
+          },
+          {
+            "name": "segment",
+            "description": "retrieve customer sites data based on customer site segment ",
+            "type": "string"
+          },
+          {
+            "name": "siteName",
+            "description": "retrieve customer sites data based on customer site name ",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "description": "retrieve customers site data based on customer Id ",
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "retrieve customers data based on offset",
+            "type": "number"
+          },
+          {
+            "name": "customerNumber",
+            "description": "retrieve customers site data based on customer Number ",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "description": "retrieve customers data based on limit ",
+            "type": "number"
+          },
+          {
+            "name": "siteOwner",
+            "description": "retrieve customer sites data based on customer site owner ",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "$ref": "shared-customers-dapi_json.customerSitesDTO"
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-amf-uses": {
+    "shared-customers-dapi_json": "data_model_71e3a0c14fa8c48cf43fa276400d0fb0.json"
+  }
+}

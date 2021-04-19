@@ -1,0 +1,59 @@
+#%RAML 1.0 Library
+types:
+  ItemAvailabilityResponse:
+    properties:
+      searchCriteria: SearchCriteria
+      results:
+        items: StoreAvailabilityData
+  MessageResponse:
+    properties:
+      message:
+        type: string
+  SearchCriteria:
+    properties:
+      productId:
+        type: string
+      variantId:
+        type: string
+      quantity:
+        type: integer
+      latitude:
+        type: number
+        format: float
+      longitude:
+        type: number
+        format: float
+      radius:
+        type: integer
+      useMetric:
+        type: boolean
+      maxResults:
+        type: integer
+  StoreSearchResponse:
+    properties:
+      searchCriteria: SearchCriteria
+      results:
+        items: retail_store_raml.StoreInfo
+  Reservation:
+    properties:
+      productId:
+        type: string
+      variantId:
+        type: string
+      customerId:
+        type: string
+      quantity:
+        type: integer
+      storeId:
+        type: string
+      deliveryMethod:
+        type: string
+  StoreAvailabilityData:
+    properties:
+      quantityInStock:
+        type: integer
+      quantityReserved:
+        type: integer
+      storeInfo: retail_store_raml.StoreInfo
+uses:
+  retail_store_raml: data_model_9eb98fb811f6a3b46aaed9639e52fa0f.raml

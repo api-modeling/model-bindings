@@ -90,8 +90,8 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
 
         // parsing
         const parser = configuration.length > 2 ?
-                            new ApiParser(resources[0].url, format.value, syntax.value, <amf.resource.ResourceLoader>configuration[2].value) :
-                            new ApiParser(resources[0].url, format.value, syntax.value)
+            new ApiParser(resources[0].url, format.value, syntax.value, <amf.resource.ResourceLoader>configuration[2].value) :
+            new ApiParser(resources[0].url, format.value, syntax.value)
 
         try {
             let dataModels: DataModel[];

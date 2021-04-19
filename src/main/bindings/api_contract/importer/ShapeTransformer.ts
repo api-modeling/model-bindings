@@ -43,7 +43,7 @@ export class ShapeTransformer {
     public transformBaseUnitDataModel(): meta.DataModel[] {
 
 
-        if (!this.parsed.find((dm) => dm.uuid === this.baseUnit.id)) {
+        if (!this.parsed.find((dm) => dm.uuid === Md5.hashStr(this.baseUnit.id).toString())) {
             this.transformShapes();
             const dataModel = this.buildDataModel();
             if (dataModel) {

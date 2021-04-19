@@ -32,7 +32,7 @@ export class APIContractImporter {
                 const targetEntityParameter = new meta.BindingScalarValue();
                 targetEntityParameter.parameter = VOCAB.API_CONTRACT_DOCUMENT_TARGET_ENTITY_PARAMETER;
                 targetEntityParameter.uuid = binding.uuid + "target_type_param"
-                targetEntityParameter.lexicalValue = topLevel.name;
+                targetEntityParameter.lexicalValue = topLevel.id();
                 binding.configuration = [param, targetEntityParameter]
             } else {
                 binding.configuration = [param]

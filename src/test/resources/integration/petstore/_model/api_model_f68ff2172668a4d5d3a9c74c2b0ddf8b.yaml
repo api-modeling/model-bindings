@@ -2,9 +2,6 @@
 uuid: f68ff2172668a4d5d3a9c74c2b0ddf8b
 name: petstore.json
 entities:
-  AdaptedEntity.Pet.json17:
-    uuid: 5fbbe1c85da9b24b0f9d4292cf89ddab
-    adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
   AdaptedEntity.Error.json10:
     uuid: 5c0dd29da3d7ee4e080231cc65d8b7e9
     adapts: http://mulesoft.com/modeling/instances/987b8017e2f1d245756d894f2e8409bb
@@ -13,6 +10,9 @@ entities:
     adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
   AdaptedEntity.Pet.json13:
     uuid: c60bdc668386f00a9e7cc37768e783eb
+    adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
+  AdaptedEntity.Pet.json17:
+    uuid: 5fbbe1c85da9b24b0f9d4292cf89ddab
     adapts: http://mulesoft.com/modeling/instances/5872289279e89b1619fff3261637ccb9
   AdaptedEntity.Pet.json7:
     uuid: cd67e0d00bb57c9ebb5c2b3abf3ac318
@@ -27,7 +27,7 @@ entryPoint:
       name: Find Resource /pets
       transition:
         uuid: 3b71b93488ed05989ff5139e18dea4ba
-        target: http://mulesoft.com/modeling/instances/9683e4c5-e6f9-41f7-8057-697b200e95b5
+        target: http://mulesoft.com/modeling/instances/fcdf6184-e0c2-490a-b6fb-d77c672768ad
       inputs:
         -
           scalarRange:
@@ -54,7 +54,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: 9683e4c5-e6f9-41f7-8057-697b200e95b5
+    uuid: fcdf6184-e0c2-490a-b6fb-d77c672768ad
     name: Resource /pets
     operations:
       -
@@ -92,9 +92,9 @@ resources:
         isMutation: false
         type: custom
     type: collection
-    member: http://mulesoft.com/modeling/instances/9106b7fc-e028-449f-b0a3-8ad199a5bb48
+    member: http://mulesoft.com/modeling/instances/bf2dc0e7-0524-4453-a48f-4a757235ff6a
   -
-    uuid: 9106b7fc-e028-449f-b0a3-8ad199a5bb48
+    uuid: bf2dc0e7-0524-4453-a48f-4a757235ff6a
     name: Resource /pets/{id}
     schema:
       uuid: 1e48be7e336c4a421b360e7e4522bb8e

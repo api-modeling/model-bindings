@@ -5,21 +5,9 @@ entities:
   Parent:
     uuid: 35f07f98b3a63a967d575869800febc4
     attributes:
-      isRoot:
+      selfLink:
         allowMultiple: false
-        uuid: 5dfd43c85abd04b4dbaa59d8985bd624
-        required: false
-        range:
-          type: string
-      id:
-        allowMultiple: false
-        uuid: ba724d652e39479b8a5470743fd9cc32
-        required: false
-        range:
-          type: string
-      parentLink:
-        allowMultiple: false
-        uuid: fba24acaddd4fefe0b055dab2fc9a802
+        uuid: 6b9d4fe5d710883aa0ab99080a41d2d6
         required: false
         range:
           type: string
@@ -29,9 +17,21 @@ entities:
         required: false
         range:
           type: string
-      selfLink:
+      parentLink:
         allowMultiple: false
-        uuid: 6b9d4fe5d710883aa0ab99080a41d2d6
+        uuid: fba24acaddd4fefe0b055dab2fc9a802
+        required: false
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: ba724d652e39479b8a5470743fd9cc32
+        required: false
+        range:
+          type: string
+      isRoot:
+        allowMultiple: false
+        uuid: 5dfd43c85abd04b4dbaa59d8985bd624
         required: false
         range:
           type: string

@@ -5,21 +5,27 @@ entities:
   Permission:
     uuid: a028c750187bb11111c85d1b7343aa88
     attributes:
-      withLink:
+      kind:
         allowMultiple: false
-        uuid: 99fd143034ff696b4472554303855460
+        uuid: 5f1e5e3ec6d930b56eaba1de5696cbb5
         required: false
         range:
-          type: boolean
+          type: string
       id:
         allowMultiple: false
         uuid: c87742001e2b0754dd4b58ea0f052e5c
         required: false
         range:
           type: string
-      additionalRoles:
-        allowMultiple: true
-        uuid: b57f5a2a0e49bff98731eba0fb2f811d
+      emailAddress:
+        allowMultiple: false
+        uuid: 8f00a0847114c6a16ec99d132b70b72f
+        required: false
+        range:
+          type: string
+      domain:
+        allowMultiple: false
+        uuid: 67b441cf73334b7f9e415463ba50441c
         required: false
         range:
           type: string
@@ -29,9 +35,39 @@ entities:
         required: false
         range:
           type: string
-      attribute27:
+      value:
         allowMultiple: false
-        uuid: da003675b206c5a3f0db788c311a8ae0
+        uuid: 9ce1e7fbd74ff8dbdc312715e8035bd1
+        required: false
+        range:
+          type: string
+      additionalRoles:
+        allowMultiple: true
+        uuid: b57f5a2a0e49bff98731eba0fb2f811d
+        required: false
+        range:
+          type: string
+      photoLink:
+        allowMultiple: false
+        uuid: e32e87ffe739e1f5b470edc4d7dc5ec5
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 7e0c193d4be11e4601e3ac04882e1cb5
+        required: false
+        range:
+          type: string
+      withLink:
+        allowMultiple: false
+        uuid: 99fd143034ff696b4472554303855460
+        required: false
+        range:
+          type: boolean
+      role:
+        allowMultiple: false
+        uuid: b23cc139c1b289ffc709310a4bc19bf9
         required: false
         range:
           type: string
@@ -47,45 +83,9 @@ entities:
         required: false
         range:
           type: string
-      name:
+      attribute2:
         allowMultiple: false
-        uuid: 7e0c193d4be11e4601e3ac04882e1cb5
-        required: false
-        range:
-          type: string
-      value:
-        allowMultiple: false
-        uuid: 9ce1e7fbd74ff8dbdc312715e8035bd1
-        required: false
-        range:
-          type: string
-      domain:
-        allowMultiple: false
-        uuid: 67b441cf73334b7f9e415463ba50441c
-        required: false
-        range:
-          type: string
-      kind:
-        allowMultiple: false
-        uuid: 5f1e5e3ec6d930b56eaba1de5696cbb5
-        required: false
-        range:
-          type: string
-      role:
-        allowMultiple: false
-        uuid: b23cc139c1b289ffc709310a4bc19bf9
-        required: false
-        range:
-          type: string
-      emailAddress:
-        allowMultiple: false
-        uuid: 8f00a0847114c6a16ec99d132b70b72f
-        required: false
-        range:
-          type: string
-      photoLink:
-        allowMultiple: false
-        uuid: e32e87ffe739e1f5b470edc4d7dc5ec5
+        uuid: da003675b206c5a3f0db788c311a8ae0
         required: false
         range:
           type: string
@@ -100,21 +100,15 @@ entities:
         required: false
         range:
           type: string
-      withLink:
-        allowMultiple: false
-        uuid: fb7fa6bdd7c31c0d5b16f6794cc262ef
-        required: false
-        range:
-          type: boolean
-      value:
-        allowMultiple: false
-        uuid: b7170abb473414b4f73ae8373917af64
-        required: false
-        range:
-          type: string
       role:
         allowMultiple: false
         uuid: 6786f937ebbdf4175095aa0b49eb630a
+        required: false
+        range:
+          type: string
+      value:
+        allowMultiple: false
+        uuid: b7170abb473414b4f73ae8373917af64
         required: false
         range:
           type: string
@@ -124,12 +118,18 @@ entities:
         required: false
         range:
           type: string
-      attribute28:
+      attribute3:
         allowMultiple: false
         uuid: b779dd30bb76cfc31ae3880e19a78c25
         required: false
         range:
           type: string
+      withLink:
+        allowMultiple: false
+        uuid: fb7fa6bdd7c31c0d5b16f6794cc262ef
+        required: false
+        range:
+          type: boolean
     associations: {}
     description: Create a permission for a file.
   PermissionList:

@@ -5,15 +5,21 @@ entities:
   A product resource:
     uuid: a74ec7704168414b535ce2436b191e64
     attributes:
-      unit:
-        allowMultiple: false
-        uuid: 764abea895071b8bc1502f99772637c5
-        required: true
-        range:
-          type: string
       id:
         allowMultiple: false
         uuid: 249efab0aeda139cc4e4508709aadcaa
+        required: true
+        range:
+          type: string
+      available:
+        allowMultiple: false
+        uuid: f3615121a83199928a6175bf6ed837b2
+        required: true
+        range:
+          type: boolean
+      unit:
+        allowMultiple: false
+        uuid: 764abea895071b8bc1502f99772637c5
         required: true
         range:
           type: string
@@ -35,12 +41,6 @@ entities:
         required: true
         range:
           type: string
-      available:
-        allowMultiple: false
-        uuid: f3615121a83199928a6175bf6ed837b2
-        required: true
-        range:
-          type: boolean
     associations: {}
     extends:
       -

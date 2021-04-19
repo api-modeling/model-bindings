@@ -5,27 +5,21 @@ entities:
   App:
     uuid: 399a6bb3aaf40366b533ef8c5976dc38
     attributes:
-      name:
+      id:
         allowMultiple: false
-        uuid: 60ab4c1df8580658c4b163861eecc47f
+        uuid: db29b9a533cc925a1739f34d49659416
         required: false
         range:
           type: string
-      objectType:
-        allowMultiple: false
-        uuid: 9c0243d9aa6aad68b3cdd77b504d0757
-        required: false
-        range:
-          type: string
-      primaryFileExtensions:
+      secondaryMimeTypes:
         allowMultiple: true
-        uuid: 646c414c813a8fdb6067b2af45c83b52
+        uuid: 8f8539302d6ef80358ff49b0a75e2d57
         required: false
         range:
           type: string
-      supportsImport:
+      supportsCreate:
         allowMultiple: false
-        uuid: 690792d7e1f3010fc869304611072420
+        uuid: 99d58c8c090e1f1cddfb0cef9fbc58fe
         required: false
         range:
           type: boolean
@@ -35,33 +29,9 @@ entities:
         required: false
         range:
           type: boolean
-      openUrlTemplate:
+      productUrl:
         allowMultiple: false
-        uuid: 5bf120bae92bc1639bf82db2b9365d32
-        required: false
-        range:
-          type: string
-      supportsOfflineCreate:
-        allowMultiple: false
-        uuid: a86b08b5fcfbd4fb1617c2c742d39e69
-        required: false
-        range:
-          type: boolean
-      kind:
-        allowMultiple: false
-        uuid: 13f08d5cd8a09dce2f6de86ababbb684
-        required: false
-        range:
-          type: string
-      authorized:
-        allowMultiple: false
-        uuid: 6b577b85e2dc8914f0dc3f4ec2c9f5f3
-        required: false
-        range:
-          type: boolean
-      secondaryFileExtensions:
-        allowMultiple: true
-        uuid: c8c5346331b87325e5a29ab481eb7f80
+        uuid: 54d0e50feb1613ba92c4614b5f33965d
         required: false
         range:
           type: string
@@ -71,6 +41,72 @@ entities:
         required: false
         range:
           type: boolean
+      kind:
+        allowMultiple: false
+        uuid: 13f08d5cd8a09dce2f6de86ababbb684
+        required: false
+        range:
+          type: string
+      supportsOfflineCreate:
+        allowMultiple: false
+        uuid: a86b08b5fcfbd4fb1617c2c742d39e69
+        required: false
+        range:
+          type: boolean
+      longDescription:
+        allowMultiple: false
+        uuid: 758f7ecc5ca03b4f26284760dbd51de1
+        required: false
+        range:
+          type: string
+      supportsImport:
+        allowMultiple: false
+        uuid: 690792d7e1f3010fc869304611072420
+        required: false
+        range:
+          type: boolean
+      useByDefault:
+        allowMultiple: false
+        uuid: 540b4795f68336cf80c7c8ecbac5265d
+        required: false
+        range:
+          type: boolean
+      primaryFileExtensions:
+        allowMultiple: true
+        uuid: 646c414c813a8fdb6067b2af45c83b52
+        required: false
+        range:
+          type: string
+      openUrlTemplate:
+        allowMultiple: false
+        uuid: 5bf120bae92bc1639bf82db2b9365d32
+        required: false
+        range:
+          type: string
+      shortDescription:
+        allowMultiple: false
+        uuid: 815ea1701265716bc15114673f253edb
+        required: false
+        range:
+          type: string
+      secondaryFileExtensions:
+        allowMultiple: true
+        uuid: c8c5346331b87325e5a29ab481eb7f80
+        required: false
+        range:
+          type: string
+      supportsMultiOpen:
+        allowMultiple: false
+        uuid: 62e8469105bb02c58542a63bf882312e
+        required: false
+        range:
+          type: boolean
+      createInFolderTemplate:
+        allowMultiple: false
+        uuid: 757e6949ad4682fa476251970592fb24
+        required: false
+        range:
+          type: string
       productId:
         allowMultiple: false
         uuid: 546faeeb0d2bd0b0b12e1016f0e5fb54
@@ -83,63 +119,27 @@ entities:
         required: false
         range:
           type: string
-      shortDescription:
+      authorized:
         allowMultiple: false
-        uuid: 815ea1701265716bc15114673f253edb
-        required: false
-        range:
-          type: string
-      useByDefault:
-        allowMultiple: false
-        uuid: 540b4795f68336cf80c7c8ecbac5265d
+        uuid: 6b577b85e2dc8914f0dc3f4ec2c9f5f3
         required: false
         range:
           type: boolean
-      id:
+      name:
         allowMultiple: false
-        uuid: db29b9a533cc925a1739f34d49659416
-        required: false
-        range:
-          type: string
-      productUrl:
-        allowMultiple: false
-        uuid: 54d0e50feb1613ba92c4614b5f33965d
-        required: false
-        range:
-          type: string
-      supportsCreate:
-        allowMultiple: false
-        uuid: 99d58c8c090e1f1cddfb0cef9fbc58fe
-        required: false
-        range:
-          type: boolean
-      createInFolderTemplate:
-        allowMultiple: false
-        uuid: 757e6949ad4682fa476251970592fb24
-        required: false
-        range:
-          type: string
-      secondaryMimeTypes:
-        allowMultiple: true
-        uuid: 8f8539302d6ef80358ff49b0a75e2d57
-        required: false
-        range:
-          type: string
-      supportsMultiOpen:
-        allowMultiple: false
-        uuid: 62e8469105bb02c58542a63bf882312e
-        required: false
-        range:
-          type: boolean
-      longDescription:
-        allowMultiple: false
-        uuid: 758f7ecc5ca03b4f26284760dbd51de1
+        uuid: 60ab4c1df8580658c4b163861eecc47f
         required: false
         range:
           type: string
       primaryMimeTypes:
         allowMultiple: true
         uuid: b94a0a88b83915c55b8be95e428c8385
+        required: false
+        range:
+          type: string
+      objectType:
+        allowMultiple: false
+        uuid: 9c0243d9aa6aad68b3cdd77b504d0757
         required: false
         range:
           type: string

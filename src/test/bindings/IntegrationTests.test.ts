@@ -5,63 +5,90 @@ import * as fs from 'fs';
 import {ApiParser} from "../../main/bindings/utils/apiParser";
 
 interface TestDescriptor {
-    mainFile: string,
+    mainFile: string
     format: string
     syntax: string
+    export: boolean
 }
 const tests: {[path:string]: TestDescriptor} = {
     "src/test/resources/integration/arc-analytics": {
         mainFile: "api.raml",
         format: ApiParser.RAML1,
-        syntax: ApiParser.YAML
+        syntax: ApiParser.YAML,
+        export: true
     },
     "src/test/resources/integration/arc-modules": {
         mainFile: "arc-api.raml",
         format: ApiParser.RAML1,
-        syntax: ApiParser.YAML
+        syntax: ApiParser.YAML,
+        export: true
     },
     "src/test/resources/integration/catalyst": {
         mainFile: "retail_locations_system_api.raml",
         format: ApiParser.RAML1,
-        syntax: ApiParser.YAML
+        syntax: ApiParser.YAML,
+        export: true
     },
     "src/test/resources/integration/covid19": {
         mainFile: "covid-data-tracking-api.raml",
         format: ApiParser.RAML1,
-        syntax: ApiParser.YAML
+        syntax: ApiParser.YAML,
+        export: true
     },
     "src/test/resources/integration/customers": {
         mainFile: "shared-customers-dapi.json",
         format: ApiParser.OAS2,
-        syntax: ApiParser.JSON
+        syntax: ApiParser.JSON,
+        export: true
     },
     "src/test/resources/integration/drive": {
         mainFile: "api.raml",
         format: ApiParser.RAML1,
-        syntax: ApiParser.YAML
+        syntax: ApiParser.YAML,
+        export: true
     },
     "src/test/resources/integration/paypal_orders": {
         mainFile: "orders_v2_api-spec.raml",
         format: ApiParser.RAML1,
-        syntax: ApiParser.YAML
+        syntax: ApiParser.YAML,
+        export: true
     },
     "src/test/resources/integration/paypal_payments": {
         mainFile: "payments_v2_api-spec.raml",
         format: ApiParser.RAML1,
-        syntax: ApiParser.YAML
+        syntax: ApiParser.YAML,
+        export: true
     },
 
     "src/test/resources/integration/petstore": {
         mainFile: "petstore.json",
         format: ApiParser.OAS2,
-        syntax: ApiParser.JSON
+        syntax: ApiParser.JSON,
+        export: true
     },
     "src/test/resources/integration/raml_example": {
         mainFile: "api.raml",
         format: ApiParser.RAML1,
-        syntax: ApiParser.YAML
+        syntax: ApiParser.YAML,
+        export: true
     }
 }
+
+const deleteFolderRecursive = function(path: string) {
+    var files = [];
+    if( fs.existsSync(path) ) {
+        files = fs.readdirSync(path);
+        files.forEach(function(file,index){
+            var curPath = path + "/" + file;
+            if(fs.lstatSync(curPath).isDirectory()) { // recurse
+                deleteFolderRecursive(curPath);
+            } else { // delete file
+                fs.unlinkSync(curPath);
+            }
+        });
+        fs.rmdirSync(path);
+    }
+};
 
 Object.keys(tests).forEach((path) => {
     const test = tests[path];
@@ -70,7 +97,7 @@ Object.keys(tests).forEach((path) => {
     describe(`Integration test ${path}`, function() {
         this.timeout(50000);
 
-        it ("Should import correctly the API", async() => {
+        it ("Should import/export correctly the API", async() => {
             const apiPlugin = new APIContractBindingsPlugin();
             const config = [{name: "format", value: test.format}, {name: "syntax", value: test.syntax}];
 
@@ -78,6 +105,8 @@ Object.keys(tests).forEach((path) => {
 
             const parsed = await apiPlugin.import(config,[{ url: "file://" + fullPath, text: textData}]);
 
+            deleteFolderRecursive(path + "/_model/");
+            fs.mkdirSync(path + "/_model/")
             let proms = parsed.map(async (i) => {
                 const text = await i.toYaml()
                 return { text: text, path: path + "/_model/" + i.location + ".yaml" }
@@ -87,6 +116,21 @@ Object.keys(tests).forEach((path) => {
             finals.forEach((result) => {
                 fs.writeFileSync(result.path, result.text);
             });
+
+            if (test.export) {
+                const components = fullPath.split("/")
+                components.pop();
+                const exportPath = components.join("/") + "/_export"
+                deleteFolderRecursive(exportPath);
+                if (fs.existsSync(exportPath) === false) {
+                    fs.mkdirSync(exportPath)
+                }
+                const exported = await apiPlugin.export(config, parsed)
+
+                exported.forEach((out) => {
+                   fs.writeFileSync(exportPath + "/" + out.url, out.text);
+                });
+            }
 
             assert(true);
         });

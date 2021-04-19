@@ -2,18 +2,24 @@
 uuid: 43266ba3eb13198815c0eccb78975ca2
 name: property.raml
 entities:
-  Entity26:
+  Entity4:
     uuid: d3633076ec6c15639a7e2f19a55bcfa2
     attributes:
+      etag:
+        allowMultiple: false
+        uuid: 651c7644a70d053472b2e1338e3f4aa2
+        required: true
+        range:
+          type: string
       selfLink:
         allowMultiple: false
         uuid: bee83540e77ea89e5df8e0f791763911
         required: true
         range:
           type: string
-      etag:
+      key:
         allowMultiple: false
-        uuid: 651c7644a70d053472b2e1338e3f4aa2
+        uuid: f16c133788e66b626b76f20bfe1956e7
         required: true
         range:
           type: string
@@ -32,12 +38,6 @@ entities:
       kind:
         allowMultiple: false
         uuid: fec5f853b57d9cdbf60166669c51c778
-        required: true
-        range:
-          type: string
-      key:
-        allowMultiple: false
-        uuid: f16c133788e66b626b76f20bfe1956e7
         required: true
         range:
           type: string

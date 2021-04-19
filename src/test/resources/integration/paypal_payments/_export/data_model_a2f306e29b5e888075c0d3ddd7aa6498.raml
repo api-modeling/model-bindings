@@ -1,0 +1,283 @@
+#%RAML 1.0 Library
+types:
+  seller_protection:
+    type: MCCS-v1-schema-seller_protection_json
+    properties: {}
+  MCCS-v1-schema-capture_status_json:
+    description: The status of a captured payment.
+    properties:
+      status:
+        type: string
+      status_details: status_details
+  "":
+    type: any
+  seller_payable_breakdown:
+    description: The breakdown of the refund.
+    properties:
+      gross_amount: gross_amount
+      paypal_fee: paypal_fee
+      net_amount: net_amount
+      platform_fees:
+        items: items
+      total_refunded_amount: total_refunded_amount
+  capture_request_json:
+    description: Captures either a portion or the full authorized amount of an authorized payment.
+    properties:
+      invoice_id:
+        type: string
+      final_capture:
+        type: boolean
+      amount: amount
+  MCCS-v1-scc-v3-s-j-oa-2_0-link_schema_json:
+    description: The request data or link target.
+    properties:
+      fragmentResolution:
+        type: string
+      pathStart:
+        type: string
+      additionalItems: additionalItems
+      dependencies: dependencies
+      items: items
+      definitions: definitions
+      patternProperties: patternProperties
+      properties: properties
+      allOf:
+        items: items
+      anyOf:
+        items: items
+      oneOf:
+        items: items
+      not: not
+      links:
+        items: items
+      media: media
+  MCCS-v1-scc-v3-s-j-oa-2_0-money_json:
+    description: The currency and amount for a financial transaction, such as a balance or payment due.
+    properties:
+      value:
+        type: string
+  MCCS-v1-schema-refund_status_json:
+    description: The refund status.
+    properties:
+      status:
+        type: string
+      status_details: status_details
+  MCCS-v1-schema-refund_json:
+    description: The refund information.
+    type:
+      - MCCS-v1-schema-refund_status_json
+      - MCCS-v1-schema-activity_timestamps_json
+    properties:
+      id:
+        type: string
+      invoice_id:
+        type: string
+      note_to_payer:
+        type: string
+      amount: amount
+      seller_payable_breakdown: seller_payable_breakdown
+      links:
+        items: items
+  gross_amount:
+    description: The amount for this captured payment.
+    type: MCCS-v1-scc-v3-s-j-oa-2_0-money_json
+    properties: {}
+  patternProperties:
+    description: The pattern properties.
+    type: any
+  items:
+    type: MCCS-v1-scc-v3-s-j-oa-2_0-link_description_json
+    properties: {}
+  additionalItems:
+    description: Any additional items.
+    type: any
+  MCCS-v1-scc-v3-s-j-oa-2_0-link_description_json:
+    description: The request-related [HATEOAS link](/docs/api/overview/#hateoas-links) information.
+    properties:
+      href:
+        type: string
+      rel:
+        type: string
+      method:
+        type: string
+      title:
+        type: string
+      mediaType:
+        type: string
+      encType:
+        type: string
+  MCCS-v1-schema-activity_timestamps_json:
+    description: The date and time stamps that are common to authorized payment, captured payment, and refund transactions.
+    properties:
+      create_time:
+        type: string
+      update_time:
+        type: string
+  payable_amount:
+    description: The net amount debited from the merchant's PayPal account.
+    type: MCCS-v1-scc-v3-s-j-oa-2_0-money_json
+    properties: {}
+  amount:
+    description: The amount for this captured payment.
+    type: MCCS-v1-scc-v3-s-j-oa-2_0-money_json
+    properties: {}
+  receivable_amount:
+    description: The net amount that is credited to the payee's PayPal account. Returned only when the currency of the captured payment is different from the currency of the PayPal account where the payee wants to credit the funds. The amount is computed as <code>net_amount</code> times <code>exchange_rate</code>.
+    type: MCCS-v1-scc-v3-s-j-oa-2_0-money_json
+    properties: {}
+  MCCS-v1-schema-net_amount_breakdown_item_json:
+    description: The net amount. Returned when the currency of the refund is different from the currency of the PayPal account where the merchant holds their funds.
+    properties:
+      payable_amount: payable_amount
+      converted_amount: converted_amount
+      exchange_rate: exchange_rate
+  MCCS-v1-scc-v3-s-j-oa-2_0-error_json:
+    description: The error details.
+    properties:
+      name:
+        type: string
+      message:
+        type: string
+      debug_id:
+        type: string
+      information_link:
+        type: string
+      links:
+        items: items
+  MCCS-v1-schema-payment_instruction_json:
+    description: Any additional payment instructions for PayPal for Partner customers. Enables features for partners and marketplaces, such as delayed disbursement and collection of a platform fee. Applies during order creation for captured payments or during capture of authorized payments.
+    type: any
+  status_details:
+    description: The details of the refund status.
+    properties:
+      reason:
+        type: string
+  refund_request_json:
+    description: Refunds a captured payment, by ID. For a full refund, include an empty request body. For a partial refund, include an <code>amount</code> object in the request body.
+    properties:
+      invoice_id:
+        type: string
+      note_to_payer:
+        type: string
+      amount: amount
+  properties:
+    type: any
+  MCCS-v1-scc-v3-s-j-oa-2_0-error_details_json:
+    description: The error details. Required for client-side `4XX` errors.
+    properties:
+      field:
+        type: string
+      value:
+        type: string
+      location:
+        type: string
+      issue:
+        type: string
+      description:
+        type: string
+  seller_receivable_breakdown:
+    description: The detailed breakdown of the captured payment.
+    properties:
+      gross_amount: gross_amount
+      paypal_fee: paypal_fee
+      net_amount: net_amount
+      receivable_amount: receivable_amount
+      platform_fees:
+        items: items
+  paypal_fee:
+    description: The applicable fee for this captured payment.
+    type: MCCS-v1-scc-v3-s-j-oa-2_0-money_json
+    properties: {}
+  MCCS-v1-schema-payee_base_json:
+    description: The details for the merchant who receives the funds and fulfills the order. The merchant is also known as the payee.
+    properties:
+      client_id:
+        type: string
+  not:
+    type: any
+  MCCS-v1-schema-authorization_status_json:
+    description: The status fields for an authorized payment.
+    properties:
+      status:
+        type: string
+  media:
+    description: The media type and context-encoding scheme.
+    properties:
+      attribute1:
+        type: string
+      binaryEncoding:
+        type: string
+  reauthorize_request_json:
+    description: Reauthorizes an authorized PayPal account payment, by ID. To ensure that funds are still available, reauthorize a payment after its initial three-day honor period expires. You can reauthorize a payment only once from days four to 29.<br/><br/>If 30 days have transpired since the date of the original authorization, you must create an authorized payment instead of reauthorizing the original authorized payment.<br/><br/>A reauthorized payment itself has a new honor period of three days.<br/><br/>You can reauthorize an authorized payment once for up to 115% of the original authorized amount, not to exceed an increase of $75 USD.<br/><br/>Supports only the `amount` request parameter.<blockquote><strong>Note:</strong> This request is currently not supported for Partner usecases.</blockquote>
+    properties:
+      amount: amount
+  net_amount:
+    description: The net amount that the payee receives for this captured payment in their PayPal account. The net amount is computed as <code>gross_amount</code> minus the <code>paypal_fee</code> minus the <code>platform_fees</code>.
+    type: MCCS-v1-scc-v3-s-j-oa-2_0-money_json
+    properties: {}
+  definitions:
+    type: any
+  converted_amount:
+    description: The converted payable amount.
+    type: MCCS-v1-scc-v3-s-j-oa-2_0-money_json
+    properties: {}
+  MCCS-v1-schema-platform_fee_json:
+    description: The platform or partner fee, commission, or brokerage fee that is associated with the transaction. Not a separate or isolated transaction leg from the external perspective. The platform fee is limited in scope and is always associated with the original payment for the purchase unit.
+    properties:
+      amount: amount
+  exchange_rate:
+    description: The exchange rate that determines the amount that was debited from the merchant's PayPal account.
+    type: MCCS-v1-schema-exchange_rate_json
+    properties: {}
+  MCCS-v1-schema-seller_protection_json:
+    description: The level of protection offered as defined by [PayPal Seller Protection for Merchants](https://www.paypal.com/us/webapps/mpp/security/seller-protection).
+    properties:
+      status:
+        type: string
+      dispute_categories:
+        items:
+          type: string
+  MCCS-v1-schema-authorization_json:
+    description: The authorized payment transaction.
+    type:
+      - MCCS-v1-schema-authorization_status_json
+      - MCCS-v1-schema-activity_timestamps_json
+    properties:
+      id:
+        type: string
+      invoice_id:
+        type: string
+  dependencies:
+    type: any
+  MCCS-v1-schema-capture_json:
+    description: A captured payment.
+    type:
+      - MCCS-v1-schema-capture_status_json
+      - MCCS-v1-schema-activity_timestamps_json
+    properties:
+      id:
+        type: string
+      invoice_id:
+        type: string
+      final_capture:
+        type: boolean
+      disbursement_mode:
+        type: string
+      amount: amount
+      seller_protection: seller_protection
+      seller_receivable_breakdown: seller_receivable_breakdown
+      links:
+        items: items
+  total_refunded_amount:
+    description: The total amount refunded from the original capture to date. For example, if a payer makes a $100 purchase and was refunded $20 a week ago and was refunded $30 in this refund, the `gross_amount` is $30 for this refund and the `total_refunded_amount` is $50.
+    type: MCCS-v1-scc-v3-s-j-oa-2_0-money_json
+    properties: {}
+  MCCS-v1-schema-exchange_rate_json:
+    description: The exchange rate that determines the amount to convert from one currency to another currency.
+    properties:
+      source_currency:
+        type: string
+      target_currency:
+        type: string
+      value:
+        type: string

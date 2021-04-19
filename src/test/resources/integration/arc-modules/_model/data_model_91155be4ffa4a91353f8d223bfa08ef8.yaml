@@ -21,22 +21,6 @@ entities:
     description: |
       This object is returned in weekly and monthly analytics data.
       It is a representation of number of users or sessions for each day for the given time period.
-  DailyResult:
-    uuid: 5e2073b449acdcdd18379afad75e2a6e
-    attributes:
-      kind:
-        allowMultiple: false
-        uuid: 0dc87b4c66e6f7a4a0e6fb4f77c4c77f
-        required: false
-        range:
-          type: string
-      result:
-        allowMultiple: false
-        uuid: 9b12db45ef4123e42cde8c3b72c5acbe
-        required: true
-        range:
-          type: integer
-    associations: {}
   DailySessions:
     uuid: c58016717939594746e49e788a290141
     attributes:
@@ -65,6 +49,36 @@ entities:
       -
         uuid: 78f667b6e5f2e99a6aa9f90981294d82
     description: An object representing periodical (weekly or mothly) sessions data.
+  DailyUsers:
+    uuid: 4d5e47e1aa4a65a84d0f8a30049d59bc
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: e647ba58ba395540a13bddd13d0f40e9
+        required: true
+        range:
+          type: string
+    associations: {}
+    extends:
+      -
+        uuid: 5e2073b449acdcdd18379afad75e2a6e
+    description: An object representing response for daily users.
+  DailyResult:
+    uuid: 5e2073b449acdcdd18379afad75e2a6e
+    attributes:
+      kind:
+        allowMultiple: false
+        uuid: 0dc87b4c66e6f7a4a0e6fb4f77c4c77f
+        required: false
+        range:
+          type: string
+      result:
+        allowMultiple: false
+        uuid: 9b12db45ef4123e42cde8c3b72c5acbe
+        required: true
+        range:
+          type: integer
+    associations: {}
   AnalyticsRangeResult:
     uuid: 78f667b6e5f2e99a6aa9f90981294d82
     attributes:
@@ -106,17 +120,3 @@ entities:
       -
         uuid: 78f667b6e5f2e99a6aa9f90981294d82
     description: An object representing periodical (weekly or mothly) users data.
-  DailyUsers:
-    uuid: 4d5e47e1aa4a65a84d0f8a30049d59bc
-    attributes:
-      kind:
-        allowMultiple: false
-        uuid: e647ba58ba395540a13bddd13d0f40e9
-        required: true
-        range:
-          type: string
-    associations: {}
-    extends:
-      -
-        uuid: 5e2073b449acdcdd18379afad75e2a6e
-    description: An object representing response for daily users.

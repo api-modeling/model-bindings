@@ -34,6 +34,18 @@ entities:
   ChildrenList:
     uuid: ca21316dafbabe65236c52e74915bcf6
     attributes:
+      kind:
+        allowMultiple: false
+        uuid: cefeb14ff28a56776916cad2c6b24037
+        required: false
+        range:
+          type: string
+      nextPageToken:
+        allowMultiple: false
+        uuid: 3448171a3b231938c241d5e30ad4b17b
+        required: true
+        range:
+          type: string
       nextLink:
         allowMultiple: false
         uuid: dd661778718fe0c3d6da72ceba603b0e
@@ -49,18 +61,6 @@ entities:
       etag:
         allowMultiple: false
         uuid: 74570d0f41efdc097e06691d4468516d
-        required: false
-        range:
-          type: string
-      nextPageToken:
-        allowMultiple: false
-        uuid: 3448171a3b231938c241d5e30ad4b17b
-        required: true
-        range:
-          type: string
-      kind:
-        allowMultiple: false
-        uuid: cefeb14ff28a56776916cad2c6b24037
         required: false
         range:
           type: string

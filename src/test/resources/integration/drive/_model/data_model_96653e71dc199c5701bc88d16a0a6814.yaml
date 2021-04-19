@@ -2,14 +2,6 @@
 uuid: 96653e71dc199c5701bc88d16a0a6814
 name: revision-lib.raml
 entities:
-  exportLinks:
-    uuid: 06a071a59f54ee2dfd3fceed0ab433c6
-    attributes: {}
-    associations: {}
-    description: |
-      Links for exporting Google Docs to specific formats.
-
-      Keys in the object is a mapping from export format to URL.
   RevisionList:
     uuid: 977181203dec229c85c13422d203a788
     attributes:
@@ -37,58 +29,20 @@ entities:
         uuid: 3a151311fc6009eadd305bb803225ca7
         required: false
         target: http://mulesoft.com/modeling/instances/9466e0ccfe84aee43514240bd38f92d2
-  RevisionBase:
-    uuid: 6716b144ba3b8154974e4ee649f22506
-    attributes:
-      pinned:
-        allowMultiple: false
-        uuid: e4f4118dd4414aea2afd8f2fbb35e60b
-        required: false
-        range:
-          type: boolean
-      published:
-        allowMultiple: false
-        uuid: d6841528e3e0624ca595ad44aa95dfbe
-        required: false
-        range:
-          type: boolean
-      publishAuto:
-        allowMultiple: false
-        uuid: 52a7d2bc3352236af6540c9b4373ac66
-        required: false
-        range:
-          type: boolean
-      publishedOutsideDomain:
-        allowMultiple: false
-        uuid: 6fabd9061b487f26b125b685223f5566
-        required: false
-        range:
-          type: boolean
+  exportLinks:
+    uuid: 06a071a59f54ee2dfd3fceed0ab433c6
+    attributes: {}
     associations: {}
+    description: |
+      Links for exporting Google Docs to specific formats.
+
+      Keys in the object is a mapping from export format to URL.
   Revision:
     uuid: 9466e0ccfe84aee43514240bd38f92d2
     attributes:
-      kind:
+      md5Checksum:
         allowMultiple: false
-        uuid: 223d848ef9ea3d4afc38712fdf3e2d5c
-        required: false
-        range:
-          type: string
-      lastModifyingUserName:
-        allowMultiple: false
-        uuid: f302ea258acc57ee35efdd9dca327564
-        required: false
-        range:
-          type: string
-      id:
-        allowMultiple: false
-        uuid: 2bd4e9a64cc33b22d113f795d9484b73
-        required: false
-        range:
-          type: string
-      downloadUrl:
-        allowMultiple: false
-        uuid: 26e3df1c8bf7f8b27d3e3a53d88bcd1a
+        uuid: 2006ed100ea92f9e84da713eae28f496
         required: false
         range:
           type: string
@@ -98,27 +52,51 @@ entities:
         required: false
         range:
           type: string
-      modifiedDate:
+      id:
         allowMultiple: false
-        uuid: 900ab109a1b45c3ce724427401af5e04
+        uuid: 2bd4e9a64cc33b22d113f795d9484b73
         required: false
         range:
-          type: dateTime
+          type: string
+      lastModifyingUserName:
+        allowMultiple: false
+        uuid: f302ea258acc57ee35efdd9dca327564
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 223d848ef9ea3d4afc38712fdf3e2d5c
+        required: false
+        range:
+          type: string
       mimeType:
         allowMultiple: false
         uuid: bef2c61c79ee6b4326e1bb76d5d529cd
         required: false
         range:
           type: string
-      fileSize:
+      downloadUrl:
         allowMultiple: false
-        uuid: 9ac604151b5a9056be0342580702f74f
+        uuid: 26e3df1c8bf7f8b27d3e3a53d88bcd1a
         required: false
         range:
           type: string
+      modifiedDate:
+        allowMultiple: false
+        uuid: 900ab109a1b45c3ce724427401af5e04
+        required: false
+        range:
+          type: dateTime
       publishedLink:
         allowMultiple: false
         uuid: 9463b5f3c2b862a8d2a265d4b770f134
+        required: false
+        range:
+          type: string
+      originalFilename:
+        allowMultiple: false
+        uuid: f144553480e702c32956cb9a93414d54
         required: false
         range:
           type: string
@@ -128,15 +106,9 @@ entities:
         required: false
         range:
           type: string
-      md5Checksum:
+      fileSize:
         allowMultiple: false
-        uuid: 2006ed100ea92f9e84da713eae28f496
-        required: false
-        range:
-          type: string
-      originalFilename:
-        allowMultiple: false
-        uuid: f144553480e702c32956cb9a93414d54
+        uuid: 9ac604151b5a9056be0342580702f74f
         required: false
         range:
           type: string
@@ -170,3 +142,31 @@ entities:
       -
         uuid: 6716b144ba3b8154974e4ee649f22506
     description: An object used to create / update the revision resource.
+  RevisionBase:
+    uuid: 6716b144ba3b8154974e4ee649f22506
+    attributes:
+      pinned:
+        allowMultiple: false
+        uuid: e4f4118dd4414aea2afd8f2fbb35e60b
+        required: false
+        range:
+          type: boolean
+      published:
+        allowMultiple: false
+        uuid: d6841528e3e0624ca595ad44aa95dfbe
+        required: false
+        range:
+          type: boolean
+      publishAuto:
+        allowMultiple: false
+        uuid: 52a7d2bc3352236af6540c9b4373ac66
+        required: false
+        range:
+          type: boolean
+      publishedOutsideDomain:
+        allowMultiple: false
+        uuid: 6fabd9061b487f26b125b685223f5566
+        required: false
+        range:
+          type: boolean
+    associations: {}

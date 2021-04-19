@@ -1,0 +1,99 @@
+#%RAML 1.0
+types:
+  "":
+    type: any
+  Entity17:
+    type: orders_v2_api-spec_raml.order-json
+    properties: {}
+  Entity23:
+    type: orders_v2_api-spec_raml.order-json
+    properties: {}
+  Entity13:
+    type: orders_v2_api-spec_raml.order-json
+    properties: {}
+  Entity7:
+    type: orders_v2_api-spec_raml.order-json
+    properties: {}
+  Entity19:
+    type: orders_v2_api-spec_raml.order-json
+    properties: {}
+  Entity25:
+    type: orders_v2_api-spec_raml.order-json
+    properties: {}
+  Entity21:
+    type: orders_v2_api-spec_raml.order_action_request-json
+  Entity8:
+    type: orders_v2_api-spec_raml.order-json
+    properties: {}
+  Entity5:
+    type: orders_v2_api-spec_raml.order_request-json
+    properties: {}
+  Entity15:
+    type: orders_v2_api-spec_raml.order_action_request-json
+  Entity11:
+    type: orders_v2_api-spec_raml.authorize_request-json
+    properties: {}
+uses:
+  orders_v2_api-spec_raml: data_model_8870cff922f072518e04a11e214e0140.raml
+title: orders_v2_api-spec.raml
+/orders:
+  post:
+    displayName: Custom
+    body: Entity5
+    responses:
+      "201":
+        body:
+          application/json: Entity7
+/orders/{order_id}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: Entity8
+  patch:
+    displayName: Custom
+    body:
+      items: ""
+  uriParameters:
+    order_id:
+      description: The ID of the order to update.
+      type: string
+/orders/{order_id}/authorize:
+  post:
+    displayName: Custom
+    body: Entity11
+    responses:
+      "200":
+        body:
+          application/json: Entity13
+/orders/{order_id}/capture:
+  post:
+    displayName: Custom
+    body: Entity15
+    responses:
+      "200":
+        body:
+          application/json: Entity17
+/orders/{order_id}/save:
+  post:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: Entity19
+/orders/{order_id}/validate-payment-method:
+  post:
+    displayName: Custom
+    body: Entity21
+    responses:
+      "200":
+        body:
+          application/json: Entity23
+/orders/{order_id}/void:
+  post:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: Entity25

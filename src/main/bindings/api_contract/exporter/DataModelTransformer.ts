@@ -26,7 +26,7 @@ export class DataModelTransformer extends ExporterBaseUtils {
         const dataModel = this.dataModelDialect.encodedDataModel()
         this.declarations = (dataModel && dataModel.entities || [])
 
-        const shapes = this.declarations.map(entity => new DataEntityTransformer(entity, this.context).transform())
+        const shapes = this.declarations.map((entity) => new DataEntityTransformer(entity, this.context).transform());
 
         const baseUnit = this.context.baseUnitsIndex[this.dataModelDialect.id]!
         if (baseUnit instanceof amf.model.document.Document) {
@@ -38,9 +38,9 @@ export class DataModelTransformer extends ExporterBaseUtils {
             const params: meta.BindingValue[] = (binding.configuration || []);
             const bindingValues = this.findParam(params, VOCAB.API_CONTRACT_DOCUMENT_TARGET_ENTITY_PARAMETER)
             if (bindingValues.length === 1) {
-                const entity: meta.Entity = this.dataModelDialect.encodedDataModel()!.entities!.find((e) => e.name == (<meta.BindingScalarValue>bindingValues[0]).lexicalValue)!;
+                const encodedEntityId = (<meta.BindingScalarValue>bindingValues[0]).lexicalValue;
                 const encodedShape = shapes.find((s) => {
-                    return s.id === entity.id();
+                        return s.id === encodedEntityId
                 })!;
                 return (<amf.model.domain.DataType>baseUnit).withEncodes(encodedShape)
             } else {

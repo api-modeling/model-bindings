@@ -5,33 +5,27 @@ entities:
   StoreInfo:
     uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
     attributes:
+      storeId:
+        allowMultiple: false
+        uuid: 5a3a4eec1b47ea1bec13996ab97db453
+        required: false
+        range:
+          type: string
       distanceUnit:
         allowMultiple: false
         uuid: 69b1abd9dd879c74bd24950b6f2a75ab
         required: false
         range:
           type: string
-      openingHours:
+      description:
         allowMultiple: false
-        uuid: dc54b048a14fccadc2e3d7469d81a53e
-        required: true
+        uuid: e465bcb3e81cbf133afeca7c6874cfa7
+        required: false
         range:
           type: string
       notes:
         allowMultiple: false
         uuid: 70b51b2a340cf4c6d31c63e32b40cc63
-        required: false
-        range:
-          type: string
-      distance:
-        allowMultiple: false
-        uuid: 7815d7b6f80ae5cbf7e73e839e14b21e
-        required: false
-        range:
-          type: float
-      description:
-        allowMultiple: false
-        uuid: e465bcb3e81cbf133afeca7c6874cfa7
         required: false
         range:
           type: string
@@ -41,10 +35,16 @@ entities:
         required: true
         range:
           type: string
-      storeId:
+      distance:
         allowMultiple: false
-        uuid: 5a3a4eec1b47ea1bec13996ab97db453
+        uuid: 7815d7b6f80ae5cbf7e73e839e14b21e
         required: false
+        range:
+          type: float
+      openingHours:
+        allowMultiple: false
+        uuid: dc54b048a14fccadc2e3d7469d81a53e
+        required: true
         range:
           type: string
     associations: {}

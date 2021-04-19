@@ -2,34 +2,6 @@
 uuid: efd90794d9108ca691202dd9d653b9c6
 name: payments_v2_api-spec.raml
 entities:
-  Entity17:
-    uuid: f07b10a97524039036c150cafab0e763
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 0dc88e055aeb6746e09f05146d8770e1
-  Entity20:
-    uuid: fb1e31b91eb80174b22731b02092e8b1
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 0dc88e055aeb6746e09f05146d8770e1
-  Entity15:
-    uuid: 6db48a0ef339b13eb8794ce69d0c7601
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: dbbfc6c69f5bc486cd5967a673d6de3d
-  Entity13:
-    uuid: 4889dc87cc8b2afca36a79173acd9da0
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 9a655dbd9896c53fb42e2e3e7527f160
   Entity4:
     uuid: 7eac1740f4765390cec2ec02c6f614b3
     attributes: {}
@@ -39,6 +11,13 @@ entities:
         uuid: 3d337397d7ce9f1c477b39de78ca92a6
   Entity6:
     uuid: 4cd7494cf73a159d482e93e399a69acb
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 9a655dbd9896c53fb42e2e3e7527f160
+  Entity13:
+    uuid: 4889dc87cc8b2afca36a79173acd9da0
     attributes: {}
     associations: {}
     extends:
@@ -65,6 +44,27 @@ entities:
     extends:
       -
         uuid: 6034e92e08e4ca64c98866e70d14fe87
+  Entity15:
+    uuid: 6db48a0ef339b13eb8794ce69d0c7601
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: dbbfc6c69f5bc486cd5967a673d6de3d
+  Entity20:
+    uuid: fb1e31b91eb80174b22731b02092e8b1
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 0dc88e055aeb6746e09f05146d8770e1
+  Entity17:
+    uuid: f07b10a97524039036c150cafab0e763
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: 0dc88e055aeb6746e09f05146d8770e1
 entryPoint:
   uuid: 44633b8be592f11a11c635fcc6b7cdda
   name: PayPal Payments v2
@@ -75,7 +75,7 @@ entryPoint:
       name: Find Resource /authorizations/{authorization_id}
       transition:
         uuid: 1a1b67e9e852ea6e1dae30faca81d51d
-        target: http://mulesoft.com/modeling/instances/58eeab78-bbb4-4241-a2e2-3d758d6c03ed
+        target: http://mulesoft.com/modeling/instances/db16b466-5bcf-4fc2-a267-0ba87c166944
       inputs:
         -
           scalarRange:
@@ -97,7 +97,7 @@ entryPoint:
       name: Find Resource /captures/{capture_id}
       transition:
         uuid: 2f1695ea7150331c4ce7ec57ef034ce3
-        target: http://mulesoft.com/modeling/instances/680e517e-d355-45ad-a791-9537fae83c33
+        target: http://mulesoft.com/modeling/instances/64c45c31-13b6-42c0-9833-8506ae6896c4
       inputs:
         -
           scalarRange:
@@ -119,7 +119,7 @@ entryPoint:
       name: Find Resource /refunds/{refund_id}
       transition:
         uuid: f8659fee44c17130957c434d20196f45
-        target: http://mulesoft.com/modeling/instances/2f3d6c9c-9ef4-48e3-b833-8e4ae92c7f33
+        target: http://mulesoft.com/modeling/instances/6dfd366c-8f29-4d65-9444-39d902e71809
       inputs:
         -
           scalarRange:
@@ -138,7 +138,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: 58eeab78-bbb4-4241-a2e2-3d758d6c03ed
+    uuid: db16b466-5bcf-4fc2-a267-0ba87c166944
     name: Resource /authorizations/{authorization_id}
     schema:
       uuid: fca837098d91f29b6870acebde071108
@@ -190,7 +190,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 680e517e-d355-45ad-a791-9537fae83c33
+    uuid: 64c45c31-13b6-42c0-9833-8506ae6896c4
     name: Resource /captures/{capture_id}
     schema:
       uuid: 4889dc87cc8b2afca36a79173acd9da0
@@ -220,7 +220,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 2f3d6c9c-9ef4-48e3-b833-8e4ae92c7f33
+    uuid: 6dfd366c-8f29-4d65-9444-39d902e71809
     name: Resource /refunds/{refund_id}
     schema:
       uuid: fb1e31b91eb80174b22731b02092e8b1

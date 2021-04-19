@@ -2,36 +2,52 @@
 uuid: 9dbbc0befc67926a1065fa327626eaa2
 name: watch-lib.raml
 entities:
+  WatchResponse:
+    uuid: 80c85ca3399af98a558f7043fade9fca
+    attributes:
+      resourceId:
+        allowMultiple: false
+        uuid: c10b58d3bf0db6a5aebacb6c88c7d709
+        required: true
+        range:
+          type: string
+      token:
+        allowMultiple: false
+        uuid: 901356cea898f8240aeef2e438bd16b6
+        required: true
+        range:
+          type: string
+      resourceUri:
+        allowMultiple: false
+        uuid: b1220f8db7a77d327e61e1b4d3352cb6
+        required: true
+        range:
+          type: string
+      expiration:
+        allowMultiple: false
+        uuid: f27e490c0924c2df9ffc038c652a6035
+        required: true
+        range:
+          type: float
+      id:
+        allowMultiple: false
+        uuid: c9f9bf836de998ad4eb09a7f547e75e7
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 0b4a2afcc6f5bdf73e6b32c0907016aa
+        required: false
+        range:
+          type: string
+    associations: {}
   ChangeList:
     uuid: 7dae4b927cc80f6aafdcc3411c14625e
     attributes:
-      kind:
-        allowMultiple: false
-        uuid: 60dd24c3e873d62dbf75eb3fbaa7a4cd
-        required: false
-        range:
-          type: string
-      nextPageToken:
-        allowMultiple: false
-        uuid: 8b208698b53231d7a7d303a49e2fbf7f
-        required: true
-        range:
-          type: string
-      nextLink:
-        allowMultiple: false
-        uuid: 392319d9a77a1406a85fa526310cee27
-        required: true
-        range:
-          type: string
       selfLink:
         allowMultiple: false
         uuid: 6fb7e98b92d3f231d9fce0d71ee0873b
-        required: false
-        range:
-          type: string
-      etag:
-        allowMultiple: false
-        uuid: 1036a66a0939c5c3094daf489cedea13
         required: false
         range:
           type: string
@@ -41,22 +57,54 @@ entities:
         required: true
         range:
           type: string
+      etag:
+        allowMultiple: false
+        uuid: 1036a66a0939c5c3094daf489cedea13
+        required: false
+        range:
+          type: string
+      nextLink:
+        allowMultiple: false
+        uuid: 392319d9a77a1406a85fa526310cee27
+        required: true
+        range:
+          type: string
+      nextPageToken:
+        allowMultiple: false
+        uuid: 8b208698b53231d7a7d303a49e2fbf7f
+        required: true
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 60dd24c3e873d62dbf75eb3fbaa7a4cd
+        required: false
+        range:
+          type: string
     associations:
       items:
         allowMultiple: true
         uuid: e518fed3c4d8ebce329374d4449ec96f
         required: false
         target: http://mulesoft.com/modeling/instances/e37517a2787e7ea2a490cd80fd84b617
+  file:
+    uuid: d40f585e5975329955b0cc3fc584d8b3
+    attributes: {}
+    associations: {}
+    extends:
+      -
+        uuid: ff50c2dda838f70c798e6d30e85948b2
+    description: The updated state of the file. Present if the file has not been deleted.
   Watch:
     uuid: 699552c628282eec7e135e842bb73fbc
     attributes:
-      token:
+      id:
         allowMultiple: false
-        uuid: 134ba15a6249ffd19454117f63d9b68e
+        uuid: a8103d139260d3051451b8df704c4868
         required: false
         range:
           type: string
-      attribute25:
+      attribute8:
         allowMultiple: false
         uuid: 537996326f43fbe341f651b9ce468c8c
         required: false
@@ -74,9 +122,9 @@ entities:
         required: false
         range:
           type: string
-      id:
+      token:
         allowMultiple: false
-        uuid: a8103d139260d3051451b8df704c4868
+        uuid: 134ba15a6249ffd19454117f63d9b68e
         required: false
         range:
           type: string
@@ -89,39 +137,13 @@ entities:
       -
         uuid: 36b037c8f534dfdc48326ef4aae3e612
     description: The updated state of the Team Drive. Present if the type is teamDrive, the user is still a member of the Team Drive, and the Team Drive has not been deleted.
-  file:
-    uuid: d40f585e5975329955b0cc3fc584d8b3
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: ff50c2dda838f70c798e6d30e85948b2
-    description: The updated state of the file. Present if the file has not been deleted.
   Change:
     uuid: e37517a2787e7ea2a490cd80fd84b617
     attributes:
-      deleted:
+      teamDriveId:
         allowMultiple: false
-        uuid: 57b4bf91d39fdce227ed87c5d252236c
+        uuid: 51d1999055ed19103da5ed0475822281
         required: false
-        range:
-          type: boolean
-      kind:
-        allowMultiple: false
-        uuid: 8c0731199d3f7388d495431dc26a8dbd
-        required: false
-        range:
-          type: string
-      attribute24:
-        allowMultiple: false
-        uuid: 238579f19ea62d1958ecb5cbd3afc6b5
-        required: true
-        range:
-          type: string
-      fileId:
-        allowMultiple: false
-        uuid: 017d263f8da2b3fd4301f89dbf7087ea
-        required: true
         range:
           type: string
       selfLink:
@@ -130,6 +152,24 @@ entities:
         required: false
         range:
           type: string
+      kind:
+        allowMultiple: false
+        uuid: 8c0731199d3f7388d495431dc26a8dbd
+        required: false
+        range:
+          type: string
+      fileId:
+        allowMultiple: false
+        uuid: 017d263f8da2b3fd4301f89dbf7087ea
+        required: true
+        range:
+          type: string
+      deleted:
+        allowMultiple: false
+        uuid: 57b4bf91d39fdce227ed87c5d252236c
+        required: false
+        range:
+          type: boolean
       id:
         allowMultiple: false
         uuid: 76d0278c979dacd19cf562747184acba
@@ -142,10 +182,10 @@ entities:
         required: true
         range:
           type: dateTime
-      teamDriveId:
+      attribute7:
         allowMultiple: false
-        uuid: 51d1999055ed19103da5ed0475822281
-        required: false
+        uuid: 238579f19ea62d1958ecb5cbd3afc6b5
+        required: true
         range:
           type: string
     associations:
@@ -159,43 +199,3 @@ entities:
         uuid: 7ab152bc076a0756b90c8a83418732c4
         required: false
         target: http://mulesoft.com/modeling/instances/4f5df9e88583d16bdeb93e105aad96d4
-  WatchResponse:
-    uuid: 80c85ca3399af98a558f7043fade9fca
-    attributes:
-      kind:
-        allowMultiple: false
-        uuid: 0b4a2afcc6f5bdf73e6b32c0907016aa
-        required: false
-        range:
-          type: string
-      resourceUri:
-        allowMultiple: false
-        uuid: b1220f8db7a77d327e61e1b4d3352cb6
-        required: true
-        range:
-          type: string
-      resourceId:
-        allowMultiple: false
-        uuid: c10b58d3bf0db6a5aebacb6c88c7d709
-        required: true
-        range:
-          type: string
-      token:
-        allowMultiple: false
-        uuid: 901356cea898f8240aeef2e438bd16b6
-        required: true
-        range:
-          type: string
-      expiration:
-        allowMultiple: false
-        uuid: f27e490c0924c2df9ffc038c652a6035
-        required: true
-        range:
-          type: float
-      id:
-        allowMultiple: false
-        uuid: c9f9bf836de998ad4eb09a7f547e75e7
-        required: false
-        range:
-          type: string
-    associations: {}

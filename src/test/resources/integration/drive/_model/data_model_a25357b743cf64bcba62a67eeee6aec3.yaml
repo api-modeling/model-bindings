@@ -5,21 +5,9 @@ entities:
   Owners:
     uuid: bef5a6b1b481f0c3110510b3a4e492ae
     attributes:
-      kind:
-        allowMultiple: false
-        uuid: ef3e3272acc04a345d6a3b16bbc9a00b
-        required: false
-        range:
-          type: string
       emailAddress:
         allowMultiple: false
         uuid: 5940cbc93138c48ec7c49d39c75bb9a1
-        required: false
-        range:
-          type: string
-      displayName:
-        allowMultiple: false
-        uuid: 455faef12013eacb00aaf95a90689bba
         required: false
         range:
           type: string
@@ -35,6 +23,18 @@ entities:
         required: false
         range:
           type: boolean
+      kind:
+        allowMultiple: false
+        uuid: ef3e3272acc04a345d6a3b16bbc9a00b
+        required: false
+        range:
+          type: string
+      displayName:
+        allowMultiple: false
+        uuid: 455faef12013eacb00aaf95a90689bba
+        required: false
+        range:
+          type: string
     associations:
       picture:
         allowMultiple: false

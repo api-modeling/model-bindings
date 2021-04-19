@@ -2,11 +2,29 @@
 uuid: eb17c8558b97c65ae139e5c683bafc4b
 name: api.raml
 entities:
-  DefaultPayload eecc24faf5d4a6b6747a4191bf1f97b2:
-    uuid: f482fdf10d5d3a1fd236894cb4c2f0b7
+  DefaultPayload_ae245954f12742778423aaf52786d14d:
+    uuid: 9ef85c31d07fc24eaf1688c2350ddec1
     attributes: {}
     associations: {}
-  Entity10:
+  DefaultPayload_e91a6f576d145b6f8fc770a13134523f:
+    uuid: 483bbb261c94a46ba2d5898f0b274000
+    attributes: {}
+    associations: {}
+  "":
+    uuid: 8d138f7a5b62e40fd255f51eb7a2cd3f
+  DefaultPayload_5f1238d04f393c71744a4966629a09f1:
+    uuid: a80b26aee3245825712b6485bcfc4fab
+    attributes: {}
+    associations: {}
+  DefaultPayload_ab9532891c0aea6cdad10750edce3249:
+    uuid: 5bc5347db3b30b2dcb7860aaa67de14f
+    attributes: {}
+    associations: {}
+  DefaultPayload_eecc24faf5d4a6b6747a4191bf1f97b2:
+    uuid: 1cd8d43f20423a2f042bdfab3981412a
+    attributes: {}
+    associations: {}
+  Entity9:
     uuid: 029296559eb4a55a38795e860a834b2e
     attributes:
       aid:
@@ -37,41 +55,37 @@ entities:
         body: data
       });
       ```
-  DefaultPayload 5f1238d04f393c71744a4966629a09f1:
-    uuid: 0edf999d80b09fa09cc2637e37a53c33
-    attributes: {}
-    associations: {}
-  "":
-    uuid: 8d138f7a5b62e40fd255f51eb7a2cd3f
-  DefaultPayload ae245954f12742778423aaf52786d14d:
-    uuid: 7ec3f371744b30269442b8af20df7a18
-    attributes: {}
-    associations: {}
-  DefaultPayload ab9532891c0aea6cdad10750edce3249:
-    uuid: d5784e7f8ccd03561459282de2ce8c52
-    attributes: {}
-    associations: {}
-  DefaultPayload e91a6f576d145b6f8fc770a13134523f:
-    uuid: b8c907243dc86e4ade948b3018ff7e1d
-    attributes: {}
-    associations: {}
 entryPoint:
   uuid: a803a3314f4b5e9ab3d28206b7b175bc
   name: ARC Analytics API
   events: []
   operations:
     -
+      uuid: e77705acc35ca90c1f0b29e3d44e73ab
+      name: Find Resource /tasks
+      transition:
+        uuid: ed5f49efc3d35e1d9405b05e7a7c10f1
+        target: http://mulesoft.com/modeling/instances/4d9b527f-9b70-44a8-9bbd-ac422d2db300
+      inputs: []
+      output:
+        allowMultiple: false
+        uuid: 94b0e8f6f49ebc3c096f8f4a3e3c05d4
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/483bbb261c94a46ba2d5898f0b274000
+      isMutation: false
+      type: custom
+    -
       uuid: 69cf27fc3b96590634c36291035a1594
       name: Find Resource /analyzer
       transition:
         uuid: e39842d2683fe5b517f7c281b45ba6b0
-        target: http://mulesoft.com/modeling/instances/aebd69a3-99da-4efc-b6ee-f97cb37cc898
+        target: http://mulesoft.com/modeling/instances/0106b63a-1fbf-4203-80e1-be113b908fbb
       inputs: []
       output:
         allowMultiple: false
         uuid: 579e492f93d353ffa617fc3192ba1460
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/d5784e7f8ccd03561459282de2ce8c52
+        objectRange: http://mulesoft.com/modeling/instances/5bc5347db3b30b2dcb7860aaa67de14f
       isMutation: false
       type: custom
     -
@@ -90,7 +104,7 @@ entryPoint:
       name: Find Resource /.well-known//acme-challenge/{challenge}
       transition:
         uuid: d2e3db4d756f985a73c7617bd0770271
-        target: http://mulesoft.com/modeling/instances/a7edd76d-9a2f-44e9-97f1-c63ddf49f115
+        target: http://mulesoft.com/modeling/instances/09b9eb4e-94d1-46ed-ba3b-4b56b8d9d695
       inputs:
         -
           scalarRange:
@@ -113,36 +127,28 @@ entryPoint:
       name: Find Resource /analytics/query
       transition:
         uuid: c6d607dcd8c94e83cb94d9a9fa652f6c
-        target: http://mulesoft.com/modeling/instances/650cdbd7-9963-4b37-be3d-0aaf5a4c50ee
+        target: http://mulesoft.com/modeling/instances/3af215e9-2668-4456-98f9-5e2bf84d6f1e
       inputs: []
       output:
         allowMultiple: false
         uuid: cb8584341a97cc627cf6671974b36ca0
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/0edf999d80b09fa09cc2637e37a53c33
-      isMutation: false
-      type: custom
-    -
-      uuid: e77705acc35ca90c1f0b29e3d44e73ab
-      name: Find Resource /tasks
-      transition:
-        uuid: ed5f49efc3d35e1d9405b05e7a7c10f1
-        target: http://mulesoft.com/modeling/instances/77720676-3dde-44a5-be86-877a43d3186f
-      inputs: []
-      output:
-        allowMultiple: false
-        uuid: 94b0e8f6f49ebc3c096f8f4a3e3c05d4
-        required: false
-        objectRange: http://mulesoft.com/modeling/instances/b8c907243dc86e4ade948b3018ff7e1d
+        objectRange: http://mulesoft.com/modeling/instances/a80b26aee3245825712b6485bcfc4fab
       isMutation: false
       type: custom
 resources:
   -
-    uuid: 8162448b-cb7b-4c2e-8eb8-3aa61cf83bf7
+    uuid: b726501b-3fad-40a7-96c5-53c310fe5bfb
+    name: Resource /tasks/{scope}/{type}
+    events: []
+    operations: []
+    type: individual
+  -
+    uuid: 923803b2-880a-45c2-b4ed-cef6bf8f06d8
     name: Resource /analytics/query/{scope}
     schema:
-      uuid: 7ec3f371744b30269442b8af20df7a18
-      name: DefaultPayload ae245954f12742778423aaf52786d14d
+      uuid: 9ef85c31d07fc24eaf1688c2350ddec1
+      name: DefaultPayload_ae245954f12742778423aaf52786d14d
       attributes: {}
       associations: {}
     description: Endpoint to query for periodical statistics.
@@ -150,27 +156,11 @@ resources:
     operations: []
     type: individual
   -
-    uuid: a7edd76d-9a2f-44e9-97f1-c63ddf49f115
-    name: Resource /.well-known//acme-challenge/{challenge}
-    schema:
-      uuid: 8d138f7a5b62e40fd255f51eb7a2cd3f
-      name: ""
-    description: An endpoint to make a request from the LetsEncrypt service to confirm the domain ownership.
-    events: []
-    operations: []
-    type: individual
-  -
-    uuid: 9e594c72-5cf3-4f1d-9471-200c8ec57015
-    name: Resource /tasks/{scope}/{type}
-    events: []
-    operations: []
-    type: individual
-  -
-    uuid: 650cdbd7-9963-4b37-be3d-0aaf5a4c50ee
+    uuid: 3af215e9-2668-4456-98f9-5e2bf84d6f1e
     name: Resource /analytics/query
     schema:
-      uuid: 0edf999d80b09fa09cc2637e37a53c33
-      name: DefaultPayload 5f1238d04f393c71744a4966629a09f1
+      uuid: a80b26aee3245825712b6485bcfc4fab
+      name: DefaultPayload_5f1238d04f393c71744a4966629a09f1
       attributes: {}
       associations: {}
     description: |
@@ -189,13 +179,13 @@ resources:
         name: Find Resource /analytics/query/daily
         transition:
           uuid: c9135f127c8f1c73f139ae58f9d6ffcb
-          target: http://mulesoft.com/modeling/instances/1ee986e2-15e0-4c98-8b32-63adf1397f15
+          target: http://mulesoft.com/modeling/instances/c68b00c1-4d0b-48a6-8c16-7e0fd4e6e941
         inputs: []
         output:
           allowMultiple: false
           uuid: 169fd783bf9f90523782b9091ebc9038
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/f482fdf10d5d3a1fd236894cb4c2f0b7
+          objectRange: http://mulesoft.com/modeling/instances/1cd8d43f20423a2f042bdfab3981412a
         isMutation: false
         type: custom
       -
@@ -203,7 +193,7 @@ resources:
         name: Find Resource /analytics/query/{scope}
         transition:
           uuid: a9b04bc4796fa4614547412e282e1281
-          target: http://mulesoft.com/modeling/instances/8162448b-cb7b-4c2e-8eb8-3aa61cf83bf7
+          target: http://mulesoft.com/modeling/instances/923803b2-880a-45c2-b4ed-cef6bf8f06d8
         inputs:
           -
             scalarRange:
@@ -218,16 +208,57 @@ resources:
           allowMultiple: false
           uuid: e349110c430cbc0d5b883f3f94031fd5
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/7ec3f371744b30269442b8af20df7a18
+          objectRange: http://mulesoft.com/modeling/instances/9ef85c31d07fc24eaf1688c2350ddec1
         isMutation: false
         type: custom
     type: individual
   -
-    uuid: 77720676-3dde-44a5-be86-877a43d3186f
+    uuid: 09b9eb4e-94d1-46ed-ba3b-4b56b8d9d695
+    name: Resource /.well-known//acme-challenge/{challenge}
+    schema:
+      uuid: 8d138f7a5b62e40fd255f51eb7a2cd3f
+      name: ""
+    description: An endpoint to make a request from the LetsEncrypt service to confirm the domain ownership.
+    events: []
+    operations: []
+    type: individual
+  -
+    uuid: 0106b63a-1fbf-4203-80e1-be113b908fbb
+    name: Resource /analyzer
+    schema:
+      uuid: 5bc5347db3b30b2dcb7860aaa67de14f
+      name: DefaultPayload_ab9532891c0aea6cdad10750edce3249
+      attributes: {}
+      associations: {}
+    description: |
+      The analyser endpoint is to be run as a task.
+
+      Because tasks computes a lot of data and performs operation on potentially hundred of thousands
+      of records this will most possibly reach request time limit (30 secodns) and return with `500`
+      status code.
+
+      Tasks are executed in special environment and are allowed to work for up to 10 minutes.
+    events: []
+    operations: []
+    type: individual
+  -
+    uuid: c68b00c1-4d0b-48a6-8c16-7e0fd4e6e941
+    name: Resource /analytics/query/daily
+    schema:
+      uuid: 1cd8d43f20423a2f042bdfab3981412a
+      name: DefaultPayload_eecc24faf5d4a6b6747a4191bf1f97b2
+      attributes: {}
+      associations: {}
+    description: Endpoint to query for daily statistics.
+    events: []
+    operations: []
+    type: individual
+  -
+    uuid: 4d9b527f-9b70-44a8-9bbd-ac422d2db300
     name: Resource /tasks
     schema:
-      uuid: b8c907243dc86e4ade948b3018ff7e1d
-      name: DefaultPayload e91a6f576d145b6f8fc770a13134523f
+      uuid: 483bbb261c94a46ba2d5898f0b274000
+      name: DefaultPayload_e91a6f576d145b6f8fc770a13134523f
       attributes: {}
       associations: {}
     description: |
@@ -241,7 +272,7 @@ resources:
         name: Find Resource /tasks/{scope}/{type}
         transition:
           uuid: 1bb90ca95ff3c8d856c758f7b2033c3f
-          target: http://mulesoft.com/modeling/instances/9e594c72-5cf3-4f1d-9471-200c8ec57015
+          target: http://mulesoft.com/modeling/instances/b726501b-3fad-40a7-96c5-53c310fe5bfb
         inputs:
           -
             scalarRange:
@@ -267,35 +298,4 @@ resources:
               Similar for monthly computations it will be always set to the first day of month.
         isMutation: false
         type: custom
-    type: individual
-  -
-    uuid: aebd69a3-99da-4efc-b6ee-f97cb37cc898
-    name: Resource /analyzer
-    schema:
-      uuid: d5784e7f8ccd03561459282de2ce8c52
-      name: DefaultPayload ab9532891c0aea6cdad10750edce3249
-      attributes: {}
-      associations: {}
-    description: |
-      The analyser endpoint is to be run as a task.
-
-      Because tasks computes a lot of data and performs operation on potentially hundred of thousands
-      of records this will most possibly reach request time limit (30 secodns) and return with `500`
-      status code.
-
-      Tasks are executed in special environment and are allowed to work for up to 10 minutes.
-    events: []
-    operations: []
-    type: individual
-  -
-    uuid: 1ee986e2-15e0-4c98-8b32-63adf1397f15
-    name: Resource /analytics/query/daily
-    schema:
-      uuid: f482fdf10d5d3a1fd236894cb4c2f0b7
-      name: DefaultPayload eecc24faf5d4a6b6747a4191bf1f97b2
-      attributes: {}
-      associations: {}
-    description: Endpoint to query for daily statistics.
-    events: []
-    operations: []
     type: individual
