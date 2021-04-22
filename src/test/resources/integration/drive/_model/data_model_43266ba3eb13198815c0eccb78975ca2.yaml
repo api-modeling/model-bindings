@@ -5,12 +5,6 @@ entities:
   property:
     uuid: d3633076ec6c15639a7e2f19a55bcfa2
     attributes:
-      kind:
-        allowMultiple: false
-        uuid: fec5f853b57d9cdbf60166669c51c778
-        required: true
-        range:
-          type: string
       selfLink:
         allowMultiple: false
         uuid: bee83540e77ea89e5df8e0f791763911
@@ -23,9 +17,15 @@ entities:
         required: true
         range:
           type: string
-      etag:
+      visibility:
         allowMultiple: false
-        uuid: 651c7644a70d053472b2e1338e3f4aa2
+        uuid: b678d8a42d1855430ba75946bde19bd4
+        required: true
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: fec5f853b57d9cdbf60166669c51c778
         required: true
         range:
           type: string
@@ -35,9 +35,9 @@ entities:
         required: true
         range:
           type: string
-      visibility:
+      etag:
         allowMultiple: false
-        uuid: b678d8a42d1855430ba75946bde19bd4
+        uuid: 651c7644a70d053472b2e1338e3f4aa2
         required: true
         range:
           type: string

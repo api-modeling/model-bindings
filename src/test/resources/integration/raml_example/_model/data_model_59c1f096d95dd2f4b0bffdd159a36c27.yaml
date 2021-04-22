@@ -5,15 +5,21 @@ entities:
   A person resource:
     uuid: b7a4094d2097ca0b7990dbb03c3c9d89
     attributes:
-      language:
-        allowMultiple: false
-        uuid: e93834d4853411021d6f4b7dc07a1fad
-        required: true
-        range:
-          type: string
       url:
         allowMultiple: false
         uuid: 1abe0adbfc4ba56c251fb6cfec022a38
+        required: true
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: d06a5682344a86ceda30b30977c1d951
+        required: true
+        range:
+          type: string
+      language:
+        allowMultiple: false
+        uuid: e93834d4853411021d6f4b7dc07a1fad
         required: true
         range:
           type: string
@@ -23,27 +29,21 @@ entities:
         required: false
         range:
           type: string
-      name:
-        allowMultiple: false
-        uuid: d06a5682344a86ceda30b30977c1d951
-        required: true
-        range:
-          type: string
       tagline:
         allowMultiple: false
         uuid: a7bda05225b7237e8627d5f31beffc88
         required: true
         range:
           type: string
-      birthday:
-        allowMultiple: false
-        uuid: a632d4233741fee5e812fbfd3a923305
-        required: true
-        range:
-          type: string
       id:
         allowMultiple: false
         uuid: df4ee85091691d201728d455bc051941
+        required: true
+        range:
+          type: string
+      birthday:
+        allowMultiple: false
+        uuid: a632d4233741fee5e812fbfd3a923305
         required: true
         range:
           type: string

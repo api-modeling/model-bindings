@@ -34,10 +34,10 @@ entities:
   ChildrenList:
     uuid: ca21316dafbabe65236c52e74915bcf6
     attributes:
-      nextPageToken:
+      selfLink:
         allowMultiple: false
-        uuid: 3448171a3b231938c241d5e30ad4b17b
-        required: true
+        uuid: 2744c78a1070fc37c6ddd623d80e3b61
+        required: false
         range:
           type: string
       etag:
@@ -46,10 +46,10 @@ entities:
         required: false
         range:
           type: string
-      selfLink:
+      nextPageToken:
         allowMultiple: false
-        uuid: 2744c78a1070fc37c6ddd623d80e3b61
-        required: false
+        uuid: 3448171a3b231938c241d5e30ad4b17b
+        required: true
         range:
           type: string
       kind:

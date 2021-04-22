@@ -26,27 +26,39 @@ entities:
   Community_regulations:
     uuid: 95c13eb31d22c4f97419251a8283eb19
     attributes:
-      Domestic_Travel_Restrictions_Code:
-        allowMultiple: false
-        uuid: 72d913a3da4f88b145d7d82856120078
-        required: false
-        range:
-          type: string
-      Stay_at_Home_Requirement_Code:
-        allowMultiple: false
-        uuid: 0319948483d3f9e87a35490b3b504933
-        required: false
-        range:
-          type: string
       Non_Essential_Business_Closure_Code:
         allowMultiple: false
         uuid: 52fe27791d22d04c959c1a5c4fec5b91
         required: false
         range:
           type: string
+      Restaurant_Restrictions_Code:
+        allowMultiple: false
+        uuid: 69e9b4453de599eed1a8329ecd015b8b
+        required: false
+        range:
+          type: string
+      Domestic_Travel_Restrictions_Code:
+        allowMultiple: false
+        uuid: 72d913a3da4f88b145d7d82856120078
+        required: false
+        range:
+          type: string
+      Bar_Restrictions_Code:
+        allowMultiple: false
+        uuid: 6b4b2c3cb825d3b7d8235f9e214d4355
+        required: false
+        range:
+          type: string
       Reopening_Plan_Code:
         allowMultiple: false
         uuid: 9e051e64b92e8a186c670ce52a41e909
+        required: false
+        range:
+          type: string
+      Stay_at_Home_Requirement_Code:
+        allowMultiple: false
+        uuid: 0319948483d3f9e87a35490b3b504933
         required: false
         range:
           type: string
@@ -62,27 +74,15 @@ entities:
         required: false
         range:
           type: string
-      Bar_Restrictions_Code:
+      School_Closure_Code:
         allowMultiple: false
-        uuid: 6b4b2c3cb825d3b7d8235f9e214d4355
+        uuid: 91c0a2d79156e7c521a541cd1319c8ca
         required: false
         range:
           type: string
       Gathering_Restriction_Code:
         allowMultiple: false
         uuid: 80a9c3e3eceba024a57ed27887934991
-        required: false
-        range:
-          type: string
-      Restaurant_Restrictions_Code:
-        allowMultiple: false
-        uuid: 69e9b4453de599eed1a8329ecd015b8b
-        required: false
-        range:
-          type: string
-      School_Closure_Code:
-        allowMultiple: false
-        uuid: 91c0a2d79156e7c521a541cd1319c8ca
         required: false
         range:
           type: string

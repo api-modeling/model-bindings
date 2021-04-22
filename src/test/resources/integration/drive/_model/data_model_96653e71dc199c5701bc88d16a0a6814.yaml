@@ -5,15 +5,63 @@ entities:
   Revision:
     uuid: 9466e0ccfe84aee43514240bd38f92d2
     attributes:
+      fileSize:
+        allowMultiple: false
+        uuid: 9ac604151b5a9056be0342580702f74f
+        required: false
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: 9ae0e38847d0f6204a63030964fbe373
+        required: false
+        range:
+          type: string
+      etag:
+        allowMultiple: false
+        uuid: 1984d82e926422cb8aeafe8b6e00c60b
+        required: false
+        range:
+          type: string
       publishedLink:
         allowMultiple: false
         uuid: 9463b5f3c2b862a8d2a265d4b770f134
         required: false
         range:
           type: string
-      fileSize:
+      modifiedDate:
         allowMultiple: false
-        uuid: 9ac604151b5a9056be0342580702f74f
+        uuid: 900ab109a1b45c3ce724427401af5e04
+        required: false
+        range:
+          type: dateTime
+      lastModifyingUserName:
+        allowMultiple: false
+        uuid: f302ea258acc57ee35efdd9dca327564
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 223d848ef9ea3d4afc38712fdf3e2d5c
+        required: false
+        range:
+          type: string
+      downloadUrl:
+        allowMultiple: false
+        uuid: 26e3df1c8bf7f8b27d3e3a53d88bcd1a
+        required: false
+        range:
+          type: string
+      id:
+        allowMultiple: false
+        uuid: 2bd4e9a64cc33b22d113f795d9484b73
+        required: false
+        range:
+          type: string
+      originalFilename:
+        allowMultiple: false
+        uuid: f144553480e702c32956cb9a93414d54
         required: false
         range:
           type: string
@@ -26,54 +74,6 @@ entities:
       mimeType:
         allowMultiple: false
         uuid: bef2c61c79ee6b4326e1bb76d5d529cd
-        required: false
-        range:
-          type: string
-      modifiedDate:
-        allowMultiple: false
-        uuid: 900ab109a1b45c3ce724427401af5e04
-        required: false
-        range:
-          type: dateTime
-      selfLink:
-        allowMultiple: false
-        uuid: 9ae0e38847d0f6204a63030964fbe373
-        required: false
-        range:
-          type: string
-      kind:
-        allowMultiple: false
-        uuid: 223d848ef9ea3d4afc38712fdf3e2d5c
-        required: false
-        range:
-          type: string
-      originalFilename:
-        allowMultiple: false
-        uuid: f144553480e702c32956cb9a93414d54
-        required: false
-        range:
-          type: string
-      id:
-        allowMultiple: false
-        uuid: 2bd4e9a64cc33b22d113f795d9484b73
-        required: false
-        range:
-          type: string
-      etag:
-        allowMultiple: false
-        uuid: 1984d82e926422cb8aeafe8b6e00c60b
-        required: false
-        range:
-          type: string
-      downloadUrl:
-        allowMultiple: false
-        uuid: 26e3df1c8bf7f8b27d3e3a53d88bcd1a
-        required: false
-        range:
-          type: string
-      lastModifyingUserName:
-        allowMultiple: false
-        uuid: f302ea258acc57ee35efdd9dca327564
         required: false
         range:
           type: string

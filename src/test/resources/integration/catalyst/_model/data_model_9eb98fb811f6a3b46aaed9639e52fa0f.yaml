@@ -11,30 +11,6 @@ entities:
         required: false
         range:
           type: string
-      name:
-        allowMultiple: false
-        uuid: 7e3ae43cb15d3192cd03e8988a956195
-        required: true
-        range:
-          type: string
-      distance:
-        allowMultiple: false
-        uuid: 7815d7b6f80ae5cbf7e73e839e14b21e
-        required: false
-        range:
-          type: float
-      distanceUnit:
-        allowMultiple: false
-        uuid: 69b1abd9dd879c74bd24950b6f2a75ab
-        required: false
-        range:
-          type: string
-      storeId:
-        allowMultiple: false
-        uuid: 5a3a4eec1b47ea1bec13996ab97db453
-        required: false
-        range:
-          type: string
       notes:
         allowMultiple: false
         uuid: 70b51b2a340cf4c6d31c63e32b40cc63
@@ -47,6 +23,30 @@ entities:
         required: true
         range:
           type: string
+      storeId:
+        allowMultiple: false
+        uuid: 5a3a4eec1b47ea1bec13996ab97db453
+        required: false
+        range:
+          type: string
+      name:
+        allowMultiple: false
+        uuid: 7e3ae43cb15d3192cd03e8988a956195
+        required: true
+        range:
+          type: string
+      distanceUnit:
+        allowMultiple: false
+        uuid: 69b1abd9dd879c74bd24950b6f2a75ab
+        required: false
+        range:
+          type: string
+      distance:
+        allowMultiple: false
+        uuid: 7815d7b6f80ae5cbf7e73e839e14b21e
+        required: false
+        range:
+          type: float
     associations: {}
     description: Information about store
   ContactInfo:

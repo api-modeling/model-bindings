@@ -5,15 +5,9 @@ entities:
   Resource:
     uuid: 8511cff1cb7dfaf5c26984887e3b756d
     attributes:
-      kind:
+      id:
         allowMultiple: false
-        uuid: 9e7ff600d955ae879cdc382f0cf8bb3c
-        required: false
-        range:
-          type: string
-      parentLink:
-        allowMultiple: false
-        uuid: f314b03978b26f3f1423425e0a481b8a
+        uuid: 0c55bcb63e843211fab385cbe018b3d1
         required: false
         range:
           type: string
@@ -29,9 +23,15 @@ entities:
         required: false
         range:
           type: string
-      id:
+      kind:
         allowMultiple: false
-        uuid: 0c55bcb63e843211fab385cbe018b3d1
+        uuid: 9e7ff600d955ae879cdc382f0cf8bb3c
+        required: false
+        range:
+          type: string
+      parentLink:
+        allowMultiple: false
+        uuid: f314b03978b26f3f1423425e0a481b8a
         required: false
         range:
           type: string

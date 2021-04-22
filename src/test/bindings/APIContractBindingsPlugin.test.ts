@@ -155,7 +155,7 @@ describe('APIBindingsPlugin', function() {
 
         assert.equal(allModules, 2)
         assert.equal(dataModels.length, 2)
-        assert.equal(allEntities, 2)
+        assert.equal(allEntities, 3)
         //assert.equal(allBindings, dataModels.length)
     });
 

@@ -5,10 +5,10 @@ entities:
   User:
     uuid: 78d8afcbcbd9068e02e8abb628ee0018
     attributes:
-      permissionId:
+      kind:
         allowMultiple: false
-        uuid: 1c24be51d38a01a7ab1ce908751de3fd
-        required: false
+        uuid: 4d8753caecbcdccf73a50abd8fcfe1de
+        required: true
         range:
           type: string
       isAuthenticatedUser:
@@ -17,21 +17,21 @@ entities:
         required: false
         range:
           type: boolean
-      emailAddress:
+      permissionId:
         allowMultiple: false
-        uuid: 2c4ab956aca162084de0457ea7a73b04
+        uuid: 1c24be51d38a01a7ab1ce908751de3fd
         required: false
-        range:
-          type: string
-      kind:
-        allowMultiple: false
-        uuid: 4d8753caecbcdccf73a50abd8fcfe1de
-        required: true
         range:
           type: string
       displayName:
         allowMultiple: false
         uuid: d520e2e3e66bc734200b1edd1720f45a
+        required: false
+        range:
+          type: string
+      emailAddress:
+        allowMultiple: false
+        uuid: 2c4ab956aca162084de0457ea7a73b04
         required: false
         range:
           type: string

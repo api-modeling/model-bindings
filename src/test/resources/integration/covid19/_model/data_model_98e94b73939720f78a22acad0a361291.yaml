@@ -5,15 +5,9 @@ entities:
   covidMetrics:
     uuid: 982ef230fe0d09bb103aef1542e9e0a0
     attributes:
-      peopleIntubatedCurrentlyCt:
+      peopleHospCurrentlyCt:
         allowMultiple: false
-        uuid: 19ff8b0d945dfc18401757982d131ce7
-        required: false
-        range:
-          type: float
-      activeCaseCt:
-        allowMultiple: false
-        uuid: a0ad606fe9be5d204870fcb0dde632b1
+        uuid: fbf5722da44a7a49044627b680b16a75
         required: false
         range:
           type: float
@@ -23,15 +17,15 @@ entities:
         required: false
         range:
           type: float
-      deathCt:
+      reportedCt:
         allowMultiple: false
-        uuid: 10b1404f0528446bc4f1eee0cc94c6c2
+        uuid: 97eb532cdd76c58bd71bb93b615e0190
         required: false
         range:
           type: float
-      peopleInIntnsvCareCumlCt:
+      recoveredCt:
         allowMultiple: false
-        uuid: c0c02ef24178793cecbcccdedc6bf23e
+        uuid: 0e08da9d423207b3b2d59c03f1b54053
         required: false
         range:
           type: float
@@ -41,27 +35,21 @@ entities:
         required: false
         range:
           type: float
-      peoplePositiveCasesCt:
+      peopleIntubatedCurrentlyCt:
         allowMultiple: false
-        uuid: 789581f2555d2a7548df3d34e70783f5
-        required: false
-        range:
-          type: float
-      peopleHospNewCt:
-        allowMultiple: false
-        uuid: c0d1e551ec5f9ba9d9aebe9ac79f946b
-        required: false
-        range:
-          type: float
-      reportedCt:
-        allowMultiple: false
-        uuid: 97eb532cdd76c58bd71bb93b615e0190
+        uuid: 19ff8b0d945dfc18401757982d131ce7
         required: false
         range:
           type: float
       peopleNegativeCasesCt:
         allowMultiple: false
         uuid: f84c400af8411713f1f0741e125b6437
+        required: false
+        range:
+          type: float
+      activeCaseCt:
+        allowMultiple: false
+        uuid: a0ad606fe9be5d204870fcb0dde632b1
         required: false
         range:
           type: float
@@ -77,27 +65,39 @@ entities:
         required: false
         range:
           type: date
-      recoveredCt:
-        allowMultiple: false
-        uuid: 0e08da9d423207b3b2d59c03f1b54053
-        required: false
-        range:
-          type: float
-      peoplePositiveNewCasesCt:
-        allowMultiple: false
-        uuid: 6ccb24eb05361641252fb998f9455285
-        required: false
-        range:
-          type: float
-      peopleHospCurrentlyCt:
-        allowMultiple: false
-        uuid: fbf5722da44a7a49044627b680b16a75
-        required: false
-        range:
-          type: float
       peopleNegativeNewCt:
         allowMultiple: false
         uuid: 4470da96a67dc5a08f3063cd1da097a5
+        required: false
+        range:
+          type: float
+      peopleHospNewCt:
+        allowMultiple: false
+        uuid: c0d1e551ec5f9ba9d9aebe9ac79f946b
+        required: false
+        range:
+          type: float
+      peoplePositiveCasesCt:
+        allowMultiple: false
+        uuid: 789581f2555d2a7548df3d34e70783f5
+        required: false
+        range:
+          type: float
+      deathCt:
+        allowMultiple: false
+        uuid: 10b1404f0528446bc4f1eee0cc94c6c2
+        required: false
+        range:
+          type: float
+      peopleIntubatedCumulativeCt:
+        allowMultiple: false
+        uuid: 0ced15104e7c471d886466505238a43b
+        required: false
+        range:
+          type: float
+      peopleInIntnsvCareCumlCt:
+        allowMultiple: false
+        uuid: c0c02ef24178793cecbcccdedc6bf23e
         required: false
         range:
           type: float
@@ -107,9 +107,9 @@ entities:
         required: false
         range:
           type: float
-      peopleIntubatedCumulativeCt:
+      peoplePositiveNewCasesCt:
         allowMultiple: false
-        uuid: 0ced15104e7c471d886466505238a43b
+        uuid: 6ccb24eb05361641252fb998f9455285
         required: false
         range:
           type: float

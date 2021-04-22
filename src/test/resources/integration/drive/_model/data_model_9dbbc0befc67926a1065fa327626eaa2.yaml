@@ -5,51 +5,51 @@ entities:
   Change:
     uuid: e37517a2787e7ea2a490cd80fd84b617
     attributes:
-      deleted:
-        allowMultiple: false
-        uuid: 57b4bf91d39fdce227ed87c5d252236c
-        required: false
-        range:
-          type: boolean
       kind:
         allowMultiple: false
         uuid: 8c0731199d3f7388d495431dc26a8dbd
         required: false
         range:
           type: string
-      selfLink:
+      teamDriveId:
         allowMultiple: false
-        uuid: 6488780bda89b17ce1904b2195ef5504
+        uuid: 51d1999055ed19103da5ed0475822281
         required: false
         range:
           type: string
-      modificationDate:
+      attribute3:
         allowMultiple: false
-        uuid: 78242d7e5d197df926fb26971d1e9081
+        uuid: 238579f19ea62d1958ecb5cbd3afc6b5
         required: true
         range:
-          type: dateTime
+          type: string
       id:
         allowMultiple: false
         uuid: 76d0278c979dacd19cf562747184acba
         required: false
         range:
           type: string
-      attribute4:
+      deleted:
         allowMultiple: false
-        uuid: 238579f19ea62d1958ecb5cbd3afc6b5
+        uuid: 57b4bf91d39fdce227ed87c5d252236c
+        required: false
+        range:
+          type: boolean
+      modificationDate:
+        allowMultiple: false
+        uuid: 78242d7e5d197df926fb26971d1e9081
         required: true
         range:
-          type: string
+          type: dateTime
       fileId:
         allowMultiple: false
         uuid: 017d263f8da2b3fd4301f89dbf7087ea
         required: true
         range:
           type: string
-      teamDriveId:
+      selfLink:
         allowMultiple: false
-        uuid: 51d1999055ed19103da5ed0475822281
+        uuid: 6488780bda89b17ce1904b2195ef5504
         required: false
         range:
           type: string
@@ -85,10 +85,10 @@ entities:
         required: false
         range:
           type: string
-      nextPageToken:
+      kind:
         allowMultiple: false
-        uuid: 8b208698b53231d7a7d303a49e2fbf7f
-        required: true
+        uuid: 60dd24c3e873d62dbf75eb3fbaa7a4cd
+        required: false
         range:
           type: string
       nextLink:
@@ -97,10 +97,10 @@ entities:
         required: true
         range:
           type: string
-      kind:
+      nextPageToken:
         allowMultiple: false
-        uuid: 60dd24c3e873d62dbf75eb3fbaa7a4cd
-        required: false
+        uuid: 8b208698b53231d7a7d303a49e2fbf7f
+        required: true
         range:
           type: string
     associations:
@@ -112,9 +112,9 @@ entities:
   Watch:
     uuid: 699552c628282eec7e135e842bb73fbc
     attributes:
-      id:
+      expiration:
         allowMultiple: false
-        uuid: a8103d139260d3051451b8df704c4868
+        uuid: ef899148e6b1832bb943369e25f116d9
         required: false
         range:
           type: string
@@ -124,13 +124,13 @@ entities:
         required: false
         range:
           type: string
-      expiration:
+      id:
         allowMultiple: false
-        uuid: ef899148e6b1832bb943369e25f116d9
+        uuid: a8103d139260d3051451b8df704c4868
         required: false
         range:
           type: string
-      attribute5:
+      attribute4:
         allowMultiple: false
         uuid: 537996326f43fbe341f651b9ce468c8c
         required: false
@@ -146,15 +146,15 @@ entities:
   WatchResponse:
     uuid: 80c85ca3399af98a558f7043fade9fca
     attributes:
+      expiration:
+        allowMultiple: false
+        uuid: f27e490c0924c2df9ffc038c652a6035
+        required: true
+        range:
+          type: float
       resourceId:
         allowMultiple: false
         uuid: c10b58d3bf0db6a5aebacb6c88c7d709
-        required: true
-        range:
-          type: string
-      token:
-        allowMultiple: false
-        uuid: 901356cea898f8240aeef2e438bd16b6
         required: true
         range:
           type: string
@@ -170,16 +170,16 @@ entities:
         required: false
         range:
           type: string
-      expiration:
-        allowMultiple: false
-        uuid: f27e490c0924c2df9ffc038c652a6035
-        required: true
-        range:
-          type: float
       id:
         allowMultiple: false
         uuid: c9f9bf836de998ad4eb09a7f547e75e7
         required: false
+        range:
+          type: string
+      token:
+        allowMultiple: false
+        uuid: 901356cea898f8240aeef2e438bd16b6
+        required: true
         range:
           type: string
     associations: {}

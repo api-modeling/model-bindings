@@ -5,12 +5,6 @@ entities:
   message-sent-type:
     uuid: e16ae3e4efdc9f8da10d20aff4d61dae
     attributes:
-      attachements:
-        allowMultiple: true
-        uuid: 633756555204113ccf0b1c91a7a62f68
-        required: false
-        range:
-          type: string
       important:
         allowMultiple: false
         uuid: 11184144df97867b3087f6cca399269a
@@ -33,6 +27,12 @@ entities:
         allowMultiple: false
         uuid: 3630146a2a78733de45091e6c2266e15
         required: true
+        range:
+          type: string
+      attachements:
+        allowMultiple: true
+        uuid: 633756555204113ccf0b1c91a7a62f68
+        required: false
         range:
           type: string
     associations: {}

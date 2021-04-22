@@ -5,9 +5,9 @@ entities:
   file-capabilities:
     uuid: ee59ede5489c799d399fd620a0b32e63
     attributes:
-      canMoveTeamDriveItem:
+      canComment:
         allowMultiple: false
-        uuid: 799f246fcbc2889346bcd87dfa48d244
+        uuid: 29fc789c1f6be724b176d98fc0db7288
         required: false
         range:
           type: boolean
@@ -17,39 +17,9 @@ entities:
         required: false
         range:
           type: boolean
-      canReadRevisions:
+      canAddChildren:
         allowMultiple: false
-        uuid: f7ef3a39e41fc5342f7522fe909b4b57
-        required: false
-        range:
-          type: boolean
-      canEdit:
-        allowMultiple: false
-        uuid: 6047d09d49413a3eb1ab6f56c5907f8e
-        required: false
-        range:
-          type: boolean
-      canRemoveChildren:
-        allowMultiple: false
-        uuid: a0372af95db766be21556646ff7823a7
-        required: false
-        range:
-          type: boolean
-      canMoveItemIntoTeamDrive:
-        allowMultiple: false
-        uuid: 022c6e381d1dc54f13090cc6a4dde5bf
-        required: false
-        range:
-          type: boolean
-      canListChildren:
-        allowMultiple: false
-        uuid: 748668de7070bbc48738767d7ffd819b
-        required: false
-        range:
-          type: boolean
-      canDownload:
-        allowMultiple: false
-        uuid: 8eed23a0dabeab4a46df54e951d6d705
+        uuid: e2ca6a22423e6561309b3fff6ba531be
         required: false
         range:
           type: boolean
@@ -59,33 +29,21 @@ entities:
         required: false
         range:
           type: boolean
+      canMoveItemIntoTeamDrive:
+        allowMultiple: false
+        uuid: 022c6e381d1dc54f13090cc6a4dde5bf
+        required: false
+        range:
+          type: boolean
+      canDownload:
+        allowMultiple: false
+        uuid: 8eed23a0dabeab4a46df54e951d6d705
+        required: false
+        range:
+          type: boolean
       canShare:
         allowMultiple: false
         uuid: 38d9bc27997755947694a223302fc8e3
-        required: false
-        range:
-          type: boolean
-      canDelete:
-        allowMultiple: false
-        uuid: e86b21b47107ebbac71125b3fc0ea515
-        required: false
-        range:
-          type: boolean
-      canAddChildren:
-        allowMultiple: false
-        uuid: e2ca6a22423e6561309b3fff6ba531be
-        required: false
-        range:
-          type: boolean
-      canRename:
-        allowMultiple: false
-        uuid: bc48612754bae0d2fcb47c656cba6213
-        required: false
-        range:
-          type: boolean
-      canComment:
-        allowMultiple: false
-        uuid: 29fc789c1f6be724b176d98fc0db7288
         required: false
         range:
           type: boolean
@@ -95,9 +53,51 @@ entities:
         required: false
         range:
           type: boolean
+      canRemoveChildren:
+        allowMultiple: false
+        uuid: a0372af95db766be21556646ff7823a7
+        required: false
+        range:
+          type: boolean
       canTrash:
         allowMultiple: false
         uuid: af1ec6b0ce6a0c50d34543487598a55a
+        required: false
+        range:
+          type: boolean
+      canDelete:
+        allowMultiple: false
+        uuid: e86b21b47107ebbac71125b3fc0ea515
+        required: false
+        range:
+          type: boolean
+      canListChildren:
+        allowMultiple: false
+        uuid: 748668de7070bbc48738767d7ffd819b
+        required: false
+        range:
+          type: boolean
+      canEdit:
+        allowMultiple: false
+        uuid: 6047d09d49413a3eb1ab6f56c5907f8e
+        required: false
+        range:
+          type: boolean
+      canReadRevisions:
+        allowMultiple: false
+        uuid: f7ef3a39e41fc5342f7522fe909b4b57
+        required: false
+        range:
+          type: boolean
+      canRename:
+        allowMultiple: false
+        uuid: bc48612754bae0d2fcb47c656cba6213
+        required: false
+        range:
+          type: boolean
+      canMoveTeamDriveItem:
+        allowMultiple: false
+        uuid: 799f246fcbc2889346bcd87dfa48d244
         required: false
         range:
           type: boolean

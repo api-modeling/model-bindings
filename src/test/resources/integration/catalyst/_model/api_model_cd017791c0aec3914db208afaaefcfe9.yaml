@@ -2,29 +2,29 @@
 uuid: cd017791c0aec3914db208afaaefcfe9
 name: retail_locations_system_api.raml
 entities:
+  AdaptedEntity.StoreSearchResponse11:
+    uuid: df4155ae865a481d3972dbd6a5e9eb97
+    adapts: http://mulesoft.com/modeling/instances/299b29a05b90f585228d16706428bfb7
   AdaptedEntity.StoreSearchResponse26:
     uuid: ebc9e0a677ad8ac50f1d1686ad66175a
     adapts: http://mulesoft.com/modeling/instances/299b29a05b90f585228d16706428bfb7
   AdaptedEntity.ItemAvailabilityResponse6:
     uuid: f9906a701d923adaa871a50db55a9581
     adapts: http://mulesoft.com/modeling/instances/b26f7cc61dc0825f1e1aa8a7f27db318
-  AdaptedEntity.MessageResponse10:
-    uuid: b2284422fbab6e9a55162f79d16d5edc
-    adapts: http://mulesoft.com/modeling/instances/a83cba5affe762dbe0f932361b04d579
-  AdaptedEntity.StoreInfo23:
-    uuid: 04b6aec91d3025ed9375e4bfe379c448
-    adapts: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
   AdaptedEntity.ItemAvailabilityResponse3:
     uuid: 6ec6a39edf6b1827b54b1000afba7740
     adapts: http://mulesoft.com/modeling/instances/b26f7cc61dc0825f1e1aa8a7f27db318
   AdaptedEntity.StoreInfo15:
     uuid: 96311dd83b15236e9c1ccee84d357b31
     adapts: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
-  AdaptedEntity.StoreSearchResponse11:
-    uuid: df4155ae865a481d3972dbd6a5e9eb97
-    adapts: http://mulesoft.com/modeling/instances/299b29a05b90f585228d16706428bfb7
   AdaptedEntity.StoreInfo16:
     uuid: eb0e96296b8306dadce3c7c2ad4e61cc
+    adapts: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
+  AdaptedEntity.MessageResponse10:
+    uuid: b2284422fbab6e9a55162f79d16d5edc
+    adapts: http://mulesoft.com/modeling/instances/a83cba5affe762dbe0f932361b04d579
+  AdaptedEntity.StoreInfo23:
+    uuid: 04b6aec91d3025ed9375e4bfe379c448
     adapts: http://mulesoft.com/modeling/instances/b10ace59dbd1cc15d68fe432e6b2ae7c
   AdaptedEntity.StoreInfo20:
     uuid: fec01251aa82693de8d82c1e066363de
@@ -39,7 +39,7 @@ entryPoint:
       name: Find Resource /productLocator
       transition:
         uuid: 8d8011490053910b69b9b2d8ee5222ab
-        target: http://mulesoft.com/modeling/instances/ca7b1ec1-0d15-498a-aaa1-3780a14cc48d
+        target: http://mulesoft.com/modeling/instances/5f0ac29e-b0d8-466c-8ffe-d596b38a3a73
       inputs:
         -
           scalarRange:
@@ -77,7 +77,7 @@ entryPoint:
       name: Find Resource /stores
       transition:
         uuid: d2d218e324d680b537dd178a8d4f3581
-        target: http://mulesoft.com/modeling/instances/e73dd0c0-73fa-46d4-b679-78d481f3adf6
+        target: http://mulesoft.com/modeling/instances/cb19ca00-aa6d-453b-bf77-20ba9ac57248
       inputs:
         -
           scalarRange:
@@ -97,7 +97,7 @@ entryPoint:
       type: custom
 resources:
   -
-    uuid: ca7b1ec1-0d15-498a-aaa1-3780a14cc48d
+    uuid: 5f0ac29e-b0d8-466c-8ffe-d596b38a3a73
     name: Resource /productLocator
     schema:
       uuid: 6ec6a39edf6b1827b54b1000afba7740
@@ -107,7 +107,7 @@ resources:
     operations: []
     type: individual
   -
-    uuid: e73dd0c0-73fa-46d4-b679-78d481f3adf6
+    uuid: cb19ca00-aa6d-453b-bf77-20ba9ac57248
     name: Resource /stores
     schema:
       uuid: df4155ae865a481d3972dbd6a5e9eb97
@@ -136,7 +136,7 @@ resources:
         name: Find Resource /stores/{storeId}
         transition:
           uuid: 9f1c391ef932b53b71e5ad91789c58cd
-          target: http://mulesoft.com/modeling/instances/f565821d-f37b-4447-aa3c-5d0d69aafdc9
+          target: http://mulesoft.com/modeling/instances/b71f3f00-b50a-4523-964b-3b8906d0dd7a
         inputs:
           -
             scalarRange:
@@ -154,7 +154,7 @@ resources:
         type: custom
     type: individual
   -
-    uuid: f565821d-f37b-4447-aa3c-5d0d69aafdc9
+    uuid: b71f3f00-b50a-4523-964b-3b8906d0dd7a
     name: Resource /stores/{storeId}
     schema:
       uuid: eb0e96296b8306dadce3c7c2ad4e61cc

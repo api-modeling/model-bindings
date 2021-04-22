@@ -5,6 +5,18 @@ entities:
   Owners:
     uuid: bef5a6b1b481f0c3110510b3a4e492ae
     attributes:
+      displayName:
+        allowMultiple: false
+        uuid: 455faef12013eacb00aaf95a90689bba
+        required: false
+        range:
+          type: string
+      isAuthenticatedUser:
+        allowMultiple: false
+        uuid: d5e22cbb79bae2f65248186760f7ac0e
+        required: false
+        range:
+          type: boolean
       permissionId:
         allowMultiple: false
         uuid: 7f31dcfa71593c07db84c251dfec057b
@@ -20,18 +32,6 @@ entities:
       emailAddress:
         allowMultiple: false
         uuid: 5940cbc93138c48ec7c49d39c75bb9a1
-        required: false
-        range:
-          type: string
-      isAuthenticatedUser:
-        allowMultiple: false
-        uuid: d5e22cbb79bae2f65248186760f7ac0e
-        required: false
-        range:
-          type: boolean
-      displayName:
-        allowMultiple: false
-        uuid: 455faef12013eacb00aaf95a90689bba
         required: false
         range:
           type: string

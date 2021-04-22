@@ -5,9 +5,45 @@ entities:
   customersDTO:
     uuid: fe1b4d38016feacc6f3cd9f4a2cd8641
     attributes:
-      customerId:
+      status:
         allowMultiple: false
-        uuid: 20a1c3e950e9dc9409d2bf90bd32f539
+        uuid: a38d5737cf54db7a5cc751196295af85
+        required: false
+        range:
+          type: string
+      customerName:
+        allowMultiple: false
+        uuid: e600b3d9feb28a8cc7675a08e028f680
+        required: false
+        range:
+          type: string
+      organizationProfileId:
+        allowMultiple: false
+        uuid: 7b11a2a30e0db0c20823ea31509c4c5f
+        required: false
+        range:
+          type: string
+      sourceSystem:
+        allowMultiple: false
+        uuid: f72da79589e78d55f9e93328aa498d51
+        required: false
+        range:
+          type: string
+      hubCustomerName:
+        allowMultiple: false
+        uuid: c513b996a2579bccc37789c82dda035a
+        required: false
+        range:
+          type: string
+      hubCustomerNumber:
+        allowMultiple: false
+        uuid: 261182f265c7b761f35cb81c32263835
+        required: false
+        range:
+          type: string
+      creationDate:
+        allowMultiple: false
+        uuid: 771cbe1915289ffa81de2d178868e934
         required: false
         range:
           type: string
@@ -23,51 +59,9 @@ entities:
         required: false
         range:
           type: string
-      creationDate:
-        allowMultiple: false
-        uuid: 771cbe1915289ffa81de2d178868e934
-        required: false
-        range:
-          type: string
-      hubCustomerNumber:
-        allowMultiple: false
-        uuid: 261182f265c7b761f35cb81c32263835
-        required: false
-        range:
-          type: string
-      hubCustomerName:
-        allowMultiple: false
-        uuid: c513b996a2579bccc37789c82dda035a
-        required: false
-        range:
-          type: string
-      organizationProfileId:
-        allowMultiple: false
-        uuid: 7b11a2a30e0db0c20823ea31509c4c5f
-        required: false
-        range:
-          type: string
-      status:
-        allowMultiple: false
-        uuid: a38d5737cf54db7a5cc751196295af85
-        required: false
-        range:
-          type: string
       customerType:
         allowMultiple: false
         uuid: bd83aedf5a5db776f102d3c73a3e5b45
-        required: false
-        range:
-          type: string
-      customerName:
-        allowMultiple: false
-        uuid: e600b3d9feb28a8cc7675a08e028f680
-        required: false
-        range:
-          type: string
-      sanctionsFlag:
-        allowMultiple: false
-        uuid: ce265397f8c901251e86fff841e48661
         required: false
         range:
           type: string
@@ -77,9 +71,15 @@ entities:
         required: false
         range:
           type: string
-      sourceSystem:
+      sanctionsFlag:
         allowMultiple: false
-        uuid: f72da79589e78d55f9e93328aa498d51
+        uuid: ce265397f8c901251e86fff841e48661
+        required: false
+        range:
+          type: string
+      customerId:
+        allowMultiple: false
+        uuid: 20a1c3e950e9dc9409d2bf90bd32f539
         required: false
         range:
           type: string
@@ -88,45 +88,9 @@ entities:
   customerreferencesDTO:
     uuid: 598a752b0fe6bacea22c857cb14efdb9
     attributes:
-      customerReference:
-        allowMultiple: false
-        uuid: 1b0a0ec87dd8d7af0d0407f64ce2d931
-        required: false
-        range:
-          type: string
-      customerNumber:
-        allowMultiple: false
-        uuid: 8e4a94d8cf8d924fc3035a43a6e0e4e4
-        required: false
-        range:
-          type: string
-      sourceSystem:
-        allowMultiple: false
-        uuid: 343864030c9bf5c4774d4371ae65a142
-        required: false
-        range:
-          type: string
-      dnbDomesticUltimateNumber:
-        allowMultiple: false
-        uuid: c65e44265d6b68fd6046cf8edc9fe119
-        required: false
-        range:
-          type: string
-      Status:
-        allowMultiple: false
-        uuid: 8a15bdd7d98d0bfb64574ceb145da0cf
-        required: false
-        range:
-          type: string
       dnbId:
         allowMultiple: false
         uuid: 16cd101e5f78ef3e9920d1964f677a6e
-        required: false
-        range:
-          type: string
-      customerId:
-        allowMultiple: false
-        uuid: 528729ffe4b14de7174793d296d155ae
         required: false
         range:
           type: string
@@ -136,15 +100,39 @@ entities:
         required: false
         range:
           type: string
-      dnbGlobalUltimateNumber:
+      customerReference:
         allowMultiple: false
-        uuid: 8f62b4cdc505919ff63caa874554855f
+        uuid: 1b0a0ec87dd8d7af0d0407f64ce2d931
         required: false
         range:
           type: string
-      customerName:
+      dnbDomesticUltimateNumber:
         allowMultiple: false
-        uuid: dc0057169cc26d984a0ef3a484a02aec
+        uuid: c65e44265d6b68fd6046cf8edc9fe119
+        required: false
+        range:
+          type: string
+      customerId:
+        allowMultiple: false
+        uuid: 528729ffe4b14de7174793d296d155ae
+        required: false
+        range:
+          type: string
+      customerNumber:
+        allowMultiple: false
+        uuid: 8e4a94d8cf8d924fc3035a43a6e0e4e4
+        required: false
+        range:
+          type: string
+      Status:
+        allowMultiple: false
+        uuid: 8a15bdd7d98d0bfb64574ceb145da0cf
+        required: false
+        range:
+          type: string
+      dnbGlobalUltimateNumber:
+        allowMultiple: false
+        uuid: 8f62b4cdc505919ff63caa874554855f
         required: false
         range:
           type: string
@@ -154,26 +142,62 @@ entities:
         required: false
         range:
           type: string
+      customerName:
+        allowMultiple: false
+        uuid: dc0057169cc26d984a0ef3a484a02aec
+        required: false
+        range:
+          type: string
+      sourceSystem:
+        allowMultiple: false
+        uuid: 343864030c9bf5c4774d4371ae65a142
+        required: false
+        range:
+          type: string
     associations: {}
     displayName: customerreferencesDTO
   customeraddressesDTO:
     uuid: 79212ba0d321ec482b21914a0694bd5f
     attributes:
-      streetAddress:
+      customerNumber:
         allowMultiple: false
-        uuid: ff064af1fd9c336647632db8e2aa9af1
-        required: false
-        range:
-          type: string
-      city:
-        allowMultiple: false
-        uuid: 0fe4220d03ec52ab35fac1748ebc71d2
+        uuid: 1997ead54a43e41df8ee994f57795f19
         required: false
         range:
           type: string
       customerReference:
         allowMultiple: false
         uuid: b09215965f5dd80be87d3c38baea99ec
+        required: false
+        range:
+          type: string
+      sourceSystem:
+        allowMultiple: false
+        uuid: 4421204f4e087a9940c73329a9cf3fb9
+        required: false
+        range:
+          type: string
+      country:
+        allowMultiple: false
+        uuid: b78ebc3ca4962bb1394b80994d4c654c
+        required: false
+        range:
+          type: string
+      streetAddress:
+        allowMultiple: false
+        uuid: ff064af1fd9c336647632db8e2aa9af1
+        required: false
+        range:
+          type: string
+      customerId:
+        allowMultiple: false
+        uuid: 229c4d9e975672d924ee685b5961efcb
+        required: false
+        range:
+          type: string
+      city:
+        allowMultiple: false
+        uuid: 0fe4220d03ec52ab35fac1748ebc71d2
         required: false
         range:
           type: string
@@ -189,21 +213,9 @@ entities:
         required: false
         range:
           type: string
-      customerNumber:
+      addressName:
         allowMultiple: false
-        uuid: 1997ead54a43e41df8ee994f57795f19
-        required: false
-        range:
-          type: string
-      postalCode:
-        allowMultiple: false
-        uuid: 68252b27c52d7558edf7d3a12332a853
-        required: false
-        range:
-          type: string
-      sourceSystem:
-        allowMultiple: false
-        uuid: 4421204f4e087a9940c73329a9cf3fb9
+        uuid: a8f757e00b44e31461788b956df43887
         required: false
         range:
           type: string
@@ -213,27 +225,15 @@ entities:
         required: false
         range:
           type: string
-      customerId:
-        allowMultiple: false
-        uuid: 229c4d9e975672d924ee685b5961efcb
-        required: false
-        range:
-          type: string
-      country:
-        allowMultiple: false
-        uuid: b78ebc3ca4962bb1394b80994d4c654c
-        required: false
-        range:
-          type: string
       customerName:
         allowMultiple: false
         uuid: 413e04fb3f9ef49531dbc61ad8bdb301
         required: false
         range:
           type: string
-      addressName:
+      postalCode:
         allowMultiple: false
-        uuid: a8f757e00b44e31461788b956df43887
+        uuid: 68252b27c52d7558edf7d3a12332a853
         required: false
         range:
           type: string
@@ -242,9 +242,9 @@ entities:
   customerSitesDTO:
     uuid: 85d56e3547c92e1da1b5ad0586f5de7f
     attributes:
-      siteCreationDate:
+      sourceSystem:
         allowMultiple: false
-        uuid: 0e0ea73fcfd1b5a5c3003695c8ebd77d
+        uuid: 2f256948580c4aa80dc5f75f908f5a67
         required: false
         range:
           type: string
@@ -254,15 +254,33 @@ entities:
         required: false
         range:
           type: string
-      sourceSystem:
+      city:
         allowMultiple: false
-        uuid: 2f256948580c4aa80dc5f75f908f5a67
+        uuid: 4a91605ae98e5f1c7eb87ea46d77aab7
         required: false
         range:
           type: string
-      siteStatus:
+      billToSite:
         allowMultiple: false
-        uuid: eb973f7e93bb9808db8520ff0ec6e4a2
+        uuid: c63859554f0ffff019d6c28891d4804e
+        required: false
+        range:
+          type: string
+      parentDunsNumber:
+        allowMultiple: false
+        uuid: e01bfa1c1b7e26286ae19bfce56c431b
+        required: false
+        range:
+          type: string
+      customerStatus:
+        allowMultiple: false
+        uuid: 41b74c428d06b04d6e6b582eb2ad17e7
+        required: false
+        range:
+          type: string
+      siteUpdateDate:
+        allowMultiple: false
+        uuid: c3bcb80439c087e6ad8eed408627320f
         required: false
         range:
           type: string
@@ -272,57 +290,9 @@ entities:
         required: false
         range:
           type: string
-      siteNumber:
+      siteName:
         allowMultiple: false
-        uuid: 47ec4f23ff67f8684358a2ff8954f4b9
-        required: false
-        range:
-          type: string
-      shipToSite:
-        allowMultiple: false
-        uuid: e75231e2867e8e880053e375ee77309d
-        required: false
-        range:
-          type: string
-      ultimateDunsNumber:
-        allowMultiple: false
-        uuid: f64d385d854d6696a01d1e0c18e285c9
-        required: false
-        range:
-          type: string
-      sanctionsFlag:
-        allowMultiple: false
-        uuid: 6ab78a1b133dac0a67b8f9458096d1c4
-        required: false
-        range:
-          type: string
-      customerReference:
-        allowMultiple: false
-        uuid: 5a5e9117f65e76f391e231cb079adef4
-        required: false
-        range:
-          type: string
-      state:
-        allowMultiple: false
-        uuid: fceeed1d5ab3d95d97beae464ecfdd98
-        required: false
-        range:
-          type: string
-      address1:
-        allowMultiple: false
-        uuid: 7a98d859575418147f061ee0b7a204e0
-        required: false
-        range:
-          type: string
-      city:
-        allowMultiple: false
-        uuid: 4a91605ae98e5f1c7eb87ea46d77aab7
-        required: false
-        range:
-          type: string
-      address3:
-        allowMultiple: false
-        uuid: f6d42315e168f2948d938f187eb03d45
+        uuid: da457f5c949ba2563c37525f387e8f95
         required: false
         range:
           type: string
@@ -338,33 +308,9 @@ entities:
         required: false
         range:
           type: string
-      customerNumber:
+      sanctionsFlag:
         allowMultiple: false
-        uuid: bf9f7f4f63beb468c3208ed1ae90f15d
-        required: false
-        range:
-          type: string
-      county:
-        allowMultiple: false
-        uuid: 8ec88642f17d0edaf982d8933f940b4c
-        required: false
-        range:
-          type: string
-      salesPerson:
-        allowMultiple: false
-        uuid: 290dcf1945c8ee03ad5e2e17ba9b93b6
-        required: false
-        range:
-          type: string
-      parentDunsNumber:
-        allowMultiple: false
-        uuid: e01bfa1c1b7e26286ae19bfce56c431b
-        required: false
-        range:
-          type: string
-      customerId:
-        allowMultiple: false
-        uuid: 76766fed7ccf0db65b6413bc7e3ca25a
+        uuid: 6ab78a1b133dac0a67b8f9458096d1c4
         required: false
         range:
           type: string
@@ -374,21 +320,69 @@ entities:
         required: false
         range:
           type: string
-      siteName:
+      ultimateDunsNumber:
         allowMultiple: false
-        uuid: da457f5c949ba2563c37525f387e8f95
+        uuid: f64d385d854d6696a01d1e0c18e285c9
         required: false
         range:
           type: string
-      siteUpdateDate:
+      siteNumber:
         allowMultiple: false
-        uuid: c3bcb80439c087e6ad8eed408627320f
+        uuid: 47ec4f23ff67f8684358a2ff8954f4b9
         required: false
         range:
           type: string
-      billToSite:
+      customerId:
         allowMultiple: false
-        uuid: c63859554f0ffff019d6c28891d4804e
+        uuid: 76766fed7ccf0db65b6413bc7e3ca25a
+        required: false
+        range:
+          type: string
+      customerReference:
+        allowMultiple: false
+        uuid: 5a5e9117f65e76f391e231cb079adef4
+        required: false
+        range:
+          type: string
+      state:
+        allowMultiple: false
+        uuid: fceeed1d5ab3d95d97beae464ecfdd98
+        required: false
+        range:
+          type: string
+      county:
+        allowMultiple: false
+        uuid: 8ec88642f17d0edaf982d8933f940b4c
+        required: false
+        range:
+          type: string
+      shipToSite:
+        allowMultiple: false
+        uuid: e75231e2867e8e880053e375ee77309d
+        required: false
+        range:
+          type: string
+      address2:
+        allowMultiple: false
+        uuid: 251e1995e650a91055be9abcfd299982
+        required: false
+        range:
+          type: string
+      address1:
+        allowMultiple: false
+        uuid: 7a98d859575418147f061ee0b7a204e0
+        required: false
+        range:
+          type: string
+      address3:
+        allowMultiple: false
+        uuid: f6d42315e168f2948d938f187eb03d45
+        required: false
+        range:
+          type: string
+      salesPerson:
+        allowMultiple: false
+        uuid: 290dcf1945c8ee03ad5e2e17ba9b93b6
         required: false
         range:
           type: string
@@ -398,15 +392,21 @@ entities:
         required: false
         range:
           type: string
-      customerStatus:
+      siteCreationDate:
         allowMultiple: false
-        uuid: 41b74c428d06b04d6e6b582eb2ad17e7
+        uuid: 0e0ea73fcfd1b5a5c3003695c8ebd77d
         required: false
         range:
           type: string
-      address2:
+      siteStatus:
         allowMultiple: false
-        uuid: 251e1995e650a91055be9abcfd299982
+        uuid: eb973f7e93bb9808db8520ff0ec6e4a2
+        required: false
+        range:
+          type: string
+      customerNumber:
+        allowMultiple: false
+        uuid: bf9f7f4f63beb468c3208ed1ae90f15d
         required: false
         range:
           type: string
