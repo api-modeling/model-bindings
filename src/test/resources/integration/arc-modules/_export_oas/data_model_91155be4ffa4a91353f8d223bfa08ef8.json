@@ -1,0 +1,131 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "DailyUsers": {
+      "description": "An object representing response for daily users.",
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/DailyResult"
+        }
+      ]
+    },
+    "AnalyticsRangeResult": {
+      "type": "object",
+      "required": [
+        "kind",
+        "day",
+        "result",
+        "items"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "day": {
+          "type": "string",
+          "format": "date"
+        },
+        "result": {
+          "type": "integer"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "DailyItemResult"
+          }
+        }
+      }
+    },
+    "PeriodicalSessions": {
+      "description": "An object representing periodical (weekly or mothly) sessions data.",
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/AnalyticsRangeResult"
+        }
+      ]
+    },
+    "PeriodicalUsers": {
+      "description": "An object representing periodical (weekly or mothly) users data.",
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/AnalyticsRangeResult"
+        }
+      ]
+    },
+    "DailySessions": {
+      "description": "An object representing response for daily sessions.",
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/DailyResult"
+        }
+      ]
+    },
+    "DailyResult": {
+      "type": "object",
+      "required": [
+        "result"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "result": {
+          "type": "integer"
+        }
+      }
+    },
+    "DailyItemResult": {
+      "description": "This object is returned in weekly and monthly analytics data.\nIt is a representation of number of users or sessions for each day for the given time period.\n",
+      "type": "object",
+      "required": [
+        "day",
+        "value"
+      ],
+      "properties": {
+        "day": {
+          "type": "string",
+          "format": "date"
+        },
+        "value": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

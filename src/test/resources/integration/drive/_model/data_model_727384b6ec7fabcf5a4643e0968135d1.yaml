@@ -11,21 +11,15 @@ entities:
         required: true
         range:
           type: string
-      value:
-        allowMultiple: false
-        uuid: 3646d48d1471eb1eaae07114dd3f2c2f
-        required: true
-        range:
-          type: string
-      key:
-        allowMultiple: false
-        uuid: 86fdd26ee5f2119213ae86f50fd129e2
-        required: true
-        range:
-          type: string
       visibility:
         allowMultiple: false
         uuid: a9a97804a4a56733c50c0ed888a088e5
+        required: true
+        range:
+          type: string
+      selfLink:
+        allowMultiple: false
+        uuid: 47436bf839a8fee41138af9e4644708c
         required: true
         range:
           type: string
@@ -35,9 +29,15 @@ entities:
         required: true
         range:
           type: string
-      selfLink:
+      value:
         allowMultiple: false
-        uuid: 47436bf839a8fee41138af9e4644708c
+        uuid: 3646d48d1471eb1eaae07114dd3f2c2f
+        required: true
+        range:
+          type: string
+      key:
+        allowMultiple: false
+        uuid: 86fdd26ee5f2119213ae86f50fd129e2
         required: true
         range:
           type: string

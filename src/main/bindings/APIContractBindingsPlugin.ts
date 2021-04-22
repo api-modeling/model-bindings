@@ -101,6 +101,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
             const module = new meta.Module("Imported spec " + name);
             module.uuid = Md5.hashStr(baseUnit.id + "_module").toString();
             dataModels = new ShapeTransformer(module.id(), baseUnit, idGenerator).transformBaseUnitDataModel()
+            dataModels = dataModels.filter((dm) => dm.entities?.length != 0)
             module.dataModels = dataModels.map((dm) => dm.id());
 
             let apiWrapper: meta.ApiModelDialect[] = []

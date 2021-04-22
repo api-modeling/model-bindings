@@ -1,0 +1,226 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "covid-data-tracking-api.raml",
+    "version": "1.0"
+  },
+  "paths": {
+    "/covid19/v1": {
+      "get": {
+        "operationId": "Custom",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "DefaultPayload_3745a9d2f54382cb2bc3c576d019a471"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/covid19/v1/cases": {
+      "get": {
+        "operationId": "Custom",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "DefaultPayload_1f4b570557c77ad06f37653b2a1ffa4d"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/covid19/v1/cases/covidTracking": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "state",
+            "description": "Provide 2 letter US State code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "daysInPast",
+            "description": "How many days of data to fetch?",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "!include data_model_23076dd6c742c730c3fd4856a5196d96.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/covid19/v1/cases/eucdc": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "country",
+            "description": "ISO 2-letter code for country",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "daysInPast",
+            "description": "How many days of data to fetch?",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "!include data_model_6dea653e79a9fb95e385728872eab66b.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/covid19/v1/cases/newYorkTimes": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "zipCode",
+            "description": "Use ZIP Code as query parameter",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "daysInPast",
+            "description": "How many days of data to fetch?",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "!include data_model_b2b9720720e7b5f53944a521b71e59d5.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/covid19/v1/high-level-policy": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "country",
+            "description": "ISO 3-letter code for country",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "description": "Provide 2 letter US State code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "Entity17"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/covid19/v1/locations": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "zipCode",
+            "description": "Use ZIP Code as query parameter",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "!include data_model_ae17e04fa8cb412f63986bcdfbc46962.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DefaultPayload_3745a9d2f54382cb2bc3c576d019a471": {},
+      "DefaultPayload_1f4b570557c77ad06f37653b2a1ffa4d": {},
+      "Entity17": {},
+      "Entity18": {
+        "anyOf": [
+          {
+            "$ref": "!include data_model_f8d6a2a1c5ce210c05f974b90aab7340.json"
+          },
+          {
+            "$ref": "!include data_model_9f4366e043b8a1f37f39ba06d291f9dc.json"
+          }
+        ]
+      }
+    }
+  }
+}

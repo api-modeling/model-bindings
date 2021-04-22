@@ -1,0 +1,26 @@
+{
+  "x-amf-fragmentType": "2.0 DataType",
+  "title": "Owners",
+  "description": "The owner(s) of a file.",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "isAuthenticatedUser": {
+      "type": "boolean"
+    },
+    "permissionId": {
+      "type": "string"
+    },
+    "emailAddress": {
+      "type": "string"
+    },
+    "picture": {
+      "$ref": "!include data_model_45186b677530f54af97d2eba0346c9d9.json"
+    }
+  }
+}

@@ -1,0 +1,480 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "exportLinks": {
+      "description": "Links for exporting Google Docs to specific formats.\nThe key in the object is a mapping from export format to URL\n"
+    },
+    "videoMediaMetadata": {
+      "description": "Metadata about video media. This will only be present for video types.",
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "durationMillis": {
+          "type": "number"
+        }
+      }
+    },
+    "location": {
+      "description": "Geographic location information stored in the image.",
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "altitude": {
+          "type": "number"
+        }
+      }
+    },
+    "FileList": {
+      "title": "FileList",
+      "description": "A response body for the files list",
+      "type": "object",
+      "required": [
+        "kind",
+        "etag",
+        "selfLink",
+        "nextPageToken",
+        "nextLink",
+        "items"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "selfLink": {
+          "type": "string"
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "nextLink": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "DriveFile"
+          }
+        }
+      }
+    },
+    "indexableText": {
+      "description": "Indexable text attributes for the file. This property can only be written, and is not returned by files.get. For more information, see Custom thumbnails and indexable text.",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "File": {
+      "title": "File",
+      "description": "A type to be used when a new file to be created.",
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "mimeType",
+        "description",
+        "modifiedDate",
+        "labels"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "mimeType": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "modifiedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastViewedByMeDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "markedViewedByMeDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "originalFilename": {
+          "type": "string"
+        },
+        "writersCanShare": {
+          "type": "boolean"
+        },
+        "labels": {
+          "$ref": "!include data_model_cbd788cf04c74b2b35f7d990cbd6de20.json"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "$ref": "!include data_model_6ca7b14abf2f62b487e02096d95f417e.json"
+          }
+        },
+        "indexableText": {
+          "$ref": "indexableText"
+        }
+      }
+    },
+    "openWithLinks": {
+      "description": "A map of the id of each of the user's apps to a link to open this file with that app.\nOnly populated when the drive.apps.readonly scope is used.\n"
+    },
+    "lastModifyingUser": {
+      "description": "The last user to modify this file",
+      "type": "object",
+      "required": [
+        "kind",
+        "displayName",
+        "isAuthenticatedUser",
+        "permissionId",
+        "emailAddress",
+        "picture"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "isAuthenticatedUser": {
+          "type": "boolean"
+        },
+        "permissionId": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "picture": {
+          "$ref": "!include data_model_45186b677530f54af97d2eba0346c9d9.json"
+        }
+      }
+    },
+    "DriveFile": {
+      "type": "object",
+      "required": [
+        "kind",
+        "editable",
+        "copyable",
+        "writersCanShare",
+        "shared",
+        "explicitlyTrashed",
+        "appDataContents",
+        "parents"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "selfLink": {
+          "type": "string"
+        },
+        "webContentLink": {
+          "type": "string"
+        },
+        "webViewLink": {
+          "type": "string"
+        },
+        "alternateLink": {
+          "type": "string"
+        },
+        "embedLink": {
+          "type": "string"
+        },
+        "defaultOpenWithLink": {
+          "type": "string"
+        },
+        "iconLink": {
+          "type": "string"
+        },
+        "thumbnailLink": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "mimeType": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modifiedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modifiedByMeDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastViewedByMeDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "markedViewedByMeDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sharedWithMeDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "string"
+        },
+        "downloadUrl": {
+          "type": "string"
+        },
+        "originalFilename": {
+          "type": "string"
+        },
+        "fileExtension": {
+          "type": "string"
+        },
+        "md5Checksum": {
+          "type": "string"
+        },
+        "fileSize": {
+          "type": "integer"
+        },
+        "quotaBytesUsed": {
+          "type": "string"
+        },
+        "ownerNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ownedByMe": {
+          "type": "boolean"
+        },
+        "canComment": {
+          "type": "boolean"
+        },
+        "shareable": {
+          "type": "boolean"
+        },
+        "lastModifyingUserName": {
+          "type": "string"
+        },
+        "spaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "canReadRevisions": {
+          "type": "boolean"
+        },
+        "isAppAuthorized": {
+          "type": "boolean"
+        },
+        "hasThumbnail": {
+          "type": "boolean"
+        },
+        "thumbnailVersion": {
+          "type": "string"
+        },
+        "hasAugmentedPermissions": {
+          "type": "boolean"
+        },
+        "teamDriveId": {
+          "type": "string"
+        },
+        "trashedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "editable": {
+          "type": "boolean"
+        },
+        "copyable": {
+          "type": "boolean"
+        },
+        "writersCanShare": {
+          "type": "boolean"
+        },
+        "shared": {
+          "type": "boolean"
+        },
+        "explicitlyTrashed": {
+          "type": "boolean"
+        },
+        "appDataContents": {
+          "type": "boolean"
+        },
+        "headRevisionId": {
+          "type": "string"
+        },
+        "folderColorRgb": {
+          "type": "string"
+        },
+        "openWithLinks": {
+          "$ref": "openWithLinks"
+        },
+        "thumbnail": {
+          "$ref": "!include data_model_1f9266080da80e7ff29f347ec7644a99.json"
+        },
+        "labels": {
+          "$ref": "!include data_model_cbd788cf04c74b2b35f7d990cbd6de20.json"
+        },
+        "sharingUser": {
+          "$ref": "!include data_model_24678ab00bb0b607f947dd39f946a018.json"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "$ref": "!include data_model_6ca7b14abf2f62b487e02096d95f417e.json"
+          }
+        },
+        "exportLinks": {
+          "$ref": "exportLinks"
+        },
+        "indexableText": {
+          "$ref": "indexableText"
+        },
+        "userPermission": {
+          "$ref": "permission-lib_raml.Permission"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "permission-lib_raml.Permission"
+          }
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "$ref": "!include data_model_a25357b743cf64bcba62a67eeee6aec3.json"
+          }
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "$ref": "!include data_model_43266ba3eb13198815c0eccb78975ca2.json"
+          }
+        },
+        "capabilities": {
+          "$ref": "!include data_model_5fba9f4114604688e5924d4355ccd2a5.json"
+        },
+        "lastModifyingUser": {
+          "$ref": "lastModifyingUser"
+        },
+        "trashingUser": {
+          "$ref": "!include data_model_24678ab00bb0b607f947dd39f946a018.json"
+        },
+        "imageMediaMetadata": {
+          "$ref": "imageMediaMetadata"
+        },
+        "videoMediaMetadata": {
+          "$ref": "videoMediaMetadata"
+        }
+      }
+    },
+    "imageMediaMetadata": {
+      "description": "Metadata about image media. This will only be present for image types, and its contents will depend on what can be parsed from the image content.",
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "rotation": {
+          "type": "integer"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "cameraMake": {
+          "type": "string"
+        },
+        "cameraModel": {
+          "type": "string"
+        },
+        "exposureTime": {
+          "type": "number"
+        },
+        "aperture": {
+          "type": "number"
+        },
+        "flashUsed": {
+          "type": "boolean"
+        },
+        "focalLength": {
+          "type": "number"
+        },
+        "isoSpeed": {
+          "type": "integer"
+        },
+        "meteringMode": {
+          "type": "string"
+        },
+        "sensor": {
+          "type": "string"
+        },
+        "exposureMode": {
+          "type": "string"
+        },
+        "colorSpace": {
+          "type": "string"
+        },
+        "whiteBalance": {
+          "type": "string"
+        },
+        "exposureBias": {
+          "type": "number"
+        },
+        "maxApertureValue": {
+          "type": "number"
+        },
+        "subjectDistance": {
+          "type": "integer"
+        },
+        "lens": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "location"
+        }
+      }
+    }
+  },
+  "x-amf-uses": {
+    "permission-lib_raml": "data_model_593684c070b64fab1d3aa1935ab00b84.json"
+  }
+}

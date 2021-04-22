@@ -1,0 +1,113 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "petstore.json",
+    "version": "1.0"
+  },
+  "paths": {
+    "/pets": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "tags",
+            "description": "tags to filter by",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "description": "maximum number of results to return",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "!include data_model_a4b53073a54a323e3a9bcc1b1b4379ec.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "Custom",
+        "requestBody": {
+          "content": {
+            "null": {
+              "schema": {
+                "$ref": "!include data_model_fd202297e0a9a24ecb223865cbe98aca.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "!include data_model_a4b53073a54a323e3a9bcc1b1b4379ec.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pets/{id}": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "!include data_model_a4b53073a54a323e3a9bcc1b1b4379ec.json"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "Custom",
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "!include data_model_1ecc715352e795fa95f95e1a81e14eb4.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

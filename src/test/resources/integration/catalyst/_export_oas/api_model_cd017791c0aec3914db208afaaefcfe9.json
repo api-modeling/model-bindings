@@ -1,0 +1,166 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "retail_locations_system_api.raml",
+    "version": "1.0"
+  },
+  "paths": {
+    "/productLocator": {
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "zipcode",
+            "description": "Narrow down the search to include only stores in particular zipcode.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "retail_locations_system_api_raml.ItemAvailabilityResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stores": {
+      "post": {
+        "operationId": "Custom",
+        "requestBody": {
+          "content": {
+            "null": {
+              "schema": {
+                "$ref": "retail_store_raml.StoreInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "retail_store_raml.StoreInfo"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "Custom",
+        "parameters": [
+          {
+            "name": "zip",
+            "description": "Zip code identifying area for store search. You must choose either zip, city or coordinates search, not all at once.\n",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "retail_locations_system_api_raml.StoreSearchResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stores/{storeId}": {
+      "parameters": [
+        {
+          "name": "storeId",
+          "required": true,
+          "in": "path",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "Custom",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "retail_store_raml.StoreInfo"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "Custom",
+        "requestBody": {
+          "content": {
+            "null": {
+              "schema": {
+                "$ref": "retail_store_raml.StoreInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "retail_store_raml.StoreInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reservation": {
+      "post": {
+        "operationId": "Custom",
+        "requestBody": {
+          "content": {
+            "null": {
+              "schema": {
+                "$ref": "retail_locations_system_api_raml.Reservation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "retail_locations_system_api_raml.MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-amf-uses": {
+    "retail_locations_system_api_raml": "data_model_f8e8261b8152e85576296b73b052e24e.json",
+    "retail_store_raml": "data_model_9eb98fb811f6a3b46aaed9639e52fa0f.json"
+  }
+}

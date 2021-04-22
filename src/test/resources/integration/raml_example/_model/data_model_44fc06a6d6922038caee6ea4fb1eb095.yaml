@@ -2,49 +2,6 @@
 uuid: 44fc06a6d6922038caee6ea4fb1eb095
 name: example-types.raml
 entities:
-  Org:
-    uuid: 8a079d12cd32463c41fa59f72e81f0e1
-    attributes: {}
-    associations:
-      onCall:
-        allowMultiple: false
-        uuid: d24a062d64dc544a0bcc905e4816df78
-        required: true
-        target: http://mulesoft.com/modeling/instances/a033384477e1b81a14f29a4660173bb5
-      Head:
-        allowMultiple: false
-        uuid: 638a362d67f023df71dbf842f029be45
-        required: true
-        target: http://mulesoft.com/modeling/instances/c0412ffd0c158dddb7052718b2f54985
-    description: Represents an organization unit.
-  Person:
-    uuid: 384b41a8c1b8e87f0515174c6aa57e9a
-    attributes:
-      firstname:
-        allowMultiple: false
-        uuid: 084f9326f606ef14c134378d4fc67f79
-        required: true
-        range:
-          type: string
-      lastname:
-        allowMultiple: false
-        uuid: 8768c5a41786cff97ff9dc27aa244768
-        required: true
-        range:
-          type: string
-      title:
-        allowMultiple: false
-        uuid: afab5aa0c6947b767816076741aa393a
-        required: false
-        range:
-          type: string
-      kind:
-        allowMultiple: false
-        uuid: 4ea6e62d621202874bf62adcf20f109b
-        required: true
-        range:
-          type: string
-    associations: {}
   Admin:
     uuid: 79203ecfbb7a0d82adfef2f267653ec0
     attributes:
@@ -64,13 +21,6 @@ entities:
     extends:
       -
         uuid: 384b41a8c1b8e87f0515174c6aa57e9a
-  Alertable:
-    uuid: a033384477e1b81a14f29a4660173bb5
-    disjoint:
-      -
-        uuid: c0412ffd0c158dddb7052718b2f54985
-      -
-        uuid: cc6660040352f0e0dfcfb750a087df1f
   Manager:
     uuid: c0412ffd0c158dddb7052718b2f54985
     attributes:
@@ -108,3 +58,53 @@ entities:
     extends:
       -
         uuid: 79203ecfbb7a0d82adfef2f267653ec0
+  Alertable:
+    uuid: a033384477e1b81a14f29a4660173bb5
+    disjoint:
+      -
+        uuid: c0412ffd0c158dddb7052718b2f54985
+      -
+        uuid: cc6660040352f0e0dfcfb750a087df1f
+  Person:
+    uuid: 384b41a8c1b8e87f0515174c6aa57e9a
+    attributes:
+      firstname:
+        allowMultiple: false
+        uuid: 084f9326f606ef14c134378d4fc67f79
+        required: true
+        range:
+          type: string
+      lastname:
+        allowMultiple: false
+        uuid: 8768c5a41786cff97ff9dc27aa244768
+        required: true
+        range:
+          type: string
+      title:
+        allowMultiple: false
+        uuid: afab5aa0c6947b767816076741aa393a
+        required: false
+        range:
+          type: string
+      kind:
+        allowMultiple: false
+        uuid: 4ea6e62d621202874bf62adcf20f109b
+        required: true
+        range:
+          type: string
+    associations: {}
+  Org:
+    uuid: 8a079d12cd32463c41fa59f72e81f0e1
+    attributes: {}
+    associations:
+      onCall:
+        allowMultiple: false
+        uuid: d24a062d64dc544a0bcc905e4816df78
+        required: true
+        target: http://mulesoft.com/modeling/instances/a033384477e1b81a14f29a4660173bb5
+      Head:
+        allowMultiple: false
+        uuid: 638a362d67f023df71dbf842f029be45
+        required: true
+        target: http://mulesoft.com/modeling/instances/c0412ffd0c158dddb7052718b2f54985
+    description: Represents an organization unit.

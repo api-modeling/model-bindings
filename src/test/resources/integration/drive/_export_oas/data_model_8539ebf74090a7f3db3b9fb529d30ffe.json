@@ -1,0 +1,131 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "App": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "objectType": {
+          "type": "string"
+        },
+        "supportsCreate": {
+          "type": "boolean"
+        },
+        "supportsImport": {
+          "type": "boolean"
+        },
+        "installed": {
+          "type": "boolean"
+        },
+        "authorized": {
+          "type": "boolean"
+        },
+        "useByDefault": {
+          "type": "boolean"
+        },
+        "productUrl": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "primaryMimeTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secondaryMimeTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "primaryFileExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secondaryFileExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "shortDescription": {
+          "type": "string"
+        },
+        "longDescription": {
+          "type": "string"
+        },
+        "openUrlTemplate": {
+          "type": "string"
+        },
+        "supportsMultiOpen": {
+          "type": "boolean"
+        },
+        "supportsOfflineCreate": {
+          "type": "boolean"
+        },
+        "hasDriveWideScope": {
+          "type": "boolean"
+        },
+        "createUrl": {
+          "type": "string"
+        },
+        "createInFolderTemplate": {
+          "type": "string"
+        },
+        "icons": {
+          "type": "array",
+          "items": {
+            "$ref": "!include data_model_50b4de92d3d542695483b09e8acea36e.json"
+          }
+        }
+      }
+    },
+    "AppList": {
+      "description": "Resource returned by the API when requesting list of files.",
+      "type": "object",
+      "required": [
+        "kind",
+        "etag",
+        "selfLink",
+        "defaultAppIds",
+        "items"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "selfLink": {
+          "type": "string"
+        },
+        "defaultAppIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "App"
+          }
+        }
+      }
+    }
+  }
+}

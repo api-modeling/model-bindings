@@ -1,0 +1,40 @@
+#%RAML 1.0 Library
+types:
+  Admin:
+    type: Person
+    properties:
+      kind:
+        type: string
+      clearanceLevel:
+        type: string
+  Alertable:
+    type: Manager | AlertableAdmin
+  Org:
+    description: Represents an organization unit.
+    properties:
+      onCall: Alertable
+      Head: Manager
+  Person:
+    properties:
+      firstname:
+        type: string
+      lastname:
+        type: string
+      title:
+        type: string
+      kind:
+        type: string
+  Manager:
+    type: Person
+    properties:
+      phone:
+        type: string
+      kind:
+        type: string
+      reports:
+        items: Person
+  AlertableAdmin:
+    type: Admin
+    properties:
+      phone:
+        type: string

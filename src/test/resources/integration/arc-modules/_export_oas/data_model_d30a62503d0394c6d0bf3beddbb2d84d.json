@@ -1,0 +1,22 @@
+{
+  "x-amf-fragmentType": "2.0 DataType",
+  "title": "Error",
+  "description": "Represent an error object that describes the problem",
+  "type": "object",
+  "required": [
+    "error",
+    "message",
+    "code"
+  ],
+  "properties": {
+    "error": {
+      "type": "boolean"
+    },
+    "message": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    }
+  }
+}

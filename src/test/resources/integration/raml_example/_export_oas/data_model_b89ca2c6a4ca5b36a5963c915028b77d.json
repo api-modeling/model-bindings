@@ -1,0 +1,39 @@
+{
+  "x-amf-fragmentType": "2.0 DataType",
+  "title": "A product resource",
+  "description": "A single product representing an item in the store.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "quantity",
+    "unit",
+    "upc",
+    "available"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "number"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "upc": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    }
+  },
+  "x-amf-merge": [
+    {
+      "$ref": "#/definitions/resource"
+    }
+  ]
+}

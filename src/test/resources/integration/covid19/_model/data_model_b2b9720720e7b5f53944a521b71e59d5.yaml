@@ -2,7 +2,7 @@
 uuid: b2b9720720e7b5f53944a521b71e59d5
 name: zipNYT-response-datatype.raml
 entities:
-  Entity8:
+  zipNYT-response-datatype:
     uuid: 1c0b5168413630851ddf8de442835140
     attributes:
       zipCd:
@@ -31,18 +31,9 @@ entities:
         allowMultiple: false
         uuid: 44fdb50065602f62346c4f47b14217bf
         required: false
-        target: http://mulesoft.com/modeling/instances/275c68d6be89d533a92e0b9efcdcb9d7
+        target: http://mulesoft.com/modeling/instances/571b85d0cb6245c3228a3ed7eeebf195
       historicData:
         allowMultiple: true
         uuid: 5c6ed427cd29c2e1c3d85df9be6f51b4
         required: true
         target: http://mulesoft.com/modeling/instances/982ef230fe0d09bb103aef1542e9e0a0
-  Geograpic Information:
-    uuid: 275c68d6be89d533a92e0b9efcdcb9d7
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 571b85d0cb6245c3228a3ed7eeebf195
-    description: Geographic Information in Decimal Degrees (WGS1984)
-    displayName: Geograpic Information

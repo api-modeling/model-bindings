@@ -2,7 +2,7 @@
 uuid: ae17e04fa8cb412f63986bcdfbc46962
 name: zip-200-response.raml
 entities:
-  Entity2:
+  zip-200-response:
     uuid: 5e99aedd1b5f995e0e0fd98ac3d068f1
     attributes:
       zipCd:
@@ -16,21 +16,12 @@ entities:
         allowMultiple: false
         uuid: 88be890767736f491b77252f80b1283a
         required: false
-        target: http://mulesoft.com/modeling/instances/ef9bc6452725142b641af686d6816f43
+        target: http://mulesoft.com/modeling/instances/571b85d0cb6245c3228a3ed7eeebf195
       counties:
         allowMultiple: true
         uuid: 5cdc6a51f1a508da6f4850e9f9b1cb55
         required: true
         target: http://mulesoft.com/modeling/instances/0837378f901ba645440c416351bfe4bf
-  Geograpic Information:
-    uuid: ef9bc6452725142b641af686d6816f43
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 571b85d0cb6245c3228a3ed7eeebf195
-    description: Geographic Information in Decimal Degrees (WGS1984)
-    displayName: Geograpic Information
   items:
     uuid: 0837378f901ba645440c416351bfe4bf
     attributes:

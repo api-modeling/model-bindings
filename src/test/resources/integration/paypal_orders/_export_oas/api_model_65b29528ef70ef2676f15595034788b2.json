@@ -1,0 +1,199 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "orders_v2_api-spec.raml",
+    "version": "1.0"
+  },
+  "paths": {
+    "/orders/{order_id}": {
+      "parameters": [
+        {
+          "name": "order_id",
+          "description": "The ID of the order to update.",
+          "required": true,
+          "in": "path",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "Custom",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "orders_v2_api-spec_raml.order-json"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "Custom",
+        "requestBody": {
+          "content": {
+            "null": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "schema10"
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/orders/{order_id}/authorize": {
+      "post": {
+        "operationId": "Custom",
+        "requestBody": {
+          "content": {
+            "null": {
+              "schema": {
+                "$ref": "orders_v2_api-spec_raml.authorize_request-json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "orders_v2_api-spec_raml.order-json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{order_id}/capture": {
+      "post": {
+        "operationId": "Custom",
+        "requestBody": {
+          "content": {
+            "null": {
+              "schema": {
+                "$ref": "orders_v2_api-spec_raml.order_action_request-json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "orders_v2_api-spec_raml.order-json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{order_id}/save": {
+      "post": {
+        "operationId": "Custom",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "orders_v2_api-spec_raml.order-json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{order_id}/validate-payment-method": {
+      "post": {
+        "operationId": "Custom",
+        "requestBody": {
+          "content": {
+            "null": {
+              "schema": {
+                "$ref": "orders_v2_api-spec_raml.order_action_request-json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "orders_v2_api-spec_raml.order-json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{order_id}/void": {
+      "post": {
+        "operationId": "Custom",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "orders_v2_api-spec_raml.order-json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "operationId": "Custom",
+        "requestBody": {
+          "content": {
+            "null": {
+              "schema": {
+                "$ref": "orders_v2_api-spec_raml.order_request-json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "orders_v2_api-spec_raml.order-json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "schema10": {}
+    }
+  },
+  "x-amf-uses": {
+    "orders_v2_api-spec_raml": "data_model_8870cff922f072518e04a11e214e0140.json"
+  }
+}

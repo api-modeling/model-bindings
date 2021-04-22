@@ -1,0 +1,48 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "Parent": {
+      "description": "A reference to a file's parent.",
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "selfLink": {
+          "type": "string"
+        },
+        "parentLink": {
+          "type": "string"
+        },
+        "isRoot": {
+          "type": "string"
+        }
+      }
+    },
+    "ParentList": {
+      "title": "ParentList",
+      "description": "A list of Parents.",
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "selfLink": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "Parent"
+          }
+        }
+      }
+    }
+  }
+}

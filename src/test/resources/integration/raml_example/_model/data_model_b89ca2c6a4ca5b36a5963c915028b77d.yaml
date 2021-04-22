@@ -5,6 +5,18 @@ entities:
   A product resource:
     uuid: a74ec7704168414b535ce2436b191e64
     attributes:
+      name:
+        allowMultiple: false
+        uuid: 8dd4e285cfd0cf65dfa927fd8417e492
+        required: true
+        range:
+          type: string
+      quantity:
+        allowMultiple: false
+        uuid: fb47613a0d418ed86c3e5290c31b0b48
+        required: true
+        range:
+          type: float
       id:
         allowMultiple: false
         uuid: 249efab0aeda139cc4e4508709aadcaa
@@ -23,18 +35,6 @@ entities:
         required: true
         range:
           type: string
-      name:
-        allowMultiple: false
-        uuid: 8dd4e285cfd0cf65dfa927fd8417e492
-        required: true
-        range:
-          type: string
-      quantity:
-        allowMultiple: false
-        uuid: fb47613a0d418ed86c3e5290c31b0b48
-        required: true
-        range:
-          type: float
       upc:
         allowMultiple: false
         uuid: 4430bd3165ddf80d11ae931d0690293a

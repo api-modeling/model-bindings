@@ -19,7 +19,8 @@ export class IDGenerator {
 
     public genName(root: string) {
         this.idGenerator++;
-        return `${root}${this.idGenerator}`;
+        const name = `${root}${this.idGenerator}`;
+        return name;
     }
 
 }

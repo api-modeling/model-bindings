@@ -94,6 +94,15 @@ export class AMFModelQueries {
         }
     }
 
+    public static isNamedLink(domainElement: amf.model.domain.DomainElement) {
+        if (domainElement instanceof amf.model.domain.NodeShape) {
+            const nodeShape = <amf.model.domain.NodeShape>domainElement;
+            return nodeShape.properties.length == 0 && nodeShape.inherits.length == 1 && nodeShape.inherits[0].isLink
+        } else {
+            return false;
+        }
+    }
+
     public static isLink(domainElement: amf.model.domain.DomainElement) {
         if (domainElement instanceof amf.model.domain.AnyShape) {
             const anyShape = <amf.model.domain.AnyShape>domainElement;

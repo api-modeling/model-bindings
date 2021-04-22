@@ -1,0 +1,211 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "ReplyList": {
+      "type": "object",
+      "required": [
+        "kind",
+        "selfLink"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "selfLink": {
+          "type": "string"
+        },
+        "nextLink": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "Reply"
+          }
+        }
+      }
+    },
+    "ReplyWritable": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "verb": {
+          "type": "string"
+        }
+      }
+    },
+    "CommentList": {
+      "type": "object",
+      "required": [
+        "kind",
+        "selfLink"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "nextPageToken": {
+          "type": "string"
+        },
+        "selfLink": {
+          "type": "string"
+        },
+        "nextLink": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "Comment"
+          }
+        }
+      }
+    },
+    "context": {
+      "description": "The context of the file which is being commented on.",
+      "type": "object",
+      "required": [
+        "attribute1",
+        "value"
+      ],
+      "properties": {
+        "attribute1": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "CommentWritable": {
+      "type": "object",
+      "required": [
+        "content",
+        "context"
+      ],
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "context": {
+          "$ref": "context"
+        }
+      }
+    },
+    "Reply": {
+      "type": "object",
+      "required": [
+        "kind",
+        "replyId",
+        "createdDate",
+        "modifiedDate",
+        "htmlContent",
+        "deleted",
+        "author"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "replyId": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modifiedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "htmlContent": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "author": {
+          "$ref": "!include data_model_24678ab00bb0b607f947dd39f946a018.json"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/ReplyWritable"
+        }
+      ]
+    },
+    "Comment": {
+      "type": "object",
+      "required": [
+        "kind",
+        "commentId",
+        "createdDate",
+        "modifiedDate",
+        "htmlContent",
+        "deleted",
+        "status",
+        "anchor",
+        "fileId",
+        "fileTitle",
+        "author",
+        "replies"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "selfLink": {
+          "type": "string"
+        },
+        "commentId": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modifiedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "htmlContent": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "anchor": {
+          "type": "string"
+        },
+        "fileId": {
+          "type": "string"
+        },
+        "fileTitle": {
+          "type": "string"
+        },
+        "author": {
+          "$ref": "!include data_model_24678ab00bb0b607f947dd39f946a018.json"
+        },
+        "replies": {
+          "type": "array",
+          "items": {
+            "$ref": "Reply"
+          }
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/CommentWritable"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,237 @@
+#%RAML 1.0 Library
+types:
+  AddressUnit:
+    description: |
+      address unit
+    type: Entity1
+  Quantity:
+    description: |
+      a quantity
+    properties:
+      quantityType:
+        type: string
+      amount:
+        type: number
+        format: float
+      unit:
+        type: string
+  secondaryAddress?:
+    type: any
+  Location:
+    description: |
+      location
+    properties:
+      locationType:
+        type: string
+      deliveryMethod:
+        type: string
+      locationId: locationId
+  MonetaryValue:
+    description: |
+      represents an amount in a given currency
+    properties:
+      name:
+        type: string
+      currency:
+        type: string
+      currencyValue:
+        type: number
+        format: float
+  PostalAddress:
+    description: |
+      postal address of internal organization
+    properties:
+      identifier:
+        type: string
+      attribute2:
+        type: string
+      addressUnit:
+        type: string
+      mailStopCode: mailStopCode?
+      attention: attention?
+      recipient: recipient?
+      address: address?
+      secondaryAddress: secondaryAddress?
+      city: city?
+      state: state?
+      postalCode: postalCode?
+      country: country?
+  state?:
+    type: any
+  Lifetime:
+    description: |
+      an object that has a finite lifespan. the object is considered
+      to be valid at a point in time if:
+      ```
+      validFrom <= pointInTime < validUntil
+      ```
+    properties:
+      validFrom:
+        type: datetime
+      validUntil:
+        type: datetime
+  ResponseMetadata:
+    description: |
+      a response metadata
+    properties:
+      messages:
+        items: Message
+  postalCode?:
+    type: any
+  HypermediaResponseMetadata:
+    description: |
+      hypermedia response metadata
+    type: ResponseMetadata
+    properties:
+      messages:
+        items: Message
+  ContinuousQuantity:
+    description: |
+      continuous quantity
+    type: Quantity
+    properties:
+      amount:
+        type: number
+        format: float
+  CollectionPagingLinks:
+    description: |
+      collection of paging links
+    type: Links
+    properties:
+      self: Link
+      first: Link
+      prev: Link
+      next: Link
+      last: Link
+  Links:
+    description: |
+      collection of hypermedia links
+    properties:
+      //: Link
+  attention?:
+    type: any
+  Price:
+    description: |
+      a price
+    properties:
+      salesUnit: SalesUnit
+      amount: MonetaryValue
+  SalesUnit:
+    description: |
+      sales unit
+    properties:
+      code:
+        type: string
+      name:
+        type: string
+  MeasurementSystem:
+    description: |
+      a standard that codifies a set of UnitOfMeasure, typically defined by a governmental
+      or international agency.
+    properties:
+      code:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+  AddressUnitWithOptionalUnitNumber:
+    description: |
+      the unit address with optional unit number
+    properties:
+      unitType:
+        type: string
+      unitNumber:
+        type: string
+  mailStopCode?:
+    type: any
+  locationId:
+    type: any
+  DiscreteQuantity:
+    description: |
+      discrete quantity
+    type: Quantity
+    properties:
+      amount:
+        type: integer
+  DefaultResponse:
+    description: |
+      default response
+    properties:
+      _meta: ResponseMetadata
+  CollectionResponseMetadata:
+    description: |
+      collection of response messages
+    type: ResponseMetadata
+    properties:
+      totalItems:
+        type: integer
+      offset:
+        type: integer
+      limit:
+        type: integer
+      sortBy:
+        type: string
+  address?:
+    type: any
+  country?:
+    type: any
+  Message:
+    description: |
+      a message object
+    properties:
+      severity:
+        type: string
+      code:
+        type: string
+      description:
+        type: string
+  CollectionResponse:
+    description: |
+      collection of response messages
+    type: DefaultResponse
+    properties:
+      _meta: CollectionResponseMetadata
+  AddressUnitWithRequiredUnitNumber:
+    description: |
+      the unit address with required unit number
+    properties:
+      unitType:
+        type: string
+      unitNumber:
+        type: string
+  Entity1:
+    type: AddressUnitWithRequiredUnitNumber | AddressUnitWithOptionalUnitNumber
+  recipient?:
+    type: any
+  city?:
+    type: any
+  HypermediaCollectionResponse:
+    description: |
+      hypermedia collection response
+    type: DefaultResponse
+    properties:
+      _meta: ResponseMetadata
+      _links: CollectionPagingLinks
+  HypermediaMessage:
+    description: |
+      a hypermedia message
+    type: Message
+    properties:
+      href: Link
+  Link:
+    description: |
+      a hypermedia link
+    properties:
+      href:
+        type: string
+      title:
+        type: string
+  Measure:
+    description: |
+      a physical property that can be quantified with a numeric value
+    properties:
+      name:
+        type: string
+      description:
+        type: string

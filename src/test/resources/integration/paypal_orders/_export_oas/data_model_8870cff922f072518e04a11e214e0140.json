@@ -1,0 +1,1053 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "MerchantsCommonComponentsSpecification-v1-schema-shipping_options_request-json": {
+      "description": "Includes options presented by the payee/merchant to the payer to ship or pick up their item(s). Also includes the shipping options elected by the payer.",
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "amount"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "attribute1": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-authorization-json": {
+      "description": "The authorized payment transaction.",
+      "type": "object",
+      "required": [
+        "id",
+        "invoice_id",
+        "expiration_time",
+        "amount"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "invoice_id": {
+          "type": "string"
+        },
+        "expiration_time": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/MerchantsCommonComponentsSpecification-v1-schema-authorization_status-json"
+        },
+        {
+          "$ref": "#/definitions/MerchantsCommonComponentsSpecification-v1-schema-activity_timestamps-json"
+        }
+      ]
+    },
+    "seller_payable_breakdown": {
+      "description": "The breakdown of the refund.",
+      "type": "object",
+      "required": [
+        "gross_amount",
+        "paypal_fee",
+        "net_amount",
+        "platform_fees",
+        "total_refunded_amount"
+      ],
+      "properties": {
+        "gross_amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "paypal_fee": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "net_amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "platform_fees": {
+          "type": "array",
+          "items": {
+            "$ref": "MerchantsCommonComponentsSpecification-v1-schema-platform_fee-json"
+          }
+        },
+        "total_refunded_amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        }
+      }
+    },
+    "purchase_unit_request-json": {
+      "description": "The purchase unit request. Includes required information for the payment contract.",
+      "type": "object",
+      "required": [
+        "amount"
+      ],
+      "properties": {
+        "reference_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "custom_id": {
+          "type": "string"
+        },
+        "invoice_id": {
+          "type": "string"
+        },
+        "soft_descriptor": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "MerchantsCommonComponentsSpecification-v1-schema-amount_with_breakdown-json"
+        },
+        "payee": {
+          "$ref": "MerchantsCommonComponentsSpecification-v1-schema-payee-json"
+        },
+        "payment_instruction": {
+          "$ref": "MerchantsCommonComponentsSpecification-v1-schema-payment_instruction-json"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "MerchantsCommonComponentsSpecification-v1-schema-item-json"
+          }
+        },
+        "shipping": {
+          "$ref": "MerchantsCommonComponentsSpecification-v1-schema-shipping_detail-json"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-refund-json": {
+      "description": "The refund information.",
+      "type": "object",
+      "required": [
+        "id",
+        "invoice_id",
+        "note_to_payer",
+        "amount",
+        "seller_payable_breakdown",
+        "links"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "invoice_id": {
+          "type": "string"
+        },
+        "note_to_payer": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "seller_payable_breakdown": {
+          "$ref": "seller_payable_breakdown"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-link_description-json"
+          }
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/MerchantsCommonComponentsSpecification-v1-schema-refund_status-json"
+        },
+        {
+          "$ref": "#/definitions/MerchantsCommonComponentsSpecification-v1-schema-activity_timestamps-json"
+        }
+      ]
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-exchange_rate-json": {
+      "description": "The exchange rate that determines the amount to convert from one currency to another currency.",
+      "type": "object",
+      "required": [
+        "source_currency",
+        "target_currency",
+        "value"
+      ],
+      "properties": {
+        "source_currency": {
+          "type": "string"
+        },
+        "target_currency": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "MCCS-v1-schema-CC-v3-json-openapi-2-name-json": {
+      "description": "The name of the party.",
+      "type": "object",
+      "required": [
+        "prefix",
+        "given_name",
+        "surname",
+        "middle_name",
+        "suffix",
+        "alternate_full_name",
+        "full_name"
+      ],
+      "properties": {
+        "prefix": {
+          "type": "string"
+        },
+        "given_name": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "middle_name": {
+          "type": "string"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "alternate_full_name": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        }
+      }
+    },
+    "MCCS-v1-schema-CC-v3-json-openapi-2-patch-json": {
+      "description": "The JSON patch object to apply partial updates to resources.",
+      "type": "object",
+      "required": [
+        "op"
+      ],
+      "properties": {
+        "op": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "value"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-payment_method-json": {
+      "description": "The customer and merchant payment preferences.",
+      "type": "object",
+      "required": [
+        "payer_selected",
+        "payee_preferred"
+      ],
+      "properties": {
+        "payer_selected": {
+          "type": "string"
+        },
+        "payee_preferred": {
+          "type": "string"
+        }
+      }
+    },
+    "MCCS-v1-schema-CC-v3-json-openapi-2-phone-json": {
+      "description": "The phone number, in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en).",
+      "type": "object",
+      "required": [
+        "country_code",
+        "national_number"
+      ],
+      "properties": {
+        "country_code": {
+          "type": "string"
+        },
+        "national_number": {
+          "type": "string"
+        },
+        "extension_number": {
+          "type": "string"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-amount_with_breakdown-json": {
+      "description": "The total order amount with an optional breakdown that provides details, such as the total item amount, total tax amount, shipping, handling, insurance, and discounts, if any.<br/>If you specify `amount.breakdown`, the amount equals `item_total` plus `tax_total` plus `shipping` plus `handling` plus `insurance` minus `shipping_discount`.<br/>The amount must be a positive number. For listed of supported currencies and decimal precision, see the PayPal REST APIs <a href=\"/docs/integration/direct/rest/currency-codes/\">Currency Codes</a>.",
+      "type": "object",
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        }
+      ]
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-authorization_status-json": {
+      "description": "The status fields for an authorized payment.",
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "MCCS-v1-schema-CC-v3-json-openapi-2-error_details-json": {
+      "description": "The error details. Required for client-side `4XX` errors.",
+      "type": "object",
+      "required": [
+        "issue"
+      ],
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "issue": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "MCCS-v1-schema-CC-v3-json-openapi-2-address_portable-json": {
+      "description": "The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute).",
+      "type": "object",
+      "properties": {
+        "address_line_1": {
+          "type": "string"
+        },
+        "address_line_2": {
+          "type": "string"
+        },
+        "address_line_3": {
+          "type": "string"
+        },
+        "admin_area_4": {
+          "type": "string"
+        },
+        "admin_area_3": {
+          "type": "string"
+        },
+        "admin_area_2": {
+          "type": "string"
+        },
+        "admin_area_1": {
+          "type": "string"
+        },
+        "postal_code": {
+          "type": "string"
+        },
+        "address_details": {
+          "$ref": "address_details"
+        }
+      }
+    },
+    "patternProperties": {
+      "description": "The pattern properties."
+    },
+    "items": {
+      "description": "A link."
+    },
+    "additionalItems": {
+      "description": "Any additional items."
+    },
+    "order-json": {
+      "description": "The order details."
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-card-json": {
+      "description": "The payment card to use to fund a payment. Can be a credit or debit card.",
+      "type": "object",
+      "required": [
+        "number"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "security_code": {
+          "type": "string"
+        },
+        "last_digits": {
+          "type": "string"
+        },
+        "billing_address": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-address_portable-json"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-payment_source-json": {
+      "description": "The payment source definition."
+    },
+    "application_context-json": {
+      "description": "Customizes the payer experience during the approval process for the payment with PayPal.<blockquote><strong>Note:</strong> Partners and Marketplaces might have <code>brand_name</code> and <code>shipping_preference</code> configured during partner account setup that will override the request values.</blockquote>",
+      "type": "object",
+      "required": [
+        "brand_name",
+        "landing_page",
+        "shipping_preference",
+        "user_action",
+        "return_url",
+        "cancel_url",
+        "payment_token"
+      ],
+      "properties": {
+        "brand_name": {
+          "type": "string"
+        },
+        "landing_page": {
+          "type": "string"
+        },
+        "shipping_preference": {
+          "type": "string"
+        },
+        "user_action": {
+          "type": "string"
+        },
+        "return_url": {
+          "type": "string"
+        },
+        "cancel_url": {
+          "type": "string"
+        },
+        "payment_token": {
+          "type": "string"
+        }
+      }
+    },
+    "purchase_unit-json": {
+      "description": "The purchase unit details. Used to capture required information for the payment contract.",
+      "type": "object",
+      "required": [
+        "reference_id",
+        "description",
+        "custom_id",
+        "invoice_id",
+        "id",
+        "soft_descriptor"
+      ],
+      "properties": {
+        "reference_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "custom_id": {
+          "type": "string"
+        },
+        "invoice_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "soft_descriptor": {
+          "type": "string"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-payee_base-json": {
+      "description": "The details for the merchant who receives the funds and fulfills the order. The merchant is also known as the payee.",
+      "type": "object",
+      "required": [
+        "email_address",
+        "merchant_id",
+        "client_id"
+      ],
+      "properties": {
+        "email_address": {
+          "type": "string"
+        },
+        "merchant_id": {
+          "type": "string"
+        },
+        "client_id": {
+          "type": "string"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-payee_displayable-json": {
+      "description": "The merchant information. The merchant is also known as the payee. Appears to the customer in checkout, transactions, email receipts, and transaction history.",
+      "type": "object",
+      "required": [
+        "business_email",
+        "brand_name",
+        "business_phone"
+      ],
+      "properties": {
+        "business_email": {
+          "type": "string"
+        },
+        "brand_name": {
+          "type": "string"
+        },
+        "business_phone": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-phone-json"
+        }
+      }
+    },
+    "status_details": {
+      "description": "The details of the captured payment status.",
+      "type": "object",
+      "required": [
+        "reason"
+      ],
+      "properties": {
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "authorize_request-json": {
+      "description": "Authorize an order."
+    },
+    "properties": {},
+    "MerchantsCommonComponentsSpecification-v1-schema-item-json": {
+      "description": "The details for the items to be purchased.",
+      "type": "object",
+      "required": [
+        "name",
+        "quantity",
+        "unit_amount"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "unit_amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "tax": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        }
+      }
+    },
+    "address_details": {
+      "description": "The non-portable additional address details that are sometimes needed for compliance, risk, or other scenarios where fine-grain address information might be needed. Not portable with common third party and opensource. Redundant with core fields. For example, `address_portable.address_line_1` is usually a combination of `address_details.street_number` and `street_name` and `street_type`.",
+      "type": "object",
+      "required": [
+        "street_number",
+        "street_name",
+        "street_type",
+        "delivery_service",
+        "building_name",
+        "sub_building"
+      ],
+      "properties": {
+        "street_number": {
+          "type": "string"
+        },
+        "street_name": {
+          "type": "string"
+        },
+        "street_type": {
+          "type": "string"
+        },
+        "delivery_service": {
+          "type": "string"
+        },
+        "building_name": {
+          "type": "string"
+        },
+        "sub_building": {
+          "type": "string"
+        }
+      }
+    },
+    "seller_receivable_breakdown": {
+      "description": "The detailed breakdown of the captured payment.",
+      "type": "object",
+      "required": [
+        "gross_amount",
+        "paypal_fee",
+        "net_amount",
+        "receivable_amount",
+        "platform_fees"
+      ],
+      "properties": {
+        "gross_amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "paypal_fee": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "net_amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "receivable_amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "platform_fees": {
+          "type": "array",
+          "items": {
+            "$ref": "MerchantsCommonComponentsSpecification-v1-schema-platform_fee-json"
+          }
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-refund_status-json": {
+      "description": "The refund status.",
+      "type": "object",
+      "required": [
+        "status",
+        "status_details"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "status_details": {
+          "$ref": "status_details"
+        }
+      }
+    },
+    "payment_collection-json": {
+      "description": "The collection of payments, or transactions, for a purchase unit in an order. For example, authorized payments, captured payments, and refunds."
+    },
+    "MCCS-v1-schema-CC-v3-json-openapi-2-link_schema-json": {
+      "description": "The request data or link target.",
+      "type": "object",
+      "required": [
+        "fragmentResolution",
+        "pathStart",
+        "additionalItems",
+        "dependencies",
+        "items",
+        "definitions",
+        "patternProperties",
+        "properties",
+        "allOf",
+        "anyOf",
+        "oneOf",
+        "not",
+        "links",
+        "media"
+      ],
+      "properties": {
+        "fragmentResolution": {
+          "type": "string"
+        },
+        "pathStart": {
+          "type": "string"
+        },
+        "additionalItems": {
+          "$ref": "additionalItems"
+        },
+        "dependencies": {
+          "$ref": "dependencies"
+        },
+        "items": {
+          "$ref": "items"
+        },
+        "definitions": {
+          "$ref": "definitions"
+        },
+        "patternProperties": {
+          "$ref": "patternProperties"
+        },
+        "properties": {
+          "$ref": "properties"
+        },
+        "allOf": {
+          "type": "array",
+          "items": {
+            "$ref": "items"
+          }
+        },
+        "anyOf": {
+          "type": "array",
+          "items": {
+            "$ref": "items"
+          }
+        },
+        "oneOf": {
+          "type": "array",
+          "items": {
+            "$ref": "items"
+          }
+        },
+        "not": {
+          "$ref": "not"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "items"
+          }
+        },
+        "media": {
+          "$ref": "media"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-platform_fee-json": {
+      "description": "The platform or partner fee, commission, or brokerage fee that is associated with the transaction. Not a separate or isolated transaction leg from the external perspective. The platform fee is limited in scope and is always associated with the original payment for the purchase unit.",
+      "type": "object",
+      "required": [
+        "amount"
+      ],
+      "properties": {
+        "amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "payee": {
+          "$ref": "MerchantsCommonComponentsSpecification-v1-schema-payee_base-json"
+        }
+      }
+    },
+    "not": {},
+    "MerchantsCommonComponentsSpecification-v1-schema-payee-json": {
+      "description": "The merchant who receives the funds and fulfills the order. The merchant is also known as the payee.",
+      "type": "object",
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/MerchantsCommonComponentsSpecification-v1-schema-payee_base-json"
+        }
+      ]
+    },
+    "media": {
+      "description": "The media type and context-encoding scheme.",
+      "type": "object",
+      "required": [
+        "attribute2",
+        "binaryEncoding"
+      ],
+      "properties": {
+        "attribute2": {
+          "type": "string"
+        },
+        "binaryEncoding": {
+          "type": "string"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-token-json": {
+      "description": "The tokenized payment source to fund a payment.",
+      "type": "object",
+      "required": [
+        "id",
+        "attribute3"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "attribute3": {
+          "type": "string"
+        }
+      }
+    },
+    "MCCS-v1-schema-CC-v3-json-openapi-2-link_description-json": {
+      "description": "The request-related [HATEOAS link](/docs/api/overview/#hateoas-links) information.",
+      "type": "object",
+      "required": [
+        "href",
+        "rel"
+      ],
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "mediaType": {
+          "type": "string"
+        },
+        "encType": {
+          "type": "string"
+        }
+      }
+    },
+    "order_action_request-json": {
+      "description": "Completes an action for an order."
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-shipping_detail-json": {
+      "description": "The shipping details.",
+      "type": "object",
+      "required": [
+        "name",
+        "address"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-name-json"
+        },
+        "address": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-address_portable-json"
+        }
+      }
+    },
+    "definitions": {},
+    "MerchantsCommonComponentsSpecification-v1-schema-net_amount_breakdown_item-json": {
+      "description": "The net amount. Returned when the currency of the refund is different from the currency of the PayPal account where the merchant holds their funds.",
+      "type": "object",
+      "required": [
+        "payable_amount",
+        "converted_amount",
+        "exchange_rate"
+      ],
+      "properties": {
+        "payable_amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "converted_amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "exchange_rate": {
+          "$ref": "MerchantsCommonComponentsSpecification-v1-schema-exchange_rate-json"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-payment_instruction-json": {
+      "description": "Any additional payment instructions for PayPal for Partner customers. Enables features for partners and marketplaces, such as delayed disbursement and collection of a platform fee. Applies during order creation for captured payments or during capture of authorized payments."
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-activity_timestamps-json": {
+      "description": "The date and time stamps that are common to authorized payment, captured payment, and refund transactions."
+    },
+    "order_request-json": {
+      "description": "The order request details.",
+      "type": "object",
+      "required": [
+        "intent"
+      ],
+      "properties": {
+        "intent": {
+          "type": "string"
+        },
+        "payer": {
+          "$ref": "MerchantsCommonComponentsSpecification-v1-schema-payer-json"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-phone_with_type-json": {
+      "description": "The phone information."
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-capture_status-json": {
+      "description": "The status of a captured payment.",
+      "type": "object",
+      "required": [
+        "status",
+        "status_details"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "status_details": {
+          "$ref": "status_details"
+        }
+      }
+    },
+    "value": {
+      "description": "The value to apply. The `remove` operation does not require a value."
+    },
+    "dependencies": {},
+    "MerchantsCommonComponentsSpecification-v1-schema-amount_breakdown-json": {
+      "description": "The breakdown of the amount. Breakdown provides details such as total item amount, total tax amount, shipping, handling, insurance, and discounts, if any.",
+      "type": "object",
+      "required": [
+        "item_total",
+        "shipping",
+        "handling",
+        "tax_total",
+        "insurance",
+        "shipping_discount"
+      ],
+      "properties": {
+        "item_total": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "shipping": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "handling": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "tax_total": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "insurance": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "shipping_discount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-tax_info-json": {
+      "description": "The tax ID of the customer. The customer is also known as the payer. Both `tax_id` and `tax_id_type` are required.",
+      "type": "object",
+      "required": [
+        "tax_id",
+        "tax_id_type"
+      ],
+      "properties": {
+        "tax_id": {
+          "type": "string"
+        },
+        "tax_id_type": {
+          "type": "string"
+        }
+      }
+    },
+    "MCCS-v1-schema-CC-v3-json-openapi-2-money-json": {
+      "description": "The currency and amount for a financial transaction, such as a balance or payment due.",
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "MCCS-v1-schema-CC-v3-json-openapi-2-error-json": {
+      "description": "The error details.",
+      "type": "object",
+      "required": [
+        "name",
+        "message",
+        "debug_id"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "debug_id": {
+          "type": "string"
+        },
+        "information_link": {
+          "type": "string"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-link_description-json"
+          }
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-seller_protection-json": {
+      "description": "The level of protection offered as defined by [PayPal Seller Protection for Merchants](https://www.paypal.com/us/webapps/mpp/security/seller-protection).",
+      "type": "object",
+      "required": [
+        "status",
+        "dispute_categories"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "dispute_categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-capture-json": {
+      "description": "A captured payment.",
+      "type": "object",
+      "required": [
+        "id",
+        "invoice_id",
+        "final_capture",
+        "disbursement_mode",
+        "amount",
+        "seller_protection",
+        "seller_receivable_breakdown",
+        "links"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "invoice_id": {
+          "type": "string"
+        },
+        "final_capture": {
+          "type": "boolean"
+        },
+        "disbursement_mode": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-money-json"
+        },
+        "seller_protection": {
+          "$ref": "MerchantsCommonComponentsSpecification-v1-schema-seller_protection-json"
+        },
+        "seller_receivable_breakdown": {
+          "$ref": "seller_receivable_breakdown"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "MCCS-v1-schema-CC-v3-json-openapi-2-link_description-json"
+          }
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/MerchantsCommonComponentsSpecification-v1-schema-capture_status-json"
+        },
+        {
+          "$ref": "#/definitions/MerchantsCommonComponentsSpecification-v1-schema-activity_timestamps-json"
+        }
+      ]
+    },
+    "MerchantsCommonComponentsSpecification-v1-schema-payer-json": {
+      "description": "The customer who approves and pays for the order. The customer is also known as the payer."
+    }
+  }
+}

@@ -5,27 +5,9 @@ entities:
   StoreInfo:
     uuid: b10ace59dbd1cc15d68fe432e6b2ae7c
     attributes:
-      storeId:
-        allowMultiple: false
-        uuid: 5a3a4eec1b47ea1bec13996ab97db453
-        required: false
-        range:
-          type: string
-      distanceUnit:
-        allowMultiple: false
-        uuid: 69b1abd9dd879c74bd24950b6f2a75ab
-        required: false
-        range:
-          type: string
       description:
         allowMultiple: false
         uuid: e465bcb3e81cbf133afeca7c6874cfa7
-        required: false
-        range:
-          type: string
-      notes:
-        allowMultiple: false
-        uuid: 70b51b2a340cf4c6d31c63e32b40cc63
         required: false
         range:
           type: string
@@ -41,6 +23,24 @@ entities:
         required: false
         range:
           type: float
+      distanceUnit:
+        allowMultiple: false
+        uuid: 69b1abd9dd879c74bd24950b6f2a75ab
+        required: false
+        range:
+          type: string
+      storeId:
+        allowMultiple: false
+        uuid: 5a3a4eec1b47ea1bec13996ab97db453
+        required: false
+        range:
+          type: string
+      notes:
+        allowMultiple: false
+        uuid: 70b51b2a340cf4c6d31c63e32b40cc63
+        required: false
+        range:
+          type: string
       openingHours:
         allowMultiple: false
         uuid: dc54b048a14fccadc2e3d7469d81a53e
@@ -65,14 +65,6 @@ entities:
         range:
           type: string
     associations: {}
-  Address:
-    uuid: 39e290fe2f61c472a67791fb8e9556f9
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: cd5c8379be30bde0083cc6b885f13964
-    description: Store address
   Geo:
     uuid: 47b45bc69e91e16710d646d0f2f1d158
     attributes:

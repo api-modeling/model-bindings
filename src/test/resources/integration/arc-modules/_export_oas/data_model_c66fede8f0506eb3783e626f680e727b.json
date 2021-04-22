@@ -1,0 +1,178 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "Version": {
+      "title": "Version",
+      "description": "Information about module version\n",
+      "type": "object",
+      "required": [
+        "arc",
+        "module"
+      ],
+      "properties": {
+        "arc": {
+          "type": "string"
+        },
+        "module": {
+          "type": "string"
+        }
+      }
+    },
+    "Person response object": {
+      "title": "Person response object",
+      "description": "The representation of a person entity that is returned by the API.\nBecause of security and privacy protection this object contains as little as possible \ninformation about a person.\n",
+      "type": "object",
+      "required": [
+        "modulesCount",
+        "themesCount",
+        "github",
+        "modules",
+        "themes"
+      ],
+      "properties": {
+        "modulesCount": {
+          "type": "number"
+        },
+        "themesCount": {
+          "type": "number"
+        },
+        "github": {
+          "type": "string"
+        },
+        "modules": {
+          "type": "array",
+          "items": {
+            "$ref": "Response Module"
+          }
+        },
+        "themes": {
+          "type": "array",
+          "items": {
+            "$ref": "Response Module"
+          }
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/Person list response object"
+        }
+      ]
+    },
+    "Person": {
+      "title": "Person",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        }
+      }
+    },
+    "ModuleInfo": {
+      "description": "This type is used in communication between ARC application and the server to informa the app\nabout a module installed in the application.\n",
+      "type": "object",
+      "required": [
+        "version",
+        "id"
+      ],
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "Person list response object": {
+      "title": "Person list response object",
+      "description": "The representation of a person entity that is returned by the API in a list.\nBecause of security and privacy protection this object contains as little as possible \ninformation about a person.\n",
+      "type": "object",
+      "required": [
+        "name",
+        "ref"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        }
+      }
+    },
+    "Module": {
+      "title": "Module",
+      "description": "Module is a base class for both ARC extensions or themes.",
+      "type": "object",
+      "required": [
+        "name",
+        "description",
+        "repo",
+        "attribute1",
+        "version"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "attribute1": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "string"
+        },
+        "starredByUser": {
+          "type": "boolean"
+        },
+        "version": {
+          "$ref": "Version"
+        }
+      }
+    },
+    "Response Module": {
+      "title": "Response Module",
+      "description": "A module that is put into a response object",
+      "type": "object",
+      "required": [
+        "id",
+        "created",
+        "downloads"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "downloads": {
+          "type": "number"
+        },
+        "stars": {
+          "type": "number"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/Module"
+        }
+      ]
+    }
+  }
+}

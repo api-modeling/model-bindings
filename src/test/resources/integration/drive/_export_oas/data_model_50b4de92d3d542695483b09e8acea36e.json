@@ -1,0 +1,21 @@
+{
+  "x-amf-fragmentType": "2.0 DataType",
+  "description": "App's icon",
+  "type": "object",
+  "required": [
+    "category",
+    "size",
+    "iconUrl"
+  ],
+  "properties": {
+    "category": {
+      "type": "string"
+    },
+    "size": {
+      "type": "integer"
+    },
+    "iconUrl": {
+      "type": "string"
+    }
+  }
+}

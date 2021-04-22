@@ -1,0 +1,266 @@
+#%RAML 1.0 Library
+types:
+  exportLinks:
+    description: |
+      Links for exporting Google Docs to specific formats.
+      The key in the object is a mapping from export format to URL
+    type: any
+  videoMediaMetadata:
+    description: Metadata about video media. This will only be present for video types.
+    properties:
+      width:
+        type: integer
+      height:
+        type: integer
+      durationMillis:
+        type: number
+        format: float
+  location:
+    description: Geographic location information stored in the image.
+    properties:
+      latitude:
+        type: number
+        format: float
+      longitude:
+        type: number
+        format: float
+      altitude:
+        type: number
+        format: float
+  FileList:
+    displayName: FileList
+    description: A response body for the files list
+    properties:
+      kind:
+        type: string
+      etag:
+        type: string
+      selfLink:
+        type: string
+      nextPageToken:
+        type: string
+      nextLink:
+        type: string
+      items:
+        items: DriveFile
+  indexableText:
+    description: Indexable text attributes for the file. This property can only be written, and is not returned by files.get. For more information, see Custom thumbnails and indexable text.
+    properties:
+      text:
+        type: string
+  File:
+    displayName: File
+    description: A type to be used when a new file to be created.
+    properties:
+      id:
+        type: string
+      title:
+        type: string
+      mimeType:
+        type: string
+      description:
+        type: string
+      modifiedDate:
+        type: datetime
+      lastViewedByMeDate:
+        type: datetime
+      markedViewedByMeDate:
+        type: datetime
+      originalFilename:
+        type: string
+      writersCanShare:
+        type: boolean
+      labels: "!include data_model_cbd788cf04c74b2b35f7d990cbd6de20.raml"
+      parents:
+        items: "!include data_model_6ca7b14abf2f62b487e02096d95f417e.raml"
+      indexableText: indexableText
+  openWithLinks:
+    description: |
+      A map of the id of each of the user's apps to a link to open this file with that app.
+      Only populated when the drive.apps.readonly scope is used.
+    type: any
+  lastModifyingUser:
+    description: The last user to modify this file
+    properties:
+      kind:
+        type: string
+      displayName:
+        type: string
+      isAuthenticatedUser:
+        type: boolean
+      permissionId:
+        type: string
+      emailAddress:
+        type: string
+      picture: "!include data_model_45186b677530f54af97d2eba0346c9d9.raml"
+  DriveFile:
+    properties:
+      kind:
+        type: string
+      id:
+        type: string
+      etag:
+        type: string
+      selfLink:
+        type: string
+      webContentLink:
+        type: string
+      webViewLink:
+        type: string
+      alternateLink:
+        type: string
+      embedLink:
+        type: string
+      defaultOpenWithLink:
+        type: string
+      iconLink:
+        type: string
+      thumbnailLink:
+        type: string
+      title:
+        type: string
+      mimeType:
+        type: string
+      description:
+        type: string
+      createdDate:
+        type: datetime
+      modifiedDate:
+        type: datetime
+      modifiedByMeDate:
+        type: datetime
+      lastViewedByMeDate:
+        type: datetime
+      markedViewedByMeDate:
+        type: datetime
+      sharedWithMeDate:
+        type: datetime
+      version:
+        type: string
+      downloadUrl:
+        type: string
+      originalFilename:
+        type: string
+      fileExtension:
+        type: string
+      md5Checksum:
+        type: string
+      fileSize:
+        type: integer
+      quotaBytesUsed:
+        type: string
+      ownerNames:
+        items:
+          type: string
+      ownedByMe:
+        type: boolean
+      canComment:
+        type: boolean
+      shareable:
+        type: boolean
+      lastModifyingUserName:
+        type: string
+      spaces:
+        items:
+          type: string
+      canReadRevisions:
+        type: boolean
+      isAppAuthorized:
+        type: boolean
+      hasThumbnail:
+        type: boolean
+      thumbnailVersion:
+        type: string
+      hasAugmentedPermissions:
+        type: boolean
+      teamDriveId:
+        type: string
+      trashedDate:
+        type: datetime
+      editable:
+        type: boolean
+      copyable:
+        type: boolean
+      writersCanShare:
+        type: boolean
+      shared:
+        type: boolean
+      explicitlyTrashed:
+        type: boolean
+      appDataContents:
+        type: boolean
+      headRevisionId:
+        type: string
+      folderColorRgb:
+        type: string
+      openWithLinks: openWithLinks
+      thumbnail: "!include data_model_1f9266080da80e7ff29f347ec7644a99.raml"
+      labels: "!include data_model_cbd788cf04c74b2b35f7d990cbd6de20.raml"
+      sharingUser: "!include data_model_24678ab00bb0b607f947dd39f946a018.raml"
+      parents:
+        items: "!include data_model_6ca7b14abf2f62b487e02096d95f417e.raml"
+      exportLinks: exportLinks
+      indexableText: indexableText
+      userPermission: permission-lib_raml.Permission
+      permissions:
+        items: permission-lib_raml.Permission
+      owners:
+        items: "!include data_model_a25357b743cf64bcba62a67eeee6aec3.raml"
+      properties:
+        items: "!include data_model_43266ba3eb13198815c0eccb78975ca2.raml"
+      capabilities: "!include data_model_5fba9f4114604688e5924d4355ccd2a5.raml"
+      lastModifyingUser: lastModifyingUser
+      trashingUser: "!include data_model_24678ab00bb0b607f947dd39f946a018.raml"
+      imageMediaMetadata: imageMediaMetadata
+      videoMediaMetadata: videoMediaMetadata
+  imageMediaMetadata:
+    description: Metadata about image media. This will only be present for image types, and its contents will depend on what can be parsed from the image content.
+    properties:
+      width:
+        type: integer
+      height:
+        type: integer
+      rotation:
+        type: integer
+      date:
+        type: datetime
+      cameraMake:
+        type: string
+      cameraModel:
+        type: string
+      exposureTime:
+        type: number
+        format: float
+      aperture:
+        type: number
+        format: float
+      flashUsed:
+        type: boolean
+      focalLength:
+        type: number
+        format: float
+      isoSpeed:
+        type: integer
+      meteringMode:
+        type: string
+      sensor:
+        type: string
+      exposureMode:
+        type: string
+      colorSpace:
+        type: string
+      whiteBalance:
+        type: string
+      exposureBias:
+        type: number
+        format: float
+      maxApertureValue:
+        type: number
+        format: float
+      subjectDistance:
+        type: integer
+      lens:
+        type: string
+      location: location
+uses:
+  permission-lib_raml: data_model_593684c070b64fab1d3aa1935ab00b84.raml

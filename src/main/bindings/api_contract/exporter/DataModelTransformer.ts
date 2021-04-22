@@ -44,6 +44,10 @@ export class DataModelTransformer extends ExporterBaseUtils {
                 })!;
                 return (<amf.model.domain.DataType>baseUnit).withEncodes(encodedShape)
             } else {
+                bindingValues.forEach((bindings) => {
+                    console.log(bindings.id())
+                    console.log(bindings.uuid)
+                })
                 throw new Error("Cannot generate data type fragment with multiple shapes");
             }
         }

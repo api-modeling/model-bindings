@@ -1,0 +1,116 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "Admin": {
+      "type": "object",
+      "required": [
+        "kind",
+        "clearanceLevel"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "clearanceLevel": {
+          "type": "string"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/Person"
+        }
+      ]
+    },
+    "Alertable": {
+      "x-amf-union": [
+        {
+          "$ref": "Manager"
+        },
+        {
+          "$ref": "AlertableAdmin"
+        }
+      ]
+    },
+    "Org": {
+      "description": "Represents an organization unit.",
+      "type": "object",
+      "required": [
+        "onCall",
+        "Head"
+      ],
+      "properties": {
+        "onCall": {
+          "$ref": "Alertable"
+        },
+        "Head": {
+          "$ref": "Manager"
+        }
+      }
+    },
+    "Person": {
+      "type": "object",
+      "required": [
+        "firstname",
+        "lastname",
+        "kind"
+      ],
+      "properties": {
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "Manager": {
+      "type": "object",
+      "required": [
+        "phone",
+        "kind",
+        "reports"
+      ],
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "reports": {
+          "type": "array",
+          "items": {
+            "$ref": "Person"
+          }
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/Person"
+        }
+      ]
+    },
+    "AlertableAdmin": {
+      "type": "object",
+      "required": [
+        "phone"
+      ],
+      "properties": {
+        "phone": {
+          "type": "string"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/Admin"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,66 @@
+#%RAML 1.0 Library
+types:
+  Permission:
+    description: A permission for a file.
+    properties:
+      kind:
+        type: string
+      etag:
+        type: string
+      id:
+        type: string
+      selfLink:
+        type: string
+      name:
+        type: string
+      emailAddress:
+        type: string
+      domain:
+        type: string
+      role:
+        type: string
+      additionalRoles:
+        items:
+          type: string
+      attribute2:
+        type: string
+      value:
+        type: string
+      authKey:
+        type: string
+      withLink:
+        type: boolean
+      photoLink:
+        type: string
+  PermissionInsert:
+    description: Create a permission for a file.
+    properties:
+      id:
+        type: string
+      role:
+        type: string
+      additionalRoles:
+        items:
+          type: string
+      attribute3:
+        type: string
+      value:
+        type: string
+      withLink:
+        type: boolean
+  PermissionList:
+    properties:
+      kind:
+        type: string
+      etag:
+        type: string
+      selfLink:
+        type: string
+      items:
+        items: Permission
+  PermissionId:
+    properties:
+      kind:
+        type: string
+      id:
+        type: string

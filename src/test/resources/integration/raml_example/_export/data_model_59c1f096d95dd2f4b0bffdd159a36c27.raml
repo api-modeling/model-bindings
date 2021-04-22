@@ -1,0 +1,22 @@
+#%RAML 1.0 DataType
+displayName: A person resource
+description: |
+  An object representing a person in the API.
+  This object will be used in all methods returning a Person or list of people.
+type: "!include data_model_faedcc827ec83999ba610238218391d1.raml"
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  birthday:
+    type: string
+  gender:
+    type: string
+  url:
+    type: string
+  tagline:
+    type: string
+  language:
+    type: string
+  image: "!include data_model_3e6897e723330ad96753eaf78043c656.raml"

@@ -69,7 +69,12 @@ export class ShapeTransformer {
 
         if (this.baseUnit instanceof amf.model.domain.DataType) {
             const encoded = <amf.model.document.EncodesModel>this.baseUnit;
-            this.transformShape(encoded.encodes, true)
+            const shape = <amf.model.domain.AnyShape>encoded.encodes;
+            // we setup by default the name of the fragment based on the fragment file
+            const fileComponents = this.baseUnit.location.split("/")
+            let tmpName = fileComponents[fileComponents.length-1].split(".")[0];
+            shape.withName(tmpName)
+            this.transformShape(shape, true);
         }
     }
 
@@ -83,6 +88,8 @@ export class ShapeTransformer {
         return this.withTransformedShape(domainElement, topLevel, (entity) => {
             if ($amfModel.isLink(domainElement)) {
                 return this.transformShapeLink(domainElement)
+            } else if ($amfModel.isNamedLink(domainElement)) {
+                return this.transformShapeLink((<amf.model.domain.NodeShape>domainElement).inherits[0])
             } else {
                 if (domainElement instanceof amf.model.domain.NodeShape) {
                     return this.transformNodeShape(entity, <amf.model.domain.NodeShape>domainElement);
@@ -108,10 +115,17 @@ export class ShapeTransformer {
 
 
     private transformShapeLink(domainElement: amf.model.domain.DomainElement) {
-        const linkTarget = (<amf.model.domain.AnyShape>domainElement).linkTarget!.id;
-        const linkName = (<amf.model.domain.AnyShape>domainElement).linkLabel!.value()
-        const link = new meta.Entity(linkName);
-        link.uuid = Md5.hashStr(linkTarget).toString();
+        let linkTarget = (<amf.model.domain.AnyShape>domainElement).linkTarget!;
+        //@ts-ignore
+        while (linkTarget.linkTarget != null) {
+            //@ts-ignore
+            linkTarget = linkTarget.linkTarget
+        }
+        const linkTargetId = linkTarget.id;
+        //const linkName = (<amf.model.domain.AnyShape>domainElement).linkLabel!.value()
+        // @ts-ignore
+        const link = new meta.Entity(linkTarget.name.value());
+        link.uuid = Md5.hashStr(linkTargetId).toString();
         // @ts-ignore
         link['isLink'] = true;
         return link;
@@ -273,7 +287,7 @@ export class ShapeTransformer {
             association.description = property.description.option;
             association.required = (property.minCount.option || 0) !== 0;
             association.allowMultiple = property.range instanceof amf.model.domain.ArrayShape;
-            association.target = this.associationLink(shape);
+            association.target = range;
             // @todo parse additional attributes for a property shape and add bindings
 
             return association;
@@ -281,17 +295,6 @@ export class ShapeTransformer {
             throw new Error(`Cannot create association with an empty target ${property.id}`)
         }
     }
-
-    private associationLink(shape: amf.model.domain.Shape) {
-        let id = shape.id;
-        if (shape.isLink) {
-            id = shape.linkTarget!.id;
-        }
-        const entity = new meta.Entity("")
-        entity.uuid = Md5.hashStr(id).toString();
-        return entity;
-    }
-
 
     /**
      * Helper method used to check that the transformation logic is only invoked if the shape has not been transformed already
@@ -327,10 +330,10 @@ export class ShapeTransformer {
             } else {
                 // null is returned, we need to remove the entity we generated
                 const i = this.entities.findIndex((e) => e.uuid === uuid)
-                if (i) {
+                if (i !== -1) {
                     this.entities.splice(i,1);
                 }
-                return entity;
+                return null;
             }
         }
     }

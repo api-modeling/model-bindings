@@ -2,7 +2,7 @@
 uuid: f5b3d04a078ad6db60d2b09d6108e4da
 name: team-drive.raml
 entities:
-  Entity6:
+  team-drive:
     uuid: 36b037c8f534dfdc48326ef4aae3e612
     attributes:
       kind:
@@ -32,15 +32,9 @@ entities:
   capabilities:
     uuid: 0a4cea11ad7e7095c489aa1ccc299d45
     attributes:
-      canDownload:
+      canDeleteTeamDrive:
         allowMultiple: false
-        uuid: 6acfc79e63f724d600337f89c982e307
-        required: true
-        range:
-          type: boolean
-      canAddChildren:
-        allowMultiple: false
-        uuid: 06d3d3fdba149dadd984b49be23e40d9
+        uuid: ad61ccac1d2fbc3b1caba9577bc09418
         required: true
         range:
           type: boolean
@@ -50,15 +44,27 @@ entities:
         required: true
         range:
           type: boolean
+      canListChildren:
+        allowMultiple: false
+        uuid: ecb2e6dad4838f97a94a8d1712574d95
+        required: true
+        range:
+          type: boolean
+      canDownload:
+        allowMultiple: false
+        uuid: 6acfc79e63f724d600337f89c982e307
+        required: true
+        range:
+          type: boolean
       canRemoveChildren:
         allowMultiple: false
         uuid: 9173f9f3a3aa2c2cbb047af8c612d2f9
         required: true
         range:
           type: boolean
-      canComment:
+      canRenameTeamDrive:
         allowMultiple: false
-        uuid: 4e374bde8f0f5b34606862592a09e665
+        uuid: 844fde56ee3fb8f021611b382b50a05e
         required: true
         range:
           type: boolean
@@ -68,33 +74,15 @@ entities:
         required: true
         range:
           type: boolean
-      canEdit:
+      canAddChildren:
         allowMultiple: false
-        uuid: 8f10a5136e25a09b6135f1f2ae0fc939
+        uuid: 06d3d3fdba149dadd984b49be23e40d9
         required: true
         range:
           type: boolean
-      canShare:
+      canComment:
         allowMultiple: false
-        uuid: e885daf31be38438a4247c159fe5c786
-        required: true
-        range:
-          type: boolean
-      canListChildren:
-        allowMultiple: false
-        uuid: ecb2e6dad4838f97a94a8d1712574d95
-        required: true
-        range:
-          type: boolean
-      canDeleteTeamDrive:
-        allowMultiple: false
-        uuid: ad61ccac1d2fbc3b1caba9577bc09418
-        required: true
-        range:
-          type: boolean
-      canRename:
-        allowMultiple: false
-        uuid: ee182846bba9122a4f7c953770ee7841
+        uuid: 4e374bde8f0f5b34606862592a09e665
         required: true
         range:
           type: boolean
@@ -104,9 +92,21 @@ entities:
         required: true
         range:
           type: boolean
-      canRenameTeamDrive:
+      canShare:
         allowMultiple: false
-        uuid: 844fde56ee3fb8f021611b382b50a05e
+        uuid: e885daf31be38438a4247c159fe5c786
+        required: true
+        range:
+          type: boolean
+      canRename:
+        allowMultiple: false
+        uuid: ee182846bba9122a4f7c953770ee7841
+        required: true
+        range:
+          type: boolean
+      canEdit:
+        allowMultiple: false
+        uuid: 8f10a5136e25a09b6135f1f2ae0fc939
         required: true
         range:
           type: boolean

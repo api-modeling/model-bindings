@@ -1,0 +1,41 @@
+#%RAML 1.0
+title: petstore.json
+/pets:
+  get:
+    displayName: Custom
+    queryParameters:
+      tags?:
+        description: tags to filter by
+        items:
+          type: string
+      limit?:
+        description: maximum number of results to return
+        type: integer
+    responses:
+      "200":
+        body:
+          application/json:
+            items: "!include data_model_a4b53073a54a323e3a9bcc1b1b4379ec.raml"
+  post:
+    displayName: Custom
+    body: "!include data_model_fd202297e0a9a24ecb223865cbe98aca.raml"
+    responses:
+      "200":
+        body:
+          application/json: "!include data_model_a4b53073a54a323e3a9bcc1b1b4379ec.raml"
+/pets/{id}:
+  get:
+    displayName: Custom
+    queryParameters:
+      id:
+        type: string
+    responses:
+      "200":
+        body:
+          application/json: "!include data_model_a4b53073a54a323e3a9bcc1b1b4379ec.raml"
+  delete:
+    displayName: Custom
+    (amf-defaultResponse):
+      default:
+        body:
+          application/json: "!include data_model_1ecc715352e795fa95f95e1a81e14eb4.raml"

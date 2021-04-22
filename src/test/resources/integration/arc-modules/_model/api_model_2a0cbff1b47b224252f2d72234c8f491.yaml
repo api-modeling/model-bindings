@@ -2,57 +2,6 @@
 uuid: 2a0cbff1b47b224252f2d72234c8f491
 name: arc-api.raml
 entities:
-  Entity19:
-    uuid: be75df671c49d7069c91d05a7f9402f8
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 1753b39455778dd496626816c6440969
-  Entity18:
-    uuid: 78b9ff9bcb8e153f002203d1c3f47035
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 1753b39455778dd496626816c6440969
-    description: Created module.
-  Entity12:
-    uuid: 9ffdafabc2076bec08667b1ee4dba95f
-    attributes:
-      code:
-        allowMultiple: false
-        uuid: e6652ccc658601f46ab0d4d970a81bb5
-        required: true
-        range:
-          type: string
-    associations: {}
-  DefaultPayload_310c4e515705441c2564941924d9b5c1:
-    uuid: f0e0b367a7a0e31a1a02c839713c9810
-    attributes: {}
-    associations: {}
-  Entity32:
-    uuid: 0e8cc6df0ce76b06f6fa0a62fa1d5f39
-    attributes:
-      version:
-        allowMultiple: false
-        uuid: 60f65dd7e92579040347c346f1469dd2
-        required: true
-        range:
-          type: string
-    associations:
-      modules:
-        allowMultiple: true
-        uuid: 9f3829fd5a20e948a10d9448dde5e460
-        required: true
-        target: http://mulesoft.com/modeling/instances/f75cda6206b987b93dfe6ac1e475ad70
-  Entity21:
-    uuid: 897b14e331cc96dc1efb5d0518c9c942
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 2a9f14faa5168a15bd019ece23e27539
   default:
     uuid: a577e5e7236b185a8fd88c9a510b91b6
     attributes:
@@ -63,40 +12,19 @@ entities:
         range:
           type: string
     associations: {}
-  Entity16:
-    uuid: 0944f6703ed348af7677ec05cde00b94
+  schema23:
+    uuid: a45c8ddd-3681-45a0-9be4-23530cc4dd55
+  AdaptedEntity.PersonResponse37:
+    uuid: c6aa188025c432227b6257b80090fe32
+    adapts: http://mulesoft.com/modeling/instances/330ec9a9e864dbaee0f09d7b31608d37
+  AdaptedEntity.ModuleResponse26:
+    uuid: ceee8279d42769af3460863bef463ae8
+    adapts: http://mulesoft.com/modeling/instances/1753b39455778dd496626816c6440969
+  DefaultPayload_3779ea6eda3e6b090e9e0582aa1d5261:
+    uuid: 95e9b2372ffd11d54ab54fe3c16881ea
     attributes: {}
     associations: {}
-    extends:
-      -
-        uuid: 2a9f14faa5168a15bd019ece23e27539
-    description: Creates a new module.
-  DefaultPayload_29485553cc4a384ef298a9c5da94b217:
-    uuid: ff67c5aea03f3453c30d4ce5e62cbffb
-    attributes: {}
-    associations: {}
-  default:
-    uuid: 73d4bdabc831cf4cb95e19571d3d2fdc
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 330ec9a9e864dbaee0f09d7b31608d37
-  DefaultPayload_4b4b16eef65c3a14ed111af141db8d22:
-    uuid: fdd20cc4a42b60ed8eecc960fcec6c30
-    attributes: {}
-    associations: {}
-  DefaultPayload_89d13c80c468be2da95546dc5b4272e4:
-    uuid: c2797c8629be3f3bcbf8539ab163925b
-    attributes: {}
-    associations: {}
-  DefaultPayload_b43baf4864e1803101a485ac709f9468:
-    uuid: b14ebc92fcd4f1336c6baf8d27d7abe1
-    attributes: {}
-    associations: {}
-  "":
-    uuid: 95f71d36ce5565c8d97a82c469bdee46
-  Entity34:
+  Entity36:
     uuid: c845fcbfdb026634bef929813cfb7027
     attributes: {}
     associations:
@@ -106,8 +34,23 @@ entities:
         required: true
         target: http://mulesoft.com/modeling/instances/1753b39455778dd496626816c6440969
     description: Created module.
-  DefaultPayload_3779ea6eda3e6b090e9e0582aa1d5261:
-    uuid: 95e9b2372ffd11d54ab54fe3c16881ea
+  DefaultPayload_889639457bfca5c34db982266fd00d1f:
+    uuid: db2db8581e42b4a87e0cca127afc2f4b
+    attributes: {}
+    associations: {}
+  DefaultPayload_b43baf4864e1803101a485ac709f9468:
+    uuid: b14ebc92fcd4f1336c6baf8d27d7abe1
+    attributes: {}
+    associations: {}
+  AdaptedEntity.PersonResponse40:
+    uuid: 57890df8328abf7e96f9ede9218af851
+    adapts: http://mulesoft.com/modeling/instances/330ec9a9e864dbaee0f09d7b31608d37
+  DefaultPayload_29485553cc4a384ef298a9c5da94b217:
+    uuid: ff67c5aea03f3453c30d4ce5e62cbffb
+    attributes: {}
+    associations: {}
+  DefaultPayload_89d13c80c468be2da95546dc5b4272e4:
+    uuid: c2797c8629be3f3bcbf8539ab163925b
     attributes: {}
     associations: {}
   Entity9:
@@ -141,12 +84,45 @@ entities:
         body: data
       });
       ```
-  DefaultPayload_889639457bfca5c34db982266fd00d1f:
-    uuid: db2db8581e42b4a87e0cca127afc2f4b
+  Entity34:
+    uuid: 0e8cc6df0ce76b06f6fa0a62fa1d5f39
+    attributes:
+      version:
+        allowMultiple: false
+        uuid: 60f65dd7e92579040347c346f1469dd2
+        required: true
+        range:
+          type: string
+    associations:
+      modules:
+        allowMultiple: true
+        uuid: 9f3829fd5a20e948a10d9448dde5e460
+        required: true
+        target: http://mulesoft.com/modeling/instances/f75cda6206b987b93dfe6ac1e475ad70
+  AdaptedEntity.ModuleResponse19:
+    uuid: 7cabeb7424f950dd02296ed87026946e
+    adapts: http://mulesoft.com/modeling/instances/1753b39455778dd496626816c6440969
+  AdaptedEntity.ModuleResponse18:
+    uuid: 7aeb6ffe94e283dba3ca242c7fa90e23
+    adapts: http://mulesoft.com/modeling/instances/1753b39455778dd496626816c6440969
+  Entity12:
+    uuid: 9ffdafabc2076bec08667b1ee4dba95f
+    attributes:
+      code:
+        allowMultiple: false
+        uuid: e6652ccc658601f46ab0d4d970a81bb5
+        required: true
+        range:
+          type: string
+    associations: {}
+  DefaultPayload_4b4b16eef65c3a14ed111af141db8d22:
+    uuid: fdd20cc4a42b60ed8eecc960fcec6c30
     attributes: {}
     associations: {}
-  "":
-    uuid: a23799694339ac83e967cf5f78e0a791
+  DefaultPayload_310c4e515705441c2564941924d9b5c1:
+    uuid: f0e0b367a7a0e31a1a02c839713c9810
+    attributes: {}
+    associations: {}
 entryPoint:
   uuid: d08bb86ecfe5a6eca23305f7d8d1e126
   name: ARC Analytics API
@@ -171,17 +147,17 @@ entryPoint:
   events: []
   operations:
     -
-      uuid: 50b3e61fcd90bc274aee5a15b0a107ed
-      name: Find Resource /analyzer
+      uuid: 139f8e71b2b7eb856d86fbdd7fae3c78
+      name: Find Resource /auth
       transition:
-        uuid: a9e5dbafee0ca566741f3704f41d7280
-        target: http://mulesoft.com/modeling/instances/d9bec162-5665-4d17-b000-864fc35f1af5
+        uuid: 9239b3e7de20176157b7984935f004ad
+        target: http://mulesoft.com/modeling/instances/aa062236-0fb6-4f00-a58b-c81752edeb15
       inputs: []
       output:
         allowMultiple: false
-        uuid: c53cc71d2f6b63b1297186b9ecdca1f0
+        uuid: 429d392a091b6734d19a139607936707
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/c2797c8629be3f3bcbf8539ab163925b
+        objectRange: http://mulesoft.com/modeling/instances/ff67c5aea03f3453c30d4ce5e62cbffb
       isMutation: false
       type: custom
     -
@@ -189,7 +165,7 @@ entryPoint:
       name: Find Resource /analytics/query
       transition:
         uuid: f63c59c0ff51d5f3f789a127d809af59
-        target: http://mulesoft.com/modeling/instances/6084d167-bfb9-480e-a0ca-91f1b2c34a1f
+        target: http://mulesoft.com/modeling/instances/121523bf-c2b8-467d-8c1b-bef958f04ab8
       inputs: []
       output:
         allowMultiple: false
@@ -199,22 +175,53 @@ entryPoint:
       isMutation: false
       type: custom
     -
-      uuid: a40efdc5db76ca3f438ea6ed430c9b00
-      name: Create analytics/record
-      inputs:
-        -
-          allowMultiple: false
-          uuid: 46fe31571db00ff1d58a1c909ac47ce0
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/1e5702b15ab9860d304dd28c920985f4
-      isMutation: true
+      uuid: 51b745a1377858fb0a8e0a0a1f02c258
+      name: Find Resource /users
+      transition:
+        uuid: 4c297401cd3408dd9f886a891c6ea5dc
+        target: http://mulesoft.com/modeling/instances/2e1957a8-ec9f-499d-82da-6fa378179a83
+      inputs: []
+      output:
+        allowMultiple: false
+        uuid: 6a1ee8706d816220d95fff9f8c287206
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/f0e0b367a7a0e31a1a02c839713c9810
+      isMutation: false
+      type: custom
+    -
+      uuid: ed0b913a97a6aaae95255bd887bc80a9
+      name: Find Resource /tasks
+      transition:
+        uuid: 2357693c6f2cd00a9f044ecc81f33844
+        target: http://mulesoft.com/modeling/instances/5b7d3ee3-dab6-4716-a869-5fe7c8a7efd4
+      inputs: []
+      output:
+        allowMultiple: false
+        uuid: a3fc1350402a33a68d63f5221743e22f
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/b14ebc92fcd4f1336c6baf8d27d7abe1
+      isMutation: false
+      type: custom
+    -
+      uuid: 50b3e61fcd90bc274aee5a15b0a107ed
+      name: Find Resource /analyzer
+      transition:
+        uuid: a9e5dbafee0ca566741f3704f41d7280
+        target: http://mulesoft.com/modeling/instances/a343f54f-53b7-4c2f-b27b-e77cee8d5da2
+      inputs: []
+      output:
+        allowMultiple: false
+        uuid: c53cc71d2f6b63b1297186b9ecdca1f0
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/c2797c8629be3f3bcbf8539ab163925b
+      isMutation: false
       type: custom
     -
       uuid: 2bfb8d8d1983104b31c919796e23989e
       name: Find Resource /.well-known/acme-challenge/{challenge}
       transition:
         uuid: 7886afe504167941dd9b07fb11ba997f
-        target: http://mulesoft.com/modeling/instances/b56dfcdb-ddfa-4c43-8e71-ef2bedb0b622
+        target: http://mulesoft.com/modeling/instances/4f8f4605-0b86-471a-9054-39ec0e73d08a
       inputs:
         -
           scalarRange:
@@ -233,69 +240,11 @@ entryPoint:
       isMutation: false
       type: custom
     -
-      uuid: ed0b913a97a6aaae95255bd887bc80a9
-      name: Find Resource /tasks
-      transition:
-        uuid: 2357693c6f2cd00a9f044ecc81f33844
-        target: http://mulesoft.com/modeling/instances/eb017889-1464-48b1-a18f-b0f521469df9
-      inputs: []
-      output:
-        allowMultiple: false
-        uuid: a3fc1350402a33a68d63f5221743e22f
-        required: false
-        objectRange: http://mulesoft.com/modeling/instances/b14ebc92fcd4f1336c6baf8d27d7abe1
-      isMutation: false
-      type: custom
-    -
-      uuid: 9fe48ea22f89f58e6db9487cba4da22b
-      name: Create updates
-      inputs:
-        -
-          allowMultiple: false
-          uuid: 71847a721f171889122877afd6b98446
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/0e8cc6df0ce76b06f6fa0a62fa1d5f39
-      output:
-        allowMultiple: false
-        uuid: 086eca1976baee07d848bff3d31e7bea
-        required: false
-        objectRange: http://mulesoft.com/modeling/instances/c845fcbfdb026634bef929813cfb7027
-      isMutation: true
-      type: custom
-    -
-      uuid: 139f8e71b2b7eb856d86fbdd7fae3c78
-      name: Find Resource /auth
-      transition:
-        uuid: 9239b3e7de20176157b7984935f004ad
-        target: http://mulesoft.com/modeling/instances/1552431e-0ae2-4040-8e48-d7c2b0044c83
-      inputs: []
-      output:
-        allowMultiple: false
-        uuid: 429d392a091b6734d19a139607936707
-        required: false
-        objectRange: http://mulesoft.com/modeling/instances/ff67c5aea03f3453c30d4ce5e62cbffb
-      isMutation: false
-      type: custom
-    -
-      uuid: 51b745a1377858fb0a8e0a0a1f02c258
-      name: Find Resource /users
-      transition:
-        uuid: 4c297401cd3408dd9f886a891c6ea5dc
-        target: http://mulesoft.com/modeling/instances/ba926c25-7689-457c-902e-a892a9c30926
-      inputs: []
-      output:
-        allowMultiple: false
-        uuid: 6a1ee8706d816220d95fff9f8c287206
-        required: false
-        objectRange: http://mulesoft.com/modeling/instances/f0e0b367a7a0e31a1a02c839713c9810
-      isMutation: false
-      type: custom
-    -
       uuid: f9e1dc01de48ebb05e1bc8bd8022dc93
       name: Find Resource /modules
       transition:
         uuid: c53d80a252e4242011c964a3ed38f6d4
-        target: http://mulesoft.com/modeling/instances/43cecc20-8c10-4273-82b7-353483be030e
+        target: http://mulesoft.com/modeling/instances/9e60a28c-61b9-4159-bdc6-63ad7993b049
       inputs:
         -
           scalarRange:
@@ -327,71 +276,213 @@ entryPoint:
             With the property you may specify direction as either `desc` or `asc`. If not specified, `desc` is assumed.
       isMutation: false
       type: custom
+    -
+      uuid: 9fe48ea22f89f58e6db9487cba4da22b
+      name: Create updates
+      inputs:
+        -
+          allowMultiple: false
+          uuid: 71847a721f171889122877afd6b98446
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/0e8cc6df0ce76b06f6fa0a62fa1d5f39
+      output:
+        allowMultiple: false
+        uuid: 086eca1976baee07d848bff3d31e7bea
+        required: false
+        objectRange: http://mulesoft.com/modeling/instances/c845fcbfdb026634bef929813cfb7027
+      isMutation: true
+      type: custom
+    -
+      uuid: a40efdc5db76ca3f438ea6ed430c9b00
+      name: Create analytics/record
+      inputs:
+        -
+          allowMultiple: false
+          uuid: 46fe31571db00ff1d58a1c909ac47ce0
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/1e5702b15ab9860d304dd28c920985f4
+      isMutation: true
+      type: custom
 resources:
   -
-    uuid: 43cecc20-8c10-4273-82b7-353483be030e
-    name: Resource /modules
+    uuid: 121523bf-c2b8-467d-8c1b-bef958f04ab8
+    name: Resource /analytics/query
+    schema:
+      uuid: db2db8581e42b4a87e0cca127afc2f4b
+      name: DefaultPayload_889639457bfca5c34db982266fd00d1f
+      attributes: {}
+      associations: {}
+    description: |
+      The Query endpoint is responsible for getting data out from the datastore.
+
+      The data are agregated every day, week (on monday) and month (every first day of month).
+      This endpoints returns data from aggregated tables and never operated on raw data.
+
+      Depending on endpoint it can return only number of users/sessions for given day or number
+      of users or session for a week or month with daily sessions or users. See methods
+      documentation for more details.
     events: []
     operations:
       -
-        uuid: 8afd31f1721909a488a74924880392ce
-        name: Create
-        inputs:
-          -
-            allowMultiple: false
-            uuid: 0ff9abcec1bfa9f55123ea7bb9788b41
-            required: false
-            objectRange: http://mulesoft.com/modeling/instances/0944f6703ed348af7677ec05cde00b94
+        uuid: b79163dfdca16351a8393a4501236e3b
+        name: Find Resource /analytics/query/daily
+        transition:
+          uuid: 598c5dfaa84e5e3ee596c4864d637490
+          target: http://mulesoft.com/modeling/instances/d39e40cb-c349-4650-bda3-9dbe2565ca0e
+        inputs: []
         output:
           allowMultiple: false
-          uuid: 08c7b70fd0d314bf0a77417b71cf0e14
+          uuid: c896811a922adbc7a705ff623db4d578
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/78b9ff9bcb8e153f002203d1c3f47035
-        isMutation: true
+          objectRange: http://mulesoft.com/modeling/instances/95e9b2372ffd11d54ab54fe3c16881ea
+        isMutation: false
         type: custom
       -
-        uuid: 7e06fe27ec0300f746947cf494c855eb
-        name: Find Resource /modules/{moduleId}
+        uuid: de0f6a5e433c39c41045937b3978c96e
+        name: Find Resource /analytics/query/{scope}
         transition:
-          uuid: 367895b13661bff9d40c61fadadd1d7f
-          target: http://mulesoft.com/modeling/instances/0178fcd1-db55-4dcb-840c-2b2326b528f9
+          uuid: d37a6289fe87cc31f49b16893244c627
+          target: http://mulesoft.com/modeling/instances/33a79cba-6864-4987-9894-b45ddca4bf94
         inputs:
           -
             scalarRange:
               type: string
             allowMultiple: false
-            uuid: 034f69194eaabdafedd3d819b6e22342
-            name: moduleId
+            uuid: 2a85e25fbd956bcfca7714a714788255
+            name: scope
             required: true
-            description: ID of the module.
+            description: |
+              A time period for the statistics. Only `weekly` and `monthly` values are allowed.
         output:
           allowMultiple: false
-          uuid: 9ceba411c7fde3ad58d59b0e97fc0b00
+          uuid: fd7e0dc1b835d95acc1771761d45382c
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/be75df671c49d7069c91d05a7f9402f8
+          objectRange: http://mulesoft.com/modeling/instances/fdd20cc4a42b60ed8eecc960fcec6c30
         isMutation: false
         type: custom
     type: individual
   -
-    uuid: f7a893f5-363f-4b24-b568-81ed8f829793
-    name: Resource /analytics/query/daily
-    schema:
-      uuid: 95e9b2372ffd11d54ab54fe3c16881ea
-      name: DefaultPayload_3779ea6eda3e6b090e9e0582aa1d5261
-      attributes: {}
-      associations: {}
-    description: Endpoint to query for daily statistics.
+    uuid: 4f8f4605-0b86-471a-9054-39ec0e73d08a
+    name: Resource /.well-known/acme-challenge/{challenge}
+    description: An endpoint to make a request from the LetsEncrypt service to confirm the domain ownership.
     events: []
     operations: []
     type: individual
   -
-    uuid: 6f73d475-cdb5-4be1-8bb1-3d13e7421f90
+    uuid: 2e1957a8-ec9f-499d-82da-6fa378179a83
+    name: Resource /users
+    schema:
+      uuid: f0e0b367a7a0e31a1a02c839713c9810
+      name: DefaultPayload_310c4e515705441c2564941924d9b5c1
+      attributes: {}
+      associations: {}
+    events: []
+    operations:
+      -
+        uuid: ed93750a2173d5e44412a90e00254342
+        name: Find Resource /users/{userId}
+        transition:
+          uuid: e88bc9ae4a347c7fffcbd645b383a70c
+          target: http://mulesoft.com/modeling/instances/b0bf24de-3737-427e-8235-c862179575e7
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: d3f95ba5749c7c00967c253eea2cf9b4
+            name: userId
+            required: true
+            description: |
+              User id which is a `ref` property from user response object.
+        output:
+          allowMultiple: false
+          uuid: 1d2c9f3c54969f0b47de0ab96e8c8a9c
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/57890df8328abf7e96f9ede9218af851
+        isMutation: false
+        type: custom
+    type: individual
+  -
+    uuid: 0601235f-0754-42f7-8031-2465132334d7
+    name: Resource /modules/{moduleId}
+    schema:
+      uuid: 7cabeb7424f950dd02296ed87026946e
+      name: AdaptedEntity.ModuleResponse19
+      adapts: http://mulesoft.com/modeling/instances/1753b39455778dd496626816c6440969
+    description: |
+      An endpoint to get information abour a module or to manage it.
+      Only a user that created the module can manage it (update or delete).
+
+      Updating module usually changes it's description or version.
+
+      This endpoint returns information about latest released version of the module
+      (with highest version number).
+
+      To manage specific version use `/{moduleId}/{versionNumber}` endponit.
+    events: []
+    operations:
+      -
+        uuid: 32d4d631bdab928b5b88e0a9c999027d
+        name: Update
+        inputs:
+          -
+            allowMultiple: false
+            uuid: e27bb2c8465e896389a92f443e1f4b9c
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/2a9f14faa5168a15bd019ece23e27539
+        isMutation: true
+        type: custom
+      -
+        uuid: 03db50fedd16651fcc6ff84457b2aa4c
+        name: Delete
+        inputs: []
+        isMutation: true
+        type: custom
+      -
+        uuid: f58fe6e5b539449e5fc4f697e28de926
+        name: Find Resource /modules/{moduleId}/star
+        transition:
+          uuid: fbffd12eed4c063ec52eaa5d313475f7
+          target: http://mulesoft.com/modeling/instances/cbc763f0-6414-423a-ae28-12803772a70c
+        inputs: []
+        isMutation: false
+        type: custom
+    type: individual
+  -
+    uuid: eedfd172-5f9e-4c1e-9541-af27c3a8bece
     name: Resource /tasks/{scope}/{type}
     events: []
     operations: []
     type: individual
   -
-    uuid: eb017889-1464-48b1-a18f-b0f521469df9
+    uuid: aa062236-0fb6-4f00-a58b-c81752edeb15
+    name: Resource /auth
+    schema:
+      uuid: ff67c5aea03f3453c30d4ce5e62cbffb
+      name: DefaultPayload_29485553cc4a384ef298a9c5da94b217
+      attributes: {}
+      associations: {}
+    events: []
+    operations:
+      -
+        uuid: 29c1f696ba52046dc963569ed1171abe
+        name: Create token
+        inputs:
+          -
+            allowMultiple: false
+            uuid: 465fe77c2adc8de1b501572857e023f8
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/9ffdafabc2076bec08667b1ee4dba95f
+        output:
+          allowMultiple: false
+          uuid: a71f9d26cdb325e110ad842c2a4f8af1
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/a577e5e7236b185a8fd88c9a510b91b6
+        isMutation: true
+        type: custom
+    type: individual
+  -
+    uuid: 5b7d3ee3-dab6-4716-a869-5fe7c8a7efd4
     name: Resource /tasks
     schema:
       uuid: b14ebc92fcd4f1336c6baf8d27d7abe1
@@ -409,7 +500,7 @@ resources:
         name: Find Resource /tasks/{scope}/{type}
         transition:
           uuid: c8ddac1bc0989699c59699acaa0a781f
-          target: http://mulesoft.com/modeling/instances/6f73d475-cdb5-4be1-8bb1-3d13e7421f90
+          target: http://mulesoft.com/modeling/instances/eedfd172-5f9e-4c1e-9541-af27c3a8bece
         inputs:
           -
             scalarRange:
@@ -437,81 +528,31 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 82981c78-a963-4e6b-b51d-bf11dd973a16
-    name: Resource /users/{userId}
+    uuid: 33a79cba-6864-4987-9894-b45ddca4bf94
+    name: Resource /analytics/query/{scope}
     schema:
-      uuid: 73d4bdabc831cf4cb95e19571d3d2fdc
-      name: default
+      uuid: fdd20cc4a42b60ed8eecc960fcec6c30
+      name: DefaultPayload_4b4b16eef65c3a14ed111af141db8d22
       attributes: {}
       associations: {}
-      extends:
-        -
-          uuid: 330ec9a9e864dbaee0f09d7b31608d37
+    description: Endpoint to query for periodical statistics.
     events: []
     operations: []
     type: individual
   -
-    uuid: b56dfcdb-ddfa-4c43-8e71-ef2bedb0b622
-    name: Resource /.well-known/acme-challenge/{challenge}
+    uuid: d39e40cb-c349-4650-bda3-9dbe2565ca0e
+    name: Resource /analytics/query/daily
     schema:
-      uuid: 95f71d36ce5565c8d97a82c469bdee46
-      name: ""
-    description: An endpoint to make a request from the LetsEncrypt service to confirm the domain ownership.
+      uuid: 95e9b2372ffd11d54ab54fe3c16881ea
+      name: DefaultPayload_3779ea6eda3e6b090e9e0582aa1d5261
+      attributes: {}
+      associations: {}
+    description: Endpoint to query for daily statistics.
     events: []
     operations: []
     type: individual
   -
-    uuid: 0178fcd1-db55-4dcb-840c-2b2326b528f9
-    name: Resource /modules/{moduleId}
-    schema:
-      uuid: be75df671c49d7069c91d05a7f9402f8
-      name: Entity19
-      attributes: {}
-      associations: {}
-      extends:
-        -
-          uuid: 1753b39455778dd496626816c6440969
-    description: |
-      An endpoint to get information abour a module or to manage it.
-      Only a user that created the module can manage it (update or delete).
-
-      Updating module usually changes it's description or version.
-
-      This endpoint returns information about latest released version of the module
-      (with highest version number).
-
-      To manage specific version use `/{moduleId}/{versionNumber}` endponit.
-    events: []
-    operations:
-      -
-        uuid: 32d4d631bdab928b5b88e0a9c999027d
-        name: Update
-        inputs:
-          -
-            allowMultiple: false
-            uuid: e27bb2c8465e896389a92f443e1f4b9c
-            required: false
-            objectRange: http://mulesoft.com/modeling/instances/897b14e331cc96dc1efb5d0518c9c942
-        isMutation: true
-        type: custom
-      -
-        uuid: 03db50fedd16651fcc6ff84457b2aa4c
-        name: Delete
-        inputs: []
-        isMutation: true
-        type: custom
-      -
-        uuid: f58fe6e5b539449e5fc4f697e28de926
-        name: Find Resource /modules/{moduleId}/star
-        transition:
-          uuid: fbffd12eed4c063ec52eaa5d313475f7
-          target: http://mulesoft.com/modeling/instances/4cfe49ca-db87-4b03-93cd-4d1a976b4e09
-        inputs: []
-        isMutation: false
-        type: custom
-    type: individual
-  -
-    uuid: 4cfe49ca-db87-4b03-93cd-4d1a976b4e09
+    uuid: cbc763f0-6414-423a-ae28-12803772a70c
     name: Resource /modules/{moduleId}/star
     events: []
     operations:
@@ -523,7 +564,7 @@ resources:
             allowMultiple: false
             uuid: 843f6429d6863e7682353e3ef409bcc6
             required: false
-            objectRange: http://mulesoft.com/modeling/instances/a23799694339ac83e967cf5f78e0a791
+            objectRange: http://mulesoft.com/modeling/instances/a45c8ddd-3681-45a0-9be4-23530cc4dd55
         isMutation: true
         type: custom
       -
@@ -534,7 +575,61 @@ resources:
         type: custom
     type: individual
   -
-    uuid: d9bec162-5665-4d17-b000-864fc35f1af5
+    uuid: b0bf24de-3737-427e-8235-c862179575e7
+    name: Resource /users/{userId}
+    schema:
+      uuid: c6aa188025c432227b6257b80090fe32
+      name: AdaptedEntity.PersonResponse37
+      adapts: http://mulesoft.com/modeling/instances/330ec9a9e864dbaee0f09d7b31608d37
+    events: []
+    operations: []
+    type: individual
+  -
+    uuid: 9e60a28c-61b9-4159-bdc6-63ad7993b049
+    name: Resource /modules
+    events: []
+    operations:
+      -
+        uuid: 8afd31f1721909a488a74924880392ce
+        name: Create
+        inputs:
+          -
+            allowMultiple: false
+            uuid: 0ff9abcec1bfa9f55123ea7bb9788b41
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/2a9f14faa5168a15bd019ece23e27539
+        output:
+          allowMultiple: false
+          uuid: 08c7b70fd0d314bf0a77417b71cf0e14
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/7aeb6ffe94e283dba3ca242c7fa90e23
+        isMutation: true
+        type: custom
+      -
+        uuid: 7e06fe27ec0300f746947cf494c855eb
+        name: Find Resource /modules/{moduleId}
+        transition:
+          uuid: 367895b13661bff9d40c61fadadd1d7f
+          target: http://mulesoft.com/modeling/instances/0601235f-0754-42f7-8031-2465132334d7
+        inputs:
+          -
+            scalarRange:
+              type: string
+            allowMultiple: false
+            uuid: 034f69194eaabdafedd3d819b6e22342
+            name: moduleId
+            required: true
+            description: ID of the module.
+        output:
+          allowMultiple: false
+          uuid: 9ceba411c7fde3ad58d59b0e97fc0b00
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/ceee8279d42769af3460863bef463ae8
+        isMutation: false
+        type: custom
+    type: individual
+  -
+    uuid: a343f54f-53b7-4c2f-b27b-e77cee8d5da2
     name: Resource /analyzer
     schema:
       uuid: c2797c8629be3f3bcbf8539ab163925b
@@ -551,134 +646,4 @@ resources:
       Tasks are executed in special environment and are allowed to work for up to 10 minutes.
     events: []
     operations: []
-    type: individual
-  -
-    uuid: a52c1091-a893-43c3-93e1-9a71efdb4b69
-    name: Resource /analytics/query/{scope}
-    schema:
-      uuid: fdd20cc4a42b60ed8eecc960fcec6c30
-      name: DefaultPayload_4b4b16eef65c3a14ed111af141db8d22
-      attributes: {}
-      associations: {}
-    description: Endpoint to query for periodical statistics.
-    events: []
-    operations: []
-    type: individual
-  -
-    uuid: 1552431e-0ae2-4040-8e48-d7c2b0044c83
-    name: Resource /auth
-    schema:
-      uuid: ff67c5aea03f3453c30d4ce5e62cbffb
-      name: DefaultPayload_29485553cc4a384ef298a9c5da94b217
-      attributes: {}
-      associations: {}
-    events: []
-    operations:
-      -
-        uuid: 29c1f696ba52046dc963569ed1171abe
-        name: Create token
-        inputs:
-          -
-            allowMultiple: false
-            uuid: 465fe77c2adc8de1b501572857e023f8
-            required: false
-            objectRange: http://mulesoft.com/modeling/instances/9ffdafabc2076bec08667b1ee4dba95f
-        output:
-          allowMultiple: false
-          uuid: a71f9d26cdb325e110ad842c2a4f8af1
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/a577e5e7236b185a8fd88c9a510b91b6
-        isMutation: true
-        type: custom
-    type: individual
-  -
-    uuid: 6084d167-bfb9-480e-a0ca-91f1b2c34a1f
-    name: Resource /analytics/query
-    schema:
-      uuid: db2db8581e42b4a87e0cca127afc2f4b
-      name: DefaultPayload_889639457bfca5c34db982266fd00d1f
-      attributes: {}
-      associations: {}
-    description: |
-      The Query endpoint is responsible for getting data out from the datastore.
-
-      The data are agregated every day, week (on monday) and month (every first day of month).
-      This endpoints returns data from aggregated tables and never operated on raw data.
-
-      Depending on endpoint it can return only number of users/sessions for given day or number
-      of users or session for a week or month with daily sessions or users. See methods
-      documentation for more details.
-    events: []
-    operations:
-      -
-        uuid: b79163dfdca16351a8393a4501236e3b
-        name: Find Resource /analytics/query/daily
-        transition:
-          uuid: 598c5dfaa84e5e3ee596c4864d637490
-          target: http://mulesoft.com/modeling/instances/f7a893f5-363f-4b24-b568-81ed8f829793
-        inputs: []
-        output:
-          allowMultiple: false
-          uuid: c896811a922adbc7a705ff623db4d578
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/95e9b2372ffd11d54ab54fe3c16881ea
-        isMutation: false
-        type: custom
-      -
-        uuid: de0f6a5e433c39c41045937b3978c96e
-        name: Find Resource /analytics/query/{scope}
-        transition:
-          uuid: d37a6289fe87cc31f49b16893244c627
-          target: http://mulesoft.com/modeling/instances/a52c1091-a893-43c3-93e1-9a71efdb4b69
-        inputs:
-          -
-            scalarRange:
-              type: string
-            allowMultiple: false
-            uuid: 2a85e25fbd956bcfca7714a714788255
-            name: scope
-            required: true
-            description: |
-              A time period for the statistics. Only `weekly` and `monthly` values are allowed.
-        output:
-          allowMultiple: false
-          uuid: fd7e0dc1b835d95acc1771761d45382c
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/fdd20cc4a42b60ed8eecc960fcec6c30
-        isMutation: false
-        type: custom
-    type: individual
-  -
-    uuid: ba926c25-7689-457c-902e-a892a9c30926
-    name: Resource /users
-    schema:
-      uuid: f0e0b367a7a0e31a1a02c839713c9810
-      name: DefaultPayload_310c4e515705441c2564941924d9b5c1
-      attributes: {}
-      associations: {}
-    events: []
-    operations:
-      -
-        uuid: ed93750a2173d5e44412a90e00254342
-        name: Find Resource /users/{userId}
-        transition:
-          uuid: e88bc9ae4a347c7fffcbd645b383a70c
-          target: http://mulesoft.com/modeling/instances/82981c78-a963-4e6b-b51d-bf11dd973a16
-        inputs:
-          -
-            scalarRange:
-              type: string
-            allowMultiple: false
-            uuid: d3f95ba5749c7c00967c253eea2cf9b4
-            name: userId
-            required: true
-            description: |
-              User id which is a `ref` property from user response object.
-        output:
-          allowMultiple: false
-          uuid: 1d2c9f3c54969f0b47de0ab96e8c8a9c
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/73d4bdabc831cf4cb95e19571d3d2fdc
-        isMutation: false
-        type: custom
     type: individual

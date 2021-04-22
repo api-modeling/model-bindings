@@ -1,0 +1,88 @@
+#%RAML 1.0 Library
+types:
+  ReplyList:
+    properties:
+      kind:
+        type: string
+      nextPageToken:
+        type: string
+      selfLink:
+        type: string
+      nextLink:
+        type: string
+      items:
+        items: Reply
+  ReplyWritable:
+    properties:
+      content:
+        type: string
+      verb:
+        type: string
+  CommentList:
+    properties:
+      kind:
+        type: string
+      nextPageToken:
+        type: string
+      selfLink:
+        type: string
+      nextLink:
+        type: string
+      items:
+        items: Comment
+  context:
+    description: The context of the file which is being commented on.
+    properties:
+      attribute1:
+        type: string
+      value:
+        type: string
+  CommentWritable:
+    properties:
+      content:
+        type: string
+      context: context
+  Reply:
+    type: ReplyWritable
+    properties:
+      kind:
+        type: string
+      replyId:
+        type: string
+      createdDate:
+        type: datetime
+      modifiedDate:
+        type: datetime
+      htmlContent:
+        type: string
+      deleted:
+        type: boolean
+      author: "!include data_model_24678ab00bb0b607f947dd39f946a018.raml"
+  Comment:
+    type: CommentWritable
+    properties:
+      kind:
+        type: string
+      selfLink:
+        type: string
+      commentId:
+        type: string
+      createdDate:
+        type: datetime
+      modifiedDate:
+        type: datetime
+      htmlContent:
+        type: string
+      deleted:
+        type: boolean
+      status:
+        type: string
+      anchor:
+        type: string
+      fileId:
+        type: string
+      fileTitle:
+        type: string
+      author: "!include data_model_24678ab00bb0b607f947dd39f946a018.raml"
+      replies:
+        items: Reply

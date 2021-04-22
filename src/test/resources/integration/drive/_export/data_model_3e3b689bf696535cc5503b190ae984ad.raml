@@ -1,0 +1,27 @@
+#%RAML 1.0 Library
+types:
+  Parent:
+    description: A reference to a file's parent.
+    properties:
+      kind:
+        type: string
+      id:
+        type: string
+      selfLink:
+        type: string
+      parentLink:
+        type: string
+      isRoot:
+        type: string
+  ParentList:
+    displayName: ParentList
+    description: A list of Parents.
+    properties:
+      kind:
+        type: string
+      etag:
+        type: string
+      selfLink:
+        type: string
+      items:
+        items: Parent

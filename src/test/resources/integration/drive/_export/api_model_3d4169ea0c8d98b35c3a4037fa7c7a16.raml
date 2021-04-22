@@ -1,0 +1,697 @@
+#%RAML 1.0
+types:
+  schema190:
+    type: any
+  schema194:
+    type: any
+uses:
+  about-lib_raml: data_model_1334eeed845b2be26327e365f33f88b2.raml
+  file-lib_raml: data_model_38555d5e1d9995ba31e2be10d92f5155.raml
+  parent-lib_raml: data_model_3e3b689bf696535cc5503b190ae984ad.raml
+  permission-lib_raml: data_model_593684c070b64fab1d3aa1935ab00b84.raml
+  app-lib_raml: data_model_8539ebf74090a7f3db3b9fb529d30ffe.raml
+  watch-lib_raml: data_model_9dbbc0befc67926a1065fa327626eaa2.raml
+  comment-lib_raml: data_model_e445356e63748d15ee25bacd5d29d765.raml
+  revision-lib_raml: data_model_96653e71dc199c5701bc88d16a0a6814.raml
+  properties-lib_raml: data_model_727384b6ec7fabcf5a4643e0968135d1.raml
+  child-lib_raml: data_model_a170f1503774e31ce8371754e1a7fb57.raml
+title: api.raml
+/about:
+  get:
+    displayName: Custom
+    queryParameters:
+      includeSubscribed?:
+        description: |
+          When calculating the number of remaining change IDs, whether to include public files the user has opened and shared files.
+          When set to false, this counts only change IDs for owned files and any shared or public files that the user has explicitly
+          added to a folder they own. (Default: true)
+        type: boolean
+      maxChangeIdCount?:
+        description: Maximum number of remaining change IDs to count
+        type: integer
+      startChangeId?:
+        description: Change ID to start counting from when calculating number of remaining change IDs
+        type: integer
+    responses:
+      "200":
+        body:
+          application/json: about-lib_raml.About
+/apps:
+  get:
+    displayName: Custom
+    queryParameters:
+      appFilterExtensions?:
+        description: A comma-separated list of file extensions for open with filtering. All apps within the given app query scope which can open any of the given file extensions will be included in the response. If appFilterMimeTypes are provided as well, the result is a union of the two resulting app lists.
+        type: string
+      appFilterMimeTypes?:
+        description: A comma-separated list of MIME types for open with filtering. All apps within the given app query scope which can open any of the given MIME types will be included in the response. If appFilterExtensions are provided as well, the result is a union of the two resulting app lists.
+        type: string
+      languageCode?:
+        description: A language or locale code, as defined by BCP 47, with some extensions from the Unicode LDML format.
+        type: string
+    responses:
+      "200":
+        body:
+          application/json: app-lib_raml.AppList
+/changes:
+  get:
+    displayName: Custom
+    queryParameters:
+      includeSubscribed?:
+        description: |
+          Whether to include public files the user has opened and shared files.
+          When set to false, the list only includes owned files plus any shared or public
+          files the user has explicitly added to a folder they own.
+        type: boolean
+      startChangeId?:
+        description: Change ID to start listing changes from.
+        type: integer
+      spaces?:
+        description: |
+          A comma-separated list of spaces to query. Supported values are:
+
+          - **drive**
+          - **appDataFolder**
+          - **photos**
+        type: string
+    responses:
+      "200":
+        body:
+          application/json: watch-lib_raml.ChangeList
+/files:
+  post:
+    displayName: Custom
+    queryParameters:
+      uploadType:
+        description: |
+          The type of upload request to the /upload URI. Acceptable values are:
+
+          - **media** - Simple upload. Upload the media only, without any metadata.
+          - **multipart** - Multipart upload. Upload both the media and its metadata, in a single request.
+          - **resumable** - Resumable upload. Upload the file in a resumable fashion, using a series of at least two requests where the first request includes the metadata.
+        type: string
+      visibility:
+        description: |
+          The visibility of the new file. This parameter is only relevant when convert=false.
+
+          Acceptable values are:
+          - **DEFAULT**: The visibility of the new file is determined by the user's default visibility/sharing policies. (default)
+          - **PRIVATE**: The new file will be visible to only the owner.
+        type: string
+    body: file-lib_raml.File
+    responses:
+      "201":
+        body:
+          application/json: file-lib_raml.DriveFile
+  get:
+    displayName: Custom
+    queryParameters:
+      corpus?:
+        description: |
+          The body of items (files/documents) to which the query applies.
+
+          Acceptable values are:
+          -**DEFAULT**: The items that the user has accessed.
+          - **DOMAIN**: Items shared to the user's domain.
+        type: string
+      maxResults?:
+        description: |
+          Maximum number of files to return. Acceptable values are `0` to `1000`, inclusive.
+          (Default: 100)
+        type: integer
+      orderBy?:
+        description: |
+          A comma-separated list of sort keys.
+          Valid keys are `createdDate`, `folder`, `lastViewedByMeDate`, `modifiedByMeDate`, `modifiedDate`, `quotaBytesUsed`, `recency`, `sharedWithMeDate`, `starred`, and `title`.
+          Each key sorts ascending by default, but may be reversed with the `desc` modifier.
+          Example usage: `?orderBy=folder,modifiedDate desc,title`.
+
+          Please note that there is a current limitation for users with approximately one million files in which the requested sort order is ignored.
+        type: string
+      pageToken?:
+        description: Page token for files.
+        type: string
+      q?:
+        description: |
+          Query string for searching files.
+          See [Searching for files](docs/searching-for-files.md) for more information about supported fields and operations.
+        type: string
+      spaces?:
+        description: A comma-separated list of spaces to query. Supported values are `drive`, `appDataFolder` and `photos`.
+        type: string
+    responses:
+      "200":
+        body:
+          application/json: file-lib_raml.FileList
+/teamdrives:
+  post:
+    displayName: Custom
+    queryParameters:
+      requestId:
+        description: |
+          An ID, such as a random UUID, which uniquely identifies this user's request for idempotent creation of a Team Drive.
+          A repeated request by the same user and with the same request ID will avoid creating duplicates by attempting to create the same Team Drive.
+          If the Team Drive already exists a 409 error will be returned.
+        type: string
+    body: "!include data_model_f5b3d04a078ad6db60d2b09d6108e4da.raml"
+    responses:
+      "200":
+        body:
+          application/json: "!include data_model_f5b3d04a078ad6db60d2b09d6108e4da.raml"
+  get:
+    displayName: Custom
+    queryParameters:
+      maxResults:
+        description: Maximum number of Team Drives to return.
+        type: integer
+      pageToken:
+        description: Page token for Team Drives.
+        type: string
+    responses:
+      "200":
+        body:
+          application/json: "!include data_model_61c1f4b1a02b26a7de7a57ca62386b58.raml"
+/apps/{appId}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: app-lib_raml.App
+  uriParameters:
+    appId:
+      description: The ID of the app.
+      type: string
+/changes/watch:
+  post:
+    displayName: Custom
+    queryParameters:
+      spaces?:
+        description: |
+          A comma-separated list of spaces to query. Supported values are:
+
+          - **drive**
+          - **appDataFolder**
+          - **photos**
+        type: string
+    body: watch-lib_raml.Watch
+    responses:
+      "201":
+        body:
+          application/json: watch-lib_raml.WatchResponse
+/changes/{changeId}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: watch-lib_raml.Change
+  uriParameters:
+    changeId:
+      description: The ID of the change.
+      type: string
+/channels/stop:
+  post:
+    displayName: Custom
+    body: "!include data_model_7ae585213a07a5dcb30b53c709ad9318.raml"
+/files/trash:
+  delete:
+    displayName: Custom
+/files/{fileId}:
+  get:
+    displayName: Custom
+    queryParameters:
+      acknowledgeAbuse?:
+        description: "Whether the user is acknowledging the risk of downloading known malware or other abusive files. (Default: false)"
+        type: boolean
+      projection?:
+        description: |
+          This parameter is deprecated and has no function.
+
+          Acceptable values are:
+          "BASIC": Deprecated
+          "FULL": Deprecated
+        type: string
+      revisionId?:
+        description: Specifies the Revision ID that should be downloaded. Ignored unless alt=media is specified.
+        type: string
+      updateViewedDate?:
+        description: "Whether to update the view date after successfully retrieving the file. (Default: false)"
+        type: boolean
+    responses:
+      "200":
+        body:
+          application/json: file-lib_raml.DriveFile
+  patch:
+    displayName: Custom
+    queryParameters:
+      addParents?:
+        description: Comma-separated list of parent IDs to add.
+        type: string
+      modifiedDateBehavior?:
+        description: |
+          Determines the behavior in which modifiedDate is updated. This overrides setModifiedDate.
+
+          Acceptable values are:
+          - "fromBody": Set modifiedDate to the value provided in the body of the request. No change if no value was provided.
+          - "fromBodyIfNeeded": Set modifiedDate to the value provided in the body of the request depending on other contents of the update.
+          - "fromBodyOrNow": Set modifiedDate to the value provided in the body of the request, or to the current time if no value was provided.
+          - "noChange": Maintain the previous value of modifiedDate.
+          - "now": Set modifiedDate to the current time.
+          - "nowIfNeeded": Set modifiedDate to the current time depending on contents of the update.
+        type: string
+      newRevision?:
+        description: "Whether a blob upload should create a new revision. If false, the blob data in the current head revision is replaced. If true or not set, a new blob is created as head revision, and previous revisions are preserved (causing increased use of the user's data storage quota). (Default: true)"
+        type: boolean
+      removeParents?:
+        description: Comma-separated list of parent IDs to remove.
+        type: string
+      setModifiedDate?:
+        description: "Whether to set the modified date with the supplied modified date. (Default: false)"
+        type: boolean
+      updateViewedDate?:
+        description: "Whether to update the view date after successfully updating the file. (Default: true)"
+        type: boolean
+    body: file-lib_raml.DriveFile
+    responses:
+      "200":
+        body:
+          application/json: file-lib_raml.DriveFile
+  put:
+    displayName: Custom
+    queryParameters:
+      uploadType:
+        description: |
+          The type of upload request to the /upload URI. Acceptable values are:
+          media - Simple upload. Upload the media only, without any metadata.
+          multipart - Multipart upload. Upload both the media and its metadata, in a single request.
+          resumable - Resumable upload. Upload the file in a resumable fashion, using a series of at least two requests where the first request includes the metadata.
+        type: string
+      addParents?:
+        description: Comma-separated list of parent IDs to add.
+        type: string
+      newRevision?:
+        description: "Whether a blob upload should create a new revision. If false, the blob data in the current head revision is replaced. If true or not set, a new blob is created as head revision, and previous revisions are preserved (causing increased use of the user's data storage quota). (Default: true)"
+        type: boolean
+      removeParents?:
+        description: Comma-separated list of parent IDs to remove.
+        type: string
+      setModifiedDate?:
+        description: "Whether to set the modified date with the supplied modified date. (Default: false)"
+        type: boolean
+      updateViewedDate?:
+        description: "Whether to update the view date after successfully updating the file. (Default: true)"
+        type: boolean
+    body: file-lib_raml.File
+    responses:
+      "200":
+        body:
+          application/json: file-lib_raml.DriveFile
+  delete:
+    displayName: Custom
+  uriParameters:
+    fileId:
+      description: The ID for the file in question.
+      type: string
+/permissionIds/{email}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: permission-lib_raml.PermissionId
+  uriParameters:
+    email:
+      description: The email address for which to return a permission ID
+      type: string
+/teamdrives/{teamDriveId}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: "!include data_model_f5b3d04a078ad6db60d2b09d6108e4da.raml"
+  delete:
+    displayName: Custom
+  put:
+    displayName: Custom
+    body: "!include data_model_f5b3d04a078ad6db60d2b09d6108e4da.raml"
+    responses:
+      "200":
+        body:
+          application/json: "!include data_model_f5b3d04a078ad6db60d2b09d6108e4da.raml"
+  uriParameters:
+    teamDriveId:
+      description: The ID of the Team Drive
+      type: string
+/files/{fileId}/comments:
+  get:
+    displayName: Custom
+    queryParameters:
+      updatedMin?:
+        description: Only discussions that were updated after this timestamp will be returned. Formatted as an RFC 3339 timestamp.
+        type: datetime
+    responses:
+      "200":
+        body:
+          application/json: comment-lib_raml.CommentList
+  post:
+    displayName: Custom
+    body: comment-lib_raml.CommentWritable
+    responses:
+      "201":
+        body:
+          application/json: comment-lib_raml.Comment
+/files/{fileId}/copy:
+  post:
+    displayName: Custom
+    body: file-lib_raml.File
+    responses:
+      "201":
+        body:
+          application/json: file-lib_raml.DriveFile
+/files/{fileId}/parents:
+  post:
+    displayName: Custom
+    body: parent-lib_raml.Parent
+    responses:
+      "201":
+        body:
+          application/json: parent-lib_raml.Parent
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: parent-lib_raml.ParentList
+/files/{fileId}/permissions:
+  post:
+    displayName: Custom
+    queryParameters:
+      emailMessage?:
+        description: A custom message to include in notification emails.
+        type: string
+      sendNotificationEmails?:
+        description: "Whether to send notification emails when sharing to users or groups. This parameter is ignored and an email is sent if the role is owner. (Default: true)"
+        type: boolean
+    body: permission-lib_raml.PermissionInsert
+    responses:
+      "201":
+        body:
+          application/json: permission-lib_raml.Permission
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: permission-lib_raml.PermissionList
+/files/{fileId}/properties:
+  post:
+    displayName: Custom
+    body: properties-lib_raml.Property
+    responses:
+      "201":
+        body:
+          application/json: properties-lib_raml.Property
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: properties-lib_raml.PropertyList
+/files/{fileId}/realtime:
+  put:
+    displayName: Custom
+    queryParameters:
+      uploadType:
+        description: |
+          The type of upload request to the /upload URI. Acceptable values are:
+
+          - **media** - Simple upload. Upload the media data.
+          - **resumable** - Resumable upload. Upload the file in a resumable fashion, using a series of at least two requests.
+        type: string
+      baseRevision?:
+        description: The revision of the model to diff the uploaded model against. If set, the uploaded model is diffed against the provided revision and those differences are merged with any changes made to the model after the provided revision. If not set, the uploaded model replaces the current model on the server.
+        type: string
+  get:
+    displayName: Custom
+    queryParameters:
+      revision?:
+        description: The revision of the Realtime API data model to export. Revisions start at 1 (the initial empty data model) and are incremented with each change. If this parameter is excluded, the most recent data model will be returned.
+        type: integer
+    responses:
+      "200":
+        body:
+          application/json:
+            type: any
+/files/{fileId}/revisions:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: revision-lib_raml.RevisionList
+/files/{fileId}/touch:
+  post:
+    displayName: Custom
+    body: schema190
+    responses:
+      "200":
+        body:
+          application/json: file-lib_raml.DriveFile
+/files/{fileId}/trash:
+  post:
+    displayName: Custom
+    body: schema194
+    responses:
+      "200":
+        body:
+          application/json: file-lib_raml.DriveFile
+/files/{fileId}/untrash:
+  post:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: file-lib_raml.DriveFile
+/files/{folderId}/children:
+  post:
+    displayName: Custom
+    body: child-lib_raml.Child
+    responses:
+      "201":
+        body:
+          application/json: child-lib_raml.Child
+  get:
+    displayName: Custom
+    queryParameters:
+      maxResults?:
+        description: "Maximum number of children to return. Acceptable values are 0 to 1000, inclusive. (Default: 100)"
+        type: integer
+      pageToken?:
+        description: Page token for children.
+        type: string
+      q?:
+        description: Query string for searching children. See Searching for files for more information about supported fields and operations.
+        type: string
+    responses:
+      "200":
+        body:
+          application/json: child-lib_raml.ChildrenList
+/files/{fileId}/comments/{commentId}:
+  get:
+    displayName: Custom
+    queryParameters:
+      includeDeleted?:
+        description: "If set, this will succeed when retrieving a deleted comment, and will include any deleted replies. (Default: false)"
+        type: boolean
+    responses:
+      "200":
+        body:
+          application/json: comment-lib_raml.Comment
+  put:
+    displayName: Custom
+    body: comment-lib_raml.CommentWritable
+    responses:
+      "200":
+        body:
+          application/json: comment-lib_raml.Comment
+  delete:
+    displayName: Custom
+  patch:
+    displayName: Custom
+    body: comment-lib_raml.CommentWritable
+    responses:
+      "200":
+        body:
+          application/json: comment-lib_raml.Comment
+  uriParameters:
+    commentId:
+      description: The ID of the comment.
+      type: string
+/files/{fileId}/parents/{parentId}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: parent-lib_raml.Parent
+  delete:
+    displayName: Custom
+  uriParameters:
+    parentId:
+      description: The ID of the parent.
+      type: string
+/files/{fileId}/permissions/{permissionId}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: permission-lib_raml.Permission
+  put:
+    displayName: Custom
+    queryParameters:
+      transferOwnership?:
+        description: "Whether changing a role to 'owner' should also downgrade the current owners to writers. (Default: false)"
+        type: boolean
+      removeExpiration?:
+        description: Whether to remove the expiration date.
+        type: boolean
+    body: permission-lib_raml.PermissionInsert
+    responses:
+      "200":
+        body:
+          application/json: permission-lib_raml.Permission
+  delete:
+    displayName: Custom
+  patch:
+    displayName: Custom
+    queryParameters:
+      transferOwnership?:
+        description: "Whether changing a role to 'owner' should also downgrade the current owners to writers. (Default: false)"
+        type: boolean
+      removeExpiration?:
+        description: Whether to remove the expiration date.
+        type: boolean
+    body: permission-lib_raml.PermissionInsert
+    responses:
+      "200":
+        body:
+          application/json: permission-lib_raml.Permission
+  uriParameters:
+    permissionId:
+      description: The ID for the permission.
+      type: string
+/files/{fileId}/properties/{propertyKey}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: properties-lib_raml.Property
+  put:
+    displayName: Custom
+    body: properties-lib_raml.Property
+    responses:
+      "200":
+        body:
+          application/json: properties-lib_raml.Property
+  delete:
+    displayName: Custom
+  patch:
+    displayName: Custom
+    body: properties-lib_raml.Property
+    responses:
+      "200":
+        body:
+          application/json: properties-lib_raml.Property
+  uriParameters:
+    propertyKey:
+      description: The key of the property.
+      type: string
+/files/{fileId}/revisions/{revisionId}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: revision-lib_raml.Revision
+  put:
+    displayName: Custom
+    body:
+      type: any
+    responses:
+      "200":
+        body:
+          application/json: revision-lib_raml.Revision
+  delete:
+    displayName: Custom
+  patch:
+    displayName: Custom
+    body: revision-lib_raml.Revision
+    responses:
+      "200":
+        body:
+          application/json: revision-lib_raml.Revision
+  uriParameters:
+    revisionId:
+      description: The ID of the revision.
+      type: string
+/files/{folderId}/children/{childId}:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: child-lib_raml.ChildrenList
+  delete:
+    displayName: Custom
+  uriParameters:
+    childId:
+      type: string
+/files/{fileId}/comments/{commentId}/replies:
+  get:
+    displayName: Custom
+    responses:
+      "200":
+        body:
+          application/json: comment-lib_raml.ReplyList
+  post:
+    displayName: Custom
+    body: comment-lib_raml.ReplyWritable
+    responses:
+      "201":
+        body:
+          application/json: comment-lib_raml.Reply
+/files/{fileId}/comments/{commentId}/replies/{replyId}:
+  get:
+    displayName: Custom
+    queryParameters:
+      includeDeleted?:
+        description: "If set, this will succeed when retrieving a deleted reply. (Default: false)"
+        type: boolean
+    responses:
+      "200":
+        body:
+          application/json: comment-lib_raml.Reply
+  put:
+    displayName: Custom
+    body: comment-lib_raml.ReplyWritable
+    responses:
+      "200":
+        body:
+          application/json: comment-lib_raml.Reply
+  delete:
+    displayName: Custom
+  patch:
+    displayName: Custom
+    body: comment-lib_raml.ReplyWritable
+    responses:
+      "200":
+        body:
+          application/json: comment-lib_raml.Reply
+  uriParameters:
+    replyId:
+      description: The ID of the reply.
+      type: string

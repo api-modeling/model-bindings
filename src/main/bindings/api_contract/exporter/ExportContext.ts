@@ -96,7 +96,7 @@ export class ExportContext {
             if (sourceBaseUnitId === targetBaseUnitId) {
                 // local reference
                 const link = targetShape.link();
-                return <amf.model.domain.AnyShape>link.withLinkLabel(targetEntity.name);
+                return <amf.model.domain.AnyShape>link.withName(targetEntity.name).withLinkLabel(targetEntity.name);
             } else {
                 // x-baseunit reference: include or library
                 const targetBaseUnit = this.baseUnitsIndex[targetBaseUnitId];
@@ -114,11 +114,11 @@ export class ExportContext {
                     const link = targetShape.link();
                     const dataModelDialect = this.dataModels.find((dm) => dm.encodedDataModel()!.id() === targetBaseUnit.id)!
                     const alias = this.toAlias(dataModelDialect.encodedDataModel()!.name!)
-                    return <amf.model.domain.AnyShape>link.withLinkLabel(`${alias}.${targetEntity.name}`)
+                    return <amf.model.domain.AnyShape>link.withName(targetEntity.name).withLinkLabel(`${alias}.${targetEntity.name}`)
                 } else if (targetBaseUnit instanceof amf.model.domain.DataType) {
                     // fragment
                     const link = targetShape.link();
-                    return <amf.model.domain.AnyShape>link.withLinkLabel(`!include ${targetBaseUnit.location}`); // @todo: setup the final URL for the generated unit ahead
+                    return <amf.model.domain.AnyShape>link.withName(targetEntity.name).withLinkLabel(`!include ${targetBaseUnit.location}`); // @todo: setup the final URL for the generated unit ahead
                 } else {
                     throw new Error(`Cannot reference base unit that is not a Fragment or a Module: ${targetBaseUnitId} from ${sourceBaseUnitId}`)
                 }

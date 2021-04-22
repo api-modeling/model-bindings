@@ -1,0 +1,17 @@
+{
+  "x-amf-fragmentType": "2.0 DataType",
+  "description": "An image object representing an image object strored in the file store.\nThe image can be only included in the response. It has no effect if the Image appear in the\nrequest. Endpoint handles image creation on it's own and clients can't process images\nexcept of sending image data.\n",
+  "type": "object",
+  "required": [
+    "url",
+    "thumb"
+  ],
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "thumb": {
+      "type": "string"
+    }
+  }
+}

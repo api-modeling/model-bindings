@@ -1,0 +1,18 @@
+{
+  "x-amf-fragmentType": "2.0 DataType",
+  "type": "object",
+  "required": [
+    "counties"
+  ],
+  "properties": {
+    "zipCd": {
+      "type": "string"
+    },
+    "counties": {
+      "type": "array",
+      "items": {
+        "$ref": "items"
+      }
+    }
+  }
+}

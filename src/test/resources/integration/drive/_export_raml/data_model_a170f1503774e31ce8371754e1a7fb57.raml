@@ -1,0 +1,27 @@
+#%RAML 1.0 Library
+types:
+  Child:
+    description: A reference to a folder's child.
+    properties:
+      kind:
+        type: string
+      id:
+        type: string
+      selfLink:
+        type: string
+      childLink:
+        type: string
+  ChildrenList:
+    properties:
+      kind:
+        type: string
+      etag:
+        type: string
+      selfLink:
+        type: string
+      nextPageToken:
+        type: string
+      nextLink:
+        type: string
+      items:
+        items: Child

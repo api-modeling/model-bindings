@@ -1,0 +1,30 @@
+{
+  "x-amf-fragmentType": "2.0 DataType",
+  "description": "Message sent by a user object. This represents a message in user's sent folder.\n",
+  "type": "object",
+  "required": [
+    "email",
+    "message",
+    "timestamp"
+  ],
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "integer"
+    },
+    "attachements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "important": {
+      "type": "boolean"
+    }
+  }
+}

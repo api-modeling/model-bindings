@@ -2,85 +2,32 @@
 uuid: 65b29528ef70ef2676f15595034788b2
 name: orders_v2_api-spec.raml
 entities:
-  Entity17:
-    uuid: 71af2225ad31414d640d53b721f6f04d
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: b6774b8fc5274cea165f0d9c69431f71
-  Entity7:
-    uuid: 448432a2915fe6ff78d2fb02ccb1cf00
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: b6774b8fc5274cea165f0d9c69431f71
-  Entity21:
-    uuid: ac1610a3be2cc64beedb2221f39c9a07
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 5078bc855e909b7f9ac28a7b05f4bb46
-  Entity13:
-    uuid: 25a817e49268938b32fa97d18e2fb444
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: b6774b8fc5274cea165f0d9c69431f71
-  Entity15:
-    uuid: b2abfc53187933e1eba50be40edb6618
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 5078bc855e909b7f9ac28a7b05f4bb46
-  Entity11:
-    uuid: 8563a025570e6dbd50ee28033b931ee5
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 315d7aa629d4308e6f96397808415b02
-  Entity19:
-    uuid: e6be87a1a254c213ac00fe83a045edf8
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: b6774b8fc5274cea165f0d9c69431f71
-  Entity8:
-    uuid: 8ff67f2e3ea8a1fd1cb3f578403ba143
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: b6774b8fc5274cea165f0d9c69431f71
-  Entity25:
-    uuid: ed9bbd9f6b39d43055151a1205e7469c
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: b6774b8fc5274cea165f0d9c69431f71
-  Entity5:
-    uuid: 9175a96cdae9d6d4ecc72ed9457f833d
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 7264c3388b1c6b2ad2a6d66986bfc59a
-  "":
-    uuid: 3ed1493ebe740087ed09daaff8a0bb7c
-  Entity23:
-    uuid: 0e815863d1895cac818d2af970b274c9
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: b6774b8fc5274cea165f0d9c69431f71
+  AdaptedEntity.order-json8:
+    uuid: e01e68390a3ba4096dc389d6bb1b2cb7
+    adapts: http://mulesoft.com/modeling/instances/b6774b8fc5274cea165f0d9c69431f71
+  AdaptedEntity.order-json14:
+    uuid: 70a95d4c1aa4e6a2a07ac2d2d917c1e9
+    adapts: http://mulesoft.com/modeling/instances/b6774b8fc5274cea165f0d9c69431f71
+  AdaptedEntity.order-json24:
+    uuid: 02ae814257d80fb5c85c142d8ed2bb8a
+    adapts: http://mulesoft.com/modeling/instances/b6774b8fc5274cea165f0d9c69431f71
+  AdaptedEntity.order-json7:
+    uuid: 38a18bcb88cc81995f64efc8dca914ba
+    adapts: http://mulesoft.com/modeling/instances/b6774b8fc5274cea165f0d9c69431f71
+  AdaptedEntity.order-json29:
+    uuid: 052675eb9941cd0a9f39a3d472d84856
+    adapts: http://mulesoft.com/modeling/instances/b6774b8fc5274cea165f0d9c69431f71
+  AdaptedEntity.order-json26:
+    uuid: d565aee3a412f85d8bec5edb5820e7ba
+    adapts: http://mulesoft.com/modeling/instances/b6774b8fc5274cea165f0d9c69431f71
+  AdaptedEntity.order-json20:
+    uuid: fe6586977c04dae1749ed1cc84453df7
+    adapts: http://mulesoft.com/modeling/instances/b6774b8fc5274cea165f0d9c69431f71
+  schema10:
+    uuid: f1587253-3fe6-4d9b-afe1-8508223a1bfe
+  AdaptedEntity.order-json18:
+    uuid: c50060ec7f5c3eba3291d036b7f59e65
+    adapts: http://mulesoft.com/modeling/instances/b6774b8fc5274cea165f0d9c69431f71
 entryPoint:
   uuid: dad584e86f3c5aba7e08bed76be12494
   name: PayPal Orders v2
@@ -92,7 +39,7 @@ entryPoint:
       name: Find Resource /orders/{order_id}
       transition:
         uuid: 6954657ca2925e50a81107df19f52163
-        target: http://mulesoft.com/modeling/instances/ee7f069b-58e9-4943-929b-b6f53c668758
+        target: http://mulesoft.com/modeling/instances/8f3ffcc9-b797-4d89-bbdf-919e0051655c
       inputs:
         -
           scalarRange:
@@ -106,7 +53,7 @@ entryPoint:
         allowMultiple: false
         uuid: fcb91875d37d341baebfd3a4b29195bf
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/8ff67f2e3ea8a1fd1cb3f578403ba143
+        objectRange: http://mulesoft.com/modeling/instances/052675eb9941cd0a9f39a3d472d84856
       isMutation: false
       type: custom
     -
@@ -117,28 +64,35 @@ entryPoint:
           allowMultiple: false
           uuid: 794156e02d4e23c3d0a005b9b908e30f
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/9175a96cdae9d6d4ecc72ed9457f833d
+          objectRange: http://mulesoft.com/modeling/instances/7264c3388b1c6b2ad2a6d66986bfc59a
       output:
         allowMultiple: false
         uuid: e6a409acbef607e2c4d39f6cf24c9d4c
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/448432a2915fe6ff78d2fb02ccb1cf00
+        objectRange: http://mulesoft.com/modeling/instances/38a18bcb88cc81995f64efc8dca914ba
       isMutation: true
       type: custom
 resources:
   -
-    uuid: ee7f069b-58e9-4943-929b-b6f53c668758
+    uuid: 8f3ffcc9-b797-4d89-bbdf-919e0051655c
     name: Resource /orders/{order_id}
     schema:
-      uuid: 8ff67f2e3ea8a1fd1cb3f578403ba143
-      name: Entity8
-      attributes: {}
-      associations: {}
-      extends:
-        -
-          uuid: b6774b8fc5274cea165f0d9c69431f71
+      uuid: e01e68390a3ba4096dc389d6bb1b2cb7
+      name: AdaptedEntity.order-json8
+      adapts: http://mulesoft.com/modeling/instances/b6774b8fc5274cea165f0d9c69431f71
     events: []
     operations:
+      -
+        uuid: 96280918567d8c91dd3c4ecc3a362ec5
+        name: Create void
+        inputs: []
+        output:
+          allowMultiple: false
+          uuid: 59a1ea604521eaff4b46f59e4c90869f
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/d565aee3a412f85d8bec5edb5820e7ba
+        isMutation: true
+        type: custom
       -
         uuid: edf3eef409b5f53b5bc78f9d03c6388f
         name: Create validate-payment-method
@@ -147,55 +101,12 @@ resources:
             allowMultiple: false
             uuid: 84b917f84d7f099e3ddf835d4ac125f3
             required: false
-            objectRange: http://mulesoft.com/modeling/instances/ac1610a3be2cc64beedb2221f39c9a07
+            objectRange: http://mulesoft.com/modeling/instances/5078bc855e909b7f9ac28a7b05f4bb46
         output:
           allowMultiple: false
           uuid: a10717bf7721d0275206065e9212ff0b
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/0e815863d1895cac818d2af970b274c9
-        isMutation: true
-        type: custom
-      -
-        uuid: 87e2316a18f6bf397d9e967938c41ebf
-        name: Create authorize
-        inputs:
-          -
-            allowMultiple: false
-            uuid: 98f97160bea00a6775e2252b91d5f3a2
-            required: false
-            objectRange: http://mulesoft.com/modeling/instances/8563a025570e6dbd50ee28033b931ee5
-        output:
-          allowMultiple: false
-          uuid: 39a441e2412a305cfdce58d87aafe78d
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/25a817e49268938b32fa97d18e2fb444
-        isMutation: true
-        type: custom
-      -
-        uuid: 6c463beccb75fdb9610bd20185e4a40f
-        name: Create save
-        inputs: []
-        output:
-          allowMultiple: false
-          uuid: 0259ac4f965d94ed3052f1b5d8f04dca
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/e6be87a1a254c213ac00fe83a045edf8
-        isMutation: true
-        type: custom
-      -
-        uuid: 75c0d9b82cbd8154c6a3732a4312fb3f
-        name: Create capture
-        inputs:
-          -
-            allowMultiple: false
-            uuid: c43a0ece378e60898fe99a6aabf7d145
-            required: false
-            objectRange: http://mulesoft.com/modeling/instances/b2abfc53187933e1eba50be40edb6618
-        output:
-          allowMultiple: false
-          uuid: d3b56c542e1d93a345f0e7751587bd4d
-          required: false
-          objectRange: http://mulesoft.com/modeling/instances/71af2225ad31414d640d53b721f6f04d
+          objectRange: http://mulesoft.com/modeling/instances/02ae814257d80fb5c85c142d8ed2bb8a
         isMutation: true
         type: custom
       -
@@ -206,18 +117,50 @@ resources:
             allowMultiple: true
             uuid: 80bcc9c031b325f054d8635221565e32
             required: false
-            objectRange: http://mulesoft.com/modeling/instances/3ed1493ebe740087ed09daaff8a0bb7c
+            objectRange: http://mulesoft.com/modeling/instances/f1587253-3fe6-4d9b-afe1-8508223a1bfe
         isMutation: true
         type: custom
       -
-        uuid: 96280918567d8c91dd3c4ecc3a362ec5
-        name: Create void
+        uuid: 6c463beccb75fdb9610bd20185e4a40f
+        name: Create save
         inputs: []
         output:
           allowMultiple: false
-          uuid: 59a1ea604521eaff4b46f59e4c90869f
+          uuid: 0259ac4f965d94ed3052f1b5d8f04dca
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/ed9bbd9f6b39d43055151a1205e7469c
+          objectRange: http://mulesoft.com/modeling/instances/fe6586977c04dae1749ed1cc84453df7
+        isMutation: true
+        type: custom
+      -
+        uuid: 75c0d9b82cbd8154c6a3732a4312fb3f
+        name: Create capture
+        inputs:
+          -
+            allowMultiple: false
+            uuid: c43a0ece378e60898fe99a6aabf7d145
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/5078bc855e909b7f9ac28a7b05f4bb46
+        output:
+          allowMultiple: false
+          uuid: d3b56c542e1d93a345f0e7751587bd4d
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/c50060ec7f5c3eba3291d036b7f59e65
+        isMutation: true
+        type: custom
+      -
+        uuid: 87e2316a18f6bf397d9e967938c41ebf
+        name: Create authorize
+        inputs:
+          -
+            allowMultiple: false
+            uuid: 98f97160bea00a6775e2252b91d5f3a2
+            required: false
+            objectRange: http://mulesoft.com/modeling/instances/315d7aa629d4308e6f96397808415b02
+        output:
+          allowMultiple: false
+          uuid: 39a441e2412a305cfdce58d87aafe78d
+          required: false
+          objectRange: http://mulesoft.com/modeling/instances/70a95d4c1aa4e6a2a07ac2d2d917c1e9
         isMutation: true
         type: custom
     type: individual

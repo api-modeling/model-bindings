@@ -1,0 +1,466 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "AddressUnit": {
+      "description": "address unit\n"
+    },
+    "Quantity": {
+      "description": "a quantity\n",
+      "type": "object",
+      "required": [
+        "quantityType",
+        "amount",
+        "unit"
+      ],
+      "properties": {
+        "quantityType": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    },
+    "secondaryAddress?": {},
+    "Location": {
+      "description": "location\n",
+      "type": "object",
+      "required": [
+        "locationType",
+        "deliveryMethod",
+        "locationId"
+      ],
+      "properties": {
+        "locationType": {
+          "type": "string"
+        },
+        "deliveryMethod": {
+          "type": "string"
+        },
+        "locationId": {
+          "$ref": "locationId"
+        }
+      }
+    },
+    "MonetaryValue": {
+      "description": "represents an amount in a given currency\n",
+      "type": "object",
+      "required": [
+        "name",
+        "currency",
+        "currencyValue"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "currencyValue": {
+          "type": "number"
+        }
+      }
+    },
+    "PostalAddress": {
+      "description": "postal address of internal organization\n",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "attribute2": {
+          "type": "string"
+        },
+        "addressUnit": {
+          "type": "string"
+        },
+        "mailStopCode": {
+          "$ref": "mailStopCode?"
+        },
+        "attention": {
+          "$ref": "attention?"
+        },
+        "recipient": {
+          "$ref": "recipient?"
+        },
+        "address": {
+          "$ref": "address?"
+        },
+        "secondaryAddress": {
+          "$ref": "secondaryAddress?"
+        },
+        "city": {
+          "$ref": "city?"
+        },
+        "state": {
+          "$ref": "state?"
+        },
+        "postalCode": {
+          "$ref": "postalCode?"
+        },
+        "country": {
+          "$ref": "country?"
+        }
+      }
+    },
+    "state?": {},
+    "Lifetime": {
+      "description": "an object that has a finite lifespan. the object is considered\nto be valid at a point in time if:\n```\nvalidFrom <= pointInTime < validUntil\n```\n",
+      "type": "object",
+      "properties": {
+        "validFrom": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "validUntil": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ResponseMetadata": {
+      "description": "a response metadata\n",
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "Message"
+          }
+        }
+      }
+    },
+    "postalCode?": {},
+    "HypermediaResponseMetadata": {
+      "description": "hypermedia response metadata\n",
+      "type": "object",
+      "required": [
+        "messages"
+      ],
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "Message"
+          }
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/ResponseMetadata"
+        }
+      ]
+    },
+    "ContinuousQuantity": {
+      "description": "continuous quantity\n",
+      "type": "object",
+      "required": [
+        "amount"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/Quantity"
+        }
+      ]
+    },
+    "CollectionPagingLinks": {
+      "description": "collection of paging links\n",
+      "type": "object",
+      "properties": {
+        "self": {
+          "$ref": "Link"
+        },
+        "first": {
+          "$ref": "Link"
+        },
+        "prev": {
+          "$ref": "Link"
+        },
+        "next": {
+          "$ref": "Link"
+        },
+        "last": {
+          "$ref": "Link"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/Links"
+        }
+      ]
+    },
+    "Links": {
+      "description": "collection of hypermedia links\n",
+      "type": "object",
+      "properties": {
+        "//": {
+          "$ref": "Link"
+        }
+      }
+    },
+    "attention?": {},
+    "Price": {
+      "description": "a price\n",
+      "type": "object",
+      "required": [
+        "salesUnit",
+        "amount"
+      ],
+      "properties": {
+        "salesUnit": {
+          "$ref": "SalesUnit"
+        },
+        "amount": {
+          "$ref": "MonetaryValue"
+        }
+      }
+    },
+    "SalesUnit": {
+      "description": "sales unit\n",
+      "type": "object",
+      "required": [
+        "code",
+        "name"
+      ],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "MeasurementSystem": {
+      "description": "a standard that codifies a set of UnitOfMeasure, typically defined by a governmental\nor international agency.\n",
+      "type": "object",
+      "required": [
+        "code",
+        "name",
+        "description"
+      ],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "AddressUnitWithOptionalUnitNumber": {
+      "description": "the unit address with optional unit number\n",
+      "type": "object",
+      "required": [
+        "unitType"
+      ],
+      "properties": {
+        "unitType": {
+          "type": "string"
+        },
+        "unitNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "mailStopCode?": {},
+    "locationId": {},
+    "DiscreteQuantity": {
+      "description": "discrete quantity\n",
+      "type": "object",
+      "required": [
+        "amount"
+      ],
+      "properties": {
+        "amount": {
+          "type": "integer"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/Quantity"
+        }
+      ]
+    },
+    "DefaultResponse": {
+      "description": "default response\n",
+      "type": "object",
+      "required": [
+        "_meta"
+      ],
+      "properties": {
+        "_meta": {
+          "$ref": "ResponseMetadata"
+        }
+      }
+    },
+    "CollectionResponseMetadata": {
+      "description": "collection of response messages\n",
+      "type": "object",
+      "properties": {
+        "totalItems": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "sortBy": {
+          "type": "string"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/ResponseMetadata"
+        }
+      ]
+    },
+    "address?": {},
+    "country?": {},
+    "Message": {
+      "description": "a message object\n",
+      "type": "object",
+      "required": [
+        "severity",
+        "code",
+        "description"
+      ],
+      "properties": {
+        "severity": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "CollectionResponse": {
+      "description": "collection of response messages\n",
+      "type": "object",
+      "required": [
+        "_meta"
+      ],
+      "properties": {
+        "_meta": {
+          "$ref": "CollectionResponseMetadata"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/DefaultResponse"
+        }
+      ]
+    },
+    "AddressUnitWithRequiredUnitNumber": {
+      "description": "the unit address with required unit number\n",
+      "type": "object",
+      "required": [
+        "unitType",
+        "unitNumber"
+      ],
+      "properties": {
+        "unitType": {
+          "type": "string"
+        },
+        "unitNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "Entity1": {
+      "x-amf-union": [
+        {
+          "$ref": "AddressUnitWithRequiredUnitNumber"
+        },
+        {
+          "$ref": "AddressUnitWithOptionalUnitNumber"
+        }
+      ]
+    },
+    "recipient?": {},
+    "city?": {},
+    "HypermediaCollectionResponse": {
+      "description": "hypermedia collection response\n",
+      "type": "object",
+      "required": [
+        "_meta",
+        "_links"
+      ],
+      "properties": {
+        "_meta": {
+          "$ref": "ResponseMetadata"
+        },
+        "_links": {
+          "$ref": "CollectionPagingLinks"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/DefaultResponse"
+        }
+      ]
+    },
+    "HypermediaMessage": {
+      "description": "a hypermedia message\n",
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "Link"
+        }
+      },
+      "x-amf-merge": [
+        {
+          "$ref": "#/definitions/Message"
+        }
+      ]
+    },
+    "Link": {
+      "description": "a hypermedia link\n",
+      "type": "object",
+      "required": [
+        "href"
+      ],
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "Measure": {
+      "description": "a physical property that can be quantified with a numeric value\n",
+      "type": "object",
+      "required": [
+        "name",
+        "description"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

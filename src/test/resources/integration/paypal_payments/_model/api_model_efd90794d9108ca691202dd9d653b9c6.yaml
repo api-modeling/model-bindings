@@ -2,69 +2,33 @@
 uuid: efd90794d9108ca691202dd9d653b9c6
 name: payments_v2_api-spec.raml
 entities:
-  Entity4:
-    uuid: 7eac1740f4765390cec2ec02c6f614b3
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 3d337397d7ce9f1c477b39de78ca92a6
-  Entity6:
-    uuid: 4cd7494cf73a159d482e93e399a69acb
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 9a655dbd9896c53fb42e2e3e7527f160
-  Entity13:
-    uuid: 4889dc87cc8b2afca36a79173acd9da0
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 9a655dbd9896c53fb42e2e3e7527f160
-  Entity8:
-    uuid: c674b5140b79fa0a809b065024cd32aa
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 545a07b625ae1da594f6a978f21248c1
-  Entity2:
-    uuid: fca837098d91f29b6870acebde071108
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 6034e92e08e4ca64c98866e70d14fe87
-  Entity10:
-    uuid: 0130697731fed8e6c2df4677c7ac7c3e
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 6034e92e08e4ca64c98866e70d14fe87
-  Entity15:
-    uuid: 6db48a0ef339b13eb8794ce69d0c7601
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: dbbfc6c69f5bc486cd5967a673d6de3d
-  Entity20:
-    uuid: fb1e31b91eb80174b22731b02092e8b1
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 0dc88e055aeb6746e09f05146d8770e1
-  Entity17:
-    uuid: f07b10a97524039036c150cafab0e763
-    attributes: {}
-    associations: {}
-    extends:
-      -
-        uuid: 0dc88e055aeb6746e09f05146d8770e1
+  AdaptedEntity.MCCS-v1-schema-authorization_json10:
+    uuid: c316a64a09253388e946a3427523e5dc
+    adapts: http://mulesoft.com/modeling/instances/6034e92e08e4ca64c98866e70d14fe87
+  AdaptedEntity.MCCS-v1-schema-authorization_json2:
+    uuid: 3a044c9e06d782e0f5e2a4cd2f5f6db2
+    adapts: http://mulesoft.com/modeling/instances/6034e92e08e4ca64c98866e70d14fe87
+  AdaptedEntity.MCCS-v1-schema-refund_json22:
+    uuid: 603677ca36947393347886a586bef152
+    adapts: http://mulesoft.com/modeling/instances/0dc88e055aeb6746e09f05146d8770e1
+  AdaptedEntity.MCCS-v1-schema-capture_json21:
+    uuid: 0770fe505c5551c571ad4f909271dccd
+    adapts: http://mulesoft.com/modeling/instances/9a655dbd9896c53fb42e2e3e7527f160
+  AdaptedEntity.MCCS-v1-schema-capture_json6:
+    uuid: 2cf1bf047551dde125b87f708c97a0aa
+    adapts: http://mulesoft.com/modeling/instances/9a655dbd9896c53fb42e2e3e7527f160
+  AdaptedEntity.MCCS-v1-schema-refund_json18:
+    uuid: a204128779bffed424ebb32fca27cf29
+    adapts: http://mulesoft.com/modeling/instances/0dc88e055aeb6746e09f05146d8770e1
+  AdaptedEntity.MCCS-v1-schema-capture_json14:
+    uuid: 66c6ef5e5c2e2cfab0507354dbbb9c52
+    adapts: http://mulesoft.com/modeling/instances/9a655dbd9896c53fb42e2e3e7527f160
+  AdaptedEntity.MCCS-v1-schema-authorization_json13:
+    uuid: f6851ce5e1ee3fa6093b79f4debc326a
+    adapts: http://mulesoft.com/modeling/instances/6034e92e08e4ca64c98866e70d14fe87
+  AdaptedEntity.MCCS-v1-schema-refund_json25:
+    uuid: 9828d19a02c9f71f445f68f1af350c90
+    adapts: http://mulesoft.com/modeling/instances/0dc88e055aeb6746e09f05146d8770e1
 entryPoint:
   uuid: 44633b8be592f11a11c635fcc6b7cdda
   name: PayPal Payments v2
@@ -75,7 +39,7 @@ entryPoint:
       name: Find Resource /authorizations/{authorization_id}
       transition:
         uuid: 1a1b67e9e852ea6e1dae30faca81d51d
-        target: http://mulesoft.com/modeling/instances/db16b466-5bcf-4fc2-a267-0ba87c166944
+        target: http://mulesoft.com/modeling/instances/1b3b4a82-5c08-4034-95f5-ef1f6aeac109
       inputs:
         -
           scalarRange:
@@ -89,7 +53,7 @@ entryPoint:
         allowMultiple: false
         uuid: a3c2f272fb1dd6c98468214082405cb7
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/fca837098d91f29b6870acebde071108
+        objectRange: http://mulesoft.com/modeling/instances/f6851ce5e1ee3fa6093b79f4debc326a
       isMutation: false
       type: custom
     -
@@ -97,7 +61,7 @@ entryPoint:
       name: Find Resource /captures/{capture_id}
       transition:
         uuid: 2f1695ea7150331c4ce7ec57ef034ce3
-        target: http://mulesoft.com/modeling/instances/64c45c31-13b6-42c0-9833-8506ae6896c4
+        target: http://mulesoft.com/modeling/instances/1294b79d-23d9-444e-aa56-cf0634261af9
       inputs:
         -
           scalarRange:
@@ -111,7 +75,7 @@ entryPoint:
         allowMultiple: false
         uuid: 58a843e13394b1a2d353211144dc0b8f
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/4889dc87cc8b2afca36a79173acd9da0
+        objectRange: http://mulesoft.com/modeling/instances/0770fe505c5551c571ad4f909271dccd
       isMutation: false
       type: custom
     -
@@ -119,7 +83,7 @@ entryPoint:
       name: Find Resource /refunds/{refund_id}
       transition:
         uuid: f8659fee44c17130957c434d20196f45
-        target: http://mulesoft.com/modeling/instances/6dfd366c-8f29-4d65-9444-39d902e71809
+        target: http://mulesoft.com/modeling/instances/d6626760-171f-48b6-9117-4fde738a4b6f
       inputs:
         -
           scalarRange:
@@ -133,21 +97,17 @@ entryPoint:
         allowMultiple: false
         uuid: db34bb2d7cf4d328ea68a84977cd689f
         required: false
-        objectRange: http://mulesoft.com/modeling/instances/fb1e31b91eb80174b22731b02092e8b1
+        objectRange: http://mulesoft.com/modeling/instances/9828d19a02c9f71f445f68f1af350c90
       isMutation: false
       type: custom
 resources:
   -
-    uuid: db16b466-5bcf-4fc2-a267-0ba87c166944
+    uuid: 1b3b4a82-5c08-4034-95f5-ef1f6aeac109
     name: Resource /authorizations/{authorization_id}
     schema:
-      uuid: fca837098d91f29b6870acebde071108
-      name: Entity2
-      attributes: {}
-      associations: {}
-      extends:
-        -
-          uuid: 6034e92e08e4ca64c98866e70d14fe87
+      uuid: 3a044c9e06d782e0f5e2a4cd2f5f6db2
+      name: AdaptedEntity.MCCS-v1-schema-authorization_json2
+      adapts: http://mulesoft.com/modeling/instances/6034e92e08e4ca64c98866e70d14fe87
     events: []
     operations:
       -
@@ -158,12 +118,12 @@ resources:
             allowMultiple: false
             uuid: 7f0690439bd0b816b43ce683ed47ed69
             required: false
-            objectRange: http://mulesoft.com/modeling/instances/7eac1740f4765390cec2ec02c6f614b3
+            objectRange: http://mulesoft.com/modeling/instances/3d337397d7ce9f1c477b39de78ca92a6
         output:
           allowMultiple: false
           uuid: dd7f40f3e567b520f718ee99ca56d6a2
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/4cd7494cf73a159d482e93e399a69acb
+          objectRange: http://mulesoft.com/modeling/instances/2cf1bf047551dde125b87f708c97a0aa
         isMutation: true
         type: custom
       -
@@ -174,12 +134,12 @@ resources:
             allowMultiple: false
             uuid: c3852156a63ecdd04be3992dd28cfecc
             required: false
-            objectRange: http://mulesoft.com/modeling/instances/c674b5140b79fa0a809b065024cd32aa
+            objectRange: http://mulesoft.com/modeling/instances/545a07b625ae1da594f6a978f21248c1
         output:
           allowMultiple: false
           uuid: 74834b8aed67843ac920453f26ed589d
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/0130697731fed8e6c2df4677c7ac7c3e
+          objectRange: http://mulesoft.com/modeling/instances/c316a64a09253388e946a3427523e5dc
         isMutation: true
         type: custom
       -
@@ -190,16 +150,12 @@ resources:
         type: custom
     type: individual
   -
-    uuid: 64c45c31-13b6-42c0-9833-8506ae6896c4
+    uuid: 1294b79d-23d9-444e-aa56-cf0634261af9
     name: Resource /captures/{capture_id}
     schema:
-      uuid: 4889dc87cc8b2afca36a79173acd9da0
-      name: Entity13
-      attributes: {}
-      associations: {}
-      extends:
-        -
-          uuid: 9a655dbd9896c53fb42e2e3e7527f160
+      uuid: 66c6ef5e5c2e2cfab0507354dbbb9c52
+      name: AdaptedEntity.MCCS-v1-schema-capture_json14
+      adapts: http://mulesoft.com/modeling/instances/9a655dbd9896c53fb42e2e3e7527f160
     events: []
     operations:
       -
@@ -210,26 +166,22 @@ resources:
             allowMultiple: false
             uuid: 80fec43a3c83278afa86f08fb0233998
             required: false
-            objectRange: http://mulesoft.com/modeling/instances/6db48a0ef339b13eb8794ce69d0c7601
+            objectRange: http://mulesoft.com/modeling/instances/dbbfc6c69f5bc486cd5967a673d6de3d
         output:
           allowMultiple: false
           uuid: bf2774a393d18ea1ddac228be1673937
           required: false
-          objectRange: http://mulesoft.com/modeling/instances/f07b10a97524039036c150cafab0e763
+          objectRange: http://mulesoft.com/modeling/instances/a204128779bffed424ebb32fca27cf29
         isMutation: true
         type: custom
     type: individual
   -
-    uuid: 6dfd366c-8f29-4d65-9444-39d902e71809
+    uuid: d6626760-171f-48b6-9117-4fde738a4b6f
     name: Resource /refunds/{refund_id}
     schema:
-      uuid: fb1e31b91eb80174b22731b02092e8b1
-      name: Entity20
-      attributes: {}
-      associations: {}
-      extends:
-        -
-          uuid: 0dc88e055aeb6746e09f05146d8770e1
+      uuid: 603677ca36947393347886a586bef152
+      name: AdaptedEntity.MCCS-v1-schema-refund_json22
+      adapts: http://mulesoft.com/modeling/instances/0dc88e055aeb6746e09f05146d8770e1
     events: []
     operations: []
     type: individual

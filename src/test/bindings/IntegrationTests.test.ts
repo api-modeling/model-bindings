@@ -3,6 +3,8 @@ import { assert } from 'chai';
 import {APIContractBindingsPlugin} from "../../main/bindings/APIContractBindingsPlugin";
 import * as fs from 'fs';
 import {ApiParser} from "../../main/bindings/utils/apiParser";
+import exp from "constants";
+import {ConfigurationParameter} from "../../main";
 
 interface TestDescriptor {
     mainFile: string
@@ -117,19 +119,32 @@ Object.keys(tests).forEach((path) => {
                 fs.writeFileSync(result.path, result.text);
             });
 
-            if (test.export) {
-                const components = fullPath.split("/")
-                components.pop();
-                const exportPath = components.join("/") + "/_export"
-                deleteFolderRecursive(exportPath);
-                if (fs.existsSync(exportPath) === false) {
-                    fs.mkdirSync(exportPath)
-                }
-                const exported = await apiPlugin.export(config, parsed)
 
-                exported.forEach((out) => {
-                   fs.writeFileSync(exportPath + "/" + out.url, out.text);
+            if (test.export) {
+                const export_configs: {[format: string]: ConfigurationParameter[]} = {
+                    "raml": [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}],
+                    "oas":  [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.JSON}],
+                }
+
+                const promises = Object.keys(export_configs).map(async (format) => {
+                    const exportConfig: ConfigurationParameter[] = export_configs[format];
+                    const components = fullPath.split("/")
+                    components.pop();
+
+                    const exported = await apiPlugin.export(exportConfig, parsed)
+
+                    const exportPath = components.join("/") + `/_export_${format}`
+                    if (fs.existsSync(exportPath)) {
+                        deleteFolderRecursive(exportPath);
+                    }
+                    if (!fs.existsSync(exportPath)) {
+                        fs.mkdirSync(exportPath)
+                    }
+                    exported.forEach((out) => {
+                        fs.writeFileSync(exportPath + "/" + out.url, out.text);
+                    });
                 });
+                await Promise.all(promises)
             }
 
             assert(true);

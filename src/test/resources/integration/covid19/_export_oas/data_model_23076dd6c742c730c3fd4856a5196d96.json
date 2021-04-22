@@ -1,0 +1,23 @@
+{
+  "x-amf-fragmentType": "2.0 DataType",
+  "type": "object",
+  "required": [
+    "stateName",
+    "stateCode",
+    "historicData"
+  ],
+  "properties": {
+    "stateName": {
+      "type": "string"
+    },
+    "stateCode": {
+      "type": "string"
+    },
+    "historicData": {
+      "type": "array",
+      "items": {
+        "$ref": "!include data_model_98e94b73939720f78a22acad0a361291.json"
+      }
+    }
+  }
+}

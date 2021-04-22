@@ -1,0 +1,17 @@
+{
+  "x-amf-fragmentType": "2.0 DataType",
+  "description": "The request body for Channels/stop",
+  "type": "object",
+  "required": [
+    "id",
+    "resourceId"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "resourceId": {
+      "type": "string"
+    }
+  }
+}
