@@ -21,9 +21,9 @@ export class ApiParser {
         "OAS 3.0": {'application/json': amf.Oas30Parser, 'application/yaml': amf.Oas30YamlParser},
         "OAS 3.0.0": {'application/json': amf.Oas30Parser, 'application/yaml': amf.Oas30YamlParser},
         // @ts-ignore
-        "ASYNC 2.0": {'application/json': amf.Asyn20Parser, 'application/yaml': amf.Async20YamlParser},
+        "ASYNC 2.0": {'application/json': amf.Async20JsonParser, 'application/yaml': amf.Async20Parser},
         // @ts-ignore
-        "Async 2.0": {'application/json': amf.Asyn20Parser, 'application/yaml': amf.Async20YamlParser},
+        "Async 2.0": {'application/json': amf.Asyn20JsonParser, 'application/yaml': amf.Async20Parser},
         // @ts-ignore
         "AMF Graph": {'application/json' : amf.AmfGraphParser, 'application/ld+json': amf.AmfGraphParser}
     }
