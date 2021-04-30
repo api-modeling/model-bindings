@@ -134,7 +134,7 @@ export class CIMExporter {
             let json: {[n: string]: any} = {
                 "path": path
             };
-            if (attr.range.id() === this.INT_SCALAR_ID) {
+            if (attr.range!.id() === this.INT_SCALAR_ID) {
                 json['datatype'] = VOCAB.XSD_NS + "integer";
             } else if (path == "id") {
                 json['datatype'] = VOCAB.CIM_NS + "id";
