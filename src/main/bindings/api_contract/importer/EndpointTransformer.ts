@@ -436,7 +436,7 @@ export class EndpointTransformer extends ShapeTransformer {
         if ($amfModel.isScalarShape(schema)) {
             const fakeProp = new amf.model.domain.PropertyShape().withRange(schema).withId(schema.id + "_fake_prop");
             const attr = this.transformScalarPropertyShape(fakeProp);
-            return { allowMultiple: isArray, schema: attr.range};
+            return { allowMultiple: isArray, schema: attr.range!};
         } else {
             const parsed = this.adaptOrCreate(schema, this.idGenerator.genName("param"))
             if (parsed != null) {
@@ -448,7 +448,7 @@ export class EndpointTransformer extends ShapeTransformer {
                 } else {
                     const fakeProp = new amf.model.domain.PropertyShape().withRange(new amf.model.domain.ScalarShape().withDataType(VOCAB.XSD_STRING)).withId(schema.id + "_fake_prop");
                     const attr = this.transformScalarPropertyShape(fakeProp);
-                    return {allowMultiple: isArray,schema:  attr.range }
+                    return {allowMultiple: isArray,schema:  attr.range! }
                 }
             }
         }

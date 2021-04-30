@@ -142,7 +142,7 @@ export class DataEntityTransformer extends ExporterBaseUtils{
      * @param attribute
      */
     private transformAttribute(attribute: meta.Attribute): amf.model.domain.PropertyShape {
-        const scalarShape = this.transformScalarRange(attribute.id(), attribute.range);
+        const scalarShape = this.transformScalarRange(attribute.id(), attribute.range!);
         // The actual property shape
         const propertyShape: amf.model.domain.PropertyShape = new amf.model.domain.PropertyShape();
         propertyShape.withName(attribute.name)
