@@ -97,6 +97,15 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
             let dataModels: DataModel[];
             let apiModel: ApiModel;
             let baseUnit = await parser.parse();
+
+            const mr = new amf.ModelResolver()
+            const report = await amf.Core.validate(baseUnit, amf.ProfileNames.RAML, amf.MessageStyles.RAML)
+            if (report.conforms){
+                const endPoints = mr.getEndpoints(baseUnit)
+                endPoints.forEach(e => mr.resolveEndpoint(e,baseUnit))
+    
+            }
+
             const name = baseUnit.id.split("/").pop();
             const module = new meta.Module("Imported spec " + name);
             module.uuid = Md5.hashStr(baseUnit.id + "_module").toString();

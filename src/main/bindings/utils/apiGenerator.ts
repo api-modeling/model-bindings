@@ -1,5 +1,5 @@
 import * as amf from '@api-modeling/amf-client-js';
-import base = Mocha.reporters.base;
+//import base = Mocha.reporters.base;
 import {ApiParser} from "./apiParser";
 
 export class ApiGenerator {

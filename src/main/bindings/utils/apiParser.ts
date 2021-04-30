@@ -54,6 +54,7 @@ export class ApiParser {
 
     protected async init() {
         if (!this.initialized) {
+            amf.plugins.features.AMFValidation.register();
             amf.plugins.document.WebApi.register();
             await amf.Core.init();
             this.initialized = true;
