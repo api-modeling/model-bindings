@@ -361,4 +361,31 @@ describe('APIBindingsPlugin', function() {
         const generated = await apiPlugin.export(config, parsed);
         assert(generated.length === 1);
     });
+
+    it ('should export API models to ASYNC API specs from scratch', async function() {
+        const apiPlugin = new APIContractBindingsPlugin();
+        await apiPlugin.initAMF();
+
+        const apiModelYaml = fs.readFileSync("src/test/resources/asyncExport/api_model.yaml").toString();
+        const dataModelYaml = fs.readFileSync("src/test/resources/asyncExport/data_model.yaml").toString();
+        const bindingsYaml = fs.readFileSync("src/test/resources/asyncExport/bindings.yaml").toString();
+
+        const apiModelDialectParser = new ApiModelDialect();
+        await apiModelDialectParser.fromYaml("http://test.com/api", apiModelYaml)
+        apiModelDialectParser.id = apiModelDialectParser.encodedApiModel()?.id()!
+
+        const dataModelDialectParser = new DataModelDialect();
+        await dataModelDialectParser.fromYaml("http://test.com/data", dataModelYaml);
+        dataModelDialectParser.id = dataModelDialectParser.encodedDataModel()?.id()!
+
+        const bindingsDialectParser = new ModelBindingsDialect();
+        await bindingsDialectParser.fromYaml("http://test.com/bindings", bindingsYaml);
+        bindingsDialectParser.id = bindingsDialectParser.encodedBindingsModel()?.id()!
+
+        const parsed = [apiModelDialectParser, dataModelDialectParser, bindingsDialectParser];
+        const config = [{name: "format", value: ApiParser.ASYNC2}, {name: "syntax", value: ApiParser.YAML}];
+        const generated = await apiPlugin.export(config, parsed);
+        assert.equal(generated.length, 2);
+    });
+
 });

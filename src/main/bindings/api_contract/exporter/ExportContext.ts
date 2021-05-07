@@ -11,6 +11,8 @@ export class ExportContext {
         this.dataModels = dataModels;
     }
 
+    public hasAsyncOperations: boolean = false;
+
     private readonly entitiesIndex: { [id: string]: meta.Entity } = {};
     public readonly baseUnitsIndex: { [id: string]: amf.model.document.BaseUnit } = {};
     public readonly baseUnitAliases: { [id: string]: string} = {};
@@ -42,16 +44,20 @@ export class ExportContext {
     }
 
     public indexedEntity(id: string): boolean {
-        return this.entitiesIndex[id] != null;
+        return this.entitiesIndex[id] != null || this.apiShapeDeclarations[id] != null;
     }
 
     public findEntityById(id: string): meta.Entity {
-        const entity = this.entitiesIndex[id];
+        const entity = (this.entitiesIndex[id] || this.apiShapeDeclarations[id]);
         if (entity != null) {
             return entity;
         } else {
             throw new Error(`Cannot find entity with id ${id}`);
         }
+    }
+
+    public entityById(id: string): meta.Entity|undefined {
+        return (this.entitiesIndex[id] || this.apiShapeDeclarations[id]);
     }
 
     public genPath(): string {

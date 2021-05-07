@@ -1,0 +1,51 @@
+#%ApiModel 0.1
+uuid: 9dfcf2cb96b35c354d612c32ab6fb7d7
+name: ecommerce.raml
+entities:
+  AdaptedEntity.dataModel.LineItem10:
+    uuid: dbd0a6f64d5ebed631c13351b2d8832b
+    adapts: http://mulesoft.com/modeling/instances/8b9a50d6a3dbf574e158756f919494b3
+  AdaptedEntity.dataModel.ShoppingSession1:
+    uuid: dbd0a6f64d5ebed631c13351b2d883ff
+    adapts: http://mulesoft.com/modeling/instances/b5db4130322a4af2239b7908b6112fbe
+entryPoint:
+  uuid: a8ad6e8aab3696fb0c8b68eec4d9a6fc
+  name: ecommerce API
+  operations:
+    -
+      uuid: fcf9b60196712299a96eedc2ad7a11ec
+      name: Find Resource /Sessions
+      transition:
+        uuid: c6d607dcd8c94e83cb94d9a9fa652f6c
+        target: http://mulesoft.com/modeling/instances/41e2bbe3-e5ae-4584-a9c3-551cb2bc398c
+      inputs: []
+      isMutation: false
+      type: custom
+resources:
+  - uuid: 41e2bbe3-e5ae-4584-a9c3-551cb2bc398c
+    name: Sessions
+    member:
+      http://mulesoft.com/modeling/instances/a4ee4271-8a7b-432e-8ad5-9d903e9cefc5
+    type: collection
+  - name: Session
+    uuid: a4ee4271-8a7b-432e-8ad5-9d903e9cefc5
+    type: individual
+    schema:
+      uuid: 969935182b94e1d40d401d6d22b90ab1
+      adapts: http://mulesoft.com/modeling/instances/b5db4130322a4af2239b7908b6112fbe
+    events:
+      - name: Session updated
+        uuid: 2b280747-101d-4bc3-b302-83be0098757d
+        type: custom
+        publish:
+          allowMultiple: false
+          name: "Adapted entity: AdaptedEntity.dataModel.ShoppingSession7"
+          uuid: ad516f90-ec41-4a08-9cf4-baf64e036b59
+          required: true
+          objectRange: http://mulesoft.com/modeling/instances/dbd0a6f64d5ebed631c13351b2d883ff
+        subscribe:
+          allowMultiple: false
+          name: "Adapted entity: AdaptedEntity.dataModel.ShoppingSession8"
+          required: true
+          uuid: ad516f90-ec41-4a08-9cf4-baf64e036b60
+          objectRange: http://mulesoft.com/modeling/instances/dbd0a6f64d5ebed631c13351b2d883ff

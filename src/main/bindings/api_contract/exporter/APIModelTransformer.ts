@@ -4,6 +4,7 @@ import {DataModelTransformer} from "./DataModelTransformer";
 import {ExportContext} from "./ExportContext";
 import {ResourceTransformer} from "./ResourceTransformer";
 import {DataEntityTransformer} from "./DataEntityTransformer";
+import {APIModelQueries} from "./APIModelQueries";
 
 export interface Traversal {
     current: meta.Resource,
@@ -127,9 +128,9 @@ export class APIModelTransformer extends DataModelTransformer {
 
             // recursive calls for the transitions
             const apiOperations = resourceTransformer.apiOperationsForTransformed(endpoint)
-            const transitions = apiOperations.map(op => op.transition).filter(t => t != null && t.target?.uuid != null);
+            const transitions = apiOperations.map(op => op.transition).filter(t => t != null && t.target != null);
             transitions.forEach(transition => {
-                const targetResource = traversal.remaining.find(remainingResource => remainingResource.uuid == transition?.target?.uuid);
+                const targetResource = traversal.remaining.find(remainingResource => remainingResource.uuid == APIModelQueries.transitionUUID(transition!));
                 if (targetResource) {
                     // prepare next invocation
                     traversal.current = targetResource;

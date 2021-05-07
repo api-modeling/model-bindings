@@ -99,7 +99,7 @@ export class EndpointTransformer extends ShapeTransformer {
                         // connect both resources through a transition
                         const transition = new meta.ResourceTransition();
                         transition.uuid = Md5.hashStr(getOperation.id + "transition").toString();
-                        transition.target = nestedResource
+                        transition.target = nestedResource.id()
                         linkOperation.transition = transition;
                     }
 

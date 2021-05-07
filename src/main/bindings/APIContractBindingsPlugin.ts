@@ -19,6 +19,12 @@ const SUPPORTED_SYNTAXES = [ApiParser.YAML, ApiParser.JSONLD, ApiParser.JSON]
 
 export class APIContractBindingsPlugin extends BindingsPlugin {
 
+    async initAMF() {
+        amf.plugins.document.Vocabularies.register();
+        amf.plugins.document.WebApi.register();
+        await amf.Core.init();
+    }
+
     async export(configuration: ConfigurationParameter[], graphs: meta.DialectWrapper[]): Promise<Resource[]> {
         const bindings: meta.ModelBindingsDialect[] = [];
         const dataModels: meta.DataModelDialect[] = [];

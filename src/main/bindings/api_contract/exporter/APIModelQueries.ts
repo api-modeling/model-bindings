@@ -11,4 +11,10 @@ export class APIModelQueries {
         return (entity.disjoint || []).length > 0;
     }
 
+    public static transitionUUID(transition: meta.ResourceTransition): string|undefined {
+        if (transition.target != null) {
+            return transition.target.split("/")!.pop();
+        }
+    }
+
 }

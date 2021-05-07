@@ -27,6 +27,7 @@ export class ApiGenerator {
     protected async init() {
         if (!this.initialized) {
             amf.plugins.document.WebApi.register();
+            amf.plugins.document.Vocabularies.register();
             await amf.Core.init();
             this.initialized = true;
         }

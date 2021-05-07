@@ -48,7 +48,7 @@ export class DataModelTransformer extends ExporterBaseUtils {
                     console.log(bindings.id())
                     console.log(bindings.uuid)
                 })
-                throw new Error("Cannot generate data type fragment with multiple shapes");
+                throw new Error("Cannot generate data type fragment with 0 or multiple shapes");
             }
         }
     }

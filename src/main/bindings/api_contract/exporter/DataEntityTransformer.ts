@@ -16,7 +16,7 @@ export class DataEntityTransformer extends ExporterBaseUtils{
         this.effectiveEntity = this.context.effectiveEntity(this.entity);
     }
 
-    public transform(): amf.model.domain.Shape {
+    public transform(): amf.model.domain.AnyShape {
         if ($apiModel.isNodeShape(this.effectiveEntity)) {
             return this.transformObjectEntity(this.entity);
         } else if ($apiModel.isUnionShape(this.entity)) {
