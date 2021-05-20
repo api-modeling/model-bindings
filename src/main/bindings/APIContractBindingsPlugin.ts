@@ -59,7 +59,7 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
                     url: baseUnit.location,
                     text: text
                 };
-            } else if (baseUnit instanceof amf.model.document.Module && format.indexOf("OAS") < -1) {
+            } else if (baseUnit instanceof amf.model.document.Module && (format.indexOf("OAS") > -1 || format.indexOf("ASYNC") > -1)) {
                 const generator = new ApiGenerator(baseUnit, ApiParser.JSON_SCHEMA, syntax);
                 const text = await generator.generate();
                 return {
