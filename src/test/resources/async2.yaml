@@ -33,7 +33,7 @@ channels:
             - $ref: "#/components/schemas/Cat"
             - $ref: "#/components/schemas/Tree"
 
-  smartylighting/streetlights/1/0/otherEvent/{channelId}/ohter/{other_id}:
+  smartylighting/streetlights/1/0/otherEvent/{channelId}/other/{other_id}:
     description: some other channel, publish and subscribe
     publish:
       operationId: some unique Id 2
