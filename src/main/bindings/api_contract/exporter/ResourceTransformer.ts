@@ -73,13 +73,19 @@ export class ResourceTransformer extends ExporterBaseUtils {
         });
 
         const endPoint = getEndpoint || sortedEndpoints[0];
+        // MDF Original order pushes the asynch ops to the suboperations, but in th model, async
+        // is attached to the resource.
+        /*
         if (endPoint != null) {
             const oldOperations = operationsAcc[endPoint.id];
             if (asyncOperations.length > 0) {
                 this.context.hasAsyncOperations = true; // we signal support async
             }
-            operationsAcc[endPoint.id] = oldOperations.concat(asyncOperations)
-        } else if (asyncOperations.length > 0) {
+            // operationsAcc[endPoint.id] = oldOperations.concat(asyncOperations)
+        } 
+        */
+        if (asyncOperations.length > 0) {
+            this.context.hasAsyncOperations = true;
             const asyncMap: {[id:string]:amf.model.domain.Operation[]} = {}
             asyncOperations.forEach((asyncOperation) => {
                 //@ts-ignore
@@ -92,7 +98,7 @@ export class ResourceTransformer extends ExporterBaseUtils {
                 const operations = asyncMap[eventName];
                 const asyncOperation = operations[0]!;
                 const asyncChannel = new amf.model.domain.EndPoint().withId(asyncOperation.id + "_channel");
-                asyncChannel.withPath(this.traversal.path + "/" + encodeURIComponent(eventName))
+                asyncChannel.withPath(this.traversal.path /* + "/" + encodeURIComponent(eventName) */)
                 asyncChannel.withOperations(operations);
                 endpoints.push(asyncChannel);
             });
@@ -104,7 +110,6 @@ export class ResourceTransformer extends ExporterBaseUtils {
                 ep.withOperations(operations);
             }
         });
-
 
         return endpoints;
     }
@@ -461,7 +466,7 @@ export class ResourceTransformer extends ExporterBaseUtils {
         if (Object.keys(subscribeEvents).length > 0) {
             const operation = this.transformAsyncOperation(resource.id(), "subscribe", Object.values(subscribeEvents));
             // @ts-ignore
-            operation.__EVENT = Object.values(publishEvents)[0].__EVENT
+            operation.__EVENT = Object.values(subscribeEvents)[0].__EVENT
             operations.push(operation);
         }
 

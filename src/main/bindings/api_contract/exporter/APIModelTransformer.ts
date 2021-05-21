@@ -141,10 +141,12 @@ export class APIModelTransformer extends DataModelTransformer {
             });
         });
 
+        /* This computes endpoints which are not in the transition
         // add the new endpoints
         if (traversal.remaining.length > 0) {
             traversal.current = traversal.remaining.shift()!;
             this.computeEndpoints(traversal, webApi);
         }
+        */
     }
 }

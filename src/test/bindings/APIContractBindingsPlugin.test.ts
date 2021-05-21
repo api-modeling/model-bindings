@@ -45,7 +45,7 @@ function iterate(a : any, b : (a: any) => [any,boolean]) : any {
 }
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
-    it ('should import RAML, convert to/from jsonld, and export RAML', async function() {
+    it('should import RAML, convert to/from jsonld, and export RAML', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/api1.raml";
         const textData = fs.readFileSync(textUrl).toString();
@@ -159,7 +159,7 @@ describe('APIBindingsPlugin', function() {
         //assert.equal(allBindings, dataModels.length)
     });
 
-    it ('should export API models to RAML Library specs', async function() {
+    it('should export API models to RAML Library specs', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/library2.raml";
         const textData = fs.readFileSync(textUrl).toString();
@@ -311,21 +311,21 @@ describe('APIBindingsPlugin', function() {
         assert.equal(parsed.length, 4);
     });
 
-    it ('should export API models to RAML API specs', async function() {
+    it('should export ASYNC models to ASYNC API specs', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = "src/test/resources/api2.raml";
+        const textUrl = "src/test/resources/async2.yaml";
         const textData = fs.readFileSync(textUrl).toString();
-        let config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
+        let config = [{name: "format", value: ApiParser.ASYNC2}, {name: "syntax", value: ApiParser.YAML}];
         const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
 
-        /*
-        parsed.forEach(async (dm) => {
-            const txt = await dm.toYaml()
-            console.log(txt)
+    
+        let futu = parsed.map(async (dm) => {
+            return await dm.toYaml()
         });
-        */
 
-        config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
+        let stuff = await Promise.all(futu)
+
+        config = [{name: "format", value: ApiParser.ASYNC2}, {name: "syntax", value: ApiParser.YAML}];
         const generated = await apiPlugin.export(config, parsed);
 
         /*
@@ -338,7 +338,7 @@ describe('APIBindingsPlugin', function() {
         assert.equal(generated.length, 2);
     });
 
-    it ('should export API models to OAS API specs', async function() {
+    it('should export API models to OAS API specs', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/multiserver.yaml";
         const textData = fs.readFileSync(textUrl).toString();
@@ -350,7 +350,7 @@ describe('APIBindingsPlugin', function() {
         assert(generated.length === 1);
     });
 
-    it ('should export API models to OAS API specs', async function() {
+    it('should export API models to OAS API specs', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/multiserver.yaml";
         const textData = fs.readFileSync(textUrl).toString();
