@@ -238,7 +238,8 @@ export class EndpointTransformer extends ShapeTransformer {
             if (schema) {
                 const params = this.shapeToParameterSet(op.id, schema)
                 params.forEach((param) => {
-                    const eventId = param.uuid
+                    const eventId = Md5.hashStr(op.id + param.uuid).toString();
+                    //const eventId = param.uuid
                     if (param.objectRange) {
                         const eventOps = eventMap[eventId]   || {};
                         eventMap[eventId] = eventOps;
@@ -294,7 +295,7 @@ export class EndpointTransformer extends ShapeTransformer {
             }
 
             if (subscribe != null) {
-                subscribe.uuid = Md5.hashStr(path + publish?.uuid +"_subscribe_event").toString();
+                subscribe.uuid = Md5.hashStr(path + subscribe?.uuid +"_subscribe_event").toString();
                 event.subscribe = subscribe
             }
 
