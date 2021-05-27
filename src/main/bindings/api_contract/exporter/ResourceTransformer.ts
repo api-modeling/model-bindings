@@ -227,7 +227,6 @@ export class ResourceTransformer extends ExporterBaseUtils {
                 methodName = "Read"
                 return "get"
             } else {
-                console.log("op.name:"+op.name+", rt.parentPath:"+rt.parentPath+", rt.resource.name:"+rt.resource.name+", rt.traversal.path:"+rt.traversal.path)
                 if (op.name === "Create" || op.name === "Delete"){
                     methodName = rt.resource.name || op.name
                 } else if (op.name) {
