@@ -67,6 +67,11 @@ export class APIModelTransformer extends DataModelTransformer {
                 baseUnit: this.baseUnit
             }
             this.computeEndpoints(traversal, webApi)
+            // if there are remaining resrouces to traverse...
+            if (traversal.remaining.length > 0) {
+                traversal.current = traversal.remaining.shift()!;
+                this.computeEndpoints(traversal, webApi);
+            }
         } else {
             throw new Error(`Cannot export an API model as a ${this.baseUnit.id} base unit, only as a Document`)
         }
