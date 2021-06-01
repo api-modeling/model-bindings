@@ -311,7 +311,7 @@ describe('APIBindingsPlugin', function() {
         assert.equal(parsed.length, 4);
     });
 
-    it.skip('should export ASYNC models to ASYNC API specs', async function() {
+    it('should export ASYNC models to ASYNC API specs', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/async2.yaml";
         const textData = fs.readFileSync(textUrl).toString();

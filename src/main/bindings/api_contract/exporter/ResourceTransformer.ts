@@ -119,10 +119,10 @@ export class ResourceTransformer extends ExporterBaseUtils {
     }
 
     private transformEntity(entity: meta.Entity): amf.model.domain.AnyShape {
-        if (entity.adapts != null) {
-            return this.context.generateLink(null, entity.adapts.id(), this.traversal.baseUnit.id)
+        const declaredEntity = this.context.entityById(entity.id());
+        if (declaredEntity && declaredEntity.adapts != null) {
+            return this.context.generateLink(null, declaredEntity.adapts.id(), this.traversal.baseUnit.id)
         } else {
-            const declaredEntity = this.context.entityById(entity.id());
             if (declaredEntity != null) {
                 return this.context.generateLink(null, declaredEntity.id(), this.traversal.baseUnit.id);
             } else {
