@@ -45,9 +45,22 @@ function iterate(a : any, b : (a: any) => [any,boolean]) : any {
 }
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
+    it('should import RAML, export (data types) as JSON Schema', async function (){
+      const apiPlugin = new APIContractBindingsPlugin();
+      const textUrl = "src/test/resources/ecommerce.raml";
+      const textData = fs.readFileSync(textUrl).toString();
+      const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
+      const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
+      const configOut = [{name: "format", value: ApiParser.ASYNC2}, {name: "syntax", value: ApiParser.YAML}];
+      const g1 = await apiPlugin.export(configOut,parsed);
+      /*
+        At this point, check g1[0].text and g1[1].text
+      */
+     assert(g1.length === 3)
+    })
     it('should import RAML, convert to/from jsonld, and export RAML', async function() {
         const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = "src/test/resources/api1.raml";
+        const textUrl = "src/test/resources/ecommerce.raml";
         const textData = fs.readFileSync(textUrl).toString();
         const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
         const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
@@ -56,15 +69,6 @@ describe('APIBindingsPlugin', function() {
             return await i.toJsonLd()
         });
         let finals = await Promise.all(proms);
-        /*
-        let new2dm = JSON.parse(finals[2])
-        let id2 = new2dm[0]['@id']
-        let cutter = id2.lastIndexOf('/')
-        let newId = 'data_'+id2.substring(cutter + 1)
-        new2dm[0]['@id'] = newId
-        new2dm[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'] = newId
-        finals[2] = JSON.stringify(new2dm,null,2)
-        */
         let mbd = new ModelBindingsDialect();
         await mbd.fromJsonLd(JSON.parse(finals[0])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[0]);
         let md = new ModularityDialect();
@@ -75,7 +79,9 @@ describe('APIBindingsPlugin', function() {
         await dmd1.fromJsonLd(JSON.parse(finals[3])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[3]);
         let api = new ApiModelDialect();
         await api.fromJsonLd(JSON.parse(finals[4])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[4]);
-        const g1 = await apiPlugin.export(config,parsed);
+        const configOut = [{name: "format", value: ApiParser.ASYNC2}, {name: "syntax", value: ApiParser.YAML}];
+
+        const g1 = await apiPlugin.export(configOut,parsed);
         const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]);
 
         try {
