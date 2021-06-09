@@ -11,7 +11,8 @@ import {
     DataModelDialect,
     ModelBindingsDialect,
     ApiModel,
-    ApiModelDialect
+    ApiModelDialect,
+    Resource
 } from "@api-modeling/api-modeling-metadata"
 import {ApiParser} from "../../main/bindings/utils/apiParser";
 import exp from "constants";
@@ -43,75 +44,58 @@ function iterate(a : any, b : (a: any) => [any,boolean]) : any {
     }
     return rezzy
 }
+
+function accumWhile<A,B>(accum : (a: A, b:B) => [boolean, B], input : A[], start: B):B {
+  if (input.length === 0) return start;
+  else {
+    let interm : [boolean, B]= [true, start]
+    for (let x = 0; x < input.length && interm[0]; x++){
+      interm = accum(input[x], interm[1])
+    }
+    return interm[1]
+  }
+}
+const findAmf = /\n(\s+)x-amf-union:\n/
+function checkAmfInserted(input: string) : string {
+  const matchCheck = input.match(findAmf)
+  if (matchCheck){
+    let indent = matchCheck[1].length
+    let pre = matchCheck.input!.substring(0,matchCheck.index)
+    let remainingText = matchCheck.input!.substring(matchCheck.index! + 1 + matchCheck[0].length - 1)
+    for (let indentedLine = remainingText.match(/^(\s+)([^\n]+\n)/); indentedLine && indentedLine[1].length > indent; indentedLine = remainingText.match(/^(\s+)([^\n]+\n)/)){
+      remainingText = remainingText.substring(indentedLine[0].length)
+    }
+    let rest = checkAmfInserted(remainingText)
+    return pre + '\n' + rest
+  } else {
+    return input
+  }
+}
+
 describe('APIBindingsPlugin', function() {
     this.timeout(5000);
-    it('should import RAML, export (data types) as JSON Schema', async function (){
+    it('should import RAML, export OAS as JSON', async function (){
       const apiPlugin = new APIContractBindingsPlugin();
       const textUrl = "src/test/resources/ecommerce.raml";
       const textData = fs.readFileSync(textUrl).toString();
       const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
       const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
-      const configOut = [{name: "format", value: ApiParser.ASYNC2}, {name: "syntax", value: ApiParser.YAML}];
-      const g1 = await apiPlugin.export(configOut,parsed);
-      /*
-        At this point, check g1[0].text and g1[1].text
-      */
-     assert(g1.length === 3)
+      const configOut = [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.JSON}];
+      const generated = await apiPlugin.export(configOut,parsed);
+
+      assert(generated.length === 3)
     })
-    it('should import RAML, convert to/from jsonld, and export RAML', async function() {
-        const apiPlugin = new APIContractBindingsPlugin();
-        const textUrl = "src/test/resources/ecommerce.raml";
-        const textData = fs.readFileSync(textUrl).toString();
-        const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
-        const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
+    it('should import RAML, export OAS as JSON', async function (){
+      const apiPlugin = new APIContractBindingsPlugin();
+      const textUrl = "src/test/resources/ecommerce.raml";
+      const textData = fs.readFileSync(textUrl).toString();
+      const config = [{name: "format", value: ApiParser.RAML1}, {name: "syntax", value: ApiParser.YAML}];
+      const parsed = await apiPlugin.import(config,[{ url: "file://"+ textUrl, text: textData}]);
+      const configOut = [{name: "format", value: ApiParser.OAS3 + ".0"}, {name: "syntax", value: ApiParser.YAML}];
+      const generated = await apiPlugin.export(configOut,parsed);
 
-        let proms = parsed.map(async (i) => {
-            return await i.toJsonLd()
-        });
-        let finals = await Promise.all(proms);
-        let mbd = new ModelBindingsDialect();
-        await mbd.fromJsonLd(JSON.parse(finals[0])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[0]);
-        let md = new ModularityDialect();
-        await md.fromJsonLd(JSON.parse(finals[1])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[1]);
-        let dmd0 = new DataModelDialect();
-        await dmd0.fromJsonLd(JSON.parse(finals[2])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[2]);
-        let dmd1 = new DataModelDialect();
-        await dmd1.fromJsonLd(JSON.parse(finals[3])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[3]);
-        let api = new ApiModelDialect();
-        await api.fromJsonLd(JSON.parse(finals[4])[0]["http://a.ml/vocabularies/document#encodes"][0]['@id'], finals[4]);
-        const configOut = [{name: "format", value: ApiParser.ASYNC2}, {name: "syntax", value: ApiParser.YAML}];
-
-        const g1 = await apiPlugin.export(configOut,parsed);
-        const generated = await apiPlugin.export(config, [mbd,md,dmd0,dmd1,api]);
-
-        try {
-            let correct : any = {}
-            generated.map(x => x.url).forEach((x : string) => correct[x] = 'file://'+x.substring(x.lastIndexOf('/') + 1))
-            const corrected = generated.map(g => {
-                return {'url' : correct[g.url],
-                        'text': iterate([g.text,Object.entries(correct)],
-                                function(a){
-                                    if (a[1].length === 0){
-                                        return [a[0],true]
-                                    }
-                                    let pair = a[1].shift()
-                                    let newStr = iterate([a[0], 0],(b)=>{
-                                        let present = b[0].indexOf(pair[0],pair[1])
-                                        if (present < 0) return [b[0],true]
-                                        return [[b[0].replace(pair[0],pair[1]),present],false]
-                                    })
-                                    return [[newStr,a[1]],false]
-                                })
-                    }
-            })
-            assert(corrected != null)
-        } catch (error){
-            console.log(error)
-        }
-            assert(g1 != null);
-            assert(generated != null);
+      assert(generated.length === 3)
     })
-
     it('should parse RAML Library specs and generate matching modules', async function () {
         const apiPlugin = new APIContractBindingsPlugin();
         const textUrl = "src/test/resources/library.raml";

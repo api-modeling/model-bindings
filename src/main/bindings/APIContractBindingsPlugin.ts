@@ -25,6 +25,34 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
         await amf.Core.init();
     }
 
+    findAmf = /\n(\s+)x-amf-union:\n/
+    checkAmfInserted(input: string) : string {
+      const matchCheck = input.match(this.findAmf)
+      if (matchCheck){
+        let indent = matchCheck[1].length
+        let pre = matchCheck.input!.substring(0,matchCheck.index)
+        let remainingText = matchCheck.input!.substring(matchCheck.index! + 1 + matchCheck[0].length - 1)
+        for (let indentedLine = remainingText.match(/^(\s+)([^\n]+\n)/); indentedLine && indentedLine[1].length > indent; indentedLine = remainingText.match(/^(\s+)([^\n]+\n)/)){
+          remainingText = remainingText.substring(indentedLine[0].length)
+        }
+        let rest = this.checkAmfInserted(remainingText)
+        return pre + '\n' + rest
+      } else {
+        return input
+      }
+    }
+    iterate(a : any, b : (a: any) => [any,boolean]) : any {
+        let end = false
+        let rezzy = a
+        while (!end){
+            let res = b(rezzy)
+            rezzy = res[0]
+            end = res[1]
+        }
+        return rezzy
+    }
+    
+
     async export(configuration: ConfigurationParameter[], graphs: meta.DialectWrapper[]): Promise<Resource[]> {
         const bindings: meta.ModelBindingsDialect[] = [];
         const dataModels: meta.DataModelDialect[] = [];
@@ -76,7 +104,94 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
             }
 
         });
-        return Promise.all(maybeResources);
+        const generated = await Promise.all(maybeResources);
+        if (format === ApiParser.RAML1){
+            return generated
+        }
+        let correct : any = {}
+        generated.map(x => x.url).forEach((x : string) => correct[x] = 'file://'+x.substring(x.lastIndexOf('/') + 1))
+        const corrected = generated.map(g => {
+            return {'url' : correct[g.url],
+                    'text': this.iterate([g.text,Object.entries(correct)],
+                            (a) =>{
+                                if (a[1].length === 0){
+                                    return [a[0],true]
+                                }
+                                let pair = a[1].shift()
+                                let newStr = this.iterate([a[0], 0],(b)=>{
+                                    let present = b[0].indexOf(pair[0],b[1])
+                                    if (present < 0) return [b[0],true]
+                                    return [[b[0].replace(pair[0],pair[1]),present + pair[1].length],false]
+                                })
+                                return [[newStr,a[1]],false]
+                            })
+                }
+        })
+        if (syntax === ApiParser.YAML){
+            // then we need to compensate for amf inserting 'swagger' into JSON Schema, and 'x-amf' into unions
+            const munged =       
+            corrected.map(o => {return {url : o.url, text: o.text.startsWith('swagger: "2.0"') ? o.text.substring(15) : o.text}})
+            .map(o => {
+              return {url: o.url, text: this.checkAmfInserted(o.text)}
+            })
+            const pairings : any = munged.map(x => [x,x.text.indexOf('x-amf-uses:')])
+            const mappies = 
+              munged.map(x => [x,x.text.indexOf('x-amf-uses:')]).filter(z => z[1] >= 0).
+              map(z => (<any>z[0]).text.substring(<number>z[1] + 12)).
+              map(z => z.split('\n').map((q : string) => q.trim()).
+              filter((z : string[]) => z.length > 0)).map(z => z.map((a : string) => a.split(": "))).
+              reduce((acc, pp) => {
+                pp.forEach((p : string[]) => acc[p[0]] = p[1]); 
+                return acc;}, {})
+            const unused = pairings.map((x : any) => { return {url: x[0].url, text : x[1] < 0 ? x[0].text : x[0].text.substring(0,x[1])} })
+            const jsonSchemad = unused.map((x : any) => {
+                  return {
+                    url: x.url, text: '$id: "'+x.url+'"\n'+Object.entries(mappies).reduce((atext, pair) => {
+                      const regex = new RegExp(pair[0]+'.', 'g')
+                      return (<string><unknown>atext).replace(regex,<string>pair[1] + "#definitions/")
+                    }, x.text)
+                  }
+                })
+            return jsonSchemad
+        } else {
+            const jtexts = corrected.map(z => [z.url, JSON.parse(z.text)])
+            jtexts.forEach(z => delete z[1]['swagger'])
+            const mappies = jtexts.map(j => j[1]['x-amf-uses']).filter(z => z).
+                   reduce((a, b) => { Object.entries(b).forEach(e => a[e[0]] = e[1]); return a }, {})
+            jtexts.forEach(z => delete z[1]['x-amf-uses'])
+            jtexts.forEach(j => j[1]['$id'] = j[0])
+            let curse = (j : any) => {
+                delete j['x-amf-union']
+                Object.entries(j).forEach(e => {
+                    if (e[0] === '$ref'){
+                        const preRef = j['$ref']
+                        if (preRef){
+                            const split = preRef.indexOf('.')
+                            if (split > 0){
+                                const prefix = preRef.substring(0,split)
+                                const uri = mappies[prefix]
+                                j['$ref'] = uri+'#definitions/' + preRef.substring(split + 1)
+                            } else {
+                                j['$ref'] = "#" + preRef
+                            }
+                        }        
+                    } else if (Array.isArray(e[1])){
+                        e[1].forEach(a => curse(a))
+                    } else if (e[1] && typeof e[1] === 'object'){
+                        curse(e[1])
+                    }
+                })
+            }
+            jtexts.forEach(j => curse(j[1]))
+            const jsonDocs = jtexts.map(j => {
+                return {
+                    url: j[0],
+                    text: JSON.stringify(j[1], null, 2)
+                }
+            })
+            return jsonDocs
+        }
+        return generated
     }
 
     async import(configuration: ConfigurationParameter[], resources: Resource[]): Promise<meta.DialectWrapper[]> {
