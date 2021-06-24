@@ -80,22 +80,15 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
 
         const baseUnits =  new APIContractExporter(modules, dataModels, apiModels, bindings, formatExtension).export();
         const maybeResources = baseUnits.map(async (baseUnit) => {
-            if (baseUnit instanceof amf.model.document.Document) {
-                const generator = new ApiGenerator(baseUnit, format, syntax);
-                const text = await generator.generate();
-                return {
-                    url: baseUnit.location,
-                    text: text
-                };
-            } else if (baseUnit instanceof amf.model.document.Module && (format.indexOf("OAS") > -1 || format.indexOf("ASYNC") > -1)) {
-                const generator = new ApiGenerator(baseUnit, ApiParser.JSON_SCHEMA, syntax);
+            if (baseUnit instanceof amf.model.document.Module && (format.indexOf("OAS") > -1 || format.indexOf("ASYNC") > -1)) {
+                const generator = new ApiGenerator(baseUnit, ApiParser.OAS3, ApiParser.JSON);
                 const text = await generator.generate();
                 return {
                     url: baseUnit.location,
                     text: text
                 };
             } else {
-                const generator = new ApiGenerator(baseUnit, ApiParser.RAML1, syntax);
+                const generator = new ApiGenerator(baseUnit, format, syntax);
                 const text = await generator.generate();
                 return {
                     url: baseUnit.location,
@@ -144,52 +137,91 @@ export class APIContractBindingsPlugin extends BindingsPlugin {
                 pp.forEach((p : string[]) => acc[p[0]] = p[1]); 
                 return acc;}, {})
             const unused = pairings.map((x : any) => { return {url: x[0].url, text : x[1] < 0 ? x[0].text : x[0].text.substring(0,x[1])} })
-            const jsonSchemad = unused.map((x : any) => {
-                  return {
-                    url: x.url, text: '$id: "'+x.url+'"\n'+Object.entries(mappies).reduce((atext, pair) => {
-                      const regex = new RegExp(pair[0]+'.', 'g')
-                      return (<string><unknown>atext).replace(regex,<string>pair[1] + "#definitions/")
-                    }, x.text)
-                  }
-                })
-            return jsonSchemad
-        } else {
-            const jtexts = corrected.map(z => [z.url, JSON.parse(z.text)])
-            jtexts.forEach(z => delete z[1]['swagger'])
-            const mappies = jtexts.map(j => j[1]['x-amf-uses']).filter(z => z).
-                   reduce((a, b) => { Object.entries(b).forEach(e => a[e[0]] = e[1]); return a }, {})
-            jtexts.forEach(z => delete z[1]['x-amf-uses'])
-            jtexts.forEach(j => j[1]['$id'] = j[0])
-            let curse = (j : any) => {
-                delete j['x-amf-union']
-                Object.entries(j).forEach(e => {
-                    if (e[0] === '$ref'){
-                        const preRef = j['$ref']
-                        if (preRef){
-                            const split = preRef.indexOf('.')
-                            if (split > 0){
-                                const prefix = preRef.substring(0,split)
-                                const uri = mappies[prefix]
-                                j['$ref'] = uri+'#definitions/' + preRef.substring(split + 1)
-                            } else {
-                                j['$ref'] = "#" + preRef
-                            }
-                        }        
-                    } else if (Array.isArray(e[1])){
-                        e[1].forEach(a => curse(a))
-                    } else if (e[1] && typeof e[1] === 'object'){
-                        curse(e[1])
+            const xamf = unused.map((x : any) => {
+                {
+                    let xuses = x.text.indexOf('x-amf-uses')
+                    if (xuses >= 0){
+                        let xfinished = x.text.indexOf('}',xuses + 8)
+                        let pretext = x.text.substring(0,xuses)
+                        let first = pretext.lastIndexOf(',') - 1
+                        let second = x.text.substring(xfinished + 1)
+                        return {url: x.url, text: pretext.substring(0,first) + second}
+                    } else {
+                        return x
                     }
-                })
-            }
-            jtexts.forEach(j => curse(j[1]))
-            const jsonDocs = jtexts.map(j => {
-                return {
-                    url: j[0],
-                    text: JSON.stringify(j[1], null, 2)
                 }
             })
-            return jsonDocs
+            const jsonSchemad = xamf.map((x : any) => {
+                const newText = Object.entries(mappies).reduce((atext, pair) => {
+                    const regex = new RegExp(pair[0]+'.', 'g')
+                    return (<string><unknown>atext).replace(regex,<string>pair[1] + "#definitions/")
+                  }, x.text)
+                  if (newText.startsWith('{')){
+                    return {
+                        url: x.url, text: '{"$id": "'+x.url+'",\n'+ newText.substring(1)
+                      }
+                  } else {
+                      return {
+                        url: x.url, text: '"$id": "'+x.url+'",\n'+ newText
+                      }
+                    }
+                })
+            const postOas = format.indexOf("ASYNC") === -1 ? jsonSchemad :
+                  jsonSchemad.map((x : any) => {
+                      const openapi = x.text.indexOf("openapi")
+                      if (openapi >= 0){
+                          const prev = x.text.substring(0,openapi).lastIndexOf('\n')
+                          const post = x.text.substring(openapi).indexOf(',')
+                          return {url : x.url, text : x.text.substring(0,prev) + x.text.substring(openapi + post + 2)}
+                      } else {
+                          return x
+                      }
+                  })
+            return postOas
+        } else {
+            try {
+                const jtexts = corrected.map(z => [z.url, JSON.parse(z.text)])
+                jtexts.forEach(z => delete z[1]['swagger'])
+                if (format.indexOf("ASYNC") > -1){
+                    jtexts.forEach(z => delete z[1]['openapi'])
+                }
+                const mappies = jtexts.map(j => j[1]['x-amf-uses']).filter(z => z).
+                    reduce((a, b) => { Object.entries(b).forEach(e => a[e[0]] = e[1]); return a }, {})
+                jtexts.forEach(z => delete z[1]['x-amf-uses'])
+                jtexts.forEach(j => j[1]['$id'] = j[0])
+                let curse = (j : any) => {
+                    delete j['x-amf-union']
+                    Object.entries(j).forEach(e => {
+                        if (e[0] === '$ref'){
+                            const preRef = j['$ref']
+                            if (preRef){
+                                const split = preRef.indexOf('.')
+                                if (split > 0){
+                                    const prefix = preRef.substring(0,split)
+                                    const uri = mappies[prefix]
+                                    j['$ref'] = uri+'#definitions/' + preRef.substring(split + 1)
+                                } else {
+                                    j['$ref'] = "#" + preRef
+                                }
+                            }        
+                        } else if (Array.isArray(e[1])){
+                            e[1].forEach(a => curse(a))
+                        } else if (e[1] && typeof e[1] === 'object'){
+                            curse(e[1])
+                        }
+                    })
+                }
+                jtexts.forEach(j => curse(j[1]))
+                const jsonDocs = jtexts.map(j => {
+                    return {
+                        url: j[0],
+                        text: JSON.stringify(j[1], null, 2)
+                    }
+                })
+                return jsonDocs
+            } catch (error) {
+                console.log("error: "+error)
+            }
         }
         return generated
     }

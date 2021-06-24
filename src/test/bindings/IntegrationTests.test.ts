@@ -141,7 +141,7 @@ Object.keys(tests).forEach((path) => {
                         fs.mkdirSync(exportPath)
                     }
                     exported.forEach((out) => {
-                        fs.writeFileSync(exportPath + "/" + out.url, out.text);
+                        fs.writeFileSync(exportPath + "/" + (out.url.startsWith('file:/') ? out.url.substring(6) : out.url), out.text);
                     });
                 });
                 await Promise.all(promises)

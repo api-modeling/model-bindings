@@ -35,10 +35,15 @@ export class ApiGenerator {
 
     async generate(): Promise<string> {
         await this.init();
+        //console.log("about to gen")
+        try {
         const generated = await amf.Core
             .generator(this.format, this.syntax)
             .generateString(this.baseUnit);
 
         return generated
+        } catch(error){
+            throw error
+        }
     }
 }

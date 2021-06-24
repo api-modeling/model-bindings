@@ -56,34 +56,76 @@ export class ApiParser {
         if (!this.initialized) {
             amf.plugins.document.WebApi.register();
             amf.plugins.document.Vocabularies.register();
+            amf.plugins.features.AMFValidation.register();
             await amf.Core.init();
             this.initialized = true;
         }
     }
 
+    async resolve(baseUnit : any, aparser: any){ 
+        const mr = new amf.ModelResolver()
+        const endies = mr.getEndpoints(baseUnit)
+        
+        const rezzies = mr.getResourceTypes(baseUnit)
+        const traits = mr.getTraits(baseUnit)
+        
+        const report = await aparser.reportValidation(this.syntax)
+        if (report.conforms){
+            endies.forEach((e : any) => mr.resolveEndpoint(e,baseUnit))
+        }
+
+    }
     async parse(): Promise<amf.model.document.BaseUnit> {
+
         await this.init();
+        const mr = new amf.ModelResolver()
         if (this.loader){
             const fetched = await this.loader.fetch(this.specUrl);
             const text = fetched.stream.toString();
             let env = new amf.client.environment.Environment();
             env = env.addClientLoader(this.loader);
-
             const parser = this.findParser(this.format);
             try {
-                const baseUnit = await new parser(env).parseStringAsync(this.specUrl, text);
-                this.parsed = true;
-                return baseUnit;
+                const aparser = await new parser(env)
+                const baseUnit = await aparser.parseStringAsync(this.specUrl, text);
+                this.parsed = true
+                const rezzies = mr.getResourceTypes(baseUnit)
+                const traits = mr.getTraits(baseUnit)
+                try {
+                    const report = await aparser.reportValidation(this.syntax)
+                    
+                    if (report.conforms && this.format === ApiParser.RAML1 && (rezzies.length + traits.length > 0)){
+                        const baserUnit = new amf.Raml10Resolver().resolve(baseUnit, amf.ResolutionPipeline.DEFAULT_PIPELINE)
+                        this.parsed = true
+                        return baserUnit
+                    } else {
+                        return baseUnit;
+                    }
+                } catch (error) {
+                    return baseUnit;
+                }
             } catch (error) {
-                console.log("parse error: "+error)
                 throw error
             }
         } else {
-            const baseUnit = await amf.Core
+            const aparser = amf.Core
                 .parser(this.format, this.syntax)
-                .parseFileAsync(this.specUrl)
+            const baseUnit = await aparser.parseFileAsync(this.specUrl)
             this.parsed = true;
-            return baseUnit;
+            try {
+                const rezzies = mr.getResourceTypes(baseUnit)
+                const traits = mr.getTraits(baseUnit)
+                const report = await aparser.reportValidation(this.format, this.syntax)
+                if (report.conforms && this.format === ApiParser.RAML1 && (rezzies.length + traits.length > 0)){
+                    const baserUnit = new amf.Raml10Resolver().resolve(baseUnit, amf.ResolutionPipeline.DEFAULT_PIPELINE)
+                    this.parsed = true
+                    return baserUnit
+                } else {
+                    return baseUnit
+                }
+            } catch (error) {
+                return baseUnit
+            }
         }
     }
 
