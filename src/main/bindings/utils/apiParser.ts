@@ -95,7 +95,7 @@ export class ApiParser {
                     const report = await aparser.reportValidation(this.syntax)
                     
                     if (report.conforms && this.format === ApiParser.RAML1 && (rezzies.length + traits.length > 0)){
-                        const baserUnit = new amf.Raml10Resolver().resolve(baseUnit, amf.ResolutionPipeline.DEFAULT_PIPELINE)
+                        const baserUnit = new amf.Raml10Resolver().resolve(baseUnit, amf.ResolutionPipeline.EDITING_PIPELINE)
                         this.parsed = true
                         return baserUnit
                     } else {
